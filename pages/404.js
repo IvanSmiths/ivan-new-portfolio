@@ -11,10 +11,6 @@ export default function Custom404() {
           name="description"
           content="DAAAAAAMN how did you ened up here?!"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
       </Head>
       <div className="cnt-404 flex-center">
         <img src="/404-image.jpg" height="600" width="500" alt="404 image" />
