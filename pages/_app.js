@@ -77,6 +77,20 @@ function MyApp({ Component, pageProps }) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@IvanSmiths" />
+        <meta
+          name="twitter:title"
+          content="Ivan Smiths | React developer portfolio"
+        />
+        <meta
+          name="twitter:description"
+          content="Ivan smiths's portfolio. React developer with 2 years of professional exprerience, based in Wisbaden."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.ivansmiths.com/android-chrome-512x512.png"
+        />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D3124C" />
         <meta name="msapplication-TileColor" content="#D3124C" />
       </Head>
