@@ -466,7 +466,7 @@ const Ideology = () => {
       <div className="denouement-cnt skewElem">
         <em className="stuff-em">.denouement</em>
         <h3 className="impact impact-large uppercase large-font">
-          I got professional experince using WebFlow, WordPress and frontend in
+          I got production experince using WebFlow, WordPress and frontend in
           general.
         </h3>
       </div>
