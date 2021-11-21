@@ -1,0 +1,264 @@
+.stuff-s-header-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.stuff-s-header-image-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.stuff-s-header-info-layout {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.stuff-s-header-info-cnt {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stuff-s-header-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stuff-s-header-info-cnt h1 {
+  text-transform: uppercase;
+}
+
+.stuff-s-quick-info-cnt {
+  margin-top: 5rem;
+  padding-bottom: 15rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stuff-s-quick-info-cnt span {
+  width: 90%;
+}
+
+.stuff-s-quick-info {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.exposition-cnt {
+  margin-right: 5%;
+  text-align: right;
+}
+.exposition-cnt h2 {
+  padding-left: 50vw;
+}
+
+.exposition-website-1-cnt {
+  margin-top: var(--marginSection);
+}
+
+.exposition-website-1-cnt picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.climax-cnt {
+  margin-top: var(--marginSection);
+  padding-bottom: var(--marginSection);
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.stuff-s-header-image-cnt img {
+  width: auto;
+  height: 100%;
+}
+
+.climax-cnt p {
+  font-weight: 400;
+  text-align: left;
+}
+
+.single-stuff-main-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.credits-cnt {
+  flex-direction: column;
+  margin-top: var(--marginSection);
+}
+
+.credits-cnt h3 {
+  text-transform: uppercase;
+}
+
+.exposition-website-1-cnt {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--marginSection);
+  width: 100%;
+}
+
+.exposition-website-1 {
+  width: 85%;
+}
+
+.exposition-website-1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.falling-action-website-1-cnt {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--marginSection);
+  width: 100%;
+}
+
+.falling-action-website-1 {
+  width: 85%;
+}
+
+.falling-action-website-1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.credits-card-cnt {
+  width: 90%;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin-top: 7rem;
+}
+
+.credits-card li {
+  margin-top: 0.8rem;
+}
+
+.credits-card-title {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.climax {
+  width: 40%;
+}
+
+.stuff-em {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.rising-action-cnt {
+  width: 40%;
+  margin-left: 5%;
+  margin-top: var(--marginSection);
+}
+
+.climax-website-cnt {
+  display: flex;
+  flex-direction: column;
+}
+
+.climax-website {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.climax-website li {
+  flex: 1 1 33%;
+}
+
+.climax-website li picture {
+  width: 70%;
+}
+
+.climax-website li picture img {
+  width: 100%;
+  height: auto;
+}
+
+.climax-website-2 {
+  margin-top: 6rem;
+}
+
+.climax-website-margin {
+  margin-top: 4rem;
+}
+
+.falling-action-cnt {
+  width: 40%;
+  text-align: left;
+  margin-top: var(--marginSection);
+  margin-left: 5%;
+}
+
+.falling-action-cnt p {
+  text-align: left;
+  font-weight: 400;
+}
+
+.denouement-cnt {
+  padding-right: 20%;
+  margin-top: var(--marginSection);
+}
+
+.marquee {
+  width: 100vw;
+  max-width: 100%;
+  margin-top: 18vw;
+  position: relative;
+  height: 206px;
+  overflow-x: hidden;
+}
+
+.stuff-s-quick-info {
+  margin-top: 1rem;
+}
+
+.track {
+  background-color: var(--color-text-primary);
+  position: absolute;
+  white-space: nowrap;
+}
+
+.track > em {
+  margin: 20px 0;
+  color: var(--color-text-inverse);
+  text-transform: uppercase;
+}
+
+.box3-2-cnt {
+  position: relative;
+  overflow: hidden;
+}
+
+.box-1-img-1 {
+  top: 10vw;
+  left: 10vw;
+  position: absolute;
+}
+
+.box-1-img-2 {
+  top: 19vw;
+  right: 3vw;
+  position: absolute;
+}

@@ -1,0 +1,108 @@
+.gallery-works {
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 100px;
+
+  .gallery-works-item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    will-change: transform;
+
+    clip-path: inset(100% 0% 0% 0%);
+
+    transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .gallery-works-item-wrapper {
+    transform: scale(1);
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+
+    &.is-reveal {
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}n) {
+          .gallery-works-item {
+            transition-delay: #{$i * 0.1}s !important;
+          }
+        }
+      }
+      .gallery-works-item {
+        clip-path: inset(0% 0% 0% 0%);
+      }
+
+      .gallery-works-item-image {
+        transform-origin: scale(1);
+      }
+    }
+    &:hover {
+      transform: skewY(3deg);
+    }
+  }
+
+  .gallery-works-item-image {
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transform: scale(1.1);
+    transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1),
+      clip-path 0.2s linear;
+    position: absolute;
+
+    &.sepia {
+      filter: grayscale(100%) sepia(10%) brightness(70%);
+    }
+
+    &.masked {
+      clip-path: circle(25% at 50% 50%);
+    }
+  }
+}
+
+.grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 20%);
+  gap: 5%;
+  // width: 1400px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.grid-item {
+  img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+  p {
+    margin-top: 15px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  margin-bottom: 20px;
+}
+
+.slider-cnt {
+  position: relative;
+}
+
+.slider__slide {
+  opacity: 0;
+  width: 100%;
+  transition: all 1s ease-in-out;
+  &[data-active='true'] {
+    opacity: 1;
+  }
+}
+
+#slide {
+  position: relative;
+  overflow: hidden;
+  height: 50vw;
+  padding: 0;
+}

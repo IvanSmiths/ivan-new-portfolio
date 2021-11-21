@@ -1,0 +1,197 @@
+.navbar-desktop-cnt {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.overlay-burger-menu {
+  position: fixed;
+  z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  clip-path: inset(0% 0 100% 0);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10vh 50px;
+  transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.burger-menu-info-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.burger-menu-links-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.as-opened {
+  clip-path: inset(0% 0 0% 0);
+}
+
+.overlay-burger-icon {
+  right: 20px;
+  top: 5px;
+  position: fixed;
+  z-index: 4;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: 0 0;
+  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.as-opened::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.as-opened::before {
+  transform: translate(-50%, -50%) rotate(315deg);
+}
+
+.overlay-burger-icon::after,
+.overlay-burger-icon::before {
+  content: '';
+  width: 48px;
+  height: 2px;
+  position: absolute;
+  background-color: var(--color-text-primary);
+  left: 50%;
+  top: 50%;
+  display: block;
+  will-change: transform;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.overlay-burger-icon::before {
+  transform: translate(-50%, -5px) scaleY(0.7) rotate(180deg);
+}
+
+.overlay-burger-icon::after {
+  transform: translate(-50%, 5px) scaleY(0.7) rotate(0);
+}
+
+.burger-menu-info-personal-cnt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.text-inverse {
+  color: var(--color-text-inverse);
+}
+
+.burger-menu-info-personal-cnt li {
+  color: var(--color-text-inverse);
+}
+
+.burger-menu-info-social-cnt {
+  margin-top: 1rem;
+  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.burger-menu-info-cnt em {
+  margin-top: 5rem;
+}
+
+.social a {
+  color: var(--color-text-inverse);
+}
+
+.nav-dropdown-cnt {
+  z-index: 9;
+  text-align: right;
+  padding-bottom: 2rem;
+  color: var(--color-text-primary);
+  border-radius: 2rem;
+  position: fixed;
+  right: 90px;
+  top: 20px;
+}
+
+.nav-dropdown {
+  color: var(--color-bg-primary);
+  border-radius: 2rem;
+  position: fixed;
+  right: 90px;
+  top: 50px;
+}
+
+.nav-dropdown {
+  text-transform: uppercase;
+}
+
+.footer-cnt {
+  z-index: 1;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  position: relative;
+  height: 30vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-cnt em {
+  color: var(--color-text-primary);
+}
+
+.footer-layout-cnt {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.footer-copyright-cnt {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+}
+
+.footer-layout-cnt em {
+  margin: 4vw 0;
+}
+
+.footer-ivan-smiths {
+  display: block;
+  padding-left: 7vw;
+  justify-self: center;
+  align-self: center;
+}
+
+.based {
+  text-transform: lowercase;
+}

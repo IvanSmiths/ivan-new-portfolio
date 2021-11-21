@@ -1,0 +1,33 @@
+.loader {
+  position: relative;
+  background-color: var(--color-bg-primary);
+  z-index: 9;
+}
+
+.transition-image {
+  position: absolute;
+  background-color: var(--color-bg-primary);
+  z-index: 9;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  height: 100vh;
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transition-image img {
+  width: 800px;
+  display: flex;
+}
+
+.final {
+  display: block;
+  top: -128px;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  z-index: -100;
+}

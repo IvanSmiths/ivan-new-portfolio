@@ -1,0 +1,33 @@
+.about-title-cnt {
+  width: 100%;
+  padding: 14vw 0rem 0 37vw;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.about-main-cnt {
+  display: flex;
+  flex-direction: row;
+  gap: 19vw;
+  margin-top: var(--marginSection);
+}
+
+.about-main-img-cnt {
+  margin-left: 10vw;
+}
+
+.about-main-subtitle-cnt {
+  align-self: center;
+  justify-self: center;
+}
+
+.about-main-cnt img {
+  height: 50vw;
+  transform: scaleX(-1);
+  width: auto;
+}
+
+.about-paragraph-cnt {
+  margin: var(--marginSection) 0;
+  padding: 0 35vw;
+}

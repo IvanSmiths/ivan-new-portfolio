@@ -1,0 +1,266 @@
+.works-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-header-cnt {
+  height: 135vh;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.home-innovation-cnt {
+  width: 100%;
+}
+
+.model {
+  width: 100vw;
+  height: 100vh;
+}
+
+.initial-cnt {
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
+
+.homepage-about-cnt {
+  min-height: 30vw;
+  margin-bottom: var(--marginSection);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.homepage-about-sub-cnt {
+  width: 50%;
+  text-align: center;
+}
+
+.homepage-about-p-cnt {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2rem;
+  padding-right: 14vw;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+}
+
+.box-cnt {
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 300vh;
+  z-index: 3;
+}
+
+.box {
+  background-color: var(--color-bg-primary);
+  top: 0;
+  left: 0;
+  height: 300vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 3;
+}
+
+.box1 {
+  background-color: var(--color-bg-primary);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  z-index: 3;
+}
+
+.box-image-title-cnt h2 {
+  display: inline;
+  bottom: 0;
+  margin-bottom: 8rem;
+  position: absolute;
+  margin-left: -16vw;
+}
+
+.box-image-title-cnt img {
+  height: 35vw;
+  width: auto;
+}
+
+.box-info-cnt ul li {
+  margin-top: 0.6rem;
+}
+
+.box-info-cnt a {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.canvas-cnt {
+  height: 100vh;
+  background-color: aliceblue;
+}
+.canvas-cnt canvas {
+  height: 100vh !important;
+  background-color: aliceblue;
+}
+
+.box2 {
+  background-color: var(--color-bg-primary);
+  top: 0;
+  left: 100vw;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  z-index: 3;
+}
+
+.box3 {
+  background-color: var(--color-bg-primary);
+  position: absolute;
+  top: 0;
+  left: 200vw;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3rem;
+  align-items: center;
+  z-index: 3;
+}
+
+.box-image-cnt {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-image-cnt img {
+  width: 80%;
+  height: auto;
+}
+
+.box-informations-cnt {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.box-informations-cnt h2 {
+  text-transform: uppercase;
+}
+
+.box-informations-info-cnt {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.box-cnt-2 {
+  height: 100vh;
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.box3-2 {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  background-color: var(--color-bg-primary);
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+}
+
+.home-play {
+  margin-top: 10vw;
+}
+
+.box-fixed {
+  position: fixed !important;
+}
+
+.caption-cnt {
+  text-transform: uppercase;
+  width: 70vw;
+}
+
+.marquee-cnt {
+  width: 120vw;
+  margin-top: 14rem;
+  overflow: hidden;
+  padding-bottom: 8rem;
+  transform: translateX(-30px);
+}
+
+.marquee-cnt-rel {
+  overflow: hidden;
+}
+
+.marquee-innovation {
+  margin-top: 4rem;
+  position: relative;
+  height: 406px;
+  overflow: hidden;
+  transform: rotateZ(-10deg);
+}
+
+.track-2 {
+  background-color: transparent;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.track-2 em {
+  margin: 20px 0;
+  color: rgba(245, 222, 179, 0);
+  -webkit-text-stroke: 1px var(--color-text-primary);
+  text-transform: uppercase;
+}
+
+.footer-home-cnt {
+  margin-top: var(--marginSection);
+  height: 70vh;
+  width: 100%;
+  background-color: var(--color-bg-inverse);
+}
+
+.footer-home-cnt a {
+  color: var(--color-text-inverse);
+}
+
+.description {
+  width: 50%;
+  position: absolute;
+  left: -1000vw;
+}

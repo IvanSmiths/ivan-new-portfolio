@@ -1,0 +1,57 @@
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 4rem;
+  position: relative;
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+.project-list .project-item {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  z-index: 7;
+}
+
+.project-item:last-of-type {
+  margin-right: 0;
+}
+
+.project-title {
+  transition: 0.35 cubic-bezier(0.77, 0, 0.175, 1);
+  font-size: 80px;
+  color: rgb(233, 233, 233);
+  font-weight: 400;
+}
+
+.project-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  opacity: 0;
+  position: absolute;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.is-active {
+  opacity: 1;
+  z-index: 3;
+  width: 50%;
+  height: 60%;
+}

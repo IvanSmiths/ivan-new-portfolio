@@ -1,0 +1,120 @@
+.gallery-wrap {
+  background-color: rgb(200, 33, 33);
+  position: relative;
+}
+
+.gallery-counter {
+  position: absolute;
+  top: 10%;
+  left: 100px;
+  z-index: 1;
+  mix-blend-mode: difference;
+  line-height: 16px;
+  color: aliceblue;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.divider {
+  content: '';
+  background-color: beige;
+  width: 6.25vw;
+  margin: 7px 10px;
+  height: 1px;
+  display: inline-block;
+}
+
+.gallery {
+  height: 80vh;
+  padding: 10vh 0;
+  width: 400%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  will-change: transform;
+}
+
+.gallery-item-info {
+  position: absolute;
+  bottom: 10%;
+  z-index: 1;
+  transform: translateX(-20%);
+  color: wheat;
+}
+
+.gallery-info-title {
+  line-height: 6vw;
+  font-weight: 600;
+  font-size: 6vw;
+}
+
+.gallery-info-subtitle {
+  position: relative;
+  line-height: 6vw;
+  color: transparent;
+  font-weight: 400;
+  font-size: 6vw;
+  -webkit-text-stroke: 2px wheat;
+}
+
+.gallery-info-category {
+  position: relative;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 2vh;
+}
+
+.gallery-item-wrapper {
+  aspect-ratio: 16/9;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20vw 1fr 200px;
+  width: 100vw;
+}
+
+.gallery-item-image {
+  background-size: cover;
+  background-position: center;
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transform: scale(1);
+}
+
+.secondary-cursor {
+  z-index: 1000;
+  border-radius: 50%;
+  pointer-events: none;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  position: fixed;
+  background: transparent;
+  border: 3px solid var(--main-color);
+  transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.regular {
+  width: 12rem;
+  height: 12rem;
+}
+
+.medium {
+  width: 6rem;
+  height: 6rem;
+}
+
+.small {
+  width: 1.8rem;
+  height: 1.8rem;
+}
