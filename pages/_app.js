@@ -58,6 +58,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="author" content="Ivan Smiths" />
         <link
@@ -77,6 +78,20 @@ function MyApp({ Component, pageProps }) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ww.ivansmiths.com" />
+        <meta
+          property="og:title"
+          content="Ivan Smiths | React developer portfolio"
+        />
+        <meta
+          property="og:description"
+          content="Ivan smiths's portfolio. React developer with 2 years of professional exprerience, based in Wisbaden."
+        />
+        <meta
+          property="og:image"
+          content="https://www.ivansmiths.com/card.jpg"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@IvanSmiths" />
         <meta
@@ -89,9 +104,13 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:image"
-          content="https://www.ivansmiths.com/android-chrome-512x512.png"
+          content="https://www.ivansmiths.com/card.jpg"
         />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D3124C" />
+        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+        <meta content="#D3124C" name="theme-color" />
+        <meta name="application-name" content="Ivan Smiths's Portfolio" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#D3124C" />
       </Head>
       <Menu />

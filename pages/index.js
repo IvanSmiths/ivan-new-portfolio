@@ -84,8 +84,11 @@ const Home = () => {
       ) : (
         <>
           <Head>
-            <title>Frontend developer from Wiesbaden</title>
-            <meta name="description" content="just another react developer" />
+            <title>React / Frontend developer from Wiesbaden</title>
+            <meta
+              name="description"
+              content="React, Next.js developer with 2 years of experience, based and currently living in Wiesbaden."
+            />
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}

@@ -79,8 +79,11 @@ const Ideology = () => {
   return (
     <>
       <Head>
-        <title>Ivan Smiths | Ideology</title>
-        <meta name="description" content="just another react developer" />
+        <title>Ivan Smiths | Ideology case studio</title>
+        <meta
+          name="description"
+          content="I have worked in Ideology for two years, and have used WebFlow in a production environment"
+        />
       </Head>
       <header className="stuff-s-header-cnt skewElem">
         <div className="stuff-s-header-image-cnt skewElem">
