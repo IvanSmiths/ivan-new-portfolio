@@ -8,6 +8,8 @@ import CustomCursor from '../components/CustomCursor';
 import Navbar from '../components/Navbar';
 import dynamic from 'next/dynamic';
 import Contact from '../components/Contact';
+import * as gtag from '../lib/gtag';
+import { useRouter } from 'next/router';
 import Footer from '../components/Footer';
 import Menu from '../components/Menu';
 
@@ -16,6 +18,17 @@ const ThemeToggle = dynamic(() => import('../components/ThemeToggle'), {
 });
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   const [isVisible, setIsVisible] = useState(false);
 
   // Top: 0 takes us all the way back to the top of the page
