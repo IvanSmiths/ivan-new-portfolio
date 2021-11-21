@@ -57,6 +57,9 @@
   flex-wrap: wrap;
 }
 
+.credits-card a {
+  text-decoration: underline;
+}
 .exposition-cnt {
   margin-right: 5%;
   text-align: right;

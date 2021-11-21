@@ -487,15 +487,15 @@ const Ideology = () => {
           <ul className="credits-card">
             <li className="credits-card-title">Ideology</li>
             <li>
-              DEV CO-WORKER:{' '}
+              DEV CO-WORKERS:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/iryna-sachko-319a54220"
               >
-                @ij_mjiwd9{' '}
+                Iryna Sachko
               </a>
             </li>
             <li>
@@ -505,21 +505,33 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/simona-pulino-536539146"
               >
-                @wiadn8
+                Simona Pulino
               </a>
             </li>
             <li>
-              VIDEOS:{' '}
+              VIDEOMAKER:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.instagram.com/mr.peppeocchipinti/"
               >
-                @ioo_92eu
+                Mr. Peppe Occhipinti
+              </a>
+            </li>
+            <li>
+              ILLUSTRATIONS:{' '}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.behance.net/alessiaiacono1"
+              >
+                Alessia Iacono
               </a>
             </li>
             <li>
@@ -529,61 +541,24 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.instagram.com/irenenobile.fotografia/"
               >
-                @ioo_92eu
-              </a>
-            </li>
-
-            <li>
-              ILLUSTRATIONS:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                @ij_mjiwd9{' '}
-              </a>
-            </li>
-            <li>
-              UI/UX:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                #@d0k093
+                Irene Nobile
               </a>
             </li>
           </ul>
           <ul className="credits-card">
             <li className="credits-card-title">mabù</li>
             <li>
-              DEV CO-WORKER:{' '}
+              DEV CO-WORKERS:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/iryna-sachko-319a54220"
               >
-                @ij_mjiwd9{' '}
-              </a>
-            </li>
-            <li>
-              UI/UX:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                #@d0k093
+                Iryna Sachko
               </a>
             </li>
             <li>
@@ -593,21 +568,21 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/simona-pulino-536539146"
               >
-                @wiadn8
+                Simona Pulino
               </a>
             </li>
             <li>
-              VIDEOS:{' '}
+              VIDEOMAKER:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.instagram.com/mr.peppeocchipinti/"
               >
-                @ioo_92eu
+                Mr. Peppe Occhipinti
               </a>
             </li>
             <li>
@@ -617,36 +592,34 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.behance.net/alessiaiacono1"
               >
-                @ij_mjiwd9{' '}
+                Alessia Iacono
               </a>
             </li>
           </ul>
           <ul className="credits-card">
             <li className="credits-card-title">bionatur</li>
             <li>
-              DEV CO-WORKER:{' '}
+              DEV CO-WORKERS:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/iryna-sachko-319a54220"
               >
-                @ij_mjiwd9{' '}
+                Iryna Sachko
               </a>
-            </li>
-            <li>
-              UI/UX:{' '}
+              , {''}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/danielvello"
               >
-                #@d0k093
+                Daniel Vello
               </a>
             </li>
             <li>
@@ -656,21 +629,9 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://it.linkedin.com/in/simona-pulino-536539146"
               >
-                @wiadn8
-              </a>
-            </li>
-            <li>
-              VIDEOS:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                @ioo_92eu
+                Simona Pulino
               </a>
             </li>
             <li>
@@ -680,48 +641,9 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.behance.net/alessiaiacono1"
               >
-                @ij_mjiwd9{' '}
-              </a>
-            </li>
-          </ul>
-          <ul className="credits-card">
-            <li className="credits-card-title">Base</li>
-            <li>
-              DEV CO-WORKER:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                @ij_mjiwd9{' '}
-              </a>
-            </li>
-            <li>
-              UI/UX:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                #@d0k093
-              </a>
-            </li>
-            <li>
-              GRAPHICS:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://instagram.com"
-              >
-                @wiadn8
+                Alessia Iacono
               </a>
             </li>
             <li>
@@ -731,21 +653,48 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.instagram.com/irenenobile.fotografia/"
               >
-                @ioo_92eu
+                Irene Nobile
               </a>
             </li>
+          </ul>
+          <ul className="credits-card">
+            <li className="credits-card-title">Base</li>
             <li>
-              VIDEOS:{' '}
+              UI/UX:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.linkedin.com/in/virginia-boncoraglio-6386091aa"
               >
-                @ioo_92eu
+                Virginia Boncoraglio
+              </a>
+            </li>
+            <li>
+              GRAPHICS:{' '}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://it.linkedin.com/in/simona-pulino-536539146"
+              >
+                Simona Pulino
+              </a>
+            </li>
+            <li>
+              VIDEOMAKER:{' '}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/mr.peppeocchipinti/"
+              >
+                Mr. Peppe Occhipinti
               </a>
             </li>
             <li>
@@ -755,9 +704,21 @@ const Ideology = () => {
                 onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://instagram.com"
+                href="https://www.behance.net/alessiaiacono1"
               >
-                @ij_mjiwd9{' '}
+                Alessia Iacono
+              </a>
+            </li>
+            <li>
+              PHOTOS:{' '}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/irenenobile.fotografia/"
+              >
+                Irene Nobile
               </a>
             </li>
           </ul>
