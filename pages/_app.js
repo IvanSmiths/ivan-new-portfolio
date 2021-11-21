@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic';
 import Contact from '../components/Contact';
 import * as gtag from '../lib/gtag';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Footer from '../components/Footer';
 import Menu from '../components/Menu';
 
@@ -56,6 +57,29 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="author" content="Ivan Smiths" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D3124C" />
+        <meta name="msapplication-TileColor" content="#D3124C" />
+      </Head>
       <Menu />
       <Navbar />
       <AnimateSharedLayout>
