@@ -85,15 +85,15 @@ function Navbar() {
             <div>
               <ul className="burger-menu-info-personal-cnt">
                 <li>ivan smiths / frontend</li>
+                <li>
+                  <a
+                    className="medium-font text-inverse"
+                    href="mailto:info@ivansmiths.com?cc=ivansmiths3d@gmail.com"
+                  >
+                    info@ivansmiths.com
+                  </a>
+                </li>
               </ul>
-              <li>
-                <a
-                  className="medium-font text-inverse"
-                  href="mailto:info@ivansmiths.com?cc=ivansmiths3d@gmail.com"
-                >
-                  info@ivansmiths.com
-                </a>
-              </li>
             </div>
             <div className="social-mobile-cnt">
               <ul className="social-mobile">
