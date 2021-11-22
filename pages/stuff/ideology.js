@@ -599,6 +599,16 @@ const Ideology = () => {
               >
                 Alessia Iacono
               </a>
+              , {''}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/ncherry_nf/"
+              >
+                NCherry
+              </a>
             </li>
           </ul>
           <ul className="credits-card">
@@ -647,18 +657,6 @@ const Ideology = () => {
                 href="https://www.behance.net/alessiaiacono1"
               >
                 Alessia Iacono
-              </a>
-            </li>
-            <li>
-              PHOTOS:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.instagram.com/irenenobile.fotografia/"
-              >
-                Irene Nobile
               </a>
             </li>
           </ul>
@@ -710,6 +708,16 @@ const Ideology = () => {
                 href="https://www.behance.net/alessiaiacono1"
               >
                 Alessia Iacono
+              </a>
+              , {''}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/ncherry_nf/"
+              >
+                NCherry
               </a>
             </li>
             <li>

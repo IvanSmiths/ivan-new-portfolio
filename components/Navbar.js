@@ -99,6 +99,7 @@ function Navbar() {
               <ul className="social-mobile">
                 <li>
                   <a
+                    title="github"
                     rel="noopener noreferrer"
                     target="_blank"
                     href="https://www.github.com/ivanSmiths"
@@ -128,6 +129,7 @@ function Navbar() {
                 </li>
                 <li>
                   <a
+                    title="linkedin"
                     href="https://it.linkedin.com/in/ivan-fabbri-932aaa205?trk=people-guest_people_search-card"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -194,12 +196,13 @@ function Navbar() {
                     </svg>
                   </a>
                 </li>
-                <a
-                  href="https://www.artstation.com/ivansmiths"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <li>
+                <li>
+                  <a
+                    title="artstation"
+                    href="https://www.artstation.com/ivansmiths"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <svg
                       id="ArtStation-logomark-white"
                       xmlns="http://www.w3.org/2000/svg"
@@ -229,15 +232,16 @@ function Navbar() {
                         fill="#2e2d3a"
                       />
                     </svg>
-                  </li>
-                </a>
+                  </a>
+                </li>
 
-                <a
-                  href="https://www.instagram.com/ivan_smiths"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <li>
+                <li>
+                  <a
+                    title="instagram"
+                    href="https://www.instagram.com/ivan_smiths"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <svg
                       id="instagram"
                       xmlns="http://www.w3.org/2000/svg"
@@ -288,8 +292,8 @@ function Navbar() {
                         </g>
                       </g>
                     </svg>
-                  </li>
-                </a>
+                  </a>
+                </li>
               </ul>
             </div>
             <span className="close-burger" onClick={() => setOpened(!opened)}>
