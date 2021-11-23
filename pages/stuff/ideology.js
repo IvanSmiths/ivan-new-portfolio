@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import SrcImage from '../../components/SrcImage';
-import Link from 'next/link';
 import Head from 'next/head';
 import Marquee from '../../components/Marquee';
 import { pageData } from '../../utils/sampleData';
@@ -45,7 +44,7 @@ const Ideology = () => {
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
-      clamp = gsap.utils.clamp(-0.4, 0.4);
+      clamp = gsap.utils.clamp(-0.5, 0.5);
 
     ScrollTrigger.create({
       onUpdate: (self) => {
@@ -186,24 +185,8 @@ const Ideology = () => {
           alt={'image'}
           className={'exposition-website-1'}
         />
-        {/* <div className="exposition-website-1">
-        <SrcImage
-        src={'/ideology-website-1.jpg'}
-        webp={'/ideology-website-1.webp'}
-        height={'auto'}
-        width={'60%'}
-        alt={'image'}
-        />
-        <SrcImage
-        src={'/ideology-website-1.jpg'}
-        webp={'/ideology-website-1.webp'}
-        height={'auto'}
-        width={'60%'}
-        alt={'image'}
-        />
-      </div> */}
       </div>
-      <div className="rising-action-cnt">
+      <div className="rising-action-cnt skewElem">
         <em className="stuff-em">.Rising action</em>
         <p>
           My mission was simple. Developing websites with WebFlow and adding css
@@ -449,22 +432,6 @@ const Ideology = () => {
           alt={'image'}
           className={'falling-action-website-1'}
         />
-        {/* <div className="exposition-website-1">
-        <SrcImage
-        src={'/ideology-website-1.jpg'}
-        webp={'/ideology-website-1.webp'}
-        height={'auto'}
-        width={'60%'}
-        alt={'image'}
-        />
-        <SrcImage
-        src={'/ideology-website-1.jpg'}
-        webp={'/ideology-website-1.webp'}
-        height={'auto'}
-        width={'60%'}
-        alt={'image'}
-        />
-      </div> */}
       </div>
       <div className="denouement-cnt skewElem">
         <em className="stuff-em">.denouement</em>
