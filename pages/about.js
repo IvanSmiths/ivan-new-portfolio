@@ -1,6 +1,6 @@
 import React from 'react';
 import SrcImage from '../components/SrcImage';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const About = () => {
   return (
@@ -34,13 +34,9 @@ const About = () => {
         <section className="about-paragraph-cnt flex-center">
           <div>
             <p className="small-font">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. In
-              autem, incidunt, vero accusantium cupiditate repellat tenetur id
-              voluptatibus, iusto officiis dolorum architecto praesentium
-              distinctio quae perferendis? <br /> <br /> Quo cumque sequi
-              impedit perspiciatis! Asperiores quos animi nulla! Sint cupiditate
-              natus, autem voluptate excepturi architecto est aliquid iste
-              repudiandae, laudantium veritatis eaque laborum!
+              Web developer and Social media manager, i help business owner from
+              Ragusa to increasing their clients, via targeted ads campaigns,
+              and by the creation of profitable websites.
             </p>
           </div>
         </section>
