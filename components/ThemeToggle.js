@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { CursorContext } from './CursorManager';
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
@@ -19,10 +20,21 @@ const ThemeToggle = () => {
     window.localStorage.setItem('theme', activeTheme);
   }, [activeTheme]);
 
+  // MOUSE ZOOM HANDLER //
+  const { setSize } = useContext(CursorContext);
+  const handleMouseEnter = () => {
+    setSize('medium');
+  };
+  const handleMouseLeave = () => {
+    setSize('small');
+  };
+
   return (
     <>
       {activeTheme === 'dark' ? (
         <span
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           aria-label={`Change to ${inactiveTheme}`}
           className="theme-toggle"
           onClick={() => setActiveTheme(inactiveTheme)}
@@ -31,6 +43,8 @@ const ThemeToggle = () => {
         </span>
       ) : (
         <span
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           aria-label={`Change to ${inactiveTheme}`}
           className="theme-toggle"
           onClick={() => setActiveTheme(inactiveTheme)}

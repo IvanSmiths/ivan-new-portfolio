@@ -147,6 +147,7 @@ const Index = () => {
                   >
                     <picture className="flex-center">
                       <motion.source
+                        layoutId="cg-prospect-img-1"
                         alt="image of a project"
                         decoding="async"
                         loading="lazy"
@@ -156,6 +157,7 @@ const Index = () => {
                         type="image/webp"
                       />
                       <motion.img
+                        layoutId="cg-prospect-img-2"
                         alt="image of a project"
                         loading="lazy"
                         decoding="async"
@@ -174,7 +176,12 @@ const Index = () => {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <motion.h2 className="big-font">CG Prospect</motion.h2>
+                      <motion.h2
+                        layoutId="cg-prospect-title"
+                        className="big-font"
+                      >
+                        CG Prospect
+                      </motion.h2>
                     </a>
                   </Link>
                   <span className="lines"></span>

@@ -10,7 +10,12 @@
   position: absolute;
 }
 
+.transition-image h1 {
+  text-align: center;
+}
+
 .transition-image {
+  text-align: center;
   position: absolute;
   background-color: var(--color-bg-primary);
   z-index: 9;
@@ -18,7 +23,7 @@
   left: 0;
   z-index: 9;
   height: 100vh;
-  width: 100vw;
+  width: 99vw;
   display: flex;
   align-items: center;
   flex-direction: column;

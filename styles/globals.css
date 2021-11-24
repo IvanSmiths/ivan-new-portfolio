@@ -201,6 +201,7 @@ li {
 .theme-toggle {
   position: fixed;
   top: 20px;
+  cursor: pointer;
   left: 20px;
   font-size: 1.4rem;
   z-index: 9;

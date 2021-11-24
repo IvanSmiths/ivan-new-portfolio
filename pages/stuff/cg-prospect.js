@@ -5,9 +5,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import SrcImage from '../../components/SrcImage';
 import Head from 'next/head';
-import Marquee from '../../components/Marquee';
-import { pageData } from '../../utils/sampleData';
-import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import FooterIdeology from '../../components/Footers/FooterIdeology';
 import { CursorContext } from '../../components/CursorManager';
 
