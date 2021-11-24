@@ -68,6 +68,24 @@ const Post = ({ post }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@IvanSmiths" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.image.url} />
+        <meta name="twitter:image:alt" content="image of the article" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta
+          property="og:url"
+          content={`https://www.ivansmiths.com/post/${post.slug}.com`}
+        />
+        <meta property="og:image" content={post.image.url} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="article:author" content="Ivan Smiths" />
+        <meta property="article:published_time" content={post.createdAt} />
+        <meta property="article:modified_time" content={post.createdAt} />
+        <meta property="article:section" content="Technology" />
       </Head>
       <main className="single-post-cnt">
         <article className="post-cnt">

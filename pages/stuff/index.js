@@ -140,7 +140,7 @@ const Index = () => {
             </div>
             <div id="box2" className="box2">
               <div className="box-image-cnt">
-                <Link href="/">
+                <Link href="/stuff/cg-prospect">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -169,7 +169,7 @@ const Index = () => {
               </div>
               <div className="box-informations-cnt">
                 <div className="box-informations-title-cnt">
-                  <Link href="/">
+                  <Link href="/stuff/cg-prospect">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -180,7 +180,7 @@ const Index = () => {
                   <span className="lines"></span>
                   <ul className="box-informations-info-cnt">
                     <li>project</li>
-                    <li>next.js & prisma</li>
+                    <li>next.js & postgreSql</li>
                     <li>2021</li>
                   </ul>
                 </div>

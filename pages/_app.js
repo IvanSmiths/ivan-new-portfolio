@@ -106,6 +106,10 @@ function MyApp({ Component, pageProps }) {
           name="twitter:image"
           content="https://www.ivansmiths.com/card.jpg"
         />
+        <meta
+          name="twitter:image:alt"
+          content="preview of ivan smiths's website"
+        />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D3124C" />
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta content="#D3124C" name="theme-color" />

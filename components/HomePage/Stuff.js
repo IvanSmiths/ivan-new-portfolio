@@ -208,13 +208,14 @@ function About() {
               </div>
               <div id="box2" className="box2">
                 <div className="box-image-cnt">
-                  <Link href="/">
+                  <Link href="/stuff/cg-prospect">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
                       <picture className="flex-center">
                         <motion.source
+                          layoutId="cg-prospect-img-1"
                           alt="image of a project"
                           decoding="async"
                           loading="lazy"
@@ -224,6 +225,7 @@ function About() {
                           type="image/webp"
                         />
                         <motion.img
+                          layoutId="cg-prospect-img-2"
                           alt="image of a project"
                           loading="lazy"
                           decoding="async"
@@ -237,18 +239,23 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <div className="box-informations-title-cnt">
-                    <Link href="/">
+                    <Link href="/stuff/cg-prospect">
                       <a
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                       >
-                        <motion.h2 className="big-font">CG Prospect</motion.h2>
+                        <motion.h2
+                          layoutId="cg-prospect-title"
+                          className="big-font"
+                        >
+                          CG Prospect
+                        </motion.h2>
                       </a>
                     </Link>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
                       <li>project</li>
-                      <li>next.js & prisma</li>
+                      <li>next.js & postgreSql</li>
                       <li>2021</li>
                     </ul>
                   </div>
