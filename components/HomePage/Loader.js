@@ -19,19 +19,31 @@ const itemMain = {
     y: 0,
     transition: {
       ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 3.6,
+      duration: 4,
     },
   },
 };
 
 const titleMain = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 200 },
   show: {
     opacity: 1,
     y: 0,
     transition: {
       ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 1.6,
+      duration: 3.2,
+    },
+  },
+};
+
+const titleSub = {
+  hidden: { opacity: 0, y: 200 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 2.0,
     },
   },
 };
@@ -48,7 +60,18 @@ const Loader = ({ setLoading }) => {
         className="loader-inner"
       >
         <motion.div variants={itemMain} className="transition-image">
-          <motion.h1 layoutId="main-title" variants={titleMain}>
+          <motion.h2
+            className="small-font loader-sub-title"
+            layoutId="sub-title"
+            variants={titleSub}
+          >
+            ivan smiths / frontend developer
+          </motion.h2>
+          <motion.h1
+            className="uppercase impact medium-font"
+            layoutId="main-title"
+            variants={titleMain}
+          >
             Web development it is just all about...
           </motion.h1>
         </motion.div>

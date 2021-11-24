@@ -1,3 +1,40 @@
+.loader {
+  position: relative;
+  background-color: var(--color-bg-primary);
+  z-index: 9;
+}
+
+.loader-sub-title {
+  text-align: center;
+  top: 90px;
+  position: absolute;
+}
+
+.transition-image {
+  position: absolute;
+  background-color: var(--color-bg-primary);
+  z-index: 9;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.final {
+  display: block;
+  top: -128px;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  z-index: -100;
+}
+
 .works-cnt {
   display: flex;
   justify-content: center;

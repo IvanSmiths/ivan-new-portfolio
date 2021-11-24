@@ -350,7 +350,6 @@ li {
 }
 
 @import 'home.css';
-@import 'loader.css';
 @import 'gallery.css';
 @import 'project-index.css';
 @import 'project-item.css';
