@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import Loader from '../components/HomePage/Loader';
 import Stuff from '../components/HomePage/Stuff';
 import Head from 'next/head';
-import Marquee from '../components/Marquee-innovation';
 import FooterHome from '../components/HomePage/FooterHome';
+import dynamic from 'next/dynamic';
+
+const Marquee = dynamic(() => import('../components/Marquee-innovation'));
 
 const Home = () => {
   // LOADER  ANIMATION //
