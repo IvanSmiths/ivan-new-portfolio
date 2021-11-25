@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin-bottom: 7rem;
 }
 
 .stuff-s-header-image-cnt {
@@ -159,7 +160,7 @@
 }
 
 .climax {
-  width: 40%;
+  width: 35%;
 }
 
 .stuff-em {
@@ -169,7 +170,7 @@
 }
 
 .rising-action-cnt {
-  width: 40%;
+  width: 35%;
   margin-left: 5%;
   margin-top: var(--marginSection);
 }
@@ -208,7 +209,7 @@
 }
 
 .falling-action-cnt {
-  width: 40%;
+  width: 35%;
   text-align: left;
   margin-top: var(--marginSection);
   margin-left: 5%;

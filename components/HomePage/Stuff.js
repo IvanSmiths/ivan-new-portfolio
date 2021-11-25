@@ -112,21 +112,12 @@ function About() {
     <>
       <main className="homepage-about-cnt skewElem">
         <p className="description">
-          Ivan Smiths, <strong> react developer portfolio </strong> from
-          Wiesbaden. React developer with knowledge on{' '}
-          <strong> how to use React hooks </strong>
-          like useState, useEffect, useContext, custom hooks and more. I
-          prioritize fast website, that also are seo friendly, and at the same
-          time innovating, and that looks modern. I started using React.js two
-          years ago, and i rapidly switched to Next.js, for giving server side
-          rendering, file based routing, and static sites generation out of the
-          box. With Next.js I have built all of my projects and works, granting
-          them an extreme speed and also are seo friendly. I often write guides
-          and tutorials, like{' '}
-          <strong> how to put 3d models on react website </strong> or just news
-          about the react and next js world in general. I work in Wiesbaden as a
-          frontend developer and I am also a freelancer. Contact me if you want
-          to collab on a react or next.js project.
+          Ivan Smiths, <strong>{t('home:bio-2')}</strong>
+          {t('home:bio-3')}
+          <strong>{t('home:bio-4')}</strong>
+          {t('home:bio-5')}
+          <strong>{t('home:bio-6')}</strong>
+          {t('home:bio-7')}
         </p>
         <div className="homepage-about-sub-cnt flex-center">
           <motion.h2 layoutId="about" className="small-font">
@@ -136,14 +127,10 @@ function About() {
           </motion.h2>
         </div>
         <div className="homepage-about-p-cnt">
-          <p className="small-font">
-            React developer and UI/UX designer with 2 years of professional
-            experience. Passionated about 3d and ar, i like to combine this two
-            worlds together.
-          </p>
+          <p className="small-font">{t('home:about')}</p>
           <Link href="/about">
             <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              who am i?
+              {t('home:about-2')}
             </a>
           </Link>
         </div>
@@ -200,7 +187,7 @@ function About() {
                     </Link>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>work</li>
+                      <li>{t('home:work')}</li>
                       <li>webflow & frontend</li>
                       <li>2020/2022</li>
                     </ul>
@@ -255,7 +242,7 @@ function About() {
                     </Link>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>project</li>
+                      <li>{t('home:project')}</li>
                       <li>next.js & postgreSql</li>
                       <li>2021</li>
                     </ul>
@@ -301,7 +288,7 @@ function About() {
                     </motion.h2>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>project</li>
+                      <li>{t('home:project')}</li>
                       <li>next.js</li>
                       <li>2020</li>
                     </ul>
@@ -351,7 +338,7 @@ function About() {
                     </motion.h2>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>project</li>
+                      <li>{t('home:project')}</li>
                       <li>next.js</li>
                       <li>2020</li>
                     </ul>
@@ -360,7 +347,7 @@ function About() {
               </div>
             </div>
             <section className="caption-cnt impact impact-large large-font">
-              Fell stuck? Let{`'`}s find a solution together.
+              {t('home:home-caption')}
             </section>
           </div>
         </section>

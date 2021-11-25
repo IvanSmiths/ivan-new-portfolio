@@ -216,7 +216,7 @@ li {
   display: flex;
   gap: 0.6rem;
   position: fixed;
-  top: 27px;
+  top: 22px;
   left: 80px;
 }
 
@@ -328,6 +328,7 @@ li {
 /* CONTACT */
 
 .contact-span {
+  cursor: pointer;
   position: fixed;
   right: 20px;
   bottom: 20px;

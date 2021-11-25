@@ -1,3 +1,27 @@
 {
-  "prologue": "prologo"
+  "prologue": "prologo",
+  "type": "Tipo",
+  "type-2": "Dipendente",
+  "work": "lavoro",
+  "year": "Anno",
+  "stack": "Technologie principali",
+  "web": "Sito",
+  "exposition": "exposition",
+  "exposition-2": "Fare siti fighi con WebFlow.",
+  "rising-action": "Rising action",
+  "rising-action-2": "La mia missione era semplice. Sviluppare siti Web con WebFlow e aggiungere codice CSS e JavaScript per evitare l'inflessibilità di alcuni temi e plug-in di WordPress.",
+  "rising-action-3": "I run into some complex animations using WebFlow, from parallax effects to scroll animations",
+  "climax": "climax",
+  "climax-2": "Nei momenti di crisi, ho anche scritto del codice PHP, nonostante la mia conoscenza si fermi agli array, ho imparato a correggere i bug comuni, o la famigerata white screen of death",
+  "falling-action": "falling action",
+  "falling-action-2": "Lavorare in uno dei più grandi studi di Ragusa mi ha insegnato a lavorare e comunicare in modo efficiente in team.",
+  "denouement": "denouement",
+  "denouement-2": "Ho acquisito esperienza lavorativa con WebFlow ed il frontend in generale.",
+  "marquee": "siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato - siti web a cui ho lavorato -",
+  "credits": "crediti",
+  "dev": "COLLEGA DI SVILUPPO",
+  "graphics": "GRAFICA",
+  "videomaker": "VIDEOMAKER",
+  "illustrations": "ILLUSTRAZIONI",
+  "photos": "FOTO"
 }

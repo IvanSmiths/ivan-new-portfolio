@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cn from 'classnames';
-import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 function Contact() {
   const [fullname, setFullname] = useState('');
@@ -90,10 +90,11 @@ function Contact() {
     }
   };
   const [opened, setOpened] = useState(false);
+  let { t } = useTranslation();
   return (
     <>
       <span className="contact-span" onClick={() => setOpened(!opened)}>
-        lets talk
+        {t('common:let-us-talk')}
       </span>
       <div className={cn('overlay-burger-menu', { 'as-opened': opened })}>
         <form onSubmit={handleSubmit} className="">

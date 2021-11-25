@@ -1,9 +1,22 @@
 {
   "speed": "Velocità",
   "security": "Sicurezza",
-  "innovation": "INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - ",
   "and": "e",
+  "innovation": "INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - INNOVAZIONE - ",
+  "bio-2": "portfolio di uno sviluppatore react",
+  "bio-3": " di ragusa. Sviluppatore react con conoscenze riguardanti ",
+  "bio-4": "l'uso di React hooks",
+  "bio-5": "come useState, useEffect, useContext, custom hooks ed altro. La mia missione è fare siti web usando react che siano il più veloci possibile, che siano seo friendly, e allo stesso tempo innovativi, con un look moderno. Ho iniziato a utilizzare React.js due anni fa, e sono passato rapidamente a Next.js, grazie al server side rendering, al routing basato sui file, alla generazione di siti statici ed alle prestazioni aumentate. Scrivo spesso guide e tutorial, come",
+  "bio-6": "inserire modelli 3d su siti react",
+  "bio-7": "o semplicemente notizie sul mondo react e il prossimo js in generale. Lavoro a Ragusa come sviluppatore frontend e sono anche un freelance. Contattami se vuoi collaborare o se ti senti bloccato su un progetto react o next.js.",
   "about-title": "IVAN SMITHS",
   "about-title-2": "SVILUPPATORE FRONTEND",
-  "about-title-3": "UI/UX DESIGNER"
+  "about-title-3": "UI/UX DESIGNER",
+  "work": "lavoro",
+  "project": "progetto",
+  "about": "Sviluppatore React e UI/UX designer con 2 anni di esperienza professionale. Appassionato di 3d e realta aumentata, tendo ad unire questi due mondi insieme.",
+  "about-2": "chi sono?",
+  "home-caption": "Ti senti bloccato? Troviamo una soluzione insieme.",
+  "home-footer": "guarda tutti",
+  "home-footer-2": "i lavori"
 }

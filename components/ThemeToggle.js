@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useContext } from 'react';
 import { CursorContext } from './CursorManager';
 
@@ -32,25 +33,27 @@ const ThemeToggle = () => {
   return (
     <>
       {activeTheme === 'dark' ? (
-        <span
+        <img
+          height="25px"
+          width="25px"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          aria-label={`Change to ${inactiveTheme}`}
           className="theme-toggle"
           onClick={() => setActiveTheme(inactiveTheme)}
-        >
-          🌙
-        </span>
+          src="/moon.svg"
+          alt={`Change to ${inactiveTheme}`}
+        />
       ) : (
-        <span
+        <img
+          height="25px"
+          width="25px"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          aria-label={`Change to ${inactiveTheme}`}
           className="theme-toggle"
           onClick={() => setActiveTheme(inactiveTheme)}
-        >
-          ☀️
-        </span>
+          src="/sun.svg"
+          alt={`Change to ${inactiveTheme}`}
+        />
       )}
     </>
   );

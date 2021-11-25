@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 function Navbar() {
   const [opened, setOpened] = useState(false);
@@ -25,6 +26,7 @@ function Navbar() {
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
+  let { t } = useTranslation();
   return (
     <>
       {isDesktop ? (
@@ -46,7 +48,7 @@ function Navbar() {
                       onClick={() => setOpened(!opened)}
                       className="large-font-inverse"
                     >
-                      Home
+                      {t('common:nav-home')}
                     </a>
                   </Link>
                 </li>
@@ -56,7 +58,7 @@ function Navbar() {
                       onClick={() => setOpened(!opened)}
                       className="large-font-inverse"
                     >
-                      What i do
+                      {t('common:nav-stuff')}
                     </a>
                   </Link>
                 </li>
@@ -66,7 +68,7 @@ function Navbar() {
                       onClick={() => setOpened(!opened)}
                       className="large-font-inverse"
                     >
-                      Who i am
+                      {t('common:nav-about')}
                     </a>
                   </Link>
                 </li>
@@ -76,7 +78,7 @@ function Navbar() {
                       onClick={() => setOpened(!opened)}
                       className="large-font-inverse"
                     >
-                      What i write
+                      {t('common:nav-post')}
                     </a>
                   </Link>
                 </li>
@@ -84,7 +86,7 @@ function Navbar() {
             </div>
             <div>
               <ul className="burger-menu-info-personal-cnt">
-                <li>ivan smiths / frontend</li>
+                <li>ivan smiths / frontend & UI/UX</li>
                 <li>
                   <a
                     className="medium-font text-inverse"
@@ -310,8 +312,9 @@ function Navbar() {
           <div className={cn('overlay-burger-menu', { 'as-opened': opened })}>
             <div className="burger-menu-info-cnt">
               <ul className="burger-menu-info-personal-cnt">
-                <li>ivan smiths</li>
-                <li>frontend developer & ui/ux designer</li>
+                <li>{t('common:nav-desc')}</li>
+                <li>{t('common:nav-desc-2')}</li>
+                <li>{t('common:nav-desc-3')}</li>
               </ul>
               <a
                 className="medium-font text-inverse"
@@ -320,7 +323,7 @@ function Navbar() {
                 info@ivansmiths.com
               </a>
               <div>
-                <em>FOLLOW ME IN THE SOCIALS:</em>
+                <em>{t('common:social')}</em>
                 <ul className="burger-menu-info-social-cnt">
                   <li className="social">
                     <a
@@ -328,9 +331,10 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://www.instagram.com/ivan_smiths"
                     >
-                      *icon of <br />
-                      the social <br /> about <br /> pretending <br /> to be{' '}
-                      <br /> creative.
+                      {t('common:insta-1')} <br />
+                      {t('common:insta-2')} <br /> {t('common:insta-3')} <br />{' '}
+                      {t('common:insta-4')} <br /> {t('common:insta-5')}
+                      <br /> {t('common:insta-6')}
                     </a>
                   </li>
                   <li className="social">
@@ -339,9 +343,10 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://www.artstation.com/ivansmiths"
                     >
-                      *icon of <br /> the social <br /> about <br />
-                      pretending <br />
-                      to be <br /> an artist.
+                      {t('common:art-1')} <br /> {t('common:art-2')} <br />{' '}
+                      {t('common:art-3')} <br />
+                      {t('common:art-4')} <br />
+                      {t('common:art-5')} <br /> {t('common:art-6')}
                     </a>
                   </li>
                   <li className="social">
@@ -350,9 +355,11 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://it.linkedin.com/in/ivan-fabbri-932aaa205?trk=people-guest_people_search-card"
                     >
-                      *icon of <br /> the social <br /> about <br /> pretending{' '}
-                      <br /> to be <br />
-                      professional.
+                      {t('common:linkedin-1')} <br /> {t('common:linkedin-2')}{' '}
+                      <br />
+                      {t('common:linkedin-3')} <br /> {t('common:linkedin-4')}{' '}
+                      <br /> {t('common:linkedin-5')} <br />
+                      {t('common:linkedin-6')}
                     </a>
                   </li>
                   <li className="social">
@@ -361,9 +368,11 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://github.com/IvanSmiths"
                     >
-                      *icon of <br />
-                      the platform <br /> about <br /> pretending <br /> to be{' '}
-                      <br /> a developer.
+                      {t('common:github-1')} <br />
+                      {t('common:github-2')} <br /> {t('common:github-3')}{' '}
+                      <br /> {t('common:github-4')} <br />{' '}
+                      {t('common:github-5')}
+                      <br /> {t('common:github-6')}
                     </a>
                   </li>
                 </ul>
@@ -379,7 +388,7 @@ function Navbar() {
                     onClick={() => setOpened(!opened)}
                     className="big-font-inverse"
                   >
-                    Home
+                    {t('common:nav-home')}
                   </a>
                 </Link>
               </li>
@@ -389,7 +398,7 @@ function Navbar() {
                     onClick={() => setOpened(!opened)}
                     className="big-font-inverse"
                   >
-                    What i do
+                    {t('common:nav-stuff')}
                   </a>
                 </Link>
               </li>
@@ -399,7 +408,7 @@ function Navbar() {
                     onClick={() => setOpened(!opened)}
                     className="big-font-inverse"
                   >
-                    Who i am
+                    {t('common:nav-about')}
                   </a>
                 </Link>
               </li>
@@ -409,7 +418,7 @@ function Navbar() {
                     onClick={() => setOpened(!opened)}
                     className="big-font-inverse"
                   >
-                    What i write
+                    {t('common:nav-post')}
                   </a>
                 </Link>
               </li>

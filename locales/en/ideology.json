@@ -1,3 +1,27 @@
 {
-  "prologue": "prologue"
+  "prologue": "prologue",
+  "type": "Type",
+  "type-2": "Employee",
+  "work": "work",
+  "year": "Year",
+  "stack": "Main technologies",
+  "web": "Website",
+  "exposition": "exposition",
+  "exposition-2": "Make cool websites with WebFlow.",
+  "rising-action": "Rising action",
+  "rising-action-2": "My mission was simple. Developing websites with WebFlow and adding CSS & JavaScript code in order to avoid the inflexibility of some WordPress themes and plug-ins.",
+  "rising-action-3": "I run into some complex animations using WebFlow, from parallax effects to scroll animations",
+  "climax": "climax",
+  "climax-2": "In the crisis moments, i also wrote some PHP code, despite my knowledge stops at arrays, i learned how to fix common bugs, or the infamous white screen of death",
+  "falling-action": "falling action",
+  "falling-action-2": "Working in one of the biggest studio of Ragusa taught me how to efficiently work and communicate in a team.",
+  "denouement": "denouement",
+  "denouement-2": "I got production experience withWebFlow and frontend.",
+  "marquee": "websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - websites i've worked on - ",
+  "credits": "credits",
+  "dev": "DEV CO-WORKERS",
+  "graphics": "GRAPHICS",
+  "videomaker": "VIDEOMAKER",
+  "illustrations": "ILLUSTRATIONS",
+  "photos": "PHOTOS"
 }

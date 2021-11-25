@@ -6,6 +6,10 @@
   justify-content: space-between;
 }
 
+.nav-dropdown-cnt span {
+  cursor: pointer;
+}
+
 .close-burger {
   position: fixed;
   top: 20px;

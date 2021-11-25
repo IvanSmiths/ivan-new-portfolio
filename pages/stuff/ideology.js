@@ -117,7 +117,7 @@ const Ideology = () => {
           <div className="stuff-s-header-info-layout">
             <ul className="stuff-s-header-info">
               <motion.li layout="ideology-stuff" className="small-font">
-                work
+                {t('ideology:work')}
               </motion.li>
               <motion.li layout="ideology-prologue" className="small-font">
                 .{t('ideology:prologue')}
@@ -145,15 +145,15 @@ const Ideology = () => {
           <span className="lines"></span>
           <ul className="small-font stuff-s-quick-info">
             <li>
-              Type: <br />
-              Employee
+              {t('ideology:type')}: <br />
+              {t('ideology:type-2')}
             </li>
             <li>
-              Year: <br />
+              {t('ideology:year')}: <br />
               2020/2022
             </li>
             <li>
-              Main technologies: <br />
+              {t('ideology:stack')}: <br />
               Webflow, Html, Css, <br /> JavaScript, WordPress
             </li>
             <li>
@@ -165,7 +165,7 @@ const Ideology = () => {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
               >
-                Website
+                {t('ideology:web')}
               </a>
             </li>
           </ul>
@@ -174,8 +174,8 @@ const Ideology = () => {
 
       <div className="exposition-cnt skewElem">
         <div className="exposition">
-          <em className="small-font stuff-em">.exposition</em>
-          <h2 className="big-font">Make cool websites with WebFlow.</h2>
+          <em className="small-font stuff-em">. {t('ideology:exposition')}</em>
+          <h2 className="big-font">{t('ideology:exposition-2')}</h2>
         </div>
       </div>
 
@@ -190,12 +190,8 @@ const Ideology = () => {
         />
       </div>
       <div className="rising-action-cnt skewElem">
-        <em className="stuff-em">.Rising action</em>
-        <p>
-          My mission was simple. Developing websites with WebFlow and adding css
-          & Javascript code in order to avoid the inflexibility of some
-          WordPress themes and plug-ins.
-        </p>
+        <em className="stuff-em">.{t('ideology:rising-action')}</em>
+        <p>{t('ideology:rising-action-2')}</p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
         <SrcImage
@@ -210,11 +206,7 @@ const Ideology = () => {
       <main className="climax-cnt flex-center skewElem">
         <div className="climax">
           <em className="stuff-em">.climax</em>
-          <p>
-            In the crisis moments, i also wrote some PHP code, despite my
-            knowledge stops at arrays, i learned how to fix common bugs, or the
-            infamous {`"`}white screen of death{`"`}.
-          </p>
+          <p>{t('ideology:climax-2')}</p>
         </div>
       </main>
       {/* <section ref={ref2}>
@@ -420,11 +412,8 @@ const Ideology = () => {
         </ul>
       </div>
       <div className="falling-action-cnt skewElem">
-        <em className="stuff-em">.falling action</em>
-        <p>
-          Working in one of the biggest studio of Ragusa taught me how to
-          efficiently work and communicate in a team.
-        </p>
+        <em className="stuff-em">. {t('ideology:falling-action')}</em>
+        <p>{t('ideology:falling-action-2')}</p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
         <SrcImage
@@ -437,10 +426,9 @@ const Ideology = () => {
         />
       </div>
       <div className="denouement-cnt skewElem">
-        <em className="stuff-em">.denouement</em>
+        <em className="stuff-em">.{t('ideology:denouement')}</em>
         <h3 className="impact impact-large uppercase large-font">
-          I got production experince using WebFlow, WordPress and frontend in
-          general.
+          {t('ideology:denouement-2')}
         </h3>
       </div>
       <Marquee />
@@ -455,12 +443,12 @@ const Ideology = () => {
         </div>
       </section>
       <section className="credits-cnt flex-center skewElem">
-        <h3 className="large-font">Credits</h3>
+        <h3 className="large-font">{t('ideology:credits')}</h3>
         <div className="credits-card-cnt flex-center">
           <ul className="credits-card">
             <li className="credits-card-title">Ideology</li>
             <li>
-              DEV CO-WORKERS:{' '}
+              {t('ideology:dev')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -472,7 +460,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              GRAPHICS:{' '}
+              {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -484,7 +472,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              VIDEOMAKER:{' '}
+              {t('ideology:videomaker')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -496,7 +484,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              ILLUSTRATIONS:{' '}
+              {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -508,7 +496,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              PHOTOS:{' '}
+              {t('ideology:photos')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -523,7 +511,7 @@ const Ideology = () => {
           <ul className="credits-card">
             <li className="credits-card-title">mabù</li>
             <li>
-              DEV CO-WORKERS:{' '}
+              {t('ideology:dev')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -535,7 +523,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              GRAPHICS:{' '}
+              {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -547,7 +535,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              VIDEOMAKER:{' '}
+              {t('ideology:videomaker')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -559,7 +547,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              ILLUSTRATIONS:{' '}
+              {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -584,7 +572,7 @@ const Ideology = () => {
           <ul className="credits-card">
             <li className="credits-card-title">bionatur</li>
             <li>
-              DEV CO-WORKERS:{' '}
+              {t('ideology:dev')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -606,7 +594,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              GRAPHICS:{' '}
+              {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -618,7 +606,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              ILLUSTRATIONS:{' '}
+              {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -645,7 +633,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              GRAPHICS:{' '}
+              {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -657,7 +645,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              VIDEOMAKER:{' '}
+              {t('ideology:videomaker')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -669,7 +657,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              ILLUSTRATIONS:{' '}
+              {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -691,7 +679,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              PHOTOS:{' '}
+              {t('ideology:photos')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 const Menu = () => {
   const onMouseEnter = () => {
@@ -11,32 +12,33 @@ const Menu = () => {
 
   const [dropdown, setDropdown] = useState(false);
 
+  let { t } = useTranslation();
   return (
     <div onMouseLeave={onMouseLeave} className="nav-dropdown-cnt">
       <span onMouseEnter={onMouseEnter} className="tiny-font">
-        lazy menu
+        {t('common:lazy')}
       </span>
       <div onMouseLeave={onMouseLeave} className="nav-dropdown lazy-menu">
         {dropdown && (
           <ul>
             <li>
               <Link href="/">
-                <a>Home</a>
+                <a> {t('common:nav-home')}</a>
               </Link>
             </li>
             <li>
               <Link href="/stuff">
-                <a>What i do</a>
+                <a> {t('common:nav-stuff')}</a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a>Who i am</a>
+                <a> {t('common:nav-about')}</a>
               </Link>
             </li>
             <li>
               <Link href="/post">
-                <a>What i write</a>
+                <a> {t('common:nav-post')}</a>
               </Link>
             </li>
           </ul>

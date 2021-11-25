@@ -11,7 +11,7 @@ const LanguageChange = () => {
           <a>{router.locales[0]}</a>
         </Link>
       </li>
-      /
+      <li>/</li>
       <li>
         <Link locale="it" href={router.asPath}>
           <a>{router.locales[1]}</a>
