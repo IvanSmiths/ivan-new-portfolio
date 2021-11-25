@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { CursorContext } from '../CursorManager';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useTranslation from 'next-translate/useTranslation';
 
 function About() {
   useEffect(() => {
@@ -106,7 +107,7 @@ function About() {
   const handleMouseLeave = () => {
     setSize('small');
   };
-
+  let { t } = useTranslation();
   return (
     <>
       <main className="homepage-about-cnt skewElem">
@@ -129,9 +130,9 @@ function About() {
         </p>
         <div className="homepage-about-sub-cnt flex-center">
           <motion.h2 layoutId="about" className="small-font">
-            IVAN SMITHS <br />
-            FRONTEND DEVELOPER <br />
-            UI/UX DESIGNER
+            {t('home:about-title')} <br />
+            {t('home:about-title-2')} <br />
+            {t('home:about-title-3')}
           </motion.h2>
         </div>
         <div className="homepage-about-p-cnt">

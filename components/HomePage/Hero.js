@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
+import useTranslation from 'next-translate/useTranslation';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const Hero = () => {
@@ -32,10 +33,12 @@ const Hero = () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  let { t } = useTranslation();
   return (
     <header className="home-header-cnt flex-center">
       <motion.h1 layoutId="main-title" className="large-font skewElem">
-        Speed, <br /> Security <br /> & <br />{' '}
+        {t('home:speed')}, <br /> {t('home:security')} <br /> {t('home:and')}{' '}
+        <br />{' '}
       </motion.h1>
     </header>
   );

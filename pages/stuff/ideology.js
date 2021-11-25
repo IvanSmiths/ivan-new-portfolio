@@ -10,6 +10,7 @@ import { pageData } from '../../utils/sampleData';
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import FooterIdeology from '../../components/Footers/FooterIdeology';
 import { CursorContext } from '../../components/CursorManager';
+import useTranslation from 'next-translate/useTranslation';
 
 const Ideology = () => {
   // gsap.registerPlugin(ScrollTrigger);
@@ -75,6 +76,8 @@ const Ideology = () => {
     setSize('small');
   };
 
+  let { t } = useTranslation();
+
   return (
     <>
       <Head>
@@ -117,7 +120,7 @@ const Ideology = () => {
                 work
               </motion.li>
               <motion.li layout="ideology-prologue" className="small-font">
-                .prologue
+                .{t('ideology:prologue')}
               </motion.li>
             </ul>
             <motion.h1 layoutId="ideology-title" className="big-font">

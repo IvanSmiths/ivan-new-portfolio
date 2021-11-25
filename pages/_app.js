@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import Menu from '../components/Menu';
+import LanguageChange from '../components/LanguageChange';
 
 const ThemeToggle = dynamic(() => import('../components/ThemeToggle'), {
   ssr: false,
@@ -124,6 +125,7 @@ function MyApp({ Component, pageProps }) {
           <CustomCursor />
           <ScrollPercentage />
           <ThemeToggle />
+          <LanguageChange />
           <div onClick={scrollToTop} className="scroll-to-top">
             {isVisible && <div onClick={scrollToTop}>{''}</div>}
           </div>

@@ -1,0 +1,10 @@
+{
+  "locales": ["en", "it"],
+  "defaultLocale": "en",
+  "pages": {
+    "*": ["common"],
+    "/": ["home"],
+    "/stuff/ideology": ["ideology"],
+    "/stuff/cg-prospect": ["cg-prospect"]
+  }
+}

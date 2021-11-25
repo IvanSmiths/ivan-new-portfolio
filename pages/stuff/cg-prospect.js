@@ -7,6 +7,7 @@ import SrcImage from '../../components/SrcImage';
 import Head from 'next/head';
 import FooterIdeology from '../../components/Footers/FooterIdeology';
 import { CursorContext } from '../../components/CursorManager';
+import useTranslation from 'next-translate/useTranslation';
 
 const Ideology = () => {
   // SKEW
@@ -43,6 +44,8 @@ const Ideology = () => {
   const handleMouseLeave = () => {
     setSize('small');
   };
+
+  let { t } = useTranslation();
 
   return (
     <>
@@ -86,7 +89,7 @@ const Ideology = () => {
                 project
               </motion.li>
               <motion.li layout="cg-prospect-prologue" className="small-font">
-                .prologue
+                .{t('cg-prospect:prologue')}
               </motion.li>
             </ul>
             <motion.h1 layoutId="cg-prospect-title" className="big-font">
@@ -182,7 +185,7 @@ const Ideology = () => {
           </p>
         </div>
       </main>
-      <div className="falling-action-website-1-cnt skewElem">
+      <div className="falling-action-website-1-cnt falling-action-cg skewElem">
         <SrcImage
           src={'/cg-prospect-website-4.jpg'}
           webp={'/cg-prospect-website-4.webp'}
