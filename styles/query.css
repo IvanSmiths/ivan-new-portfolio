@@ -116,12 +116,32 @@
     height: auto;
   }
 
+  .home-header-cnt h1 {
+    line-height: 7.5rem;
+  }
+
   .rising-action-cnt {
     width: 80%;
   }
 
   .exposition-cnt h2 {
     padding-left: 20vw;
+  }
+
+  .footer-layout-cnt {
+    flex-direction: revert;
+  }
+
+  .footer-ivan-smiths {
+    padding-left: 0;
+  }
+
+  .based {
+    padding-top: 24px;
+  }
+
+  .footer-layout-cnt .lines {
+    width: 50%;
   }
   .climax {
     width: 80%;

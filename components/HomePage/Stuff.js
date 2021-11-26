@@ -8,46 +8,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useTranslation from 'next-translate/useTranslation';
 
 function About() {
-  useEffect(() => {
-    let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
-      clamp = gsap.utils.clamp(-0.4, 0.4);
-
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        let skew = clamp(self.getVelocity() / -2);
-        if (Math.abs(skew) > Math.abs(proxy.skew)) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 0.5,
-            ease: 'circ',
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
-  }, []);
-
-  const [scrollY, setScrollY] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef(null);
@@ -64,11 +24,12 @@ function About() {
         x: '-200vw',
         opacity: 1,
         duration: 1,
+        ease: 'none',
         scrollTrigger: {
           trigger: element.querySelector('#box'),
           start: 'top top',
           end: 'bottom top',
-          ease: 'power3',
+          ease: 'power1',
           scrub: true,
           toggleClass: 'box-fixed',
         },
