@@ -85,7 +85,7 @@ function Navbar() {
               </ul>
             </div>
             <div>
-              <ul className="burger-menu-info-personal-cnt">
+              <ul className="burger-menu-info-personal-cnt small-font">
                 <li>ivan smiths / frontend & UI/UX</li>
                 <li>
                   <a

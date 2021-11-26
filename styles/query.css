@@ -52,6 +52,15 @@
     padding: 0 1rem;
   }
 
+  .lang-cnt {
+    z-index: 99;
+    display: flex;
+    gap: 0.6rem;
+    position: fixed;
+    top: 62px !important;
+    left: 20px !important;
+  }
+
   .cursor-wrapper {
     display: none;
   }
@@ -105,6 +114,14 @@
   .stuff-s-header-image-cnt img {
     width: 80vw;
     height: auto;
+  }
+
+  .rising-action-cnt {
+    width: 80%;
+  }
+
+  .exposition-cnt h2 {
+    padding-left: 20vw;
   }
   .climax {
     width: 80%;
@@ -201,11 +218,11 @@
     flex-direction: column;
   }
   .progress-cnt {
-    bottom: -4px !important;
+    bottom: -10px !important;
   }
   .burger-menu-info-cnt {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 0rem;
   }
 
   .blog-posts-cnt {

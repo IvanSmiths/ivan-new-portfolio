@@ -371,7 +371,7 @@ li {
   position: fixed;
   z-index: 4;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--color-bg-inverse);
   color: var(--color-text-inverse);
   clip-path: inset(100% 0 0% 0);
@@ -389,7 +389,6 @@ li {
 @import 'stuff-single.css';
 @import 'blog.css';
 @import 'about.css';
-@import 'query.css';
 
 .lines {
   display: block;
@@ -511,3 +510,5 @@ li {
 .lazy-menu li {
   margin-top: 0.6rem;
 }
+
+@import 'query.css';
