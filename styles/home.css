@@ -1,3 +1,17 @@
+.secondary-cursor {
+  z-index: 1000;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  position: fixed;
+  background: transparent;
+  border: 3px solid var(--main-color);
+  transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: center;
+  pointer-events: none;
+}
+
 .loader {
   position: relative;
   background-color: var(--color-bg-primary);

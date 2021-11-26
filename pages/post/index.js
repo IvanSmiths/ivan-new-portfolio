@@ -35,7 +35,7 @@ function Blog({ posts }) {
   return (
     <>
       <Head>
-        <title>Next.js and react tutorials and guides</title>
+        <title>Tutorials and guides about Next.js</title>
         <meta
           name="description"
           content="This is my personal blog, where i write tutorials and guides about Next.js and the React world in general"

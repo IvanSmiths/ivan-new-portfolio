@@ -6,8 +6,10 @@ import Stuff from '../components/HomePage/Stuff';
 import Head from 'next/head';
 import Marquee from '../components/Marquee-innovation';
 import FooterHome from '../components/HomePage/FooterHome';
+import useTranslation from 'next-translate/useTranslation';
 
 const Home = () => {
+  let { t } = useTranslation();
   // LOADER  ANIMATION //
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -84,11 +86,8 @@ const Home = () => {
       ) : (
         <>
           <Head>
-            <title>React / Frontend developer from Wiesbaden</title>
-            <meta
-              name="description"
-              content="React, Next.js developer with 2 years of experience, based and currently living in Wiesbaden."
-            />
+            <title> {t('home:title')}</title>
+            <meta name="description" content={t('home:desc')} />
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}

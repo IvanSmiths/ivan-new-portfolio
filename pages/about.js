@@ -1,10 +1,18 @@
 import React from 'react';
 import SrcImage from '../components/SrcImage';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 
 const About = () => {
   return (
     <>
+      <Head>
+        <title> Mind of a developer & eyes of a ui/ux designer.</title>
+        <meta
+          name="description"
+          content="Web developer, i help business owner from Ragusa to increasing their clients, by the creation of profitable websites."
+        />
+      </Head>
       <header>
         <div className="about-title-cnt">
           <motion.h1 layoutId="about" className="big-font impact">
@@ -34,9 +42,8 @@ const About = () => {
         <section className="about-paragraph-cnt flex-center">
           <div>
             <p className="small-font">
-              Web developer and Social media manager, i help business owner from
-              Ragusa to increasing their clients, via targeted ads campaigns,
-              and by the creation of profitable websites.
+              Web developer, i help business owner from Ragusa to increasing
+              their clients, by the creation of profitable websites.
             </p>
           </div>
         </section>

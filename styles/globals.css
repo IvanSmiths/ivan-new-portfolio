@@ -220,6 +220,25 @@ li {
   left: 80px;
 }
 
+/* MOUSE FOLLOWER */
+/* MOUSE FOLLOWER */
+/* MOUSE FOLLOWER */
+
+.regular {
+  width: 12rem;
+  height: 12rem;
+}
+
+.medium {
+  width: 6rem;
+  height: 6rem;
+}
+
+.small {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
 /* SCROLL PERCENTAGE */
 /* SCROLL PERCENTAGE */
 /* SCROLL PERCENTAGE */
@@ -365,8 +384,6 @@ li {
 }
 
 @import 'home.css';
-@import 'gallery.css';
-@import 'project-index.css';
 @import 'project-item.css';
 @import 'navbar.css';
 @import 'stuff-single.css';
