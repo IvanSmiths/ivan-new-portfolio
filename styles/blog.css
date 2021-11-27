@@ -118,6 +118,21 @@
   margin-left: 15vw;
 }
 
+.author-card {
+  width: 60%;
+  margin-left: 15vw;
+}
+
+.author-card {
+  gap: 4rem;
+  margin-top: var(--marginSection);
+  margin-bottom: var(--marginSection);
+}
+
+.author-card li {
+  margin-top: 0.6rem;
+}
+
 .article-content-cnt h2 {
   font-size: var(--bigFont);
   margin-top: 13rem;

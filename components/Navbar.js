@@ -240,7 +240,7 @@ function Navbar() {
                 <li>
                   <a
                     title="instagram"
-                    href="https://www.instagram.com/ivan_smiths"
+                    href="https://www.instagram.com/ivan_smiths/?hl=en"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
