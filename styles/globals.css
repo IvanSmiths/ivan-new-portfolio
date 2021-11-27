@@ -82,7 +82,7 @@ em {
   --marginLayout: 8rem;
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
-  --marginSection: 25vw;
+  --marginSection: clamp(22rem, 16.3vw, 20rem);
 }
 
 body,

@@ -323,7 +323,7 @@ function Navbar() {
                 info@ivansmiths.com
               </a>
               <div>
-                <em>{t('common:social')}</em>
+                <em>{t('common:social')}:</em>
                 <ul className="burger-menu-info-social-cnt">
                   <li className="social">
                     <a
@@ -331,7 +331,7 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://www.instagram.com/ivan_smiths"
                     >
-                      {t('common:insta-1')} <br />
+                      *{t('common:insta-1')} <br />
                       {t('common:insta-2')} <br /> {t('common:insta-3')} <br />{' '}
                       {t('common:insta-4')} <br /> {t('common:insta-5')}
                       <br /> {t('common:insta-6')}
@@ -343,7 +343,7 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://www.artstation.com/ivansmiths"
                     >
-                      {t('common:art-1')} <br /> {t('common:art-2')} <br />{' '}
+                      *{t('common:art-1')} <br /> {t('common:art-2')} <br />{' '}
                       {t('common:art-3')} <br />
                       {t('common:art-4')} <br />
                       {t('common:art-5')} <br /> {t('common:art-6')}
@@ -355,7 +355,7 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://it.linkedin.com/in/ivan-fabbri-932aaa205?trk=people-guest_people_search-card"
                     >
-                      {t('common:linkedin-1')} <br /> {t('common:linkedin-2')}{' '}
+                      *{t('common:linkedin-1')} <br /> {t('common:linkedin-2')}{' '}
                       <br />
                       {t('common:linkedin-3')} <br /> {t('common:linkedin-4')}{' '}
                       <br /> {t('common:linkedin-5')} <br />
@@ -368,7 +368,7 @@ function Navbar() {
                       rel="noopener noreferrer"
                       href="https://github.com/IvanSmiths"
                     >
-                      {t('common:github-1')} <br />
+                      *{t('common:github-1')} <br />
                       {t('common:github-2')} <br /> {t('common:github-3')}{' '}
                       <br /> {t('common:github-4')} <br />{' '}
                       {t('common:github-5')}

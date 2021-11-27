@@ -5,6 +5,7 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion';
+import useTranslation from 'next-translate/useTranslation';
 
 export const ScrollingAnimation = () => {
   const [currentPrecent, setCurrentPercent] = useState(0);
@@ -35,6 +36,7 @@ export const ScrollingAnimation = () => {
         : '#FF3B77'
     );
   }, [currentPrecent]);
+  let { t } = useTranslation();
 
   return (
     <motion.div className="progress-cnt" data-scroll-container>
@@ -68,7 +70,7 @@ export const ScrollingAnimation = () => {
           opacity: '1',
         }}
       >
-        {currentPrecent === 100 ? 'go up.' : `${currentPrecent}%`}
+        {currentPrecent === 100 ? `${t('common:go-up')}` : `${currentPrecent}%`}
       </motion.div>
     </motion.div>
   );

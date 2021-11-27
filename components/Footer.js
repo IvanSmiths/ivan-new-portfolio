@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { CursorContext } from './CursorManager';
+import useTranslation from 'next-translate/useTranslation';
 
 const Footer = () => {
   const Replay = () => {
@@ -14,6 +15,7 @@ const Footer = () => {
   const handleMouseLeave = () => {
     setSize('small');
   };
+  let { t } = useTranslation();
 
   return (
     <footer className="footer-cnt flex-center">
@@ -28,7 +30,7 @@ const Footer = () => {
               </em>
             </a>
           </Link>
-          <em className="small-font based">based in wiesbaden</em>
+          <em className="small-font based">{t('common:based')}</em>
         </div>
         <span className="lines"></span>
       </div>
