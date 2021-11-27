@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import SrcImage from '../../components/SrcImage';
 import Head from 'next/head';
-import FooterCGProspect from '../../components/Footers/FooterCGProspect';
+import FooterCgProspect from '../../components/Footers/FooterCgProspect';
 import { CursorContext } from '../../components/CursorManager';
 import useTranslation from 'next-translate/useTranslation';
 import Fade from 'react-reveal/Fade';
@@ -266,7 +266,7 @@ const Ideology = () => {
           </ul>
         </div>
       </section>
-      <FooterCGProspect />
+      <FooterCgProspect />
     </>
   );
 };
