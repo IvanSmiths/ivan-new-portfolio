@@ -390,6 +390,20 @@ li {
 @import 'blog.css';
 @import 'about.css';
 
+.guide-cnt {
+  padding-left: 10vw;
+  padding-top: 20vh;
+  min-height: 100vh;
+}
+
+.guide-cnt h1 {
+  margin-bottom: 4rem;
+}
+
+.guide-cnt a {
+  text-decoration: underline;
+}
+
 .lines {
   display: block;
   width: 100%;
