@@ -1,7 +1,7 @@
 {
   "prologue": "prologo",
   "type": "Tipo",
-  "type-2": "Dipendente",
+  "type-2": "Lavoro/Dipendente",
   "work": "lavoro",
   "year": "Anno",
   "stack": "Technologie principali",

@@ -5,9 +5,10 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import SrcImage from '../../components/SrcImage';
 import Head from 'next/head';
-import FooterIdeology from '../../components/Footers/FooterIdeology';
+import FooterCGProspect from '../../components/Footers/FooterCGProspect';
 import { CursorContext } from '../../components/CursorManager';
 import useTranslation from 'next-translate/useTranslation';
+import Fade from 'react-reveal/Fade';
 
 const Ideology = () => {
   // SKEW
@@ -85,9 +86,6 @@ const Ideology = () => {
         <div className="stuff-s-header-info-cnt skewElem">
           <div className="stuff-s-header-info-layout">
             <ul className="stuff-s-header-info">
-              <motion.li layout="cg-prospect-stuff" className="small-font">
-                project
-              </motion.li>
               <motion.li layout="cg-prospect-prologue" className="small-font">
                 .{t('cg-prospect:prologue')}
               </motion.li>
@@ -95,9 +93,6 @@ const Ideology = () => {
             <motion.h1 layoutId="cg-prospect-title" className="big-font">
               CG Prospect
             </motion.h1>
-            <motion.h2 layoutId="cg-prospect-play" className="small-font">
-              next.js & postgreSql
-            </motion.h2>
           </div>
         </div>
       </header>
@@ -149,14 +144,16 @@ const Ideology = () => {
       </div>
 
       <div className="exposition-website-1-cnt skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-2.jpg'}
-          webp={'/cg-prospect-website-2.webp'}
-          height={'60%'}
-          width={'60%'}
-          alt={'image'}
-          className={'exposition-website-1'}
-        />
+        <Fade bottom>
+          <SrcImage
+            src={'/cg-prospect-website-2.jpg'}
+            webp={'/cg-prospect-website-2.webp'}
+            height={'60%'}
+            width={'60%'}
+            alt={'image'}
+            className={'exposition-website-1'}
+          />
+        </Fade>
       </div>
       <div className="rising-action-cnt skewElem">
         <em className="stuff-em">.Rising action</em>
@@ -166,14 +163,16 @@ const Ideology = () => {
         </p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-3.jpg'}
-          webp={'/cg-prospect-website-3.webp'}
-          height={'500px'}
-          width={'100%'}
-          alt={'image'}
-          className={'falling-action-website-1'}
-        />
+        <Fade bottom>
+          <SrcImage
+            src={'/cg-prospect-website-3.jpg'}
+            webp={'/cg-prospect-website-3.webp'}
+            height={'500px'}
+            width={'100%'}
+            alt={'image'}
+            className={'falling-action-website-1'}
+          />
+        </Fade>
       </div>
       <main className="climax-cnt flex-center skewElem">
         <div className="climax">
@@ -186,14 +185,16 @@ const Ideology = () => {
         </div>
       </main>
       <div className="falling-action-website-1-cnt falling-action-cg skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-4.jpg'}
-          webp={'/cg-prospect-website-4.webp'}
-          height={'500px'}
-          width={'100%'}
-          alt={'image'}
-          className={'falling-action-website-1'}
-        />
+        <Fade bottom>
+          <SrcImage
+            src={'/cg-prospect-website-4.jpg'}
+            webp={'/cg-prospect-website-4.webp'}
+            height={'500px'}
+            width={'100%'}
+            alt={'image'}
+            className={'falling-action-website-1'}
+          />
+        </Fade>
       </div>
       <div className="falling-action-cnt skewElem">
         <em className="stuff-em">.falling action</em>
@@ -265,7 +266,7 @@ const Ideology = () => {
           </ul>
         </div>
       </section>
-      <FooterIdeology />
+      <FooterCGProspect />
     </>
   );
 };

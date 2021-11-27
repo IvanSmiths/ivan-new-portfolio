@@ -1,7 +1,7 @@
 {
   "prologue": "prologue",
   "type": "Type",
-  "type-2": "Employee",
+  "type-2": "Work/Employee",
   "work": "work",
   "year": "Year",
   "stack": "Main technologies",
