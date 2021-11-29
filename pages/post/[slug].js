@@ -59,7 +59,7 @@ const Post = ({ post }) => {
       proficiencyLevel: 'Beginner',
     },
   ];
-  console.log(post.content.raw.children);
+
   return (
     <>
       <Head>
