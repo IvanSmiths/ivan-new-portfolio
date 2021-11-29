@@ -71,7 +71,7 @@ em {
   --main-color: #d3124c;
   --extremeFont: clamp(7rem, 19vw, 14rem);
   --largeFont: clamp(2rem, 16vw, 14rem);
-  --bigFont: clamp(2rem, 10vw, 8rem);
+  --bigFont: clamp(2rem, 6.9vw, 8rem);
   --mediumFont: clamp(1.8rem, 2.7vw, 3rem);
   --smallFont: clamp(0.9rem, 1.2vw, 2rem);
   --tinyFont: clamp(0.7rem, 0.9vw, 2rem);
