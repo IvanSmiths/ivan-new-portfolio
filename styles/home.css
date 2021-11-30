@@ -61,7 +61,7 @@
 }
 
 .home-header-cnt {
-  height: 135vh;
+  min-height: 135vh;
   text-transform: uppercase;
   text-align: center;
 }
