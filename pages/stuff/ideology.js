@@ -11,7 +11,6 @@ import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import FooterIdeology from '../../components/Footers/FooterIdeology';
 import { CursorContext } from '../../components/CursorManager';
 import useTranslation from 'next-translate/useTranslation';
-import Fade from 'react-reveal/Fade';
 
 const Ideology = () => {
   // gsap.registerPlugin(ScrollTrigger);
@@ -175,32 +174,28 @@ const Ideology = () => {
       </div>
 
       <div className="exposition-website-1-cnt skewElem">
-        <Fade bottom>
-          <SrcImage
-            src={'/ideology-website-3.jpg'}
-            webp={'/ideology-website-3.webp'}
-            height={'60%'}
-            width={'60%'}
-            alt={'image'}
-            className={'exposition-website-1'}
-          />
-        </Fade>
+        <SrcImage
+          src={'/ideology-website-3.jpg'}
+          webp={'/ideology-website-3.webp'}
+          height={'60%'}
+          width={'60%'}
+          alt={'image'}
+          className={'exposition-website-1'}
+        />
       </div>
       <div className="rising-action-cnt skewElem">
         <em className="stuff-em">.{t('ideology:rising-action')}</em>
         <p>{t('ideology:rising-action-2')}</p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
-        <Fade bottom>
-          <SrcImage
-            src={'/ideology-website-5.jpg'}
-            webp={'/ideology-website-5.webp'}
-            height={'500px'}
-            width={'100%'}
-            alt={'image'}
-            className={'falling-action-website-1'}
-          />
-        </Fade>
+        <SrcImage
+          src={'/ideology-website-5.jpg'}
+          webp={'/ideology-website-5.webp'}
+          height={'500px'}
+          width={'100%'}
+          alt={'image'}
+          className={'falling-action-website-1'}
+        />
       </div>
       <main className="climax-cnt flex-center skewElem">
         <div className="climax">
@@ -353,72 +348,60 @@ const Ideology = () => {
       <div className="climax-website-cnt skewElem">
         <ul className="climax-website">
           <li className="flex-center">
-            <Fade bottom>
-              <SrcImage
-                src={'/ideology-website-mobile-4.jpg'}
-                webp={'/ideology-website-mobile-4.webp'}
-                height={'130px'}
-                width={'500px'}
-                alt={'image'}
-              />
-            </Fade>
+            <SrcImage
+              src={'/ideology-website-mobile-4.jpg'}
+              webp={'/ideology-website-mobile-4.webp'}
+              height={'130px'}
+              width={'500px'}
+              alt={'image'}
+            />
           </li>
           <li className="flex-center climax-website-margin">
-            <Fade bottom>
-              <SrcImage
-                src={'/ideology-website-mobile-7.jpg'}
-                webp={'/ideology-website-mobile-7.webp'}
-                height={'130px'}
-                width={'500px'}
-                alt={'image'}
-              />
-            </Fade>
+            <SrcImage
+              src={'/ideology-website-mobile-7.jpg'}
+              webp={'/ideology-website-mobile-7.webp'}
+              height={'130px'}
+              width={'500px'}
+              alt={'image'}
+            />
           </li>
           <li className="flex-center">
-            <Fade bottom>
-              <SrcImage
-                src={'/ideology-website-mobile-6.jpg'}
-                webp={'/ideology-website-mobile-6.webp'}
-                height={'130px'}
-                width={'500px'}
-                alt={'image'}
-              />
-            </Fade>
+            <SrcImage
+              src={'/ideology-website-mobile-6.jpg'}
+              webp={'/ideology-website-mobile-6.webp'}
+              height={'130px'}
+              width={'500px'}
+              alt={'image'}
+            />
           </li>
         </ul>
         <ul className="climax-website climax-website-2">
           <li className="flex-center">
-            <Fade bottom>
-              <SrcImage
-                src={'/ideology-website-mobile-5.jpg'}
-                webp={'/ideology-website-mobile-5.webp'}
-                height={'130px'}
-                width={'500px'}
-                alt={'image'}
-              />
-            </Fade>
+            <SrcImage
+              src={'/ideology-website-mobile-5.jpg'}
+              webp={'/ideology-website-mobile-5.webp'}
+              height={'130px'}
+              width={'500px'}
+              alt={'image'}
+            />
           </li>
           <li className="flex-center climax-website-margin">
-            <Fade bottom>
-              <SrcImage
-                src={'/ideology-website-mobile-1.jpg'}
-                webp={'/ideology-website-mobile-1.webp'}
-                height={'130px'}
-                width={'500px'}
-                alt={'image'}
-              />
-            </Fade>
+            <SrcImage
+              src={'/ideology-website-mobile-1.jpg'}
+              webp={'/ideology-website-mobile-1.webp'}
+              height={'130px'}
+              width={'500px'}
+              alt={'image'}
+            />
           </li>
           <li className="flex-center">
-            <Fade bottom>
-              <SrcImage
-                src={'/ideology-website-mobile-8.jpg'}
-                webp={'/ideology-website-mobile-8.webp'}
-                height={'130px'}
-                width={'500px'}
-                alt={'image'}
-              />
-            </Fade>
+            <SrcImage
+              src={'/ideology-website-mobile-8.jpg'}
+              webp={'/ideology-website-mobile-8.webp'}
+              height={'130px'}
+              width={'500px'}
+              alt={'image'}
+            />
           </li>
         </ul>
       </div>
@@ -427,16 +410,14 @@ const Ideology = () => {
         <p>{t('ideology:falling-action-2')}</p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
-        <Fade bottom>
-          <SrcImage
-            src={'/ideology-website-1.jpg'}
-            webp={'/ideology-website-1.webp'}
-            height={'500px'}
-            width={'100%'}
-            alt={'image'}
-            className={'falling-action-website-1'}
-          />
-        </Fade>
+        <SrcImage
+          src={'/ideology-website-1.jpg'}
+          webp={'/ideology-website-1.webp'}
+          height={'500px'}
+          width={'100%'}
+          alt={'image'}
+          className={'falling-action-website-1'}
+        />
       </div>
       <div className="denouement-cnt skewElem">
         <em className="stuff-em">.{t('ideology:denouement')}</em>
