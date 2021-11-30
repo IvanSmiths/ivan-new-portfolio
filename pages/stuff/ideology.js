@@ -159,7 +159,6 @@ const Ideology = () => {
         <em className="stuff-em">.{t('ideology:rising-action')}</em>
         <p>{t('ideology:rising-action-2')}</p>
       </div>
-
       <div className="falling-action-website-1-cnt skewElem">
         <SrcImage
           src={'/ideology-website-5.jpg'}

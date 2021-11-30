@@ -7,8 +7,10 @@ import Head from 'next/head';
 import Marquee from '../components/Marquee-innovation';
 import FooterHome from '../components/HomePage/FooterHome';
 import useTranslation from 'next-translate/useTranslation';
+import dynamic from 'next/dynamic';
 
 const Home = () => {
+  const Canvas = dynamic(() => import('../components/Canvas'), { ssr: false });
   let { t } = useTranslation();
   // LOADER  ANIMATION //
   const [loading, setLoading] = useState(true);
@@ -99,6 +101,7 @@ const Home = () => {
           </Head>
           <Hero />
           <Marquee />
+          <Canvas />
           <Stuff />
           <FooterHome />
         </>
