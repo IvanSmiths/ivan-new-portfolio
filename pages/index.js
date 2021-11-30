@@ -100,8 +100,9 @@ const Home = () => {
             />
           </Head>
           <Hero />
-          <Marquee />
-          <Canvas />
+          <div style={{ height: '130vh' }}>
+            <Canvas />
+          </div>
           <Stuff />
           <FooterHome />
         </>
