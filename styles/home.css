@@ -169,12 +169,13 @@
 
 .canvas-cnt {
   height: 130vh;
-  background-color: aliceblue;
+  background-color: #060606;
 }
 
 .canvas {
   height: 100%;
   width: 100%;
+  padding-right: 5rem;
 }
 
 .box2 {

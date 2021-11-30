@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-
+import useTranslation from 'next-translate/useTranslation';
 const Canvas = () => {
   const position = { x: 0, y: 0, radius: 280 };
   const width = window.innerWidth;
@@ -21,9 +21,9 @@ const Canvas = () => {
   const renderFrame = () => {
     const ctx = canvasRef.current.getContext('2d');
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = '#060606';
     ctx.font = ' 40px Verdana';
-    ctx.fillText('INNOVATION', 50, 50);
+    ctx.fillText(`${t('home:innovation2')}`, 50, 50);
 
     for (let i = 0; i < particleArray.length; i++) {
       particleArray[i].draw();
@@ -44,7 +44,7 @@ const Canvas = () => {
 
     draw() {
       const ctx = canvasRef.current.getContext('2d');
-      ctx.fillStyle = 'green';
+      ctx.fillStyle = '#cccccc';
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 8);
       ctx.closePath();
@@ -135,7 +135,7 @@ const Canvas = () => {
   }, []);
 
   init();
-
+  let { t } = useTranslation();
   return (
     <div className="canvas-cnt">
       <canvas
