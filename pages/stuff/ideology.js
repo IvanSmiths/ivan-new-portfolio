@@ -13,34 +13,6 @@ import { CursorContext } from '../../components/CursorManager';
 import useTranslation from 'next-translate/useTranslation';
 
 const Ideology = () => {
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // const ref2 = useRef(null);
-
-  // useEffect(() => {
-  //   const element = ref2.current;
-  //   gsap.fromTo(
-  //     element.querySelector('#boxId'),
-  //     {
-  //       x: 0,
-  //       opacity: 1,
-  //     },
-  //     {
-  //       x: '-200vw',
-  //       opacity: 1,
-  //       ease: 'none',
-  //       duration: 1,
-  //       scrollTrigger: {
-  //         trigger: element.querySelector('#boxId'),
-  //         start: 'top top',
-  //         end: 'bottom top',
-  //         scrub: true,
-  //         toggleClass: 'box-fixed',
-  //       },
-  //     }
-  //   );
-  // }, []);
-
   // SKEW
   useEffect(() => {
     let proxy = { skew: 0 },
@@ -187,6 +159,7 @@ const Ideology = () => {
         <em className="stuff-em">.{t('ideology:rising-action')}</em>
         <p>{t('ideology:rising-action-2')}</p>
       </div>
+
       <div className="falling-action-website-1-cnt skewElem">
         <SrcImage
           src={'/ideology-website-5.jpg'}
@@ -203,148 +176,6 @@ const Ideology = () => {
           <p>{t('ideology:climax-2')}</p>
         </div>
       </main>
-      {/* <section ref={ref2}>
-        <div className="box-cnt" id="box-cnt">
-          <div id="boxId" className="box">
-            <div className="box1">
-              <div className="box-image-title-cnt">
-                <h2 className="big-font">IDEOLOGY</h2>
-                <Link href="/stuff/ideology">
-                  <a>
-                    <picture>
-                      <source
-                        alt="image of a work"
-                        decoding="async"
-                        loading="lazy"
-                        height="750"
-                        width="600"
-                        srcSet="/image.webp"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="image of a work"
-                        loading="lazy"
-                        decoding="async"
-                        src="/image.jpg"
-                        height="750"
-                        width="600"
-                      />
-                    </picture>
-                  </a>
-                </Link>
-              </div>
-              <div className="box-info-cnt">
-                <ul className="small-font">
-                  <li>.01</li>
-                  <li>work - employee</li>
-                  <li>weblow & frontend</li>
-                  <li>2020/2022</li>
-                </ul>
-                <Link href="/stuff/ideology">
-                  <a className="medium-font impact">PLAY</a>
-                </Link>
-              </div>
-            </div>
-            <div className="box2">
-              <div className="box-image-title-cnt">
-                <h2 className="big-font">CG PROSPECT</h2>
-                <picture>
-                  <source
-                    alt="image of a work"
-                    decoding="async"
-                    loading="lazy"
-                    height="750"
-                    width="600"
-                    srcSet="/image.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="image of a work"
-                    loading="lazy"
-                    decoding="async"
-                    src="/image.jpg"
-                    height="750"
-                    width="600"
-                  />
-                </picture>
-              </div>
-              <div>
-                <ul>
-                  <li>ajaj</li>
-                  <li>ajaj</li>
-                  <li>ajaj</li>
-                </ul>
-              </div>
-            </div>
-            <div className="box3">
-              <div className="box-image-cnt">
-                <picture>
-                  <source
-                    alt="image of a work"
-                    decoding="async"
-                    loading="lazy"
-                    height="750"
-                    width="600"
-                    srcSet="/image.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="image of a work"
-                    loading="lazy"
-                    decoding="async"
-                    src="/image.jpg"
-                    height="750"
-                    width="600"
-                  />
-                </picture>
-              </div>
-              <div className="box-informations-cnt">
-                <h2 className="big-font">IDEOLOGY</h2>
-                <ul>
-                  <li>ajaj</li>
-                  <li>ajaj</li>
-                  <li>ajaj</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="box-cnt-2">
-            <div className="box3-2">
-              <div className="box-image-cnt">
-                <picture>
-                  <source
-                    alt="image of a work"
-                    decoding="async"
-                    loading="lazy"
-                    height="750"
-                    width="600"
-                    srcSet="/image.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="image of a work"
-                    loading="lazy"
-                    decoding="async"
-                    src="/image.jpg"
-                    height="750"
-                    width="600"
-                  />
-                </picture>
-              </div>
-              <div className="box-informations-cnt">
-                <h2 className="big-font">IDEOLOGY</h2>
-                <ul>
-                  <li>ajaj</li>
-                  <li>ajaj</li>
-                  <li>ajaj</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <div className="climax-website-cnt skewElem">
         <ul className="climax-website">
           <li className="flex-center">
