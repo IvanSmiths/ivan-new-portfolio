@@ -55,28 +55,6 @@ const Home = () => {
       keywords: 'next.js, wiesbaden, react.js, frontend developer',
       locationCreated: 'wiesbaden',
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          item: {
-            '@id': 'https://www.ivansmiths.com/stuff',
-            name: 'Stuff',
-          },
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          item: {
-            '@id': 'https://www.ivansmiths.com/post',
-            name: 'What i write',
-          },
-        },
-      ],
-    },
   ];
 
   return (
@@ -100,8 +78,11 @@ const Home = () => {
             />
           </Head>
           <Hero />
-          <div style={{ height: '130vh' }}>
+          <div className="canvas-cnt-home" style={{ height: '130vh' }}>
             <Canvas />
+          </div>
+          <div className="innovation-cnt-home" style={{ display: 'none' }}>
+            <Marquee />
           </div>
           <Stuff />
           <FooterHome />

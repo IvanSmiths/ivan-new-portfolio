@@ -82,7 +82,7 @@ em {
   --marginLayout: 8rem;
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
-  --marginSection: clamp(22rem, 16.3vw, 20rem);
+  --marginSection: clamp(22rem, 16vw, 20rem);
 }
 
 body,
@@ -528,6 +528,114 @@ li {
 
 .lazy-menu li {
   margin-top: 0.6rem;
+}
+
+.zelda-cnt {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  gap: 29vw;
+  justify-content: space-evenly;
+}
+
+.email-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.email-cnt span {
+  margin-top: 4rem;
+}
+
+.contact-cnt {
+  width: 100%;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-cnt input {
+  padding: 0rem 0.5rem;
+  width: 60vw;
+  font-weight: 600;
+  border: 1px solid var(--mainColor);
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-cnt label {
+  margin-bottom: 0.3rem;
+}
+
+.form-cnt textarea {
+  padding: 0.3rem 0.5rem;
+  width: 60vw;
+  font-weight: 400;
+  font-size: 1.2rem;
+  border: 1px solid var(--mainColor);
+  border-radius: 0.5rem;
+  resize: vertical;
+}
+
+.form-cnt button {
+  margin-top: 1rem;
+}
+
+.messageaaaa-cnt h2 {
+  margin-top: 13rem;
+}
+
+.message-cnt {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-contact {
+  cursor: pointer;
+  padding: 1.1rem 1.4rem;
+  background-color: var(--mainColor);
+  border: 2px solid var(--mainColor);
+  border-radius: var(--radius);
+  font-size: var(--smallFont);
+  transition: 0.2s ease-in-out;
+  font-weight: 600;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-contact:hover {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--mainFontColor);
+  border: 2px solid var(--mainColor);
+  border-radius: var(--radius);
+  font-size: var(--smallFont);
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.questionary-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionary {
+  width: 80vw;
+}
+
+.email-form {
+  color: var(--color-text-inverse);
 }
 
 @import 'query.css';

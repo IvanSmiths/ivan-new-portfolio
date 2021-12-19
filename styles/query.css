@@ -8,7 +8,13 @@
     width: 80%;
     margin-left: 7vw;
   }
+  .canvas-cnt-home {
+    display: none;
+  }
 
+  .innovation-cnt-home {
+    display: block !important;
+  }
   .post-card-cnt {
     flex-direction: column;
     justify-content: center;
@@ -66,7 +72,7 @@
   }
 
   .home-header-cnt {
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .marquee-innovation {
@@ -89,7 +95,7 @@
   .marquee-cnt {
     width: 140vw;
     margin-top: 0rem;
-    margin-bottom: 16rem;
+    margin-bottom: 6rem;
   }
 
   .article-content-cnt {

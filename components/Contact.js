@@ -1,182 +1,83 @@
 import { useState } from 'react';
 import cn from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
 
 function Contact() {
-  const [fullname, setFullname] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-
-  //   Form validation
-  const [errors, setErrors] = useState({});
-
-  //   Setting button text
-  const [buttonText, setButtonText] = useState('Send');
-
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [showFailureMessage, setShowFailureMessage] = useState(false);
-
-  const handleValidation = () => {
-    let tempErrors = {};
-    let isValid = true;
-
-    if (fullname.length <= 0) {
-      tempErrors['fullname'] = true;
-      isValid = false;
-    }
-    if (email.length <= 0) {
-      tempErrors['email'] = true;
-      isValid = false;
-    }
-    if (subject.length <= 0) {
-      tempErrors['subject'] = true;
-      isValid = false;
-    }
-    if (message.length <= 0) {
-      tempErrors['message'] = true;
-      isValid = false;
-    }
-
-    setErrors({ ...tempErrors });
-    console.log('errors', errors);
-    return isValid;
-  };
-
-  //   const [form, setForm] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    let isValidForm = handleValidation();
-
-    if (isValidForm) {
-      setButtonText('Sending');
-      const res = await fetch('/api/sendgrid', {
-        body: JSON.stringify({
-          email: email,
-          fullname: fullname,
-          subject: subject,
-          message: message,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      });
-
-      const { error } = await res.json();
-      if (error) {
-        console.log(error);
-        setShowSuccessMessage(false);
-        setShowFailureMessage(true);
-        setButtonText('Send');
-
-        // Reset form fields
-        setFullname('');
-        setEmail('');
-        setMessage('');
-        setSubject('');
-        return;
-      }
-      setShowSuccessMessage(true);
-      setShowFailureMessage(false);
-      setButtonText('Send');
-      // Reset form fields
-      setFullname('');
-      setEmail('');
-      setMessage('');
-      setSubject('');
-    }
-  };
   const [opened, setOpened] = useState(false);
-  let { t } = useTranslation();
+
   return (
     <>
       <span className="contact-span" onClick={() => setOpened(!opened)}>
-        {t('common:let-us-talk')}
+        Parliamo
       </span>
       <div className={cn('overlay-burger-menu', { 'as-opened': opened })}>
-        <form onSubmit={handleSubmit} className="">
-          <span className="">Send a message</span>
-
-          <label htmlFor="fullname" className="">
-            Full name
-            <span className="">*</span>
-          </label>
-          <input
-            id="fullname"
-            type="text"
-            value={fullname}
-            onChange={(e) => {
-              setFullname(e.target.value);
-            }}
-            name="fullname"
-            className=""
-          />
-          {errors?.fullname && <em className="">Fullname cannot be empty.</em>}
-
-          <label htmlFor="email" className="">
-            E-mail<span className="">*</span>
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            className=""
-          />
-          {errors?.email && <em className="">Email cannot be empty.</em>}
-
-          <label htmlFor="subject" className="">
-            Subject<span className="">*</span>
-          </label>
-          <input
-            id="subject"
-            type="text"
-            name="subject"
-            value={subject}
-            onChange={(e) => {
-              setSubject(e.target.value);
-            }}
-            className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
-          />
-          {errors?.subject && <em className="">Subject cannot be empty.</em>}
-          <label htmlFor="message" className="">
-            Message<span className="">*</span>
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-            className=""
-          ></textarea>
-          {errors?.message && (
-            <em className="">Message body cannot be empty.</em>
-          )}
-          <div className="">
-            <button type="submit" className="">
-              {buttonText}
-            </button>
+        <div className="contact-cnt">
+          <em className="medium-font">
+            It is dangerous to go alone, take this.
+          </em>
+          <div className="zelda-cnt">
+            <span className="medium-font">🔥</span>
+            <span className="medium-font">👴</span>
+            <span className="medium-font">🔥</span>
           </div>
-          <div className="text-left">
-            {showSuccessMessage && (
-              <p className="">Thankyou! Your Message has been delivered.</p>
-            )}
-            {showFailureMessage && (
-              <p className="">Oops! Something went wrong, please try again.</p>
-            )}
+          <div className="email-cnt">
+            <a className="email-form" href="mailto:info@ivansmiths.com">
+              info@ivansmiths.com
+            </a>
+            <span className="medium-font">🙌</span>
           </div>
-        </form>
-        <span className="contact-close-span" onClick={() => setOpened(!opened)}>
-          X
-        </span>
+          <h2 className="medium-font highlight-main">form</h2>
+          <div className="form-cnt">
+            <form
+              action="https://formsubmit.co/info@ivansmiths.com"
+              method="POST"
+              className="form"
+            >
+              <input
+                type="hidden"
+                name="_next"
+                value="http://localhost:3000/message"
+              />
+              <input type="hidden" name="_subject" value="IvanSmiths | Info" />
+              <label htmlFor="name" className="small-font">
+                name
+              </label>
+              <input type="text" id="name" name="name" minLength="3" required />
+              <label htmlFor="object" className="small-font">
+                object
+              </label>
+              <input
+                type="text"
+                id="object"
+                name="object"
+                minLength="4"
+                required
+              />
+              <label htmlFor="email" className="small-font">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                minLength="6"
+                required
+              />
+              <label className="small-font" htmlFor="message">
+                message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                minLength="10"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <button className="btn-contact" type="submit">
+                send
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );
