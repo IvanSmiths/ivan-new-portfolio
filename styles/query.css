@@ -1,4 +1,9 @@
 @media screen and (max-width: 768px) {
+  .large-font {
+    font-size: var(--largeFont);
+    line-height: 19vw !important;
+  }
+
   .stuff-s-header-cnt {
     flex-direction: column;
     margin-bottom: var(--marginSection);
@@ -8,6 +13,7 @@
     width: 80%;
     margin-left: 7vw;
   }
+
   .canvas-cnt-home {
     display: none;
   }
@@ -292,5 +298,14 @@
   .social-mobile {
     display: flex;
     justify-content: space-between;
+  }
+
+  .large-font {
+    font-size: var(--largeFont);
+    line-height: 96% !important;
+  }
+
+  .footer-layout-cnt em {
+    margin: 1vw 0;
   }
 }
