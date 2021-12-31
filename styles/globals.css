@@ -88,6 +88,7 @@ em {
 body,
 body[data-theme='light'] {
   --color-bg-primary: #cccccc;
+  --color-bg-sub: #3b3b3b;
   --color-text-primary: #060606;
   --color-text-inverse: #cccccc;
   --color-bg-inverse: #060606;
@@ -95,6 +96,7 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
   --color-bg-primary: #060606;
+  --color-bg-sub: #ffffff;
   --color-text-primary: #cccccc;
   --color-text-inverse: #060606;
   --color-bg-inverse: #cccccc;
@@ -369,7 +371,7 @@ li {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 2;
+  z-index: 10;
   color: var(--color-text-primary);
 }
 
@@ -536,14 +538,6 @@ li {
   margin-top: 0.6rem;
 }
 
-.zelda-cnt {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: row;
-  gap: 29vw;
-  justify-content: space-evenly;
-}
-
 .email-cnt {
   display: flex;
   justify-content: center;
@@ -574,22 +568,9 @@ li {
   flex-direction: column;
 }
 
-.form-cnt input {
-  padding: 0rem 0.5rem;
-  width: 60vw;
-  font-weight: 600;
-  border: 1px solid var(--mainColor);
-  border-radius: 0.5rem;
-  height: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.form-cnt label {
-  margin-bottom: 0.3rem;
-}
-
 .mail-contact {
-  color: var
+  margin-top: auto;
+  color: var(--color-text-inverse);
 }
 
 .form-cnt textarea {
@@ -628,6 +609,21 @@ li {
 
 .email-form {
   color: var(--color-text-inverse);
+}
+
+.form input {
+  padding: 0.2rem;
+  border: none;
+  background-color: var(--color-bg-sub);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form textarea {
+  border: none;
+  background-color: var(--color-bg-sub);
 }
 
 @import 'query.css';

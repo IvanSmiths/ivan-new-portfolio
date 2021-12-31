@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 
 function Contact() {
   const [opened, setOpened] = useState(false);
+  let { t } = useTranslation();
 
   return (
     <>
       <span className="contact-span" onClick={() => setOpened(!opened)}>
-        Parliamo
+        {t('common:let-us-talk')}
       </span>
       <div className={cn('overlay-burger-menu menu2', { 'as-opened': opened })}>
         <span className="close-burger2" onClick={() => setOpened(!opened)}>
@@ -63,9 +65,13 @@ function Contact() {
               Send
             </button>
           </form>
-          <br />
-          OR
-          <a className="mail-contact" href="mailto:info@ivansmiths.it">info@ivansmiths.it</a>
+
+          <a
+            className="mail-contact medium-font"
+            href="mailto:info@ivansmiths.com"
+          >
+            info@ivansmiths.com
+          </a>
         </div>
       </div>
     </>
