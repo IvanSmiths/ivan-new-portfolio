@@ -11,9 +11,21 @@
 }
 
 .close-burger {
+  cursor: pointer;
+  font-size: 2rem;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 14px;
+  right: 33px;
+}
+
+.close-burger2 {
+  cursor: pointer;
+  font-size: 2rem;
+  position: fixed;
+  bottom: 14px;
+  right: 33px;
+  z-index: 3222222;
+  color: var(--color-text-inverse);
 }
 
 .overlay-burger-menu {

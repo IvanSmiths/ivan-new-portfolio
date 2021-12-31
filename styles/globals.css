@@ -369,7 +369,7 @@ li {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 10;
+  z-index: 2;
   color: var(--color-text-primary);
 }
 
@@ -558,12 +558,20 @@ li {
 
 .contact-cnt {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
+.menu2 {
+  padding: 10vh 50px;
+}
+
 .form {
+  width: 50%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .form-cnt input {
@@ -578,6 +586,10 @@ li {
 
 .form-cnt label {
   margin-bottom: 0.3rem;
+}
+
+.mail-contact {
+  color: var
 }
 
 .form-cnt textarea {
@@ -607,37 +619,11 @@ li {
 }
 
 .btn-contact {
+  border: none;
+  background: transparent;
   cursor: pointer;
-  padding: 1.1rem 1.4rem;
-  background-color: var(--mainColor);
-  border: 2px solid var(--mainColor);
-  border-radius: var(--radius);
-  font-size: var(--smallFont);
-  transition: 0.2s ease-in-out;
-  font-weight: 600;
-  color: white;
+  color: var(--color-text-inverse);
   transition: 0.5s ease-in-out;
-}
-
-.btn-contact:hover {
-  cursor: pointer;
-  background-color: transparent;
-  color: var(--mainFontColor);
-  border: 2px solid var(--mainColor);
-  border-radius: var(--radius);
-  font-size: var(--smallFont);
-  transition: 0.3s ease-in-out;
-  font-weight: 600;
-}
-
-.questionary-cnt {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.questionary {
-  width: 80vw;
 }
 
 .email-form {

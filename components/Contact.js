@@ -9,24 +9,11 @@ function Contact() {
       <span className="contact-span" onClick={() => setOpened(!opened)}>
         Parliamo
       </span>
-      <div className={cn('overlay-burger-menu', { 'as-opened': opened })}>
+      <div className={cn('overlay-burger-menu menu2', { 'as-opened': opened })}>
+        <span className="close-burger2" onClick={() => setOpened(!opened)}>
+          X
+        </span>
         <div className="contact-cnt">
-          <em className="medium-font">
-            It is dangerous to go alone, take this.
-          </em>
-          <div className="zelda-cnt">
-            <span className="medium-font">🔥</span>
-            <span className="medium-font">👴</span>
-            <span className="medium-font">🔥</span>
-          </div>
-          <div className="email-cnt">
-            <a className="email-form" href="mailto:info@ivansmiths.com">
-              info@ivansmiths.com
-            </a>
-            <span className="medium-font">🙌</span>
-          </div>
-          <h2 className="medium-font highlight-main">form</h2>
-
           <form
             action="https://formsubmit.co/info@ivansmiths.com"
             method="POST"
@@ -39,11 +26,11 @@ function Contact() {
             />
             <input type="hidden" name="_subject" value="IvanSmiths | Info" />
             <label htmlFor="name" className="small-font">
-              name
+              Name
             </label>
             <input type="text" id="name" name="name" minLength="3" required />
             <label htmlFor="object" className="small-font">
-              object
+              Object
             </label>
             <input
               type="text"
@@ -63,7 +50,7 @@ function Contact() {
               required
             />
             <label className="small-font" htmlFor="message">
-              message
+              Message
             </label>
             <textarea
               id="message"
@@ -72,10 +59,13 @@ function Contact() {
               cols="30"
               rows="10"
             ></textarea>
-            <button className="btn-contact" type="submit">
-              send
+            <button className="btn-contact small-font" type="submit">
+              Send
             </button>
           </form>
+          <br />
+          OR
+          <a className="mail-contact" href="mailto:info@ivansmiths.it">info@ivansmiths.it</a>
         </div>
       </div>
     </>
