@@ -305,7 +305,15 @@
     line-height: 96% !important;
   }
 
+  .author-card {
+    flex-direction: column;
+  }
+
   .footer-layout-cnt em {
     margin: 1vw 0;
+  }
+
+  .title-item {
+    margin-bottom: 2.8rem;
   }
 }

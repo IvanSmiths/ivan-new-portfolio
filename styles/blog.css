@@ -173,3 +173,7 @@
 .post-card-img-cnt img {
   object-fit: cover;
 }
+
+.author-card {
+  background-color: var(--color-bg-primary);
+}

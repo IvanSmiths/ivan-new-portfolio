@@ -82,7 +82,7 @@ em {
   --marginLayout: 8rem;
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
-  --marginSection: clamp(22rem, 16vw, 20rem);
+  --marginSection: clamp(17rem, 16vw, 20rem);
 }
 
 body,
@@ -329,18 +329,6 @@ li {
   fill: var(--color-text-inverse);
 }
 
-.social-post-cnt #Tracciato_5,
-#Tracciato_2,
-#Tracciato_3,
-#Tracciato_1,
-#Tracciato_6,
-#Ellisse_8,
-#Rettangolo_3,
-#Tracciato_8,
-#Ellisse_10,
-#Tracciato_4 {
-  fill: var(--color-text-primary);
-}
 /* SCROLL TO TOP */
 /* SCROLL TO TOP */
 /* SCROLL TO TOP */
