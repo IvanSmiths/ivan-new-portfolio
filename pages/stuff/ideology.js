@@ -110,19 +110,55 @@ const Ideology = () => {
         <div className="stuff-s-quick-info-cnt">
           <span className="lines"></span>
           <ul className="small-font stuff-s-quick-info">
-            <li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:type')}: <br />
               {t('ideology:type-2')}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:year')}: <br />
               2020/2022
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:stack')}: <br />
               Webflow, Html, Css, <br /> JavaScript, WordPress
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               Link: <br />
               <a
                 onMouseEnter={handleMouseEnter}
@@ -133,15 +169,39 @@ const Ideology = () => {
               >
                 {t('ideology:web')}
               </a>
-            </li>
+            </motion.li>
           </ul>
         </div>
       </section>
 
       <div className="exposition-cnt skewElem">
         <div className="exposition">
-          <em className="small-font stuff-em">. {t('ideology:exposition')}</em>
-          <h2 className="big-font">{t('ideology:exposition-2')}</h2>
+          <motion.em
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="small-font stuff-em"
+          >
+            . {t('ideology:exposition')}
+          </motion.em>
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font"
+          >
+            {t('ideology:exposition-2')}
+          </motion.h2>
         </div>
       </div>
 
@@ -156,8 +216,31 @@ const Ideology = () => {
         />
       </div>
       <div className="rising-action-cnt skewElem">
-        <em className="stuff-em">.{t('ideology:rising-action')}</em>
-        <p>{t('ideology:rising-action-2')}</p>
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          className="stuff-em"
+        >
+          .{t('ideology:rising-action')}
+        </motion.em>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
+          {t('ideology:rising-action-2')}
+        </motion.p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
         <SrcImage
@@ -171,13 +254,46 @@ const Ideology = () => {
       </div>
       <main className="climax-cnt flex-center skewElem">
         <div className="climax">
-          <em className="stuff-em">.climax</em>
-          <p>{t('ideology:climax-2')}</p>
+          <motion.em
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="stuff-em"
+          >
+            .climax
+          </motion.em>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            {t('ideology:climax-2')}
+          </motion.p>
         </div>
       </main>
       <div className="climax-website-cnt skewElem">
         <ul className="climax-website">
-          <li className="flex-center">
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="flex-center"
+          >
             <SrcImage
               src={'/ideology-website-mobile-4.jpg'}
               webp={'/ideology-website-mobile-4.webp'}
@@ -185,8 +301,18 @@ const Ideology = () => {
               width={'500px'}
               alt={'image'}
             />
-          </li>
-          <li className="flex-center climax-website-margin">
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="flex-center climax-website-margin"
+          >
             <SrcImage
               src={'/ideology-website-mobile-7.jpg'}
               webp={'/ideology-website-mobile-7.webp'}
@@ -194,8 +320,18 @@ const Ideology = () => {
               width={'500px'}
               alt={'image'}
             />
-          </li>
-          <li className="flex-center">
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="flex-center"
+          >
             <SrcImage
               src={'/ideology-website-mobile-6.jpg'}
               webp={'/ideology-website-mobile-6.webp'}
@@ -203,10 +339,20 @@ const Ideology = () => {
               width={'500px'}
               alt={'image'}
             />
-          </li>
+          </motion.li>
         </ul>
         <ul className="climax-website climax-website-2">
-          <li className="flex-center">
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="flex-center"
+          >
             <SrcImage
               src={'/ideology-website-mobile-5.jpg'}
               webp={'/ideology-website-mobile-5.webp'}
@@ -214,8 +360,18 @@ const Ideology = () => {
               width={'500px'}
               alt={'image'}
             />
-          </li>
-          <li className="flex-center climax-website-margin">
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="flex-center climax-website-margin"
+          >
             <SrcImage
               src={'/ideology-website-mobile-1.jpg'}
               webp={'/ideology-website-mobile-1.webp'}
@@ -223,8 +379,18 @@ const Ideology = () => {
               width={'500px'}
               alt={'image'}
             />
-          </li>
-          <li className="flex-center">
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="flex-center"
+          >
             <SrcImage
               src={'/ideology-website-mobile-8.jpg'}
               webp={'/ideology-website-mobile-8.webp'}
@@ -232,12 +398,35 @@ const Ideology = () => {
               width={'500px'}
               alt={'image'}
             />
-          </li>
+          </motion.li>
         </ul>
       </div>
       <div className="falling-action-cnt skewElem">
-        <em className="stuff-em">. {t('ideology:falling-action')}</em>
-        <p>{t('ideology:falling-action-2')}</p>
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          className="stuff-em"
+        >
+          . {t('ideology:falling-action')}
+        </motion.em>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
+          {t('ideology:falling-action-2')}
+        </motion.p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
         <SrcImage
@@ -250,10 +439,32 @@ const Ideology = () => {
         />
       </div>
       <div className="denouement-cnt skewElem">
-        <em className="stuff-em">.{t('ideology:denouement')}</em>
-        <h3 className="impact impact-large uppercase large-font">
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          className="stuff-em"
+        >
+          .{t('ideology:denouement')}
+        </motion.em>
+        <motion.h3
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          className="impact impact-large uppercase large-font"
+        >
           {t('ideology:denouement-2')}
-        </h3>
+        </motion.h3>
       </div>
       <Marquee />
       <div className="gallery-container skewElem" id="gallery-container"></div>
@@ -267,11 +478,44 @@ const Ideology = () => {
         </div>
       </section>
       <section className="credits-cnt flex-center skewElem">
-        <h3 className="large-font">{t('ideology:credits')}</h3>
+        <motion.h3
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, y: 100 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          className="large-font"
+        >
+          {t('ideology:credits')}
+        </motion.h3>
         <div className="credits-card-cnt flex-center">
           <ul className="credits-card">
-            <li className="credits-card-title">Ideology</li>
-            <li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="credits-card-title"
+            >
+              Ideology
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:dev')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -282,8 +526,17 @@ const Ideology = () => {
               >
                 Iryna Sachko
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -294,8 +547,17 @@ const Ideology = () => {
               >
                 Simona Pulino
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:videomaker')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -306,8 +568,17 @@ const Ideology = () => {
               >
                 Mr. Peppe Occhipinti
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -318,8 +589,17 @@ const Ideology = () => {
               >
                 Alessia Iacono
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:photos')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -330,11 +610,32 @@ const Ideology = () => {
               >
                 Irene Nobile
               </a>
-            </li>
+            </motion.li>
           </ul>
           <ul className="credits-card">
-            <li className="credits-card-title">mabù</li>
-            <li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="credits-card-title"
+            >
+              mabù
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:dev')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -345,8 +646,17 @@ const Ideology = () => {
               >
                 Iryna Sachko
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -357,8 +667,17 @@ const Ideology = () => {
               >
                 Simona Pulino
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:videomaker')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -369,8 +688,17 @@ const Ideology = () => {
               >
                 Mr. Peppe Occhipinti
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -391,11 +719,32 @@ const Ideology = () => {
               >
                 NCherry
               </a>
-            </li>
+            </motion.li>
           </ul>
           <ul className="credits-card">
-            <li className="credits-card-title">bionatur</li>
-            <li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="credits-card-title"
+            >
+              bionatur
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:dev')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -416,8 +765,17 @@ const Ideology = () => {
               >
                 Daniel Vello
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -428,8 +786,17 @@ const Ideology = () => {
               >
                 Simona Pulino
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -440,11 +807,32 @@ const Ideology = () => {
               >
                 Alessia Iacono
               </a>
-            </li>
+            </motion.li>
           </ul>
           <ul className="credits-card">
-            <li className="credits-card-title">Base</li>
-            <li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="credits-card-title"
+            >
+              Base
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               UI/UX:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -455,8 +843,17 @@ const Ideology = () => {
               >
                 Virginia Boncoraglio
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:graphics')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -467,8 +864,17 @@ const Ideology = () => {
               >
                 Simona Pulino
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:videomaker')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -479,8 +885,17 @@ const Ideology = () => {
               >
                 Mr. Peppe Occhipinti
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:illustrations')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -501,8 +916,17 @@ const Ideology = () => {
               >
                 NCherry
               </a>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+            >
               {t('ideology:photos')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
@@ -513,7 +937,7 @@ const Ideology = () => {
               >
                 Irene Nobile
               </a>
-            </li>
+            </motion.li>
           </ul>
         </div>
       </section>

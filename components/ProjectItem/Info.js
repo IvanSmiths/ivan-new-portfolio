@@ -1,14 +1,8 @@
 import React from 'react';
 
-const Info = ({ opacity, id, itemIndex, project }) => {
+const Info = ({ id, itemIndex, project }) => {
   return (
-    <div
-      className="info-block"
-      layout={id}
-      style={{
-        opacity,
-      }}
-    >
+    <div className="info-block" layout={id}>
       <p className="info-block-header">
         <span>0{itemIndex + 1}</span>
       </p>

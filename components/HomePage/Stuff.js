@@ -73,7 +73,7 @@ function About() {
     <>
       <main className="homepage-about-cnt skewElem">
         <p className="description">
-          Ivan Smiths, <strong>{t('home:bio-2')}</strong>
+          Ivan Smiths, <motion.strong>{t('home:bio-2')}</motion.strong>
           {t('home:bio-3')}
           <strong>{t('home:bio-4')}</strong>
           {t('home:bio-5')}
@@ -81,18 +81,52 @@ function About() {
           {t('home:bio-7')}
         </p>
         <div className="homepage-about-sub-cnt flex-center">
-          <motion.h2 layoutId="about" className="small-font">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            layoutId="about"
+            className="small-font"
+          >
             {t('home:about-title')} <br />
             {t('home:about-title-2')} <br />
             {t('home:about-title-3')}
           </motion.h2>
         </div>
         <div className="homepage-about-p-cnt">
-          <p className="small-font">{t('home:about')}</p>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="small-font"
+          >
+            {t('home:about')}
+          </motion.p>
           <Link href="/about">
-            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <motion.a
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               {t('home:about-2')}
-            </a>
+            </motion.a>
           </Link>
         </div>
       </main>
@@ -107,7 +141,17 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <picture className="flex-center">
+                      <motion.picture
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0, y: 100 },
+                          visible: { opacity: 1, y: 0 },
+                        }}
+                        className="flex-center"
+                      >
                         <motion.source
                           layoutId="ideology-img-1"
                           alt="image of a work"
@@ -127,7 +171,7 @@ function About() {
                           height="750"
                           width="600"
                         />
-                      </picture>
+                      </motion.picture>
                     </a>
                   </Link>
                 </div>
@@ -139,6 +183,14 @@ function About() {
                         onMouseLeave={handleMouseLeave}
                       >
                         <motion.h2
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.7 }}
+                          variants={{
+                            hidden: { opacity: 0 },
+                            visible: { opacity: 1 },
+                          }}
                           layoutId="ideology-title"
                           className="big-font"
                         >
@@ -148,9 +200,42 @@ function About() {
                     </Link>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>{t('home:work')}</li>
-                      <li>webflow & frontend</li>
-                      <li>2020/2022</li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        {t('home:work')}
+                      </motion.li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        webflow & frontend
+                      </motion.li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        2020/2022
+                      </motion.li>
                     </ul>
                   </div>
                 </div>
@@ -162,7 +247,17 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <picture className="flex-center">
+                      <motion.picture
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0, y: 100 },
+                          visible: { opacity: 1, y: 0 },
+                        }}
+                        className="flex-center"
+                      >
                         <motion.source
                           layoutId="cg-prospect-img-1"
                           alt="image of a project"
@@ -182,7 +277,7 @@ function About() {
                           height="750"
                           width="600"
                         />
-                      </picture>
+                      </motion.picture>
                     </a>
                   </Link>
                 </div>
@@ -194,6 +289,14 @@ function About() {
                         onMouseLeave={handleMouseLeave}
                       >
                         <motion.h2
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.7 }}
+                          variants={{
+                            hidden: { opacity: 0 },
+                            visible: { opacity: 1 },
+                          }}
                           layoutId="cg-prospect-title"
                           className="big-font"
                         >
@@ -203,9 +306,42 @@ function About() {
                     </Link>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>{t('home:project')}</li>
-                      <li>next.js & postgreSql</li>
-                      <li>2021</li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        {t('home:project')}
+                      </motion.li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        next.js & postgreSql
+                      </motion.li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        2021
+                      </motion.li>
                     </ul>
                   </div>
                 </div>
@@ -217,7 +353,17 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <picture className="flex-center">
+                      <motion.picture
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0, y: 100 },
+                          visible: { opacity: 1, y: 0 },
+                        }}
+                        className="flex-center"
+                      >
                         <motion.source
                           alt="image of a work"
                           decoding="async"
@@ -235,7 +381,7 @@ function About() {
                           height="750"
                           width="600"
                         />
-                      </picture>
+                      </motion.picture>
                     </a>
                   </Link>
                 </div>
@@ -249,9 +395,42 @@ function About() {
                     </motion.h2>
                     <span className="lines"></span>
                     <ul className="box-informations-info-cnt">
-                      <li>{t('home:project')}</li>
-                      <li>next.js</li>
-                      <li>2020</li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        {t('home:project')}
+                      </motion.li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        next.js
+                      </motion.li>
+                      <motion.li
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                      >
+                        2020
+                      </motion.li>
                     </ul>
                   </div>
                 </div>
@@ -307,9 +486,19 @@ function About() {
                 </div>
               </div>
             </div>
-            <section className="caption-cnt impact impact-large large-font">
+            <motion.h3
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0, y: 100 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="caption-cnt impact impact-large large-font"
+            >
               {t('home:home-caption')}
-            </section>
+            </motion.h3>
           </div>
         </section>
       </AnimatePresence>

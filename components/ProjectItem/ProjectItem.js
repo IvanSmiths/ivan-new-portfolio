@@ -135,30 +135,33 @@ const ProjectItem = ({ project, itemIndex }) => {
   };
 
   return (
-    <li ref={listItem} className="project-item-container">
-      <Title
-        page={project.page}
-        title={project.title}
-        handleMouseEnter={handleMouseEnter}
-        handleMouseLeave={handleMouseLeave}
-      />
-      <ImagePro
-        id={project.id}
-        page={project.page}
-        url={project.url}
-        opacity={state.opacity}
-        parallaxPos={state.parallaxPos}
-        scale={state.scale}
-        rotationPosition={state.rotationPosition}
-      />
-      <Info
-        itemIndex={itemIndex}
-        id={project.id}
-        page={project.page}
-        project={project.info}
-        opacity={state.opacity}
-      />
-    </li>
+    <>
+      <span className="lines"></span>
+      <li ref={listItem} className="project-item-container">
+        <Title
+          page={project.page}
+          title={project.title}
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />
+        <ImagePro
+          id={project.id}
+          page={project.page}
+          url={project.url}
+          opacity={state.opacity}
+          parallaxPos={state.parallaxPos}
+          scale={state.scale}
+          rotationPosition={state.rotationPosition}
+        />
+        <Info
+          itemIndex={itemIndex}
+          id={project.id}
+          page={project.page}
+          project={project.info}
+          opacity={state.opacity}
+        />
+      </li>
+    </>
   );
 };
 

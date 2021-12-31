@@ -20,7 +20,6 @@ const Footer = () => {
   return (
     <footer className="footer-cnt flex-center">
       <div className="footer-layout-cnt medium-font">
-        <span className="lines"></span>
         <div className="footer">
           <em className="small-font">@2021</em>
           <Link href="/">
@@ -32,7 +31,6 @@ const Footer = () => {
           </Link>
           <em className="small-font based">{t('common:based')}</em>
         </div>
-        <span className="lines"></span>
       </div>
     </footer>
   );

@@ -1,5 +1,4 @@
 .project-item-container {
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,11 +14,12 @@
   padding-top: 3rem;
   position: relative;
   padding-left: 3vw;
+  padding-right: 3vw;
   box-sizing: border-box;
 }
 
 .main-container ul li {
-  padding-bottom: 4rem;
+  padding: 4rem 0;
 }
 
 .main-container ul li:last-of-type {
@@ -27,11 +27,11 @@
 }
 
 .project-item-container img {
-  position: fixed;
-  top: 5vh;
+  position: absolute;
+  top: 15vh;
   left: 35vw;
   width: auto;
-  height: clamp(400px, 20vw, 20vw);
+  height: clamp(500px, 40vw, 20vw);
   object-fit: cover;
   pointer-events: none;
   transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
