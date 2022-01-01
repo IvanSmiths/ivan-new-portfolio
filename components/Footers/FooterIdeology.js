@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { CursorContext } from '../CursorManager';
+import { motion } from 'framer-motion';
 
 const FooterIdeology = () => {
   // MOUSE ZOOM HANDLER //
@@ -15,7 +16,19 @@ const FooterIdeology = () => {
     <div className="footer-home-cnt flex-center">
       <Link href="/stuff/cg-prospect">
         <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <em className="big-font">cg prospect</em>
+          <motion.em
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font"
+          >
+            cg prospect
+          </motion.em>
         </a>
       </Link>
     </div>

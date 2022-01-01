@@ -135,7 +135,7 @@ function About() {
           <div className="box-cnt" id="box-cnt">
             <div id="box" className="box">
               <div id="box1" className="box1">
-                <div className="box-image-cnt flex-center">
+                <div className="box-image-cnt">
                   <Link href="/stuff/ideology">
                     <a
                       onMouseEnter={handleMouseEnter}

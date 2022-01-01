@@ -43,59 +43,69 @@ function Navbar() {
             <div className="burger-menu-info-cnt">
               <ul className="burger-menu-links-cnt ">
                 <li>
+                  <span className="lines2"></span>
+                </li>
+                <li>
                   <Link href="/">
                     <a
                       onClick={() => setOpened(!opened)}
-                      className="large-font-inverse"
+                      className="big-font-inverse"
                     >
                       {t('common:nav-home')}
                     </a>
                   </Link>
                 </li>
                 <li>
+                  <span className="lines2"></span>
+                </li>
+                <li>
                   <Link href="/stuff">
                     <a
                       onClick={() => setOpened(!opened)}
-                      className="large-font-inverse"
+                      className="big-font-inverse"
                     >
                       {t('common:nav-stuff')}
                     </a>
                   </Link>
                 </li>
                 <li>
+                  <span className="lines2"></span>
+                </li>
+                <li>
                   <Link href="/about">
                     <a
                       onClick={() => setOpened(!opened)}
-                      className="large-font-inverse"
+                      className="big-font-inverse"
                     >
                       {t('common:nav-about')}
                     </a>
                   </Link>
                 </li>
                 <li>
+                  <span className="lines2"></span>
+                </li>
+                <li>
                   <Link href="/post">
                     <a
                       onClick={() => setOpened(!opened)}
-                      className="large-font-inverse"
+                      className="big-font-inverse"
                     >
                       {t('common:nav-post')}
                     </a>
                   </Link>
                 </li>
-              </ul>
-            </div>
-            <div>
-              <ul className="burger-menu-info-personal-cnt small-font">
-                <li>ivan smiths / frontend & UI/UX</li>
                 <li>
-                  <a
-                    className="medium-font text-inverse"
-                    href="mailto:info@ivansmiths.com?cc=ivansmiths3d@gmail.com"
-                  >
-                    info@ivansmiths.com
-                  </a>
+                  <span className="lines2"></span>
                 </li>
               </ul>
+            </div>
+            <div className="burger-menu-info-personal-cnt small-font">
+              <a
+                className="medium-font text-inverse"
+                href="mailto:info@ivansmiths.com?cc=ivansmiths3d@gmail.com"
+              >
+                info@ivansmiths.com
+              </a>
             </div>
             <div className="social-mobile-cnt">
               <ul className="social-mobile">
@@ -109,8 +119,8 @@ function Navbar() {
                     <svg
                       id="github"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="30"
+                      height="30"
                       viewBox="0 0 33.742 33.04"
                     >
                       <g
@@ -138,8 +148,8 @@ function Navbar() {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="30"
+                      height="30"
                       viewBox="0 0 33.784 33.897"
                     >
                       <g id="linkedin" transform="translate(0 0.11)">
@@ -208,8 +218,8 @@ function Navbar() {
                     <svg
                       id="ArtStation-logomark-white"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="30"
+                      height="30"
                       viewBox="0 0 33.784 29.729"
                     >
                       <path
@@ -247,8 +257,8 @@ function Navbar() {
                     <svg
                       id="instagram"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="30"
+                      height="30"
                       viewBox="0 0 33.742 33.743"
                     >
                       <g id="Raggruppa_3" data-name="Raggruppa 3">
@@ -383,6 +393,9 @@ function Navbar() {
             </span>
             <ul className="burger-menu-links-cnt">
               <li>
+                <span className="lines2"></span>
+              </li>
+              <li>
                 <Link href="/">
                   <a
                     onClick={() => setOpened(!opened)}
@@ -391,6 +404,9 @@ function Navbar() {
                     {t('common:nav-home')}
                   </a>
                 </Link>
+              </li>
+              <li>
+                <span className="lines2"></span>
               </li>
               <li>
                 <Link href="/stuff">
@@ -403,6 +419,9 @@ function Navbar() {
                 </Link>
               </li>
               <li>
+                <span className="lines2"></span>
+              </li>
+              <li>
                 <Link href="/about">
                   <a
                     onClick={() => setOpened(!opened)}
@@ -413,6 +432,9 @@ function Navbar() {
                 </Link>
               </li>
               <li>
+                <span className="lines2"></span>
+              </li>
+              <li>
                 <Link href="/post">
                   <a
                     onClick={() => setOpened(!opened)}
@@ -421,6 +443,9 @@ function Navbar() {
                     {t('common:nav-post')}
                   </a>
                 </Link>
+              </li>
+              <li>
+                <span className="lines2"></span>
               </li>
             </ul>
           </div>
