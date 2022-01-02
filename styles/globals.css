@@ -204,7 +204,7 @@ li {
 
 .theme-toggle {
   position: fixed;
-  top: 20px;
+  top: 45%;
   cursor: pointer;
   left: 20px;
   font-size: 1.4rem;
@@ -218,10 +218,31 @@ li {
 .lang-cnt {
   z-index: 99;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.6rem;
   position: fixed;
-  top: 22px;
-  left: 80px;
+  top: 45%;
+  right: 20px;
+}
+
+.lang-cnt2 {
+  z-index: 99;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text-inverse);
+}
+
+.lang-cnt2 a {
+  color: var(--color-text-inverse);
+}
+
+.lang-cnt2 li {
+  color: var(--color-text-inverse);
 }
 
 /* MOUSE FOLLOWER */

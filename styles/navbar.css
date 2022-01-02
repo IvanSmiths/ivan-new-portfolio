@@ -17,7 +17,7 @@
   font-size: 2rem;
   position: fixed;
   top: 14px;
-  right: 33px;
+  right: 20px;
 }
 
 .close-burger2 {
@@ -138,13 +138,13 @@
 }
 
 .nav-dropdown-cnt {
-  z-index: 2;
+  z-index: 4;
   text-align: right;
   padding-bottom: 2rem;
   color: var(--color-text-primary);
   border-radius: 2rem;
   position: fixed;
-  right: 90px;
+  left: 20px;
   top: 20px;
 }
 
@@ -152,7 +152,8 @@
   color: var(--color-bg-primary);
   border-radius: 2rem;
   position: fixed;
-  right: 90px;
+  text-align: left;
+  left: 20px;
   top: 50px;
 }
 

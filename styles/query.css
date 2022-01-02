@@ -69,8 +69,6 @@
     display: flex;
     gap: 0.6rem;
     position: fixed;
-    top: 62px !important;
-    left: 20px !important;
   }
 
   .cursor-wrapper {
@@ -225,6 +223,15 @@
     z-index: 2;
   }
 
+  .theme-toggle {
+    left: 48% !important;
+    top: 18px !important;
+  }
+
+  .lang-cnt {
+    display: none !important;
+  }
+
   .box-informations-cnt {
     height: 40%;
     padding-bottom: 9rem;
@@ -265,13 +272,7 @@
     width: 90vw;
     height: auto;
   }
-  .nav-dropdown-cnt span {
-    padding: 2rem;
-  }
 
-  .lazy-menu {
-    padding: 0 2rem;
-  }
   .post-cnt h1 {
     margin-top: 3rem;
   }

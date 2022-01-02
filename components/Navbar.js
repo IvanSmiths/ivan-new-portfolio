@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react';
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 
 function Navbar() {
+  let router = useRouter();
   const [opened, setOpened] = useState(false);
   const [isDesktop, setDesktop] = useState(false);
 
@@ -107,6 +109,19 @@ function Navbar() {
                 info@ivansmiths.com
               </a>
             </div>
+            <ul className="lang-cnt2">
+              <li>
+                <Link locale="en" href={router.asPath}>
+                  <a className="medium-font">{router.locales[0]}</a>
+                </Link>
+              </li>
+              <li className="medium-font">/</li>
+              <li>
+                <Link locale="it" href={router.asPath}>
+                  <a className="medium-font">{router.locales[1]}</a>
+                </Link>
+              </li>
+            </ul>
             <div className="social-mobile-cnt">
               <ul className="social-mobile">
                 <li>
@@ -389,7 +404,7 @@ function Navbar() {
               </div>
             </div>
             <span className="close-burger" onClick={() => setOpened(!opened)}>
-              close it
+              {t('common:close')}
             </span>
             <ul className="burger-menu-links-cnt">
               <li>

@@ -28,7 +28,7 @@ const Menu = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
