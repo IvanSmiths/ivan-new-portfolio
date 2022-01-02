@@ -170,7 +170,7 @@
 
 .canvas-cnt {
   height: 130vh;
-  background-color: #060606;
+  background-color: var(--color-bg-primary);
 }
 
 .canvas {
@@ -320,4 +320,11 @@
   width: 50%;
   position: absolute;
   left: -1000vw;
+}
+
+.background-innovation {
+  position: absolute;
+  background-color: var(--color-bg-primary);
+  width: 100%;
+  height: 4.1rem;
 }

@@ -317,4 +317,22 @@
   .title-item {
     margin-bottom: 2.8rem;
   }
+  .project-item-container .ideology-image {
+    margin-top: -15rem;
+    width: 20px;
+  }
+
+  .project-item-container .bionatur-image {
+    margin-top: 16rem;
+    width: 20px;
+  }
+
+  .project-item-container .base-image {
+    margin-top: 31rem;
+    width: 20px;
+  }
+  .project-item-container .mabu-image {
+    margin-top: 31rem;
+    width: 20px;
+  }
 }

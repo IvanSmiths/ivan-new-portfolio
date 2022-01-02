@@ -474,6 +474,7 @@ const Ideology = () => {
             {pageData.map((project, index) => (
               <ProjectItem key={index} project={project} itemIndex={index} />
             ))}
+            <span className="lines line-4"></span>
           </ul>
         </div>
       </section>

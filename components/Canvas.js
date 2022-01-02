@@ -44,7 +44,7 @@ const Canvas = () => {
 
     draw() {
       const ctx = canvasRef.current.getContext('2d');
-      ctx.fillStyle = '#cccccc';
+      ctx.fillStyle = '#d3124c';
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 8);
       ctx.closePath();

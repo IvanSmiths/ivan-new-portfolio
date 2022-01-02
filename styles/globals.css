@@ -88,19 +88,19 @@ em {
 
 body,
 body[data-theme='light'] {
-  --color-bg-primary: #cccccc;
-  --color-bg-sub: #3b3b3b;
-  --color-text-primary: #060606;
-  --color-text-inverse: #cccccc;
-  --color-bg-inverse: #060606;
+  --color-bg-primary: #b9b9af;
+  --color-bg-sub: #050505;
+  --color-text-primary: #0e0e0c;
+  --color-text-inverse: #b9b9af;
+  --color-bg-inverse: #0e0e0c;
 }
 
 body[data-theme='dark'] {
-  --color-bg-primary: #060606;
+  --color-bg-primary: #0e0e0c;
   --color-bg-sub: #ffffff;
-  --color-text-primary: #cccccc;
-  --color-text-inverse: #060606;
-  --color-bg-inverse: #cccccc;
+  --color-text-primary: #b9b9af;
+  --color-text-inverse: #0e0e0c;
+  --color-bg-inverse: #b9b9af;
 }
 
 ::-moz-selection {

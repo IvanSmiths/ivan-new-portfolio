@@ -7,7 +7,7 @@ export const pageData = [
     page: 'https://www.ideology.it/',
   },
   {
-    id: 1,
+    id: 'mabu-image',
     title: 'mabù',
     url: '/ideology-website-mobile-4.jpg',
     info: ['UI/UX', 'DEVELOPMENT', '2020'],
