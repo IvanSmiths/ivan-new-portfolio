@@ -8,9 +8,11 @@
 
 .nav-dropdown-cnt span {
   cursor: pointer;
+  z-index: 2;
 }
 
 .close-burger {
+  z-index: 4056565656;
   cursor: pointer;
   font-size: 2rem;
   position: fixed;
@@ -136,7 +138,7 @@
 }
 
 .nav-dropdown-cnt {
-  z-index: 9;
+  z-index: 2;
   text-align: right;
   padding-bottom: 2rem;
   color: var(--color-text-primary);

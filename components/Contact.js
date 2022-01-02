@@ -13,7 +13,7 @@ function Contact() {
       </span>
       <div className={cn('overlay-burger-menu menu2', { 'as-opened': opened })}>
         <span className="close-burger2" onClick={() => setOpened(!opened)}>
-          X
+          {t('common:close')}
         </span>
         <div className="contact-cnt">
           <form
@@ -28,11 +28,11 @@ function Contact() {
             />
             <input type="hidden" name="_subject" value="IvanSmiths | Info" />
             <label htmlFor="name" className="small-font">
-              Name
+              {t('common:name')}
             </label>
             <input type="text" id="name" name="name" minLength="3" required />
             <label htmlFor="object" className="small-font">
-              Object
+              {t('common:object')}
             </label>
             <input
               type="text"
@@ -52,7 +52,7 @@ function Contact() {
               required
             />
             <label className="small-font" htmlFor="message">
-              Message
+              {t('common:message')}
             </label>
             <textarea
               id="message"
@@ -62,7 +62,7 @@ function Contact() {
               rows="10"
             ></textarea>
             <button className="btn-contact small-font" type="submit">
-              Send
+              {t('common:send')}
             </button>
           </form>
 

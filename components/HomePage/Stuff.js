@@ -59,6 +59,28 @@ function About() {
     });
     gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
   }, []);
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter = gsap.quickSetter('.skewElem2', 'skewX', 'deg'),
+      clamp = gsap.utils.clamp(-5, 5);
+
+    ScrollTrigger.create({
+      onUpdate: (self) => {
+        let skew = clamp(self.getVelocity() / -2);
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew;
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 1,
+            ease: 'power3',
+            overwrite: true,
+            onUpdate: () => skewSetter(proxy.skew),
+          });
+        }
+      },
+    });
+    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
+  }, []);
 
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
@@ -133,8 +155,8 @@ function About() {
       <AnimatePresence>
         <section ref={ref}>
           <div className="box-cnt" id="box-cnt">
-            <div id="box" className="box">
-              <div id="box1" className="box1">
+            <div id="box" className="box ">
+              <div id="box1" className="box1 skewElem2">
                 <div className="box-image-cnt">
                   <Link href="/stuff/ideology">
                     <a
@@ -240,7 +262,7 @@ function About() {
                   </div>
                 </div>
               </div>
-              <div id="box2" className="box2">
+              <div id="box2" className="box2 skewElem2">
                 <div className="box-image-cnt">
                   <Link href="/stuff/cg-prospect">
                     <a
@@ -346,7 +368,7 @@ function About() {
                   </div>
                 </div>
               </div>
-              <div id="box3" className="box3">
+              <div id="box3" className="box3 skewElem2">
                 <div className="box-image-cnt">
                   <Link href="/">
                     <a
@@ -439,7 +461,7 @@ function About() {
           </div>
           <div>
             <div className="box-cnt-2">
-              <div id="box3" className="box3-2">
+              <div id="box3" className="box3-2 skewElem2">
                 <div className="box-image-cnt">
                   <Link href="/stuff/old-portfolio">
                     <a

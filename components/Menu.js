@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
+import { motion } from 'framer-motion';
 
 const Menu = () => {
   const onMouseEnter = () => {
@@ -18,9 +19,21 @@ const Menu = () => {
       <span onMouseEnter={onMouseEnter} className="tiny-font">
         {t('common:lazy')}
       </span>
-      <div onMouseLeave={onMouseLeave} className="nav-dropdown lazy-menu">
+      <motion.div
+        onMouseLeave={onMouseLeave}
+        className="nav-dropdown lazy-menu"
+      >
         {dropdown && (
-          <ul>
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+          >
             <li>
               <Link href="/">
                 <a> {t('common:nav-home')}</a>
@@ -41,9 +54,9 @@ const Menu = () => {
                 <a> {t('common:nav-post')}</a>
               </Link>
             </li>
-          </ul>
+          </motion.ul>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };

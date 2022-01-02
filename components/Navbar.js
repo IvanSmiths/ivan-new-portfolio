@@ -309,7 +309,7 @@ function Navbar() {
               </ul>
             </div>
             <span className="close-burger" onClick={() => setOpened(!opened)}>
-              X
+              {t('common:close')}
             </span>
           </div>
         </>
@@ -389,7 +389,7 @@ function Navbar() {
               </div>
             </div>
             <span className="close-burger" onClick={() => setOpened(!opened)}>
-              X
+              close it
             </span>
             <ul className="burger-menu-links-cnt">
               <li>

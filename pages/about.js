@@ -24,15 +24,15 @@ const About = () => {
         <section className="about-main-cnt">
           <div className="about-main-img-cnt">
             <SrcImage
-              src="myself.png"
-              webp="myself.webp"
+              src="/myself.png"
+              webp="/myself.webp"
               alt="image of me"
               height="500px"
               width="200px"
             />
           </div>
           <div className="about-main-subtitle-cnt flex-center">
-            <h2 className="small-font">
+            <h2 className="medium-font">
               speed <br />
               security & <br />
               <em className="impact">INNOVATION</em>

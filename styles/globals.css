@@ -555,6 +555,7 @@ li {
 }
 
 .menu2 {
+  z-index: 989899;
   padding: 10vh 50px;
 }
 

@@ -177,3 +177,7 @@
 .author-card {
   background-color: var(--color-bg-primary);
 }
+
+.categories-dropdown-cnt {
+  display: none;
+}

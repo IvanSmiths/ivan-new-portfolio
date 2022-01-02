@@ -5,6 +5,10 @@
   text-transform: uppercase;
 }
 
+.about-title-cnt h1 {
+  margin-right: 3vw;
+}
+
 .about-main-cnt {
   display: flex;
   flex-direction: row;
