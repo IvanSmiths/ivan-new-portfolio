@@ -6,6 +6,7 @@ import { CursorContext } from '../CursorManager';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useTranslation from 'next-translate/useTranslation';
+import SrcImage from '../SrcImage';
 
 function About() {
   gsap.registerPlugin(ScrollTrigger);
@@ -90,6 +91,7 @@ function About() {
   const handleMouseLeave = () => {
     setSize('small');
   };
+
   let { t } = useTranslation();
   return (
     <>
@@ -102,25 +104,17 @@ function About() {
           <strong>{t('home:bio-6')}</strong>
           {t('home:bio-7')}
         </p>
-        <div className="homepage-about-sub-cnt flex-center">
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-            layoutId="about"
-            className="small-font"
-          >
-            {t('home:about-title')} <br />
-            {t('home:about-title-2')} <br />
-            {t('home:about-title-3')}
-          </motion.h2>
+        <div className="homepage-about-sub-cnt ">
+          <SrcImage
+            src={'/photo-of-me.jpg'}
+            webp={'/photo-of-me.webp'}
+            height={'908.75px'}
+            width={'605.75px'}
+            alt={'image'}
+          />
         </div>
         <div className="homepage-about-p-cnt">
+          <h2 className="small-font">- Ivan Smiths</h2>
           <motion.p
             initial="hidden"
             whileInView="visible"
@@ -136,13 +130,14 @@ function About() {
           </motion.p>
           <Link href="/about">
             <motion.a
+              className="btn-small"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
+                hidden: { y: 0, rotateZ: '0deg' },
+                visible: { y: 0, rotateZ: '11deg' },
               }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
