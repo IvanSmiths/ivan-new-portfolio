@@ -158,9 +158,7 @@
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   gap: 3rem;
-  align-items: center;
   z-index: 3;
 }
 
@@ -244,10 +242,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
 }
 
-.box-informations-cnt h2 {
+.box-link {
+  margin-top: 3rem;
+}
+
+.box-informations-cnt .skewElem2 {
   text-transform: uppercase;
 }
 

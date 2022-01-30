@@ -136,8 +136,8 @@ function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               variants={{
-                hidden: { y: 0, rotateZ: '0deg' },
-                visible: { y: 0, rotateZ: '11deg' },
+                hidden: { rotateZ: '0deg' },
+                visible: { rotateZ: '11deg' },
               }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -151,7 +151,7 @@ function About() {
         <section ref={ref}>
           <div className="box-cnt" id="box-cnt">
             <div id="box" className="box ">
-              <div id="box1" className="box1 skewElem2">
+              <div id="box1" className="box1 ">
                 <div className="box-image-cnt">
                   <Link href="/stuff/ideology">
                     <a
@@ -164,8 +164,8 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, y: 100 },
-                          visible: { opacity: 1, y: 0 },
+                          hidden: { opacity: 0, rotateZ: '11deg' },
+                          visible: { opacity: 1, rotateZ: '11deg' },
                         }}
                         className="flex-center"
                       >
@@ -193,68 +193,39 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <div className="box-informations-title-cnt">
-                    <Link href="/stuff/ideology">
-                      <a
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                      >
-                        <motion.h2
-                          initial="hidden"
-                          whileInView="visible"
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.7 }}
-                          variants={{
-                            hidden: { opacity: 0 },
-                            visible: { opacity: 1 },
-                          }}
-                          layoutId="ideology-title"
-                          className="big-font"
-                        >
-                          Ideology
-                        </motion.h2>
-                      </a>
-                    </Link>
-                    <span className="lines"></span>
-                    <ul className="box-informations-info-cnt">
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        {t('home:work')}
-                      </motion.li>
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        webflow & frontend
-                      </motion.li>
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        2020/2022
-                      </motion.li>
-                    </ul>
-                  </div>
+                  <Link href="/stuff/ideology">
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="ideology-title"
+                      className="big-font skewElem2 impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Ideology <br /> - Work
+                    </motion.a>
+                  </Link>
+                  <Link href="/stuff/ideology">
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { rotateZ: '0deg' },
+                        visible: { rotateZ: '11deg' },
+                      }}
+                      className="btn-small box-link"
+                    >
+                      Discover it
+                    </motion.a>
+                  </Link>
                 </div>
               </div>
               <div id="box2" className="box2 skewElem2">

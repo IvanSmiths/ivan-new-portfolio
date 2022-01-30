@@ -195,11 +195,10 @@ li {
     var(--main-color) 100%
   );
   background-position: right center;
-  transform: rotateZ(11deg);
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 3.1rem 1.5rem;
+  padding: 4.1rem 2.5rem;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
