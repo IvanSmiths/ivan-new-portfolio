@@ -80,7 +80,7 @@ em {
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
 
-  --marginLayout: 8rem;
+  --marginLayout: 10vw;
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
   --marginSection: clamp(17rem, 16vw, 20rem);
@@ -205,7 +205,7 @@ li {
 }
 
 .btn-small:hover {
-  border: 0px;
+  border: 1px solid var(--color-bg-primary);
   color: black;
   background-size: 100% 100%;
   background-position: left center;

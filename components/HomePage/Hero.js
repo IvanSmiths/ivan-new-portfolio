@@ -55,7 +55,7 @@ const Hero = () => {
   let { t } = useTranslation();
   return (
     <header className="home-header-cnt flex-center">
-      <div className="big-font skewElem title-1-cnt">
+      <div className="big-font flex-center skewElem title-1-cnt">
         <em className="title-1">{t('home:speed')}</em>
         <img
           className="title-image"
@@ -101,14 +101,12 @@ const Hero = () => {
             animate="visible"
             transition={{
               default: { duration: 6, ease: 'easeInOut' },
-              fill: { duration: 6, ease: [1, 0, 0.8, 1] },
             }}
             id="Tracciato_22"
             data-name="Tracciato 22"
             d="M-4637.739,829.608l28.168,19.976,28.168-19.976"
             transform="translate(4639.134 -828.213)"
             fill="none"
-            stroke="#dbdbdb"
             strokeLinecap="round"
             strokeWidth="2"
           />

@@ -76,7 +76,7 @@
 
 .title-arrow {
   overflow: visible;
-  stroke: white;
+  stroke: var(--color-text-primary);
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -105,9 +105,12 @@
   z-index: 30;
 }
 
+/* ABOUT */
+/* ABOUT */
+/* ABOUT */
+
 .homepage-about-cnt {
-  min-height: 30vw;
-  margin-top: -9rem;
+  margin-top: -7rem;
   margin-bottom: var(--marginSection);
   display: flex;
   flex-direction: row;
@@ -121,12 +124,13 @@
 .homepage-about-p-cnt {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  gap: 2rem;
-  padding-right: 14vw;
-  align-items: flex-start;
   justify-content: center;
-  width: 50%;
+  align-items: flex-start;
+  gap: 3rem;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  padding: 0 var(--marginLayout);
 }
 
 .box-cnt {

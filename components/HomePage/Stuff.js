@@ -38,6 +38,32 @@ function About() {
     );
   }, []);
 
+  const refSec = useRef(null);
+
+  useEffect(() => {
+    const element = refSec.current;
+    gsap.fromTo(
+      element.querySelector('#about'),
+      {
+        marginTop: 0,
+        opacity: 1,
+      },
+      {
+        marginTop: '30vw',
+        opacity: 1,
+        duration: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: element.querySelector('#about'),
+          start: 'top top',
+          end: 'bottom top',
+          ease: 'power1',
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
@@ -63,7 +89,7 @@ function About() {
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter = gsap.quickSetter('.skewElem2', 'skewX', 'deg'),
-      clamp = gsap.utils.clamp(-5, 5);
+      clamp = gsap.utils.clamp(-3, 3);
 
     ScrollTrigger.create({
       onUpdate: (self) => {
@@ -72,7 +98,7 @@ function About() {
           proxy.skew = skew;
           gsap.to(proxy, {
             skew: 0,
-            duration: 1,
+            duration: 2,
             ease: 'power3',
             overwrite: true,
             onUpdate: () => skewSetter(proxy.skew),
@@ -113,38 +139,40 @@ function About() {
             alt={'image'}
           />
         </div>
-        <div className="homepage-about-p-cnt">
-          <h2 className="small-font">- Ivan Smiths</h2>
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-            className="small-font"
-          >
-            {t('home:about')}
-          </motion.p>
-          <Link href="/about">
-            <motion.a
-              className="btn-small"
+        <div ref={refSec} className="flex-center">
+          <div id="about" className="homepage-about-p-cnt">
+            <h2 className="small-font">- Ivan Smiths</h2>
+            <motion.p
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               variants={{
-                hidden: { rotateZ: '0deg' },
-                visible: { rotateZ: '11deg' },
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
               }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              className="small-font"
             >
-              {t('home:about-2')}
-            </motion.a>
-          </Link>
+              {t('home:about')}
+            </motion.p>
+            <Link href="/about">
+              <motion.a
+                className="btn-small"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { rotateZ: '0deg' },
+                  visible: { rotateZ: '11deg' },
+                }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {t('home:about-2')}
+              </motion.a>
+            </Link>
+          </div>
         </div>
       </main>
       <AnimatePresence>
