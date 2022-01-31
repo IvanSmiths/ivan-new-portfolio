@@ -162,7 +162,6 @@
   width: 100vw;
   display: flex;
   flex-direction: row;
-  gap: 3rem;
   z-index: 3;
 }
 
@@ -186,6 +185,11 @@
 .box-info-cnt a {
   display: inline-block;
   margin-top: 2rem;
+}
+
+.box-link-cnt {
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .canvas-cnt {
@@ -229,7 +233,8 @@
 }
 
 .box-image-cnt {
-  width: 40%;
+  width: 45%;
+  margin-right: -3rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -246,10 +251,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.box-link {
-  margin-top: 3rem;
 }
 
 .box-informations-cnt .skewElem2 {

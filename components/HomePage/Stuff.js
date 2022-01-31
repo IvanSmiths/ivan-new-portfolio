@@ -239,21 +239,39 @@ function About() {
                       Ideology <br /> - Work
                     </motion.a>
                   </Link>
-                  <Link href="/stuff/ideology">
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { rotateZ: '0deg' },
-                        visible: { rotateZ: '11deg' },
-                      }}
-                      className="btn-small box-link"
-                    >
-                      Discover it
-                    </motion.a>
-                  </Link>
+                  <div className="box-link-cnt flex-center">
+                    <Link href="/stuff/ideology">
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { rotateZ: '0deg' },
+                          visible: { rotateZ: '11deg' },
+                        }}
+                        className="btn-small box-link"
+                      >
+                        Discover it
+                      </motion.a>
+                    </Link>
+                    <span>-</span>
+                    <Link href="/stuff">
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                        className="box-link"
+                      >
+                        All the works
+                      </motion.a>
+                    </Link>
+                  </div>
                 </div>
               </div>
               <div id="box2" className="box2 skewElem2">
