@@ -204,31 +204,14 @@
 
 .box2 {
   background-color: var(--color-bg-primary);
-  top: 0;
   left: 100vw;
-  height: 100vh;
-  position: absolute;
   width: 102vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3rem;
-  align-items: center;
   z-index: 3;
 }
 
 .box3 {
   background-color: var(--color-bg-primary);
-  position: absolute;
-  top: 0;
   left: 200vw;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 3rem;
-  align-items: center;
   z-index: 3;
 }
 
@@ -272,11 +255,6 @@
 }
 
 .box3-2 {
-  display: flex;
-  position: absolute;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3rem;
   background-color: var(--color-bg-primary);
   z-index: 1;
   height: 100vh;

@@ -86,28 +86,6 @@ function About() {
     });
     gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
   }, []);
-  useEffect(() => {
-    let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter('.skewElem2', 'skewX', 'deg'),
-      clamp = gsap.utils.clamp(-3, 3);
-
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        let skew = clamp(self.getVelocity() / -2);
-        if (Math.abs(skew) > Math.abs(proxy.skew)) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 2,
-            ease: 'power3',
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
-  }, []);
 
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
@@ -232,7 +210,7 @@ function About() {
                         visible: { opacity: 1 },
                       }}
                       layoutId="ideology-title"
-                      className="big-font skewElem2 impact"
+                      className="big-font  impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
@@ -274,9 +252,9 @@ function About() {
                   </div>
                 </div>
               </div>
-              <div id="box2" className="box2 skewElem2">
+              <div id="box2" className="box2 box1">
                 <div className="box-image-cnt">
-                  <Link href="/stuff/cg-prospect">
+                  <Link href="/stuff/ideology">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -287,14 +265,14 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, y: 100 },
-                          visible: { opacity: 1, y: 0 },
+                          hidden: { opacity: 0, rotateZ: '11deg' },
+                          visible: { opacity: 1, rotateZ: '11deg' },
                         }}
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="cg-prospect-img-1"
-                          alt="image of a project"
+                          layoutId="cgprospect-img-1"
+                          alt="image of a work"
                           decoding="async"
                           loading="lazy"
                           height="750"
@@ -303,8 +281,8 @@ function About() {
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="cg-prospect-img-2"
-                          alt="image of a project"
+                          layoutId="cgprospect-img-2"
+                          alt="image of a work"
                           loading="lazy"
                           decoding="async"
                           src="/cgprospect.jpg"
@@ -316,31 +294,43 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <div className="box-informations-title-cnt">
+                  <Link href="/stuff/cg-prospect">
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="ideology-title"
+                      className="big-font  impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      CG Prospect <br /> - Project
+                    </motion.a>
+                  </Link>
+                  <div className="box-link-cnt flex-center">
                     <Link href="/stuff/cg-prospect">
-                      <a
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { rotateZ: '0deg' },
+                          visible: { rotateZ: '11deg' },
+                        }}
+                        className="btn-small box-link"
                       >
-                        <motion.h2
-                          initial="hidden"
-                          whileInView="visible"
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.7 }}
-                          variants={{
-                            hidden: { opacity: 0 },
-                            visible: { opacity: 1 },
-                          }}
-                          layoutId="cg-prospect-title"
-                          className="big-font"
-                        >
-                          CG Prospect
-                        </motion.h2>
-                      </a>
+                        Discover it
+                      </motion.a>
                     </Link>
-                    <span className="lines"></span>
-                    <ul className="box-informations-info-cnt">
-                      <motion.li
+                    <span>-</span>
+                    <Link href="/stuff">
+                      <motion.a
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
@@ -349,40 +339,17 @@ function About() {
                           hidden: { opacity: 0 },
                           visible: { opacity: 1 },
                         }}
+                        className="box-link"
                       >
-                        {t('home:project')}
-                      </motion.li>
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        next.js & postgreSql
-                      </motion.li>
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        2021
-                      </motion.li>
-                    </ul>
+                        All the works
+                      </motion.a>
+                    </Link>
                   </div>
                 </div>
               </div>
-              <div id="box3" className="box3 skewElem2">
+              <div id="box3" className="box3 box1">
                 <div className="box-image-cnt">
-                  <Link href="/">
+                  <Link href="/stuff/ideology">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -393,25 +360,27 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, y: 100 },
-                          visible: { opacity: 1, y: 0 },
+                          hidden: { opacity: 0, rotateZ: '11deg' },
+                          visible: { opacity: 1, rotateZ: '11deg' },
                         }}
                         className="flex-center"
                       >
                         <motion.source
+                          layoutId="cgprospect-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
                           height="750"
                           width="600"
-                          srcSet="/old-portfolio.webp"
+                          srcSet="/cgprospect.webp"
                           type="image/webp"
                         />
                         <motion.img
+                          layoutId="cgprospect-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
-                          src="/old-portfolio.jpg"
+                          src="/cgprospect.jpg"
                           height="750"
                           width="600"
                         />
@@ -420,16 +389,43 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <div className="box-informations-title-cnt">
-                    <motion.h2
-                      layout="old-portfolio-title"
-                      className="big-font"
+                  <Link href="/stuff/cg-prospect">
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="ideology-title"
+                      className="big-font  impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                     >
-                      Old <br /> portfolio
-                    </motion.h2>
-                    <span className="lines"></span>
-                    <ul className="box-informations-info-cnt">
-                      <motion.li
+                      CG Prospect <br /> - Project
+                    </motion.a>
+                  </Link>
+                  <div className="box-link-cnt flex-center">
+                    <Link href="/stuff/cg-prospect">
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { rotateZ: '0deg' },
+                          visible: { rotateZ: '11deg' },
+                        }}
+                        className="btn-small box-link"
+                      >
+                        Discover it
+                      </motion.a>
+                    </Link>
+                    <span>-</span>
+                    <Link href="/stuff">
+                      <motion.a
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
@@ -438,34 +434,11 @@ function About() {
                           hidden: { opacity: 0 },
                           visible: { opacity: 1 },
                         }}
+                        className="box-link"
                       >
-                        {t('home:project')}
-                      </motion.li>
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        next.js
-                      </motion.li>
-                      <motion.li
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                      >
-                        2020
-                      </motion.li>
-                    </ul>
+                        All the works
+                      </motion.a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -473,49 +446,98 @@ function About() {
           </div>
           <div>
             <div className="box-cnt-2">
-              <div id="box3" className="box3-2 skewElem2">
+              <div id="box2" className="box3-2 box1 ">
                 <div className="box-image-cnt">
-                  <Link href="/stuff/old-portfolio">
+                  <Link href="/stuff/ideology">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <picture className="flex-center">
+                      <motion.picture
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0, rotateZ: '11deg' },
+                          visible: { opacity: 1, rotateZ: '11deg' },
+                        }}
+                        className="flex-center"
+                      >
                         <motion.source
+                          layoutId="cgprospect-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
                           height="750"
                           width="600"
-                          srcSet="/old-portfolio.webp"
+                          srcSet="/cgprospect.webp"
                           type="image/webp"
                         />
                         <motion.img
+                          layoutId="cgprospect-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
-                          src="/old-portfolio.jpg"
+                          src="/cgprospect.jpg"
                           height="750"
                           width="600"
                         />
-                      </picture>
+                      </motion.picture>
                     </a>
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <div className="box-informations-title-cnt">
-                    <motion.h2
-                      layout="old-portfolio-title"
-                      className="big-font"
+                  <Link href="/stuff/cg-prospect">
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="ideology-title"
+                      className="big-font  impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                     >
-                      Old <br /> portfolio
-                    </motion.h2>
-                    <span className="lines"></span>
-                    <ul className="box-informations-info-cnt">
-                      <li>{t('home:project')}</li>
-                      <li>next.js</li>
-                      <li>2020</li>
-                    </ul>
+                      CG Prospect <br /> - Project
+                    </motion.a>
+                  </Link>
+                  <div className="box-link-cnt flex-center">
+                    <Link href="/stuff/cg-prospect">
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { rotateZ: '0deg' },
+                          visible: { rotateZ: '11deg' },
+                        }}
+                        className="btn-small box-link"
+                      >
+                        Discover it
+                      </motion.a>
+                    </Link>
+                    <span>-</span>
+                    <Link href="/stuff">
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
+                        className="box-link"
+                      >
+                        All the works
+                      </motion.a>
+                    </Link>
                   </div>
                 </div>
               </div>
