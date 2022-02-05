@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
   margin-bottom: 7rem;
 }
 
@@ -35,27 +35,43 @@
   text-transform: uppercase;
 }
 
-.stuff-s-quick-info-cnt {
-  margin-top: 5rem;
-  padding-bottom: 15rem;
-  width: 100%;
+.info-cnt {
+  padding: 5rem 0;
+  padding-top: 2rem;
+  background-color: var(--main-color);
+  margin-bottom: var(--marginSection);
+}
+
+.info-cnt ul {
+  text-align: left;
+  margin-left: 50%;
+  padding-right: var(--marginLayout);
+}
+
+.info-link {
+  text-align: center;
+  margin-top: 18rem;
+  margin-bottom: 18rem;
+}
+
+.info-sticky {
+  position: sticky;
+  padding-top: 18px;
+  top: 0px;
+  left: var(--marginLayout);
+  width: fit-content;
+}
+
+.info-cnt li {
+  margin-top: 3rem;
+  text-transform: uppercase;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-.stuff-s-quick-info-cnt span {
-  width: 90%;
-}
-
-.stuff-s-quick-info {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.info-cnt li em {
+  margin-left: 3rem;
+  text-transform: capitalize;
 }
 
 .credits-card a {

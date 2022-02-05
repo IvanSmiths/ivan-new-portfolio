@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -50,6 +50,8 @@ const Ideology = () => {
 
   let { t } = useTranslation();
 
+  const [work, setWork] = useState(`${t('ideology:work-hard')}`);
+
   return (
     <>
       <Head>
@@ -98,19 +100,29 @@ const Ideology = () => {
           </div>
         </div>
       </header>
-      <section className="skewElem">
-        <SrcImage
-          src={'/ideology-website-2.jpg'}
-          webp={'/ideology-website-2.webp'}
-          height={'600'}
-          width={'100%'}
-          alt={'image'}
-          className={'single-stuff-main-image'}
-        />
-        <div className="stuff-s-quick-info-cnt">
-          <span className="lines"></span>
-          <ul className="small-font stuff-s-quick-info">
-            <motion.li
+
+      <div className="info-cnt">
+        <h2
+          onMouseEnter={() => setWork(`${t('ideology:work-harder')}`)}
+          onMouseLeave={() => setWork(`${t('ideology:work-hard')}`)}
+          className="info-sticky"
+        >
+          {work}
+        </h2>
+        <ul>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font impact"
+          >
+            Tech
+            <motion.em
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -119,11 +131,24 @@ const Ideology = () => {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
               }}
+              className="small-font serif"
             >
-              {t('ideology:type')}: <br />
-              {t('ideology:type-2')}
-            </motion.li>
-            <motion.li
+              - Webflow, WordPress, Html, Css, JavaScript
+            </motion.em>
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font impact"
+          >
+            {t('ideology:type')}
+            <motion.em
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -132,11 +157,24 @@ const Ideology = () => {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
               }}
+              className="small-font serif"
             >
-              {t('ideology:year')}: <br />
-              2020/2022
-            </motion.li>
-            <motion.li
+              - {t('ideology:type-2')}
+            </motion.em>
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font impact"
+          >
+            {t('ideology:year')}
+            <motion.em
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -145,11 +183,24 @@ const Ideology = () => {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
               }}
+              className="small-font serif"
             >
-              {t('ideology:stack')}: <br />
-              Webflow, Html, Css, <br /> JavaScript, WordPress
-            </motion.li>
-            <motion.li
+              - 2021/2022
+            </motion.em>
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font impact"
+          >
+            602,3
+            <motion.em
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -158,21 +209,57 @@ const Ideology = () => {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
               }}
+              className="small-font serif"
             >
-              Link: <br />
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                href="https://www.ideology.it"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-              >
-                {t('ideology:web')}
-              </a>
-            </motion.li>
-          </ul>
+              {t('ideology:hours')}
+            </motion.em>
+          </motion.li>
+          <motion.li
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="big-font impact"
+          >
+            17
+            <motion.em
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="small-font serif"
+            >
+              {t('ideology:parties')}
+            </motion.em>
+          </motion.li>
+        </ul>
+        <div className="info-link">
+          <motion.a
+            target="_blank"
+            rel="noreferrer noopener"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { y: 0, rotateZ: '0deg' },
+              visible: { y: 0, rotateZ: '11deg' },
+            }}
+            className="big-font btn-big"
+            href="https://www.ideology.it/"
+          >
+            Website
+          </motion.a>
         </div>
-      </section>
+      </div>
 
       <div className="exposition-cnt skewElem">
         <div className="exposition">
@@ -198,7 +285,7 @@ const Ideology = () => {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="big-font"
+            className="big-font impact"
           >
             {t('ideology:exposition-2')}
           </motion.h2>
