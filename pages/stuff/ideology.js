@@ -285,7 +285,7 @@ const Ideology = () => {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="big-font impact"
+            className="big-font impact uppercase"
           >
             {t('ideology:exposition-2')}
           </motion.h2>
