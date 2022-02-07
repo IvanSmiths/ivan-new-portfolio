@@ -92,10 +92,10 @@ em {
 
 body,
 body[data-theme='light'] {
-  --color-bg-primary: #b9b9af;
+  --color-bg-primary: #ffffff;
   --color-bg-sub: #050505;
-  --color-text-primary: #0e0e0c;
-  --color-text-inverse: #b9b9af;
+  --color-text-primary: #131116;
+  --color-text-inverse: #ffffff;
   --color-bg-inverse: #0e0e0c;
 }
 
