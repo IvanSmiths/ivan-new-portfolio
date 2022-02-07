@@ -135,7 +135,7 @@ function About() {
             </motion.p>
             <Link href="/about">
               <motion.a
-                className="btn-small"
+                className="btn-small-2"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -210,11 +210,11 @@ function About() {
                         visible: { opacity: 1 },
                       }}
                       layoutId="ideology-title"
-                      className="big-font  impact"
+                      className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Ideology <br /> - Work
+                      Ideology <br /> - {t('home:stuff-3')}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -230,7 +230,7 @@ function About() {
                         }}
                         className="btn-small box-link"
                       >
-                        Discover it
+                        {t('home:stuff')}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -246,7 +246,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                        All the works
+                        {t('home:stuff-2')}
                       </motion.a>
                     </Link>
                   </div>
@@ -305,11 +305,11 @@ function About() {
                         visible: { opacity: 1 },
                       }}
                       layoutId="ideology-title"
-                      className="big-font  impact"
+                      className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      CG Prospect <br /> - Project
+                      CG Prospect <br /> - {t('home:stuff-4')}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -325,7 +325,7 @@ function About() {
                         }}
                         className="btn-small box-link"
                       >
-                        Discover it
+                        {t('home:stuff')}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -341,7 +341,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                        All the works
+                        {t('home:stuff-2')}
                       </motion.a>
                     </Link>
                   </div>
@@ -404,7 +404,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      CG Prospect <br /> - Project
+                      CG Prospect <br /> - {t('home:stuff-4')}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -420,7 +420,7 @@ function About() {
                         }}
                         className="btn-small box-link"
                       >
-                        Discover it
+                        {t('home:stuff')}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -503,7 +503,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      CG Prospect <br /> - Project
+                      CG Prospect <br /> - {t('home:stuff-4')}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -519,7 +519,7 @@ function About() {
                         }}
                         className="btn-small box-link"
                       >
-                        Discover it
+                        {t('home:stuff')}
                       </motion.a>
                     </Link>
                     <span>-</span>

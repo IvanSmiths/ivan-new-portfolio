@@ -247,6 +247,10 @@
   flex-wrap: wrap;
 }
 
+.box-title {
+  z-index: 5;
+}
+
 .box-cnt-2 {
   height: 100vh;
   background-color: var(--color-bg-primary);
@@ -270,6 +274,7 @@
 }
 
 .caption-cnt {
+  padding-top: var(--marginSection);
   text-transform: uppercase;
   width: 70vw;
 }
