@@ -72,12 +72,12 @@ function Navbar() {
             <motion.path
               {...path01Variants.closed}
               animate={path01Controls}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.4 }}
             />
             <motion.path
               {...path02Variants.closed}
               animate={path02Controls}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.4 }}
             />
           </svg>
           <nav
@@ -383,12 +383,12 @@ function Navbar() {
             <motion.path
               {...path01Variants.closed}
               animate={path01Controls}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.4 }}
             />
             <motion.path
               {...path02Variants.closed}
               animate={path02Controls}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.4 }}
             />
           </svg>
           <nav className={cn('overlay-burger-menu', { 'as-opened': opened })}>
