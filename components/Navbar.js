@@ -335,134 +335,92 @@ function Navbar() {
             onClick={() => setOpened(!opened)}
           ></nav>
           <div className={cn('overlay-burger-menu', { 'as-opened': opened })}>
-            <div className="burger-menu-info-cnt">
-              <ul className="burger-menu-info-personal-cnt">
-                <li>{t('common:nav-desc')}</li>
-                <li>{t('common:nav-desc-2')}</li>
-                <li>{t('common:nav-desc-3')}</li>
+            <div className="links-socials-cnt">
+              <ul className="burger-menu-links-cnt">
+                <li>
+                  <Link href="/">
+                    <a
+                      onClick={() => setOpened(!opened)}
+                      className="impact medium-font"
+                    >
+                      {t('common:nav-home')}
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/stuff">
+                    <a
+                      onClick={() => setOpened(!opened)}
+                      className="impact medium-font"
+                    >
+                      {t('common:nav-stuff')}
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/about">
+                    <a
+                      onClick={() => setOpened(!opened)}
+                      className="impact medium-font"
+                    >
+                      {t('common:nav-about')}
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/post">
+                    <a
+                      onClick={() => setOpened(!opened)}
+                      className="impact medium-font"
+                    >
+                      {t('common:nav-post')}
+                    </a>
+                  </Link>
+                </li>
               </ul>
-              <a
-                className="medium-font text-inverse"
-                href="mailto:info@ivansmiths.com?cc=ivansmiths3d@gmail.com"
-              >
-                info@ivansmiths.com
-              </a>
-              <div>
-                <em>{t('common:social')}:</em>
-                <ul className="burger-menu-info-social-cnt">
-                  <li className="social">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.instagram.com/ivan_smiths"
-                    >
-                      *{t('common:insta-1')} <br />
-                      {t('common:insta-2')} <br /> {t('common:insta-3')} <br />{' '}
-                      {t('common:insta-4')} <br /> {t('common:insta-5')}
-                      <br /> {t('common:insta-6')}
-                    </a>
-                  </li>
-                  <li className="social">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.artstation.com/ivansmiths"
-                    >
-                      *{t('common:art-1')} <br /> {t('common:art-2')} <br />{' '}
-                      {t('common:art-3')} <br />
-                      {t('common:art-4')} <br />
-                      {t('common:art-5')} <br /> {t('common:art-6')}
-                    </a>
-                  </li>
-                  <li className="social">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://it.linkedin.com/in/ivan-fabbri-932aaa205?trk=people-guest_people_search-card"
-                    >
-                      *{t('common:linkedin-1')} <br /> {t('common:linkedin-2')}{' '}
-                      <br />
-                      {t('common:linkedin-3')} <br /> {t('common:linkedin-4')}{' '}
-                      <br /> {t('common:linkedin-5')} <br />
-                      {t('common:linkedin-6')}
-                    </a>
-                  </li>
-                  <li className="social">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/IvanSmiths"
-                    >
-                      *{t('common:github-1')} <br />
-                      {t('common:github-2')} <br /> {t('common:github-3')}{' '}
-                      <br /> {t('common:github-4')} <br />{' '}
-                      {t('common:github-5')}
-                      <br /> {t('common:github-6')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <ul className="nav-social-cnt">
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/ivan_smiths"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.artstation.com/ivansmiths"
+                  >
+                    Artstation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/IvanSmiths"
+                  >
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://it.linkedin.com/in/ivan-fabbri-932aaa205?trk=people-guest_people_search-card"
+                  >
+                    Linkedin
+                  </a>
+                </li>
+              </ul>
             </div>
-            <span className="close-burger" onClick={() => setOpened(!opened)}>
-              {t('common:close')}
-            </span>
-            <ul className="burger-menu-links-cnt">
-              <li>
-                <span className="lines2"></span>
-              </li>
-              <li>
-                <Link href="/">
-                  <a
-                    onClick={() => setOpened(!opened)}
-                    className="big-font-inverse"
-                  >
-                    {t('common:nav-home')}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <span className="lines2"></span>
-              </li>
-              <li>
-                <Link href="/stuff">
-                  <a
-                    onClick={() => setOpened(!opened)}
-                    className="big-font-inverse"
-                  >
-                    {t('common:nav-stuff')}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <span className="lines2"></span>
-              </li>
-              <li>
-                <Link href="/about">
-                  <a
-                    onClick={() => setOpened(!opened)}
-                    className="big-font-inverse"
-                  >
-                    {t('common:nav-about')}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <span className="lines2"></span>
-              </li>
-              <li>
-                <Link href="/post">
-                  <a
-                    onClick={() => setOpened(!opened)}
-                    className="big-font-inverse"
-                  >
-                    {t('common:nav-post')}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <span className="lines2"></span>
-              </li>
-            </ul>
+            <div className="burger-menu-info-cnt"></div>
           </div>
         </>
       )}
