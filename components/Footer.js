@@ -20,17 +20,13 @@ const Footer = () => {
   return (
     <footer className="footer-cnt flex-center">
       <div className="footer-layout-cnt medium-font">
-        <div className="footer">
-          <em className="small-font">@2021</em>
-          <Link href="/">
-            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <em className="footer-ivan-smiths" onClick={Replay}>
-                ivan smiths
-              </em>
-            </a>
-          </Link>
-          <em className="small-font based">{t('common:based')}</em>
-        </div>
+        <Link href="/">
+          <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <em className="footer-ivan-smiths small-font" onClick={Replay}>
+              @2022 ivan smiths
+            </em>
+          </a>
+        </Link>
       </div>
     </footer>
   );

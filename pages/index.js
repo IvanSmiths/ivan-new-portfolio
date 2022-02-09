@@ -89,7 +89,6 @@ const Home = () => {
             <Marquee />
           </div>
           <Stuff />
-          <FooterHome />
         </>
       )}
     </>

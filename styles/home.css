@@ -117,6 +117,17 @@
   width: 100%;
 }
 
+.arrow-home {
+  width: 89%;
+  margin-top: 7rem;
+  overflow: visible;
+  stroke: var(--color-text-primary);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  margin-left: 3rem;
+}
+
 .homepage-about-sub-cnt {
   width: 50%;
 }

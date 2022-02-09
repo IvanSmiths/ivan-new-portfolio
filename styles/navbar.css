@@ -207,7 +207,6 @@
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   position: relative;
-  height: 30vh;
   width: 100%;
   flex-direction: column;
 }
@@ -215,8 +214,8 @@
 .footer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   flex-wrap: wrap;
 }
 
@@ -242,7 +241,7 @@
 }
 
 .footer-layout-cnt em {
-  margin: 4vw 0;
+  margin: 20px 0;
 }
 
 .footer-ivan-smiths {
