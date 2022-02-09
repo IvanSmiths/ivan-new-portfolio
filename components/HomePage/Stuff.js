@@ -575,7 +575,11 @@ function About() {
                     initial="hidden"
                     animate="visible"
                     transition={{
-                      default: { duration: 6, ease: 'easeInOut' },
+                      default: {
+                        duration: 6,
+                        yoyo: Infinity,
+                        ease: 'easeInOut',
+                      },
                     }}
                     fill="none"
                     strokeLinecap="round"

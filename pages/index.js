@@ -5,7 +5,6 @@ import Loader from '../components/HomePage/Loader';
 import Stuff from '../components/HomePage/Stuff';
 import Head from 'next/head';
 import Marquee from '../components/Marquee-innovation';
-import FooterHome from '../components/HomePage/FooterHome';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
 
