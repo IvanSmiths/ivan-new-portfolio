@@ -121,6 +121,11 @@
   width: 50%;
 }
 
+.homepage-about-sub-cnt picture {
+  width: 50vw;
+  object-fit: contain;
+}
+
 .homepage-about-p-cnt {
   display: flex;
   flex-direction: column;

@@ -108,7 +108,7 @@ function About() {
           <strong>{t('home:bio-6')}</strong>
           {t('home:bio-7')}
         </p>
-        <div className="homepage-about-sub-cnt ">
+        <div className="homepage-about-sub-cnt">
           <SrcImage
             src={'/photo-of-me.jpg'}
             webp={'/photo-of-me.webp'}
