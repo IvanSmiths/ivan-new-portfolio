@@ -4,11 +4,40 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
+import { motion, useAnimation } from 'framer-motion';
+
+const path01Variants = {
+  open: { d: 'M3.06061 2.99999L21.0606 21' },
+  closed: { d: 'M0 9.5L24 9.5' },
+};
+
+const path02Variants = {
+  open: { d: 'M3.00006 21.0607L21 3.06064' },
+  moving: { d: 'M0 14.5L24 14.5' },
+  closed: { d: 'M0 14.5L15 14.5' },
+};
 
 function Navbar() {
   let router = useRouter();
+  const [isOpen, setOpen] = useState(false);
   const [opened, setOpened] = useState(false);
   const [isDesktop, setDesktop] = useState(false);
+  const path01Controls = useAnimation();
+  const path02Controls = useAnimation();
+
+  const onClick = async () => {
+    setOpen(!isOpen);
+    setOpened(!opened);
+    if (!isOpen) {
+      await path02Controls.start(path02Variants.moving);
+      path01Controls.start(path01Variants.open);
+      path02Controls.start(path02Variants.open);
+    } else {
+      path01Controls.start(path01Variants.closed);
+      await path02Controls.start(path02Variants.moving);
+      path02Controls.start(path02Variants.closed);
+    }
+  };
 
   useEffect(() => {
     if (window.innerWidth < 450) {
@@ -33,11 +62,25 @@ function Navbar() {
     <>
       {isDesktop ? (
         <>
+          <svg
+            className="button-nav"
+            onClick={onClick}
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+          >
+            <motion.path
+              {...path01Variants.closed}
+              animate={path01Controls}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.path
+              {...path02Variants.closed}
+              animate={path02Controls}
+              transition={{ duration: 0.2 }}
+            />
+          </svg>
           <nav
-            className={cn('overlay-burger-icon', { 'as-opened': opened })}
-            onClick={() => setOpened(!opened)}
-          ></nav>
-          <div
             className={cn('overlay-burger-menu menu-mobile', {
               'as-opened': opened,
             })}
@@ -326,15 +369,29 @@ function Navbar() {
             <span className="close-burger" onClick={() => setOpened(!opened)}>
               {t('common:close')}
             </span>
-          </div>
+          </nav>
         </>
       ) : (
         <>
-          <nav
-            className={cn('overlay-burger-icon', { 'as-opened': opened })}
-            onClick={() => setOpened(!opened)}
-          ></nav>
-          <div className={cn('overlay-burger-menu', { 'as-opened': opened })}>
+          <svg
+            className="button-nav"
+            onClick={onClick}
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+          >
+            <motion.path
+              {...path01Variants.closed}
+              animate={path01Controls}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.path
+              {...path02Variants.closed}
+              animate={path02Controls}
+              transition={{ duration: 0.2 }}
+            />
+          </svg>
+          <nav className={cn('overlay-burger-menu', { 'as-opened': opened })}>
             <div className="links-socials-cnt">
               <ul className="burger-menu-links-cnt">
                 <li>
@@ -421,7 +478,7 @@ function Navbar() {
               </ul>
             </div>
             <div className="burger-menu-info-cnt"></div>
-          </div>
+          </nav>
         </>
       )}
     </>

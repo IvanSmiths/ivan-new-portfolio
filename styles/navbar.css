@@ -72,6 +72,20 @@
   color: var(--text-black);
 }
 
+.button-nav {
+  z-index: 999999;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.button-nav path {
+  stroke: var(--color-text-primary);
+}
+
 .nav-social-cnt li a {
   color: var(--text-black);
 }
