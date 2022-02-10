@@ -357,7 +357,7 @@ function About() {
               </div>
               <div id="box3" className="box3 box1">
                 <div className="box-image-cnt">
-                  <Link href="/stuff/ideology">
+                  <Link href="/stuff/old-portfolio">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -374,21 +374,21 @@ function About() {
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="cgprospect-img-1"
+                          layoutId="old-portfolio-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
                           height="750"
                           width="600"
-                          srcSet="/cgprospect.webp"
+                          srcSet="/old-portfolio.webp"
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="cgprospect-img-2"
+                          layoutId="old-portfolio-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
-                          src="/cgprospect.jpg"
+                          src="/old-portfolio.jpg"
                           height="750"
                           width="600"
                         />
@@ -407,16 +407,16 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="ideology-title"
-                      className="big-font  impact"
+                      layoutId="old-portfolio-title"
+                      className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      CG Prospect <br /> - {t('home:stuff-4')}
+                      Old Portfolio <br /> - {t('home:stuff-4')}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/cg-prospect">
+                    <Link href="/stuff/old-portfolio">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -473,21 +473,21 @@ function About() {
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="cgprospect-img-1"
+                          layoutId="old-portfolio-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
                           height="750"
                           width="600"
-                          srcSet="/cgprospect.webp"
+                          srcSet="/old-portfolio.webp"
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="cgprospect-img-2"
+                          layoutId="old-portfolio-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
-                          src="/cgprospect.jpg"
+                          src="/old-portfolio.jpg"
                           height="750"
                           width="600"
                         />
@@ -496,7 +496,7 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect">
+                  <Link href="/stuff/old-portfolio">
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -506,16 +506,16 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="ideology-title"
-                      className="big-font  impact"
+                      layoutId="old-portfolio-title"
+                      className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      CG Prospect <br /> - {t('home:stuff-4')}
+                      Old Portfolio <br /> - {t('home:stuff-4')}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/cg-prospect">
+                    <Link href="/stuff/old-portfolio">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"

@@ -86,7 +86,6 @@
 .title-image {
   margin-left: 3rem;
   object-fit: contain;
-  border-radius: 50rem 50rem 0 0;
 }
 
 .model {
@@ -132,7 +131,7 @@
   width: 50%;
 }
 
-.homepage-about-sub-cnt picture {
+.homepage-about-sub-cnt img {
   width: 50vw;
   object-fit: contain;
 }

@@ -59,7 +59,7 @@ const Hero = () => {
         <em className="title-1">{t('home:speed')}</em>
         <img
           className="title-image"
-          src="/ideology-website-5.jpg"
+          src="/websites.gif"
           height="170px"
           width="180px"
           alt="works"

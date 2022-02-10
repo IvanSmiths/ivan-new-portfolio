@@ -94,7 +94,7 @@ const Ideology = () => {
                 .{t('ideology:prologue')}
               </motion.li>
             </ul>
-            <motion.h1 layoutId="ideology-title" className="big-font">
+            <motion.h1 layoutId="ideology-title" className="impact big-font">
               Ideology
             </motion.h1>
           </div>
