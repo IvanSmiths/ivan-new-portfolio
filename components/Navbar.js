@@ -477,7 +477,24 @@ function Navbar() {
                 </li>
               </ul>
             </div>
-            <div className="burger-menu-info-cnt"></div>
+            <div className="burger-menu-info-cnt">
+              <em className="small-font impact uppercase">- Ivan Smiths</em>
+              <p className="small-font">{t('common:about')}</p>
+              <motion.a
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { y: 0, rotateZ: '0deg' },
+                  visible: { y: 0, rotateZ: '11deg' },
+                }}
+                href="mailto:info@ivansmiths.com"
+                className="btn-big btn-email small-font"
+              >
+                info@ivansmiths.com
+              </motion.a>
+            </div>
           </nav>
         </>
       )}

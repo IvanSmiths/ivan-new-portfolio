@@ -73,7 +73,7 @@ em {
 /* VARIABLES */
 
 :root {
-  --main-color: #d3124c;
+  --main-color: #d7f21d;
   --text-black: #131116;
   --extremeFont: clamp(7rem, 19vw, 14rem);
   --largeFont: clamp(4.5rem, 16vw, 14rem);
@@ -103,7 +103,7 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
   --color-bg-primary: #0e0e0c;
   --color-bg-sub: #ffffff;
-  --color-text-primary: #b9b9af;
+  --color-text-primary: #dbdbdb;
   --color-text-inverse: #0e0e0c;
   --color-bg-inverse: #b9b9af;
 }
