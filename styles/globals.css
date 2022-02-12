@@ -76,10 +76,10 @@ em {
   --main-color: #d3124c;
   --text-black: #131116;
   --extremeFont: clamp(7rem, 19vw, 14rem);
-  --largeFont: clamp(3.5rem, 16vw, 14rem);
+  --largeFont: clamp(4.5rem, 16vw, 14rem);
   --bigFont: clamp(2rem, 9.9vw, 8rem);
   --mediumFont: clamp(1.8rem, 4.7vw, 5rem);
-  --smallFont: clamp(0.9rem, 1.2vw, 2rem);
+  --smallFont: clamp(1rem, 1.2vw, 2rem);
   --tinyFont: clamp(0.7rem, 0.9vw, 2rem);
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
