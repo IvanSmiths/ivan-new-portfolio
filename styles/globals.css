@@ -248,7 +248,8 @@ li {
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 0 100%;
-  border: 1px solid var(--color-text-primary);
+  border: 1px solid var(--text-black);
+  color: var(--text-black);
   padding: 12.1rem 2.5rem;
   border-radius: 50%;
   text-decoration: none;

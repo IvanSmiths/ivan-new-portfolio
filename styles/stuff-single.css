@@ -43,9 +43,14 @@
 }
 
 .info-cnt ul {
+  color: black;
   text-align: left;
   margin-left: 50%;
   padding-right: var(--marginLayout);
+}
+
+.info-cnt ul li {
+  color: var(--text-black);
 }
 
 .info-link {
@@ -55,6 +60,7 @@
 }
 
 .info-sticky {
+  color: var(--text-black);
   position: sticky;
   padding-top: 18px;
   top: 0px;
