@@ -328,10 +328,23 @@
 }
 
 .footer-home-cnt {
+  flex-direction: column;
   margin-top: var(--marginSection);
-  height: 70vh;
+  height: 92vh;
   width: 100%;
   background-color: var(--color-bg-inverse);
+}
+
+.footer-home-cnt em {
+  align-self: flex-start;
+  color: var(--color-text-inverse);
+}
+
+.footer-single-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .footer-home-cnt a {

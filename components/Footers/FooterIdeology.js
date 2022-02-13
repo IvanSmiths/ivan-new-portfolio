@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import { CursorContext } from '../CursorManager';
 import { motion } from 'framer-motion';
+import useTranslation from 'next-translate/useTranslation';
 
 const FooterIdeology = () => {
   // MOUSE ZOOM HANDLER //
@@ -12,25 +13,44 @@ const FooterIdeology = () => {
   const handleMouseLeave = () => {
     setSize('small');
   };
+
+  let { t } = useTranslation();
+
   return (
     <div className="footer-home-cnt flex-center">
-      <Link href="/stuff/cg-prospect">
-        <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <motion.em
+      <div className="footer-single-cnt">
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          className="small-font"
+        >
+          ...{t('ideology:next-up')}
+        </motion.em>
+        <Link href="/stuff/cg-prospect">
+          <motion.a
+            className="big-font impact"
             initial="hidden"
             whileInView="visible"
+            layoutId="cgprospect-title"
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="big-font"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            cg prospect
-          </motion.em>
-        </a>
-      </Link>
+            CG PROSPECT
+          </motion.a>
+        </Link>
+      </div>
     </div>
   );
 };

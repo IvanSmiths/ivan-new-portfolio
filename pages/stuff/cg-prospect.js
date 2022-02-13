@@ -89,7 +89,7 @@ const Ideology = () => {
                 .{t('cg-prospect:prologue')}
               </motion.li>
             </ul>
-            <motion.h1 layoutId="cg-prospect-title" className="big-font">
+            <motion.h1 layoutId="cgprospect-title" className="big-font impact">
               CG Prospect
             </motion.h1>
           </div>

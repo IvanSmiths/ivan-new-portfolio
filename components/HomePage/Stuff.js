@@ -312,7 +312,7 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="ideology-title"
+                      layoutId="cgprospect-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}

@@ -4,6 +4,7 @@
   "pages": {
     "*": ["common"],
     "/": ["home"],
+    "/stuff": ["stuff"],
     "/stuff/ideology": ["ideology"],
     "/stuff/cg-prospect": ["cg-prospect"]
   }
