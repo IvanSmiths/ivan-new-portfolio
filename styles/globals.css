@@ -665,20 +665,34 @@ li {
 }
 
 .contact-cnt {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
+.contact-info-cnt {
+  width: 50%;
+  padding-right: 10%;
+}
+
+.contact-info-cnt p {
+  color: var(--text-black);
+  margin-top: 3rem;
+  margin-bottom: 14rem;
+}
+
 .menu2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 989899;
   padding: 10vh 50px;
 }
 
 .form {
-  width: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
@@ -716,9 +730,10 @@ li {
 
 .btn-contact {
   border: none;
-  background: transparent;
+  background: var(--text-black);
+  color: #ffffff;
   cursor: pointer;
-  color: var(--color-text-inverse);
+  padding: 1rem;
   transition: 0.5s ease-in-out;
 }
 
@@ -727,9 +742,10 @@ li {
 }
 
 .form input {
-  padding: 0.2rem;
+  padding: 0.6rem;
   border: none;
-  background-color: var(--color-bg-sub);
+  background-color: var(--text-black);
+  color: #ffffff;
 }
 
 textarea {
@@ -737,8 +753,10 @@ textarea {
 }
 
 .form textarea {
+  background-color: var(--text-black);
   border: none;
-  background-color: var(--color-bg-sub);
+  padding: 0.6rem;
+  color: #ffffff;
 }
 
 @import 'query.css';

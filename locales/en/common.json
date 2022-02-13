@@ -15,5 +15,7 @@
   "name": "Name",
   "object": "Object",
   "message": "Message",
+  "contact-hi": "Hello stranger!",
+  "contact-info": "Do you have a project in mind, or do you just want to say hi? Feel free to contact me for any reason.",
   "send": "Send"
 }

@@ -63,6 +63,18 @@
     margin-top: 5rem;
   }
 
+  .contact-cnt {
+    width: 90% !important;
+  }
+
+  .form {
+    width: 100% !important;
+  }
+
+  .contact-info-cnt {
+    display: none;
+  }
+
   .stuff-s-header-image-cnt img {
     width: auto;
     height: 80vh;

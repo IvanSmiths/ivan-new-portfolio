@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import { motion } from 'framer-motion';
 import useTranslation from 'next-translate/useTranslation';
 
 function Contact() {
@@ -12,8 +13,11 @@ function Contact() {
         {t('common:let-us-talk')}
       </span>
       <div className={cn('overlay-burger-menu menu2', { 'as-opened': opened })}>
-        <span className="close-burger2" onClick={() => setOpened(!opened)}>
-          {t('common:close')}
+        <span
+          className="close-burger2 impact"
+          onClick={() => setOpened(!opened)}
+        >
+          X
         </span>
         <div className="contact-cnt">
           <form
@@ -65,13 +69,25 @@ function Contact() {
               {t('common:send')}
             </button>
           </form>
+        </div>
+        <div className="contact-info-cnt">
+          <em className="medium-font">{t('common:contact-hi')}</em>
 
-          <a
-            className="mail-contact medium-font"
+          <p className="small-font">{t('common:contact-info')}</p>
+          <motion.a
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { y: 0, rotateZ: '0deg' },
+              visible: { y: 0, rotateZ: '11deg' },
+            }}
             href="mailto:info@ivansmiths.com"
+            className="btn-big btn-email small-font"
           >
             info@ivansmiths.com
-          </a>
+          </motion.a>
         </div>
       </div>
     </>

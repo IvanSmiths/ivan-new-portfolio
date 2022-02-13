@@ -15,5 +15,7 @@
   "name": "Nome",
   "object": "Oggetto",
   "message": "Messaggio",
+  "contact-hi": "Ciao straniero/a!",
+  "contact-info": "Hai un progetto in mente, o vuoi solo dire ciao? Sentiti libero/a di contattarmi per qualsiasi motivo.",
   "send": "Invia"
 }
