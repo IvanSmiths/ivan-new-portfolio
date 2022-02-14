@@ -78,8 +78,10 @@ em {
   --extremeFont: clamp(7rem, 19vw, 14rem);
   --largeFont: clamp(4.5rem, 16vw, 14rem);
   --bigFont: clamp(2rem, 9.9vw, 8rem);
+  --bigFontHeight: clamp(2rem, 9.9vw, 8rem);
   --mediumFont: clamp(1.8rem, 4.7vw, 5rem);
   --smallFont: clamp(1rem, 1.2vw, 2rem);
+  --smallFontHeight: clamp(1.4rem, 1.6vw, 2rem);
   --tinyFont: clamp(0.7rem, 0.9vw, 2rem);
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
@@ -146,6 +148,7 @@ body[data-theme='dark'] {
 
 .big-font {
   font-size: var(--bigFont);
+  line-height: var(--bigFontHeight);
 }
 
 .big-font-inverse {
@@ -158,6 +161,7 @@ body[data-theme='dark'] {
 }
 
 .small-font {
+  line-height: var(--smallFontHeight);
   font-weight: 400;
   font-size: var(--smallFont);
 }
@@ -207,6 +211,10 @@ li {
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
+}
+
+.btn-small-3 {
+  padding: 4.7rem 2.8rem;
 }
 
 .btn-small-2:hover {
@@ -730,8 +738,8 @@ li {
 
 .btn-contact {
   border: none;
-  background: var(--text-black);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: var(--text-black);
   cursor: pointer;
   padding: 1rem;
   transition: 0.5s ease-in-out;
@@ -744,8 +752,8 @@ li {
 .form input {
   padding: 0.6rem;
   border: none;
-  background-color: var(--text-black);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: var(--text-black);
 }
 
 textarea {
@@ -753,10 +761,10 @@ textarea {
 }
 
 .form textarea {
-  background-color: var(--text-black);
+  background-color: #ffffff;
+  color: var(--text-black);
   border: none;
   padding: 0.6rem;
-  color: #ffffff;
 }
 
 @import 'query.css';

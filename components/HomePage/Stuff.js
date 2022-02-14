@@ -143,7 +143,7 @@ function About() {
             </motion.p>
             <Link href="/about">
               <motion.a
-                className="btn-small-2"
+                className="btn-small-2 btn-small-3"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
