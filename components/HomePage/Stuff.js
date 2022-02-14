@@ -141,7 +141,7 @@ function About() {
             >
               {t('home:about')}
             </motion.p>
-            <Link href="/about">
+            <Link href="/about" passHref>
               <motion.a
                 className="btn-small-2 btn-small-3"
                 initial="hidden"
@@ -207,7 +207,7 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/ideology">
+                  <Link href="/stuff/ideology" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -226,7 +226,7 @@ function About() {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/ideology">
+                    <Link href="/stuff/ideology" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -242,7 +242,7 @@ function About() {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link href="/stuff" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -302,7 +302,7 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect">
+                  <Link href="/stuff/cg-prospect" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -321,7 +321,7 @@ function About() {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/cg-prospect">
+                    <Link href="/stuff/cg-prospect" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -337,7 +337,7 @@ function About() {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link href="/stuff" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -397,7 +397,7 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect">
+                  <Link href="/stuff/cg-prospect" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -416,7 +416,7 @@ function About() {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio">
+                    <Link href="/stuff/old-portfolio" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -432,7 +432,7 @@ function About() {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link href="/stuff" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -496,7 +496,7 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/old-portfolio">
+                  <Link href="/stuff/old-portfolio" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -515,7 +515,7 @@ function About() {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio">
+                    <Link href="/stuff/old-portfolio" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -531,7 +531,7 @@ function About() {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link href="/stuff" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"

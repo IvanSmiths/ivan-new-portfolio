@@ -79,7 +79,7 @@ const Home = () => {
           <Hero />
           <div
             className="canvas-cnt-home"
-            style={{ height: '130vh', position: 'relative' }}
+            style={{ minHeight: '130vh', position: 'relative' }}
           >
             <div className="background-innovation"></div>
             <Canvas />

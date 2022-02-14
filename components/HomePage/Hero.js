@@ -66,7 +66,7 @@ const Hero = () => {
         />
       </div>
       <div className="big-font skewElem flex-center title-2-cnt">
-        <Link href="/stuff">
+        <Link href="/stuff" passHref>
           <motion.a
             initial="hidden"
             whileInView="visible"

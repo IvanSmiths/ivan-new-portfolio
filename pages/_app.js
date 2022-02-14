@@ -111,12 +111,12 @@ function MyApp({ Component, pageProps }) {
           name="twitter:image:alt"
           content="preview of ivan smiths's website"
         />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D3124C" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d7f21d" />
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-        <meta content="#D3124C" name="theme-color" />
+        <meta content="#d7f21d" name="theme-color" />
         <meta name="application-name" content="Ivan Smiths's Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-TileColor" content="#D3124C" />
+        <meta name="msapplication-TileColor" content="#d7f21d" />
       </Head>
       <Menu />
       <Navbar />
