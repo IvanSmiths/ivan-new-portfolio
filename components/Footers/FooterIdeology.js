@@ -28,7 +28,7 @@ const FooterIdeology = () => {
             hidden: { opacity: 0 },
             visible: { opacity: 1 },
           }}
-          className="small-font"
+          className="small-font spacing tiny-font"
         >
           ...{t('ideology:next-up')}
         </motion.em>

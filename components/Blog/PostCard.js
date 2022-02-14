@@ -10,18 +10,19 @@ const PostCard = ({ post }) => {
     <>
       <div className="post-card-cnt">
         <div className="post-card-info-cnt">
-          <Link href={`/post/${post.slug}`}>
-            <a>
-              <motion.h2
-                layoutId={post.layoutid}
-                className="big-font impact impact-big uppercase"
-              >
-                {post.title}
-              </motion.h2>
-            </a>
+          <Link passHref href={`/post/${post.slug}`}>
+            <motion.a
+              layoutId={post.layoutid}
+              className="medium-font impact impact-big uppercase"
+            >
+              {post.title}
+            </motion.a>
           </Link>
           <span> {moment(post.createdAt).format('MMM DD, YY')}</span>
           <p>{post.excerpt}</p>
+          <Link href={`/post/${post.slug}`}>
+            <a className="btn-small post-card-cta">Read it</a>
+          </Link>
         </div>
         <div className="post-card-img-cnt">
           <Link href={`/post/${post.slug}`}>

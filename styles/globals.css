@@ -76,9 +76,9 @@ em {
   --bigFont: clamp(2rem, 9.9vw, 8rem);
   --bigFontHeight: clamp(2rem, 9.9vw, 8rem);
   --mediumFont: clamp(1.8rem, 4.7vw, 5rem);
-  --smallFont: clamp(1rem, 1.2vw, 2rem);
-  --smallFontHeight: clamp(1.4rem, 1.6vw, 2rem);
-  --tinyFont: clamp(0.7rem, 0.9vw, 2rem);
+  --smallFont: clamp(1rem, 1.7vw, 2rem);
+  --smallFontHeight: clamp(1.4rem, 2.4vw, 2rem);
+  --tinyFont: clamp(1rem, 1vw, 2rem);
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
@@ -103,7 +103,7 @@ body[data-theme='dark'] {
   --color-bg-sub: #ffffff;
   --color-text-primary: #dbdbdb;
   --color-text-inverse: #0e0e0c;
-  --color-bg-inverse: #b9b9af;
+  --color-bg-inverse: #fafafa;
 }
 
 ::-moz-selection {
@@ -156,6 +156,10 @@ body[data-theme='dark'] {
   font-size: var(--mediumFont);
 }
 
+.spacing {
+  letter-spacing: 0.3rem;
+}
+
 .small-font {
   line-height: var(--smallFontHeight);
   font-weight: 400;
@@ -203,7 +207,7 @@ li {
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 4.7rem 2.8rem;
+  padding: 1.7rem 2.8rem;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;

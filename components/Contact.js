@@ -31,11 +31,11 @@ function Contact() {
               value="http://localhost:3000/message"
             />
             <input type="hidden" name="_subject" value="IvanSmiths | Info" />
-            <label htmlFor="name" className="small-font">
+            <label htmlFor="name" className="tiny-font">
               {t('common:name')}
             </label>
             <input type="text" id="name" name="name" minLength="3" required />
-            <label htmlFor="object" className="small-font">
+            <label htmlFor="object" className="tiny-font">
               {t('common:object')}
             </label>
             <input
@@ -45,7 +45,7 @@ function Contact() {
               minLength="4"
               required
             />
-            <label htmlFor="email" className="small-font">
+            <label htmlFor="email" className="tiny-font">
               Email
             </label>
             <input
@@ -55,7 +55,7 @@ function Contact() {
               minLength="6"
               required
             />
-            <label className="small-font" htmlFor="message">
+            <label className="tiny-font" htmlFor="message">
               {t('common:message')}
             </label>
             <textarea
@@ -71,7 +71,7 @@ function Contact() {
           </form>
         </div>
         <div className="contact-info-cnt">
-          <em className="medium-font">{t('common:contact-hi')}</em>
+          <em className="small-font spacing">{t('common:contact-hi')}</em>
 
           <p className="small-font">{t('common:contact-info')}</p>
           <motion.a

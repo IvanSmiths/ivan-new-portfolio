@@ -88,6 +88,10 @@
     width: 100%;
   }
 
+  .post-card-img-cnt {
+    margin-top: 6.4rem;
+  }
+
   .links-socials-cnt {
     width: 100%;
   }
@@ -222,6 +226,11 @@
   .stuff-s-header-image-cnt img {
     width: 80vw;
     height: auto;
+  }
+
+  .lang-cnt2 {
+    display: flex !important;
+    margin-top: 2rem;
   }
 
   .home-header-cnt h1 {

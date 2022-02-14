@@ -127,7 +127,7 @@ function About() {
         </div>
         <div ref={refSec} className="flex-center">
           <div id="about" className="homepage-about-p-cnt">
-            <h2 className="small-font">- Ivan Smiths</h2>
+            <h2 className="tiny-font spacing">.Ivan Smiths</h2>
             <motion.p
               initial="hidden"
               whileInView="visible"
@@ -143,7 +143,7 @@ function About() {
             </motion.p>
             <Link href="/about" passHref>
               <motion.a
-                className="btn-small-2 btn-small-3"
+                className="btn-small-2 tiny-font btn-small-3"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}

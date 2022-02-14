@@ -1,7 +1,6 @@
 import React from 'react';
 import PostCard from '../../components/Blog/PostCard';
 import PostCategories from '../../components/Blog/PostCategories';
-import PostWidget from '../../components/Blog/PostWidget';
 import Head from 'next/head';
 import { getPosts } from '../../utils/index';
 
@@ -11,7 +10,7 @@ const schemaData = {
   name: 'IvanSmiths',
   url: 'https://www.ivansmiths.com',
   image: 'https://www.ivansmiths.com/main-texture.jpg',
-  description: `just another react developer`,
+  description: `React developer from Wiesbaden`,
   brand: {
     '@type': 'Brand',
     logo: 'https://www.ivansmiths.com/logo-icon-white.svg',

@@ -21,7 +21,6 @@ function Navbar() {
   let router = useRouter();
   const [isOpen, setOpen] = useState(false);
   const [opened, setOpened] = useState(false);
-  const [isDesktop, setDesktop] = useState(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
 
@@ -38,24 +37,6 @@ function Navbar() {
       path02Controls.start(path02Variants.closed);
     }
   };
-
-  useEffect(() => {
-    if (window.innerWidth < 450) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth < 450) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
-  }, []);
 
   let { t } = useTranslation();
   return (
@@ -79,6 +60,7 @@ function Navbar() {
         />
       </svg>
       <nav className={cn('overlay-burger-menu', { 'as-opened': opened })}>
+        <span className="close-nav"></span>
         <div className="links-socials-cnt">
           <ul className="burger-menu-links-cnt">
             <li>
@@ -151,23 +133,21 @@ function Navbar() {
               </a>
             </li>
           </ul>
-        </div>
-        <div className="burger-menu-info-cnt">
-          <em className="small-font impact uppercase">- Ivan Smiths</em>
           <ul className="lang-cnt2">
             <li>
               <Link locale="en" href={router.asPath}>
-                <a className="small-font">{router.locales[0]}</a>
+                <a className="tiny-font">{router.locales[0]}</a>
               </Link>
             </li>
-            <li className="small-font">/</li>
+            <li className="tiny-font">/</li>
             <li>
               <Link locale="it" href={router.asPath}>
-                <a className="small-font">{router.locales[1]}</a>
+                <a className="tiny-font">{router.locales[1]}</a>
               </Link>
             </li>
           </ul>
-          <p className="small-font">{t('common:about')}</p>
+        </div>
+        <div className="burger-menu-info-cnt">
           <motion.a
             initial="hidden"
             whileInView="visible"

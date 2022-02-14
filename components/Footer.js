@@ -22,8 +22,8 @@ const Footer = () => {
       <div className="footer-layout-cnt medium-font">
         <Link href="/">
           <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <em className="footer-ivan-smiths small-font" onClick={Replay}>
-              @2022 ivan smiths
+            <em className="footer-ivan-smiths tiny-font" onClick={Replay}>
+              2022©ivan smiths
             </em>
           </a>
         </Link>

@@ -45,8 +45,21 @@
   transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+.close-nav {
+  position: fixed;
+  right: -26px;
+  top: -26px;
+  padding: 4.1rem;
+  background-color: var(--color-bg-primary);
+  border-radius: 32rem;
+}
+
+.lang-cnt2 {
+  display: none !important;
+}
+
 .btn-email {
-  padding: 8.6rem 3.8rem !important;
+  padding: 8.3rem 1.8rem !important;
   border: 1px solid var(--text-black) !important;
 }
 
@@ -58,14 +71,6 @@
   gap: 3rem;
   padding-right: 10vw;
   width: 40%;
-}
-
-.burger-menu-info-cnt em {
-  color: var(--text-black);
-}
-
-.burger-menu-info-cnt p {
-  color: var(--text-black);
 }
 
 .burger-menu-info-cnt a {

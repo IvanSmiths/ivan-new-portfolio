@@ -90,7 +90,10 @@ const Ideology = () => {
         <div className="stuff-s-header-info-cnt skewElem">
           <div className="stuff-s-header-info-layout">
             <ul className="stuff-s-header-info">
-              <motion.li layout="ideology-prologue" className="small-font">
+              <motion.li
+                layout="ideology-prologue"
+                className="tiny-font spacing"
+              >
                 .{t('ideology:prologue')}
               </motion.li>
             </ul>
@@ -105,7 +108,7 @@ const Ideology = () => {
         <h2
           onMouseEnter={() => setWork(`${t('ideology:work-harder')}`)}
           onMouseLeave={() => setWork(`${t('ideology:work-hard')}`)}
-          className="info-sticky"
+          className="info-sticky spacing"
         >
           {work}
         </h2>
@@ -272,7 +275,7 @@ const Ideology = () => {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="small-font stuff-em"
+            className="tiny-font spacing stuff-em"
           >
             . {t('ideology:exposition')}
           </motion.em>
@@ -312,7 +315,7 @@ const Ideology = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className="stuff-em"
+          className="stuff-em spacing tiny-font"
         >
           .{t('ideology:rising-action')}
         </motion.em>
@@ -350,7 +353,7 @@ const Ideology = () => {
               hidden: { opacity: 0, y: 100 },
               visible: { opacity: 1, y: 0 },
             }}
-            className="stuff-em"
+            className="stuff-em spacing tiny-font"
           >
             .climax
           </motion.em>
@@ -498,7 +501,7 @@ const Ideology = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className="stuff-em"
+          className="stuff-em spacing tiny-font"
         >
           . {t('ideology:falling-action')}
         </motion.em>
@@ -535,7 +538,7 @@ const Ideology = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className="stuff-em"
+          className="stuff-em spacing tiny-font"
         >
           .{t('ideology:denouement')}
         </motion.em>
@@ -575,7 +578,7 @@ const Ideology = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="large-font"
+          className="large-font spacing"
         >
           {t('ideology:credits')}
         </motion.h3>

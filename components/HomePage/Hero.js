@@ -78,7 +78,7 @@ const Hero = () => {
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="small-font title-link btn-small-2"
+            className="tiny-font title-link btn-small-2"
           >
             {t('common:nav-stuff')}
           </motion.a>
