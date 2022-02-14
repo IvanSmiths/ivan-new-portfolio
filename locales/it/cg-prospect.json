@@ -1,3 +1,13 @@
 {
-  "prologue": "prologo"
+  "prologue": "prologo",
+  "type": "Type",
+  "type-2": "Employee",
+  "year": "Year",
+  "stack": "Tech",
+  "clients": "Happy clients",
+  "hours": "Hours of work",
+  "web": "Website",
+  "parties": "Parties done",
+  "work-hard": "3d.",
+  "work-harder": "3d is awesome!"
 }

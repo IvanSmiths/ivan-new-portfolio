@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,6 +46,7 @@ const Ideology = () => {
   };
 
   let { t } = useTranslation();
+  const [work, setWork] = useState(`${t('cg-prospect:work-hard')}`);
 
   return (
     <>
@@ -104,34 +105,164 @@ const Ideology = () => {
           alt={'image'}
           className={'single-stuff-main-image'}
         />
-        <div className="stuff-s-quick-info-cnt">
-          <span className="lines"></span>
-          <ul className="small-font stuff-s-quick-info">
-            <li>
-              Type: <br />
-              Project
-            </li>
-            <li>
-              Year: <br />
-              2021
-            </li>
-            <li>
-              Main technologies: <br />
-              Next.js, PostgreSql, Prisma <br /> Stripe, MailChimp
-            </li>
-            <li>
-              Link: <br />
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                href="https://www.cgprospect.com"
-                target="_blank"
-                rel="noopener noreferrer"
+        <div className="info-cnt">
+          <h2
+            onMouseEnter={() => setWork(`${t('cg-prospect:work-harder')}`)}
+            onMouseLeave={() => setWork(`${t('cg-prospect:work-hard')}`)}
+            className="info-sticky spacing"
+          >
+            {work}
+          </h2>
+          <ul>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="big-font impact"
+            >
+              Tech
+              <motion.em
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                className="small-font serif"
               >
-                Website
-              </a>
-            </li>
+                - Webflow, WordPress, Html, Css, JavaScript
+              </motion.em>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="big-font impact"
+            >
+              {t('cg-prospect:type')}
+              <motion.em
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                className="small-font serif"
+              >
+                - {t('cg-prospect:type-2')}
+              </motion.em>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="big-font impact"
+            >
+              {t('cg-prospect:year')}
+              <motion.em
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                className="small-font serif"
+              >
+                - 2021/2022
+              </motion.em>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="big-font impact"
+            >
+              602,3
+              <motion.em
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                className="small-font serif"
+              >
+                {t('cg-prospect:hours')}
+              </motion.em>
+            </motion.li>
+            <motion.li
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="big-font impact"
+            >
+              17
+              <motion.em
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                className="small-font serif"
+              >
+                {t('cg-prospect:parties')}
+              </motion.em>
+            </motion.li>
           </ul>
+          <div className="info-link">
+            <motion.a
+              target="_blank"
+              rel="noreferrer noopener"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { y: 0, rotateZ: '0deg' },
+                visible: { y: 0, rotateZ: '11deg' },
+              }}
+              className="big-font btn-big"
+              href="https://www.cgprospect.com/"
+            >
+              Website
+            </motion.a>
+          </div>
         </div>
       </section>
 
