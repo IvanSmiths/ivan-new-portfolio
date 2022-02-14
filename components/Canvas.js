@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 const Canvas = () => {
-  const position = { x: 0, y: 0, radius: 280 };
+  const position = { x: 0, y: 0, radius: 180 };
   const width = window.innerWidth;
   const height = window.innerHeight;
   const size = { width: width, height: height };
@@ -22,8 +22,8 @@ const Canvas = () => {
     const ctx = canvasRef.current.getContext('2d');
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = '#060606';
-    ctx.font = ' 40px Verdana';
-    ctx.fillText(`${t('home:innovation2')}`, 50, 50);
+    ctx.font = ' 42px Georgia';
+    ctx.fillText(`${t('home:innovation2')}`, 30, 50);
 
     for (let i = 0; i < particleArray.length; i++) {
       particleArray[i].draw();
@@ -68,11 +68,11 @@ const Canvas = () => {
       } else {
         if (this.x !== this.baseX) {
           let dx = this.x - this.baseX;
-          this.x -= dx / 10;
+          this.x -= dx / 40;
         }
         if (this.y !== this.basyY) {
           let dy = this.y - this.baseY;
-          this.y -= dy / 10;
+          this.y -= dy / 40;
         }
       }
     }
