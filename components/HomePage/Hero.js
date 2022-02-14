@@ -83,7 +83,7 @@ const Hero = () => {
             {t('common:nav-stuff')}
           </motion.a>
         </Link>
-        <em className="title-2">{t('home:security')}</em>
+        <em className="title-2 impact">{t('home:security')}</em>
       </div>
       <div className="big-font skewElem flex-center title-3-cnt">
         <em className="title-3"> {t('home:and')} </em>

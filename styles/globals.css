@@ -1,20 +1,16 @@
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Playfair Display', -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
 }
 
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: Georgia, 'Times New Roman', Times, serif;
   transition: background 0.25s ease-in-out;
 }
 
-.serif {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
 .impact {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -75,7 +71,7 @@ em {
 :root {
   --main-color: #d7f21d;
   --text-black: #131116;
-  --extremeFont: clamp(7rem, 19vw, 14rem);
+  --extremeFont: clamp(4rem, 2vw, 14rem);
   --largeFont: clamp(4.5rem, 16vw, 14rem);
   --bigFont: clamp(2rem, 9.9vw, 8rem);
   --bigFontHeight: clamp(2rem, 9.9vw, 8rem);
@@ -318,8 +314,9 @@ li {
   z-index: 99;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
   gap: 0.6rem;
   color: var(--color-text-inverse);
 }
@@ -488,6 +485,10 @@ li {
   bottom: 20px;
   z-index: 10;
   color: var(--color-text-primary);
+}
+
+.overlay-burger-menu {
+  z-index: 99999;
 }
 
 .overlay-burger-menu main {

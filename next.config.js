@@ -17,13 +17,13 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.google.com *.google.it *.googleadservices.com *.googlesyndication.com *.googletagservices.com *.googletagmanager.com;
   child-src *.google.com *.google.it *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com ;
-  style-src 'self' 'unsafe-inline' *.stripe.com;
+  style-src https://fonts.googleapis.com 'self' 'unsafe-inline' *.googleapis.com *.stripe.com;
   object-src 'none';
   base-uri 'none';
   img-src * blob: data:;
   media-src 'self';
   connect-src *;
-  font-src 'self';
+  font-src 'self' https://fonts.gstatic.com;
 `;
 
 const securityHeaders = [
