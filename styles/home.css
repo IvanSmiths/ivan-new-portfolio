@@ -5,9 +5,14 @@
 }
 
 .loader-sub-title {
+  line-height: 2rem;
   text-align: center;
   top: 90px;
   position: absolute;
+}
+
+.transition-image {
+  padding: 0 20vw;
 }
 
 .transition-image h1 {

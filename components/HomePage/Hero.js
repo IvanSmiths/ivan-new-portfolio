@@ -56,7 +56,9 @@ const Hero = () => {
   return (
     <header className="home-header-cnt flex-center">
       <div className="big-font flex-center skewElem title-1-cnt">
-        <em className="title-1">{t('home:speed')}</em>
+        <motion.em layoutId="sub-title" className="title-1">
+          {t('home:speed')}
+        </motion.em>
         <img
           className="title-image"
           src="/websites.gif"
@@ -83,10 +85,12 @@ const Hero = () => {
             {t('common:nav-stuff')}
           </motion.a>
         </Link>
-        <em className="title-2 impact">{t('home:security')}</em>
+        <motion.em layoutId="main-title" className="title-2 impact">
+          {t('home:security')}
+        </motion.em>
       </div>
       <div className="big-font skewElem flex-center title-3-cnt">
-        <em className="title-3"> {t('home:and')} </em>
+        <em className="title-3">{t('home:and')}</em>
         <motion.svg
           height="60px"
           width="50px"

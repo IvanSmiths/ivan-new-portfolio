@@ -58,7 +58,7 @@ const Home = () => {
 
   return (
     <>
-      {loading && hasVisited ? (
+      {loading ? (
         <motion.div key="loader">
           <Loader setLoading={setLoading} />
         </motion.div>

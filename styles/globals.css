@@ -79,7 +79,7 @@ em {
   --largeFont: clamp(4.5rem, 16vw, 14rem);
   --bigFont: clamp(2rem, 9.9vw, 8rem);
   --bigFontHeight: clamp(2rem, 9.9vw, 8rem);
-  --mediumFont: clamp(1.8rem, 4.7vw, 5rem);
+  --mediumFont: clamp(1.8rem, 5.7vw, 5rem);
   --smallFont: clamp(1rem, 1.7vw, 2rem);
   --smallFontHeight: clamp(1.4rem, 2.5vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 2rem);
@@ -212,7 +212,7 @@ li {
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 1.7rem 2.8rem;
+  padding: 1.7rem 3.3rem;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;

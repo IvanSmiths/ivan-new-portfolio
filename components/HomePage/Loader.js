@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { motion } from 'framer-motion';
+import useTranslation from 'next-translate/useTranslation';
 
 // Import images
 
@@ -19,7 +20,7 @@ const itemMain = {
     y: 0,
     transition: {
       ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 5,
+      duration: 8,
     },
   },
 };
@@ -49,6 +50,7 @@ const titleSub = {
 };
 
 const Loader = ({ setLoading }) => {
+  let { t } = useTranslation();
   return (
     <motion.div className="loader">
       <motion.div
@@ -61,18 +63,18 @@ const Loader = ({ setLoading }) => {
       >
         <motion.div variants={itemMain} className="transition-image">
           <motion.h2
-            className="small-font loader-sub-title"
+            className="tiny-font spacing loader-sub-title"
             layoutId="sub-title"
             variants={titleSub}
           >
-            ivan smiths / frontend developer
+            ivan smiths <br /> {t('common:web-react')} (React.js)
           </motion.h2>
           <motion.h1
             className="uppercase impact medium-font"
             layoutId="main-title"
             variants={titleMain}
           >
-            Web development it is just all about...
+            {t('common:web-dev')}...
           </motion.h1>
         </motion.div>
       </motion.div>

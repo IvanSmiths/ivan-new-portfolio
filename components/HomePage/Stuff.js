@@ -127,7 +127,7 @@ function About() {
         </div>
         <div ref={refSec} className="flex-center">
           <div id="about" className="homepage-about-p-cnt">
-            <h2 className="tiny-font spacing">.Ivan Smiths</h2>
+            <h2 className="tiny-font spacing">.IVAN SMITHS</h2>
             <motion.p
               initial="hidden"
               whileInView="visible"
