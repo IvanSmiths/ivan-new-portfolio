@@ -279,7 +279,7 @@ function About() {
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="cgprospect-img-1"
+                          layoutId="cg-prospect-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -289,7 +289,7 @@ function About() {
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="cgprospect-img-2"
+                          layoutId="cg-prospect-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -312,7 +312,7 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="cgprospect-title"
+                      layoutId="cg-prospect-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}

@@ -86,11 +86,14 @@ const Ideology = () => {
         <div className="stuff-s-header-info-cnt skewElem">
           <div className="stuff-s-header-info-layout">
             <ul className="stuff-s-header-info">
-              <motion.li layout="cg-prospect-prologue" className="small-font">
+              <motion.li
+                layout="cg-prospect-prologue"
+                className="tiny-font spacing"
+              >
                 .{t('cg-prospect:prologue')}
               </motion.li>
             </ul>
-            <motion.h1 layoutId="cgprospect-title" className="big-font impact">
+            <motion.h1 layoutId="cg-prospect-title" className="big-font impact">
               CG Prospect
             </motion.h1>
           </div>
@@ -268,8 +271,10 @@ const Ideology = () => {
 
       <div className="exposition-cnt skewElem">
         <div className="exposition">
-          <em className="small-font stuff-em">.exposition</em>
-          <h2 className="big-font">Make the fastest website about 3D.</h2>
+          <em className="tiny-font spacing stuff-em">.exposition</em>
+          <h2 className="big-font impact uppercase">
+            Make the fastest website about 3D.
+          </h2>
         </div>
       </div>
 
@@ -284,7 +289,7 @@ const Ideology = () => {
         />
       </div>
       <div className="rising-action-cnt skewElem">
-        <em className="stuff-em">.Rising action</em>
+        <em className="stuff-em spacing tiny-font">.Rising action</em>
         <p>
           I decided to make CG Prospect for giving a home for the 3d models and
           textures that i create.
@@ -302,7 +307,7 @@ const Ideology = () => {
       </div>
       <main className="climax-cnt flex-center skewElem">
         <div className="climax">
-          <em className="stuff-em">.climax</em>
+          <em className="stuff-em spacing tiny-font">.climax</em>
           <p>
             The website is made with Next.js in the fronted, and using Prisma as
             a ORM using Postgresql. I use MailChimp as a newsletter and it is
@@ -321,7 +326,7 @@ const Ideology = () => {
         />
       </div>
       <div className="falling-action-cnt skewElem">
-        <em className="stuff-em">.falling action</em>
+        <em className="stuff-em spacing tiny-font">.falling action</em>
         <p>
           The assets are totally free to download, so i decided to take
           donations, via Stripe, developing a form that let the user decide the
@@ -329,7 +334,7 @@ const Ideology = () => {
         </p>
       </div>
       <div className="denouement-cnt skewElem">
-        <em className="stuff-em">.denouement</em>
+        <em className="stuff-em spacing tiny-font">.denouement</em>
         <h3 className="impact impact-large uppercase large-font">
           By far is my biggest project.
         </h3>

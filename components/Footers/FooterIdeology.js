@@ -32,12 +32,11 @@ const FooterIdeology = () => {
         >
           ...{t('ideology:next-up')}
         </motion.em>
-        <Link href="/stuff/cg-prospect">
+        <Link passHref href="/stuff/cg-prospect">
           <motion.a
             className="big-font impact"
             initial="hidden"
             whileInView="visible"
-            layoutId="cgprospect-title"
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             variants={{
