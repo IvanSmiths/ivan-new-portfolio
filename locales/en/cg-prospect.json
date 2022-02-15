@@ -1,13 +1,11 @@
 {
   "prologue": "prologo",
   "type": "Type",
-  "type-2": "Employee",
+  "type-2": "Project",
   "year": "Year",
   "stack": "Tech",
-  "clients": "Happy clients",
-  "hours": "Hours of work",
+  "fastest": "Make the fastest website about 3D.",
   "web": "Website",
-  "parties": "Parties done",
   "work-hard": "3d.",
   "work-harder": "3d is awesome!",
   "next-up": "next up"

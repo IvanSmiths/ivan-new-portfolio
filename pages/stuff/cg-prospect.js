@@ -140,7 +140,7 @@ const Ideology = () => {
                 }}
                 className="small-font serif"
               >
-                - Webflow, WordPress, Html, Css, JavaScript
+                .Next JS, PostegSql, Prisma, Stripe, MailChimp
               </motion.em>
             </motion.li>
             <motion.li
@@ -166,7 +166,7 @@ const Ideology = () => {
                 }}
                 className="small-font serif"
               >
-                - {t('cg-prospect:type-2')}
+                .{t('cg-prospect:type-2')}
               </motion.em>
             </motion.li>
             <motion.li
@@ -192,59 +192,7 @@ const Ideology = () => {
                 }}
                 className="small-font serif"
               >
-                - 2021/2022
-              </motion.em>
-            </motion.li>
-            <motion.li
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="big-font impact"
-            >
-              602,3
-              <motion.em
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                className="small-font serif"
-              >
-                {t('cg-prospect:hours')}
-              </motion.em>
-            </motion.li>
-            <motion.li
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="big-font impact"
-            >
-              17
-              <motion.em
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                className="small-font serif"
-              >
-                {t('cg-prospect:parties')}
+                .2021
               </motion.em>
             </motion.li>
           </ul>
@@ -272,8 +220,8 @@ const Ideology = () => {
       <div className="exposition-cnt skewElem">
         <div className="exposition">
           <em className="tiny-font spacing stuff-em">.exposition</em>
-          <h2 className="big-font impact uppercase">
-            Make the fastest website about 3D.
+          <h2 className="large-font impact uppercase">
+            {t('cg-prospect:fastest')}
           </h2>
         </div>
       </div>
@@ -291,8 +239,9 @@ const Ideology = () => {
       <div className="rising-action-cnt skewElem">
         <em className="stuff-em spacing tiny-font">.Rising action</em>
         <p>
-          I decided to make CG Prospect for giving a home for the 3d models and
-          textures that i create.
+          CG Prospect is built with Next JS and is a 100% static website (SSG).
+          As a backend i have used PostgreSql with Prisma as an ORM. The
+          tetxtures and 3d models are hosted on BackBlaze.
         </p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
@@ -309,9 +258,9 @@ const Ideology = () => {
         <div className="climax">
           <em className="stuff-em spacing tiny-font">.climax</em>
           <p>
-            The website is made with Next.js in the fronted, and using Prisma as
-            a ORM using Postgresql. I use MailChimp as a newsletter and it is
-            hosted on Vercel.
+            I have built a donation system via Stripe, thanks to that the user
+            can enter the desired amount to donate, thanks to a slider, that
+            dynamically change the import to donate.
           </p>
         </div>
       </main>
@@ -328,19 +277,20 @@ const Ideology = () => {
       <div className="falling-action-cnt skewElem">
         <em className="stuff-em spacing tiny-font">.falling action</em>
         <p>
-          The assets are totally free to download, so i decided to take
-          donations, via Stripe, developing a form that let the user decide the
-          import to donate.
+          I bet everything on the SEO, translating the website in 6 languages,
+          and the use of various Schema (Schema.org). I did the keyword research
+          with Semrush and Google Ads.
         </p>
       </div>
       <div className="denouement-cnt skewElem">
         <em className="stuff-em spacing tiny-font">.denouement</em>
         <h3 className="impact impact-large uppercase large-font">
-          By far is my biggest project.
+          This project thought me the importance of having a SEO optimized
+          website.
         </h3>
       </div>
       <section className="credits-cnt flex-center skewElem">
-        <h3 className="large-font">Credits</h3>
+        <h3 className="large-font spacing">Credits</h3>
         <div className="credits-card-cnt flex-center">
           <ul className="credits-card">
             <li className="credits-card-title">3D softwares</li>
