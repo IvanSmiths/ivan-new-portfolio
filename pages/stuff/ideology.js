@@ -63,29 +63,27 @@ const Ideology = () => {
       </Head>
       <header className="stuff-s-header-cnt skewElem">
         <div className="stuff-s-header-image-cnt skewElem">
-          <AnimatePresence>
-            <picture>
-              <motion.source
-                layoutId="ideology-img-1"
-                alt="image of a work"
-                decoding="async"
-                loading="lazy"
-                height="600"
-                width="400"
-                srcSet="/ideology-website-mobile-4.webp"
-                type="image/webp"
-              />
-              <motion.img
-                layoutId="ideology-img-2"
-                alt="image of a work"
-                loading="lazy"
-                decoding="async"
-                src="/ideology-website-mobile-4.jpg"
-                height="600"
-                width="400"
-              />
-            </picture>
-          </AnimatePresence>
+          <picture>
+            <motion.source
+              layoutId="ideology-img-1"
+              alt="image of a work"
+              decoding="async"
+              loading="lazy"
+              height="600"
+              width="400"
+              srcSet="/ideology-website-mobile-4.webp"
+              type="image/webp"
+            />
+            <motion.img
+              layoutId="ideology-img-2"
+              alt="image of a work"
+              loading="lazy"
+              decoding="async"
+              src="/ideology-website-mobile-4.jpg"
+              height="600"
+              width="400"
+            />
+          </picture>
         </div>
         <div className="stuff-s-header-info-cnt skewElem">
           <div className="stuff-s-header-info-layout">
