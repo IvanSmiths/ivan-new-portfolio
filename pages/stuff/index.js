@@ -116,6 +116,7 @@ const Index = () => {
                         className="flex-center"
                       >
                         <motion.source
+                          layoutId="ideology-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -125,6 +126,7 @@ const Index = () => {
                           type="image/webp"
                         />
                         <motion.img
+                          layoutId="ideology-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -139,6 +141,7 @@ const Index = () => {
                 <div className="box-informations-cnt">
                   <Link href="/stuff/ideology">
                     <motion.a
+                      layoutId="ideology-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -200,6 +203,7 @@ const Index = () => {
                         className="flex-center"
                       >
                         <motion.source
+                          layoutId="cgprospect-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -209,6 +213,7 @@ const Index = () => {
                           type="image/webp"
                         />
                         <motion.img
+                          layoutId="cgprospect-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -231,6 +236,7 @@ const Index = () => {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
+                      layoutId="cgprospect-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -292,6 +298,7 @@ const Index = () => {
                         className="flex-center"
                       >
                         <motion.source
+                          layoutId="old-portfolio-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -301,6 +308,7 @@ const Index = () => {
                           type="image/webp"
                         />
                         <motion.img
+                          layoutId="old-portfolio-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -313,7 +321,7 @@ const Index = () => {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link passHref href="/stuff/cg-prospect">
+                  <Link href="/stuff/cg-prospect">
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -332,7 +340,7 @@ const Index = () => {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link passHref href="/stuff/old-portfolio">
+                    <Link href="/stuff/old-portfolio">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -348,7 +356,7 @@ const Index = () => {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link passHref href="/stuff">
+                    <Link href="/stuff">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
