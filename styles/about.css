@@ -1,12 +1,8 @@
 .about-title-cnt {
   width: 100%;
-  padding: 14vw 0rem 0 37vw;
+  padding-top: 14vw;
   text-align: right;
   text-transform: uppercase;
-}
-
-.about-title-cnt h1 {
-  margin-right: 3vw;
 }
 
 .about-main-cnt {
@@ -14,10 +10,6 @@
   flex-direction: row;
   gap: 19vw;
   margin-top: var(--marginSection);
-}
-
-.about-main-img-cnt {
-  margin-left: 10vw;
 }
 
 .about-main-subtitle-cnt {

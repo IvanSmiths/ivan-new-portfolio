@@ -2,6 +2,11 @@ import React from 'react';
 import SrcImage from '../components/SrcImage';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
+const ModelMe = dynamic(() => import('../components/About/ModelMe'), {
+  ssr: false,
+});
 
 const About = () => {
   return (
@@ -15,7 +20,7 @@ const About = () => {
       </Head>
       <header>
         <div className="about-title-cnt">
-          <motion.h1 layoutId="about" className="big-font impact">
+          <motion.h1 layoutId="about" className="large-font impact">
             Mind of a developer & eyes of a ui/ux designer.
           </motion.h1>
         </div>
@@ -23,13 +28,7 @@ const About = () => {
       <main>
         <section className="about-main-cnt">
           <div className="about-main-img-cnt">
-            <SrcImage
-              src="/myself.png"
-              webp="/myself.webp"
-              alt="image of me"
-              height="500px"
-              width="200px"
-            />
+            <ModelMe />
           </div>
           <div className="about-main-subtitle-cnt flex-center">
             <h2 className="medium-font">
