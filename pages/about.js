@@ -27,22 +27,11 @@ const About = () => {
       </header>
       <main>
         <section className="about-main-cnt">
-          <div className="about-main-img-cnt">
-            <ModelMe />
-          </div>
-          <div className="about-main-subtitle-cnt flex-center">
-            <h2 className="medium-font">
-              speed <br />
-              security & <br />
-              <em className="impact">INNOVATION</em>
-            </h2>
-          </div>
-        </section>
-        <section className="about-paragraph-cnt flex-center">
-          <div>
-            <p className="small-font">
-              Web developer, i help business owner from Ragusa to increasing
-              their clients, by the creation of profitable websites.
+          <ModelMe />
+          <div className="about-main-works-cnt ">
+            <p className="large-font impact">
+              Ivan Smiths, web developer with 2 years of experience who uses
+              React with Next.js.
             </p>
           </div>
         </section>

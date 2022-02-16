@@ -8,19 +8,33 @@
 .about-main-cnt {
   display: flex;
   flex-direction: row;
-  gap: 19vw;
   margin-top: var(--marginSection);
 }
 
-.about-main-subtitle-cnt {
-  align-self: center;
-  justify-self: center;
+.cnt-model {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  top: 0;
 }
 
-.about-main-cnt img {
-  height: 50vw;
-  transform: scaleX(-1);
-  width: auto;
+.sticky {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  left: 30px;
+}
+
+.model {
+  width: 100%;
+}
+
+.about-main-works-cnt {
+  width: 60%;
+
+  word-wrap: break-word;
 }
 
 .about-paragraph-cnt {

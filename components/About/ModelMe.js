@@ -7,7 +7,7 @@ const Model = () => {
         <model-viewer
           id="reveal"
           poster="/poster.png"
-          class="model"
+          class="model sticky"
           loading="lazy"
           src="/3d-model.glb"
           ios-src="/3d-model.usdz"
