@@ -49,7 +49,7 @@ function About() {
         opacity: 1,
       },
       {
-        marginTop: '30vw',
+        marginTop: '20vw',
         opacity: 1,
         duration: 1,
         ease: 'none',

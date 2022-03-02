@@ -76,13 +76,13 @@ em {
   --main-color: #d7f21d;
   --text-black: #131116;
   --extremeFont: clamp(4rem, 2vw, 14rem);
-  --largeFont: clamp(4.5rem, 16vw, 14rem);
+  --largeFont: clamp(4.5rem, 16vw, 19rem);
   --bigFont: clamp(2rem, 9.9vw, 8rem);
   --bigFontHeight: clamp(2rem, 9.9vw, 8rem);
   --mediumFont: clamp(1.8rem, 5.7vw, 5rem);
-  --smallFont: clamp(1rem, 1.7vw, 2rem);
+  --smallFont: clamp(1rem, 1.7vw, 1.4rem);
   --smallFontHeight: clamp(1.4rem, 2.5vw, 2.7rem);
-  --tinyFont: clamp(1rem, 1vw, 2rem);
+  --tinyFont: clamp(1rem, 1vw, 1rem);
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
@@ -212,7 +212,7 @@ li {
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 1.7rem 3.3rem;
+  padding: 40px 60px;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;

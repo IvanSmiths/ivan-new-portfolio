@@ -23,7 +23,7 @@ const Footer = () => {
         <Link href="/">
           <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <em className="footer-ivan-smiths tiny-font" onClick={Replay}>
-              2022©ivan smiths
+              2022 ©ivan smiths
             </em>
           </a>
         </Link>
