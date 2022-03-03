@@ -139,7 +139,7 @@ const Index = () => {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/ideology">
+                  <Link passHref href="/stuff/ideology">
                     <motion.a
                       layoutId="ideology-title"
                       className="big-font box-title impact"
@@ -150,7 +150,7 @@ const Index = () => {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/ideology">
+                    <Link passHref href="/stuff/ideology">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -166,7 +166,7 @@ const Index = () => {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link passHref href="/stuff">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -226,7 +226,7 @@ const Index = () => {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect">
+                  <Link passHref href="/stuff/cg-prospect">
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -245,7 +245,7 @@ const Index = () => {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/cg-prospect">
+                    <Link passHref href="/stuff/cg-prospect">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -261,7 +261,7 @@ const Index = () => {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link passHref href="/stuff">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -321,7 +321,7 @@ const Index = () => {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect">
+                  <Link passHref href="/stuff/cg-prospect">
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -340,7 +340,7 @@ const Index = () => {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio">
+                    <Link passHref href="/stuff/old-portfolio">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -356,7 +356,7 @@ const Index = () => {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link passHref href="/stuff">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -420,7 +420,7 @@ const Index = () => {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/old-portfolio">
+                  <Link passHref href="/stuff/old-portfolio">
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -439,7 +439,7 @@ const Index = () => {
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio">
+                    <Link passHref href="/stuff/old-portfolio">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -455,7 +455,7 @@ const Index = () => {
                       </motion.a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff">
+                    <Link passHref href="/stuff">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
