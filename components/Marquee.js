@@ -19,7 +19,7 @@ const marqueeVariants = {
 const Marquee = () => {
   let { t } = useTranslation();
   return (
-    <div>
+    <div className='marq'>
       <div className="marquee">
         <motion.div
           className="track"

@@ -1,3 +1,46 @@
+@media screen and (max-width: 1158px) {
+  .btn-small-2 {
+    padding: 40px 50px !important;
+  }
+
+  .btn-email {
+    padding: 8.6rem 3.5rem !important;
+  }
+}
+
+@media screen and (max-width: 948px) {
+  .btn-small-2 {
+    padding: 43px 47px !important;
+  }
+  .btn-email {
+    padding: 8.6rem 3.9rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn-small-2 {
+    padding: 43px 38px !important;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .btn-small-2 {
+    padding: 43px 32px !important;
+  }
+}
+
+@media screen and (max-width: 516px) {
+  .btn-small-2 {
+    padding: 46px 29px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .btn-small-2 {
+    padding: 46px 25px !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .large-font {
     font-size: var(--largeFont);
@@ -8,11 +51,8 @@
     gap: 1rem;
   }
 
-  .btn-small-2 {
-    padding: 3.4rem 1.5rem !important;
-  }
   .title-link {
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
   .title-1-cnt {
     margin-right: 0rem;

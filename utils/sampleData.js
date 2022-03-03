@@ -1,5 +1,12 @@
 export const pageData = [
   {
+    id: 'remax-image',
+    title: 'REMAX',
+    url: '/ideology-website-mobile-11.png',
+    info: ['UI/UX', 'DEVELOPMENT', '2021'],
+    page: 'https://www.remax-primaclasse.it/',
+  },
+  {
     id: 'ideology-image',
     title: 'ideology',
     url: '/ideology-website-mobile-7.jpg',
@@ -17,14 +24,42 @@ export const pageData = [
     id: 'bionatur-image',
     title: 'bionatur',
     url: '/ideology-website-mobile-6.jpg',
-    info: ['UI/UX', 'DEVELOPMENT', '2021'],
+    info: ['UI/UX', 'DEVELOPMENT', '2020'],
     page: 'https://www.bionatursrl.com/',
   },
   {
     id: 'base-image',
-    title: 'base',
-    url: '/ideology-website-mobile-1.jpg',
-    info: ['DEVELOPMENT', '2021'],
-    page: 'https://concettobase.webflow.io/',
+    title: 'beauty space',
+    url: '/ideology-website-mobile-9.png',
+    info: ['UI/UX','DEVELOPMENT', '2021'],
+    page: 'https://www.beautyspace.it/',
   },
+  {
+    id: 'negozio-image',
+    title: 'n.d.frutta',
+    url: '/ideology-website-mobile-10.png',
+    info: ['UI/UX','DEVELOPMENT', '2021'],
+    page: 'https://www.negoziodellafrutta.it/',
+  },
+  {
+    id: 'area-image',
+    title: 'area system',
+    url: '/ideology-website-mobile-12.png',
+    info: ['UI/UX','DEVELOPMENT', '2022'],
+    page: 'https://www.areasystem.it/',
+  },
+  {
+    id: 'mizzica-image',
+    title: 'mizzica',
+    url: '/ideology-website-mobile-13.png',
+    info: ['DEVELOPMENT', '2021'],
+    page: 'https://www.mizzicaristorante.it/',
+  },
+  {
+    id: 'ops-image',
+    title: 'o.p.s.',
+    url: '/ideology-website-mobile-14.png',
+    info: ['DEVELOPMENT', '2021'],
+    page: 'https://www.onlypistachioselected.com/',
+  }
 ];

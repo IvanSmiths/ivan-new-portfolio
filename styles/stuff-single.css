@@ -88,7 +88,7 @@
   text-align: right;
 }
 .exposition-cnt h2 {
-  padding-left: 25vw;
+  padding-left: 15vw;
 }
 
 .exposition-website-1-cnt {
@@ -215,10 +215,13 @@
 
 .climax-website li picture {
   width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .climax-website li picture img {
-  width: 100%;
+  width: 70%;
   height: auto;
 }
 
@@ -248,12 +251,15 @@
 }
 
 .marquee {
-  width: 100vw;
-  max-width: 100%;
-  margin-top: 18vw;
+  width: 140vw;
+  max-width: 140%;
+  margin-left: -6rem;
+  margin-top: 12vw;
   position: relative;
+  margin-bottom: 18vw;
   height: 206px;
-  overflow-x: hidden;
+  overflow: hidden;
+  transform: rotateZ(-11deg);
 }
 
 .stuff-s-quick-info {
@@ -261,9 +267,15 @@
 }
 
 .track {
+  overflow: hidden;
   background-color: var(--color-text-primary);
   position: absolute;
   white-space: nowrap;
+  padding: 2rem;
+}
+
+.marq {
+  overflow: hidden;
 }
 
 .track > em {
@@ -294,15 +306,47 @@
 }
 
 .project-item-container .ideology-image {
-  margin-top: -15rem;
+  margin-top: -1rem;
+  z-index: 99;
 }
 
 .bionatur-image {
-  margin-top: 16rem;
+  margin-top: 37rem;
+  z-index: 99;
 }
 
+.mabu-image {
+  margin-top: 23rem;
+  z-index: 99;
+}
 .base-image {
-  margin-top: 31rem;
+  margin-top: 59rem;
+  z-index: 99;
+}
+
+.negozio-image {
+  z-index: 99;
+  margin-top: 79rem;
+}
+
+.area-image {
+  z-index: 99;
+  margin-top: 99rem;
+}
+
+.mizzica-image {
+  z-index: 99;
+  margin-top: 119rem;
+}
+
+.ops-image {
+  z-index: 99;
+  margin-top: 138rem;
+}
+
+.remax-image {
+  z-index: 99;
+  margin-top: -18rem;
 }
 
 .line-4 {

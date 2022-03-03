@@ -360,7 +360,7 @@ const Ideology = () => {
         </motion.p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
-        <picture className={'falling-action-website-1'}>
+        <picture className='falling-action-website-1'>
           <motion.source
             initial="hidden"
             whileInView="visible"

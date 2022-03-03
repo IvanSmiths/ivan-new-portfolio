@@ -16,7 +16,7 @@ body {
 }
 
 .impact {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .impact-big {
@@ -94,7 +94,7 @@ em {
 }
 
 body,
-body[data-theme='light'] {
+body[data-theme="light"] {
   --color-bg-primary: #ffffff;
   --color-bg-sub: #050505;
   --color-text-primary: #131116;
@@ -102,7 +102,7 @@ body[data-theme='light'] {
   --color-bg-inverse: #0e0e0c;
 }
 
-body[data-theme='dark'] {
+body[data-theme="dark"] {
   --color-bg-primary: #0e0e0c;
   --color-bg-sub: #ffffff;
   --color-text-primary: #dbdbdb;
@@ -212,14 +212,14 @@ li {
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 40px 60px;
+  padding: 40px 62px;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
 }
 
 .btn-small-3 {
-  padding: 4.7rem 2.8rem;
+  padding: 4.7rem 2.8rem !important;
 }
 
 .btn-small-2:hover {
@@ -528,12 +528,12 @@ li {
   transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-@import 'home.css';
-@import 'project-item.css';
-@import 'navbar.css';
-@import 'stuff-single.css';
-@import 'blog.css';
-@import 'about.css';
+@import "home.css";
+@import "project-item.css";
+@import "navbar.css";
+@import "stuff-single.css";
+@import "blog.css";
+@import "about.css";
 
 .guide-cnt {
   padding-left: 10vw;
@@ -564,7 +564,7 @@ li {
 }
 
 .divider {
-  content: '';
+  content: "";
   background-color: white;
   width: 6.25vw;
   margin: 7px 10px;
@@ -598,7 +598,7 @@ li {
 
 .gallery-info-title {
   line-height: 6vw;
-  font-family: 'Bai Jamjuree';
+  font-family: "Bai Jamjuree";
   font-weight: 600;
 
   font-size: 6vw;
@@ -607,7 +607,7 @@ li {
   position: relative;
   line-height: 6vw;
   color: transparent;
-  font-family: 'Bodoni Moda';
+  font-family: "Bodoni Moda";
   font-weight: 400;
   font-size: 6vw;
   -webkit-font-smoothing: antialiased;
@@ -617,7 +617,7 @@ li {
 .gallery-info-category {
   position: relative;
   line-height: 24px;
-  font-family: 'Bai Jamjuree';
+  font-family: "Bai Jamjuree";
   font-weight: 400;
   font-size: 24px;
   -webkit-font-smoothing: antialiased;
@@ -777,4 +777,4 @@ textarea {
   padding: 0.6rem;
 }
 
-@import 'query.css';
+@import "query.css";

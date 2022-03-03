@@ -59,7 +59,7 @@
 }
 
 .btn-email {
-  padding: 8.3rem 1.8rem !important;
+  padding: 8.6rem 2.8rem !important;
   border: 1px solid var(--text-black) !important;
 }
 
@@ -154,7 +154,7 @@
 
 .overlay-burger-icon::after,
 .overlay-burger-icon::before {
-  content: '';
+  content: "";
   width: 48px;
   height: 2px;
   position: absolute;
