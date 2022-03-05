@@ -136,7 +136,7 @@ const Ideology = () => {
               }}
               className="small-font serif"
             >
-              - Webflow, WordPress, Html, Css, JavaScript
+              - WordPress, Html, Css, JavaScript
             </motion.em>
           </motion.li>
           <motion.li

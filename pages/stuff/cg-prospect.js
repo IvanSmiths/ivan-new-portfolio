@@ -100,14 +100,6 @@ const Ideology = () => {
         </div>
       </header>
       <section className="skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-1.jpg'}
-          webp={'/cg-prospect-website-1.webp'}
-          height={'600'}
-          width={'100%'}
-          alt={'image'}
-          className={'single-stuff-main-image'}
-        />
         <div className="info-cnt">
           <h2
             onMouseEnter={() => setWork(`${t('cg-prospect:work-harder')}`)}
@@ -239,9 +231,7 @@ const Ideology = () => {
       <div className="rising-action-cnt skewElem">
         <em className="stuff-em spacing tiny-font">.Rising action</em>
         <p>
-          CG Prospect is built with Next JS and is a 100% static website (SSG).
-          As a backend i have used PostgreSql with Prisma as an ORM. The
-          tetxtures and 3d models are hosted on BackBlaze.
+        {t('cg-prospect:rising')}
         </p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
@@ -258,9 +248,7 @@ const Ideology = () => {
         <div className="climax">
           <em className="stuff-em spacing tiny-font">.climax</em>
           <p>
-            I have built a donation system via Stripe, thanks to that the user
-            can enter the desired amount to donate, thanks to a slider, that
-            dynamically change the import to donate.
+          {t('cg-prospect:climax')}
           </p>
         </div>
       </main>
@@ -277,25 +265,22 @@ const Ideology = () => {
       <div className="falling-action-cnt skewElem">
         <em className="stuff-em spacing tiny-font">.falling action</em>
         <p>
-          I bet everything on the SEO, translating the website in 6 languages,
-          and the use of various Schema (Schema.org). I did the keyword research
-          with Semrush and Google Ads.
+        {t('cg-prospect:falling')}
         </p>
       </div>
       <div className="denouement-cnt skewElem">
         <em className="stuff-em spacing tiny-font">.denouement</em>
         <h3 className="impact impact-large uppercase large-font">
-          This project thought me the importance of having a SEO optimized
-          website.
+        {t('cg-prospect:denouement')}
         </h3>
       </div>
       <section className="credits-cnt flex-center skewElem">
-        <h3 className="large-font spacing">Credits</h3>
+        <h3 className="large-font spacing">{t('cg-prospect:credits')}</h3>
         <div className="credits-card-cnt flex-center">
           <ul className="credits-card">
-            <li className="credits-card-title">3D softwares</li>
+            <li className="credits-card-title">{t('cg-prospect:softwares')}</li>
             <li>
-              PHOTOGRAMMETRY:{' '}
+            {t('cg-prospect:photogrammetry')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -307,7 +292,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              RENDERING:{' '}
+              Rendering:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -319,7 +304,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              MESH CLEAN-UP:{' '}
+            {t('cg-prospect:mesh')}:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -331,7 +316,7 @@ const Ideology = () => {
               </a>
             </li>
             <li>
-              BAKING:{' '}
+              Baking:{' '}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}

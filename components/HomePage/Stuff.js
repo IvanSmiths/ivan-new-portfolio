@@ -262,7 +262,7 @@ function About() {
               </div>
               <div id="box2" className="box2 box1">
                 <div className="box-image-cnt">
-                  <Link href="/stuff/ideology">
+                  <Link href="/stuff/cg-prospect">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -444,7 +444,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                        All the works
+                         {t('home:stuff-2')}
                       </motion.a>
                     </Link>
                   </div>
@@ -543,7 +543,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                        All the works
+                         {t('home:stuff-2')}
                       </motion.a>
                     </Link>
                   </div>

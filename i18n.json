@@ -1,9 +1,10 @@
 {
-  "locales": ["en", "it"],
+  "locales": ["en", "it", "de"],
   "defaultLocale": "en",
   "pages": {
     "*": ["common"],
     "/": ["home"],
+    "/about": ["about"],
     "/stuff": ["stuff"],
     "/stuff/ideology": ["ideology"],
     "/stuff/cg-prospect": ["cg-prospect"]

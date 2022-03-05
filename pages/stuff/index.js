@@ -368,7 +368,7 @@ const Index = () => {
                         }}
                         className="box-link"
                       >
-                        All the works
+                          {t('home:stuff-2')}
                       </motion.a>
                     </Link>
                   </div>
@@ -467,7 +467,7 @@ const Index = () => {
                         }}
                         className="box-link"
                       >
-                        All the works
+                         {t('home:stuff-2')}
                       </motion.a>
                     </Link>
                   </div>

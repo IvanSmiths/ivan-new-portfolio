@@ -1,0 +1,20 @@
+{
+  "prologue": "prologue",
+  "type": "Art",
+  "type-2": "Projekt",
+  "year": "Jahr",
+  "stack": "Tech",
+  "web": "Website",
+  "work-hard": "3d.",
+  "work-harder": "3d ist genial!",
+  "next-up": "next up",
+  "fastest": "Erstellen Sie die schnellste Website über 3D.",
+  "rising": "CG Prospect wurde mit Next JS (React) erstellt und ist eine 100 % statische Website (SSG). Als Backend habe ich PostgreSql mit Prisma als ORM verwendet. Die Texturen und 3D-Modelle werden auf BackBlaze gehostet.",
+  "climax": "Ich habe ein Spendensystem über Stripe aufgebaut, dank dem der Benutzer den gewünschten Spendenbetrag eingeben kann, dank eines Schiebereglers, der den Import zum Spenden dynamisch ändert.",
+  "falling": "Ich habe alles auf SEO gesetzt, die Website in 6 Sprachen übersetzt und dank der Verwendung verschiedener Schemata (Schema.org) die Positionierung bei Google verbessert, indem ich CG Prospect ständig in der Google Search Console überwacht habe. Ich habe die Keyword-Recherche mit Semrush und Google Ads durchgeführt.",
+  "denouement": "Dieses Projekt hat mir beigebracht, wie wichtig eine SEO-optimierte Website ist.",
+  "photogrammetry": "Photogrammetrie",
+  "credits": "Credits",
+  "mesh": "Mesh Clean-up",
+  "softwares": "3D-Software"
+}

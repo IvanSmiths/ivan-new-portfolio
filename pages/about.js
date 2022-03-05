@@ -1,18 +1,18 @@
 import React from 'react';
-import SrcImage from '../components/SrcImage';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-
+import useTranslation from 'next-translate/useTranslation';
 const ModelMe = dynamic(() => import('../components/About/ModelMe'), {
   ssr: false,
 });
 
 const About = () => {
+  let { t } = useTranslation();
   return (
     <>
       <Head>
-        <title> Mind of a developer & eyes of a ui/ux designer.</title>
+        <title>{t('about:title')}</title>
         <meta
           name="description"
           content="Web developer, i help business owner from Ragusa to increasing their clients, by the creation of profitable websites."
@@ -20,8 +20,8 @@ const About = () => {
       </Head>
       <header>
         <div className="about-title-cnt">
-          <motion.h1 layoutId="about" className="large-font impact">
-            Mind of a developer & eyes of a ui/ux designer.
+          <motion.h1 layoutId="about" className="big-font impact">
+          {t('about:title')}
           </motion.h1>
         </div>
       </header>
@@ -30,8 +30,7 @@ const About = () => {
           <ModelMe />
           <div className="about-main-works-cnt ">
             <p className="large-font impact">
-              Ivan Smiths, web developer with 2 years of experience who uses
-              React with Next.js.
+            {t('about:experience')}
             </p>
           </div>
         </section>

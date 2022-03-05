@@ -1,12 +1,20 @@
 {
-  "prologue": "prologo",
+  "prologue": "prologue",
   "type": "Type",
   "type-2": "Project",
   "year": "Year",
   "stack": "Tech",
-  "fastest": "Make the fastest website about 3D.",
   "web": "Website",
   "work-hard": "3d.",
   "work-harder": "3d is awesome!",
-  "next-up": "next up"
+  "next-up": "next up",
+  "fastest": "Make the fastest website about 3D.",
+  "rising": "CG Prospect is built with Next JS (React) and is a 100% static website (SSG). As a backend i have used PostgreSql with Prisma as an ORM. The textures and 3d models are hosted on BackBlaze.",
+  "climax": "I have built a donation system via Stripe, thanks to that the user can enter the desired amount to donate, thanks to a slider, that dynamically change the import to donate.",
+  "falling": "I bet everything on the SEO, translating the website in 6 languages, and thanks to the use of various Schema (Schema.org) i oncreased the positioning on Google, constantly monitoring CG Prospect in the Google Search Console. I did the keyword research with Semrush and Google Ads.",
+  "denouement": "This project taught me the importance of having a SEO optimized website.",
+  "photogrammetry": "Photogrammetry",
+  "credits": "Credits",
+  "mesh": "Mesh Clean-up",
+  "softwares": "3d Softwares"
 }
