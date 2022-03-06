@@ -212,7 +212,7 @@ const Ideology = () => {
       <div className="exposition-cnt skewElem">
         <div className="exposition">
           <em className="tiny-font spacing stuff-em">.exposition</em>
-          <h2 className="large-font impact uppercase">
+          <h2 className="large-font word-wrap impact uppercase">
             {t('cg-prospect:fastest')}
           </h2>
         </div>
