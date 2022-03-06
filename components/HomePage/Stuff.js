@@ -402,7 +402,7 @@ function About() {
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect" passHref>
+                  <Link href="/stuff/old-portfolio" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
