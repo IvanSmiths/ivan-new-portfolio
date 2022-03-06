@@ -604,6 +604,10 @@ li {
 
   font-size: 6vw;
 }
+
+.word-wrap {
+  word-wrap: break-word;
+}
 .gallery-info-subtitle {
   position: relative;
   line-height: 6vw;
