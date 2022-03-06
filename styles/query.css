@@ -488,6 +488,11 @@
     padding: 20px;
   }
 
+  .caption-cnt {
+    word-wrap: break-word;
+    width: 90vw;
+  }
+
   .nav-dropdown-cnt ul {
     margin-top: 1.2rem;
     margin-left: 0.7rem;

@@ -203,6 +203,7 @@ li {
 /* BUTTON */
 
 .btn-small-2 {
+  text-align: center;
   background: linear-gradient(
     to bottom,
     var(--main-color) 0%,
