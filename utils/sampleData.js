@@ -36,7 +36,7 @@ export const pageData = [
   },
   {
     id: 'negozio-image',
-    title: 'n.d.frutta',
+    title: 'frutta',
     url: '/ideology-website-mobile-10.png',
     info: ['UI/UX','DEVELOPMENT', '2021'],
     page: 'https://www.negoziodellafrutta.it/',
