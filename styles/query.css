@@ -493,6 +493,10 @@
     width: 90vw;
   }
 
+  .project-item-container img {
+    display: none;
+  }
+
   .nav-dropdown-cnt ul {
     margin-top: 1.2rem;
     margin-left: 0.7rem;
