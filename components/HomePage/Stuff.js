@@ -4,11 +4,13 @@ import Link from 'next/link';
 import { gsap } from 'gsap';
 import { CursorContext } from '../CursorManager';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useTranslation from 'next-translate/useTranslation';
 import SrcImage from '../SrcImage';
 
 function About() {
+  let router = useRouter();
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef(null);
@@ -147,6 +149,9 @@ function About() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
+                style={{
+                  padding: `${router.locale === 'de' ? '74px 40px' : ''}`
+                }}
                 transition={{ duration: 0.7 }}
                 variants={{
                   hidden: { rotateZ: '0deg' },

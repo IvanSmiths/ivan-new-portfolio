@@ -145,6 +145,12 @@ function Navbar() {
                 <a className="tiny-font">{router.locales[1]}</a>
               </Link>
             </li>
+            <li className="tiny-font">/</li>
+            <li>
+              <Link locale="de" href={router.asPath}>
+                <a className="tiny-font">{router.locales[2]}</a>
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="burger-menu-info-cnt">

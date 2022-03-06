@@ -2,12 +2,14 @@
 import React, { useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { CursorContext } from '../CursorManager';
 
 const Hero = () => {
+  let router = useRouter();
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
   // SKEW
@@ -74,6 +76,9 @@ const Hero = () => {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            style={{
+              padding: `${router.locale === 'de' ? '50px 60px' : ''}`
+            }}
             variants={{
               hidden: { y: 0, rotateZ: '0deg' },
               visible: { y: 0, rotateZ: '11deg' },
