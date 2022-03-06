@@ -143,7 +143,7 @@
     flex-direction: column;
   }
   .burger-menu-links-cnt li a {
-    font-size: var(--extremeFont);
+    font-size: var(--bigFont);
   }
 
   .burger-menu-info-cnt {
