@@ -188,7 +188,7 @@ const Ideology = () => {
               }}
               className="small-font serif"
             >
-              - 2021/2022
+              - 2020/2022
             </motion.em>
           </motion.li>
           <motion.li
@@ -202,7 +202,7 @@ const Ideology = () => {
             }}
             className="big-font impact"
           >
-            602,3
+            4.435
             <motion.em
               initial="hidden"
               whileInView="visible"
@@ -228,7 +228,7 @@ const Ideology = () => {
             }}
             className="big-font impact"
           >
-            17
+            27
             <motion.em
               initial="hidden"
               whileInView="visible"
