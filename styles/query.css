@@ -54,6 +54,24 @@
   .title-link {
     margin-right: 2rem;
   }
+
+  .about-main-cnt {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+    align-items: center;
+  }
+
+  .about-main-works-cnt p {
+    text-align: center;
+  }
+
+  .cnt-model {
+    height: 40%;
+    width: 70%;
+    top: 0;
+  }
+
   .title-1-cnt {
     margin-right: 0rem;
   }
