@@ -165,22 +165,6 @@ const Index = () => {
                         {t('stuff:stuff')}
                       </motion.a>
                     </Link>
-                    <span>-</span>
-                    <Link passHref href="/stuff">
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t('stuff:stuff-2')}
-                      </motion.a>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -260,127 +244,12 @@ const Index = () => {
                         {t('stuff:stuff')}
                       </motion.a>
                     </Link>
-                    <span>-</span>
-                    <Link passHref href="/stuff">
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t('stuff:stuff-2')}
-                      </motion.a>
-                    </Link>
                   </div>
                 </div>
               </div>
               <div id="box3" className="box3 box1">
                 <div className="box-image-cnt">
                   <Link href="/stuff/old-portfolio">
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0, rotateZ: '11deg' },
-                          visible: { opacity: 1, rotateZ: '11deg' },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          layoutId="old-portfolio-img-1"
-                          alt="image of a work"
-                          decoding="async"
-                          loading="lazy"
-                          height="750"
-                          width="600"
-                          srcSet="/old-portfolio.webp"
-                          type="image/webp"
-                        />
-                        <motion.img
-                          layoutId="old-portfolio-img-2"
-                          alt="image of a work"
-                          loading="lazy"
-                          decoding="async"
-                          src="/old-portfolio.jpg"
-                          height="750"
-                          width="600"
-                        />
-                      </motion.picture>
-                    </a>
-                  </Link>
-                </div>
-                <div className="box-informations-cnt">
-                  <Link passHref href="/stuff/cg-prospect">
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
-                      }}
-                      layoutId="old-portfolio-title"
-                      className="big-font box-title impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      Old Portfolio <br /> - {t('stuff:stuff-4')}
-                    </motion.a>
-                  </Link>
-                  <div className="box-link-cnt flex-center">
-                    <Link passHref href="/stuff/old-portfolio">
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: '0deg' },
-                          visible: { rotateZ: '11deg' },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t('stuff:stuff')}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link passHref href="/stuff">
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                          {t('home:stuff-2')}
-                      </motion.a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="box-cnt-2">
-              <div id="box2" className="box3-2 box1 ">
-                <div className="box-image-cnt">
-                  <Link href="/stuff/ideology">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -454,22 +323,90 @@ const Index = () => {
                         {t('stuff:stuff')}
                       </motion.a>
                     </Link>
-                    <span>-</span>
-                    <Link passHref href="/stuff">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="box-cnt-2">
+              <div id="box2" className="box3-2 box1 ">
+                <div className="box-image-cnt">
+                  <Link href="/stuff/old-portfolio">
+                    <a
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <motion.picture
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0, rotateZ: '11deg' },
+                          visible: { opacity: 1, rotateZ: '11deg' },
+                        }}
+                        className="flex-center"
+                      >
+                        <motion.source
+                          layoutId="old-portfolio-img-1"
+                          alt="image of a work"
+                          decoding="async"
+                          loading="lazy"
+                          height="750"
+                          width="600"
+                          srcSet="/old-portfolio.webp"
+                          type="image/webp"
+                        />
+                        <motion.img
+                          layoutId="old-portfolio-img-2"
+                          alt="image of a work"
+                          loading="lazy"
+                          decoding="async"
+                          src="/old-portfolio.jpg"
+                          height="750"
+                          width="600"
+                        />
+                      </motion.picture>
+                    </a>
+                  </Link>
+                </div>
+                <div className="box-informations-cnt">
+                  <Link passHref href="/stuff/old-portfolio">
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="old-portfolio-title"
+                      className="big-font box-title impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Old Portfolio <br /> - {t('stuff:stuff-4')}
+                    </motion.a>
+                  </Link>
+                  <div className="box-link-cnt flex-center">
+                    <Link passHref href="/stuff/old-portfolio">
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
+                          hidden: { rotateZ: '0deg' },
+                          visible: { rotateZ: '11deg' },
                         }}
-                        className="box-link"
+                        className="btn-small box-link"
                       >
-                         {t('home:stuff-2')}
+                        {t('stuff:stuff')}
                       </motion.a>
                     </Link>
+              
                   </div>
                 </div>
               </div>
