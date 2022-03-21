@@ -210,6 +210,24 @@ function About() {
                       </motion.picture>
                     </a>
                   </Link>
+                  <Link href="/stuff/ideology" passHref>
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="ideology-title"
+                      className="big-font box-title mobile impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Ideology <br /> - {t("home:stuff-3")}
+                    </motion.a>
+                  </Link>
                 </div>
                 <div className="box-informations-cnt">
                   <Link href="/stuff/ideology" passHref>
@@ -305,6 +323,24 @@ function About() {
                       </motion.picture>
                     </a>
                   </Link>
+                  <Link href="/stuff/cg-prospect" passHref>
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="cg-prospect-title"
+                      className="big-font box-title mobile impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      CG Prospect <br /> - {t("home:stuff-4")}
+                    </motion.a>
+                  </Link>
                 </div>
                 <div className="box-informations-cnt">
                   <Link href="/stuff/cg-prospect" passHref>
@@ -399,6 +435,24 @@ function About() {
                         />
                       </motion.picture>
                     </a>
+                  </Link>
+                  <Link href="/stuff/old-portfolio" passHref>
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="old-portfolio-title"
+                      className="big-font box-title mobile impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Old Portfolio <br /> - {t("home:stuff-4")}
+                    </motion.a>
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
@@ -498,6 +552,24 @@ function About() {
                         />
                       </motion.picture>
                     </a>
+                  </Link>
+                  <Link href="/stuff/old-portfolio" passHref>
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      layoutId="old-portfolio-title"
+                      className="big-font box-title mobile impact"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Old Portfolio <br /> - {t("home:stuff-4")}
+                    </motion.a>
                   </Link>
                 </div>
                 <div className="box-informations-cnt">

@@ -224,6 +224,10 @@ li {
   word-wrap: break-word;
 }
 
+.mobile {
+  display: none;
+}
+
 .btn-small-2:hover {
   border: 1px solid var(--color-bg-primary);
   color: black;
