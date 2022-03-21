@@ -37,7 +37,10 @@
 
 @media screen and (max-width: 400px) {
   .btn-small-2 {
-    padding: 46px 25px !important;
+    padding: 41px 18px !important;
+  }
+  .btn-small {
+    padding: 41px 18px !important;
   }
 }
 
@@ -192,7 +195,7 @@
     display: none;
   }
   .info-cnt ul {
-    margin-left: 30%;
+    margin-left: 21%;
   }
 
   .homepage-about-cnt {
@@ -213,7 +216,7 @@
   }
 
   .home-header-cnt {
-    gap: 3rem;
+    gap: 1.2rem;
   }
 
   .lang-cnt {
@@ -477,6 +480,7 @@
   .title-item {
     margin-bottom: 2.8rem;
   }
+
   .project-item-container .ideology-image {
     margin-top: -15rem;
     width: 20px;
@@ -494,6 +498,11 @@
   .project-item-container .mabu-image {
     margin-top: 31rem;
     width: 20px;
+  }
+
+  .project-item-container img {
+    width: 1px !important;
+    padding: 0;
   }
 
   .nav-dropdown-cnt {

@@ -1,21 +1,21 @@
-import '../styles/globals.css';
-import '../styles/style.scss';
-import React, { useEffect, useState } from 'react';
-import { AnimateSharedLayout } from 'framer-motion';
-import ScrollPercentage from '../components/ScrollPercentage';
-import CursorManager from '../components/CursorManager';
-import CustomCursor from '../components/CustomCursor';
-import Navbar from '../components/Navbar';
-import dynamic from 'next/dynamic';
-import Contact from '../components/Contact';
-import * as gtag from '../lib/gtag';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import Footer from '../components/Footer';
-import Menu from '../components/Menu';
-import LanguageChange from '../components/LanguageChange';
+import "../styles/globals.css";
+import "../styles/style.scss";
+import React, { useEffect, useState } from "react";
+import { AnimateSharedLayout } from "framer-motion";
+import ScrollPercentage from "../components/ScrollPercentage";
+import CursorManager from "../components/CursorManager";
+import CustomCursor from "../components/CustomCursor";
+import Navbar from "../components/Navbar";
+import dynamic from "next/dynamic";
+import Contact from "../components/Contact";
+import * as gtag from "../lib/gtag";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import Footer from "../components/Footer";
+import Menu from "../components/Menu";
+import LanguageChange from "../components/LanguageChange";
 
-const ThemeToggle = dynamic(() => import('../components/ThemeToggle'), {
+const ThemeToggle = dynamic(() => import("../components/ThemeToggle"), {
   ssr: false,
 });
 
@@ -25,9 +25,9 @@ function MyApp({ Component, pageProps }) {
     const handleRouteChange = (url) => {
       gtag.pageview(url);
     };
-    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -52,9 +52,9 @@ function MyApp({ Component, pageProps }) {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
 
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
   return (
     <>
@@ -127,7 +127,7 @@ function MyApp({ Component, pageProps }) {
           <ThemeToggle />
           <LanguageChange />
           <div onClick={scrollToTop} className="scroll-to-top">
-            {isVisible && <div onClick={scrollToTop}>{''}</div>}
+            {isVisible && <div onClick={scrollToTop}>{""}</div>}
           </div>
           <Contact />
           <Component {...pageProps} />

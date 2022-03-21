@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext } from 'react';
-import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { CursorContext } from '../CursorManager';
+import React, { useEffect, useContext } from "react";
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CursorContext } from "../CursorManager";
 
 const Hero = () => {
   let router = useRouter();
@@ -15,7 +15,7 @@ const Hero = () => {
   // SKEW
   useEffect(() => {
     let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
+      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
       clamp = gsap.utils.clamp(-0.4, 0.4);
 
     ScrollTrigger.create({
@@ -26,14 +26,14 @@ const Hero = () => {
           gsap.to(proxy, {
             skew: 0,
             duration: 0.5,
-            ease: 'circ',
+            ease: "circ",
             overwrite: true,
             onUpdate: () => skewSetter(proxy.skew),
           });
         }
       },
     });
-    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -48,10 +48,10 @@ const Hero = () => {
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize('medium');
+    setSize("medium");
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setSize("small");
   };
 
   let { t } = useTranslation();
@@ -59,7 +59,7 @@ const Hero = () => {
     <header className="home-header-cnt flex-center">
       <div className="big-font flex-center skewElem title-1-cnt">
         <motion.em layoutId="sub-title" className="title-1">
-          {t('home:speed')}
+          {t("home:speed")}
         </motion.em>
         <img
           className="title-image"
@@ -77,25 +77,25 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             style={{
-              padding: `${router.locale === 'de' ? '50px 60px' : ''}`
+              padding: `${router.locale === "de" ? "50px 60px" : ""}`,
             }}
             variants={{
-              hidden: { y: 0, rotateZ: '0deg' },
-              visible: { y: 0, rotateZ: '11deg' },
+              hidden: { y: 0, rotateZ: "0deg" },
+              visible: { y: 0, rotateZ: "11deg" },
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className="tiny-font title-link btn-small-2"
           >
-            {t('common:nav-stuff')}
+            {t("common:nav-stuff")}
           </motion.a>
         </Link>
         <motion.em layoutId="main-title" className="title-2 impact">
-          {t('home:security')}
+          {t("home:security")}
         </motion.em>
       </div>
       <div className="big-font skewElem flex-center title-3-cnt">
-        <em className="title-3">{t('home:and')}</em>
+        <em className="title-3">{t("home:and")}</em>
         <motion.svg
           height="60px"
           width="50px"
@@ -109,7 +109,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             transition={{
-              default: { duration: 6, ease: 'easeInOut' },
+              default: { duration: 6, ease: "easeInOut" },
             }}
             id="Tracciato_22"
             data-name="Tracciato 22"

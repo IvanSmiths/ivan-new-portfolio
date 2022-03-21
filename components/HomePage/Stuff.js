@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useRef, useEffect, useContext } from 'react';
-import Link from 'next/link';
-import { gsap } from 'gsap';
-import { CursorContext } from '../CursorManager';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import useTranslation from 'next-translate/useTranslation';
-import SrcImage from '../SrcImage';
+import React, { useState, useRef, useEffect, useContext } from "react";
+import Link from "next/link";
+import { gsap } from "gsap";
+import { CursorContext } from "../CursorManager";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import useTranslation from "next-translate/useTranslation";
+import SrcImage from "../SrcImage";
 
 function About() {
   let router = useRouter();
@@ -18,57 +18,57 @@ function About() {
   useEffect(() => {
     const element = ref.current;
     gsap.fromTo(
-      element.querySelector('#box'),
+      element.querySelector("#box"),
       {
         x: 0,
         opacity: 1,
       },
       {
-        x: '-200vw',
+        x: "-200vw",
         opacity: 1,
         duration: 1,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
-          trigger: element.querySelector('#box'),
-          start: 'top top',
-          end: 'bottom top',
-          ease: 'power1',
+          trigger: element.querySelector("#box"),
+          start: "top top",
+          end: "bottom top",
+          ease: "power1",
           scrub: true,
-          toggleClass: 'box-fixed',
+          toggleClass: "box-fixed",
         },
       }
     );
   }, []);
 
-  const refSec = useRef(null);
+  // const refSec = useRef(null);
 
-  useEffect(() => {
-    const element = refSec.current;
-    gsap.fromTo(
-      element.querySelector('#about'),
-      {
-        marginTop: 0,
-        opacity: 1,
-      },
-      {
-        marginTop: '20vw',
-        opacity: 1,
-        duration: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: element.querySelector('#about'),
-          start: 'top top',
-          end: 'bottom top',
-          ease: 'power1',
-          scrub: true,
-        },
-      }
-    );
-  }, []);
+  // useEffect(() => {
+  //   const element = refSec.current;
+  //   gsap.fromTo(
+  //     element.querySelector("#about"),
+  //     {
+  //       marginTop: 0,
+  //       opacity: 1,
+  //     },
+  //     {
+  //       marginBottom: "20rem",
+  //       opacity: 1,
+  //       duration: 1,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: element.querySelector("#about"),
+  //         start: "top top",
+  //         end: "bottom top",
+  //         ease: "power1",
+  //         scrub: true,
+  //       },
+  //     }
+  //   );
+  // }, []);
 
   useEffect(() => {
     let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
+      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
       clamp = gsap.utils.clamp(-0.5, 0.5);
 
     ScrollTrigger.create({
@@ -79,14 +79,14 @@ function About() {
           gsap.to(proxy, {
             skew: 0,
             duration: 0.8,
-            ease: 'power3',
+            ease: "power3",
             overwrite: true,
             onUpdate: () => skewSetter(proxy.skew),
           });
         }
       },
     });
-    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
   }, []);
   const icon = {
     hidden: {
@@ -100,10 +100,10 @@ function About() {
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize('medium');
+    setSize("medium");
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setSize("small");
   };
 
   let { t } = useTranslation();
@@ -111,23 +111,23 @@ function About() {
     <>
       <main className="homepage-about-cnt skewElem">
         <p className="description">
-          Ivan Smiths, <motion.strong>{t('home:bio-2')}</motion.strong>
-          {t('home:bio-3')}
-          <strong>{t('home:bio-4')}</strong>
-          {t('home:bio-5')}
-          <strong>{t('home:bio-6')}</strong>
-          {t('home:bio-7')}
+          Ivan Smiths, <motion.strong>{t("home:bio-2")}</motion.strong>
+          {t("home:bio-3")}
+          <strong>{t("home:bio-4")}</strong>
+          {t("home:bio-5")}
+          <strong>{t("home:bio-6")}</strong>
+          {t("home:bio-7")}
         </p>
         <div className="homepage-about-sub-cnt">
           <SrcImage
-            src={'/photo-of-me.jpg'}
-            webp={'/photo-of-me.webp'}
-            height={'908.75px'}
-            width={'605.75px'}
-            alt={'image'}
+            src={"/photo-of-me.jpg"}
+            webp={"/photo-of-me.webp"}
+            height={"908.75px"}
+            width={"605.75px"}
+            alt={"image"}
           />
         </div>
-        <div ref={refSec} className="flex-center">
+        <div className="flex-center">
           <div id="about" className="homepage-about-p-cnt">
             <h2 className="tiny-font spacing">.IVAN SMITHS</h2>
             <motion.p
@@ -141,7 +141,7 @@ function About() {
               }}
               className="small-font"
             >
-              {t('home:about')}
+              {t("home:about")}
             </motion.p>
             <Link href="/about" passHref>
               <motion.a
@@ -150,17 +150,17 @@ function About() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 style={{
-                  padding: `${router.locale === 'de' ? '74px 40px' : ''}`
+                  padding: `${router.locale === "de" ? "74px 40px" : ""}`,
                 }}
                 transition={{ duration: 0.7 }}
                 variants={{
-                  hidden: { rotateZ: '0deg' },
-                  visible: { rotateZ: '11deg' },
+                  hidden: { rotateZ: "0deg" },
+                  visible: { rotateZ: "11deg" },
                 }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                {t('home:about-2')}
+                {t("home:about-2")}
               </motion.a>
             </Link>
           </div>
@@ -183,8 +183,8 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, rotateZ: '11deg' },
-                          visible: { opacity: 1, rotateZ: '11deg' },
+                          hidden: { opacity: 0, rotateZ: "11deg" },
+                          visible: { opacity: 1, rotateZ: "11deg" },
                         }}
                         className="flex-center"
                       >
@@ -227,7 +227,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Ideology <br /> - {t('home:stuff-3')}
+                      Ideology <br /> - {t("home:stuff-3")}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -238,12 +238,12 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { rotateZ: '0deg' },
-                          visible: { rotateZ: '11deg' },
+                          hidden: { rotateZ: "0deg" },
+                          visible: { rotateZ: "11deg" },
                         }}
                         className="btn-small box-link"
                       >
-                        {t('home:stuff')}
+                        {t("home:stuff")}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -259,7 +259,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                        {t('home:stuff-2')}
+                        {t("home:stuff-2")}
                       </motion.a>
                     </Link>
                   </div>
@@ -278,8 +278,8 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, rotateZ: '11deg' },
-                          visible: { opacity: 1, rotateZ: '11deg' },
+                          hidden: { opacity: 0, rotateZ: "11deg" },
+                          visible: { opacity: 1, rotateZ: "11deg" },
                         }}
                         className="flex-center"
                       >
@@ -322,7 +322,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      CG Prospect <br /> - {t('home:stuff-4')}
+                      CG Prospect <br /> - {t("home:stuff-4")}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -333,12 +333,12 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { rotateZ: '0deg' },
-                          visible: { rotateZ: '11deg' },
+                          hidden: { rotateZ: "0deg" },
+                          visible: { rotateZ: "11deg" },
                         }}
                         className="btn-small box-link"
                       >
-                        {t('home:stuff')}
+                        {t("home:stuff")}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -354,7 +354,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                        {t('home:stuff-2')}
+                        {t("home:stuff-2")}
                       </motion.a>
                     </Link>
                   </div>
@@ -373,8 +373,8 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, rotateZ: '11deg' },
-                          visible: { opacity: 1, rotateZ: '11deg' },
+                          hidden: { opacity: 0, rotateZ: "11deg" },
+                          visible: { opacity: 1, rotateZ: "11deg" },
                         }}
                         className="flex-center"
                       >
@@ -417,7 +417,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Old Portfolio <br /> - {t('home:stuff-4')}
+                      Old Portfolio <br /> - {t("home:stuff-4")}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -428,12 +428,12 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { rotateZ: '0deg' },
-                          visible: { rotateZ: '11deg' },
+                          hidden: { rotateZ: "0deg" },
+                          visible: { rotateZ: "11deg" },
                         }}
                         className="btn-small box-link"
                       >
-                        {t('home:stuff')}
+                        {t("home:stuff")}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -449,7 +449,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                         {t('home:stuff-2')}
+                        {t("home:stuff-2")}
                       </motion.a>
                     </Link>
                   </div>
@@ -472,8 +472,8 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { opacity: 0, rotateZ: '11deg' },
-                          visible: { opacity: 1, rotateZ: '11deg' },
+                          hidden: { opacity: 0, rotateZ: "11deg" },
+                          visible: { opacity: 1, rotateZ: "11deg" },
                         }}
                         className="flex-center"
                       >
@@ -516,7 +516,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Old Portfolio <br /> - {t('home:stuff-4')}
+                      Old Portfolio <br /> - {t("home:stuff-4")}
                     </motion.a>
                   </Link>
                   <div className="box-link-cnt flex-center">
@@ -527,12 +527,12 @@ function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         variants={{
-                          hidden: { rotateZ: '0deg' },
-                          visible: { rotateZ: '11deg' },
+                          hidden: { rotateZ: "0deg" },
+                          visible: { rotateZ: "11deg" },
                         }}
                         className="btn-small box-link"
                       >
-                        {t('home:stuff')}
+                        {t("home:stuff")}
                       </motion.a>
                     </Link>
                     <span>-</span>
@@ -548,7 +548,7 @@ function About() {
                         }}
                         className="box-link"
                       >
-                         {t('home:stuff-2')}
+                        {t("home:stuff-2")}
                       </motion.a>
                     </Link>
                   </div>
@@ -566,7 +566,7 @@ function About() {
               }}
               className="caption-cnt impact impact-large large-font"
             >
-              {t('home:home-caption')}
+              {t("home:home-caption")}
             </motion.h3>
             <motion.svg
               className="arrow-home"
@@ -583,7 +583,7 @@ function About() {
                       default: {
                         duration: 6,
                         yoyo: Infinity,
-                        ease: 'easeInOut',
+                        ease: "easeInOut",
                       },
                     }}
                     fill="none"

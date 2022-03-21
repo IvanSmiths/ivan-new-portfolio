@@ -117,17 +117,14 @@ body[data-theme="dark"] {
   color: var(--main-color);
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: var(--color-bg-primary);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--color-text-primary);
 }
@@ -221,6 +218,10 @@ li {
 
 .btn-small-3 {
   padding: 4.7rem 2.8rem;
+}
+
+.word-wrap {
+  word-wrap: break-word;
 }
 
 .btn-small-2:hover {
@@ -469,7 +470,7 @@ li {
 
 .scroll-to-top {
   position: fixed;
-  z-index: 99999999999;
+  z-index: 999;
   bottom: 20px;
   left: 2px;
   border-radius: 50%;

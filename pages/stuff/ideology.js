@@ -1,22 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useContext, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { motion, AnimatePresence } from 'framer-motion';
-import SrcImage from '../../components/SrcImage';
-import Head from 'next/head';
-import Marquee from '../../components/Marquee';
-import { pageData } from '../../utils/sampleData';
-import ProjectItem from '../../components/ProjectItem/ProjectItem';
-import FooterIdeology from '../../components/Footers/FooterIdeology';
-import { CursorContext } from '../../components/CursorManager';
-import useTranslation from 'next-translate/useTranslation';
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { motion, AnimatePresence } from "framer-motion";
+import SrcImage from "../../components/SrcImage";
+import Head from "next/head";
+import Marquee from "../../components/Marquee";
+import { pageData } from "../../utils/sampleData";
+import ProjectItem from "../../components/ProjectItem/ProjectItem";
+import FooterIdeology from "../../components/Footers/FooterIdeology";
+import { CursorContext } from "../../components/CursorManager";
+import useTranslation from "next-translate/useTranslation";
 
 const Ideology = () => {
   // SKEW
   useEffect(() => {
     let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
+      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
       clamp = gsap.utils.clamp(-0.5, 0.5);
 
     ScrollTrigger.create({
@@ -27,14 +27,14 @@ const Ideology = () => {
           gsap.to(proxy, {
             skew: 0,
             duration: 0.5,
-            ease: 'circ',
+            ease: "circ",
             overwrite: true,
             onUpdate: () => skewSetter(proxy.skew),
           });
         }
       },
     });
-    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -42,15 +42,15 @@ const Ideology = () => {
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize('medium');
+    setSize("medium");
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setSize("small");
   };
 
   let { t } = useTranslation();
 
-  const [work, setWork] = useState(`${t('ideology:work-hard')}`);
+  const [work, setWork] = useState(`${t("ideology:work-hard")}`);
 
   return (
     <>
@@ -94,7 +94,7 @@ const Ideology = () => {
                 layout="ideology-prologue"
                 className="tiny-font spacing"
               >
-                .{t('ideology:prologue')}
+                .{t("ideology:prologue")}
               </motion.li>
             </ul>
             <motion.h1 layoutId="ideology-title" className="impact big-font">
@@ -106,8 +106,8 @@ const Ideology = () => {
 
       <div className="info-cnt">
         <h2
-          onMouseEnter={() => setWork(`${t('ideology:work-harder')}`)}
-          onMouseLeave={() => setWork(`${t('ideology:work-hard')}`)}
+          onMouseEnter={() => setWork(`${t("ideology:work-harder")}`)}
+          onMouseLeave={() => setWork(`${t("ideology:work-hard")}`)}
           className="info-sticky spacing"
         >
           {work}
@@ -150,7 +150,7 @@ const Ideology = () => {
             }}
             className="big-font impact"
           >
-            {t('ideology:type')}
+            {t("ideology:type")}
             <motion.em
               initial="hidden"
               whileInView="visible"
@@ -162,7 +162,7 @@ const Ideology = () => {
               }}
               className="small-font serif"
             >
-              - {t('ideology:type-2')}
+              - {t("ideology:type-2")}
             </motion.em>
           </motion.li>
           <motion.li
@@ -176,7 +176,7 @@ const Ideology = () => {
             }}
             className="big-font impact"
           >
-            {t('ideology:year')}
+            {t("ideology:year")}
             <motion.em
               initial="hidden"
               whileInView="visible"
@@ -214,7 +214,7 @@ const Ideology = () => {
               }}
               className="small-font serif"
             >
-              {t('ideology:hours')}
+              {t("ideology:hours")}
             </motion.em>
           </motion.li>
           <motion.li
@@ -240,7 +240,7 @@ const Ideology = () => {
               }}
               className="small-font serif"
             >
-              {t('ideology:parties')}
+              {t("ideology:parties")}
             </motion.em>
           </motion.li>
         </ul>
@@ -277,7 +277,7 @@ const Ideology = () => {
             }}
             className="tiny-font spacing stuff-em"
           >
-            . {t('ideology:exposition')}
+            . {t("ideology:exposition")}
           </motion.em>
           <motion.h2
             initial="hidden"
@@ -290,13 +290,13 @@ const Ideology = () => {
             }}
             className="large-font impact uppercase"
           >
-            {t('ideology:exposition-2')}
+            {t("ideology:exposition-2")}
           </motion.h2>
         </div>
       </div>
 
       <motion.div className="exposition-website-1-cnt skewElem">
-        <picture className={'exposition-website-1'}>
+        <picture className={"exposition-website-1"}>
           <motion.source
             initial="hidden"
             whileInView="visible"
@@ -326,9 +326,9 @@ const Ideology = () => {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={'/ideology-website-3.jpg'}
-            height={'60%'}
-            width={'60%'}
+            src={"/ideology-website-3.jpg"}
+            height={"60%"}
+            width={"60%"}
           />
         </picture>
       </motion.div>
@@ -344,7 +344,7 @@ const Ideology = () => {
           }}
           className="stuff-em spacing tiny-font"
         >
-          .{t('ideology:rising-action')}
+          .{t("ideology:rising-action")}
         </motion.em>
         <motion.p
           initial="hidden"
@@ -356,11 +356,11 @@ const Ideology = () => {
             visible: { opacity: 1, y: 0 },
           }}
         >
-          {t('ideology:rising-action-2')}
+          {t("ideology:rising-action-2")}
         </motion.p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
-        <picture className='falling-action-website-1'>
+        <picture className="falling-action-website-1">
           <motion.source
             initial="hidden"
             whileInView="visible"
@@ -373,8 +373,8 @@ const Ideology = () => {
             alt="image of a work"
             decoding="async"
             loading="lazy"
-            height={'500px'}
-            width={'100%'}
+            height={"500px"}
+            width={"100%"}
             srcSet="/ideology-website-5.webp"
             type="image/webp"
           />
@@ -390,9 +390,9 @@ const Ideology = () => {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={'/ideology-website-5.jpg'}
-            height={'500px'}
-            width={'100%'}
+            src={"/ideology-website-5.jpg"}
+            height={"500px"}
+            width={"100%"}
           />
         </picture>
       </div>
@@ -421,7 +421,7 @@ const Ideology = () => {
               visible: { opacity: 1, y: 0 },
             }}
           >
-            {t('ideology:climax-2')}
+            {t("ideology:climax-2")}
           </motion.p>
         </div>
       </main>
@@ -439,11 +439,11 @@ const Ideology = () => {
             className="flex-center"
           >
             <SrcImage
-              src={'/ideology-website-mobile-4.jpg'}
-              webp={'/ideology-website-mobile-4.webp'}
-              height={'130px'}
-              width={'500px'}
-              alt={'image'}
+              src={"/ideology-website-mobile-4.jpg"}
+              webp={"/ideology-website-mobile-4.webp"}
+              height={"130px"}
+              width={"500px"}
+              alt={"image"}
             />
           </motion.li>
           <motion.li
@@ -458,11 +458,11 @@ const Ideology = () => {
             className="flex-center climax-website-margin"
           >
             <SrcImage
-              src={'/ideology-website-mobile-7.jpg'}
-              webp={'/ideology-website-mobile-7.webp'}
-              height={'130px'}
-              width={'500px'}
-              alt={'image'}
+              src={"/ideology-website-mobile-7.jpg"}
+              webp={"/ideology-website-mobile-7.webp"}
+              height={"130px"}
+              width={"500px"}
+              alt={"image"}
             />
           </motion.li>
           <motion.li
@@ -477,11 +477,11 @@ const Ideology = () => {
             className="flex-center"
           >
             <SrcImage
-              src={'/ideology-website-mobile-6.jpg'}
-              webp={'/ideology-website-mobile-6.webp'}
-              height={'130px'}
-              width={'500px'}
-              alt={'image'}
+              src={"/ideology-website-mobile-6.jpg"}
+              webp={"/ideology-website-mobile-6.webp"}
+              height={"130px"}
+              width={"500px"}
+              alt={"image"}
             />
           </motion.li>
         </ul>
@@ -498,11 +498,11 @@ const Ideology = () => {
             className="flex-center"
           >
             <SrcImage
-              src={'/ideology-website-mobile-5.jpg'}
-              webp={'/ideology-website-mobile-5.webp'}
-              height={'130px'}
-              width={'500px'}
-              alt={'image'}
+              src={"/ideology-website-mobile-5.jpg"}
+              webp={"/ideology-website-mobile-5.webp"}
+              height={"130px"}
+              width={"500px"}
+              alt={"image"}
             />
           </motion.li>
           <motion.li
@@ -517,11 +517,11 @@ const Ideology = () => {
             className="flex-center climax-website-margin"
           >
             <SrcImage
-              src={'/ideology-website-mobile-1.jpg'}
-              webp={'/ideology-website-mobile-1.webp'}
-              height={'130px'}
-              width={'500px'}
-              alt={'image'}
+              src={"/ideology-website-mobile-1.jpg"}
+              webp={"/ideology-website-mobile-1.webp"}
+              height={"130px"}
+              width={"500px"}
+              alt={"image"}
             />
           </motion.li>
           <motion.li
@@ -536,11 +536,11 @@ const Ideology = () => {
             className="flex-center"
           >
             <SrcImage
-              src={'/ideology-website-mobile-8.jpg'}
-              webp={'/ideology-website-mobile-8.webp'}
-              height={'130px'}
-              width={'500px'}
-              alt={'image'}
+              src={"/ideology-website-mobile-8.jpg"}
+              webp={"/ideology-website-mobile-8.webp"}
+              height={"130px"}
+              width={"500px"}
+              alt={"image"}
             />
           </motion.li>
         </ul>
@@ -557,7 +557,7 @@ const Ideology = () => {
           }}
           className="stuff-em spacing tiny-font"
         >
-          . {t('ideology:falling-action')}
+          . {t("ideology:falling-action")}
         </motion.em>
         <motion.p
           initial="hidden"
@@ -569,11 +569,11 @@ const Ideology = () => {
             visible: { opacity: 1, y: 0 },
           }}
         >
-          {t('ideology:falling-action-2')}
+          {t("ideology:falling-action-2")}
         </motion.p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
-        <picture className={'falling-action-website-1'}>
+        <picture className={"falling-action-website-1"}>
           <motion.source
             initial="hidden"
             whileInView="visible"
@@ -586,8 +586,8 @@ const Ideology = () => {
             alt="image of a work"
             decoding="async"
             loading="lazy"
-            height={'500px'}
-            width={'100%'}
+            height={"500px"}
+            width={"100%"}
             srcSet="/ideology-website-1.webp"
             type="image/webp"
           />
@@ -603,9 +603,9 @@ const Ideology = () => {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={'/ideology-website-1.jpg'}
-            height={'500px'}
-            width={'100%'}
+            src={"/ideology-website-1.jpg"}
+            height={"500px"}
+            width={"100%"}
           />
         </picture>
       </div>
@@ -621,7 +621,7 @@ const Ideology = () => {
           }}
           className="stuff-em spacing tiny-font"
         >
-          .{t('ideology:denouement')}
+          .{t("ideology:denouement")}
         </motion.em>
         <motion.h3
           initial="hidden"
@@ -634,7 +634,7 @@ const Ideology = () => {
           }}
           className="impact word-wrap impact-large uppercase large-font"
         >
-          {t('ideology:denouement-2')}
+          {t("ideology:denouement-2")}
         </motion.h3>
       </div>
       <Marquee />
@@ -659,9 +659,9 @@ const Ideology = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="large-font spacing"
+          className="large-font spacing word-wrap"
         >
-          {t('ideology:credits')}
+          {t("ideology:credits")}
         </motion.h3>
         <div className="credits-card-cnt flex-center">
           <ul className="credits-card">
@@ -688,7 +688,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:dev')}:{' '}
+              {t("ideology:dev")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -709,7 +709,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:graphics')}:{' '}
+              {t("ideology:graphics")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -730,7 +730,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:videomaker')}:{' '}
+              {t("ideology:videomaker")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -751,7 +751,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:illustrations')}:{' '}
+              {t("ideology:illustrations")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -772,7 +772,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:photos')}:{' '}
+              {t("ideology:photos")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -808,7 +808,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:dev')}:{' '}
+              {t("ideology:dev")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -829,7 +829,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:graphics')}:{' '}
+              {t("ideology:graphics")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -850,7 +850,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:videomaker')}:{' '}
+              {t("ideology:videomaker")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -871,7 +871,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:illustrations')}:{' '}
+              {t("ideology:illustrations")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -881,7 +881,7 @@ const Ideology = () => {
               >
                 Alessia Iacono
               </a>
-              , {''}
+              , {""}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -917,7 +917,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:dev')}:{' '}
+              {t("ideology:dev")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -927,7 +927,7 @@ const Ideology = () => {
               >
                 Iryna Sachko
               </a>
-              , {''}
+              , {""}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -948,7 +948,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:graphics')}:{' '}
+              {t("ideology:graphics")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -969,7 +969,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:illustrations')}:{' '}
+              {t("ideology:illustrations")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -1005,7 +1005,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              UI/UX:{' '}
+              UI/UX:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -1026,7 +1026,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:graphics')}:{' '}
+              {t("ideology:graphics")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -1047,7 +1047,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:videomaker')}:{' '}
+              {t("ideology:videomaker")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -1068,7 +1068,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:illustrations')}:{' '}
+              {t("ideology:illustrations")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -1078,7 +1078,7 @@ const Ideology = () => {
               >
                 Alessia Iacono
               </a>
-              , {''}
+              , {""}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -1099,7 +1099,7 @@ const Ideology = () => {
                 visible: { opacity: 1 },
               }}
             >
-              {t('ideology:photos')}:{' '}
+              {t("ideology:photos")}:{" "}
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
