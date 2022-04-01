@@ -25,7 +25,7 @@ function Contact() {
             method="POST"
             className="form"
           >
-            <input type="hidden" name="_next" value="/" />
+            <input type="hidden" name="_next" value="/stuff" />
             <input type="hidden" name="_subject" value="IvanSmiths | Info" />
             <label htmlFor="name" className="tiny-font">
               {t("common:name")}
