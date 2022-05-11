@@ -284,9 +284,7 @@ const Credits = () => {
               visible: { opacity: 1 },
             }}
             className="credits-card-title"
-          >
-            BeautySpace
-          </motion.li>
+          ></motion.li>
           <motion.li
             initial="hidden"
             whileInView="visible"
@@ -604,27 +602,7 @@ const Credits = () => {
           >
             N.D. Frutta
           </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-          >
-            UI/UX:{" "}
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/virginia-boncoraglio-6386091aa"
-            >
-              Virginia Boncoraglio
-            </a>
-          </motion.li>
+
           <motion.li
             initial="hidden"
             whileInView="visible"
@@ -733,27 +711,6 @@ const Credits = () => {
             className="credits-card-title"
           >
             Area System
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-          >
-            UI/UX:{" "}
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/virginia-boncoraglio-6386091aa"
-            >
-              Virginia Boncoraglio
-            </a>
           </motion.li>
           <motion.li
             initial="hidden"
