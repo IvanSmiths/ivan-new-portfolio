@@ -118,13 +118,13 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#d7f21d" />
       </Head>
-      <Menu />
-      <Navbar />
       <AnimateSharedLayout>
         <CursorManager>
           <CustomCursor />
           <ScrollPercentage />
           <ThemeToggle />
+          <Menu />
+          <Navbar />
           <LanguageChange />
           <div onClick={scrollToTop} className="scroll-to-top">
             {isVisible && <div onClick={scrollToTop}>{""}</div>}

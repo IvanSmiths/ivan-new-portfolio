@@ -1,23 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect } from 'react';
-import cn from 'classnames';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import { motion, useAnimation } from 'framer-motion';
+import { useState, useContext } from "react";
+import cn from "classnames";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import { motion, useAnimation } from "framer-motion";
+import { CursorContext } from "./CursorManager";
 
 const path01Variants = {
-  open: { d: 'M3.06061 2.99999L21.0606 21' },
-  closed: { d: 'M0 9.5L24 9.5' },
+  open: { d: "M3.06061 2.99999L21.0606 21" },
+  closed: { d: "M0 9.5L24 9.5" },
 };
 
 const path02Variants = {
-  open: { d: 'M3.00006 21.0607L21 3.06064' },
-  moving: { d: 'M0 14.5L24 14.5' },
-  closed: { d: 'M0 14.5L15 14.5' },
+  open: { d: "M3.00006 21.0607L21 3.06064" },
+  moving: { d: "M0 14.5L24 14.5" },
+  closed: { d: "M0 14.5L15 14.5" },
 };
 
 function Navbar() {
+  // MOUSE ZOOM HANDLER //
+  const { setSize } = useContext(CursorContext);
+  const handleMouseEnter = () => {
+    setSize("medium");
+  };
+  const handleMouseLeave = () => {
+    setSize("small");
+  };
   let router = useRouter();
   const [isOpen, setOpen] = useState(false);
   const [opened, setOpened] = useState(false);
@@ -42,6 +51,8 @@ function Navbar() {
   return (
     <>
       <svg
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className="button-nav"
         onClick={onClick}
         width="44"
@@ -59,14 +70,14 @@ function Navbar() {
           transition={{ duration: 0.4 }}
         />
       </svg>
-      <nav className={cn('overlay-burger-menu', { 'as-opened': opened })}>
+      <nav className={cn("overlay-burger-menu", { "as-opened": opened })}>
         <span className="close-nav"></span>
         <div className="links-socials-cnt">
           <ul className="burger-menu-links-cnt">
             <li>
               <Link href="/">
                 <a onClick={onClick} className="impact medium-font">
-                  {t('common:nav-home')}
+                  {t("common:nav-home")}
                 </a>
               </Link>
             </li>
@@ -74,7 +85,7 @@ function Navbar() {
             <li>
               <Link href="/stuff">
                 <a onClick={onClick} className="impact medium-font">
-                  {t('common:nav-stuff')}
+                  {t("common:nav-stuff")}
                 </a>
               </Link>
             </li>
@@ -82,7 +93,7 @@ function Navbar() {
             <li>
               <Link href="/about">
                 <a onClick={onClick} className="impact medium-font">
-                  {t('common:nav-about')}
+                  {t("common:nav-about")}
                 </a>
               </Link>
             </li>
@@ -90,7 +101,7 @@ function Navbar() {
             <li>
               <Link href="/post">
                 <a onClick={onClick} className="impact medium-font">
-                  {t('common:nav-post')}
+                  {t("common:nav-post")}
                 </a>
               </Link>
             </li>
@@ -160,8 +171,8 @@ function Navbar() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             variants={{
-              hidden: { y: 0, rotateZ: '0deg' },
-              visible: { y: 0, rotateZ: '11deg' },
+              hidden: { y: 0, rotateZ: "0deg" },
+              visible: { y: 0, rotateZ: "11deg" },
             }}
             href="mailto:info@ivansmiths.com"
             className="btn-big btn-email small-font"

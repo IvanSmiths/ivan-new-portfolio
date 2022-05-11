@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import { motion } from "framer-motion";
 
 const Menu = () => {
   const onMouseEnter = () => {
@@ -17,7 +17,7 @@ const Menu = () => {
   return (
     <div onMouseLeave={onMouseLeave} className="nav-dropdown-cnt">
       <span onMouseEnter={onMouseEnter} className="tiny-font">
-        {t('common:lazy')}
+        {t("common:lazy")}
       </span>
       <motion.div
         onMouseLeave={onMouseLeave}
@@ -36,22 +36,22 @@ const Menu = () => {
           >
             <li>
               <Link href="/">
-                <a> {t('common:nav-home')}</a>
+                <a> {t("common:nav-home")}</a>
               </Link>
             </li>
             <li>
               <Link href="/stuff">
-                <a> {t('common:nav-stuff')}</a>
+                <a> {t("common:nav-stuff")}</a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a> {t('common:nav-about')}</a>
+                <a> {t("common:nav-about")}</a>
               </Link>
             </li>
             <li>
               <Link href="/post">
-                <a> {t('common:nav-post')}</a>
+                <a> {t("common:nav-post")}</a>
               </Link>
             </li>
           </motion.ul>
