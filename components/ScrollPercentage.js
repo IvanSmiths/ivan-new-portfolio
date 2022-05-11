@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   motion,
   useViewportScroll,
   useSpring,
   useTransform,
-} from 'framer-motion';
-import useTranslation from 'next-translate/useTranslation';
+} from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 
 export const ScrollingAnimation = () => {
   const [currentPrecent, setCurrentPercent] = useState(0);
@@ -28,12 +28,12 @@ export const ScrollingAnimation = () => {
   useEffect(() => {
     setCurrentProgressColor(
       currentPrecent >= 90
-        ? '#CDFF00'
+        ? "#CDFF00"
         : currentPrecent >= 45
-        ? '#31A9D5'
+        ? "#31A9D5"
         : currentPrecent >= 20
-        ? '#F2BD1D'
-        : '#FF3B77'
+        ? "#F2BD1D"
+        : "#FF3B77"
     );
   }, [currentPrecent]);
   let { t } = useTranslation();
@@ -43,7 +43,7 @@ export const ScrollingAnimation = () => {
       <svg className="progress-icon" viewBox="0 0 60 60">
         <motion.path
           className="scroll-pecentage"
-          fill={currentPrecent === 100 ? '#CDFF00' : 'scroll-pecentage'}
+          fill={currentPrecent === 100 ? "#CDFF00" : "scroll-pecentage"}
           strokeWidth="0.8"
           stroke={currentProgressColor}
           strokeDasharray="0 1"
@@ -61,16 +61,16 @@ export const ScrollingAnimation = () => {
       <motion.div
         className="scroll-percentage-text"
         style={{
-          position: '-webkit-sticky',
-          position: 'absolute',
-          top: `${currentPrecent === 100 ? '12px' : `23px`}`,
-          left: `${currentPrecent === 100 ? '22px' : `18px`}`,
-          width: '10px',
-          height: '10px',
-          opacity: '1',
+          position: "-webkit-sticky",
+          position: "absolute",
+          top: `${currentPrecent === 100 ? "12px" : `23px`}`,
+          left: `${currentPrecent === 100 ? "22px" : `18px`}`,
+          width: "10px",
+          height: "10px",
+          opacity: "1",
         }}
       >
-        {currentPrecent === 100 ? `${t('common:go-up')}` : `${currentPrecent}%`}
+        {currentPrecent === 100 ? `${t("common:go-up")}` : `${currentPrecent}%`}
       </motion.div>
     </motion.div>
   );

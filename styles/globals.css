@@ -368,7 +368,7 @@ li {
 /* SCROLL PERCENTAGE */
 
 .progress-cnt {
-  z-index: 999;
+  z-index: 996;
   position: fixed;
   bottom: 0px;
   left: 0px;

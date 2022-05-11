@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { motion } from "framer-motion";
+import { CursorContext } from "./CursorManager";
 
 const Menu = () => {
   const onMouseEnter = () => {
@@ -11,13 +12,24 @@ const Menu = () => {
     setDropdown(false);
   };
 
+  // MOUSE ZOOM HANDLER //
+  const { setSize } = useContext(CursorContext);
+  const handleMouseEnter = () => {
+    setSize("medium");
+  };
+  const handleMouseLeave = () => {
+    setSize("small");
+  };
+
   const [dropdown, setDropdown] = useState(false);
 
   let { t } = useTranslation();
   return (
     <div onMouseLeave={onMouseLeave} className="nav-dropdown-cnt">
-      <span onMouseEnter={onMouseEnter} className="tiny-font">
-        {t("common:lazy")}
+      <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <span onMouseEnter={onMouseEnter} className="tiny-font">
+          {t("common:lazy")}
+        </span>
       </span>
       <motion.div
         onMouseLeave={onMouseLeave}
@@ -36,22 +48,46 @@ const Menu = () => {
           >
             <li>
               <Link href="/">
-                <a> {t("common:nav-home")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {" "}
+                  {t("common:nav-home")}
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/stuff">
-                <a> {t("common:nav-stuff")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {" "}
+                  {t("common:nav-stuff")}
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a> {t("common:nav-about")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {" "}
+                  {t("common:nav-about")}
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/post">
-                <a> {t("common:nav-post")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {" "}
+                  {t("common:nav-post")}
+                </a>
               </Link>
             </li>
           </motion.ul>

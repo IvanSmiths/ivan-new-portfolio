@@ -14,6 +14,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 import LanguageChange from "../utils/LanguageChange";
+import ScrollTop from "../components/ScrollTop";
 
 const ThemeToggle = dynamic(() => import("../components/ThemeToggle"), {
   ssr: false,
@@ -31,31 +32,6 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Top: 0 takes us all the way back to the top of the page
-  // Behavior: smooth keeps it smooth!
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => {
-    // Button is displayed after scrolling for 500 pixels
-    const toggleVisibility = () => {
-      if (window.pageYOffset >= 0) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
   return (
     <>
       <Head>
@@ -121,14 +97,12 @@ function MyApp({ Component, pageProps }) {
       <AnimateSharedLayout>
         <CursorManager>
           <CustomCursor />
-          <ScrollPercentage />
           <ThemeToggle />
           <Menu />
           <Navbar />
           <LanguageChange />
-          <div onClick={scrollToTop} className="scroll-to-top">
-            {isVisible && <div onClick={scrollToTop}>{""}</div>}
-          </div>
+          <ScrollTop />
+          <ScrollPercentage />
           <Contact />
           <Component {...pageProps} />
           <Footer />

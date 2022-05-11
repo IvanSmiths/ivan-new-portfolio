@@ -1,15 +1,29 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import cn from "classnames";
 import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
+import { CursorContext } from "./CursorManager";
 
 function Contact() {
   const [opened, setOpened] = useState(false);
   let { t } = useTranslation();
 
+  // MOUSE ZOOM HANDLER //
+  const { setSize } = useContext(CursorContext);
+  const handleMouseEnter = () => {
+    setSize("medium");
+  };
+  const handleMouseLeave = () => {
+    setSize("small");
+  };
   return (
     <>
-      <span className="contact-span" onClick={() => setOpened(!opened)}>
+      <span
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="contact-span"
+        onClick={() => setOpened(!opened)}
+      >
         {t("common:let-us-talk")}
       </span>
       <div className={cn("overlay-burger-menu menu2", { "as-opened": opened })}>
