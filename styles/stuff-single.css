@@ -165,8 +165,13 @@
   height: 100%;
 }
 
+.credits-card {
+  margin-bottom: auto;
+}
+
 .credits-card-cnt {
-  width: 90%;
+  justify-content: space-between !important;
+  width: 80%;
   flex-wrap: wrap;
   gap: 5rem;
   margin-top: 7rem;
