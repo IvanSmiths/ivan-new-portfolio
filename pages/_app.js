@@ -8,12 +8,12 @@ import CustomCursor from "../components/CustomCursor";
 import Navbar from "../components/Navbar";
 import dynamic from "next/dynamic";
 import Contact from "../components/Contact";
-import * as gtag from "../lib/gtag";
+import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
-import LanguageChange from "../components/LanguageChange";
+import LanguageChange from "../utils/LanguageChange";
 
 const ThemeToggle = dynamic(() => import("../components/ThemeToggle"), {
   ssr: false,
