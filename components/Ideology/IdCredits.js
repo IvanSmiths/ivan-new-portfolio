@@ -65,7 +65,16 @@ const Credits = () => {
               rel="noopener noreferrer"
               href="https://it.linkedin.com/in/iryna-sachko-319a54220"
             >
-              Iryna Sachko
+              Iryna Sachko,{" "}
+              <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://it.linkedin.com/in/danielvello"
+              >
+                Daniel Vello
+              </a>
             </a>
           </motion.li>
           <motion.li
@@ -129,27 +138,6 @@ const Credits = () => {
               href="https://www.behance.net/alessiaiacono1"
             >
               Alessia Iacono
-            </a>
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-          >
-            {t("ideology:photos")}:{" "}
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.instagram.com/irenenobile.fotografia/"
-            >
-              Irene Nobile
             </a>
           </motion.li>
         </ul>
@@ -284,7 +272,9 @@ const Credits = () => {
               visible: { opacity: 1 },
             }}
             className="credits-card-title"
-          ></motion.li>
+          >
+            Beauty Space
+          </motion.li>
           <motion.li
             initial="hidden"
             whileInView="visible"
