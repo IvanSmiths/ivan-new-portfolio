@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-
 import { motion } from "framer-motion";
-
 import useTranslation from "next-translate/useTranslation";
 
 function IdExp() {

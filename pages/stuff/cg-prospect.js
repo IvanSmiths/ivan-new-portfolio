@@ -1,19 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useContext, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { motion, AnimatePresence } from 'framer-motion';
-import SrcImage from '../../components/SrcImage';
-import Head from 'next/head';
-import FooterCgProspect from '../../components/Footers/FooterCgProspect';
-import { CursorContext } from '../../components/CursorManager';
-import useTranslation from 'next-translate/useTranslation';
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Head from "next/head";
+import FooterCgProspect from "../../components/Footers/FooterCgProspect";
+import CgHero from "../../components/CGProspect/CgHero";
+import CgInfo from "../../components/CGProspect/CgInfo";
+import CgExp from "../../components/CGProspect/CgExp";
+import CgRising from "../../components/CGProspect/CgRising";
+import CgClimax from "../../components/CGProspect/CgClimax";
+import CgFalling from "../../components/CGProspect/CgFalling";
+import CgDenouement from "../../components/CGProspect/CgDenouement";
+import CgCredits from "../../components/CGProspect/CgCredits";
 
 const Ideology = () => {
   // SKEW
   useEffect(() => {
     let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter('.skewElem', 'skewY', 'deg'),
+      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
       clamp = gsap.utils.clamp(-0.5, 0.5);
 
     ScrollTrigger.create({
@@ -24,29 +28,17 @@ const Ideology = () => {
           gsap.to(proxy, {
             skew: 0,
             duration: 0.5,
-            ease: 'circ',
+            ease: "circ",
             overwrite: true,
             onUpdate: () => skewSetter(proxy.skew),
           });
         }
       },
     });
-    gsap.set('.skewElem', { transformOrigin: 'right center', force3D: true });
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
-
-  // MOUSE ZOOM HANDLER //
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize('medium');
-  };
-  const handleMouseLeave = () => {
-    setSize('small');
-  };
-
-  let { t } = useTranslation();
-  const [work, setWork] = useState(`${t('cg-prospect:work-hard')}`);
 
   return (
     <>
@@ -57,279 +49,14 @@ const Ideology = () => {
           content="I have built CG Prospect, in order to create the fastest website about 3d modeling."
         />
       </Head>
-      <header className="stuff-s-header-cnt skewElem">
-        <div className="stuff-s-header-image-cnt skewElem">
-          <AnimatePresence>
-            <picture>
-              <motion.source
-                layoutId="cg-prospect-img-1"
-                alt="image of a work"
-                decoding="async"
-                loading="lazy"
-                height="600"
-                width="400"
-                srcSet="/cgprospect.webp"
-                type="image/webp"
-              />
-              <motion.img
-                layoutId="cg-prospect-img-2"
-                alt="image of a work"
-                loading="lazy"
-                decoding="async"
-                src="/cgprospect.jpg"
-                height="600"
-                width="400"
-              />
-            </picture>
-          </AnimatePresence>
-        </div>
-        <div className="stuff-s-header-info-cnt skewElem">
-          <div className="stuff-s-header-info-layout">
-            <ul className="stuff-s-header-info">
-              <motion.li
-                layout="cg-prospect-prologue"
-                className="tiny-font spacing"
-              >
-                .{t('cg-prospect:prologue')}
-              </motion.li>
-            </ul>
-            <motion.h1 layoutId="cg-prospect-title" className="big-font impact">
-              CG Prospect
-            </motion.h1>
-          </div>
-        </div>
-      </header>
-      <section className="skewElem">
-        <div className="info-cnt">
-          <h2
-            onMouseEnter={() => setWork(`${t('cg-prospect:work-harder')}`)}
-            onMouseLeave={() => setWork(`${t('cg-prospect:work-hard')}`)}
-            className="info-sticky spacing"
-          >
-            {work}
-          </h2>
-          <ul>
-            <motion.li
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="big-font impact"
-            >
-              Tech
-              <motion.em
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                className="small-font serif"
-              >
-                .Next JS, PostegSql, Prisma, Stripe, MailChimp
-              </motion.em>
-            </motion.li>
-            <motion.li
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="big-font impact"
-            >
-              {t('cg-prospect:type')}
-              <motion.em
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                className="small-font serif"
-              >
-                .{t('cg-prospect:type-2')}
-              </motion.em>
-            </motion.li>
-            <motion.li
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="big-font impact"
-            >
-              {t('cg-prospect:year')}
-              <motion.em
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                className="small-font serif"
-              >
-                .2021
-              </motion.em>
-            </motion.li>
-          </ul>
-          <div className="info-link">
-            <motion.a
-              target="_blank"
-              rel="noreferrer noopener"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { y: 0, rotateZ: '0deg' },
-                visible: { y: 0, rotateZ: '11deg' },
-              }}
-              className="big-font btn-big"
-              href="https://www.cgprospect.com/"
-            >
-              Website
-            </motion.a>
-          </div>
-        </div>
-      </section>
-
-      <div className="exposition-cnt skewElem">
-        <div className="exposition">
-          <em className="tiny-font spacing stuff-em">.exposition</em>
-          <h2 className="large-font word-wrap impact uppercase">
-            {t('cg-prospect:fastest')}
-          </h2>
-        </div>
-      </div>
-
-      <div className="exposition-website-1-cnt skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-2.jpg'}
-          webp={'/cg-prospect-website-2.webp'}
-          height={'60%'}
-          width={'60%'}
-          alt={'image'}
-          className={'exposition-website-1'}
-        />
-      </div>
-      <div className="rising-action-cnt skewElem">
-        <em className="stuff-em spacing tiny-font">.Rising action</em>
-        <p>
-        {t('cg-prospect:rising')}
-        </p>
-      </div>
-      <div className="falling-action-website-1-cnt skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-3.jpg'}
-          webp={'/cg-prospect-website-3.webp'}
-          height={'500px'}
-          width={'100%'}
-          alt={'image'}
-          className={'falling-action-website-1'}
-        />
-      </div>
-      <main className="climax-cnt flex-center skewElem">
-        <div className="climax">
-          <em className="stuff-em spacing tiny-font">.climax</em>
-          <p>
-          {t('cg-prospect:climax')}
-          </p>
-        </div>
-      </main>
-      <div className="falling-action-website-1-cnt falling-action-cg skewElem">
-        <SrcImage
-          src={'/cg-prospect-website-4.jpg'}
-          webp={'/cg-prospect-website-4.webp'}
-          height={'500px'}
-          width={'100%'}
-          alt={'image'}
-          className={'falling-action-website-1'}
-        />
-      </div>
-      <div className="falling-action-cnt skewElem">
-        <em className="stuff-em spacing tiny-font">.falling action</em>
-        <p>
-        {t('cg-prospect:falling')}
-        </p>
-      </div>
-      <div className="denouement-cnt skewElem">
-        <em className="stuff-em spacing tiny-font">.denouement</em>
-        <h3 className="impact impact-large uppercase word-wrap large-font">
-        {t('cg-prospect:denouement')}
-        </h3>
-      </div>
-      <section className="credits-cnt flex-center skewElem">
-        <h3 className="large-font spacing">{t('cg-prospect:credits')}</h3>
-        <div className="credits-card-cnt flex-center">
-          <ul className="credits-card">
-            <li className="credits-card-title">{t('cg-prospect:softwares')}</li>
-            <li>
-            {t('cg-prospect:photogrammetry')}:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.agisoft.com/"
-              >
-                Agisoft Metashape
-              </a>
-            </li>
-            <li>
-              Rendering:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.blender.org/"
-              >
-                Blender
-              </a>
-            </li>
-            <li>
-            {t('cg-prospect:mesh')}:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://pixologic.com/"
-              >
-                Zbrush
-              </a>
-            </li>
-            <li>
-              Baking:{' '}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://pixologic.com/"
-              >
-                Zbrush
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <CgHero />
+      <CgInfo />
+      <CgExp />
+      <CgRising />
+      <CgClimax />
+      <CgFalling />
+      <CgDenouement />
+      <CgCredits />
       <FooterCgProspect />
     </>
   );
