@@ -270,7 +270,7 @@ li {
   background-size: 0 100%;
   border: 1px solid var(--text-black);
   color: var(--text-black);
-  padding: 12.1rem 2.5rem;
+  padding: 14.4rem 3.5rem;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
