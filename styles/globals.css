@@ -75,10 +75,11 @@ em {
 :root {
   --main-color: #d7f21d;
   --text-black: #131116;
+
   --extremeFont: clamp(4rem, 2vw, 14rem);
   --largeFont: clamp(4.5rem, 16vw, 19rem);
-  --bigFont: clamp(2rem, 9.9vw, 8rem);
-  --bigFontHeight: clamp(2rem, 9.9vw, 8rem);
+  --bigFont: clamp(2rem, 9.9vw, 9rem);
+  --bigFontHeight: clamp(2rem, 9.9vw, 9rem);
   --mediumFont: clamp(1.8rem, 5.7vw, 5rem);
   --smallFont: clamp(1rem, 1.7vw, 1.4rem);
   --smallFontHeight: clamp(1.4rem, 2.5vw, 2.7rem);
@@ -210,7 +211,7 @@ li {
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 40px 62px;
+  padding: 37px 62px;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;

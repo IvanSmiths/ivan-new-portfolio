@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import React, { useEffect, useRef } from "react";
+import useTranslation from "next-translate/useTranslation";
 const Canvas = () => {
   const position = { x: 0, y: 0, radius: 180 };
   const width = window.innerWidth;
@@ -19,11 +19,11 @@ const Canvas = () => {
   };
 
   const renderFrame = () => {
-    const ctx = canvasRef.current.getContext('2d');
+    const ctx = canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#060606';
-    ctx.font = ' 42px Georgia';
-    ctx.fillText(`${t('home:innovation2')}`, 115, 50);
+    ctx.fillStyle = "#060606";
+    ctx.font = " 42px Georgia";
+    ctx.fillText(`${t("home:innovation2")}`, 119, 60);
 
     for (let i = 0; i < particleArray.length; i++) {
       particleArray[i].draw();
@@ -43,8 +43,8 @@ const Canvas = () => {
     }
 
     draw() {
-      const ctx = canvasRef.current.getContext('2d');
-      ctx.fillStyle = '#D7F21D';
+      const ctx = canvasRef.current.getContext("2d");
+      ctx.fillStyle = "#D7F21D";
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 8);
       ctx.closePath();
@@ -83,8 +83,8 @@ const Canvas = () => {
     if (!canvasRef.current) {
       window.setTimeout(init, 10);
     } else {
-      console.log('init ran');
-      const ctx = canvasRef.current.getContext('2d');
+      console.log("init ran");
+      const ctx = canvasRef.current.getContext("2d");
       const textCoordinates = ctx.getImageData(0, 0, height, width);
       for (let y = 0, y2 = textCoordinates.height; y < y2; y++) {
         for (let x = 0, x2 = textCoordinates.width; x < x2; x++) {
@@ -103,31 +103,13 @@ const Canvas = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    ctx.current = canvas.getContext('2d');
+    ctx.current = canvas.getContext("2d");
   }, []);
 
   const animate = () => {
     if (!canvasRef.current) return;
     renderFrame();
     requestIdRef.current = requestAnimationFrame(animate);
-  };
-  // this function is not working yet, it should connect the particles together.
-  const connect = () => {
-    for (let a = 0; a < particleArray.length; a++) {
-      for (let b = a; b < particleArray.length; b++) {
-        let dx = particleArray[a].x - particleArray[b].x;
-        let dy = particleArray[a].y - particleArray[b].y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
-          ctx.strokeStyle = 'white';
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(particleArray[a].x, particleArray[a].y);
-          ctx.lineTo(particleArray[a].x, particleArray[a].y);
-          ctx.stroke();
-        }
-      }
-    }
   };
 
   useEffect(() => {
