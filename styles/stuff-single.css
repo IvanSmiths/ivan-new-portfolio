@@ -198,13 +198,16 @@
 
 .rising-action-cnt {
   width: 35%;
-  margin-left: 5%;
+  margin-left: 11%;
   margin-top: var(--marginSection);
 }
 
 .climax-website-cnt {
   display: flex;
   flex-direction: column;
+}
+.emoji {
+  font-size: 35px;
 }
 
 .climax-website {
@@ -242,7 +245,7 @@
   width: 35%;
   text-align: left;
   margin-top: var(--marginSection);
-  margin-left: 5%;
+  margin-left: 11%;
 }
 
 .falling-action-cnt p {

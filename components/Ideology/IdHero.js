@@ -5,7 +5,7 @@ const IdHero = () => {
   let { t } = useTranslation();
   return (
     <header className="stuff-s-header-cnt skewElem">
-      <div className="stuff-s-header-image-cnt skewElem">
+      <div className="stuff-s-header-image-cnt ">
         <AnimatePresence>
           <picture>
             <motion.source
@@ -30,7 +30,7 @@ const IdHero = () => {
           </picture>
         </AnimatePresence>
       </div>
-      <div className="stuff-s-header-info-cnt skewElem">
+      <div className="stuff-s-header-info-cnt ">
         <div className="stuff-s-header-info-layout">
           <ul className="stuff-s-header-info">
             <motion.li layout="ideology-prologue" className="tiny-font spacing">

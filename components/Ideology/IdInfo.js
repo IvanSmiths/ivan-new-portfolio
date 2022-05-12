@@ -16,7 +16,33 @@ const IdInfo = () => {
       >
         {work}
       </h2>
-      <ul>
+      <ul className="skewElem">
+        <motion.li
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, y: 100 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          className="big-font impact"
+        >
+          {t("ideology:role")}
+          <motion.em
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="small-font serif"
+          >
+            - {t("ideology:role-2")}
+          </motion.em>
+        </motion.li>
         <motion.li
           initial="hidden"
           whileInView="visible"
@@ -40,7 +66,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - WordPress, Html, Css, JavaScript
+            - Adobe XD, CSS, JavaScript, WordPress, Framer
           </motion.em>
         </motion.li>
         <motion.li
@@ -106,7 +132,7 @@ const IdInfo = () => {
           }}
           className="big-font impact"
         >
-          4.435
+          4.735
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -118,7 +144,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            {t("ideology:hours")}
+            - {t("ideology:hours")}
           </motion.em>
         </motion.li>
         <motion.li
@@ -144,7 +170,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            {t("ideology:parties")}
+            - {t("ideology:parties")} <span className="emoji">🎉</span>
           </motion.em>
         </motion.li>
       </ul>

@@ -1,5 +1,7 @@
 {
-  "prologue": "prologue",
+  "prologue": "PROLOGUE",
+  "role": "Ruolo",
+  "role-2": "UI/UX Designer, Sviluppatore Frontend, Sviluppatore WordPress",
   "type": "Tipo",
   "type-2": "Dipendente",
   "work": "lavoro",
