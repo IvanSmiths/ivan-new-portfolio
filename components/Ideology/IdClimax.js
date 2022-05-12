@@ -33,6 +33,20 @@ function IdClimax() {
           >
             {t("ideology:climax-2")}
           </motion.p>
+          <br />
+          <br />
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            {t("ideology:climax-3")}
+          </motion.p>
         </div>
       </div>
       <div className="climax-website-cnt skewElem">

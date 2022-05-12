@@ -32,6 +32,19 @@ function IdFalling() {
         >
           {t("ideology:falling-action-2")}
         </motion.p>
+        <br /> <br />
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0, y: 100 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
+          {t("ideology:falling-action-3")}
+        </motion.p>
       </div>
       <div className="falling-action-website-1-cnt skewElem">
         <picture className={"falling-action-website-1"}>
@@ -49,7 +62,7 @@ function IdFalling() {
             loading="lazy"
             height={"500px"}
             width={"100%"}
-            srcSet="/ideology-website-1.webp"
+            srcSet="/ideology-team.webp"
             type="image/webp"
           />
           <motion.img
@@ -64,7 +77,7 @@ function IdFalling() {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={"/ideology-website-1.jpg"}
+            src={"/ideology-team.jpg"}
             height={"500px"}
             width={"100%"}
           />

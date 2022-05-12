@@ -53,7 +53,7 @@ function IdExp() {
             loading="lazy"
             height="60%"
             width="60%"
-            srcSet="/ideology-adobe-xd.webp"
+            srcSet="/ideology-wireframe.webp"
             type="image/webp"
           />
           <motion.img
@@ -68,7 +68,7 @@ function IdExp() {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={"/ideology-adobe-xd.png"}
+            src={"/ideology-wireframe.png"}
             height={"60%"}
             width={"60%"}
           />
