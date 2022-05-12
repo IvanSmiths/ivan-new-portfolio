@@ -138,7 +138,7 @@ function Navbar() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://it.linkedin.com/in/ivan-fabbri-932aaa205?trk=people-guest_people_search-card"
+                href="https://www.linkedin.com/in/ivan-fabbri/"
               >
                 Linkedin
               </a>
