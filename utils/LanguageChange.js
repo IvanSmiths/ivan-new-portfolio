@@ -30,14 +30,6 @@ const LanguageChange = () => {
           </a>
         </Link>
       </li>
-      <li>-</li>
-      <li>
-        <Link locale="de" href={router.asPath}>
-          <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            {router.locales[2]}
-          </a>
-        </Link>
-      </li>
     </ul>
   );
 };
