@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { motion } from 'framer-motion';
-import useTranslation from 'next-translate/useTranslation';
-
-// Import images
+import React from "react";
+import { motion } from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 
 const container = {
   show: {
@@ -20,7 +18,7 @@ const itemMain = {
     y: 0,
     transition: {
       ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 8,
+      duration: 7,
     },
   },
 };
@@ -67,14 +65,14 @@ const Loader = ({ setLoading }) => {
             layoutId="sub-title"
             variants={titleSub}
           >
-            ivan smiths <br /> {t('common:web-react')} (React.js)
+            ivan smiths <br /> {t("common:web-react")} (React.js)
           </motion.h2>
           <motion.h1
             className="uppercase impact medium-font"
             layoutId="main-title"
             variants={titleMain}
           >
-            {t('common:web-dev')}...
+            {t("common:web-dev")}...
           </motion.h1>
         </motion.div>
       </motion.div>
