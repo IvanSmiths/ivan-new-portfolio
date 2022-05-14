@@ -79,7 +79,7 @@ em {
   --extremeFont: clamp(4rem, 2vw, 14rem);
   --largeFont: clamp(4rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
-  --bigFont: clamp(2rem, 9.9vw, 9rem);
+  --bigFont: clamp(3rem, 9.9vw, 9rem);
   --bigFontHeight: clamp(2rem, 9.9vw, 9rem);
   --bigFontTitle: clamp(4rem, 11vw, 14rem);
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
@@ -345,11 +345,11 @@ li {
 }
 
 .lang-cnt2 a {
-  color: var(--color-text-inverse);
+  color: var(--color-black);
 }
 
 .lang-cnt2 li {
-  color: var(--color-text-inverse);
+  color: var(--color-black);
 }
 
 /* MOUSE FOLLOWER */

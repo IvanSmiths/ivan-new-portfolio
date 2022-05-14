@@ -90,6 +90,9 @@
   text-transform: uppercase;
 }
 
+.burger-menu-links-cnt a {
+}
+
 .nav-social-cnt {
   display: flex;
   gap: 2rem;

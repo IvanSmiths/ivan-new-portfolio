@@ -76,7 +76,7 @@ function Navbar() {
           <ul className="burger-menu-links-cnt">
             <li>
               <Link href="/">
-                <a onClick={onClick} className="impact medium-font">
+                <a onClick={onClick} className="impact big-font">
                   {t("common:nav-home")}
                 </a>
               </Link>
@@ -84,7 +84,7 @@ function Navbar() {
 
             <li>
               <Link href="/stuff">
-                <a onClick={onClick} className="impact medium-font">
+                <a onClick={onClick} className="impact big-font">
                   {t("common:nav-stuff")}
                 </a>
               </Link>
@@ -92,7 +92,7 @@ function Navbar() {
 
             <li>
               <Link href="/about">
-                <a onClick={onClick} className="impact medium-font">
+                <a onClick={onClick} className="impact big-font">
                   {t("common:nav-about")}
                 </a>
               </Link>
@@ -100,7 +100,7 @@ function Navbar() {
 
             <li>
               <Link href="/post">
-                <a onClick={onClick} className="impact medium-font">
+                <a onClick={onClick} className="impact big-font">
                   {t("common:nav-post")}
                 </a>
               </Link>
