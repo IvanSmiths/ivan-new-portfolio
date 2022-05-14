@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { gsap } from "gsap";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, LayoutGroup } from "framer-motion";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import Head from "next/head";
@@ -93,7 +93,7 @@ const Index = () => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </Head>
-      <AnimatePresence>
+      <LayoutGroup>
         <section ref={ref}>
           <div className="box-cnt" id="box-cnt">
             <div id="box" className="box ">
@@ -596,7 +596,7 @@ const Index = () => {
             </motion.svg>
           </div>
         </section>
-      </AnimatePresence>
+      </LayoutGroup>
     </>
   );
 };

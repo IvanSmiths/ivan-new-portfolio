@@ -1,12 +1,12 @@
 import useTranslation from "next-translate/useTranslation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, LayoutGroup } from "framer-motion";
 
 const IdHero = () => {
   let { t } = useTranslation();
   return (
     <header className="stuff-s-header-cnt skewElem">
       <div className="stuff-s-header-image-cnt ">
-        <AnimatePresence>
+        <LayoutGroup>
           <picture>
             <motion.source
               layoutId="ideology-img-1"
@@ -28,7 +28,7 @@ const IdHero = () => {
               width="400"
             />
           </picture>
-        </AnimatePresence>
+        </LayoutGroup>
       </div>
       <div className="stuff-s-header-info-cnt ">
         <div className="stuff-s-header-info-layout">

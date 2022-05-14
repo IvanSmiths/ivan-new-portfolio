@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, LayoutGroup } from "framer-motion";
 import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
@@ -48,20 +48,17 @@ function About() {
     gsap.fromTo(
       element.querySelector("#about-image-cnt"),
       {
-        opacity: 1,
         scale: 1,
       },
       {
-        opacity: 0.98,
-        scale: 0.7,
+        scale: 0.8,
         duration: 1,
         ease: "none",
         scrollTrigger: {
           trigger: element.querySelector("#about-image-cnt"),
           start: "top bottom",
           end: "bottom top",
-          ease: "power1",
-          markers: true,
+          ease: "power3",
           scrub: true,
         },
       }
@@ -148,7 +145,18 @@ function About() {
           <strong>{t("home:bio-6")}</strong>
           {t("home:bio-7")}
         </p>
-        <div id="about-image-cnt" className="homepage-about-img-cnt">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          id="about-image-cnt"
+          className="homepage-about-img-cnt"
+        >
           <SrcImage
             src={"/photo-of-me.jpg"}
             webp={"/photo-of-me.webp"}
@@ -156,7 +164,7 @@ function About() {
             width={"605.75px"}
             alt={"image"}
           />
-        </div>
+        </motion.div>
         <div id="about" className="homepage-about-p-cnt">
           <motion.h2
             initial="hidden"
@@ -206,7 +214,7 @@ function About() {
           </motion.a>
         </Link>
       </main>
-      <AnimatePresence>
+      <LayoutGroup>
         <section ref={ref}>
           <div className="box-cnt" id="box-cnt">
             <div id="box" className="box ">
@@ -709,7 +717,7 @@ function About() {
             </motion.svg>
           </div>
         </section>
-      </AnimatePresence>
+      </LayoutGroup>
     </>
   );
 }
