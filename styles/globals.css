@@ -74,7 +74,7 @@ em {
 
 :root {
   --main-color: #d7f21d;
-  --text-black: #131116;
+  --text-black: #2e2e2e;
 
   --extremeFont: clamp(4rem, 2vw, 14rem);
   --largeFont: clamp(4rem, 17vw, 22rem);
@@ -99,17 +99,17 @@ em {
 
 body,
 body[data-theme="light"] {
-  --color-bg-primary: #ffffff;
+  --color-bg-primary: #eeeae6;
   --color-bg-sub: #050505;
-  --color-text-primary: #131116;
+  --color-text-primary: #2b2b2b;
   --color-text-inverse: #ffffff;
   --color-bg-inverse: #0e0e0c;
 }
 
 body[data-theme="dark"] {
-  --color-bg-primary: #0e0e0c;
+  --color-bg-primary: #353431;
   --color-bg-sub: #ffffff;
-  --color-text-primary: #dbdbdb;
+  --color-text-primary: #f8f8f8;
   --color-text-inverse: #0e0e0c;
   --color-bg-inverse: #fafafa;
 }
