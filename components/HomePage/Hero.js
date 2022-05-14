@@ -98,8 +98,8 @@ const Hero = () => {
       <div className="big-font skewElem flex-center title-3-cnt">
         <em className="title-3">{t("home:and")}</em>
         <motion.svg
-          height="60px"
-          width="50px"
+          height="120px"
+          width="100px"
           alt="arrow down"
           className="title-arrow"
           xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ const Hero = () => {
             transform="translate(4639.134 -828.213)"
             fill="none"
             strokeLinecap="round"
-            strokeWidth="2"
+            strokeWidth="1"
           />
         </motion.svg>
       </div>

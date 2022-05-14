@@ -91,7 +91,6 @@
 .title-arrow {
   overflow: visible;
   stroke: var(--color-text-primary);
-  stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
   margin-left: 3rem;
