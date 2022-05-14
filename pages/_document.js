@@ -23,6 +23,10 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300&display=swap"
+            rel="stylesheet"
+          />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

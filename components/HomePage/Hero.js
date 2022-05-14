@@ -45,6 +45,7 @@ const Hero = () => {
       pathLength: 1,
     },
   };
+
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {

@@ -54,7 +54,7 @@
 .home-header-cnt {
   min-height: 100vh;
   flex-direction: column;
-  gap: 3rem;
+  gap: 7rem;
 }
 
 .title-1-cnt {
@@ -76,7 +76,16 @@
 .title-1,
 .title-2,
 .title-3 {
+  font-size: var(--bigFontTitle);
+  line-height: var(--bigFontHeightTitle);
   text-transform: uppercase;
+  font-family: "Cormorant Upright", serif, Georgia, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.title-1 {
+  font-weight: 100;
 }
 
 .title-arrow {
@@ -89,7 +98,9 @@
 }
 
 .title-image {
-  margin-left: 3rem;
+  height: auto;
+  width: 17rem;
+  margin-left: 8vw;
   object-fit: contain;
 }
 

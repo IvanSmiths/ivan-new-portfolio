@@ -50,6 +50,10 @@
     line-height: 19vw !important;
   }
 
+  .title-image {
+    display: none;
+  }
+
   .home-header-cnt {
     gap: 1rem;
   }
