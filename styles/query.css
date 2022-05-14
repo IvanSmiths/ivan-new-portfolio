@@ -181,6 +181,20 @@
     padding: 0 1rem;
   }
 
+  .home-header-cnt {
+    position: relative;
+  }
+
+  .title-arrow {
+    margin-left: 1.5rem;
+  }
+
+  .absolute-small {
+    position: absolute;
+    bottom: -269px;
+    right: -85px;
+  }
+
   .mobile {
     display: block !important;
   }
@@ -228,7 +242,7 @@
   }
 
   .home-header-cnt {
-    gap: 1.2rem;
+    gap: 3.2rem;
   }
 
   .lang-cnt {
@@ -266,6 +280,7 @@
 
   .homepage-about-p-cnt {
     padding-right: 0;
+    padding-left: 0;
     margin-top: 7rem;
     text-align: left;
     width: 75%;
@@ -274,7 +289,7 @@
   .marquee-cnt {
     width: 140vw;
     margin-top: 0rem;
-    margin-bottom: 6rem;
+    margin-bottom: 1rem;
   }
 
   .article-content-cnt {
@@ -316,10 +331,6 @@
 
   .exposition-cnt h2 {
     padding-left: 0;
-  }
-
-  .footer-layout-cnt {
-    flex-direction: revert;
   }
 
   .footer-ivan-smiths {
@@ -375,6 +386,7 @@
     align-items: center;
     z-index: 3;
   }
+
   .box2 {
     display: flex;
     flex-direction: column;
@@ -384,6 +396,7 @@
     align-items: center;
     z-index: 3;
   }
+
   .box3 {
     display: flex;
     flex-direction: column;
@@ -393,6 +406,7 @@
     align-items: center;
     z-index: 3;
   }
+
   .box3-2 {
     display: flex;
     flex-direction: column;
@@ -407,16 +421,27 @@
     left: 49% !important;
     top: 26px !important;
   }
-  .box-image-cnt img {
-    width: 400%;
+
+  .box-image-cnt {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
+
+  .box-image-cnt img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
   .lang-cnt {
     display: none !important;
   }
 
   .box-informations-cnt {
     height: 40%;
-    padding-bottom: 9rem;
+    padding-bottom: 11rem;
   }
   .marquee-innovation em {
     font-size: var(--extremeFont);
@@ -485,10 +510,6 @@
 
   .author-card {
     flex-direction: column;
-  }
-
-  .footer-layout-cnt em {
-    margin: 1vw 0;
   }
 
   .title-item {

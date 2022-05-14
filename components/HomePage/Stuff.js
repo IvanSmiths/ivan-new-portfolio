@@ -636,7 +636,7 @@ function About() {
                 hidden: { opacity: 0, y: 100 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="caption-cnt impact impact-large large-font"
+              className="caption-cnt impact large-font"
             >
               {t("home:home-caption")}
             </motion.h3>

@@ -77,10 +77,11 @@ em {
   --text-black: #131116;
 
   --extremeFont: clamp(4rem, 2vw, 14rem);
-  --largeFont: clamp(4.5rem, 16vw, 19rem);
+  --largeFont: clamp(4.5rem, 17vw, 22rem);
+  --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(2rem, 9.9vw, 9rem);
   --bigFontHeight: clamp(2rem, 9.9vw, 9rem);
-  --bigFontTitle: clamp(2rem, 11vw, 14rem);
+  --bigFontTitle: clamp(4rem, 11vw, 14rem);
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
   --mediumFont: clamp(1.8rem, 5.7vw, 5rem);
   --smallFont: clamp(1rem, 1.7vw, 1.4rem);
@@ -138,7 +139,7 @@ body[data-theme="dark"] {
 
 .large-font {
   font-size: var(--largeFont);
-  line-height: 16vw;
+  line-height: var(--largeFontHeight);
 }
 
 .large-font-inverse {
