@@ -40,7 +40,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - {t("ideology:role-2")}
+            .{t("ideology:role-2")}
           </motion.em>
         </motion.li>
         <motion.li
@@ -66,7 +66,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - Adobe XD, CSS, JavaScript, WordPress, Framer
+            .Adobe XD, CSS, JavaScript, WordPress, Framer
           </motion.em>
         </motion.li>
         <motion.li
@@ -92,7 +92,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - {t("ideology:type-2")}
+            .{t("ideology:type-2")}
           </motion.em>
         </motion.li>
         <motion.li
@@ -118,7 +118,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - 2020/2022
+            .2020/2022
           </motion.em>
         </motion.li>
         <motion.li
@@ -144,7 +144,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - {t("ideology:hours")}
+            .{t("ideology:hours")}
           </motion.em>
         </motion.li>
         <motion.li
@@ -170,7 +170,7 @@ const IdInfo = () => {
             }}
             className="small-font serif"
           >
-            - {t("ideology:parties")} <span className="emoji">🎉</span>
+            .{t("ideology:parties")} <span className="emoji">🎉</span>
           </motion.em>
         </motion.li>
       </ul>

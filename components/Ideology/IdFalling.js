@@ -18,7 +18,7 @@ function IdFalling() {
           }}
           className="stuff-em spacing tiny-font"
         >
-          . {t("ideology:falling-action")}
+          .{t("ideology:falling-action")}
         </motion.em>
         <motion.p
           initial="hidden"
