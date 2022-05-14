@@ -49,16 +49,19 @@ function About() {
       element.querySelector("#about-image-cnt"),
       {
         opacity: 1,
+        scale: 1,
       },
       {
-        opacity: 0,
+        opacity: 0.98,
+        scale: 0.7,
         duration: 1,
         ease: "none",
         scrollTrigger: {
           trigger: element.querySelector("#about-image-cnt"),
-          start: "top top",
+          start: "top bottom",
           end: "bottom top",
           ease: "power1",
+          markers: true,
           scrub: true,
         },
       }
@@ -180,6 +183,9 @@ function About() {
             className="small-font"
           >
             {t("home:about")}
+            <br />
+            <br />
+            {t("home:about-p2")}
           </motion.p>
         </div>
         <Link href="/about" passHref>
