@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
@@ -11,6 +11,7 @@ import SrcImage from "../SrcImage";
 
 function About() {
   let router = useRouter();
+
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef(null);
@@ -35,6 +36,30 @@ function About() {
           ease: "power1",
           scrub: true,
           toggleClass: "box-fixed",
+        },
+      }
+    );
+  }, []);
+
+  const refAbout = useRef(null);
+
+  useEffect(() => {
+    const element = refAbout.current;
+    gsap.fromTo(
+      element.querySelector("#about-image-cnt"),
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        duration: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element.querySelector("#about-image-cnt"),
+          start: "top top",
+          end: "bottom top",
+          ease: "power1",
+          scrub: true,
         },
       }
     );
@@ -88,6 +113,7 @@ function About() {
     });
     gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
   }, []);
+
   const icon = {
     hidden: {
       pathLength: 0,
@@ -107,9 +133,10 @@ function About() {
   };
 
   let { t } = useTranslation();
+
   return (
     <>
-      <main className="homepage-about-cnt skewElem">
+      <main ref={refAbout} className="homepage-about-cnt skewElem">
         <p className="description">
           Ivan Smiths, <motion.strong>{t("home:bio-2")}</motion.strong>
           {t("home:bio-3")}
@@ -118,7 +145,7 @@ function About() {
           <strong>{t("home:bio-6")}</strong>
           {t("home:bio-7")}
         </p>
-        <div className="homepage-about-sub-cnt">
+        <div id="about-image-cnt" className="homepage-about-img-cnt">
           <SrcImage
             src={"/photo-of-me.jpg"}
             webp={"/photo-of-me.webp"}
@@ -127,44 +154,51 @@ function About() {
             alt={"image"}
           />
         </div>
-        <div className="flex-center">
-          <div id="about" className="homepage-about-p-cnt">
-            <h2 className="tiny-font spacing">.IVAN SMITHS</h2>
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="small-font"
-            >
-              {t("home:about")}
-            </motion.p>
-            <Link href="/about" passHref>
-              <motion.a
-                className="btn-small-2 tiny-font btn-small-3"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                style={{
-                  padding: `${router.locale === "de" ? "74px 40px" : ""}`,
-                }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { rotateZ: "0deg" },
-                  visible: { rotateZ: "11deg" },
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                {t("home:about-2")}
-              </motion.a>
-            </Link>
-          </div>
+        <div id="about" className="homepage-about-p-cnt">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="tiny-font spacing"
+          >
+            .IVAN SMITHS
+          </motion.h2>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            className="small-font"
+          >
+            {t("home:about")}
+          </motion.p>
         </div>
+        <Link href="/about" passHref>
+          <motion.a
+            className="btn-small btn-small-3 medium-font homepage-about-link"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { rotateZ: "0deg" },
+              visible: { rotateZ: "11deg" },
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {t("home:about-2")}
+          </motion.a>
+        </Link>
       </main>
       <AnimatePresence>
         <section ref={ref}>

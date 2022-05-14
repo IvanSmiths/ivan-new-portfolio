@@ -255,6 +255,10 @@ li {
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
 }
 
+.btn-small-3 {
+  padding: 11.2rem 2.8rem;
+}
+
 .btn-small:hover {
   border: 1px solid var(--color-bg-primary);
   color: black;

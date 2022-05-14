@@ -54,6 +54,29 @@
     display: none;
   }
 
+  .homepage-about-cnt {
+    margin-top: 0rem;
+  }
+
+  .homepage-about-img-cnt img {
+    width: 70vw;
+  }
+
+  .homepage-about-link {
+    left: 39%;
+    bottom: -20%;
+  }
+
+  .btn-small-3 {
+    padding: 7rem 3rem !important;
+  }
+
+  .homepage-about-p-cnt {
+    width: 50%;
+    padding-top: 4rem;
+    padding-left: 4rem;
+  }
+
   .home-header-cnt {
     gap: 1rem;
   }
@@ -248,10 +271,6 @@
     margin-left: 5%;
   }
 
-  .homepage-about-cnt {
-    margin-top: 0rem;
-  }
-
   .box-image-cnt {
     margin-bottom: 3rem;
   }
@@ -296,18 +315,23 @@
     height: 156px;
   }
 
-  .homepage-about-cnt {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .homepage-about-link {
+    padding-left: 39%;
+    bottom: -48%;
+  }
+
+  .homepage-about-img-cnt img {
+    width: 80vw;
   }
 
   .homepage-about-p-cnt {
-    padding-right: 0;
-    padding-left: 0;
-    margin-top: 7rem;
-    text-align: left;
-    width: 75%;
+    padding-left: 4%;
+    padding-top: 0;
+    width: 70%;
+  }
+
+  .btn-small-3 {
+    padding: 6rem 3rem !important;
   }
 
   .marquee-cnt {

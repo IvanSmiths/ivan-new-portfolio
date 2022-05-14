@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import "../styles/style.scss";
-import React, { useEffect, useState } from "react";
-import { AnimateSharedLayout } from "framer-motion";
+import React, { useEffect } from "react";
+import { LayoutGroup } from "framer-motion";
 import ScrollPercentage from "../components/ScrollPercentage";
 import CursorManager from "../components/CursorManager";
 import CustomCursor from "../components/CustomCursor";
@@ -94,7 +94,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#d7f21d" />
       </Head>
-      <AnimateSharedLayout>
+      <LayoutGroup>
         <CursorManager>
           <CustomCursor />
           <ThemeToggle />
@@ -107,7 +107,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
           <Footer />
         </CursorManager>
-      </AnimateSharedLayout>
+      </LayoutGroup>
     </>
   );
 }
