@@ -64,15 +64,15 @@ const Credits = () => {
               href="https://it.linkedin.com/in/iryna-sachko-319a54220"
             >
               Iryna Sachko,{" "}
-              <a
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://it.linkedin.com/in/danielvello"
-              >
-                Daniel Vello
-              </a>
+            </a>
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://it.linkedin.com/in/danielvello"
+            >
+              Daniel Vello
             </a>
           </motion.li>
           <motion.li

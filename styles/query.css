@@ -221,6 +221,24 @@
   .info-sticky {
     display: none;
   }
+
+  .climax-website-margin {
+    margin-top: 0;
+  }
+
+  .climax-website li picture {
+    width: 100%;
+  }
+
+  .climax-website {
+    flex-direction: column;
+    gap: 9rem;
+  }
+
+  .climax-website-2 {
+    display: none;
+  }
+
   .info-cnt ul {
     margin-left: 5%;
   }
