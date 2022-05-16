@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 const container = {
   show: {
@@ -36,7 +37,7 @@ const titleMain = {
 };
 
 const titleSub = {
-  hidden: { opacity: 0, y: 200 },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
     y: 0,
@@ -48,33 +49,54 @@ const titleSub = {
 };
 
 const Loader = ({ setLoading }) => {
+  let router = useRouter();
+
   let { t } = useTranslation();
+
   return (
-    <motion.div className="loader">
-      <motion.div
-        variants={container}
-        onAnimationComplete={() => setLoading(false)}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        className="loader-inner"
-      >
-        <motion.div variants={itemMain} className="transition-image">
-          <motion.h2
-            className="tiny-font spacing loader-sub-title"
-            layoutId="sub-title"
-            variants={titleSub}
+    <motion.div
+      variants={container}
+      onAnimationComplete={() => setLoading(false)}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className="loader"
+    >
+      <motion.div variants={itemMain} className="loader-cnt">
+        <motion.h2
+          className="tiny-font spacing loader-sub-title"
+          layoutId="sub-title"
+          variants={titleSub}
+        >
+          Ivan Smiths <br /> {t("common:web-react")} (React) <br /> UI/UX
+          Designer
+        </motion.h2>
+        <motion.h1
+          className="uppercase big-font loader-title"
+          layoutId="main-title"
+          variants={titleMain}
+        >
+          <em
+            style={{
+              paddingLeft: `${router.locale === "it" ? "10vw" : ""}`,
+            }}
+            className="loader-title-1"
           >
-            ivan smiths <br /> {t("common:web-react")} (React.js)
-          </motion.h2>
-          <motion.h1
-            className="uppercase impact medium-font"
-            layoutId="main-title"
-            variants={titleMain}
+            {t("common:web-dev")} <br />
+          </em>
+          <em className="loader-title-2">
+            {t("common:web-dev-2")} <br />
+          </em>
+          <em
+            style={{
+              paddingLeft: `${router.locale === "it" ? "20vw" : ""}`,
+            }}
+            className="loader-title-3"
           >
-            {t("common:web-dev")}...
-          </motion.h1>
-        </motion.div>
+            {t("common:web-dev-3")} <br />
+          </em>
+          <em className="loader-title-4">{t("common:web-dev-4")}...</em>
+        </motion.h1>
       </motion.div>
     </motion.div>
   );

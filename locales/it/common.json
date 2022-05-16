@@ -1,7 +1,10 @@
 {
   "lazy": "Menù veloce",
-  "web-dev": "Lo sviluppo di siti web riguarda tre cose",
-  "web-react": "sviluppatore frontend",
+  "web-dev": "Lo sviluppo",
+  "web-dev-2": "di siti web",
+  "web-dev-3": "riguarda",
+  "web-dev-4": "tre cose",
+  "web-react": "Sviluppatore frontend",
   "nav-home": "home",
   "nav-stuff": "Cosa faccio",
   "nav-about": "chi sono",
