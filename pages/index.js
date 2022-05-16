@@ -60,7 +60,7 @@ const Home = () => {
 
   return (
     <>
-      {loading ? (
+      {loading && hasVisited ? (
         <motion.div key="loader">
           <Loader setLoading={setLoading} />
         </motion.div>

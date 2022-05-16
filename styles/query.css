@@ -72,9 +72,6 @@
   }
 
   .homepage-about-p-cnt {
-    width: 50%;
-    padding-top: 4rem;
-    padding-left: 4rem;
   }
 
   .home-header-cnt {
@@ -325,9 +322,7 @@
   }
 
   .homepage-about-p-cnt {
-    padding-left: 4%;
-    padding-top: 0;
-    width: 70%;
+    display: none;
   }
 
   .btn-small-3 {
@@ -581,6 +576,10 @@
   .project-item-container .mabu-image {
     margin-top: 31rem;
     width: 20px;
+  }
+
+  .loader-sub-title {
+    display: none;
   }
 
   .project-item-container img {

@@ -75,6 +75,7 @@ em {
 :root {
   --main-color: #d7f21d;
   --text-black: #2e2e2e;
+  --text-white: #f8f8f8;
 
   --extremeFont: clamp(4rem, 2vw, 14rem);
   --largeFont: clamp(4rem, 17vw, 22rem);
@@ -221,6 +222,8 @@ li {
 }
 
 .btn-small-3 {
+  border: 1px solid var(--text-white) !important;
+  color: var(--text-white);
   padding: 4.7rem 2.8rem;
 }
 
