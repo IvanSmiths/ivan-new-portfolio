@@ -51,7 +51,7 @@ function About() {
         scale: 1,
       },
       {
-        scale: 0.8,
+        scale: 0.75,
         duration: 1,
         ease: "none",
         scrollTrigger: {
