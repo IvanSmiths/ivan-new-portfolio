@@ -127,7 +127,9 @@ const Post = ({ post }) => {
             </ul>
           </div>
           <div className="article-content-cnt">
-            <RichText content={post.content.raw.children} />
+            <div>
+              <RichText content={post.content.raw.children} />
+            </div>
           </div>
           {/* <PostWidget
             slug={post.slug}

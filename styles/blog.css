@@ -115,8 +115,13 @@
 }
 
 .article-content-cnt {
-  width: 60%;
-  margin-left: 15vw;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.article-content-cnt div {
+  width: 45%;
 }
 
 .author-card {
@@ -135,7 +140,7 @@
 }
 
 .article-content-cnt h2 {
-  font-size: var(--bigFont);
+  font-size: var(--mediumFont);
   margin-top: 13rem;
   margin-bottom: var(--marginBottomBlog);
 }
@@ -147,6 +152,7 @@
 
 .article-content-cnt p {
   font-weight: 400;
+  line-height: var(--smallFontHeight);
   font-size: var(--smallFont);
   margin-bottom: var(--marginBottomBlog);
 }
@@ -154,7 +160,7 @@
 .article-content-cnt img {
   margin-bottom: var(--marginBottomBlog);
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .article-content-cnt pre {

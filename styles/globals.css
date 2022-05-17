@@ -86,7 +86,7 @@ em {
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
   --mediumFont: clamp(1.8rem, 5.7vw, 5rem);
   --smallFont: clamp(1rem, 1.7vw, 1.4rem);
-  --smallFontHeight: clamp(1.4rem, 2.5vw, 2.7rem);
+  --smallFontHeight: clamp(1.4rem, 2vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
@@ -495,7 +495,7 @@ li {
 #Tracciato_8,
 #Ellisse_10,
 #Tracciato_4 {
-  fill: var(--color-text-inverse);
+  fill: var(--color-text-primary);
 }
 
 /* CURSOR */
