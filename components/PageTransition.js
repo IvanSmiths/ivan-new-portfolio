@@ -6,17 +6,24 @@ const PageTransition = () => {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   useEffect(() => {
+    let timer;
     const aniStart = async () => {
-      setIsActive(true);
-      const tl = gsap.timeline();
-      tl.to(".cover-strip", {
-        yPercent: 100,
-        duration: 0.8,
-        ease: "Expo.easeInOut",
-        stagger: 0.1,
-      });
+      timer = setTimeout(() => {
+        setIsActive(true);
+        const tl = gsap.timeline();
+        tl.to(".cover-strip", {
+          yPercent: 100,
+          duration: 0.8,
+          ease: "Expo.easeInOut",
+          stagger: 0.1,
+        });
+      }, 300);
     };
     const aniEnd = () => {
+      console.log(isActive);
+      if (timer) {
+        clearTimeout(timer);
+      }
       const tl = gsap.timeline();
       if (isActive) {
         tl.to(".cover-strip", {
@@ -29,6 +36,7 @@ const PageTransition = () => {
       }
 
       tl.set(".cover-strip", { yPercent: 0 });
+      clearTimeout(timer);
     };
 
     router.events.on("routeChangeStart", aniStart);
@@ -39,6 +47,9 @@ const PageTransition = () => {
       router.events.off("routeChangeStart", aniStart);
       router.events.off("routeChangeComplete", aniEnd);
       router.events.off("routeChangeError", aniEnd);
+      if (timer) {
+        clearTimeout(timer);
+      }
     };
   }, [router]);
   return (

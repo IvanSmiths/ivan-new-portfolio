@@ -69,7 +69,7 @@ export const getStaticProps = async (ctx) => {
 };
 
 function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 900));
+  return new Promise((resolve) => setTimeout(resolve, sec * 700));
 }
 
 export default Blog;
