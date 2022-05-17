@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import "../styles/style.scss";
 import React, { useEffect } from "react";
-import { LayoutGroup } from "framer-motion";
 import ScrollPercentage from "../components/ScrollPercentage";
 import CursorManager from "../components/CursorManager";
 import CustomCursor from "../components/CustomCursor";
@@ -15,6 +14,7 @@ import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 import LanguageChange from "../utils/LanguageChange";
 import ScrollTop from "../components/ScrollTop";
+import PageTransition from "../components/PageTransition";
 
 const ThemeToggle = dynamic(() => import("../components/ThemeToggle"), {
   ssr: false,
@@ -94,20 +94,19 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#d7f21d" />
       </Head>
-      <LayoutGroup>
-        <CursorManager>
-          <CustomCursor />
-          <ThemeToggle />
-          <Menu />
-          <Navbar />
-          <LanguageChange />
-          <ScrollTop />
-          <ScrollPercentage />
-          <Contact />
-          <Component {...pageProps} />
-          <Footer />
-        </CursorManager>
-      </LayoutGroup>
+      <CursorManager>
+        <PageTransition />
+        <CustomCursor />
+        <ThemeToggle />
+        <Menu />
+        <Navbar />
+        <LanguageChange />
+        <ScrollTop />
+        <ScrollPercentage />
+        <Contact />
+        <Component {...pageProps} />
+        <Footer />
+      </CursorManager>
     </>
   );
 }

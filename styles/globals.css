@@ -227,6 +227,43 @@ li {
   padding: 4.7rem 2.8rem;
 }
 
+.cover {
+  transform: translateY(-100%);
+}
+
+.page-change-cnt {
+  z-index: 50;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.page-change-col {
+  height: 100vh;
+  width: 25%;
+  top: 0px;
+  position: fixed;
+  transform: translateY(-100%);
+  background-color: var(--main-color);
+}
+
+.page-change-col-1 {
+  left: 0px;
+}
+
+.page-change-col-2 {
+  left: 25%;
+}
+
+.page-change-col-3 {
+  left: 50%;
+}
+
+.page-change-col-4 {
+  left: 75%;
+}
+
 .word-wrap {
   word-wrap: break-word;
 }

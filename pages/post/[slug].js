@@ -1,27 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { RichText } from '@graphcms/rich-text-react-renderer';
-import { getPosts, getPostDetails } from '../../utils/index';
-import PostCategories from '../../components/Blog/PostCategories';
-import PostWidget from '../../components/Blog/PostWidget';
-import moment from 'moment';
-import { useRouter } from 'next/router';
-import FooterSinglePost from '../../components/Footers/FooterSinglePost';
-import { motion } from 'framer-motion';
-import Head from 'next/head';
-import SrcImage from '../../components/SrcImage';
+import React from "react";
+import { RichText } from "@graphcms/rich-text-react-renderer";
+import { getPosts, getPostDetails } from "../../utils/index";
+import PostCategories from "../../components/Blog/PostCategories";
+import PostWidget from "../../components/Blog/PostWidget";
+import moment from "moment";
+import { useRouter } from "next/router";
+import FooterSinglePost from "../../components/Footers/FooterSinglePost";
+import { motion } from "framer-motion";
+import Head from "next/head";
+import SrcImage from "../../components/SrcImage";
 
 const Post = ({ post }) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return 'loading';
+    return "loading";
   }
 
   const schemaData = [
     {
-      '@context': 'https://schema.org/',
-      '@type': 'Article',
+      "@context": "https://schema.org/",
+      "@type": "Article",
       name: `${post.title}`,
       description: `${post.excerpt}`,
       headline: `${post.content.raw.children[1].children[0].text}`,
@@ -29,34 +29,34 @@ const Post = ({ post }) => {
       datePublished: `${post.createdAt}`,
       dateModified: `${post.createdAt}`,
       articleBody: `${post.content.raw.children}`,
-      articleSection: 'Tech',
+      articleSection: "Tech",
       publisher: {
-        '@type': 'Person',
-        name: 'Ivan Smiths',
+        "@type": "Person",
+        name: "Ivan Smiths",
       },
       speakable: `${post.content.raw.children}`,
       keywords: `${post.title}, next.js, react.js`,
       mainEntityOfPage: `https://www.ivansmiths.com/post/${post.slug}.com`,
       author: {
-        '@type': 'Person',
-        name: 'Ivan Smiths',
-        birthDate: '1993-09-16',
+        "@type": "Person",
+        name: "Ivan Smiths",
+        birthDate: "1993-09-16",
         birthPlace: {
-          '@type': 'Place',
-          address: 'Ragusa, Sicily, Italy',
+          "@type": "Place",
+          address: "Ragusa, Sicily, Italy",
         },
       },
       about: {
-        '@type': 'CreativeWork',
+        "@type": "CreativeWork",
         name: `${post.title}`,
       },
       contentReferenceTime: `${post.createdAt}`,
     },
     {
-      '@context': 'https://schema.org/',
-      '@type': 'TechArticle',
-      dependencies: 'React.js, Next.js',
-      proficiencyLevel: 'Beginner',
+      "@context": "https://schema.org/",
+      "@type": "TechArticle",
+      dependencies: "React.js, Next.js",
+      proficiencyLevel: "Beginner",
     },
   ];
 
@@ -102,7 +102,7 @@ const Post = ({ post }) => {
               webp={post.imagewebp.url}
               height={500}
               width={500}
-              alt={'image'}
+              alt={"image"}
             />
           </div>
           <div className="post-quick-info-cnt">
@@ -114,7 +114,7 @@ const Post = ({ post }) => {
               </li>
               <li>
                 Published: <br />
-                <span> {moment(post.createdAt).format('MMM DD, YY')}</span>
+                <span> {moment(post.createdAt).format("MMM DD, YY")}</span>
               </li>
               <li>
                 Author: <br />
@@ -137,11 +137,11 @@ const Post = ({ post }) => {
         </article>
         <div className="author-card flex-center">
           <SrcImage
-            src={'/myself-draw.png'}
-            webp={'/myself-draw.webp'}
-            height={'150px'}
-            width={'150px'}
-            alt={'draw of myself'}
+            src={"/myself-draw.png"}
+            webp={"/myself-draw.webp"}
+            height={"150px"}
+            width={"150px"}
+            alt={"draw of myself"}
           />
           <ul>
             <li>IVAN SMITHS</li>
@@ -360,11 +360,17 @@ export default Post;
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
+  await waitload(2);
   return {
     props: {
       post: data,
+      load: "load",
     },
   };
+}
+
+function waitload(sec) {
+  return new Promise((resolve) => setTimeout(resolve, sec * 700));
 }
 
 // Specify dynamic routes to pre-render pages based on data.

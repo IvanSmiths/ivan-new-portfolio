@@ -239,7 +239,6 @@ function About() {
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="ideology-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -249,7 +248,6 @@ function About() {
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="ideology-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -270,7 +268,6 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="ideology-title"
                       className="big-font box-title mobile impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -290,7 +287,6 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="ideology-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -352,7 +348,6 @@ function About() {
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="cg-prospect-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -362,7 +357,6 @@ function About() {
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="cg-prospect-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -383,7 +377,6 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="cg-prospect-title"
                       className="big-font box-title mobile impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -403,7 +396,6 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="cg-prospect-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -465,7 +457,6 @@ function About() {
                         className="flex-center"
                       >
                         <motion.source
-                          layoutId="old-portfolio-img-1"
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -475,7 +466,6 @@ function About() {
                           type="image/webp"
                         />
                         <motion.img
-                          layoutId="old-portfolio-img-2"
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -496,7 +486,6 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="old-portfolio-title"
                       className="big-font box-title mobile impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -516,7 +505,6 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      layoutId="old-portfolio-title"
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -570,19 +558,8 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0, rotateZ: "11deg" },
-                          visible: { opacity: 1, rotateZ: "11deg" },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          layoutId="old-portfolio-img-1"
+                      <picture className="flex-center">
+                        <source
                           alt="image of a work"
                           decoding="async"
                           loading="lazy"
@@ -591,8 +568,7 @@ function About() {
                           srcSet="/old-portfolio.webp"
                           type="image/webp"
                         />
-                        <motion.img
-                          layoutId="old-portfolio-img-2"
+                        <img
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
@@ -600,78 +576,36 @@ function About() {
                           height="750"
                           width="600"
                         />
-                      </motion.picture>
+                      </picture>
                     </a>
                   </Link>
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
-                      }}
-                      layoutId="old-portfolio-title"
+                  <Link href="/stuff/old-portfolio">
+                    <a
                       className="big-font box-title mobile impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
                       Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
+                    </a>
                   </Link>
                 </div>
                 <div className="box-informations-cnt">
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
-                      }}
-                      layoutId="old-portfolio-title"
+                  <Link href="/stuff/old-portfolio">
+                    <a
                       className="big-font box-title impact"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
                       Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
+                    </a>
                   </Link>
                   <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "0deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t("home:stuff")}
-                      </motion.a>
+                    <Link href="/stuff/old-portfolio">
+                      <a className="btn-small box-link">{t("home:stuff")}</a>
                     </Link>
                     <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
-                      </motion.a>
+                    <Link href="/stuff">
+                      <a className="box-link">{t("home:stuff-2")}</a>
                     </Link>
                   </div>
                 </div>

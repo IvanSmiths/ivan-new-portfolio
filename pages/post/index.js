@@ -1,33 +1,33 @@
-import React from 'react';
-import PostCard from '../../components/Blog/PostCard';
-import PostCategories from '../../components/Blog/PostCategories';
-import Head from 'next/head';
-import { getPosts } from '../../utils/index';
+import React from "react";
+import PostCard from "../../components/Blog/PostCard";
+import PostCategories from "../../components/Blog/PostCategories";
+import Head from "next/head";
+import { getPosts } from "../../utils/index";
 
 const schemaData = {
-  '@context': 'http://schema.org',
-  '@type': 'WebSite',
-  name: 'IvanSmiths',
-  url: 'https://www.ivansmiths.com',
-  image: 'https://www.ivansmiths.com/main-texture.jpg',
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  name: "IvanSmiths",
+  url: "https://www.ivansmiths.com",
+  image: "https://www.ivansmiths.com/main-texture.jpg",
   description: `React developer from Wiesbaden`,
   brand: {
-    '@type': 'Brand',
-    logo: 'https://www.ivansmiths.com/logo-icon-white.svg',
+    "@type": "Brand",
+    logo: "https://www.ivansmiths.com/logo-icon-white.svg",
   },
-  sameAs: 'https://www.ivansmiths.com',
+  sameAs: "https://www.ivansmiths.com",
   author: {
-    '@type': 'Person',
-    name: 'Ivan',
-    familyName: 'Smiths',
-    url: 'https://www.ivansmiths.com',
+    "@type": "Person",
+    name: "Ivan",
+    familyName: "Smiths",
+    url: "https://www.ivansmiths.com",
   },
-  inLanguage: 'en',
+  inLanguage: "en",
   copyrightYear: 2020,
-  genre: 'http://vocab.getty.edu/aat/300179434',
-  headline: 'speed, security & INNOVATION',
-  keywords: 'next.js, wiesbaden, react.js, frontend developer',
-  locationCreated: 'wiesbaden',
+  genre: "http://vocab.getty.edu/aat/300179434",
+  headline: "speed, security & INNOVATION",
+  keywords: "next.js, wiesbaden, react.js, frontend developer",
+  locationCreated: "wiesbaden",
 };
 
 function Blog({ posts }) {
@@ -59,11 +59,17 @@ function Blog({ posts }) {
 }
 export const getStaticProps = async (ctx) => {
   const posts = await getPosts();
+  await waitload(2);
   return {
     props: {
-      posts,
+      posts: posts,
+      load: "load",
     },
   };
 };
+
+function waitload(sec) {
+  return new Promise((resolve) => setTimeout(resolve, sec * 700));
+}
 
 export default Blog;
