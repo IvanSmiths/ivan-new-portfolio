@@ -370,7 +370,7 @@ export async function getStaticProps({ params }) {
 }
 
 function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 700));
+  return new Promise((resolve) => setTimeout(resolve, sec * 900));
 }
 
 // Specify dynamic routes to pre-render pages based on data.
