@@ -614,4 +614,8 @@
     padding: 0;
     z-index: 99999;
   }
+
+  .nav-dropdown-cnt {
+    display: none;
+  }
 }
