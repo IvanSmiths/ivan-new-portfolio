@@ -1,6 +1,6 @@
 .about-title-cnt {
   width: 100%;
-  padding-top: 14vw;
+  padding-top: 1rem;
   text-align: right;
   padding-left: 20vw;
   text-transform: uppercase;
@@ -34,11 +34,39 @@
 
 .about-main-works-cnt {
   width: 60%;
+}
 
-  word-wrap: break-word;
+.about-presentation-cnt {
+  margin-top: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.about-presentation-cnt h2 {
+  width: 40%;
+}
+
+.about-presentation-cnt p {
+  width: 60%;
+  padding-right: 10vw;
+}
+
+.about-presentation-cnt ul {
+  width: 60%;
+  padding-right: 10vw;
+}
+
+.about-presentation-cnt h3 {
+  width: 60%;
+  padding-right: 10vw;
 }
 
 .about-paragraph-cnt {
   margin: var(--marginSection) 0;
   padding: 0 35vw;
+}
+
+.about-2 {
+  margin-top: var(--marginSection);
 }
