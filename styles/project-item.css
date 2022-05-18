@@ -44,10 +44,14 @@
   line-height: 1.1;
 }
 
-.info-block p {
+.info-block em {
   margin-right: 20vw;
   overflow: hidden;
-  color: #999;
+  color: var(--color-text-primary);
+}
+
+.info-projects span {
+  line-height: 1.5rem;
 }
 
 .info-block span {

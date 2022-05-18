@@ -1,15 +1,12 @@
-import React from 'react';
+import React from "react";
 
-const Info = ({ id, itemIndex, project }) => {
+const Info = ({ id, project }) => {
   return (
     <div className="info-block" layout={id}>
-      <p className="info-block-header">
-        <span>0{itemIndex + 1}</span>
-      </p>
       {project.map((element) => (
-        <p key={element}>
+        <em className="small-font info-projects" key={element}>
           <span>{element}</span>
-        </p>
+        </em>
       ))}
     </div>
   );

@@ -29,7 +29,7 @@ export const pageData = [
   },
   {
     id: "base-image",
-    title: "beauty space",
+    title: "medical space",
     url: "/ideology-website-mobile-9.png",
     info: ["UI/UX", "DEVELOPMENT", "2021"],
     page: "https://www.medicalspace.it/",
@@ -61,5 +61,13 @@ export const pageData = [
     url: "/ideology-website-mobile-14.png",
     info: ["DEVELOPMENT", "2021"],
     page: "https://www.onlypistachioselected.com/",
+  },
+
+  {
+    id: "bottone-image",
+    title: "bottone",
+    url: "/ideology-website-mobile-15.png",
+    info: ["UI/UX", "DEVELOPMENT", "2020"],
+    page: "https://www.bottonecannoli.it/",
   },
 ];

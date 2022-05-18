@@ -1,9 +1,9 @@
-import React, { useContext, useReducer, useRef } from 'react';
-import Title from './Title';
-import ImagePro from './Image';
-import animate from './animate';
-import { CursorContext } from '../CursorManager';
-import Info from './Info';
+import React, { useContext, useReducer, useRef } from "react";
+import Title from "./Title";
+import ImagePro from "./Image";
+import animate from "./animate";
+import { CursorContext } from "../CursorManager";
+import Info from "./Info";
 
 const initialState = {
   opacity: 0,
@@ -15,38 +15,38 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'MOUSE/ENTER': {
+    case "MOUSE/ENTER": {
       return {
         ...state,
         active: true,
       };
     }
-    case 'MOUSE/LEAVE': {
+    case "MOUSE/LEAVE": {
       return {
         ...state,
         active: false,
       };
     }
-    case 'CHANGE/OPACITY': {
+    case "CHANGE/OPACITY": {
       return {
         ...state,
         opacity: action.payload,
       };
     }
-    case 'MOUSE/COORDINATES': {
+    case "MOUSE/COORDINATES": {
       return {
         ...state,
         parallaxPos: action.payload,
       };
     }
 
-    case 'CHANGE/ROTATION': {
+    case "CHANGE/ROTATION": {
       return {
         ...state,
         rotationPosition: action.payload,
       };
     }
-    case 'CHANGE/SCALE': {
+    case "CHANGE/SCALE": {
       return {
         ...state,
         scale: action.payload,
@@ -62,12 +62,12 @@ const ProjectItem = ({ project, itemIndex }) => {
   const listItem = useRef(null);
   const { setSize } = useContext(CursorContext);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const easeMethod = 'linear';
+  const easeMethod = "linear";
   const parallax = (event) => {
     const speed = -1;
     const x = (window.innerWidth - event.pageX * speed) / 100;
     const y = (window.innerHeight - event.pageY * speed) / 100;
-    dispatch({ type: 'MOUSE/COORDINATES', payload: { x, y } });
+    dispatch({ type: "MOUSE/COORDINATES", payload: { x, y } });
   };
 
   const handleOpacity = (initialOpacity, newOpacity, duration) => {
@@ -75,7 +75,7 @@ const ProjectItem = ({ project, itemIndex }) => {
       fromValue: initialOpacity,
       toValue: newOpacity,
       onUpdate: (newOpacity, callback) => {
-        dispatch({ type: 'CHANGE/OPACITY', payload: newOpacity });
+        dispatch({ type: "CHANGE/OPACITY", payload: newOpacity });
         callback();
       },
       onComplete: () => {},
@@ -92,7 +92,7 @@ const ProjectItem = ({ project, itemIndex }) => {
       fromValue: initialRotation,
       toValue: newRotation,
       onUpdate: (newOpacity, callback) => {
-        dispatch({ type: 'CHANGE/ROTATION', payload: newOpacity });
+        dispatch({ type: "CHANGE/ROTATION", payload: newOpacity });
         callback();
       },
       onComplete: () => {},
@@ -106,7 +106,7 @@ const ProjectItem = ({ project, itemIndex }) => {
       fromValue: initialScale,
       toValue: newScale,
       onUpdate: (newOpacity, callback) => {
-        dispatch({ type: 'CHANGE/SCALE', payload: newOpacity });
+        dispatch({ type: "CHANGE/SCALE", payload: newOpacity });
         callback();
       },
       onComplete: () => {},
@@ -119,19 +119,19 @@ const ProjectItem = ({ project, itemIndex }) => {
     handleScale(0.8, 1, 500);
     handleOpacity(0, 1, 100);
     handleRotation(state.rotationPosition, 500);
-    listItem.current.addEventListener('mousemove', parallax);
-    dispatch({ type: 'MOUSE/ENTER' });
-    setSize('medium');
+    listItem.current.addEventListener("mousemove", parallax);
+    dispatch({ type: "MOUSE/ENTER" });
+    setSize("medium");
   };
 
   const handleMouseLeave = () => {
-    listItem.current.removeEventListener('mousemove', parallax);
+    listItem.current.removeEventListener("mousemove", parallax);
     handleOpacity(1, 0, 0);
     handleScale(0.8, initialState.scale, 500);
     handleRotation(state.rotationPosition, 500);
-    dispatch({ type: 'MOUSE/COORDINATES', payload: initialState.parallaxPos }); // REMOVE THIS //
-    dispatch({ type: 'MOUSE/LEAVE' });
-    setSize('small');
+    dispatch({ type: "MOUSE/COORDINATES", payload: initialState.parallaxPos }); // REMOVE THIS //
+    dispatch({ type: "MOUSE/LEAVE" });
+    setSize("small");
   };
 
   return (

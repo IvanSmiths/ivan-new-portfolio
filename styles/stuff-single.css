@@ -351,6 +351,11 @@
   margin-top: 138rem;
 }
 
+.bottone-image {
+  z-index: 99;
+  margin-top: 148rem;
+}
+
 .remax-image {
   z-index: 99;
   margin-top: -18rem;
