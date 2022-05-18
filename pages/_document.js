@@ -15,8 +15,8 @@ class MyDocument extends Document {
         return window.localStorage.getItem('theme')
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light'
+                ? 'light'
+                : 'dark'
     }
     document.body.dataset.theme = getUserPreference();
   `;

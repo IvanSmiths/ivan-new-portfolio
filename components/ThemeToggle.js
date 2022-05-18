@@ -1,38 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect, useContext } from 'react';
-import { CursorContext } from './CursorManager';
+import { useState, useEffect, useContext } from "react";
+import { CursorContext } from "./CursorManager";
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
-  const inactiveTheme = activeTheme === 'dark' ? 'light' : 'dark';
+  const inactiveTheme = activeTheme === "dark" ? "light" : "dark";
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
-    window.localStorage.setItem('theme', activeTheme);
+    window.localStorage.setItem("theme", activeTheme);
   }, [activeTheme]);
 
   useEffect(() => {
-    const savedTheme = window.localStorage.getItem('theme');
+    const savedTheme = window.localStorage.getItem("theme");
     savedTheme && setActiveTheme(savedTheme);
   }, []);
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
-    window.localStorage.setItem('theme', activeTheme);
+    window.localStorage.setItem("theme", activeTheme);
   }, [activeTheme]);
 
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize('medium');
+    setSize("medium");
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setSize("small");
   };
 
   return (
     <>
-      {activeTheme === 'dark' ? (
+      {activeTheme === "dark" ? (
         <img
           height="25px"
           width="25px"
