@@ -480,6 +480,14 @@ li {
   gap: 1.2rem;
 }
 
+.form label {
+  color: var(--text-black);
+}
+
+.contact-info-text {
+  color: var(--text-black);
+}
+
 .social-text {
   transform: rotateZ(-90deg);
   font-size: var(--tinyFont);

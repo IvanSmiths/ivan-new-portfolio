@@ -27,7 +27,11 @@
   bottom: 14px;
   right: 33px;
   z-index: 3222222;
-  color: var(--color-text-inverse);
+  transition: 0.4s ease-in-out;
+}
+
+.close-burger2:hover {
+  transform: rotateZ(90deg);
 }
 
 .overlay-burger-menu {

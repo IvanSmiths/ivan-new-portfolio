@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useContext } from "react";
 import cn from "classnames";
 import { motion } from "framer-motion";
@@ -27,12 +28,14 @@ function Contact() {
         {t("common:let-us-talk")}
       </span>
       <div className={cn("overlay-burger-menu menu2", { "as-opened": opened })}>
-        <span
-          className="close-burger2 impact"
+        <img
           onClick={() => setOpened(!opened)}
-        >
-          X
-        </span>
+          className="close-burger2"
+          src="/close-icon.png"
+          height="60px"
+          width="60px"
+          alt="close icon"
+        />
         <div className="contact-cnt">
           <form
             action="https://formsubmit.co/info@ivansmiths.com"
@@ -85,7 +88,9 @@ function Contact() {
           </form>
         </div>
         <div className="contact-info-cnt">
-          <em className="small-font spacing">{t("common:contact-hi")}</em>
+          <em className="small-font spacing contact-info-text">
+            {t("common:contact-hi")}
+          </em>
 
           <p className="small-font">{t("common:contact-info")}</p>
           <motion.a
