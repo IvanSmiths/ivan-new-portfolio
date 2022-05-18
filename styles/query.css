@@ -1,8 +1,7 @@
 @media screen and (max-width: 1158px) {
   .btn-small-2 {
-    padding: 40px 50px !important;
+    padding: 1.6vw 3vw !important;
   }
-
   .btn-email {
     padding: 8.6rem 3.5rem !important;
   }
@@ -10,28 +9,10 @@
 
 @media screen and (max-width: 948px) {
   .btn-small-2 {
-    padding: 43px 47px !important;
+    padding: 2.6vw 2.9vw !important;
   }
   .btn-email {
     padding: 8.6rem 3.9rem !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .btn-small-2 {
-    padding: 43px 38px !important;
-  }
-}
-
-@media screen and (max-width: 668px) {
-  .btn-small-2 {
-    padding: 43px 32px !important;
-  }
-}
-
-@media screen and (max-width: 516px) {
-  .btn-small-2 {
-    padding: 46px 29px !important;
   }
 }
 
@@ -50,6 +31,9 @@
     line-height: 19vw !important;
   }
 
+  .btn-small-2 {
+    padding: 5.6vw 3.9vw !important;
+  }
   .title-image {
     display: none;
   }
@@ -68,10 +52,7 @@
   }
 
   .btn-small-3 {
-    padding: 7rem 3rem !important;
-  }
-
-  .homepage-about-p-cnt {
+    padding: 10vw 1vw !important;
   }
 
   .home-header-cnt {
@@ -83,6 +64,7 @@
   }
 
   .about-main-cnt {
+    padding-bottom: 22rem;
     flex-direction: column;
     justify-content: center;
     margin-top: 0;
@@ -170,9 +152,23 @@
     height: 80vh;
   }
 
+  .about {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .homepage-about-p-cnt p {
+    width: 100%;
+  }
+
+  .homepage-about-p-cnt {
+    padding-top: 0;
+  }
+
   .climax {
     width: 50%;
   }
+
   .overlay-burger-menu {
     padding-left: 3rem;
     width: 100%;
@@ -268,10 +264,6 @@
     margin-left: 5%;
   }
 
-  .box-image-cnt {
-    margin-bottom: 3rem;
-  }
-
   .arrow-home {
     width: 75%;
     padding-bottom: 2rem;
@@ -321,18 +313,23 @@
     width: 80vw;
   }
 
+  .homepage-about-p-cnt h2 {
+    width: 100%;
+  }
+
   .homepage-about-p-cnt {
-    display: none;
+    position: absolute;
+    top: -370px;
   }
 
   .btn-small-3 {
-    padding: 6rem 3rem !important;
+    padding: 13vw 2vw !important;
   }
 
   .marquee-cnt {
     width: 140vw;
     margin-top: 0rem;
-    margin-bottom: 1rem;
+    margin-bottom: 28rem;
   }
 
   .article-content-cnt {
@@ -580,6 +577,24 @@
 
   .loader-sub-title {
     display: none;
+  }
+
+  .about {
+    width: 74%;
+  }
+
+  .about-main-works-cnt {
+    width: 90%;
+  }
+
+  .about-presentation-cnt p {
+    text-align: right;
+    padding-right: 0;
+  }
+
+  .about-2 ul {
+    padding: 0;
+    text-align: right;
   }
 
   .project-item-container img {

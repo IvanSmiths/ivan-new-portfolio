@@ -215,16 +215,70 @@ li {
   background-repeat: no-repeat;
   background-size: 0 100%;
   border: 1px solid var(--color-text-primary);
-  padding: 37px 69px;
+  padding: 1.6vw 3.5vw;
   border-radius: 50%;
   text-decoration: none;
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
 }
 
+.btn-small-2:hover {
+  border: 1px solid var(--color-bg-primary);
+  color: black;
+  background-size: 100% 100%;
+  background-position: left center;
+}
+
+.btn-small {
+  background: linear-gradient(
+    to bottom,
+    var(--main-color) 0%,
+    var(--main-color) 100%
+  );
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  border: 1px solid var(--color-text-primary);
+  padding: 4.2rem 2.8rem;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-size 0.4s, transform 0.4s, border 0.4s;
+}
+
+.btn-small:hover {
+  border: 1px solid var(--color-bg-primary);
+  color: black;
+  background-size: 100% 100%;
+  background-position: left center;
+}
+
+.btn-big {
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-primary) 100%
+  );
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  border: 1px solid var(--text-black);
+  color: var(--text-black);
+  padding: 14.4rem 3.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-size 0.4s, transform 0.4s, border 0.4s;
+}
+
+.btn-big:hover {
+  border: 1px solid var(--color-bg-primary);
+  color: var(--color-text-primary);
+  background-size: 100% 100%;
+  background-position: left center;
+}
+
 .btn-small-3 {
   border: 1px solid var(--text-white) !important;
   color: var(--text-white);
-  padding: 4.7rem 2.8rem;
+  padding: 9vw 1vw;
 }
 
 .cover {
@@ -270,64 +324,6 @@ li {
 
 .mobile {
   display: none;
-}
-
-.btn-small-2:hover {
-  border: 1px solid var(--color-bg-primary);
-  color: black;
-  background-size: 100% 100%;
-  background-position: left center;
-}
-
-.btn-small {
-  background: linear-gradient(
-    to bottom,
-    var(--main-color) 0%,
-    var(--main-color) 100%
-  );
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 0 100%;
-  border: 1px solid var(--color-text-primary);
-  padding: 4.2rem 2.8rem;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: background-size 0.4s, transform 0.4s, border 0.4s;
-}
-
-.btn-small-3 {
-  padding: 11.2rem 2.8rem;
-}
-
-.btn-small:hover {
-  border: 1px solid var(--color-bg-primary);
-  color: black;
-  background-size: 100% 100%;
-  background-position: left center;
-}
-
-.btn-big {
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg-primary) 0%,
-    var(--color-bg-primary) 100%
-  );
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 0 100%;
-  border: 1px solid var(--text-black);
-  color: var(--text-black);
-  padding: 14.4rem 3.5rem;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: background-size 0.4s, transform 0.4s, border 0.4s;
-}
-
-.btn-big:hover {
-  border: 1px solid var(--color-bg-primary);
-  color: var(--color-text-primary);
-  background-size: 100% 100%;
-  background-position: left center;
 }
 
 .bold {
