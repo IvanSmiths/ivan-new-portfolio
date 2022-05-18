@@ -17,7 +17,7 @@ const PageTransition = () => {
           ease: "Expo.easeInOut",
           stagger: 0.1,
         });
-      }, 300);
+      }, 10);
     };
     const aniEnd = () => {
       console.log(isActive);
