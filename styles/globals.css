@@ -78,10 +78,10 @@ em {
   --text-white: #f8f8f8;
 
   --extremeFont: clamp(4rem, 2vw, 14rem);
-  --largeFont: clamp(4rem, 17vw, 22rem);
+  --largeFont: clamp(6rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(3rem, 9.9vw, 9rem);
-  --bigFontHeight: clamp(2rem, 9.9vw, 9rem);
+  --bigFontHeight: clamp(3rem, 9.9vw, 9rem);
   --bigFontTitle: clamp(4rem, 11vw, 14rem);
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
   --mediumFont: clamp(1.8rem, 5.7vw, 5rem);

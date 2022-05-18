@@ -323,7 +323,7 @@
   }
 
   .btn-small-3 {
-    padding: 13vw 2vw !important;
+    padding: 15vw 2vw !important;
   }
 
   .marquee-cnt {
@@ -618,6 +618,10 @@
 
   .project-item-container img {
     display: none;
+  }
+
+  .credits-cnt h3 {
+    font-size: var(--bigFont);
   }
 
   .nav-dropdown-cnt ul {
