@@ -1,7 +1,7 @@
 {
   "prologue": "prologue",
   "type": "Tipo",
-  "type-2": "Progetto",
+  "type-2": "Lavoro personale",
   "year": "Anno",
   "stack": "Tech",
   "web": "Website",
@@ -17,5 +17,4 @@
   "credits": "Crediti",
   "mesh": "Pulizia della mesh",
   "softwares": "Programmi 3d"
-
 }
