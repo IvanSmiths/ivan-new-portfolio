@@ -16,8 +16,7 @@ body {
 }
 
 .impact {
-  font-family: Haettenschweiler, Impact, Impacto, "Arial Narrow Bold",
-    sans-serif;
+  font-family: Haettenschweiler, Impact, "Arial Narrow Bold", sans-serif;
 }
 
 .impact-big {
@@ -79,7 +78,7 @@ em {
   --text-white: #f8f8f8;
 
   --extremeFont: clamp(4rem, 2vw, 14rem);
-  --largeFont: clamp(6rem, 17vw, 22rem);
+  --largeFont: clamp(4rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(3rem, 9.9vw, 9rem);
   --bigFontHeight: clamp(3rem, 9.9vw, 9rem);
