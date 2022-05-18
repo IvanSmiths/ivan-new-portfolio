@@ -16,7 +16,8 @@ body {
 }
 
 .impact {
-  font-family: Haettenschweiler, Impact, "Arial Narrow Bold", sans-serif;
+  font-family: Haettenschweiler, Impact, Impacto, "Arial Narrow Bold",
+    sans-serif;
 }
 
 .impact-big {
