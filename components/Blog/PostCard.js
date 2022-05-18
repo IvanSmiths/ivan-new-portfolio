@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import moment from 'moment';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import SrcImage from '../SrcImage';
+import React from "react";
+import moment from "moment";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SrcImage from "../SrcImage";
 
 const PostCard = ({ post }) => {
   return (
@@ -18,8 +18,8 @@ const PostCard = ({ post }) => {
               {post.title}
             </motion.a>
           </Link>
-          <span> {moment(post.createdAt).format('MMM DD, YY')}</span>
-          <p>{post.excerpt}</p>
+          <span> {moment(post.createdAt).format("MMM DD, YY")}</span>
+          <p className="small-font">{post.excerpt}</p>
           <Link href={`/post/${post.slug}`}>
             <a className="btn-small post-card-cta">Read it</a>
           </Link>
@@ -32,7 +32,7 @@ const PostCard = ({ post }) => {
                 webp={post.imagewebp.url}
                 height={400}
                 width={400}
-                alt={'image'}
+                alt={"image"}
               />
             </a>
           </Link>
