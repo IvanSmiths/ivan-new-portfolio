@@ -91,7 +91,10 @@
 
   .stuff-s-header-cnt {
     flex-direction: column;
-    margin-bottom: var(--marginSection);
+  }
+
+  .stuff-s-header-info-cnt {
+    width: 100%;
   }
 
   .article-content-cnt {
@@ -131,6 +134,10 @@
   }
 
   .stuff-s-header-info-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin-top: 5rem;
   }
 
@@ -631,7 +638,7 @@
   }
 
   .emoji {
-    padding-top: 2rem;
+    font-size: 25px;
   }
 
   .nav-dropdown-cnt {
