@@ -85,7 +85,7 @@ export async function getServerSideProps(context) {
 }
 
 function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 500));
+  return new Promise((resolve) => setTimeout(resolve, sec * 400));
 }
 
 export default Ideology;
