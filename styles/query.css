@@ -600,6 +600,13 @@
     padding-right: 0;
   }
 
+  .homepage-about-p-cnt h2 {
+    color: var(--color-text-home-mobile);
+  }
+  .homepage-about-p-cnt p {
+    color: var(--color-text-home-mobile);
+  }
+
   .about-2 ul {
     padding: 0;
     text-align: right;
@@ -608,6 +615,23 @@
   .project-item-container img {
     width: 1px !important;
     padding: 0;
+  }
+
+  .list-info b {
+    font-size: var(--mediumFont);
+    width: 30%;
+  }
+
+  .list-info em {
+    width: 70%;
+  }
+
+  .info-cnt ul {
+    margin-right: 0;
+  }
+
+  .emoji {
+    padding-top: 2rem;
   }
 
   .nav-dropdown-cnt {
