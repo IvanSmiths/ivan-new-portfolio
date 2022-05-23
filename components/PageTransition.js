@@ -28,7 +28,7 @@ const PageTransition = () => {
       if (isActive) {
         tl.to(".cover-strip", {
           yPercent: 200,
-          duration: 0.4,
+          duration: 0.5,
           ease: "Expo.easeInOut",
           stagger: -0.1,
         });
