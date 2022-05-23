@@ -33,6 +33,7 @@
 }
 
 .loader-title-1 {
+  overflow: hidden;
   padding-left: 35vw;
   padding-top: 2rem;
   display: block;

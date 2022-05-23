@@ -59,10 +59,28 @@ const Hero = () => {
   return (
     <header className="home-header-cnt flex-center">
       <div className="big-font flex-center skewElem title-1-cnt">
-        <motion.em layoutId="sub-title" className="title-1">
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          className="title-1"
+        >
           {t("home:speed")}
         </motion.em>
-        <img
+        <motion.img
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
           className="title-image"
           src="/websites.gif"
           height="170px"
@@ -81,8 +99,8 @@ const Hero = () => {
               padding: `${router.locale === "de" ? "50px 60px" : ""}`,
             }}
             variants={{
-              hidden: { y: 0, rotateZ: "0deg" },
-              visible: { y: 0, rotateZ: "11deg" },
+              hidden: { y: 0, rotateZ: "0deg", opacity: 0 },
+              visible: { y: 0, rotateZ: "11deg", opacity: 1 },
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -91,12 +109,34 @@ const Hero = () => {
             {t("common:nav-stuff")}
           </motion.a>
         </Link>
-        <motion.em layoutId="main-title" className="title-2 impact">
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 2.5 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          className="title-2 impact"
+        >
           {t("home:security")}
         </motion.em>
       </div>
       <div className="big-font skewElem flex-center title-3-cnt">
-        <em className="title-3">{t("home:and")}</em>
+        <motion.em
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 3.5 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          className="title-3"
+        >
+          {t("home:and")}
+        </motion.em>
         <motion.svg
           height="120px"
           width="100px"
