@@ -85,6 +85,10 @@
     margin-right: 0rem;
   }
 
+  .article-content-cnt div {
+    width: 70%;
+  }
+
   .stuff-s-header-cnt {
     flex-direction: column;
     margin-bottom: var(--marginSection);
@@ -573,6 +577,10 @@
   .project-item-container .mabu-image {
     margin-top: 31rem;
     width: 20px;
+  }
+
+  .article-content-cnt div {
+    width: 80%;
   }
 
   .loader-sub-title {

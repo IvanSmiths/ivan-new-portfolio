@@ -281,6 +281,10 @@ li {
   padding: 9vw 1vw;
 }
 
+b {
+  font-weight: 400;
+}
+
 .cover {
   transform: translateY(-100%);
 }

@@ -26,9 +26,9 @@ const IdInfo = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="big-font impact"
+          className="big-font list-info impact"
         >
-          {t("ideology:role")}
+          <b>{t("ideology:role")}</b>
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -38,7 +38,7 @@ const IdInfo = () => {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="small-font serif"
+            className="small-font list-info serif"
           >
             .{t("ideology:role-2")}
           </motion.em>
@@ -52,9 +52,9 @@ const IdInfo = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="big-font impact"
+          className="big-font list-info impact"
         >
-          Tech
+          <b>Tech</b>
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -78,9 +78,9 @@ const IdInfo = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="big-font impact"
+          className="big-font list-info impact"
         >
-          {t("ideology:type")}
+          <b>{t("ideology:type")}</b>
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -104,9 +104,9 @@ const IdInfo = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="big-font impact"
+          className="big-font list-info impact"
         >
-          {t("ideology:year")}
+          <b>{t("ideology:year")}</b>
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -130,9 +130,9 @@ const IdInfo = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="big-font impact"
+          className="big-font list-info impact"
         >
-          4.735
+          <b>4.735</b>
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -156,9 +156,9 @@ const IdInfo = () => {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="big-font impact"
+          className="big-font list-info impact"
         >
-          27
+          <b>27</b>
           <motion.em
             initial="hidden"
             whileInView="visible"

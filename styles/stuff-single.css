@@ -312,6 +312,14 @@
   margin-top: 0;
 }
 
+.list-info b {
+  width: 50%;
+}
+
+.list-info em {
+  width: 50%;
+}
+
 .project-item-container .ideology-image {
   margin-top: -1rem;
   z-index: 99;

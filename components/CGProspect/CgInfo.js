@@ -25,9 +25,9 @@ function CgInfo() {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="big-font impact"
+            className="big-font list-info impact"
           >
-            Tech
+            <b>Tech</b>
             <motion.em
               initial="hidden"
               whileInView="visible"
@@ -51,9 +51,9 @@ function CgInfo() {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="big-font impact"
+            className="big-font list-info impact"
           >
-            {t("cg-prospect:type")}
+            <b>{t("cg-prospect:type")}</b>
             <motion.em
               initial="hidden"
               whileInView="visible"
@@ -77,9 +77,9 @@ function CgInfo() {
               hidden: { opacity: 0 },
               visible: { opacity: 1 },
             }}
-            className="big-font impact"
+            className="big-font list-info impact"
           >
-            {t("cg-prospect:year")}
+            <b>{t("cg-prospect:year")}</b>
             <motion.em
               initial="hidden"
               whileInView="visible"
