@@ -286,7 +286,7 @@ li {
 }
 
 .page-change-cnt {
-  z-index: 50;
+  z-index: 99999950;
   overflow: hidden;
   display: flex;
   flex-direction: column;
