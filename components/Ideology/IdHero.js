@@ -32,11 +32,6 @@ const IdHero = () => {
       </div>
       <div className="stuff-s-header-info-cnt ">
         <div className="stuff-s-header-info-layout">
-          <ul className="stuff-s-header-info">
-            <motion.li layout="ideology-prologue" className="tiny-font spacing">
-              .{t("ideology:prologue")}
-            </motion.li>
-          </ul>
           <motion.h1 layoutId="ideology-title" className="impact big-font">
             Ideology
           </motion.h1>

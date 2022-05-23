@@ -7,7 +7,7 @@
   "web": "Website",
   "work-hard": "3d.",
   "work-harder": "3d is awesome!",
-  "next-up": "next up",
+  "next-up": "a seguire",
   "fastest": "Creare il sito web più veloce sul 3d.",
   "rising": "CG Prospect è realizzato con Next JS (React) ed è un sito Web 100% statico (SSG). Come tecnologie backend ho usato PostgreSql con Prisma come ORM. Le textures ed i modelli 3d sono hostati su BackBlaze.",
   "climax": "Ho sviluppato un sistema di donazioni tramite Stripe, dove l'utente può inserire l'importo desiderato da donare, grazie ad uno slider, che modifica dinamicamente l'importazione da donare.",

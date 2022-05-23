@@ -189,7 +189,7 @@ function About() {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
               }}
-              className="small-font"
+              className="small-font indent"
             >
               {t("home:about")}
               <br />

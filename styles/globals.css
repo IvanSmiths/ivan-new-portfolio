@@ -281,6 +281,10 @@ li {
   padding: 9vw 1vw;
 }
 
+.indent {
+  text-indent: 7vw;
+}
+
 b {
   font-weight: 400;
 }

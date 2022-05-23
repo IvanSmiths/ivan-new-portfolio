@@ -7,20 +7,8 @@ const IdRising = () => {
   return (
     <>
       <div className="rising-action-cnt skewElem">
-        <motion.em
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          variants={{
-            hidden: { opacity: 0, y: 100 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          className="stuff-em spacing tiny-font"
-        >
-          .{t("ideology:rising-action")}
-        </motion.em>
         <motion.p
+          className="indent"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -31,19 +19,9 @@ const IdRising = () => {
           }}
         >
           {t("ideology:rising-action-2")}
-        </motion.p>
-        <br />
-        <br />
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          variants={{
-            hidden: { opacity: 0, y: 100 },
-            visible: { opacity: 1, y: 0 },
-          }}
-        >
+
+          <br />
+          <br />
           {t("ideology:rising-action-3")}
         </motion.p>
       </div>

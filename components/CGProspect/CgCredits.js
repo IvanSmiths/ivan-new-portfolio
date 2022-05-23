@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../../components/CursorManager";
+import { motion } from "framer-motion";
 
 const CgCredits = () => {
   // MOUSE ZOOM HANDLER //
@@ -14,7 +15,17 @@ const CgCredits = () => {
 
   let { t } = useTranslation();
   return (
-    <section className="credits-cnt flex-center skewElem">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      variants={{
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      className="credits-cnt flex-center skewElem"
+    >
       <h3 className="large-font spacing">{t("cg-prospect:credits")}</h3>
       <div className="credits-card-cnt flex-center">
         <ul className="credits-card">
@@ -69,7 +80,7 @@ const CgCredits = () => {
           </li>
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
