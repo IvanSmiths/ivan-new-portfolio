@@ -602,6 +602,10 @@
     width: 90%;
   }
 
+  .indent {
+    text-indent: 15vw !important;
+  }
+
   .about-presentation-cnt p {
     text-align: right;
     padding-right: 0;
