@@ -23,7 +23,7 @@ const Canvas = () => {
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = "#060606";
     ctx.font = " 42px Georgia";
-    ctx.fillText(`${t("home:innovation2")}`, 110, 60);
+    ctx.fillText(`${t("home:innovation2")}`, 110, 75);
 
     for (let i = 0; i < particleArray.length; i++) {
       particleArray[i].draw();
@@ -39,7 +39,7 @@ const Canvas = () => {
       this.size = 2;
       this.baseX = this.x;
       this.baseY = this.y;
-      this.density = Math.random() * 2100 + 24;
+      this.density = Math.random() * 2500 + 24;
     }
 
     draw() {
