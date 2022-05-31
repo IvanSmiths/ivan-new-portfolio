@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import useTranslation from "next-translate/useTranslation";
 const Canvas = () => {
-  const position = { x: 0, y: 0, radius: 180 };
+  const position = { x: 0, y: 0, radius: 200 };
   const width = window.innerWidth;
   const height = window.innerHeight;
   const size = { width: width, height: height };
@@ -39,7 +39,7 @@ const Canvas = () => {
       this.size = 2;
       this.baseX = this.x;
       this.baseY = this.y;
-      this.density = Math.random() * 80 + 24;
+      this.density = Math.random() * 2100 + 24;
     }
 
     draw() {
