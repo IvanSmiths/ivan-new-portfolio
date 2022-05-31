@@ -59,43 +59,29 @@ const Ideology = () => {
       </Head>
       <header className="stuff-s-header-cnt skewElem">
         <div className="stuff-s-header-image-cnt skewElem">
-          <AnimatePresence>
-            <picture>
-              <motion.source
-                layoutId="old-portfolio-img-1"
-                alt="image of a work"
-                decoding="async"
-                loading="lazy"
-                height="600"
-                width="400"
-                srcSet="/old-portfolio.webp"
-                type="image/webp"
-              />
-              <motion.img
-                layoutId="old-portfolio-img-2"
-                alt="image of a work"
-                loading="lazy"
-                decoding="async"
-                src="/old-portfolio.jpg"
-                height="600"
-                width="400"
-              />
-            </picture>
-          </AnimatePresence>
+          <picture>
+            <source
+              alt="image of a work"
+              decoding="async"
+              loading="lazy"
+              height="600"
+              width="400"
+              srcSet="/old-portfolio.webp"
+              type="image/webp"
+            />
+            <img
+              alt="image of a work"
+              loading="lazy"
+              decoding="async"
+              src="/old-portfolio.jpg"
+              height="600"
+              width="400"
+            />
+          </picture>
         </div>
         <div className="stuff-s-header-info-cnt skewElem">
           <div className="stuff-s-header-info-layout">
-            <ul className="stuff-s-header-info">
-              <motion.li className="tiny-font spacing">
-                .{t("old-portfolio:prologue")}
-              </motion.li>
-            </ul>
-            <motion.h1
-              layoutId="old-portfolio-title"
-              className="big-font impact"
-            >
-              Old Portfolio
-            </motion.h1>
+            <h1 className="big-font impact">Old Portfolio</h1>
           </div>
         </div>
       </header>
@@ -201,7 +187,7 @@ const Ideology = () => {
                 visible: { y: 0, rotateZ: "11deg" },
               }}
               className="big-font btn-big"
-              href="https://www.cgprospect.com/"
+              href="https://ivan-smiths-old-portfolio.vercel.app/"
             >
               Website
             </motion.a>
