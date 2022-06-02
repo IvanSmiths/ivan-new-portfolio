@@ -98,9 +98,6 @@
   text-transform: uppercase;
 }
 
-.burger-menu-links-cnt a {
-}
-
 .nav-social-cnt {
   display: flex;
   gap: 2rem;
@@ -259,7 +256,6 @@
 .footer-name-cnt em {
   font-size: 20vw;
   display: block;
-  margin-top: 11rem;
 }
 
 .footer-columns-cnt {
