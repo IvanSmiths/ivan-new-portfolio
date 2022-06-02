@@ -252,12 +252,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   margin-top: auto;
 }
 
 .footer-name-cnt em {
-  font-size: 23vw;
+  font-size: 20vw;
+  display: block;
+  margin-top: 11rem;
 }
 
 .footer-columns-cnt {
@@ -302,8 +304,9 @@
 .footer-sec-col-cnt {
   height: 100%;
   width: 55%;
+  bottom: 25px;
   position: absolute;
-  right: 0;
+  right: 7px;
   display: flex;
 }
 

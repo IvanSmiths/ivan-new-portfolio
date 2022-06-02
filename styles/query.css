@@ -67,6 +67,11 @@
     line-height: 19vw !important;
   }
 
+  .impact {
+    font-family: "Bebas Neue", Haettenschweiler, Impact, "Arial Narrow Bold",
+      sans-serif !important;
+  }
+
   .footer-name-cnt em {
     font-size: 16vw;
   }
