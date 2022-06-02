@@ -62,7 +62,7 @@
   display: none !important;
 }
 
-.lang-cnt2 li a {
+.lang-cnt2 li {
   color: var(--text-black);
 }
 

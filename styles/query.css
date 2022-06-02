@@ -253,6 +253,14 @@
     padding: 0 1rem;
   }
 
+  .footer-name-cnt {
+    padding-bottom: 4rem;
+  }
+
+  .close-burger2 {
+    right: 5px;
+  }
+
   .home-header-cnt {
     position: relative;
   }
