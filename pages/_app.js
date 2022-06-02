@@ -105,7 +105,6 @@ function MyApp({ Component, pageProps }) {
         <ScrollPercentage />
         <Contact />
         <Component {...pageProps} />
-        <Footer />
       </CursorManager>
     </>
   );

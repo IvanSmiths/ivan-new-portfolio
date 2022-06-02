@@ -6,6 +6,7 @@ import Link from "next/link";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../../components/CursorManager";
+import Footer from "../../components/Footer";
 
 const Index = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -595,6 +596,7 @@ const Index = () => {
           </motion.svg>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

@@ -114,15 +114,6 @@ function About() {
     gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
   }, []);
 
-  const icon = {
-    hidden: {
-      pathLength: 0,
-    },
-    visible: {
-      pathLength: 1,
-    },
-  };
-
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
@@ -666,33 +657,6 @@ function About() {
             >
               {t("home:home-caption")}
             </motion.h3>
-            <motion.svg
-              className="arrow-home"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1111.93 566.06"
-            >
-              <motion.g id="Livello_2" data-name="Livello 2">
-                <motion.g id="Livello_1-2" data-name="Livello 1">
-                  <motion.path
-                    variants={icon}
-                    initial="hidden"
-                    animate="visible"
-                    transition={{
-                      default: {
-                        duration: 6,
-                        yoyo: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeWidth="2"
-                    className="cls-1"
-                    d="M1065.4,560.55l39.61,4.38,6.43-28-6.43,28c-9.72-12.33-24-29.87-42.06-50.16-61.83-69.36-113.37-127.19-187.69-163.42-52.3-25.49-101.2-31.55-199-43.68-97-12-99.36-.13-140.76-14.56-60.09-20.94-99.13-63.87-174.75-148.86C276.58,49.65,271.32,20.86,224.83,6.72c-54.61-16.6-120.5.89-165,42.07-4.56,4.22-77.48,73.62-55,148.86,19.77,66.21,106.57,114,203.86,92.22"
-                  />
-                </motion.g>
-              </motion.g>
-            </motion.svg>
           </div>
         </section>
       </LayoutGroup>

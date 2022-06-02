@@ -1,3 +1,13 @@
+@media screen and (max-width: 1500px) {
+  .footer-name-cnt em {
+    font-size: 21vw;
+  }
+  .arrow-home {
+    padding-left: 0;
+    padding-right: 3vw;
+  }
+}
+
 @media screen and (max-width: 1158px) {
   .btn-small-2 {
     padding: 1.6vw 3vw !important;
@@ -14,6 +24,29 @@
   .btn-email {
     padding: 8.6rem 3.9rem !important;
   }
+
+  .footer-first-col-cnt {
+    width: 100%;
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-icon-cnt {
+    justify-content: center;
+  }
+
+  .footer-name-cnt em {
+    font-size: 18vw;
+  }
+
+  .footer-cnt {
+    height: 50vh;
+  }
+
+  .footer-sec-col-cnt {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -23,12 +56,19 @@
   .btn-small {
     padding: 41px 18px !important;
   }
+  .btn-icon {
+    padding: 1.4rem 1.4rem !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .large-font {
     font-size: var(--largeFont);
     line-height: 19vw !important;
+  }
+
+  .footer-name-cnt em {
+    font-size: 16vw;
   }
 
   .btn-small-2 {

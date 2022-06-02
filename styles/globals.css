@@ -247,6 +247,10 @@ li {
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
 }
 
+.btn-icon {
+  padding: 1.4rem 1.4rem;
+}
+
 .btn-small:hover {
   border: 1px solid var(--color-bg-primary);
   color: black;

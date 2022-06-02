@@ -142,17 +142,6 @@
   z-index: 30;
 }
 
-.arrow-home {
-  width: 89%;
-  margin-top: 7rem;
-  overflow: visible;
-  stroke: var(--color-text-primary);
-  stroke-width: 2;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  margin-left: 3rem;
-}
-
 /* ABOUT */
 /* ABOUT */
 /* ABOUT */
@@ -402,7 +391,7 @@
 .footer-home-cnt {
   flex-direction: column;
   margin-top: var(--marginSection);
-  height: 92vh;
+  height: 100vh;
   width: 100%;
   background-color: var(--color-bg-inverse);
 }

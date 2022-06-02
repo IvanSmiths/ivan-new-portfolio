@@ -111,24 +111,6 @@ function Navbar() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.instagram.com/ivan_smiths"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.artstation.com/ivansmiths"
-              >
-                Artstation
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
                 href="https://github.com/IvanSmiths"
               >
                 Github
@@ -141,6 +123,24 @@ function Navbar() {
                 href="https://www.linkedin.com/in/ivan-fabbri/"
               >
                 Linkedin
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/ivan_smiths"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.artstation.com/ivansmiths"
+              >
+                Artstation
               </a>
             </li>
           </ul>

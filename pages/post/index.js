@@ -3,6 +3,7 @@ import PostCard from "../../components/Blog/PostCard";
 import PostCategories from "../../components/Blog/PostCategories";
 import Head from "next/head";
 import { getPosts } from "../../utils/index";
+import Footer from "../../components/Footer";
 
 const schemaData = {
   "@context": "http://schema.org",
@@ -54,6 +55,7 @@ function Blog({ posts }) {
         <PostCategories />
         {/* <PostWidget /> */}
       </section>
+      <Footer />
     </>
   );
 }
