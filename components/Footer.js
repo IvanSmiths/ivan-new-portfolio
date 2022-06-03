@@ -40,6 +40,7 @@ const Footer = () => {
                 href="https://github.com/IvanSmiths"
               >
                 <svg
+                  alt="github icon"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   id="github"
@@ -71,6 +72,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/ivan-fabbri/"
               >
                 <svg
+                  alt="linkedin icon"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   xmlns="http://www.w3.org/2000/svg"
@@ -141,6 +143,7 @@ const Footer = () => {
                 href="https://www.instagram.com/ivan_smiths"
               >
                 <svg
+                  alt="instagram icon"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   id="instagram"
@@ -201,6 +204,7 @@ const Footer = () => {
                 href="https://www.artstation.com/ivansmiths"
               >
                 <svg
+                  alt="artstation icon"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   id="ArtStation-logomark-white"
