@@ -33,6 +33,15 @@
     display: none;
   }
 
+  .first-example img {
+    width: 75vw !important;
+    height: auto;
+  }
+
+  .second-example {
+    display: none;
+  }
+
   .innovation-cnt-home {
     display: block !important;
   }

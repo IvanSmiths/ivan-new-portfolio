@@ -27,6 +27,36 @@ function IdClimax() {
           </motion.p>
         </div>
       </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        variants={{
+          hidden: { opacity: 0, y: 100 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        className="both-example-cnt"
+      >
+        <div className="first-example">
+          <SrcImage
+            src={"/ideology-website-7.jpg"}
+            webp={"/ideology-website-7.webp"}
+            height={"1785px"}
+            width={"946px"}
+            alt={"image of a work"}
+          />
+        </div>
+        <div className="second-example">
+          <SrcImage
+            src={"/ideology-website-8.jpg"}
+            height={"2260px"}
+            width={"366px"}
+            webp={"/ideology-website-8.webp"}
+            alt={"image of a work"}
+          />
+        </div>
+      </motion.div>
       <div className="climax-website-cnt skewElem">
         <ul className="climax-website">
           <motion.li

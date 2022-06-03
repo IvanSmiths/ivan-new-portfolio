@@ -93,6 +93,10 @@
   padding-left: 15vw;
 }
 
+.full-width {
+  margin-top: var(--marginSection);
+}
+
 .exposition-website-1-cnt {
   margin-top: var(--marginSection);
 }
@@ -142,8 +146,15 @@
   width: 100%;
 }
 
+.both-example-cnt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10rem;
+}
+
 .exposition-website-1 {
-  width: 85%;
+  width: 75%;
 }
 
 .exposition-website-1 img {
@@ -159,7 +170,7 @@
 }
 
 .falling-action-website-1 {
-  width: 85%;
+  width: 75%;
 }
 
 .falling-action-website-1 img {
@@ -205,9 +216,21 @@
 }
 
 .climax-website-cnt {
+  margin-top: var(--marginSection);
   display: flex;
   flex-direction: column;
 }
+
+.first-example img {
+  width: 45vw;
+  height: auto;
+}
+
+.second-example img {
+  width: 17vw;
+  height: auto;
+}
+
 .emoji {
   font-size: 35px;
 }

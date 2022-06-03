@@ -4,8 +4,6 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-@import "query.css";
-
 .serif {
   font-family: Georgia, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -851,3 +849,5 @@ textarea {
   border: none;
   padding: 0.6rem;
 }
+
+@import "query.css";

@@ -23,9 +23,8 @@ function IdExp() {
           </motion.h2>
         </div>
       </div>
-
-      <motion.div className="exposition-website-1-cnt skewElem">
-        <picture className={"exposition-website-1"}>
+      <div className="full-width skewElem">
+        <picture className="exposition-website-1">
           <motion.source
             initial="hidden"
             whileInView="visible"
@@ -40,7 +39,7 @@ function IdExp() {
             loading="lazy"
             height="60%"
             width="60%"
-            srcSet="/ideology-wireframe.webp"
+            srcSet="/ideology-website-6.webp"
             type="image/webp"
           />
           <motion.img
@@ -55,12 +54,12 @@ function IdExp() {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={"/ideology-wireframe.png"}
-            height={"60%"}
-            width={"60%"}
+            src="/ideology-ideology-website-6.png"
+            height="60%"
+            width="60%"
           />
         </picture>
-      </motion.div>
+      </div>
     </>
   );
 }
