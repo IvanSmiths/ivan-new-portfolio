@@ -60,10 +60,12 @@
 }
 
 .info-sticky {
+  font-size: var(--tiny-font);
+  text-transform: uppercase;
   color: var(--text-black);
   position: sticky;
   padding-top: 18px;
-  top: 0px;
+  top: 3px;
   left: var(--marginLayout);
   width: fit-content;
 }

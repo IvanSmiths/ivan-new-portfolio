@@ -2,6 +2,9 @@
   .footer-name-cnt em {
     font-size: 21vw;
   }
+  .canvas {
+    padding-right: 20rem;
+  }
   .arrow-home {
     padding-left: 0;
     padding-right: 3vw;
@@ -12,6 +15,10 @@
   .btn-small-2 {
     padding: 1.6vw 3vw !important;
   }
+
+  .btn-small-3 {
+    padding: 11vw 1vw !important;
+  }
   .btn-email {
     padding: 8.6rem 3.5rem !important;
   }
@@ -20,6 +27,14 @@
 @media screen and (max-width: 948px) {
   .btn-small-2 {
     padding: 2.6vw 2.9vw !important;
+  }
+
+  .canvas-cnt-home {
+    display: none;
+  }
+
+  .innovation-cnt-home {
+    display: block !important;
   }
   .btn-email {
     padding: 8.6rem 3.9rem !important;
@@ -147,13 +162,6 @@
     margin-left: 7vw;
   }
 
-  .canvas-cnt-home {
-    display: none;
-  }
-
-  .innovation-cnt-home {
-    display: block !important;
-  }
   .post-card-cnt {
     flex-direction: column;
     justify-content: center;
