@@ -244,9 +244,9 @@ const Footer = () => {
           <motion.svg
             className="arrow-home"
             xmlns="http://www.w3.org/2000/svg"
-            width="1032.887"
-            height="571.759"
-            viewBox="0 0 1032.887 571.759"
+            width="996.602"
+            height="460.492"
+            viewBox="0 0 996.602 460.492"
           >
             <motion.path
               variants={icon}
@@ -259,10 +259,10 @@ const Footer = () => {
                   ease: "easeInOut",
                 },
               }}
-              id="Path_2"
-              data-name="Path 2"
-              d="M11722.724,3314.47c56.583,176.28,125.371,271.309,216.34,271.309s115.346-271.309,209.643-271.309,106.624,271.309,186.435,271.309,108.787-276.387,207.472-276.387,154.175,147.7,184.258,239.391,27.672,331.863,27.672,331.863"
-              transform="translate(-11722.247 -3308.893)"
+              id="Path_3"
+              data-name="Path 3"
+              d="M11752.4,3403.287c978.577,0,996.1,16.442,996.1,459.992"
+              transform="translate(-11752.4 -3402.786)"
               fill="none"
               stroke="#707070"
               strokeWidth="2"
