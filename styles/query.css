@@ -29,6 +29,11 @@
     padding: 2.6vw 2.9vw !important;
   }
 
+  .team-cnt picture {
+    margin-top: var(--marginSection);
+    width: 90%;
+  }
+
   .canvas-cnt-home {
     display: none;
   }

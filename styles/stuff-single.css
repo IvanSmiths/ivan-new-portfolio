@@ -172,6 +172,17 @@
 .falling-action-website-1 {
   width: 75%;
 }
+.team-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.team-cnt picture {
+  margin-top: var(--marginSection);
+  width: 50%;
+}
 
 .falling-action-website-1 img {
   width: 100%;

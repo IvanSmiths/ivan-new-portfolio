@@ -23,8 +23,8 @@ function IdFalling() {
           {t("ideology:falling-action-3")}
         </motion.p>
       </div>
-      <div className="falling-action-website-1-cnt skewElem">
-        <picture className={"falling-action-website-1"}>
+      <div className=" skewElem team-cnt">
+        <picture className="falling-action-website-1 ">
           <motion.source
             initial="hidden"
             whileInView="visible"
@@ -39,7 +39,7 @@ function IdFalling() {
             loading="lazy"
             height={"500px"}
             width={"100%"}
-            srcSet="/ideology-team.webp"
+            srcSet="/ideology-team-2.webp"
             type="image/webp"
           />
           <motion.img
@@ -54,7 +54,7 @@ function IdFalling() {
             alt="image of a work"
             loading="lazy"
             decoding="async"
-            src={"/ideology-team.jpg"}
+            src={"/ideology-team-2.jpg"}
             height={"500px"}
             width={"100%"}
           />
