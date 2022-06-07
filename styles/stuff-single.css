@@ -400,6 +400,26 @@
   margin-top: 148rem;
 }
 
+.v-lex-image {
+  z-index: 99;
+  margin-top: 169rem;
+}
+
+.rapinzeri-image {
+  z-index: 99;
+  margin-top: 185rem;
+}
+
+.viagiatori-image {
+  z-index: 99;
+  margin-top: 208rem;
+}
+
+.elettrico-image {
+  z-index: 99;
+  margin-top: 226rem;
+}
+
 .remax-image {
   z-index: 99;
   margin-top: -18rem;
