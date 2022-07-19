@@ -68,7 +68,7 @@ const Hero = () => {
             hidden: { opacity: 0 },
             visible: { opacity: 1 },
           }}
-          className="title-1"
+          className="title-1 "
         >
           {t("home:speed")}
         </motion.em>

@@ -107,10 +107,6 @@
     Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.title-1 {
-  font-weight: 100;
-}
-
 .title-arrow {
   overflow: visible;
   stroke: var(--color-text-primary);

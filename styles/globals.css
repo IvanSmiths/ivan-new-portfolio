@@ -1,12 +1,18 @@
 html,
-body {
-  font-family: Georgia, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Century Gothic", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
 }
 
-.serif {
-  font-family: Georgia, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -15,8 +21,14 @@ body {
   transition: background 0.25s ease-in-out;
 }
 
+.serif {
+  font-family: Georgia, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
 .impact {
-  font-family: Haettenschweiler, Impact, "Arial Narrow Bold", sans-serif;
+  font-family: "Bebas Neue", Haettenschweiler, Impact, "Arial Narrow Bold",
+    sans-serif;
 }
 
 .impact-big {
@@ -31,23 +43,9 @@ body {
 /* RESETS */
 /* RESETS */
 
-html,
-body,
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 a {
   cursor: pointer;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .uppercase {
@@ -94,6 +92,9 @@ em {
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
 
   --marginLayout: 10vw;
+  --marginLayout2: 11vw;
+  --marginLayoutBig: 15vw;
+  --marginLayoutBig2: 16vw;
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
   --marginSection: clamp(17rem, 24vw, 28rem);
