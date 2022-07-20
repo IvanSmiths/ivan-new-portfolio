@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
@@ -47,28 +48,31 @@ function SuvHeader() {
   let router = useRouter();
   return (
     <header className="case-studio-header-cnt">
-      <div className="case-studio-header-1">
+      <div className="case-studio-header-first">
         <h1>Scholz & Volkmer / Vue(Nuxt)</h1>
-        <Link href="/stuff" passHref>
-          <motion.a
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            style={{
-              padding: `${router.locale === "de" ? "50px 60px" : ""}`,
-            }}
-            variants={{
-              hidden: { y: 0, rotateZ: "0deg", opacity: 0 },
-              visible: { y: 0, rotateZ: "11deg", opacity: 1 },
-            }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="tiny-font absolute-small title-link btn-small-2"
-          >
-            {t("common:nav-stuff")}
-          </motion.a>
-        </Link>
+      </div>
+      <img src="/card.jpg" alt="" />
+
+      <div className="case-studio-description">
+        <div className="case-studio-description__first-column">
+          <h2 className="small-font">
+            01 / <span>CONCEPTING</span>
+          </h2>
+          <h3 className="medium-font">
+            A blend of UI and product engineering.
+          </h3>
+        </div>
+        <div className="case-studio-description__second-column">
+          <p>
+            First concept, then design è il motto dell azienda. Ogni sito web
+            partiva dal wireframing, il primo passaggio essenziale per dare al
+            progetto delle solide basi. Ho usato Adobe XD per il wireframing, o
+            durante un momento di ispirazione, usavo carta e penna. First
+            concept, then design è il motto dell azienda. Ogni sito web partiva
+            dal wireframing, il primo passaggio essenziale per dare al progetto
+            delle solide basi
+          </p>
+        </div>
       </div>
     </header>
   );

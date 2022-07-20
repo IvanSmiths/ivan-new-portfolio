@@ -16,7 +16,6 @@ function ScholzUndVolkmer() {
         />
       </Head>
       <SuvHeader />
-      ScholzUndVolkmer
     </>
   );
 }

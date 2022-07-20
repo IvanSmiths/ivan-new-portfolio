@@ -83,18 +83,27 @@ em {
   --bigFontHeight: clamp(3rem, 9.9vw, 9rem);
   --bigFontTitle: clamp(4rem, 11vw, 14rem);
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
-  --mediumFont: clamp(1.8rem, 5.7vw, 5rem);
-  --smallFont: clamp(1rem, 1.5vw, 1.3rem);
-  --smallFontHeight: clamp(1.4rem, 1.8vw, 2.7rem);
+  --mediumFont: clamp(1.8rem, 1.8vw, 5rem);
+  --smallFont: clamp(0.98rem, 0.7vw, 1.3rem);
+  --smallFontHeight: clamp(1.4rem, 1.4vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
 
+  --marginTop: 5rem;
+
+  --marginElement: 1rem;
+
   --marginLayout: 10vw;
-  --marginLayout2: 11vw;
+  --marginLayout2: 118px;
+  --marginLayout3: 80px;
+  --marginLayout4: 74px;
+
   --marginLayoutBig: 15vw;
-  --marginLayoutBig2: 16vw;
+  --marginLayoutBig2: 322px;
+  --marginLayoutBig3: 170px;
+
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
   --marginSection: clamp(17rem, 24vw, 28rem);
@@ -540,12 +549,11 @@ b {
   position: fixed;
   z-index: 999;
   bottom: 20px;
-  left: 2px;
-  border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
+  right: 2px;
+  width: 7.5rem;
+  height: 1.5rem;
   cursor: pointer;
-  background-color: #0f6bc800;
+  background-color: #c8870f00;
 }
 
 /* CONTACT */

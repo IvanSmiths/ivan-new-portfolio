@@ -428,3 +428,49 @@
 .line-4 {
   margin-top: 4rem;
 }
+
+.case-studio-header-cnt {
+  min-height: 300vh;
+  margin-top: var(--marginTop);
+}
+
+.case-studio-header-first {
+  margin-left: var(--marginLayout2);
+}
+
+.case-studio-header-cnt img {
+  width: 100%;
+  padding-left: var(--marginLayout2);
+  padding-right: var(--marginLayout2);
+}
+
+.case-studio-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--marginSection);
+}
+
+.case-studio-description__first-column {
+  width: 50%;
+  padding-right: 19rem;
+  padding-left: var(--marginLayoutBig2);
+}
+
+.case-studio-description__first-column span {
+  color: var(--main-color);
+}
+
+.case-studio-description__first-column h3 {
+  font-weight: 800;
+  margin-top: var(--marginElement);
+}
+
+.case-studio-description__second-column {
+  width: 50%;
+}
+
+.case-studio-description__second-column p {
+  padding-right: 24.9rem;
+}
