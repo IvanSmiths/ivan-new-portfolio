@@ -47,9 +47,14 @@ function SuvHeader() {
 
   let router = useRouter();
   return (
-    <header className="case-studio-header-cnt">
-      <div className="case-studio-header-first">
-        <h1>Scholz & Volkmer / Vue(Nuxt)</h1>
+    <header className="case-studio-header">
+      <div className="case-studio-header__first-column">
+        <h1 className="medium-font impact">
+          Scholz & Volkmer / Frontend, Vue(Nuxt)
+        </h1>
+        <Link href="/">
+          <a>website</a>
+        </Link>
       </div>
       <img src="/card.jpg" alt="" />
 

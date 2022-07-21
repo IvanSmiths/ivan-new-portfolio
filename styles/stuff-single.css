@@ -429,12 +429,12 @@
   margin-top: 4rem;
 }
 
-.case-studio-header-cnt {
+.case-studio-header {
   min-height: 300vh;
   margin-top: var(--marginTop);
 }
 
-.case-studio-header-first {
+.case-studio-header__first-column {
   margin-left: var(--marginLayout2);
 }
 
