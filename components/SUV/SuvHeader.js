@@ -47,17 +47,53 @@ function SuvHeader() {
 
   let router = useRouter();
   return (
-    <header className="case-studio-header">
-      <div className="case-studio-header__first-column">
-        <h1 className="medium-font impact">
-          Scholz & Volkmer / Frontend, Vue(Nuxt)
-        </h1>
-        <Link href="/">
-          <a>website</a>
-        </Link>
-      </div>
-      <img src="/card.jpg" alt="" />
-
+    <>
+      <header className="case-studio-header">
+        <div className="case-studio-header__first-row">
+          <h1 className="medium-font impact">
+            Scholz & Volkmer <br /> Frontend / Vue (Nuxt)
+          </h1>
+          <Link href="/">
+            <a>website</a>
+          </Link>
+        </div>
+        <div className="case-studio-header__second-row">
+          <div className="case-studio-header__second-row__first-list">
+            <div>
+              <ul>
+                <li className="bold">Teyt</li>
+                <li>Teyt</li>
+                <li>Teyt</li>
+              </ul>
+              <ul className="case-studio-header__second-row__second-list">
+                <li className="bold">Teyt</li>
+                <li>Teyt</li>
+                <li>Teyt</li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li className="bold">Teyt</li>
+                <li>Teyt</li>
+                <li>Teyt</li>
+              </ul>
+              <ul className="case-studio-header__second-row__second-list">
+                <li className="bold">Teyt</li>
+                <li>Teyt</li>
+                <li>Teyt</li>
+              </ul>
+            </div>
+          </div>
+          <div className="case-studio-header__second-row__image">
+            <img
+              src="/cg-prospect-website-1.jpg"
+              height="200"
+              width="auto"
+              alt=""
+            />
+          </div>
+        </div>
+      </header>
       <div className="case-studio-description">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">
@@ -79,7 +115,7 @@ function SuvHeader() {
           </p>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 
