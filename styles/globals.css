@@ -115,6 +115,14 @@ em {
   --marginSection: clamp(17rem, 24vw, 28rem);
 }
 
+@media screen and (max-width: 1500px) {
+  :root {
+    --marginLayoutLeftFirst: 50px;
+    --marginLayoutLeftFirst2: 98px;
+    --marginLayoutLeftSecond: 230px;
+    --marginLayoutLeftSecond2: 310px;
+  }
+}
 @media screen and (max-width: 1200px) {
   :root {
     --marginLayoutLeftFirst: 50px;
