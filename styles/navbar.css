@@ -316,6 +316,16 @@
   margin-left: var(--marginLayout4);
 }
 
+.navbar-desktop__first-list li:nth-child(1) {
+  position: absolute;
+  left: var(--marginLayoutLeftFirst);
+}
+
+.navbar-desktop__first-list li:nth-child(2) {
+  position: absolute;
+  left: var(--marginLayoutLeftSecond);
+}
+
 .navbar-desktop__second-list {
   display: flex;
   gap: 60px;

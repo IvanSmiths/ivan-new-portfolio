@@ -96,6 +96,11 @@ em {
   --marginElement: 1rem;
   --marginElementBig: 8rem;
 
+  --marginLayoutLeftFirst: 50px;
+  --marginLayoutLeftFirst2: 98px;
+  --marginLayoutLeftSecond: 330px;
+  --marginLayoutLeftSecond2: 410px;
+
   --marginLayout: 10vw;
   --marginLayout2: 118px;
   --marginLayout3: 80px;
@@ -108,6 +113,15 @@ em {
   --marginBottomBlog: 3rem;
   --marginFooter: 15vw;
   --marginSection: clamp(17rem, 24vw, 28rem);
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --marginLayoutLeftFirst: 50px;
+    --marginLayoutLeftFirst2: 98px;
+    --marginLayoutLeftSecond: 230px;
+    --marginLayoutLeftSecond2: 310px;
+  }
 }
 
 body,

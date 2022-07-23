@@ -51,36 +51,40 @@ function SuvHeader() {
       <header className="case-studio-header">
         <div className="case-studio-header__first-row">
           <h1 className="medium-font impact">
-            Scholz & Volkmer <br /> Frontend / Vue (Nuxt)
+            Scholz & Volkmer <br /> Frontend developer: Vue.js (Nuxt.js)
           </h1>
           <Link href="/">
             <a>website</a>
           </Link>
         </div>
         <div className="case-studio-header__second-row">
-          <div className="case-studio-header__second-row__first-list">
-            <div>
+          <div>
+            <div className="case-studio-header__second-row__first-list">
               <ul>
-                <li className="bold">Teyt</li>
-                <li>Teyt</li>
-                <li>Teyt</li>
+                <li className="bold">Tech:</li>
+                <li>Frontend: Vue.js (Nuxt.js)</li>
+                <li>Animation: Gsap</li>
+                <li>Style: Scss/Sass</li>
               </ul>
-              <ul className="case-studio-header__second-row__second-list">
-                <li className="bold">Teyt</li>
-                <li>Teyt</li>
-                <li>Teyt</li>
+              <ul>
+                <li className="bold">Date:</li>
+                <li>12/03/2022</li>
+                <li>Current</li>
               </ul>
             </div>
-            <div>
+            <div className="case-studio-header__second-row__first-list second-row__second-list">
               <ul>
-                <li className="bold">Teyt</li>
+                <li className="bold">Employee</li>
                 <li>Teyt</li>
                 <li>Teyt</li>
               </ul>
-              <ul className="case-studio-header__second-row__second-list">
-                <li className="bold">Teyt</li>
-                <li>Teyt</li>
-                <li>Teyt</li>
+              <ul>
+                <li className="bold">Clients:</li>
+                <li>Adidas</li>
+                <li>WFM</li>
+                <li>WFM</li>
+                <li>WFM</li>
+                <li>WFM</li>
               </ul>
             </div>
           </div>
