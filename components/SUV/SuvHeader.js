@@ -74,16 +74,8 @@ function SuvHeader() {
             </div>
             <div className="case-studio-header__second-row__first-list second-row__second-list">
               <ul>
-                <li className="bold">Employee</li>
-                <li>Teyt</li>
-                <li>Teyt</li>
-              </ul>
-              <ul>
                 <li className="bold">Clients:</li>
                 <li>Adidas</li>
-                <li>WFM</li>
-                <li>WFM</li>
-                <li>WFM</li>
                 <li>WFM</li>
               </ul>
             </div>
@@ -118,6 +110,14 @@ function SuvHeader() {
             delle solide basi
           </p>
         </div>
+      </div>
+      <div className="case-studio__screen-image">
+        <img
+          src="/cg-prospect-website-1.jpg"
+          height="200"
+          width="auto"
+          alt=""
+        />
       </div>
     </>
   );

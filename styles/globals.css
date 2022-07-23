@@ -102,11 +102,11 @@ em {
   --marginLayoutLeftSecond: 330px;
   --marginLayoutLeftSecond2: 410px;
 
-  --marginLayoutRightFirst: 50px;
+  --marginLayoutRightFirst: 250px;
   --marginLayoutRightFirst2: 98px;
-  --marginLayoutRightSecond: 330px;
+  --marginLayoutRightSecond: 230px;
   --marginLayoutRightSecond2: 410px;
-  --marginLayoutRightThird: 230px;
+  --marginLayoutRightThird: 165px;
   --marginLayoutRightThird2: 310px;
 
   --marginLayout: 10vw;

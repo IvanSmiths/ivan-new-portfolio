@@ -328,17 +328,16 @@
 
 .navbar-desktop__second-list li:nth-child(3) {
   position: absolute;
+  right: var(--marginLayoutLeftFirst);
+}
+
+.navbar-desktop__second-list li:nth-child(2) {
+  position: absolute;
+  right: var(--marginLayoutLeftSecond);
+}
+.navbar-desktop__second-list li:nth-child(1) {
+  position: absolute;
   right: var(--marginLayoutRightThird);
-}
-
-.navbar-desktop__second-list li:nth-child(2) {
-  position: absolute;
-  right: var(--marginLayoutLeftSecond);
-}
-
-.navbar-desktop__second-list li:nth-child(2) {
-  position: absolute;
-  right: var(--marginLayoutLeftSecond);
 }
 
 .navbar-desktop__second-list {

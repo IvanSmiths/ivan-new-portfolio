@@ -523,3 +523,11 @@
   padding-right: 26.2rem;
   text-indent: var(--textIndent);
 }
+.case-studio__screen-image {
+  width: 100%;
+  padding: 0 var(--marginLayoutRightFirst2);
+}
+.case-studio__screen-image img {
+  width: 100%;
+  height: auto;
+}
