@@ -437,12 +437,13 @@
   display: flex;
   width: 100%;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   padding-left: var(--marginLayoutLeftFirst2);
 }
 
 .case-studio-header__first-row a {
-  margin-right: 400px;
+  margin-right: 420px;
 }
 
 .case-studio-header__second-row {
@@ -519,5 +520,6 @@
 }
 
 .case-studio-description__second-column p {
-  padding-right: 24.9rem;
+  padding-right: 26.2rem;
+  text-indent: var(--textIndent);
 }

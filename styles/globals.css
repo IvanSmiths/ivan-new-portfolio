@@ -87,6 +87,7 @@ em {
   --smallFont: clamp(0.98rem, 0.7vw, 1.3rem);
   --smallFontHeight: clamp(1.4rem, 1.4vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
+  --textIndent: 6rem;
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
@@ -100,6 +101,13 @@ em {
   --marginLayoutLeftFirst2: 98px;
   --marginLayoutLeftSecond: 330px;
   --marginLayoutLeftSecond2: 410px;
+
+  --marginLayoutRightFirst: 50px;
+  --marginLayoutRightFirst2: 98px;
+  --marginLayoutRightSecond: 330px;
+  --marginLayoutRightSecond2: 410px;
+  --marginLayoutRightThird: 230px;
+  --marginLayoutRightThird2: 310px;
 
   --marginLayout: 10vw;
   --marginLayout2: 118px;
