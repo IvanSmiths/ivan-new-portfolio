@@ -83,8 +83,8 @@ em {
   --bigFontHeight: clamp(3rem, 9.9vw, 9rem);
   --bigFontTitle: clamp(4rem, 11vw, 14rem);
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
-  --mediumFont: clamp(1.8rem, 2.5vw, 5rem);
-  --smallFont: clamp(0.98rem, 0.7vw, 1.3rem);
+  --mediumFont: clamp(2.8rem, 2.5vw, 5rem);
+  --smallFont: clamp(0.96rem, 0.7vw, 1.3rem);
   --smallFontHeight: clamp(1.4rem, 1.4vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
   --textIndent: 6rem;
@@ -95,7 +95,8 @@ em {
   --marginTop: 9rem;
 
   --marginElement: 1rem;
-  --marginElementBig: 8rem;
+  --marginElementMedium: 4rem;
+  --marginElementBig: 12rem;
 
   --marginLayoutLeftFirst: 50px;
   --marginLayoutLeftFirst2: 98px;
@@ -104,9 +105,9 @@ em {
 
   --marginLayoutRightFirst: 60px;
   --marginLayoutRightFirst2: 98px;
-  --marginLayoutRightSecond: 230px;
+  --marginLayoutRightSecond: 165px;
   --marginLayoutRightSecond2: 410px;
-  --marginLayoutRightThird: 165px;
+  --marginLayoutRightThird: 330px;
   --marginLayoutRightThird2: 310px;
 
   --marginLayout: 10vw;
@@ -131,12 +132,23 @@ em {
     --marginLayoutLeftSecond2: 310px;
   }
 }
+
 @media screen and (max-width: 1200px) {
   :root {
     --marginLayoutLeftFirst: 50px;
     --marginLayoutLeftFirst2: 98px;
     --marginLayoutLeftSecond: 230px;
     --marginLayoutLeftSecond2: 310px;
+  }
+  .case-studio-description__first-column {
+    padding-left: 100px;
+  }
+  .case-studio-description__second-column p {
+    padding-right: 6.5rem;
+  }
+
+  .case-studio-header__first-row a {
+    margin-right: 260px;
   }
 }
 
@@ -240,6 +252,7 @@ h6,
 p,
 a,
 li {
+  font-size: var(--smallFont);
   font-weight: 400;
   color: var(--color-text-primary);
 }

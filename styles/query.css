@@ -1,4 +1,14 @@
 @media screen and (max-width: 1500px) {
+  :root {
+    --marginLayoutLeftFirst: 50px;
+    --marginLayoutLeftFirst2: 98px;
+    --marginLayoutLeftSecond: 230px;
+    --marginLayoutLeftSecond2: 310px;
+  }
+
+  .case-studio-description__second-column p {
+    padding-right: 15rem;
+  }
   .footer-name-cnt em {
     font-size: 21vw;
   }
@@ -8,6 +18,15 @@
   .arrow-home {
     padding-left: 0;
     padding-right: 3vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --marginLayoutLeftFirst: 50px;
+    --marginLayoutLeftFirst2: 98px;
+    --marginLayoutLeftSecond: 230px;
+    --marginLayoutLeftSecond2: 310px;
   }
 }
 

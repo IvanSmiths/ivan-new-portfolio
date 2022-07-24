@@ -310,6 +310,10 @@
   justify-content: space-between;
 }
 
+.navbar-desktop a {
+  font-size: var(--smallFont);
+}
+
 .navbar-desktop__first-list {
   display: flex;
   gap: 127px;
@@ -333,7 +337,7 @@
 
 .navbar-desktop__second-list li:nth-child(2) {
   position: absolute;
-  right: var(--marginLayoutLeftSecond);
+  right: var(--marginLayoutRightSecond);
 }
 .navbar-desktop__second-list li:nth-child(1) {
   position: absolute;
