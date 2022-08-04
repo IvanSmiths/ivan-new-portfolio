@@ -21,7 +21,11 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="footer-first-row"></div>
+      <div className="footer-first-row">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
     </footer>
   );
 };
