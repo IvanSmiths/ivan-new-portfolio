@@ -158,19 +158,21 @@ function About() {
         </motion.div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="tiny-font spacing"
-            >
-              .IVAN SMITHS
-            </motion.h2>
+            <div>
+              <motion.h2
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                className="tiny-font spacing"
+              >
+                IVAN SMITHS
+              </motion.h2>
+            </div>
             <motion.p
               initial="hidden"
               whileInView="visible"

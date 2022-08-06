@@ -184,9 +184,9 @@
   align-items: flex-start;
 }
 
-.homepage-about-p-cnt h2 {
+.homepage-about-p-cnt div {
   width: 50%;
-  color: var(--text-white);
+  color: var(--main-color);
 }
 
 .homepage-about-p-cnt p {
