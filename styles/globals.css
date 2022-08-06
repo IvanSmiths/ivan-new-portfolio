@@ -94,6 +94,7 @@ em {
 
   --marginTop: 9rem;
 
+  --marginElementLittle: 0.5rem;
   --marginElement: 1rem;
   --marginElementMedium: 4rem;
   --marginElementBig: 13rem;
@@ -236,6 +237,10 @@ p {
 
 .tiny-font {
   font-size: var(--tinyFont);
+}
+
+.main-color {
+  color: var(--main-color);
 }
 
 .tiny-font-inverse {

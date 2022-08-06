@@ -203,7 +203,6 @@
 }
 
 .box-cnt {
-  background-color: var(--color-bg-primary);
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -213,7 +212,6 @@
 }
 
 .box {
-  background-color: var(--color-bg-primary);
   top: 0;
   left: 0;
   height: 300vh;
@@ -223,14 +221,14 @@
 }
 
 .box1 {
-  background-color: var(--color-bg-primary);
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
-  position: absolute;
   width: 100vw;
   display: flex;
   flex-direction: row;
+  gap: 15rem;
   z-index: 3;
 }
 
@@ -261,6 +259,13 @@
   margin-top: 3rem;
 }
 
+.box-subtitle {
+  margin-bottom: 0.4rem;
+}
+.box-link-cnt {
+  margin-top: 6.5rem;
+}
+
 .canvas-cnt {
   position: relative;
   margin-top: -12rem;
@@ -289,14 +294,13 @@
 
 .box-image-cnt {
   width: 45%;
-  margin-right: -3rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
 .box-image-cnt img {
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 
@@ -304,8 +308,15 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  text-align: right;
   justify-content: center;
-  align-items: center;
+}
+
+.box-informations-cnt ul {
+  margin-top: var(--marginElement);
+}
+.box-informations-cnt ul li {
+  margin-top: var(--marginElementLittle);
 }
 
 .box-informations-cnt .skewElem2 {
