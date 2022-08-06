@@ -441,25 +441,12 @@ function About() {
                       </motion.picture>
                     </a>
                   </Link>
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
-                      }}
-                      className="big-font box-title mobile impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
-                  </Link>
                 </div>
                 <div className="box-informations-cnt">
+                  <span className="small-font box-subtitle">
+                    02 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
+                    <br />
+                  </span>
                   <Link href="/stuff/old-portfolio" passHref>
                     <motion.a
                       initial="hidden"
@@ -470,14 +457,30 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      className="big-font box-title impact"
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
+                      Old Portfolio
                     </motion.a>
                   </Link>
-                  <div className="box-link-cnt flex-center">
+                  <motion.ul
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                  >
+                    <li>Main role: Frontend developer</li>
+                    <li>Frontend: React (Next.js)</li>
+                    <li>Backend: MongoDB (Mongoose)</li>
+                    <li>UI/UX: Adobe XD</li>
+                    <li>2021/ Current</li>
+                  </motion.ul>
+                  <div className="box-link-cnt">
                     <Link href="/stuff/old-portfolio" passHref>
                       <motion.a
                         initial="hidden"
@@ -491,22 +494,6 @@ function About() {
                         className="btn-small box-link"
                       >
                         {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
                       </motion.a>
                     </Link>
                   </div>
@@ -554,35 +541,42 @@ function About() {
                       </motion.picture>
                     </a>
                   </Link>
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      className="big-font box-title mobile impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
-                  </Link>
                 </div>
                 <div className="box-informations-cnt">
+                  <span className="small-font box-subtitle">
+                    02 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
+                    <br />
+                  </span>
                   <Link href="/stuff/old-portfolio" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
-                      className="big-font box-title impact"
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
+                      Old Portfolio
                     </motion.a>
                   </Link>
-                  <div className="box-link-cnt flex-center">
+                  <motion.ul
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                  >
+                    <li>Main role: Frontend developer</li>
+                    <li>Frontend: React (Next.js)</li>
+                    <li>Backend: MongoDB (Mongoose)</li>
+                    <li>UI/UX: Adobe XD</li>
+                    <li>2021/ Current</li>
+                  </motion.ul>
+                  <div className="box-link-cnt">
                     <Link href="/stuff/old-portfolio" passHref>
                       <motion.a
                         initial="hidden"
@@ -596,22 +590,6 @@ function About() {
                         className="btn-small box-link"
                       >
                         {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
                       </motion.a>
                     </Link>
                   </div>
