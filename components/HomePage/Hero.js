@@ -58,7 +58,7 @@ const Hero = () => {
   let { t } = useTranslation();
   return (
     <header className="home-header-cnt flex-center">
-      <div className="big-font flex-center skewElem title-1-cnt">
+      <div className="big-font skewElem title-1-cnt">
         <motion.em
           initial="hidden"
           whileInView="visible"
@@ -72,23 +72,12 @@ const Hero = () => {
         >
           {t("home:speed")}
         </motion.em>
-        <motion.img
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
-          className="title-image"
-          src="/websites.gif"
-          height="170px"
-          width="180px"
-          alt="works"
-        />
+        <p>
+          ivan smiths <br />
+          frontend developer <br />2 years of professional experience
+        </p>
       </div>
-      <div className="big-font skewElem flex-center title-2-cnt">
+      <div className="big-font skewElem title-2-cnt">
         <Link href="/stuff" passHref>
           <motion.a
             initial="hidden"

@@ -1,9 +1,9 @@
 @media screen and (max-width: 1500px) {
-  :root {
-    --marginLayoutLeftFirst: 50px;
-    --marginLayoutLeftFirst2: 98px;
-    --marginLayoutLeftSecond: 230px;
-    --marginLayoutLeftSecond2: 310px;
+  .title-1-cnt {
+    width: 100%;
+    padding-left: 18.5rem;
+    display: flex;
+    align-items: center;
   }
 
   .case-studio-description__second-column p {
