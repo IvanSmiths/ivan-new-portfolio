@@ -50,9 +50,14 @@ function SuvHeader() {
     <>
       <header className="case-studio-header">
         <div className="case-studio-header__first-row">
-          <h1 className="medium-font impact">
-            Scholz & Volkmer <br /> Frontend developer: Vue.js (Nuxt.js)
-          </h1>
+          <div>
+            <span className="small-font main-color">
+              Frontend Developer, Vue (Nuxt)
+            </span>
+            <h1 className="medium-font impact">
+              Scholz & Volkmer <br />
+            </h1>
+          </div>
           <Link href="/">
             <a>website</a>
           </Link>

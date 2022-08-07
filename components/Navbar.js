@@ -75,24 +75,24 @@ function Navbar() {
           <ul className="navbar-desktop__first-list">
             <li>
               <Link href="/">
-                <a>home</a>
+                <a> {t("common:nav-home")}</a>
               </Link>
             </li>
             <li>
               <Link href="/stuff">
-                <a>what i do</a>
+                <a>{t("common:nav-stuff")}</a>
               </Link>
             </li>
           </ul>
           <ul className="navbar-desktop__second-list">
             <li>
-              <Link href="/">
-                <a>who i am</a>
+              <Link href="/about">
+                <a>{t("common:nav-about")}</a>
               </Link>
             </li>
             <li>
-              <Link href="/stuff">
-                <a>what i write</a>
+              <Link href="/post">
+                <a>{t("common:nav-post")}</a>
               </Link>
             </li>
             <li>
