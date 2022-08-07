@@ -336,15 +336,17 @@
     display: block !important;
   }
 
-  .box-title {
-    display: none;
-  }
-
   .homepage-about-sub-cnt img {
     height: fit-content;
     margin-bottom: 4rem;
   }
 
+  .box-image-cnt {
+    width: 50%;
+  }
+  .box-subtitle {
+    margin-bottom: 1rem;
+  }
   .info-link {
     margin-top: 13rem;
     margin-bottom: 10rem;
@@ -582,7 +584,7 @@
   }
 
   .box-image-cnt img {
-    width: 60%;
+    width: 100%;
     height: auto;
     padding-bottom: 12rem;
   }
@@ -623,7 +625,7 @@
   }
 
   .box-link-cnt .btn-small {
-    padding: 2rem 0.7rem !important;
+    display: none;
   }
 
   .blog-posts-cnt {

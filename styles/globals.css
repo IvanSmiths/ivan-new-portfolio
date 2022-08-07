@@ -83,7 +83,7 @@ em {
   --bigFontHeight: clamp(3rem, 9.9vw, 9rem);
   --bigFontTitle: clamp(4rem, 11vw, 14rem);
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
-  --mediumFont: clamp(0.9rem, 2.5vw, 5rem);
+  --mediumFont: clamp(1.5rem, 2.5vw, 5rem);
   --smallFont: clamp(0.9rem, 0.7vw, 1.3rem);
   --smallFontHeight: clamp(1.4rem, 1.4vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
