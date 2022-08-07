@@ -73,8 +73,9 @@ const Hero = () => {
           {t("home:speed")}
         </motion.em>
         <p>
-          ivan smiths <br />
-          frontend developer <br />2 years of professional experience
+          {t("home:header-title")} <br />
+          {t("home:header-title-2")} <br />
+          {t("home:header-title-3")}
         </p>
       </div>
       <div className="big-font skewElem title-2-cnt">

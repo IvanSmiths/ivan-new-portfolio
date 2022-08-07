@@ -158,7 +158,7 @@ function About() {
         </motion.div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">
-            <div>
+            <div className="about-cnt">
               <motion.h2
                 initial="hidden"
                 whileInView="visible"
@@ -168,10 +168,13 @@ function About() {
                   hidden: { opacity: 0 },
                   visible: { opacity: 1 },
                 }}
-                className="tiny-font spacing"
+                className="tiny-font main-color spacing"
               >
-                IVAN SMITHS
+                ivan smiths
               </motion.h2>
+              <h3 className="medium-font">
+                Frontend developer highly focused web experiences
+              </h3>
             </div>
             <motion.p
               initial="hidden"

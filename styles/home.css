@@ -178,6 +178,7 @@
   width: 70vw;
   height: auto;
   z-index: 1;
+  opacity: 0.6;
 }
 
 .homepage-about-p-cnt {
@@ -193,16 +194,24 @@
 }
 
 .about {
-  width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 4rem;
 }
 
 .homepage-about-p-cnt div {
   width: 50%;
   color: var(--main-color);
+}
+
+.about-cnt {
+  padding-right: 3rem;
+}
+
+.about-cnt h2 {
+  padding-bottom: var(--marginElementLittle);
 }
 
 .homepage-about-p-cnt p {
