@@ -1,11 +1,4 @@
 @media screen and (max-width: 1500px) {
-  .title-1-cnt {
-    width: 100%;
-    padding-left: 18.5rem;
-    display: flex;
-    align-items: center;
-  }
-
   .case-studio-description__second-column p {
     padding-right: 15rem;
   }
@@ -46,6 +39,15 @@
 @media screen and (max-width: 948px) {
   .btn-small-2 {
     padding: 2.6vw 2.9vw !important;
+  }
+
+  .title-1-cnt {
+    padding-left: 0;
+    justify-content: center;
+  }
+  .title-2-cnt {
+    padding-right: 0;
+    justify-content: center;
   }
 
   .team-cnt picture {
@@ -113,6 +115,10 @@
   .large-font {
     font-size: var(--largeFont);
     line-height: 19vw !important;
+  }
+
+  .title-1-cnt p {
+    display: none;
   }
 
   .impact {
@@ -299,6 +305,10 @@
     padding: 0 1rem;
   }
 
+  .title-2-cnt em {
+    padding-top: 0;
+  }
+
   .footer-name-cnt {
     padding-bottom: 4rem;
   }
@@ -424,7 +434,11 @@
 
   .homepage-about-p-cnt {
     position: absolute;
-    top: -370px;
+    top: -400px;
+  }
+
+  .homepage-about-p-cnt div {
+    width: 80%;
   }
 
   .btn-small-3 {
@@ -567,17 +581,10 @@
     top: 26px !important;
   }
 
-  .box-image-cnt {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
   .box-image-cnt img {
-    width: 100%;
+    width: 60%;
     height: auto;
-    display: flex;
-    flex-direction: column;
+    padding-bottom: 12rem;
   }
 
   .lang-cnt {
@@ -586,7 +593,7 @@
 
   .box-informations-cnt {
     height: 40%;
-    padding-bottom: 11rem;
+    padding-bottom: 20rem;
   }
   .marquee-innovation em {
     font-size: var(--extremeFont);
@@ -609,6 +616,14 @@
   .burger-menu-info-cnt {
     width: 100%;
     margin-top: 0rem;
+  }
+
+  .box-informations-cnt ul {
+    margin-bottom: 3rem;
+  }
+
+  .box-link-cnt .btn-small {
+    padding: 2rem 0.7rem !important;
   }
 
   .blog-posts-cnt {
