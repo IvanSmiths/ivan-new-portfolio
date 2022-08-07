@@ -12,6 +12,9 @@
     padding-left: 0;
     padding-right: 3vw;
   }
+  .title-1-cnt {
+    padding-left: 18rem;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -33,6 +36,14 @@
   }
   .btn-email {
     padding: 8.6rem 3.5rem !important;
+  }
+
+  .box-image-cnt {
+    width: 31%;
+  }
+  .box1 {
+    justify-content: center;
+    gap: 5rem;
   }
 }
 
@@ -178,10 +189,6 @@
     height: 40%;
     width: 70%;
     top: 0;
-  }
-
-  .title-1-cnt {
-    margin-right: 0rem;
   }
 
   .article-content-cnt div {
