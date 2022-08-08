@@ -1,0 +1,22 @@
+.footer {
+  min-height: 100vh;
+  margin-top: var(--marginSection);
+}
+
+.footer__icon {
+  display: flex;
+  gap: var(--marginElement);
+}
+
+#Tracciato_5,
+#Tracciato_2,
+#Tracciato_3,
+#Tracciato_1,
+#Tracciato_6,
+#Ellisse_8,
+#Rettangolo_3,
+#Tracciato_8,
+#Ellisse_10,
+#Tracciato_4 {
+  fill: var(--color-text-primary);
+}
