@@ -1,5 +1,5 @@
 .footer {
-  min-height: 100vh;
+  height: 100vh;
   margin-top: var(--marginSection);
   display: flex;
   flex-wrap: wrap;
@@ -8,6 +8,7 @@
 
 .footer__first-col {
   width: 50%;
+  height: 100%;
   padding-right: var(--marginElementMedium);
   display: flex;
   flex-direction: column;
@@ -22,6 +23,16 @@
 
 .footer__second-col {
   width: 50%;
+}
+
+.footer__first-col div {
+  height: 100%;
+  text-align: right;
+  align-self: flex-end;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .footer__second-col ul {

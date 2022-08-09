@@ -68,13 +68,15 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <a href="mailto:ivansmiths.com" className="medium-font">
-          info@ivansmiths.com
-        </a>
-        <p>
-          Frontend developer, with a particular attention to design and visual
-          experiences.
-        </p>
+        <div>
+          <a href="mailto:ivansmiths.com" className="medium-font">
+            info@ivansmiths.com
+          </a>
+          <p>
+            Frontend developer, with a particular attention to design and visual
+            experiences.
+          </p>
+        </div>
       </div>
       <div className="footer__second-col">
         <ul>
