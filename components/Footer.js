@@ -34,8 +34,8 @@ const Footer = () => {
               <img
                 src="./instagram-icon.svg"
                 alt="instagram icon"
-                height="32px"
-                width="32px"
+                height="25px"
+                width="25px"
               />
             </a>
           </li>
@@ -48,8 +48,8 @@ const Footer = () => {
               <img
                 src="./instagram-icon.svg"
                 alt="instagram icon"
-                height="32px"
-                width="32px"
+                height="25px"
+                width="25px"
               />
             </a>
           </li>
@@ -62,8 +62,8 @@ const Footer = () => {
               <img
                 src="./instagram-icon.svg"
                 alt="instagram icon"
-                height="32px"
-                width="32px"
+                height="25px"
+                width="25px"
               />
             </a>
           </li>
@@ -86,6 +86,13 @@ const Footer = () => {
               </Link>
               <Link href="/stuff">
                 <a>{t("common:nav-stuff")}</a>
+              </Link>
+            </div>
+          </li>
+          <li>
+            <div className="footer__vertical-links">
+              <Link href="/post">
+                <a>{t("common:nav-post")}</a>
               </Link>
             </div>
           </li>
