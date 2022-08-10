@@ -128,6 +128,23 @@
     line-height: 19vw !important;
   }
 
+  .case-studio-description {
+    gap: var(--marginElementMedium);
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .case-studio-description__first-column {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .case-studio-description__second-column {
+    width: 100%;
+    padding-left: 100px;
+  }
+
   .title-1-cnt p {
     display: none;
   }
