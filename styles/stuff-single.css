@@ -445,6 +445,9 @@
 .case-studio-header__first-row a {
   margin-right: 420px;
 }
+.case-studio-header__first-row h1 {
+  margin-top: var(--marginElement);
+}
 
 .case-studio-header__second-row {
   margin-top: var(--marginElementBig);
