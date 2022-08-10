@@ -54,7 +54,7 @@ function SuvHeader() {
             <span className="small-font main-color">
               Frontend Developer, Vue (Nuxt)
             </span>
-            <h1 className="medium-font impact">
+            <h1 className="big-font impact">
               Scholz & Volkmer <br />
             </h1>
           </div>
