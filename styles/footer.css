@@ -58,3 +58,7 @@
 #Tracciato_4 {
   fill: var(--color-text-primary);
 }
+
+.footer__full-lenght-text em {
+  font-size: 12vw;
+}

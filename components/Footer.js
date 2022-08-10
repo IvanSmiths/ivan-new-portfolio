@@ -106,6 +106,9 @@ const Footer = () => {
             </div>
           </li>
         </ul>
+        <div className="footer__full-lenght-text">
+          <em>IVAN SMITHS</em>
+        </div>
       </div>
     </footer>
   );
