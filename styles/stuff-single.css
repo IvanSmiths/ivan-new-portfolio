@@ -540,3 +540,7 @@
   gap: 2rem;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
+
+.test-column__col-1 {
+  grid-column: span 1;
+}
