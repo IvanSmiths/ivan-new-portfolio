@@ -342,6 +342,7 @@
 }
 .box-informations-cnt ul li {
   margin-top: var(--marginElementLittle);
+  color: var(--color-text-sec);
 }
 
 .box-informations-cnt .skewElem2 {

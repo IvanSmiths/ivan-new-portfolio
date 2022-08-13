@@ -72,10 +72,11 @@ const Footer = () => {
           <a href="mailto:ivansmiths.com" className="medium-font">
             info@ivansmiths.com
           </a>
-          <p>
+          <p className="color-sec">
             Frontend developer, with a particular attention to design and visual
             experiences.
           </p>
+          <span className="color-sec">© 2022 Ivan Smiths</span>
         </div>
       </div>
       <div className="footer__second-col">
@@ -106,8 +107,23 @@ const Footer = () => {
             </div>
           </li>
         </ul>
-        <div className="footer__full-lenght-text">
-          <em>IVAN SMITHS</em>
+        <div className="footer__second-col-form">
+          <form className="footer__form" action="">
+            <label htmlFor="name">name</label>
+            <input type="text" id="name" />
+            <label htmlFor="object">object</label>
+            <input type="text" id="object" />
+            <label htmlFor="message">message</label>
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button type="submit" className="">
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </footer>

@@ -158,6 +158,7 @@ body[data-theme="light"] {
   --color-bg-primary: #eeeae6;
   --color-bg-sub: #050505;
   --color-text-primary: #2b2b2b;
+  --color-text-sec: #3e3e3e;
   --color-text-home-mobile: #2e2e2e;
   --color-text-inverse: #ffffff;
   --color-bg-inverse: #0e0e0c;
@@ -167,6 +168,7 @@ body[data-theme="dark"] {
   --color-bg-primary: #111111;
   --color-bg-sub: #ffffff;
   --color-text-primary: #f8f8f8;
+  --color-text-sec: #c9c9c9;
   --color-text-inverse: #0e0e0c;
   --color-text-home-mobile: #f8f8f8;
   --color-bg-inverse: #fafafa;
@@ -215,6 +217,10 @@ body[data-theme="dark"] {
   color: var(--color-text-inverse);
 }
 
+.color-sec {
+  color: var(--color-text-sec);
+}
+
 .medium-font {
   font-size: var(--mediumFont);
 }
@@ -252,9 +258,11 @@ h1,
 h2,
 h3,
 h4,
+span,
 h5,
 h6,
 p,
+label,
 a,
 li {
   font-size: var(--smallFont);
