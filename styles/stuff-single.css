@@ -523,6 +523,7 @@
 
 .case-studio-description__second-column p {
   padding-right: 26.2rem;
+  color: var(--color-text-sec);
   text-indent: var(--textIndent);
 }
 .case-studio__screen-image {
