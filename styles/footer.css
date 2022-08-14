@@ -2,14 +2,13 @@
   height: 100vh;
   margin-top: var(--marginSection);
   display: flex;
-  flex-wrap: wrap;
   padding-top: 30px;
 }
 
 .footer__first-col {
   width: 50%;
   height: 100%;
-  padding-right: 11%;
+  padding-right: 11vw;
   display: flex;
   flex-direction: column;
 }
@@ -40,6 +39,7 @@
 }
 
 .footer__first-col p {
+  padding-left: 15vw;
   margin: var(--marginElement) 0;
 }
 

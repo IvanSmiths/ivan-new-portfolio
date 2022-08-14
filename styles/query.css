@@ -1,3 +1,12 @@
+@media screen and (max-width: 1780px) {
+  .footer__first-col {
+    padding-right: 7vw;
+  }
+  .footer {
+    padding-top: 150px;
+  }
+}
+
 @media screen and (max-width: 1500px) {
   .case-studio-description__second-column p {
     padding-right: 15rem;
@@ -126,6 +135,31 @@
   .large-font {
     font-size: var(--largeFont);
     line-height: 19vw !important;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer__first-col {
+    width: 100%;
+  }
+
+  .footer__icon {
+    width: 50%;
+    align-self: flex-start;
+  }
+
+  .footer__first-col div {
+    width: 50%;
+  }
+
+  .footer__second-col {
+    width: 100%;
+  }
+
+  .footer__second-col-form {
+    margin-top: var(--marginElementMedium);
   }
 
   .case-studio-description {
