@@ -32,8 +32,8 @@ const Footer = () => {
               href="https://github.com/IvanSmiths"
             >
               <img
-                src="./instagram-icon.svg"
-                alt="instagram icon"
+                src="./github-icon.svg"
+                alt="github icon"
                 height="25px"
                 width="25px"
               />
@@ -46,8 +46,8 @@ const Footer = () => {
               href="https://www.linkedin.com/in/ivan-fabbri/"
             >
               <img
-                src="./instagram-icon.svg"
-                alt="instagram icon"
+                src="./linkedin-icon.svg"
+                alt="linkedin icon"
                 height="25px"
                 width="25px"
               />

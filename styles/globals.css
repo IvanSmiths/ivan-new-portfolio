@@ -908,4 +908,11 @@ textarea {
   padding: 0.6rem;
 }
 
+#Tracciato_4,
+#github,
+#Raggruppa_1 {
+  fill: red !important;
+  background-color: red !important;
+}
+
 @import "query.css";
