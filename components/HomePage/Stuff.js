@@ -158,24 +158,20 @@ function About() {
         </motion.div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">
-            <div className="about-cnt">
-              <motion.h2
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                className="tiny-font main-color spacing"
-              >
-                ivan smiths
-              </motion.h2>
-              <h3 className="medium-font">
-                Frontend developer highly focused web experiences
-              </h3>
-            </div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              className="about-cnt"
+            >
+              <h2 className="tiny-font main-color spacing">ivan smiths</h2>
+              <h3 className="medium-font">{t("home:about-desc")}</h3>
+            </motion.div>
             <motion.p
               initial="hidden"
               whileInView="visible"
@@ -287,11 +283,9 @@ function About() {
                       visible: { opacity: 1 },
                     }}
                   >
-                    <li>Main role: Frontend developer</li>
-                    <li>Frontend: React (Next.js)</li>
-                    <li>Backend: MongoDB (Mongoose)</li>
-                    <li>UI/UX: Adobe XD</li>
-                    <li>2021/ Current</li>
+                    <li>{t("home:box-list")}</li>
+                    <li>{t("home:box-list-2")}</li>
+                    <li>2021 / {t("home:box-list-3")}</li>
                   </motion.ul>
                   <div className="box-link-cnt">
                     <Link href="/stuff/ideology" passHref>
