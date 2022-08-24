@@ -385,6 +385,7 @@
 .caption-cnt {
   padding-top: var(--marginSection);
   text-transform: uppercase;
+  margin-left: 83px;
   width: 70vw;
 }
 

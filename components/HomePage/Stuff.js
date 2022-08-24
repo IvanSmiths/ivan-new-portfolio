@@ -384,7 +384,7 @@ function About() {
                     <li>
                       {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
                     </li>
-                    <li>2021 / {t("home:box-list-3")}</li>
+                    <li>2020 / 2022</li>
                   </motion.ul>
                   <div className="box-link-cnt ">
                     <Link href="/stuff/ideology" passHref>
@@ -407,7 +407,7 @@ function About() {
               </div>
               <div id="box3" className="box3 box1">
                 <div className="box-image-cnt">
-                  <Link href="/stuff/old-portfolio">
+                  <Link href="/stuff/cg-prospects">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -429,14 +429,14 @@ function About() {
                           loading="lazy"
                           height="750"
                           width="600"
-                          srcSet="/old-portfolio.webp"
+                          srcSet="/cgprospect.webp"
                           type="image/webp"
                         />
                         <motion.img
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
-                          src="/old-portfolio.jpg"
+                          src="/cgprospect.jpg"
                           height="750"
                           width="600"
                         />
@@ -446,10 +446,10 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    02 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
+                    03 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
                     <br />
                   </span>
-                  <Link href="/stuff/old-portfolio" passHref>
+                  <Link href="/stuff/cg-prospects" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -463,7 +463,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Old Portfolio
+                      CG Prospect
                     </motion.a>
                   </Link>
                   <motion.ul
@@ -476,14 +476,17 @@ function About() {
                       visible: { opacity: 1 },
                     }}
                   >
-                    <li>Main role: Frontend developer</li>
-                    <li>Frontend: React (Next.js)</li>
-                    <li>Backend: MongoDB (Mongoose)</li>
-                    <li>UI/UX: Adobe XD</li>
-                    <li>2021/ Current</li>
+                    <li>
+                      {t("home:box-list")}Developer, UI/UX Designer, 3D Modeler
+                    </li>
+                    <li>
+                      {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                      MetaShape
+                    </li>
+                    <li>2021 / {t("home:box-list-3")}</li>
                   </motion.ul>
                   <div className="box-link-cnt">
-                    <Link href="/stuff/old-portfolio" passHref>
+                    <Link href="/stuff/cg-prospects" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
@@ -507,7 +510,7 @@ function About() {
             <div className="box-cnt-2">
               <div id="box2" className="box3-2 box1 ">
                 <div className="box-image-cnt">
-                  <Link href="/stuff/old-portfolio">
+                  <Link href="/stuff/cg-prospects">
                     <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -529,14 +532,14 @@ function About() {
                           loading="lazy"
                           height="750"
                           width="600"
-                          srcSet="/old-portfolio.webp"
+                          srcSet="/cgprospect.webp"
                           type="image/webp"
                         />
                         <motion.img
                           alt="image of a work"
                           loading="lazy"
                           decoding="async"
-                          src="/old-portfolio.jpg"
+                          src="/cgprospect.jpg"
                           height="750"
                           width="600"
                         />
@@ -546,10 +549,10 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    02 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
+                    03 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
                     <br />
                   </span>
-                  <Link href="/stuff/old-portfolio" passHref>
+                  <Link href="/stuff/cg-prospects" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -559,7 +562,7 @@ function About() {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      Old Portfolio
+                      CG Prospect
                     </motion.a>
                   </Link>
                   <motion.ul
@@ -572,14 +575,17 @@ function About() {
                       visible: { opacity: 1 },
                     }}
                   >
-                    <li>Main role: Frontend developer</li>
-                    <li>Frontend: React (Next.js)</li>
-                    <li>Backend: MongoDB (Mongoose)</li>
-                    <li>UI/UX: Adobe XD</li>
-                    <li>2021/ Current</li>
+                    <li>
+                      {t("home:box-list")}Developer, UI/UX Designer, 3D Modeler
+                    </li>
+                    <li>
+                      {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                      MetaShape
+                    </li>
+                    <li>2021 / {t("home:box-list-3")}</li>
                   </motion.ul>
                   <div className="box-link-cnt">
-                    <Link href="/stuff/old-portfolio" passHref>
+                    <Link href="/stuff/cg-prospects" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
