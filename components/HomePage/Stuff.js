@@ -214,6 +214,103 @@ function About() {
             <div id="box" className="box ">
               <div id="box1" className="box1 ">
                 <div className="box-image-cnt">
+                  <Link href="/stuff/scholz-und-volkmer">
+                    <a
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <motion.picture
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { opacity: 0, rotateZ: "11deg" },
+                          visible: { opacity: 1, rotateZ: "11deg" },
+                        }}
+                        className="flex-center"
+                      >
+                        <motion.source
+                          alt="image of a work"
+                          decoding="async"
+                          loading="lazy"
+                          height="750"
+                          width="600"
+                          srcSet="/scholz-und-volkmer-website-1.webp"
+                          type="image/webp"
+                        />
+                        <motion.img
+                          alt="image of a work"
+                          loading="lazy"
+                          decoding="async"
+                          src="/scholz-und-volkmer-website-1.jpg"
+                          height="750"
+                          width="600"
+                        />
+                      </motion.picture>
+                    </a>
+                  </Link>
+                </div>
+                <div className="box-informations-cnt">
+                  <span className="small-font box-subtitle">
+                    01 / <em className="main-color">{t("home:stuff-3")}</em>{" "}
+                    <br />
+                  </span>
+                  <Link href="/stuff/scholz-und-volkmer" passHref>
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                      }}
+                      className="medium-font box-title "
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Scholz & Volkmer
+                    </motion.a>
+                  </Link>
+                  <motion.ul
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                  >
+                    <li>{t("home:box-list")}Frontend developer</li>
+                    <li>
+                      {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
+                      Sass
+                    </li>
+                    <li>2022 / {t("home:box-list-3")}</li>
+                  </motion.ul>
+                  <div className="box-link-cnt">
+                    <Link href="/stuff/scholz-und-volkmer" passHref>
+                      <motion.a
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        variants={{
+                          hidden: { rotateZ: "0deg" },
+                          visible: { rotateZ: "11deg" },
+                        }}
+                        className="btn-small box-link"
+                      >
+                        {t("home:stuff")}
+                      </motion.a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div id="box2" className="box2 box1">
+                <div className="box-image-cnt">
                   <Link href="/stuff/ideology">
                     <a
                       onMouseEnter={handleMouseEnter}
@@ -253,7 +350,7 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    01 / <em className="main-color">{t("home:stuff-3")}</em>{" "}
+                    02 / <em className="main-color">{t("home:stuff-3")}</em>{" "}
                     <br />
                   </span>
                   <Link href="/stuff/ideology" passHref>
@@ -266,7 +363,7 @@ function About() {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 },
                       }}
-                      className="medium-font box-title "
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
@@ -283,108 +380,14 @@ function About() {
                       visible: { opacity: 1 },
                     }}
                   >
-                    <li>{t("home:box-list")}</li>
-                    <li>{t("home:box-list-2")}</li>
+                    <li>{t("home:box-list")}UI/UX Designer</li>
+                    <li>
+                      {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                    </li>
                     <li>2021 / {t("home:box-list-3")}</li>
                   </motion.ul>
-                  <div className="box-link-cnt">
-                    <Link href="/stuff/ideology" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "0deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div id="box2" className="box2 box1">
-                <div className="box-image-cnt">
-                  <Link href="/stuff/cg-prospect">
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0, rotateZ: "11deg" },
-                          visible: { opacity: 1, rotateZ: "11deg" },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          alt="image of a work"
-                          decoding="async"
-                          loading="lazy"
-                          height="750"
-                          width="600"
-                          srcSet="/cgprospect.webp"
-                          type="image/webp"
-                        />
-                        <motion.img
-                          alt="image of a work"
-                          loading="lazy"
-                          decoding="async"
-                          src="/cgprospect.jpg"
-                          height="750"
-                          width="600"
-                        />
-                      </motion.picture>
-                    </a>
-                  </Link>
-                </div>
-                <div className="box-informations-cnt">
-                  <span className="small-font box-subtitle">
-                    02 / <em className="main-color">{t("home:stuff-3")}</em>{" "}
-                    <br />
-                  </span>
-                  <Link href="/stuff/cg-prospect" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
-                      }}
-                      className="medium-font box-title"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      CG Prospect
-                    </motion.a>
-                  </Link>
-                  <motion.ul
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
-                  >
-                    <li>Main role: Frontend developer</li>
-                    <li>Frontend: React (Next.js)</li>
-                    <li>Backend: MongoDB (Mongoose)</li>
-                    <li>UI/UX: Adobe XD</li>
-                    <li>2021/ Current</li>
-                  </motion.ul>
                   <div className="box-link-cnt ">
-                    <Link href="/stuff/cg-prospect" passHref>
+                    <Link href="/stuff/ideology" passHref>
                       <motion.a
                         initial="hidden"
                         whileInView="visible"
