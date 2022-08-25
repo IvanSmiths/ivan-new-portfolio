@@ -454,6 +454,7 @@
   padding-left: var(--marginLayoutLeftFirst2);
   display: flex;
   justify-content: space-between;
+  margin-bottom: var(--marginSection);
 }
 
 .case-studio-header__second-row__first-list {
@@ -498,8 +499,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: var(--marginSection);
-  padding-bottom: 130rem;
+  margin-top: var(--marginElementBig);
 }
 
 .case-studio-description__first-column {
@@ -528,20 +528,17 @@
 }
 .case-studio__screen-image {
   width: 100%;
-  padding: 0 var(--marginLayoutRightFirst2);
+  padding: 0 var(--marginLayoutRightSecond2);
 }
 .case-studio__screen-image img {
   width: 100%;
   height: auto;
 }
 
-.test-column {
-  display: grid;
+.suv__video {
+  background-color: red;
   height: 100vh;
-  gap: 2rem;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-.test-column__col-1 {
-  grid-column: span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

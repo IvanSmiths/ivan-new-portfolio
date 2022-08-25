@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import SuvHeader from "../../components/SUV/SuvHeader";
-import SuvMain from "../../components/SUV/SuvMain";
+import SuvFirstSection from "../../components/SUV/SuvFirstSection";
 
 function ScholzUndVolkmer() {
   return (
@@ -17,7 +17,7 @@ function ScholzUndVolkmer() {
         />
       </Head>
       <SuvHeader />
-      <SuvMain />
+      <SuvFirstSection />
     </>
   );
 }
