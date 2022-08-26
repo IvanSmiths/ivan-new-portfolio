@@ -13,11 +13,13 @@ function SuvFirstSection() {
       },
       {
         scale: 1.5,
+
         duration: 1,
         ease: "none",
         scrollTrigger: {
+          pin: true,
           trigger: element.querySelector("#video"),
-          start: "top top",
+          start: "center center",
           end: "bottom top",
           markers: true,
           ease: "power3",
