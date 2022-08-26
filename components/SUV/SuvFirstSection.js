@@ -12,7 +12,7 @@ function SuvFirstSection() {
         scale: 1,
       },
       {
-        scale: 1.5,
+        scale: 1.55,
 
         duration: 1,
         ease: "none",
@@ -20,7 +20,7 @@ function SuvFirstSection() {
           pin: true,
           trigger: element.querySelector("#video"),
           start: "center center",
-          end: "bottom top",
+          end: "+=1200px top",
           markers: true,
           ease: "power3",
           scrub: true,
@@ -66,6 +66,53 @@ function SuvFirstSection() {
             dal wireframing, il primo passaggio essenziale per dare al progetto
             delle solide basi
           </p>
+        </div>
+      </div>
+      <div className="case-studio__images">
+        <div className="case-studio__screen-image">
+          <SrcImage
+            src={"/scholz-und-volkmer-website-2.jpg"}
+            webp={"/scholz-und-volkmer-website-2.webp"}
+            height={"926px"}
+            width={"1900px"}
+            alt={"image of a website"}
+          />
+        </div>
+        <div className="case-studio__screen-image">
+          <SrcImage
+            src={"/scholz-und-volkmer-website-2.jpg"}
+            webp={"/scholz-und-volkmer-website-2.webp"}
+            height={"926px"}
+            width={"1900px"}
+            alt={"image of a website"}
+          />
+        </div>
+        <div className="case-studio__screen-image">
+          <SrcImage
+            src={"/scholz-und-volkmer-website-2.jpg"}
+            webp={"/scholz-und-volkmer-website-2.webp"}
+            height={"926px"}
+            width={"1900px"}
+            alt={"image of a website"}
+          />
+        </div>
+        <div className="case-studio__screen-image">
+          <SrcImage
+            src={"/scholz-und-volkmer-website-2.jpg"}
+            webp={"/scholz-und-volkmer-website-2.webp"}
+            height={"926px"}
+            width={"1900px"}
+            alt={"image of a website"}
+          />
+        </div>
+        <div className="case-studio__screen-image">
+          <SrcImage
+            src={"/scholz-und-volkmer-website-2.jpg"}
+            webp={"/scholz-und-volkmer-website-2.webp"}
+            height={"926px"}
+            width={"1900px"}
+            alt={"image of a website"}
+          />
         </div>
       </div>
     </>

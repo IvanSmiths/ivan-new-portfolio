@@ -499,7 +499,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: var(--marginElementBig) 0;
+  margin: var(--marginSection) 0;
 }
 
 .case-studio-description__first-column {
@@ -534,8 +534,30 @@
   width: 100%;
   height: auto;
 }
-.test {
-  height: 2300px;
+.suv-video {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.suv-first-section {
+  min-height: 2200px;
+}
+
+.suv-video picture {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.case-studio__images .case-studio__screen-image {
+  margin-bottom: var(--marginElementMedium);
+}
+
+.suv-video img {
+  width: 50%;
+  height: auto;
 }
 
 .suv__video {

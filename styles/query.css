@@ -14,6 +14,7 @@
   .footer-name-cnt em {
     font-size: 21vw;
   }
+
   .canvas {
     padding-right: 20rem;
   }
@@ -38,6 +39,13 @@
 @media screen and (max-width: 1158px) {
   .btn-small-2 {
     padding: 1.6vw 3vw !important;
+  }
+
+  .case-studio__screen-image {
+    padding: 0 10rem;
+  }
+
+  .suv-first-section picture {
   }
 
   .btn-small-3 {
