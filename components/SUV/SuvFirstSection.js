@@ -12,7 +12,7 @@ function SuvFirstSection() {
         scale: 1,
       },
       {
-        scale: 1.55,
+        scale: 1.45,
 
         duration: 1,
         ease: "none",
