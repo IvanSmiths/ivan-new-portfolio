@@ -33,6 +33,12 @@
     --marginLayoutLeftSecond: 230px;
     --marginLayoutLeftSecond2: 310px;
   }
+  .case-studio-description__first-column {
+    padding-left: 100px;
+  }
+  .case-studio-description__second-column p {
+    padding-right: 6.5rem;
+  }
 }
 
 @media screen and (max-width: 1158px) {
@@ -722,6 +728,23 @@
 
   .box-informations-cnt ul {
     margin-bottom: 3rem;
+  }
+  .case-studio-description__first-column {
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-header__second-row__first-list {
+    flex-direction: column;
+    gap: var(--marginElementMedium);
+    width: auto;
+  }
+  .case-studio-description__second-column {
+    width: 100%;
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-description__second-column p {
+    padding-right: var(--marginElementLittle);
   }
 
   .box-link-cnt .btn-small {

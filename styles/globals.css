@@ -141,12 +141,6 @@ em {
     --marginLayoutLeftSecond: 230px;
     --marginLayoutLeftSecond2: 310px;
   }
-  .case-studio-description__first-column {
-    padding-left: 100px;
-  }
-  .case-studio-description__second-column p {
-    padding-right: 6.5rem;
-  }
 }
 
 body,
