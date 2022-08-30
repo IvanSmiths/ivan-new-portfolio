@@ -443,8 +443,9 @@
 }
 
 .case-studio-header__first-row a {
-  margin-right: 420px;
+  margin-right: 271px;
 }
+
 .case-studio-header__first-row h1 {
   margin-top: var(--marginElement);
 }

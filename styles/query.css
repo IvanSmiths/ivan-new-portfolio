@@ -14,7 +14,9 @@
   .footer-name-cnt em {
     font-size: 21vw;
   }
-
+  .case-studio-header__first-row a {
+    margin-right: 116px;
+  }
   .arrow-home {
     padding-left: 0;
     padding-right: 3vw;
@@ -40,9 +42,6 @@
 
   .case-studio__screen-image {
     padding: 0 10rem;
-  }
-
-  .suv-first-section picture {
   }
 
   .btn-small-3 {
@@ -153,6 +152,26 @@
   .footer__icon {
     width: 50%;
     align-self: flex-start;
+  }
+
+  .case-studio-header__first-row {
+    flex-direction: column;
+    padding-left: var(--marginElementLittle);
+    align-items: flex-start;
+  }
+
+  .case-studio-header__second-row {
+    flex-direction: column;
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-header__second-row__image {
+    width: 100%;
+    margin-top: var(--marginElementMedium);
+  }
+
+  .case-studio-header__link {
+    margin-top: var(--marginElementMedium);
   }
 
   .footer__first-col div {

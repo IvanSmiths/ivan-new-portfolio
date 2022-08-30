@@ -60,7 +60,7 @@ function SuvHeader() {
             </h1>
           </div>
           <Link href="/">
-            <a>website</a>
+            <a className="case-studio-header__link">website</a>
           </Link>
         </div>
         <div className="case-studio-header__second-row">
