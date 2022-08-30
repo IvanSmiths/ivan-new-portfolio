@@ -4,6 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { CursorContext } from "./CursorManager";
 import useTranslation from "next-translate/useTranslation";
+import dynamic from "next/dynamic";
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
+  ssr: false,
+});
 
 const Footer = () => {
   const iconWidth = 40;
@@ -104,6 +109,7 @@ const Footer = () => {
               <Link href="/post">
                 <a>{t("common:nav-post")}</a>
               </Link>
+              <ThemeToggle />
             </div>
           </li>
         </ul>

@@ -71,7 +71,6 @@
   align-items: center;
   flex-direction: column;
 }
-
 .home-header-cnt {
   position: relative;
   z-index: 2;
@@ -216,7 +215,10 @@
 
 .homepage-about-p-cnt p {
   width: 50%;
-  color: var(--text-white);
+}
+.box-informations-cnt ul {
+  margin-left: auto;
+  width: 82%;
 }
 
 .homepage-about-link {
@@ -294,6 +296,9 @@
 .canvas-cnt {
   position: relative;
   margin-top: -12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   height: 130vh;
   background-color: var(--color-bg-primary);

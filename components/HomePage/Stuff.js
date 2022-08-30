@@ -169,7 +169,7 @@ function About() {
               }}
               className="about-cnt"
             >
-              <h2 className="tiny-font main-color spacing">ivan smiths</h2>
+              <h2 className="tiny-font spacing">ivan smiths</h2>
               <h3 className="medium-font">{t("home:about-desc")}</h3>
             </motion.div>
             <motion.p
@@ -253,7 +253,7 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    01 / <em className="main-color">{t("home:stuff-3")}</em>{" "}
+                    01 / {t("home:stuff-3")}
                     <br />
                   </span>
                   <Link href="/stuff/scholz-und-volkmer" passHref>
@@ -350,7 +350,7 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    02 / <em className="main-color">{t("home:stuff-3")}</em>{" "}
+                    02 / {t("home:stuff-3")}
                     <br />
                   </span>
                   <Link href="/stuff/ideology" passHref>
@@ -446,7 +446,7 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    03 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
+                    03 / {t("home:stuff-4")}
                     <br />
                   </span>
                   <Link href="/stuff/cg-prospects" passHref>
@@ -549,7 +549,7 @@ function About() {
                 </div>
                 <div className="box-informations-cnt">
                   <span className="small-font box-subtitle">
-                    03 / <em className="main-color">{t("home:stuff-4")}</em>{" "}
+                    03 /{t("home:stuff-4")}
                     <br />
                   </span>
                   <Link href="/stuff/cg-prospects" passHref>

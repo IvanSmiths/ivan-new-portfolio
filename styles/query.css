@@ -15,9 +15,6 @@
     font-size: 21vw;
   }
 
-  .canvas {
-    padding-right: 20rem;
-  }
   .arrow-home {
     padding-left: 0;
     padding-right: 3vw;
@@ -666,10 +663,20 @@
   .lang-cnt {
     display: none !important;
   }
+  .footer__second-col ul {
+    flex-direction: column;
+    margin-top: var(--marginElementMedium);
+  }
+
+  .footer__vertical-links {
+    align-items: center;
+    flex-direction: revert;
+  }
 
   .box-informations-cnt {
     height: 40%;
     padding-bottom: 20rem;
+    padding-right: 30px;
   }
   .marquee-innovation em {
     font-size: var(--extremeFont);
@@ -842,6 +849,7 @@
 
   .caption-cnt {
     width: 90vw;
+    margin-left: 0;
   }
 
   .project-item-container img {
