@@ -35,7 +35,7 @@ function SuvFirstSection() {
     <>
       <div
         ref={refVideo}
-        className="case-studio__screen-image suv-first-section"
+        className="case-studio__screen-image case-studio__screen-video suv-first-section"
       >
         <div id="video">
           <SrcImage

@@ -147,6 +147,14 @@
     line-height: 19vw !important;
   }
 
+  .case-studio__screen-image {
+    padding: 0 5rem;
+  }
+
+  .case-studio__screen-video {
+    padding: 0 10rem;
+  }
+
   .footer {
     flex-direction: column;
   }
@@ -201,7 +209,7 @@
   .case-studio-description__first-column {
     width: 100%;
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 100px;
   }
 
   .case-studio-description__second-column {
@@ -749,6 +757,14 @@
 
   .box-link-cnt .btn-small {
     display: none;
+  }
+
+  .case-studio__screen-image {
+    padding: 0 1rem;
+  }
+
+  .case-studio__screen-video {
+    padding: 0 5rem;
   }
 
   .blog-posts-cnt {
