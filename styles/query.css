@@ -172,13 +172,13 @@
   }
 
   .case-studio-header__second-row {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding-left: var(--marginElementLittle);
   }
 
   .case-studio-header__second-row__image {
     width: 100%;
-    margin-top: var(--marginElementMedium);
+    margin-bottom: var(--marginElementMedium);
   }
 
   .case-studio-header__link {
