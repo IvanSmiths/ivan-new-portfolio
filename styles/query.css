@@ -737,6 +737,7 @@
   .box-informations-cnt ul {
     margin-bottom: 3rem;
   }
+
   .case-studio-description__first-column {
     padding-left: var(--marginElementLittle);
   }
@@ -746,6 +747,7 @@
     gap: var(--marginElementMedium);
     width: auto;
   }
+
   .case-studio-description__second-column {
     width: 100%;
     padding-left: var(--marginElementLittle);
