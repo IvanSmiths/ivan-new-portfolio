@@ -192,7 +192,7 @@ function About() {
         </div>
         <Link href="/about" passHref>
           <motion.a
-            className="btn-small btn-4 btn-small-3 medium-font homepage-about-link"
+            className="btn-small btn-4 medium-font homepage-about-link  btn-5"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

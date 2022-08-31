@@ -50,9 +50,6 @@
     padding: 0 10rem;
   }
 
-  .btn-small-3 {
-    padding: 11vw 1vw !important;
-  }
   .btn-email {
     padding: 8.6rem 3.5rem !important;
   }
@@ -258,6 +255,10 @@
     gap: 1rem;
   }
 
+  .footer__first-row {
+    flex-direction: column;
+  }
+
   .title-link {
     margin-right: 2rem;
   }
@@ -268,6 +269,25 @@
     justify-content: center;
     margin-top: 0;
     align-items: center;
+  }
+
+  .footer__name img {
+    display: none;
+  }
+  .footer__form-name-object {
+    gap: var(--marginElement);
+  }
+
+  .footer__form-name-object div {
+    width: 100%;
+  }
+
+  .footer__form input {
+    width: 100%;
+  }
+
+  .footer__label {
+    margin-top: var(--marginElement);
   }
 
   .about-main-works-cnt p {
@@ -380,7 +400,9 @@
   .links-socials-cnt {
     width: 100%;
   }
-
+  .btn-4 {
+    padding: 8vw 1vw !important;
+  }
   .burger-menu-links-cnt {
     gap: 1rem;
     width: 100%;
@@ -446,7 +468,7 @@
   }
 
   .box-image-cnt {
-    width: 50%;
+    width: 30%;
   }
   .box-subtitle {
     margin-bottom: 1rem;
@@ -527,7 +549,7 @@
 
   .homepage-about-link {
     padding-left: 39%;
-    bottom: -48%;
+    bottom: -28%;
   }
 
   .homepage-about-img-cnt img {
@@ -930,6 +952,9 @@
     z-index: 99999;
   }
 
+  .btn-4 {
+    padding: 12vw 1vw !important;
+  }
   .nav-dropdown-cnt {
     display: none;
   }

@@ -304,10 +304,6 @@ li {
   transition: background-size 0.4s, transform 0.4s, border 0.4s;
 }
 
-.btn-4 {
-  padding: 6vw 1vw !important;
-}
-
 .btn-icon {
   padding: 1.4rem 1.4rem;
 }
@@ -376,6 +372,9 @@ b {
   position: fixed;
   transform: translateY(-100%);
   background-color: var(--main-color);
+}
+.btn-4 {
+  padding: 5vw 1vw;
 }
 
 .page-change-col-1 {

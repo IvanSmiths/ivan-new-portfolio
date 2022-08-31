@@ -126,7 +126,9 @@ const Footer = () => {
                   <input type="text" id="object" />
                 </div>
               </div>
-              <label htmlFor="message">message</label>
+              <label className="footer__label" htmlFor="message">
+                message
+              </label>
               <textarea
                 name="message"
                 id="message"
