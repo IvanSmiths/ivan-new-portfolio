@@ -443,7 +443,7 @@
 }
 
 .case-studio-header__first-row a {
-  margin-right: 271px;
+  margin-right: 247px;
 }
 
 .case-studio-header__first-row h1 {
@@ -505,7 +505,7 @@
 
 .case-studio-description__first-column {
   width: 50%;
-  padding-right: 9rem;
+  padding-right: 4rem;
   padding-left: var(--marginLayoutLeftSecond2);
 }
 

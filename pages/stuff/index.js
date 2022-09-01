@@ -99,6 +99,106 @@ const Index = () => {
           <div id="box" className="box ">
             <div id="box1" className="box1 ">
               <div className="box-image-cnt">
+                <Link href="/stuff/scholz-und-volkmer">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <motion.picture
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { opacity: 0, rotateZ: "11deg" },
+                        visible: { opacity: 1, rotateZ: "11deg" },
+                      }}
+                      className="flex-center"
+                    >
+                      <motion.source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/scholz-und-volkmer-website-1.webp"
+                        type="image/webp"
+                      />
+                      <motion.img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/scholz-und-volkmer-website-1.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </motion.picture>
+                  </a>
+                </Link>
+              </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  01 / {t("stuff:stuff-3")}
+                  <br />
+                </span>
+                <Link href="/stuff/scholz-und-volkmer" passHref>
+                  <motion.a
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    className="medium-font box-title "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    Scholz & Volkmer
+                  </motion.a>
+                </Link>
+                <motion.ul
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                >
+                  <li>
+                    {t("stuff:box-list")}
+                    {t("stuff:box-list-dev")}
+                  </li>
+                  <li>
+                    {t("stuff:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
+                    Sass
+                  </li>
+                  <li>2022 / {t("stuff:box-list-3")}</li>
+                </motion.ul>
+                <div className="box-link-cnt">
+                  <Link href="/stuff/scholz-und-volkmer" passHref>
+                    <motion.a
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7 }}
+                      variants={{
+                        hidden: { rotateZ: "0deg" },
+                        visible: { rotateZ: "11deg" },
+                      }}
+                      className="btn-small box-link"
+                    >
+                      {t("stuff:stuff")}
+                    </motion.a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div id="box2" className="box2 box1">
+              <div className="box-image-cnt">
                 <Link href="/stuff/ideology">
                   <a
                     onMouseEnter={handleMouseEnter}
@@ -138,7 +238,7 @@ const Index = () => {
               </div>
               <div className="box-informations-cnt">
                 <span className="small-font box-subtitle">
-                  01 / <em className="main-color">{t("stuff:stuff-3")}</em>{" "}
+                  02 / {t("stuff:stuff-3")}
                   <br />
                 </span>
                 <Link href="/stuff/ideology" passHref>
@@ -151,7 +251,7 @@ const Index = () => {
                       hidden: { opacity: 0 },
                       visible: { opacity: 1 },
                     }}
-                    className="medium-font box-title "
+                    className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -168,13 +268,13 @@ const Index = () => {
                     visible: { opacity: 1 },
                   }}
                 >
-                  <li>Main role: Frontend developer</li>
-                  <li>Frontend: React (Next.js)</li>
-                  <li>Backend: MongoDB (Mongoose)</li>
-                  <li>UI/UX: Adobe XD</li>
-                  <li>2021/ Current</li>
+                  <li>{t("stuff:box-list")}UI/UX Designer</li>
+                  <li>
+                    {t("stuff:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                  </li>
+                  <li>2020 / 2022</li>
                 </motion.ul>
-                <div className="box-link-cnt">
+                <div className="box-link-cnt ">
                   <Link href="/stuff/ideology" passHref>
                     <motion.a
                       initial="hidden"
@@ -193,9 +293,9 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div id="box2" className="box2 box1">
+            <div id="box3" className="box3 box1">
               <div className="box-image-cnt">
-                <Link href="/stuff/cg-prospect">
+                <Link href="/stuff/cg-prospects">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -234,10 +334,10 @@ const Index = () => {
               </div>
               <div className="box-informations-cnt">
                 <span className="small-font box-subtitle">
-                  02 / <em className="main-color">{t("stuff:stuff-3")}</em>{" "}
+                  03 / {t("stuff:stuff-4")}
                   <br />
                 </span>
-                <Link href="/stuff/cg-prospect" passHref>
+                <Link href="/stuff/cg-prospects" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
@@ -264,110 +364,19 @@ const Index = () => {
                     visible: { opacity: 1 },
                   }}
                 >
-                  <li>Main role: Frontend developer</li>
-                  <li>Frontend: React (Next.js)</li>
-                  <li>Backend: MongoDB (Mongoose)</li>
-                  <li>UI/UX: Adobe XD</li>
-                  <li>2021/ Current</li>
-                </motion.ul>
-                <div className="box-link-cnt ">
-                  <Link href="/stuff/cg-prospect" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { rotateZ: "0deg" },
-                        visible: { rotateZ: "11deg" },
-                      }}
-                      className="btn-small box-link"
-                    >
-                      {t("stuff:stuff")}
-                    </motion.a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div id="box3" className="box3 box1">
-              <div className="box-image-cnt">
-                <Link href="/stuff/old-portfolio">
-                  <a
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <motion.picture
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0, rotateZ: "11deg" },
-                        visible: { opacity: 1, rotateZ: "11deg" },
-                      }}
-                      className="flex-center"
-                    >
-                      <motion.source
-                        alt="image of a work"
-                        decoding="async"
-                        loading="lazy"
-                        height="750"
-                        width="600"
-                        srcSet="/old-portfolio.webp"
-                        type="image/webp"
-                      />
-                      <motion.img
-                        alt="image of a work"
-                        loading="lazy"
-                        decoding="async"
-                        src="/old-portfolio.jpg"
-                        height="750"
-                        width="600"
-                      />
-                    </motion.picture>
-                  </a>
-                </Link>
-              </div>
-              <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  02 / <em className="main-color">{t("stuff:stuff-4")}</em>{" "}
-                  <br />
-                </span>
-                <Link href="/stuff/old-portfolio" passHref>
-                  <motion.a
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Old Portfolio
-                  </motion.a>
-                </Link>
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
-                >
-                  <li>Main role: Frontend developer</li>
-                  <li>Frontend: React (Next.js)</li>
-                  <li>Backend: MongoDB (Mongoose)</li>
-                  <li>UI/UX: Adobe XD</li>
-                  <li>2021/ Current</li>
+                  <li>
+                    {t("stuff:box-list")}
+                    {t("stuff:box-list-dev-2")}, UI/UX Designer,{" "}
+                    {t("stuff:box-list-mod")}
+                  </li>
+                  <li>
+                    {t("stuff:box-list-2")}React (Next.js), MongoDB, CSS,
+                    MetaShape
+                  </li>
+                  <li>2021 / {t("stuff:box-list-3")}</li>
                 </motion.ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/old-portfolio" passHref>
+                  <Link href="/stuff/cg-prospects" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -391,7 +400,7 @@ const Index = () => {
           <div className="box-cnt-2">
             <div id="box2" className="box3-2 box1 ">
               <div className="box-image-cnt">
-                <Link href="/stuff/old-portfolio">
+                <Link href="/stuff/cg-prospects">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -413,14 +422,14 @@ const Index = () => {
                         loading="lazy"
                         height="750"
                         width="600"
-                        srcSet="/old-portfolio.webp"
+                        srcSet="/cgprospect.webp"
                         type="image/webp"
                       />
                       <motion.img
                         alt="image of a work"
                         loading="lazy"
                         decoding="async"
-                        src="/old-portfolio.jpg"
+                        src="/cgprospect.jpg"
                         height="750"
                         width="600"
                       />
@@ -430,10 +439,10 @@ const Index = () => {
               </div>
               <div className="box-informations-cnt">
                 <span className="small-font box-subtitle">
-                  02 / <em className="main-color">{t("stuff:stuff-4")}</em>{" "}
+                  03 /{t("stuff:stuff-4")}
                   <br />
                 </span>
-                <Link href="/stuff/old-portfolio" passHref>
+                <Link href="/stuff/cg-prospects" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
@@ -443,7 +452,7 @@ const Index = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    Old Portfolio
+                    CG Prospect
                   </motion.a>
                 </Link>
                 <motion.ul
@@ -456,14 +465,19 @@ const Index = () => {
                     visible: { opacity: 1 },
                   }}
                 >
-                  <li>Main role: Frontend developer</li>
-                  <li>Frontend: React (Next.js)</li>
-                  <li>Backend: MongoDB (Mongoose)</li>
-                  <li>UI/UX: Adobe XD</li>
-                  <li>2021/ Current</li>
+                  <li>
+                    {t("stuff:box-list")}
+                    {t("stuff:box-list-dev-2")}, UI/UX Designer,{" "}
+                    {t("stuff:box-list-mod")}
+                  </li>
+                  <li>
+                    {t("stuff:box-list-2")}React (Next.js), MongoDB, CSS,
+                    MetaShape
+                  </li>
+                  <li>2021 / {t("stuff:box-list-3")}</li>
                 </motion.ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/old-portfolio" passHref>
+                  <Link href="/stuff/cg-prospects" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -493,11 +507,10 @@ const Index = () => {
             }}
             className="caption-cnt impact large-font"
           >
-            {t("stuff:home-caption")}
+            {t("stuff:stuff-caption")}
           </motion.h3>
         </div>
       </section>
-      <Footer />
     </>
   );
 };

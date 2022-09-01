@@ -16,11 +16,16 @@
   "let-us-talk": "parliamo",
   "based": "campo base a Ragusa.",
   "go-up": "vai su.",
+  "about-2": "Sviluppatore Frontend fortemente focalizzato sulla progettazione UI/UX e sulle esperienze visive, da 3 anni professionalmente nel settore.",
   "close": "chiudi",
   "name": "Nome",
   "object": "Oggetto",
   "message": "Messaggio",
   "contact-hi": "Ciao straniero/a!",
   "contact-info": "Hai un progetto in mente, o vuoi solo dire ciao? Sentiti libero/a di contattarmi per qualsiasi motivo.",
-  "send": "Invia"
+  "send": "Invia",
+  "form-name": "Nome ",
+  "form-object": "Oggetto ",
+  "form-message": "Messaggio ",
+  "form-send": "Invia "
 }

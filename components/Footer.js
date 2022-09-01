@@ -39,7 +39,7 @@ const Footer = () => {
                 href="https://github.com/IvanSmiths"
               >
                 <img
-                  src="./github-icon.svg"
+                  src="/github-icon.svg"
                   alt="github icon"
                   height="25px"
                   width="25px"
@@ -53,7 +53,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/ivan-fabbri/"
               >
                 <img
-                  src="./linkedin-icon.svg"
+                  src="/linkedin-icon.svg"
                   alt="linkedin icon"
                   height="25px"
                   width="25px"
@@ -67,7 +67,7 @@ const Footer = () => {
                 href="https://www.instagram.com/ivan_smiths/"
               >
                 <img
-                  src="./instagram-icon.svg"
+                  src="/instagram-icon.svg"
                   alt="instagram icon"
                   height="25px"
                   width="25px"
@@ -79,10 +79,7 @@ const Footer = () => {
             <a href="mailto:ivansmiths.com" className="medium-font">
               info@ivansmiths.com
             </a>
-            <p className="color-sec">
-              Frontend developer, with a particular attention to design and
-              visual experiences.
-            </p>
+            <p className="color-sec">{t("common:about-2")}</p>
             <span className="color-sec">© 2022 Ivan Smiths</span>
           </div>
         </div>
@@ -121,16 +118,16 @@ const Footer = () => {
             <form className="footer__form" action="">
               <div className="footer__form-name-object">
                 <div>
-                  <label htmlFor="name">name</label>
+                  <label htmlFor="name">{t("common:form-name")}</label>
                   <input type="text" id="name" />
                 </div>
                 <div>
-                  <label htmlFor="object">object</label>
+                  <label htmlFor="object">{t("common:form-object")}</label>
                   <input type="text" id="object" />
                 </div>
               </div>
               <label className="footer__label" htmlFor="message">
-                message
+                {t("common:form-message")}
               </label>
               <textarea
                 name="message"
@@ -139,14 +136,14 @@ const Footer = () => {
                 rows="10"
               ></textarea>
               <button type="submit" className="button">
-                Send
+                {t("common:form-send")}
               </button>
             </form>
           </div>
         </div>
       </div>
       <div className="footer__name">
-        <img src="ivan-smiths.svg" alt="" />
+        <img src="/ivan-smiths.svg" alt="" />
       </div>
     </footer>
   );

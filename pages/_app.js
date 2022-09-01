@@ -101,6 +101,7 @@ function MyApp({ Component, pageProps }) {
         <ScrollTop />
         <Contact />
         <Component {...pageProps} />
+        <Footer />
       </CursorManager>
     </>
   );

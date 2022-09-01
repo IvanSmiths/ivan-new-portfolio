@@ -3,5 +3,11 @@
   "stuff-2": "Tutti i lavori",
   "stuff-3": "Lavoro",
   "stuff-4": "Lavoro personale",
-  "home-caption": "Ti senti bloccato? Troviamo una soluzione insieme."
+  "box-list": "Ruolo primario: ",
+  "box-list-dev": "Sviluppatore frontend",
+  "box-list-dev-2": "Sviluppatore frontend/backend",
+  "box-list-mod": "Modellatore 3d",
+  "box-list-2": "Tecnologie: ",
+  "box-list-3": "In corso",
+  "stuff-caption": "Ti senti bloccato? Troviamo una soluzione insieme."
 }
