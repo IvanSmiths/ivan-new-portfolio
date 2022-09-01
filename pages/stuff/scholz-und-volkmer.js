@@ -13,7 +13,33 @@ function ScholzUndVolkmer() {
         <title>Ivan Smiths | Scholz & Volkmer case studio</title>
         <meta
           name="description"
-          content="Scholz & Volkmer case studio. Two years of experience as UI/UX Designer and frontend developer"
+          content="Ivan Smiths | Scholz & Volkmer case studio. Frontend developer using Vue.js with Nuxt.js"
+        />
+        <meta
+          property="og:description"
+          content="Scholz & Volkmer case studio. Frontend developer using Vue.js with Nuxt.js"
+        />
+        <meta
+          property="og:image"
+          content="https://www.ivansmiths.com/scholz-und-volkmer-meta.jpg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@IvanSmiths" />
+        <meta
+          name="twitter:title"
+          content="Ivan Smiths | Scholz&Volkmer case studio"
+        />
+        <meta
+          name="twitter:description"
+          content="Scholz & Volkmer case studio. Frontend developer using Vue.js with Nuxt.js"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.ivansmiths.com/scholz-und-volkmer-meta.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="preview of Scholz & Volkmer case studio"
         />
       </Head>
       <SuvHeader />

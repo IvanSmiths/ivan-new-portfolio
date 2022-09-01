@@ -67,13 +67,13 @@ function SuvHeader() {
           <div>
             <div className="case-studio-header__second-row__first-list">
               <ul>
-                <li className="bold">Tech:</li>
-                <li>{t("suv:tech")}: Vue.js (Nuxt.js)</li>
-                <li>{t("suv:animation")}: Gsap</li>
-                <li>{t("suv:style")}: Scss/Sass</li>
+                <li className="bold">{t("suv:tech")}</li>
+                <li>{t("suv:frontend")} Vue.js (Nuxt.js)</li>
+                <li>{t("suv:animation")} Gsap</li>
+                <li>{t("suv:style")} Scss/Sass</li>
               </ul>
               <ul>
-                <li className="bold">{t("suv:date")}:</li>
+                <li className="bold">{t("suv:date")}</li>
                 <li>12/03/2022</li>
                 <li>{t("suv:current")}</li>
               </ul>
@@ -81,8 +81,34 @@ function SuvHeader() {
             <div className="case-studio-header__second-row__first-list second-row__second-list">
               <ul>
                 <li className="bold">Clients:</li>
-                <li>Adidas</li>
-                <li>WFM</li>
+
+                <li>
+                  <a
+                    href="https://www.adidas-group.com/en/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Adidas
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://perfection.wmf.com/de/perfection/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    WMF
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://db-engineering-consulting.com/en/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Deutsche Bahn
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

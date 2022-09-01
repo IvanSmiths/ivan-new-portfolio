@@ -8,7 +8,6 @@
   "year": "Anno",
   "stack": "Tech",
   "web": "Sito",
-  "clients": "Clienti felici",
   "hours": "Ore di lavoro",
   "parties": "Feste fatte",
   "work-hard": "Lavora sodo.",
@@ -33,5 +32,16 @@
   "videomaker": "VIDEOMAKER",
   "illustrations": "ILLUSTRAZIONI",
   "photos": "FOTO",
-  "next-up": "a seguire"
+  "next-up": "a seguire",
+  "header": "Frontend developer: ",
+  "tech": "Tech: ",
+  "frontend": "Frontend: ",
+  "animation": "Animation: ",
+  "style": "Style: ",
+  "date": "Date: ",
+  "current": "Current",
+  "clients": "Clients: ",
+  "case-studio-1-header": "CONCEPTING",
+  "case-studio-1-headline": "A blend of UI and product engineering.",
+  "case-studio-1-paragraph": "First concept, then design è il motto dell azienda. Ogni sito web partiva dal wireframing, il primo passaggio essenziale per dare al progetto delle solide basi. Ho usato Adobe XD per il wireframing, o durante un momento di ispirazione, usavo carta e penna. First concept, then design è il motto dell azienda. Ogni sito web partiva dal wireframing, il primo passaggio essenziale per dare al progetto delle solide basi"
 }

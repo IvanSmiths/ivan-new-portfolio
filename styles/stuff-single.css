@@ -450,6 +450,13 @@
   margin-top: var(--marginElement);
 }
 
+.case-studio__caption {
+  padding-bottom: var(--marginSection);
+  text-transform: uppercase;
+  margin-left: 83px;
+  width: 70vw;
+}
+
 .case-studio__video video {
   width: 100%;
 }
