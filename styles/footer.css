@@ -22,6 +22,16 @@
   gap: 30px;
 }
 
+.lang-cnt {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__utils {
+  display: flex;
+  gap: 30px;
+}
+
 .footer__second-col {
   width: 50%;
 }
@@ -44,12 +54,6 @@
 .footer__first-col p {
   padding-left: 15vw;
   margin: var(--marginElement) 0;
-}
-
-.footer__second-col ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4.4rem;
 }
 
 .footer__form-name-object {

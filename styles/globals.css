@@ -430,30 +430,6 @@ b {
 /* SCROLL PERCENTAGE */
 
 .lang-cnt {
-  z-index: 99;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.6rem;
-  position: fixed;
-  top: 45%;
-  right: 20px;
-}
-
-.lang-cnt2 {
-  z-index: 99;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  gap: 0.6rem;
-  color: var(--color-text-inverse);
-}
-
-.lang-cnt2 a {
-  color: var(--color-black);
 }
 
 /* MOUSE FOLLOWER */

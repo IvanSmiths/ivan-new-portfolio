@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CursorContext } from "./CursorManager";
 import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
+import LanguageChange from "../utils/LanguageChange";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
   ssr: false,
@@ -112,7 +113,10 @@ const Footer = () => {
             <li>
             </li>
           </ul> */}
-          <ThemeToggle />
+          <div className="footer__utils">
+            <ThemeToggle />
+            <LanguageChange />
+          </div>
           <div className="footer__second-col-form">
             <form className="footer__form" action="">
               <div className="footer__form-name-object">
