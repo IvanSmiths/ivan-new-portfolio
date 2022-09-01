@@ -53,7 +53,7 @@ function SuvHeader() {
         <div className="case-studio-header__first-row">
           <div>
             <span className="small-font ">
-              Frontend Developer: Vue.js (Nuxt.js)
+              {t("suv:header")}: Vue.js (Nuxt.js)
             </span>
             <h1 className="big-font impact">
               Scholz & Volkmer <br />
@@ -68,14 +68,14 @@ function SuvHeader() {
             <div className="case-studio-header__second-row__first-list">
               <ul>
                 <li className="bold">Tech:</li>
-                <li>Frontend: Vue.js (Nuxt.js)</li>
-                <li>Animation: Gsap</li>
-                <li>Style: Scss/Sass</li>
+                <li>{t("suv:tech")}: Vue.js (Nuxt.js)</li>
+                <li>{t("suv:animation")}: Gsap</li>
+                <li>{t("suv:style")}: Scss/Sass</li>
               </ul>
               <ul>
-                <li className="bold">Date:</li>
+                <li className="bold">{t("suv:date")}:</li>
                 <li>12/03/2022</li>
-                <li>Current</li>
+                <li>{t("suv:current")}</li>
               </ul>
             </div>
             <div className="case-studio-header__second-row__first-list second-row__second-list">

@@ -450,6 +450,10 @@
   margin-top: var(--marginElement);
 }
 
+.case-studio__video video {
+  width: 100%;
+}
+
 .case-studio-header__second-row {
   margin-top: var(--marginElementBig);
   padding-left: var(--marginLayoutLeftFirst2);
