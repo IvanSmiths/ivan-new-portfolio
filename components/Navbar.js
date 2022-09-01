@@ -6,6 +6,11 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { motion, useAnimation } from "framer-motion";
 import { CursorContext } from "./CursorManager";
+import dynamic from "next/dynamic";
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
+  ssr: false,
+});
 
 const path01Variants = {
   open: { d: "M3.06061 2.99999L21.0606 21" },
@@ -96,9 +101,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/stuff">
-                <a>tools</a>
-              </Link>
+              <ThemeToggle />
             </li>
           </ul>
         </nav>

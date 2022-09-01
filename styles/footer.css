@@ -19,7 +19,7 @@
   margin-top: -0.25rem;
   display: flex;
   align-self: flex-end;
-  gap: var(--marginElement);
+  gap: 30px;
 }
 
 .footer__second-col {
@@ -67,6 +67,21 @@
   gap: var(--marginElement);
 }
 
+.footer__name #IVAN_SMITHS {
+  fill: red !important;
+}
+.button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-right: auto;
+  margin-top: var(--marginElement);
+}
+
 #Tracciato_5,
 #Tracciato_2,
 #Tracciato_3,
@@ -99,7 +114,6 @@
 
 .footer__form input,
 .footer__form textarea {
-  padding-top: var(--marginElement);
   margin-top: 5px;
   color: var(--color-text-primary);
 }

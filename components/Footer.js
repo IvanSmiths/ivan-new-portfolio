@@ -86,8 +86,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer__second-col">
-          <ul>
-            <li>{t("common:nav-home")}</li>
+          {/* <ul>
+            <li>
+              <Link href="/">
+                <a>{t("common:nav-home")}</a>
+              </Link>
+            </li>
             <li>
               <div className="footer__vertical-links">
                 <Link href="/about">
@@ -106,14 +110,9 @@ const Footer = () => {
               </div>
             </li>
             <li>
-              <div className="footer__vertical-links">
-                <Link href="/post">
-                  <a>{t("common:nav-post")}</a>
-                </Link>
-                <ThemeToggle />
-              </div>
             </li>
-          </ul>
+          </ul> */}
+          <ThemeToggle />
           <div className="footer__second-col-form">
             <form className="footer__form" action="">
               <div className="footer__form-name-object">
@@ -135,7 +134,7 @@ const Footer = () => {
                 cols="30"
                 rows="10"
               ></textarea>
-              <button type="submit" className="">
+              <button type="submit" className="button">
                 Send
               </button>
             </form>

@@ -2,9 +2,6 @@
   .footer__first-col {
     padding-right: 7vw;
   }
-  .footer {
-    padding-top: 150px;
-  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -38,6 +35,10 @@
   }
   .case-studio-description__second-column p {
     padding-right: 6.5rem;
+  }
+
+  .footer {
+    padding-top: 150px;
   }
 }
 
