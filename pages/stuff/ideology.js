@@ -222,7 +222,7 @@ const Ideology = () => {
       >
         <div className="case-studio__video" id="video">
           <video muted autoPlay loop>
-            <source src="/wmf.webm" type="video/mp4" />
+            <source src="/ideology.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
