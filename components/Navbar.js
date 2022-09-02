@@ -80,24 +80,45 @@ function Navbar() {
           <ul className="navbar-desktop__first-list">
             <li>
               <Link href="/">
-                <a> {t("common:nav-home")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {" "}
+                  {t("common:nav-home")}
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/stuff">
-                <a>{t("common:nav-stuff")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {t("common:nav-stuff")}
+                </a>
               </Link>
             </li>
           </ul>
           <ul className="navbar-desktop__second-list">
             <li>
               <Link href="/about">
-                <a>{t("common:nav-about")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {t("common:nav-about")}
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/post">
-                <a>{t("common:nav-post")}</a>
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {t("common:nav-post")}
+                </a>
               </Link>
             </li>
             <li>

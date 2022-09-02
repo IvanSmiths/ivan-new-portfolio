@@ -53,14 +53,20 @@ function SuvHeader() {
         <div className="case-studio-header__first-row">
           <div>
             <span className="small-font ">
-              {t("suv:header")}: Vue.js (Nuxt.js)
+              {t("suv:header")} Vue.js (Nuxt.js)
             </span>
             <h1 className="big-font impact">
               Scholz & Volkmer <br />
             </h1>
           </div>
           <Link href="/">
-            <a className="case-studio-header__link btn-small">website</a>
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="case-studio-header__link btn-small"
+            >
+              website
+            </a>
           </Link>
         </div>
         <div className="case-studio-header__second-row">

@@ -295,6 +295,8 @@ function About() {
                   <Link href="/stuff/scholz-und-volkmer" passHref>
                     <motion.a
                       initial="hidden"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
@@ -390,6 +392,8 @@ function About() {
                 <div className="box-link-cnt ">
                   <Link href="/stuff/ideology" passHref>
                     <motion.a
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
@@ -491,6 +495,8 @@ function About() {
                 <div className="box-link-cnt">
                   <Link href="/stuff/cg-prospects" passHref>
                     <motion.a
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
@@ -552,7 +558,7 @@ function About() {
               </div>
               <div className="box-informations-cnt">
                 <span className="small-font box-subtitle">
-                  03 /{t("home:stuff-4")}
+                  03 / {t("home:stuff-4")}
                   <br />
                 </span>
                 <Link href="/stuff/cg-prospects" passHref>

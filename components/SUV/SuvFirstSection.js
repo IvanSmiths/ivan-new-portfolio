@@ -23,7 +23,6 @@ function SuvFirstSection() {
           trigger: element.querySelector("#video"),
           start: "center center",
           end: "+=1200px top",
-          markers: true,
           ease: "power3",
           scrub: true,
         },

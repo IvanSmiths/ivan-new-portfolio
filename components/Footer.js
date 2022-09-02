@@ -34,6 +34,8 @@ const Footer = () => {
           <ul className="footer__icon">
             <li>
               <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://github.com/IvanSmiths"
@@ -48,6 +50,8 @@ const Footer = () => {
             </li>
             <li>
               <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/ivan-fabbri/"
@@ -62,6 +66,8 @@ const Footer = () => {
             </li>
             <li>
               <a
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.instagram.com/ivan_smiths/"
@@ -76,7 +82,12 @@ const Footer = () => {
             </li>
           </ul>
           <div>
-            <a href="mailto:ivansmiths.com" className="medium-font">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              href="mailto:ivansmiths.com"
+              className="medium-font"
+            >
               info@ivansmiths.com
             </a>
             <p className="color-sec">{t("common:about-2")}</p>
@@ -111,19 +122,28 @@ const Footer = () => {
             </li>
           </ul> */}
           <div className="footer__utils">
-            <ThemeToggle />
             <LanguageChange />
           </div>
           <div className="footer__second-col-form">
-            <form className="footer__form" action="">
+            <form
+              className="footer__form"
+              action="https://formsubmit.co/info@ivansmiths.com"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_next"
+                value="https://www.ivansmiths.com/"
+              />
+              <input type="hidden" name="_subject" value="IvanSmiths | Info" />
               <div className="footer__form-name-object">
                 <div>
                   <label htmlFor="name">{t("common:form-name")}</label>
-                  <input type="text" id="name" />
+                  <input type="text" id="name" required />
                 </div>
                 <div>
                   <label htmlFor="object">{t("common:form-object")}</label>
-                  <input type="text" id="object" />
+                  <input type="text" id="object" required />
                 </div>
               </div>
               <label className="footer__label" htmlFor="message">
@@ -134,8 +154,14 @@ const Footer = () => {
                 id="message"
                 cols="30"
                 rows="10"
+                minLength="10"
               ></textarea>
-              <button type="submit" className="button">
+              <button
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                type="submit"
+                className="button"
+              >
                 {t("common:form-send")}
               </button>
             </form>

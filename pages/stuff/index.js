@@ -11,12 +11,12 @@ import Footer from "../../components/Footer";
 const Index = () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const ref = useRef(null);
+  const refStuff = useRef(null);
 
   useEffect(() => {
-    const element = ref.current;
+    const element = refStuff.current;
     gsap.fromTo(
-      element.querySelector("#box"),
+      element.querySelector("#boxStuff"),
       {
         x: 0,
         opacity: 1,
@@ -26,7 +26,7 @@ const Index = () => {
         opacity: 1,
         duration: 1,
         scrollTrigger: {
-          trigger: element.querySelector("#box"),
+          trigger: element.querySelector("#boxStuff"),
           start: "top top",
           end: "bottom top",
           ease: "power3",
@@ -94,9 +94,9 @@ const Index = () => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </Head>
-      <section ref={ref}>
+      <section ref={refStuff}>
         <div className="box-cnt" id="box-cnt">
-          <div id="box" className="box ">
+          <div id="boxStuff" className="box ">
             <div id="box1" className="box1 ">
               <div className="box-image-cnt">
                 <Link href="/stuff/scholz-und-volkmer">
@@ -439,7 +439,7 @@ const Index = () => {
               </div>
               <div className="box-informations-cnt">
                 <span className="small-font box-subtitle">
-                  03 /{t("stuff:stuff-4")}
+                  03 / {t("stuff:stuff-4")}
                   <br />
                 </span>
                 <Link href="/stuff/cg-prospects" passHref>
