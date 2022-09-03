@@ -71,8 +71,9 @@
   gap: var(--marginElement);
 }
 
-.footer__name #IVAN_SMITHS {
-  fill: red !important;
+.footer__name img {
+  height: 100%;
+  width: 100%;
 }
 .button {
   background: none;

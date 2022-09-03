@@ -169,7 +169,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__name">
-        <img src="/ivan-smiths.svg" alt="" />
+        <img height="20px" width="2px" src="/ivan-smiths.svg" alt="name" />
       </div>
     </footer>
   );

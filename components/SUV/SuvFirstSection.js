@@ -77,11 +77,23 @@ function SuvFirstSection() {
       >
         <div className="case-studio__video" id="video">
           {isDesktop ? (
-            <video muted autoPlay loop>
+            <video
+              preload="none"
+              poster="scholz-und-volkmer-website-2.jpg"
+              muted
+              autoPlay
+              loop
+            >
               <source src="/suv.mp4" type="video/mp4" />
             </video>
           ) : (
-            <video muted autoPlay loop>
+            <video
+              preload="none"
+              poster="scholz-und-volkmer-website-1.jpg"
+              muted
+              autoPlay
+              loop
+            >
               <source src="/suv-mobile.mp4" type="video/mp4" />
             </video>
           )}
