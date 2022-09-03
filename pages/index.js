@@ -7,7 +7,6 @@ import Head from "next/head";
 import Marquee from "../components/HomePage/Marquee-innovation";
 import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
-import Footer from "../components/Footer";
 
 const Home = () => {
   const Canvas = dynamic(() => import("../components/HomePage/Canvas"), {
@@ -91,7 +90,6 @@ const Home = () => {
             <Marquee />
           </div>
           <Stuff />
-          <Footer />
         </>
       )}
     </>

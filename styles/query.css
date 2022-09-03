@@ -1,13 +1,44 @@
+@media screen and (max-width: 1780px) {
+  .footer__first-col {
+    padding-right: 7vw;
+  }
+}
+
 @media screen and (max-width: 1500px) {
+  .case-studio-description__second-column p {
+    padding-right: 15rem;
+  }
   .footer-name-cnt em {
     font-size: 21vw;
   }
-  .canvas {
-    padding-right: 20rem;
+  .case-studio-header__first-row a {
+    margin-right: 116px;
   }
   .arrow-home {
     padding-left: 0;
     padding-right: 3vw;
+  }
+  .title-1-cnt {
+    padding-left: 18rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --marginLayoutLeftFirst: 50px;
+    --marginLayoutLeftFirst2: 98px;
+    --marginLayoutLeftSecond: 230px;
+    --marginLayoutLeftSecond2: 310px;
+  }
+  .case-studio-description__first-column {
+    padding-left: 100px;
+  }
+  .case-studio-description__second-column p {
+    padding-right: 6.5rem;
+  }
+
+  .footer {
+    padding-top: 150px;
   }
 }
 
@@ -16,17 +47,35 @@
     padding: 1.6vw 3vw !important;
   }
 
-  .btn-small-3 {
-    padding: 11vw 1vw !important;
+  .case-studio__screen-image {
+    padding: 0 10rem;
   }
+
   .btn-email {
     padding: 8.6rem 3.5rem !important;
+  }
+
+  .box-image-cnt {
+    width: 31%;
+  }
+  .box1 {
+    justify-content: center;
+    gap: 5rem;
   }
 }
 
 @media screen and (max-width: 948px) {
   .btn-small-2 {
     padding: 2.6vw 2.9vw !important;
+  }
+
+  .title-1-cnt {
+    padding-left: 0;
+    justify-content: center;
+  }
+  .title-2-cnt {
+    padding-right: 0;
+    justify-content: center;
   }
 
   .team-cnt picture {
@@ -96,6 +145,84 @@
     line-height: 19vw !important;
   }
 
+  .case-studio__screen-image {
+    padding: 0 5rem;
+  }
+
+  .lang-cnt2 li a {
+    color: var(--black-color);
+  }
+
+  .case-studio__screen-video {
+    padding: 0 10rem;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer__first-col {
+    width: 100%;
+  }
+
+  .footer__icon {
+    width: 50%;
+    align-self: flex-start;
+  }
+
+  .case-studio-header__first-row {
+    flex-direction: column;
+    padding-left: var(--marginElementLittle);
+    align-items: flex-start;
+  }
+
+  .case-studio-header__second-row {
+    flex-direction: column-reverse;
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-header__second-row__image {
+    width: 100%;
+    margin-bottom: var(--marginElementMedium);
+  }
+
+  .case-studio-header__link {
+    margin-top: var(--marginElementMedium);
+  }
+
+  .footer__first-col div {
+    width: 50%;
+  }
+
+  .footer__second-col {
+    width: 100%;
+  }
+
+  .footer__second-col-form {
+    margin-top: var(--marginElementMedium);
+  }
+
+  .case-studio-description {
+    gap: var(--marginElementMedium);
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .case-studio-description__first-column {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 100px;
+  }
+
+  .case-studio-description__second-column {
+    width: 100%;
+    padding-left: 100px;
+  }
+
+  .title-1-cnt p {
+    display: none;
+  }
+
   .impact {
     font-family: "Bebas Neue", Haettenschweiler, Impact, "Arial Narrow Bold",
       sans-serif !important;
@@ -133,6 +260,10 @@
     gap: 1rem;
   }
 
+  .footer__first-row {
+    flex-direction: column;
+  }
+
   .title-link {
     margin-right: 2rem;
   }
@@ -145,6 +276,25 @@
     align-items: center;
   }
 
+  .footer__name img {
+    display: none;
+  }
+  .footer__form-name-object {
+    gap: var(--marginElement);
+  }
+
+  .footer__form-name-object div {
+    width: 100%;
+  }
+
+  .footer__form input {
+    width: 100%;
+  }
+
+  .footer__label {
+    margin-top: var(--marginElement);
+  }
+
   .about-main-works-cnt p {
     text-align: center;
   }
@@ -153,10 +303,6 @@
     height: 40%;
     width: 70%;
     top: 0;
-  }
-
-  .title-1-cnt {
-    margin-right: 0rem;
   }
 
   .article-content-cnt div {
@@ -259,7 +405,9 @@
   .links-socials-cnt {
     width: 100%;
   }
-
+  .btn-4 {
+    padding: 8vw 1vw !important;
+  }
   .burger-menu-links-cnt {
     gap: 1rem;
     width: 100%;
@@ -278,6 +426,18 @@
 @media screen and (max-width: 490px) {
   .post-cnt {
     padding: 0 1rem;
+  }
+
+  .footer__first-col div {
+    display: none;
+  }
+
+  .about-cnt {
+    padding-right: 0;
+  }
+
+  .title-2-cnt em {
+    padding-top: 0;
   }
 
   .footer-name-cnt {
@@ -307,15 +467,17 @@
     display: block !important;
   }
 
-  .box-title {
-    display: none;
-  }
-
   .homepage-about-sub-cnt img {
     height: fit-content;
     margin-bottom: 4rem;
   }
 
+  .box-image-cnt {
+    width: 30%;
+  }
+  .box-subtitle {
+    margin-bottom: 1rem;
+  }
   .info-link {
     margin-top: 13rem;
     margin-bottom: 10rem;
@@ -392,7 +554,7 @@
 
   .homepage-about-link {
     padding-left: 39%;
-    bottom: -48%;
+    bottom: -28%;
   }
 
   .homepage-about-img-cnt img {
@@ -405,7 +567,11 @@
 
   .homepage-about-p-cnt {
     position: absolute;
-    top: -370px;
+    top: -400px;
+  }
+
+  .homepage-about-p-cnt div {
+    width: 80%;
   }
 
   .btn-small-3 {
@@ -548,26 +714,29 @@
     top: 26px !important;
   }
 
-  .box-image-cnt {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
   .box-image-cnt img {
     width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: column;
+    padding-bottom: 12rem;
   }
 
   .lang-cnt {
     display: none !important;
   }
+  .footer__second-col ul {
+    flex-direction: column;
+    margin-top: var(--marginElementMedium);
+  }
+
+  .footer__vertical-links {
+    align-items: center;
+    flex-direction: revert;
+  }
 
   .box-informations-cnt {
     height: 40%;
-    padding-bottom: 11rem;
+    padding-bottom: 20rem;
+    padding-right: 30px;
   }
   .marquee-innovation em {
     font-size: var(--extremeFont);
@@ -592,10 +761,47 @@
     margin-top: 0rem;
   }
 
+  .box-informations-cnt ul {
+    margin-bottom: 3rem;
+  }
+
+  .case-studio-description__first-column {
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-header__second-row__first-list {
+    flex-direction: column;
+    gap: var(--marginElementMedium);
+    width: auto;
+  }
+
+  .case-studio-description__second-column {
+    width: 100%;
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-description__second-column p {
+    padding-right: var(--marginElementLittle);
+  }
+
+  .box-link-cnt .btn-small {
+    display: none;
+  }
+
+  .case-studio__screen-image {
+    padding: 0 1rem;
+  }
+
+  .case-studio__screen-video {
+    padding: 0 5rem;
+  }
+
   .blog-posts-cnt {
     padding: 0 0rem;
   }
-
+  .case-studio__caption {
+    padding-left: 0;
+  }
   .post-card-img-cnt {
     width: 90vw;
     height: auto;
@@ -732,6 +938,7 @@
 
   .caption-cnt {
     width: 90vw;
+    margin-left: 0;
   }
 
   .project-item-container img {
@@ -752,6 +959,9 @@
     z-index: 99999;
   }
 
+  .btn-4 {
+    padding: 12vw 1vw !important;
+  }
   .nav-dropdown-cnt {
     display: none;
   }

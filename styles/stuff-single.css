@@ -428,3 +428,158 @@
 .line-4 {
   margin-top: 4rem;
 }
+
+.case-studio-header {
+  margin-top: var(--marginTop);
+}
+
+.case-studio-header__first-row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: var(--marginLayoutLeftFirst2);
+}
+
+.case-studio-header__first-row a {
+  margin-right: 247px;
+}
+
+.case-studio-header__first-row h1 {
+  margin-top: var(--marginElement);
+}
+
+.case-studio__caption {
+  padding-bottom: var(--marginSection);
+  text-transform: uppercase;
+  margin-left: 83px;
+  width: 70vw;
+}
+
+.case-studio__video video {
+  width: 100%;
+}
+
+.case-studio-header__second-row {
+  margin-top: var(--marginElementBig);
+  padding-left: var(--marginLayoutLeftFirst2);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--marginSection);
+}
+
+.case-studio-header__second-row__first-list {
+  display: flex;
+  width: 382px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.case-studio-header__second-row__first-list ul:nth-child(2) {
+  width: 20%;
+}
+
+.second-row__second-list {
+  margin-top: var(--marginElementMedium);
+}
+
+.case-studio-header__second-row__first-list ul li {
+  margin-top: var(--marginElement);
+}
+
+.case-studio-header__second-row__image {
+  width: 60%;
+}
+
+.case-studio-header__second-row__image img {
+  width: 100%;
+  height: auto;
+}
+
+.case-studio-header__second-row__second-list {
+  margin-top: var(--marginElementBig);
+}
+
+.case-studio-header-cnt img {
+  width: 100%;
+  padding-left: var(--marginLayout2);
+  padding-right: var(--marginLayout2);
+}
+
+.case-studio-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: var(--marginSection) 0;
+}
+
+.case-studio-description__first-column {
+  width: 50%;
+  padding-right: 4rem;
+  padding-left: var(--marginLayoutLeftSecond2);
+}
+
+.case-studio-description__first-column span {
+  color: var(--case-studio-main-color);
+}
+
+.case-studio-description__first-column h3 {
+  font-weight: 800;
+  margin-top: var(--marginElement);
+}
+
+.case-studio-description__second-column {
+  width: 50%;
+}
+
+.case-studio-description__second-column p {
+  padding-right: 26.2rem;
+  color: var(--color-text-sec);
+  text-indent: var(--textIndent);
+}
+.case-studio__screen-image {
+  width: 100%;
+  padding: 0 var(--marginLayoutRightSecond2);
+}
+.case-studio__screen-image img {
+  width: 100%;
+  height: auto;
+}
+.suv-video {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.suv-first-section {
+  min-height: 2200px;
+}
+
+.suv-video picture {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.case-studio__images .case-studio__screen-image {
+  margin-bottom: var(--marginElementMedium);
+}
+
+.suv-video img {
+  width: 50%;
+  height: auto;
+}
+
+.suv__video {
+  background-color: red;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marq {
+  margin-top: var(--marginSection);
+}

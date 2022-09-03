@@ -16,5 +16,16 @@
   "photogrammetry": "Fotogrammetria",
   "credits": "Crediti",
   "mesh": "Pulizia della mesh",
-  "softwares": "Programmi 3d"
+  "softwares": "Programmi 3d",
+  "header": "Sviluppatore frontend: ",
+  "tech": "Tecnologie: ",
+  "frontend": "Frontend: ",
+  "style": "Stile: ",
+  "date": "Data: ",
+  "current": "In corso",
+  "clients": "Clienti: ",
+  "caption": "Creare il sito web sulla modellazione 3d più veloce",
+  "case-studio-1-header": "performances",
+  "case-studio-1-headline": "Seo e performance al loro massimo.",
+  "case-studio-1-paragraph": "Ho scommesso tutto sulla SEO, traducendo il sito in 6 lingue, e con l'uso di vari Schema (Schema.org) ho migliorato il posizionamento su Google, monitorando il sito constantemente con Google Search Console. Ho fatto la ricerca per parole chiave con Semrush e Google Ads."
 }

@@ -1,11 +1,3 @@
-.navbar-desktop-cnt {
-  position: fixed;
-  top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .nav-dropdown-cnt span {
   cursor: pointer;
   z-index: 2;
@@ -39,7 +31,7 @@
   z-index: 4;
   width: 100vw;
   height: 100vh;
-  background-color: var(--main-color);
+  background-color: #fefefe;
   color: var(--color-text-inverse);
   clip-path: inset(0% 0 100% 0);
   display: flex;
@@ -64,11 +56,6 @@
 
 .lang-cnt2 li {
   color: var(--text-black);
-}
-
-.btn-email {
-  padding: 8.6rem 2.8rem !important;
-  border: 1px solid var(--text-black) !important;
 }
 
 .burger-menu-info-cnt {
@@ -237,54 +224,6 @@
   text-transform: uppercase;
 }
 
-.footer-cnt {
-  height: 100vh;
-  margin-top: 10rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.footer-name-cnt {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: auto;
-}
-
-.footer-name-cnt em {
-  font-size: 20vw;
-  display: block;
-}
-
-.footer-columns-cnt {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.footer-first-col-cnt {
-  height: 100%;
-  width: 45%;
-  padding-left: 10vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-icon-cnt {
-  display: flex;
-  margin-top: auto;
-  padding-bottom: 5rem;
-  flex-wrap: wrap;
-  gap: 1.9rem;
-}
-
-.footer-info {
-  padding-bottom: 4rem;
-}
-
 .arrow-home {
   width: 100%;
   overflow: visible;
@@ -297,15 +236,55 @@
   right: 0;
 }
 
-.footer-sec-col-cnt {
-  height: 100%;
-  width: 55%;
-  bottom: 25px;
-  position: absolute;
-  right: 7px;
-  display: flex;
-}
-
 .based {
   text-transform: lowercase;
+}
+
+.navbar-desktop {
+  position: fixed;
+  top: 30px;
+  z-index: 999999;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-desktop a {
+  font-size: var(--smallFont);
+}
+
+.navbar-desktop__first-list {
+  display: flex;
+  gap: 127px;
+  margin-left: var(--marginLayout4);
+}
+
+.navbar-desktop__first-list li:nth-child(1) {
+  position: absolute;
+  left: var(--marginLayoutLeftFirst);
+}
+
+.navbar-desktop__first-list li:nth-child(2) {
+  position: absolute;
+  left: var(--marginLayoutLeftSecond);
+}
+
+.navbar-desktop__second-list li:nth-child(3) {
+  position: absolute;
+  right: var(--marginLayoutRightFirst);
+}
+
+.navbar-desktop__second-list li:nth-child(2) {
+  position: absolute;
+  right: var(--marginLayoutRightSecond);
+}
+.navbar-desktop__second-list li:nth-child(1) {
+  position: absolute;
+  right: var(--marginLayoutRightThird);
+}
+
+.navbar-desktop__second-list {
+  display: flex;
+  gap: 60px;
+  margin-right: var(--marginLayout3);
 }

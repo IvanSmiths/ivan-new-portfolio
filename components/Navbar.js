@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import cn from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { motion, useAnimation } from "framer-motion";
 import { CursorContext } from "./CursorManager";
+import dynamic from "next/dynamic";
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
+  ssr: false,
+});
 
 const path01Variants = {
   open: { d: "M3.06061 2.99999L21.0606 21" },
@@ -47,134 +52,201 @@ function Navbar() {
     }
   };
 
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 1100) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 1100) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  }, []);
+
   let { t } = useTranslation();
   return (
     <>
-      <svg
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="button-nav"
-        onClick={onClick}
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-      >
-        <motion.path
-          {...path01Variants.closed}
-          animate={path01Controls}
-          transition={{ duration: 0.4 }}
-        />
-        <motion.path
-          {...path02Variants.closed}
-          animate={path02Controls}
-          transition={{ duration: 0.4 }}
-        />
-      </svg>
-      <nav className={cn("overlay-burger-menu", { "as-opened": opened })}>
-        <span className="close-nav"></span>
-        <div className="links-socials-cnt">
-          <ul className="burger-menu-links-cnt">
+      {isDesktop ? (
+        <nav className="navbar-desktop">
+          <ul className="navbar-desktop__first-list">
             <li>
               <Link href="/">
-                <a onClick={onClick} className="impact big-font">
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {" "}
                   {t("common:nav-home")}
                 </a>
               </Link>
             </li>
-
             <li>
               <Link href="/stuff">
-                <a onClick={onClick} className="impact big-font">
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {t("common:nav-stuff")}
                 </a>
               </Link>
             </li>
-
+          </ul>
+          <ul className="navbar-desktop__second-list">
             <li>
               <Link href="/about">
-                <a onClick={onClick} className="impact big-font">
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {t("common:nav-about")}
                 </a>
               </Link>
             </li>
-
             <li>
               <Link href="/post">
-                <a onClick={onClick} className="impact big-font">
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {t("common:nav-post")}
                 </a>
               </Link>
             </li>
-          </ul>
-          <ul className="nav-social-cnt">
             <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/IvanSmiths"
-              >
-                Github
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/ivan-fabbri/"
-              >
-                Linkedin
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.instagram.com/ivan_smiths"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.artstation.com/ivansmiths"
-              >
-                Artstation
-              </a>
+              <ThemeToggle />
             </li>
           </ul>
-          <ul className="lang-cnt2">
-            <li>
-              <Link locale="en" href={router.asPath}>
-                <a className="tiny-font">{router.locales[0]}</a>
-              </Link>
-            </li>
-            <li className="tiny-font">/</li>
-            <li>
-              <Link locale="it" href={router.asPath}>
-                <a className="tiny-font">{router.locales[1]}</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="burger-menu-info-cnt">
-          <motion.a
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { y: 0, rotateZ: "0deg" },
-              visible: { y: 0, rotateZ: "11deg" },
-            }}
-            href="mailto:info@ivansmiths.com"
-            className="btn-big btn-email small-font"
+        </nav>
+      ) : (
+        <>
+          <svg
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="button-nav"
+            onClick={onClick}
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
           >
-            info@ivansmiths.com
-          </motion.a>
-        </div>
-      </nav>
+            <motion.path
+              {...path01Variants.closed}
+              animate={path01Controls}
+              transition={{ duration: 0.4 }}
+            />
+            <motion.path
+              {...path02Variants.closed}
+              animate={path02Controls}
+              transition={{ duration: 0.4 }}
+            />
+          </svg>
+          <nav className={cn("overlay-burger-menu", { "as-opened": opened })}>
+            <span className="close-nav"></span>
+            <div className="links-socials-cnt">
+              <ul className="burger-menu-links-cnt">
+                <li>
+                  <Link href="/">
+                    <a onClick={onClick} className="impact big-font">
+                      {t("common:nav-home")}
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/stuff">
+                    <a onClick={onClick} className="impact big-font">
+                      {t("common:nav-stuff")}
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/about">
+                    <a onClick={onClick} className="impact big-font">
+                      {t("common:nav-about")}
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/post">
+                    <a onClick={onClick} className="impact big-font">
+                      {t("common:nav-post")}
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+              <ul className="nav-social-cnt">
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/IvanSmiths"
+                  >
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/ivan-fabbri/"
+                  >
+                    Linkedin
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/ivan_smiths"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+              <ul className="lang-cnt2">
+                <li>
+                  <Link locale="en" href={router.asPath}>
+                    <a className="tiny-font">{router.locales[0]}</a>
+                  </Link>
+                </li>
+                <li className="tiny-font">/</li>
+                <li>
+                  <Link locale="it" href={router.asPath}>
+                    <a className="tiny-font">{router.locales[1]}</a>
+                  </Link>
+                </li>
+              </ul>
+              <ThemeToggle />
+            </div>
+            <div className="burger-menu-info-cnt">
+              <motion.a
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  hidden: { y: 0, rotateZ: "0deg" },
+                  visible: { y: 0, rotateZ: "11deg" },
+                }}
+                href="mailto:info@ivansmiths.com"
+                className="btn-big btn-email small-font"
+              >
+                info@ivansmiths.com
+              </motion.a>
+            </div>
+          </nav>
+        </>
+      )}
     </>
   );
 }

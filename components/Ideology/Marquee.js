@@ -26,7 +26,7 @@ const Marquee = () => {
           variants={marqueeVariants}
           animate="animate"
         >
-          <em className="impact big-font">{t("ideology:marquee")}</em>
+          <em className="impact big-font">{t("common:marquee")}</em>
         </motion.div>
       </div>
     </div>

@@ -7,7 +7,7 @@ function ScrollTop() {
   // Behavior: smooth keeps it smooth!
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: 9999999990,
       behavior: "smooth",
     });
   };

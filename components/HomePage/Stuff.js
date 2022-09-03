@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
-import { motion, LayoutGroup } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
@@ -158,7 +158,7 @@ function About() {
         </motion.div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">
-            <motion.h2
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -167,10 +167,11 @@ function About() {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
               }}
-              className="tiny-font spacing"
+              className="about-cnt"
             >
-              .IVAN SMITHS
-            </motion.h2>
+              <h2 className="tiny-font spacing">ivan smiths</h2>
+              <h3 className="medium-font">{t("home:about-desc")}</h3>
+            </motion.div>
             <motion.p
               initial="hidden"
               whileInView="visible"
@@ -191,7 +192,7 @@ function About() {
         </div>
         <Link href="/about" passHref>
           <motion.a
-            className="btn-small btn-small-3 medium-font homepage-about-link"
+            className="btn-small btn-4 medium-font homepage-about-link  btn-5"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -207,459 +208,403 @@ function About() {
           </motion.a>
         </Link>
       </main>
-      <LayoutGroup>
-        <section ref={ref}>
-          <div className="box-cnt" id="box-cnt">
-            <div id="box" className="box ">
-              <div id="box1" className="box1 ">
-                <div className="box-image-cnt">
-                  <Link href="/stuff/ideology">
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0, rotateZ: "11deg" },
-                          visible: { opacity: 1, rotateZ: "11deg" },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          alt="image of a work"
-                          decoding="async"
-                          loading="lazy"
-                          height="750"
-                          width="600"
-                          srcSet="/ideology-website-mobile-4.webp"
-                          type="image/webp"
-                        />
-                        <motion.img
-                          alt="image of a work"
-                          loading="lazy"
-                          decoding="async"
-                          src="/ideology-website-mobile-4.jpg"
-                          height="750"
-                          width="600"
-                        />
-                      </motion.picture>
-                    </a>
-                  </Link>
-                  <Link href="/stuff/ideology" passHref>
-                    <motion.a
+      <section ref={ref}>
+        <div className="box-cnt" id="box-cnt">
+          <div id="box" className="box ">
+            <div id="box1" className="box1 ">
+              <div className="box-image-cnt">
+                <Link href="/stuff/scholz-und-volkmer">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <motion.picture
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
+                        hidden: { opacity: 0, rotateZ: "11deg" },
+                        visible: { opacity: 1, rotateZ: "11deg" },
                       }}
-                      className="big-font box-title mobile impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      className="flex-center"
                     >
-                      Ideology <br /> - {t("home:stuff-3")}
-                    </motion.a>
-                  </Link>
-                </div>
-                <div className="box-informations-cnt">
-                  <Link href="/stuff/ideology" passHref>
+                      <motion.source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/scholz-und-volkmer-website-1.webp"
+                        type="image/webp"
+                      />
+                      <motion.img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/scholz-und-volkmer-website-1.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </motion.picture>
+                  </a>
+                </Link>
+              </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  01 / {t("home:stuff-3")}
+                  <br />
+                </span>
+                <Link href="/stuff/scholz-und-volkmer" passHref>
+                  <motion.a
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    className="medium-font box-title "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    Scholz & Volkmer
+                  </motion.a>
+                </Link>
+                <motion.ul
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                >
+                  <li>
+                    {t("home:box-list")}
+                    {t("home:box-list-dev")}
+                  </li>
+                  <li>
+                    {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap, Sass
+                  </li>
+                  <li>2022 / {t("home:box-list-3")}</li>
+                </motion.ul>
+                <div className="box-link-cnt">
+                  <Link href="/stuff/scholz-und-volkmer" passHref>
                     <motion.a
                       initial="hidden"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
+                        hidden: { rotateZ: "0deg" },
+                        visible: { rotateZ: "11deg" },
                       }}
-                      className="big-font box-title impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      className="btn-small box-link"
                     >
-                      Ideology <br /> - {t("home:stuff-3")}
+                      {t("home:stuff")}
                     </motion.a>
                   </Link>
-                  <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/ideology" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "0deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
-                      </motion.a>
-                    </Link>
-                  </div>
                 </div>
               </div>
-              <div id="box2" className="box2 box1">
-                <div className="box-image-cnt">
-                  <Link href="/stuff/cg-prospect">
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0, rotateZ: "11deg" },
-                          visible: { opacity: 1, rotateZ: "11deg" },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          alt="image of a work"
-                          decoding="async"
-                          loading="lazy"
-                          height="750"
-                          width="600"
-                          srcSet="/cgprospect.webp"
-                          type="image/webp"
-                        />
-                        <motion.img
-                          alt="image of a work"
-                          loading="lazy"
-                          decoding="async"
-                          src="/cgprospect.jpg"
-                          height="750"
-                          width="600"
-                        />
-                      </motion.picture>
-                    </a>
-                  </Link>
-                  <Link href="/stuff/cg-prospect" passHref>
-                    <motion.a
+            </div>
+            <div id="box2" className="box2 box1">
+              <div className="box-image-cnt">
+                <Link href="/stuff/ideology">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <motion.picture
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
+                        hidden: { opacity: 0, rotateZ: "11deg" },
+                        visible: { opacity: 1, rotateZ: "11deg" },
                       }}
-                      className="big-font box-title mobile impact"
+                      className="flex-center"
+                    >
+                      <motion.source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/ideology-website-mobile-4.webp"
+                        type="image/webp"
+                      />
+                      <motion.img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/ideology-website-mobile-4.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </motion.picture>
+                  </a>
+                </Link>
+              </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  02 / {t("home:stuff-3")}
+                  <br />
+                </span>
+                <Link href="/stuff/ideology" passHref>
+                  <motion.a
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    className="medium-font box-title"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    Ideology
+                  </motion.a>
+                </Link>
+                <motion.ul
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                >
+                  <li>{t("home:box-list")}UI/UX Designer</li>
+                  <li>
+                    {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                  </li>
+                  <li>2020 / 2022</li>
+                </motion.ul>
+                <div className="box-link-cnt ">
+                  <Link href="/stuff/ideology" passHref>
+                    <motion.a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                    >
-                      CG Prospect <br /> - {t("home:stuff-4")}
-                    </motion.a>
-                  </Link>
-                </div>
-                <div className="box-informations-cnt">
-                  <Link href="/stuff/cg-prospect" passHref>
-                    <motion.a
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
+                        hidden: { rotateZ: "0deg" },
+                        visible: { rotateZ: "11deg" },
                       }}
-                      className="big-font box-title impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      className="btn-small box-link"
                     >
-                      CG Prospect <br /> - {t("home:stuff-4")}
+                      {t("home:stuff")}
                     </motion.a>
                   </Link>
-                  <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/cg-prospect" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "0deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
-                      </motion.a>
-                    </Link>
-                  </div>
                 </div>
               </div>
-              <div id="box3" className="box3 box1">
-                <div className="box-image-cnt">
-                  <Link href="/stuff/old-portfolio">
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0, rotateZ: "11deg" },
-                          visible: { opacity: 1, rotateZ: "11deg" },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          alt="image of a work"
-                          decoding="async"
-                          loading="lazy"
-                          height="750"
-                          width="600"
-                          srcSet="/old-portfolio.webp"
-                          type="image/webp"
-                        />
-                        <motion.img
-                          alt="image of a work"
-                          loading="lazy"
-                          decoding="async"
-                          src="/old-portfolio.jpg"
-                          height="750"
-                          width="600"
-                        />
-                      </motion.picture>
-                    </a>
-                  </Link>
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
+            </div>
+            <div id="box3" className="box3 box1">
+              <div className="box-image-cnt">
+                <Link href="/stuff/cg-prospect">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <motion.picture
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
+                        hidden: { opacity: 0, rotateZ: "11deg" },
+                        visible: { opacity: 1, rotateZ: "11deg" },
                       }}
-                      className="big-font box-title mobile impact"
+                      className="flex-center"
+                    >
+                      <motion.source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/cgprospect.webp"
+                        type="image/webp"
+                      />
+                      <motion.img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/cgprospect.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </motion.picture>
+                  </a>
+                </Link>
+              </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  03 / {t("home:stuff-4")}
+                  <br />
+                </span>
+                <Link href="/stuff/cg-prospect" passHref>
+                  <motion.a
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    className="medium-font box-title"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    CG Prospect
+                  </motion.a>
+                </Link>
+                <motion.ul
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                >
+                  <li>
+                    {t("home:box-list")}
+                    {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
+                    {t("home:box-list-mod")}
+                  </li>
+                  <li>
+                    {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                    MetaShape
+                  </li>
+                  <li>2021 / {t("home:box-list-3")}</li>
+                </motion.ul>
+                <div className="box-link-cnt">
+                  <Link href="/stuff/cg-prospect" passHref>
+                    <motion.a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                    >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
-                  </Link>
-                </div>
-                <div className="box-informations-cnt">
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1 },
+                        hidden: { rotateZ: "0deg" },
+                        visible: { rotateZ: "11deg" },
                       }}
-                      className="big-font box-title impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      className="btn-small box-link"
                     >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
+                      {t("home:stuff")}
                     </motion.a>
                   </Link>
-                  <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "0deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
-                      </motion.a>
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>
-            <div className="box-cnt-2">
-              <div id="box2" className="box3-2 box1 ">
-                <div className="box-image-cnt">
-                  <Link href="/stuff/old-portfolio">
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <motion.picture
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "11deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="flex-center"
-                      >
-                        <motion.source
-                          alt="image of a work"
-                          decoding="async"
-                          loading="lazy"
-                          height="750"
-                          width="600"
-                          srcSet="/old-portfolio.webp"
-                          type="image/webp"
-                        />
-                        <motion.img
-                          alt="image of a work"
-                          loading="lazy"
-                          decoding="async"
-                          src="/old-portfolio.jpg"
-                          height="750"
-                          width="600"
-                        />
-                      </motion.picture>
-                    </a>
-                  </Link>
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
+        </div>
+        <div>
+          <div className="box-cnt-2">
+            <div id="box2" className="box3-2 box1 ">
+              <div className="box-image-cnt">
+                <Link href="/stuff/cg-prospect">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <motion.picture
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
-                      className="big-font box-title mobile impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      variants={{
+                        hidden: { rotateZ: "11deg" },
+                        visible: { rotateZ: "11deg" },
+                      }}
+                      className="flex-center"
                     >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
+                      <motion.source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/cgprospect.webp"
+                        type="image/webp"
+                      />
+                      <motion.img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/cgprospect.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </motion.picture>
+                  </a>
+                </Link>
+              </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  03 / {t("home:stuff-4")}
+                  <br />
+                </span>
+                <Link href="/stuff/cg-prospect" passHref>
+                  <a
+                    className="medium-font box-title"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    CG Prospect
+                  </a>
+                </Link>
+                <ul>
+                  <li>
+                    {t("home:box-list")}
+                    {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
+                    {t("home:box-list-mod")}
+                  </li>
+                  <li>
+                    {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                    MetaShape
+                  </li>
+                  <li>2021 / {t("home:box-list-3")}</li>
+                </ul>
+                <div className="box-link-cnt">
+                  <Link href="/stuff/cg-prospect" passHref>
+                    <a className="btn-small box-link">{t("home:stuff")}</a>
                   </Link>
-                </div>
-                <div className="box-informations-cnt">
-                  <Link href="/stuff/old-portfolio" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      className="big-font box-title impact"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      Old Portfolio <br /> - {t("home:stuff-4")}
-                    </motion.a>
-                  </Link>
-                  <div className="box-link-cnt flex-center">
-                    <Link href="/stuff/old-portfolio" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { rotateZ: "0deg" },
-                          visible: { rotateZ: "11deg" },
-                        }}
-                        className="btn-small box-link"
-                      >
-                        {t("home:stuff")}
-                      </motion.a>
-                    </Link>
-                    <span>-</span>
-                    <Link href="/stuff" passHref>
-                      <motion.a
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        variants={{
-                          hidden: { opacity: 0 },
-                          visible: { opacity: 1 },
-                        }}
-                        className="box-link"
-                      >
-                        {t("home:stuff-2")}
-                      </motion.a>
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>
-            <motion.h3
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0, y: 100 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              className="caption-cnt impact large-font"
-            >
-              {t("home:home-caption")}
-            </motion.h3>
           </div>
-        </section>
-      </LayoutGroup>
+          <motion.h3
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="caption-cnt impact large-font"
+          >
+            {t("home:home-caption")}
+          </motion.h3>
+        </div>
+      </section>
     </>
   );
 }

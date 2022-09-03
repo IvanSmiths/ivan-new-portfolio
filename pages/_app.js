@@ -97,14 +97,11 @@ function MyApp({ Component, pageProps }) {
       <CursorManager>
         <PageTransition />
         <CustomCursor />
-        <ThemeToggle />
-        <Menu />
         <Navbar />
-        <LanguageChange />
         <ScrollTop />
-        <ScrollPercentage />
         <Contact />
         <Component {...pageProps} />
+        <Footer />
       </CursorManager>
     </>
   );

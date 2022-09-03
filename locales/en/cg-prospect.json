@@ -16,5 +16,16 @@
   "photogrammetry": "Photogrammetry",
   "credits": "Credits",
   "mesh": "Mesh Clean-up",
-  "softwares": "3d Softwares"
+  "softwares": "3d Softwares",
+  "header": "Frontend developer: ",
+  "tech": "Tech: ",
+  "frontend": "Frontend: ",
+  "style": "Style: ",
+  "date": "Date: ",
+  "current": "Current",
+  "clients": "Clients: ",
+  "caption": "Creating the fastest website about 3d modeling",
+  "case-studio-1-header": "performances",
+  "case-studio-1-headline": "Seo and performances at their maximum.",
+  "case-studio-1-paragraph": "I bet everything on the SEO, translating the website in 6 languages, and thanks to the use of various Schema (Schema.org) i oncreased the positioning on Google, constantly monitoring CG Prospect in the Google Search Console. I did the keyword research with Semrush and Google Ads."
 }

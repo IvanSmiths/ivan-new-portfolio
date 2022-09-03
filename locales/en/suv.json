@@ -1,0 +1,14 @@
+{
+  "header": "Frontend developer: ",
+  "tech": "Tech: ",
+  "frontend": "Frontend: ",
+  "animation": "Animation: ",
+  "style": "Style: ",
+  "date": "Date: ",
+  "current": "Current",
+  "clients": "Clients: ",
+  "caption": "Creating extreme complex animations with Gsap",
+  "case-studio-1-header": "Vue.js / Nuxt.js",
+  "case-studio-1-headline": "Animations, animation... animations!",
+  "case-studio-1-paragraph": "As soon as i joined S&V, I started to work on various components and animations, using Gsap for building animation and Vuex as a state manager."
+}
