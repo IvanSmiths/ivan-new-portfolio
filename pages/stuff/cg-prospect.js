@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext, useRef } from "react";
+import React, { useEffect, useContext, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import Link from "next/link";
@@ -67,6 +67,25 @@ const Ideology = () => {
       },
     });
     gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
+  }, []);
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 768) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -185,12 +204,18 @@ const Ideology = () => {
         className="case-studio__screen-image case-studio__screen-video suv-first-section"
       >
         <div className="case-studio__video" id="video">
-          <video muted autoPlay loop>
-            <source src="/cg-prospect.mp4" type="video/mp4" />
-          </video>
+          {isDesktop ? (
+            <video muted autoPlay loop>
+              <source src="/cg-prospect.mp4" type="video/mp4" />
+            </video>
+          ) : (
+            <video muted autoPlay loop>
+              <source src="/cg-prospect-mobile.mp4" type="video/mp4" />
+            </video>
+          )}
         </div>
       </div>
-      <div className="case-studio-description">
+      <div className="case-studio-description case-studio-description-first">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">
             01 / <span>{t("cg-prospect:case-studio-1-header")}</span>
