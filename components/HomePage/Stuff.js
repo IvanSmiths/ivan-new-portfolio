@@ -41,6 +41,11 @@ function About() {
     );
   }, []);
 
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   const refAbout = useRef(null);
 
   useEffect(() => {
@@ -141,10 +146,7 @@ function About() {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
+          variants={variants}
           id="about-image-cnt"
           className="homepage-about-img-cnt"
         >
@@ -158,29 +160,34 @@ function About() {
         </motion.div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              className="about-cnt"
-            >
-              <h2 className="tiny-font spacing">ivan smiths</h2>
-              <h3 className="medium-font">{t("home:about-desc")}</h3>
-            </motion.div>
+            <div className="about-cnt">
+              <motion.h2
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                variants={variants}
+                className="tiny-font spacing"
+              >
+                ivan smiths
+              </motion.h2>
+              <motion.h3
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                variants={variants}
+                className="medium-font"
+              >
+                {t("home:about-desc")}
+              </motion.h3>
+            </div>
             <motion.p
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              variants={variants}
               className="small-font indent"
             >
               {t("home:about")}
@@ -197,10 +204,7 @@ function About() {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { rotateZ: "0deg" },
-              visible: { rotateZ: "11deg" },
-            }}
+            variants={variants}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -251,20 +255,24 @@ function About() {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
+                <motion.span
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  variants={variants}
+                  className="small-font box-subtitle"
+                >
                   01 / {t("home:stuff-3")}
                   <br />
-                </span>
+                </motion.span>
                 <Link href="/stuff/scholz-und-volkmer" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    variants={variants}
                     className="medium-font box-title "
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -276,11 +284,8 @@ function About() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  variants={variants}
                 >
                   <li>
                     {t("home:box-list")}
@@ -295,15 +300,10 @@ function About() {
                   <Link href="/stuff/scholz-und-volkmer" passHref>
                     <motion.a
                       initial="hidden"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
                       whileInView="visible"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { rotateZ: "0deg" },
-                        visible: { rotateZ: "11deg" },
-                      }}
+                      transition={{ delay: 0.7, duration: 0.5 }}
+                      variants={variants}
                       className="btn-small box-link"
                     >
                       {t("home:stuff")}
@@ -323,7 +323,7 @@ function About() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
+                      transition={{ duration: 0.5 }}
                       variants={{
                         hidden: { opacity: 0, rotateZ: "11deg" },
                         visible: { opacity: 1, rotateZ: "11deg" },
@@ -352,20 +352,24 @@ function About() {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
+                <motion.span
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  variants={variants}
+                  className="small-font box-subtitle"
+                >
                   02 / {t("home:stuff-3")}
                   <br />
-                </span>
+                </motion.span>
                 <Link href="/stuff/ideology" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    variants={variants}
                     className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -377,11 +381,8 @@ function About() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  variants={variants}
                 >
                   <li>{t("home:box-list")}UI/UX Designer</li>
                   <li>
@@ -397,11 +398,8 @@ function About() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { rotateZ: "0deg" },
-                        visible: { rotateZ: "11deg" },
-                      }}
+                      transition={{ delay: 0.6, duration: 0.5 }}
+                      variants={variants}
                       className="btn-small box-link"
                     >
                       {t("home:stuff")}
@@ -421,7 +419,7 @@ function About() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
+                      transition={{ duration: 0.5 }}
                       variants={{
                         hidden: { opacity: 0, rotateZ: "11deg" },
                         visible: { opacity: 1, rotateZ: "11deg" },
@@ -450,20 +448,24 @@ function About() {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
+                <motion.span
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  variants={variants}
+                  className="small-font box-subtitle"
+                >
                   03 / {t("home:stuff-4")}
                   <br />
-                </span>
+                </motion.span>
                 <Link href="/stuff/cg-prospect" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    variants={variants}
                     className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -475,11 +477,8 @@ function About() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  variants={variants}
                 >
                   <li>
                     {t("home:box-list")}
@@ -500,11 +499,8 @@ function About() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { rotateZ: "0deg" },
-                        visible: { rotateZ: "11deg" },
-                      }}
+                      transition={{ delay: 0.6, duration: 0.5 }}
+                      variants={variants}
                       className="btn-small box-link"
                     >
                       {t("home:stuff")}
@@ -528,10 +524,10 @@ function About() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
+                      transition={{ duration: 0.5 }}
                       variants={{
-                        hidden: { rotateZ: "11deg" },
-                        visible: { rotateZ: "11deg" },
+                        hidden: { opacity: 0, rotateZ: "11deg" },
+                        visible: { opacity: 1, rotateZ: "11deg" },
                       }}
                       className="flex-center"
                     >
@@ -594,11 +590,8 @@ function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            transition={{ duration: 0.5 }}
+            variants={variants}
             className="caption-cnt impact large-font"
           >
             {t("home:home-caption")}
