@@ -87,7 +87,7 @@ function SuvFirstSection() {
           )}
         </div>
       </div>
-      <div className="case-studio-description">
+      <div className="case-studio-description case-studio-description-first">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">
             01 / <span>{t("suv:case-studio-1-header")}</span>

@@ -436,6 +436,10 @@
     display: none;
   }
 
+  .case-studio-description-first {
+    margin-top: 0;
+  }
+
   .about-cnt {
     padding-right: 0;
   }
