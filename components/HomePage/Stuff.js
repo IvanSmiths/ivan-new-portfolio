@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
-import { motion, LayoutGroup } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
@@ -519,7 +519,7 @@ function About() {
           <div className="box-cnt-2">
             <div id="box2" className="box3-2 box1 ">
               <div className="box-image-cnt">
-                <Link href="/stuff/cg-prospects">
+                <Link href="/stuff/cg-prospect">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}

@@ -20,13 +20,12 @@
   "header": "Frontend developer: ",
   "tech": "Tech: ",
   "frontend": "Frontend: ",
-  "animation": "Animation: ",
   "style": "Style: ",
   "date": "Date: ",
   "current": "Current",
   "clients": "Clients: ",
-  "caption": "Creating extreme complex animations with Gsap",
-  "case-studio-1-header": "Vue.js / Nuxt.js",
-  "case-studio-1-headline": "Animations, animation... animations!",
-  "case-studio-1-paragraph": "As soon as i joined S&V, I started to work on various components and animations, using Gsap for building animation and Vuex as a state manager."
+  "caption": "Creating the fastest website about 3d modeling",
+  "case-studio-1-header": "performances",
+  "case-studio-1-headline": "Seo and performances at their maximum.",
+  "case-studio-1-paragraph": "I bet everything on the SEO, translating the website in 6 languages, and thanks to the use of various Schema (Schema.org) i oncreased the positioning on Google, constantly monitoring CG Prospect in the Google Search Console. I did the keyword research with Semrush and Google Ads."
 }

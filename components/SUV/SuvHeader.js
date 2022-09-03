@@ -59,8 +59,10 @@ function SuvHeader() {
               Scholz & Volkmer <br />
             </h1>
           </div>
-          <Link href="/">
+          <Link href="https://www.s-v.de/en/">
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               className="case-studio-header__link btn-small"

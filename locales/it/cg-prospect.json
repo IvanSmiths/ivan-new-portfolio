@@ -19,14 +19,13 @@
   "softwares": "Programmi 3d",
   "header": "Sviluppatore frontend: ",
   "tech": "Tecnologie: ",
-  "animation": "Animationi: ",
   "frontend": "Frontend: ",
   "style": "Stile: ",
   "date": "Data: ",
   "current": "In corso",
   "clients": "Clienti: ",
-  "caption": "Creare animazioni estremamente complesse con Gsap",
-  "case-studio-1-header": "Vue.js / Nuxt.js",
-  "case-studio-1-headline": "Animazioni, animazioni... animazioni!",
-  "case-studio-1-paragraph": "Non appena sono entrato in S&V, ho iniziato a lavorare su vari componenti e animazioni, utilizzando Gsap per la creazione di animazioni e Vuex come state manager."
+  "caption": "Creare il sito web sulla modellazione 3d più veloce",
+  "case-studio-1-header": "performances",
+  "case-studio-1-headline": "Seo e performance al loro massimo.",
+  "case-studio-1-paragraph": "Ho scommesso tutto sulla SEO, traducendo il sito in 6 lingue, e con l'uso di vari Schema (Schema.org) ho migliorato il posizionamento su Google, monitorando il sito constantemente con Google Search Console. Ho fatto la ricerca per parole chiave con Semrush e Google Ads."
 }

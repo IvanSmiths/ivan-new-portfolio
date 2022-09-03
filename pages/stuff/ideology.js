@@ -127,8 +127,10 @@ const Ideology = () => {
               Ideology <br />
             </h1>
           </div>
-          <Link href="/">
+          <Link href="https://www.ideology.it/">
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               className="case-studio-header__link btn-small"
