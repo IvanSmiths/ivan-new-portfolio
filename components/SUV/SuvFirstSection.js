@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
@@ -34,6 +34,26 @@ function SuvFirstSection() {
   }, []);
 
   const refVideo = useRef(null);
+
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 768) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  }, []);
   let { t } = useTranslation();
 
   return (
@@ -56,9 +76,15 @@ function SuvFirstSection() {
         className="case-studio__screen-image case-studio__screen-video suv-first-section"
       >
         <div className="case-studio__video" id="video">
-          <video muted autoPlay loop>
-            <source src="/wmf.webm" type="video/mp4" />
-          </video>
+          {isDesktop ? (
+            <video muted autoPlay loop>
+              <source src="/suv.mp4" type="video/mp4" />
+            </video>
+          ) : (
+            <video muted autoPlay loop>
+              <source src="/suv-mobile.mp4" type="video/mp4" />
+            </video>
+          )}
         </div>
       </div>
       <div className="case-studio-description">

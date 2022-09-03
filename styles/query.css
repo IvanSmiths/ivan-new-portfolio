@@ -305,6 +305,10 @@
     top: 0;
   }
 
+  .case-studio__caption {
+    margin-left: 0;
+  }
+
   .article-content-cnt div {
     width: 70%;
   }
@@ -799,9 +803,7 @@
   .blog-posts-cnt {
     padding: 0 0rem;
   }
-  .case-studio__caption {
-    padding-left: 0;
-  }
+
   .post-card-img-cnt {
     width: 90vw;
     height: auto;
