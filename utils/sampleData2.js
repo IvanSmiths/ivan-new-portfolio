@@ -4,7 +4,7 @@ export const pageData = [
     title: "WMF",
     url: "/scholz-und-volkmer-website-mobile.jpg",
     info: ["DEVELOPMENT", "2022"],
-    page: "https://www.remax-primaclasse.it/",
+    page: "https://perfection.wmf.com/de/perfection/",
   },
   {
     id: "ideology-image",
@@ -18,6 +18,6 @@ export const pageData = [
     title: "Adidas",
     url: "/scholz-und-volkmer-website-mobile-7.jpg",
     info: ["DEVELOPMENT", "2022"],
-    page: "https://www.mabuprofumerie.it/",
+    page: "https://www.adidas-group.com/en/",
   },
 ];

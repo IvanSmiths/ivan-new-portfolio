@@ -295,7 +295,7 @@ const Index = () => {
             </div>
             <div id="box3" className="box3 box1">
               <div className="box-image-cnt">
-                <Link href="/stuff/cg-prospects">
+                <Link href="/stuff/cg-prospect">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -337,7 +337,7 @@ const Index = () => {
                   03 / {t("stuff:stuff-4")}
                   <br />
                 </span>
-                <Link href="/stuff/cg-prospects" passHref>
+                <Link href="/stuff/cg-prospect" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
@@ -376,7 +376,7 @@ const Index = () => {
                   <li>2021 / {t("stuff:box-list-3")}</li>
                 </motion.ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/cg-prospects" passHref>
+                  <Link href="/stuff/cg-prospect" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"
@@ -400,7 +400,7 @@ const Index = () => {
           <div className="box-cnt-2">
             <div id="box2" className="box3-2 box1 ">
               <div className="box-image-cnt">
-                <Link href="/stuff/cg-prospects">
+                <Link href="/stuff/cg-prospect">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -442,7 +442,7 @@ const Index = () => {
                   03 / {t("stuff:stuff-4")}
                   <br />
                 </span>
-                <Link href="/stuff/cg-prospects" passHref>
+                <Link href="/stuff/cg-prospect" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
@@ -477,7 +477,7 @@ const Index = () => {
                   <li>2021 / {t("stuff:box-list-3")}</li>
                 </motion.ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/cg-prospects" passHref>
+                  <Link href="/stuff/cg-prospect" passHref>
                     <motion.a
                       initial="hidden"
                       whileInView="visible"

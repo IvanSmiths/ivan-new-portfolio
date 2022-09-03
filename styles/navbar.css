@@ -31,7 +31,7 @@
   z-index: 4;
   width: 100vw;
   height: 100vh;
-  background-color: var(--main-color);
+  background-color: #fefefe;
   color: var(--color-text-inverse);
   clip-path: inset(0% 0 100% 0);
   display: flex;

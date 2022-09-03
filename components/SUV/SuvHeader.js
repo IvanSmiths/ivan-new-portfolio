@@ -92,6 +92,8 @@ function SuvHeader() {
 
                 <li>
                   <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     href="https://www.adidas-group.com/en/"
                     target="_blank"
                     rel="noreferrer noopener"
@@ -101,6 +103,8 @@ function SuvHeader() {
                 </li>
                 <li>
                   <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     href="https://perfection.wmf.com/de/perfection/"
                     target="_blank"
                     rel="noreferrer noopener"
@@ -110,6 +114,8 @@ function SuvHeader() {
                 </li>
                 <li>
                   <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     href="https://db-engineering-consulting.com/en/"
                     target="_blank"
                     rel="noreferrer noopener"

@@ -212,15 +212,6 @@ function Navbar() {
                     Instagram
                   </a>
                 </li>
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.artstation.com/ivansmiths"
-                  >
-                    Artstation
-                  </a>
-                </li>
               </ul>
               <ul className="lang-cnt2">
                 <li>
@@ -235,6 +226,7 @@ function Navbar() {
                   </Link>
                 </li>
               </ul>
+              <ThemeToggle />
             </div>
             <div className="burger-menu-info-cnt">
               <motion.a

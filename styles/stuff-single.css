@@ -521,7 +521,7 @@
 }
 
 .case-studio-description__first-column span {
-  color: var(--main-color);
+  color: var(--case-studio-main-color);
 }
 
 .case-studio-description__first-column h3 {

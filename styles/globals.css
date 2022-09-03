@@ -147,6 +147,7 @@ body,
 body[data-theme="light"] {
   --color-bg-primary: #fefefe;
   --color-bg-sub: #050505;
+  --case-studio-main-color: #2b2b2b;
   --color-text-primary: #2b2b2b;
   --color-text-sec: #3e3e3e;
   --color-text-home-mobile: #2e2e2e;
@@ -158,6 +159,7 @@ body[data-theme="dark"] {
   --color-bg-primary: #111111;
   --color-bg-sub: #ffffff;
   --color-text-primary: #f8f8f8;
+  --case-studio-main-color: #d7f21d;
   --color-text-sec: #b6b6b6;
   --color-text-inverse: #0e0e0c;
   --color-text-home-mobile: #f8f8f8;
