@@ -37,12 +37,20 @@ const Hero = () => {
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
+
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   const icon = {
     hidden: {
       pathLength: 0,
+      opacity: 0,
     },
     visible: {
       pathLength: 1,
+      opacity: 1,
     },
   };
 
@@ -64,19 +72,22 @@ const Hero = () => {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
+          variants={variants}
           className="title-1 "
         >
           {t("home:speed")}
         </motion.em>
-        <p>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ delay: 2, duration: 0.5 }}
+          variants={variants}
+        >
           {t("home:header-title")} <br />
           {t("home:header-title-2")} <br />
           {t("home:header-title-3")}
-        </p>
+        </motion.p>
       </div>
       <div className="big-font skewElem title-2-cnt">
         <Link href="/stuff" passHref>
@@ -84,7 +95,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ delay: 2, duration: 0.7 }}
             style={{
               padding: `${router.locale === "de" ? "50px 60px" : ""}`,
             }}
@@ -103,11 +114,8 @@ const Hero = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 2.5 }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          variants={variants}
           className="title-2 impact"
         >
           {t("home:security")}
@@ -118,11 +126,8 @@ const Hero = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 3.5 }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
+          transition={{ delay: 1, duration: 0.5 }}
+          variants={variants}
           className="title-3"
         >
           {t("home:and")}
@@ -140,7 +145,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             transition={{
-              default: { duration: 6, ease: "easeInOut" },
+              default: { delay: 1.5, duration: 3, ease: "easeInOut" },
             }}
             id="Tracciato_22"
             data-name="Tracciato 22"
