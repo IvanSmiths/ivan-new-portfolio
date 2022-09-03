@@ -7,7 +7,8 @@
   "date": "Date: ",
   "current": "Current",
   "clients": "Clients: ",
-  "case-studio-1-header": "CONCEPTING",
-  "case-studio-1-headline": "A blend of UI and product engineering.",
-  "case-studio-1-paragraph": "First concept, then design è il motto dell azienda. Ogni sito web partiva dal wireframing, il primo passaggio essenziale per dare al progetto delle solide basi. Ho usato Adobe XD per il wireframing, o durante un momento di ispirazione, usavo carta e penna. First concept, then design è il motto dell azienda. Ogni sito web partiva dal wireframing, il primo passaggio essenziale per dare al progetto delle solide basi"
+  "caption": "Creating extreme complex animations with Gsap",
+  "case-studio-1-header": "Vue.js / Nuxt.js",
+  "case-studio-1-headline": "Animations, animation... animations!",
+  "case-studio-1-paragraph": "As soon as i joined S&V, I started to work on various components and animations, using Gsap for building animation and Vuex as a state manager."
 }

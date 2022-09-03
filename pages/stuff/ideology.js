@@ -214,7 +214,7 @@ const Ideology = () => {
         }}
         className="case-studio__caption impact large-font"
       >
-        Lorem ipsum dolor sit amet.
+        {t("ideology:caption")}
       </motion.h3>
       <div
         ref={refVideo}
@@ -261,14 +261,17 @@ const Ideology = () => {
         <div className="case-studio-description">
           <div className="case-studio-description__first-column">
             <h2 className="small-font">
-              01 / <span>{t("ideology:case-studio-1-header")}</span>
+              01 / <span>{t("ideology:case-studio-2-header")}</span>
             </h2>
             <h3 className="medium-font">
-              {t("ideology:case-studio-1-headline")}
+              {t("ideology:case-studio-2-headline")}
             </h3>
           </div>
           <div className="case-studio-description__second-column">
-            <p>{t("ideology:case-studio-1-paragraph")}</p>
+            <p>
+              {t("ideology:case-studio-2-paragraph")} <br /> <br />
+              {t("ideology:case-studio-2-paragraph-2")}
+            </p>
           </div>
         </div>
       </div>
@@ -392,19 +395,6 @@ const Ideology = () => {
           </motion.li>
         </ul>
       </div>
-      <div className="case-studio-description">
-        <div className="case-studio-description__first-column">
-          <h2 className="small-font">
-            01 / <span>{t("ideology:case-studio-1-header")}</span>
-          </h2>
-          <h3 className="medium-font">
-            {t("ideology:case-studio-1-headline")}
-          </h3>
-        </div>
-        <div className="case-studio-description__second-column">
-          <p>{t("ideology:case-studio-1-paragraph")}</p>
-        </div>
-      </div>
       <Marquee />
       <div className="gallery-container" id="gallery-container"></div>
       <section>
@@ -417,8 +407,6 @@ const Ideology = () => {
           </ul>
         </div>
       </section>
-      <IdCredits skewElem="skewElem" />
-      <FooterIdeology />
     </>
   );
 };

@@ -3,7 +3,10 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
+import Marquee from "../Ideology/Marquee";
 import SrcImage from "../SrcImage";
+import { pageData } from "../../utils/sampleData2";
+import ProjectItem from "../../components/ProjectItem/ProjectItem";
 
 function SuvFirstSection() {
   useEffect(() => {
@@ -46,7 +49,7 @@ function SuvFirstSection() {
         }}
         className="case-studio__caption impact large-font"
       >
-        Lorem ipsum dolor sit amet.
+        {t("suv:caption")}
       </motion.h3>
       <div
         ref={refVideo}
@@ -87,17 +90,6 @@ function SuvFirstSection() {
             width={"1900px"}
             alt={"image of a website"}
           />
-        </div>
-        <div className="case-studio-description">
-          <div className="case-studio-description__first-column">
-            <h2 className="small-font">
-              01 / <span>{t("suv:case-studio-1-header")}</span>
-            </h2>
-            <h3 className="medium-font">{t("suv:case-studio-1-headline")}</h3>
-          </div>
-          <div className="case-studio-description__second-column">
-            <p>{t("suv:case-studio-1-paragraph")}</p>
-          </div>
         </div>
       </div>
       <div className="climax-website-cnt skewElem">
@@ -220,17 +212,18 @@ function SuvFirstSection() {
           </motion.li>
         </ul>
       </div>
-      <div className="case-studio-description">
-        <div className="case-studio-description__first-column">
-          <h2 className="small-font">
-            01 / <span>{t("suv:case-studio-1-header")}</span>
-          </h2>
-          <h3 className="medium-font">{t("suv:case-studio-1-headline")}</h3>
+      <Marquee />
+      <div className="gallery-container" id="gallery-container"></div>
+      <section>
+        <div className="main-container skewElem" id="main-container">
+          <ul>
+            {pageData.map((project, index) => (
+              <ProjectItem key={index} project={project} itemIndex={index} />
+            ))}
+            <span className="lines line-4"></span>
+          </ul>
         </div>
-        <div className="case-studio-description__second-column">
-          <p>{t("suv:case-studio-1-paragraph")}</p>
-        </div>
-      </div>
+      </section>
     </>
   );
 }

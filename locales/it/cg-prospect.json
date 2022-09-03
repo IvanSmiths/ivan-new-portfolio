@@ -16,5 +16,17 @@
   "photogrammetry": "Fotogrammetria",
   "credits": "Crediti",
   "mesh": "Pulizia della mesh",
-  "softwares": "Programmi 3d"
+  "softwares": "Programmi 3d",
+  "header": "Sviluppatore frontend: ",
+  "tech": "Tecnologie: ",
+  "animation": "Animationi: ",
+  "frontend": "Frontend: ",
+  "style": "Stile: ",
+  "date": "Data: ",
+  "current": "In corso",
+  "clients": "Clienti: ",
+  "caption": "Creare animazioni estremamente complesse con Gsap",
+  "case-studio-1-header": "Vue.js / Nuxt.js",
+  "case-studio-1-headline": "Animazioni, animazioni... animazioni!",
+  "case-studio-1-paragraph": "Non appena sono entrato in S&V, ho iniziato a lavorare su vari componenti e animazioni, utilizzando Gsap per la creazione di animazioni e Vuex come state manager."
 }

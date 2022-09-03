@@ -34,13 +34,18 @@
   "photos": "FOTO",
   "next-up": "a seguire",
   "tech": "Tecnologie: ",
+  "caption": "Designing web pages per clienti come Re/Max e Lemon Soda",
   "animation": "Animationi: ",
   "frontend": "Frontend: ",
   "style": "Stile: ",
   "date": "Data: ",
   "current": "In corso",
   "clients": "Clienti: ",
-  "case-studio-1-header": "CONCEPTING",
-  "case-studio-1-headline": "A blend of UI and product engineering.",
-  "case-studio-1-paragraph": "First concept, then design è il motto dell azienda. Ogni sito web partiva dal wireframing, il primo passaggio essenziale per dare al progetto delle solide basi. Ho usato Adobe XD per il wireframing, o durante un momento di ispirazione, usavo carta e penna. First concept, then design è il motto dell azienda. Ogni sito web partiva dal wireframing, il primo passaggio essenziale per dare al progetto delle solide basi"
+  "case-studio-1-header": "design",
+  "case-studio-1-headline": "Il mio design è stato scelto da Lemon Soda.",
+  "case-studio-1-paragraph": "Vincere il lavoro per Lemon Soda, contro i progetti di altre agenzie, è stato il mio obiettivo più grande in quei 2 anni. Essendo un UI/UX Designer, utilizzavo quotidianamente Adobe XD per il wireframing e per la progettazione dei siti web.",
+  "case-studio-2-header": "coding",
+  "case-studio-2-headline": "Portare i siti Web WordPress al livello successivo.",
+  "case-studio-2-paragraph": "Essendo uno sviluppatore Frontend, avevo il pieno controllo del layout e del design dei siti web, aggiungendo codice CSS e jQuery per contrastare la rigidità e la mancanza di design di alcuni plug-in di WordPress.",
+  "case-studio-2-paragraph-2": "Ho anche usato WordPress personalmente, facendo siti Web da zero utilizzando YooTheme come tema. Configuravo spesso i pagamenti Stripe e PayPal con WooCommerce, gestivo abbonamenti a pagamento e ho acquisito esperienza con l'uso dei plug-in più famosi."
 }

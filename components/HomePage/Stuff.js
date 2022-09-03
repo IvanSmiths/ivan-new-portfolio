@@ -412,7 +412,7 @@ function About() {
             </div>
             <div id="box3" className="box3 box1">
               <div className="box-image-cnt">
-                <Link href="/stuff/cg-prospects">
+                <Link href="/stuff/cg-prospect">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -454,7 +454,7 @@ function About() {
                   03 / {t("home:stuff-4")}
                   <br />
                 </span>
-                <Link href="/stuff/cg-prospects" passHref>
+                <Link href="/stuff/cg-prospect" passHref>
                   <motion.a
                     initial="hidden"
                     whileInView="visible"
@@ -493,7 +493,7 @@ function About() {
                   <li>2021 / {t("home:box-list-3")}</li>
                 </motion.ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/cg-prospects" passHref>
+                  <Link href="/stuff/cg-prospect" passHref>
                     <motion.a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -561,29 +561,16 @@ function About() {
                   03 / {t("home:stuff-4")}
                   <br />
                 </span>
-                <Link href="/stuff/cg-prospects" passHref>
-                  <motion.a
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
+                <Link href="/stuff/cg-prospect" passHref>
+                  <a
                     className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     CG Prospect
-                  </motion.a>
+                  </a>
                 </Link>
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
-                >
+                <ul>
                   <li>
                     {t("home:box-list")}
                     {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
@@ -594,22 +581,10 @@ function About() {
                     MetaShape
                   </li>
                   <li>2021 / {t("home:box-list-3")}</li>
-                </motion.ul>
+                </ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/cg-prospects" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { rotateZ: "0deg" },
-                        visible: { rotateZ: "11deg" },
-                      }}
-                      className="btn-small box-link"
-                    >
-                      {t("home:stuff")}
-                    </motion.a>
+                  <Link href="/stuff/cg-prospect" passHref>
+                    <a className="btn-small box-link">{t("home:stuff")}</a>
                   </Link>
                 </div>
               </div>
