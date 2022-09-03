@@ -6,7 +6,6 @@ import CursorManager from "../components/CursorManager";
 import CustomCursor from "../components/CustomCursor";
 import Navbar from "../components/Navbar";
 import dynamic from "next/dynamic";
-import Contact from "../components/Contact";
 import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -99,7 +98,6 @@ function MyApp({ Component, pageProps }) {
         <CustomCursor />
         <Navbar />
         <ScrollTop />
-        <Contact />
         <Component {...pageProps} />
         <Footer />
       </CursorManager>

@@ -51,6 +51,14 @@
     padding: 0 10rem;
   }
 
+  .desktop {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
   .btn-email {
     padding: 8.6rem 3.5rem !important;
   }
@@ -430,6 +438,13 @@
 @media screen and (max-width: 490px) {
   .post-cnt {
     padding: 0 1rem;
+  }
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
   }
 
   .footer__first-col div {
