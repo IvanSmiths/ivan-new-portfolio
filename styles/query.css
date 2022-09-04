@@ -263,8 +263,15 @@
   }
 
   .homepage-about-link {
-    left: 39%;
-    bottom: -20%;
+    left: 50%;
+    position: relative;
+    display: flex;
+    margin-top: 3rem;
+    justify-content: center;
+  }
+
+  .homepage-about-p-cnt div {
+    width: 89%;
   }
 
   .btn-small-3 {
@@ -435,6 +442,10 @@
   }
   .burger-menu-links-cnt li a {
     font-size: var(--bigFont);
+  }
+
+  .homepage-about-p-cnt {
+    position: relative;
   }
 
   .burger-menu-info-cnt {
