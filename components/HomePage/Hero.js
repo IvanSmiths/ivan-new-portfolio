@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
@@ -12,31 +12,34 @@ const Hero = () => {
   let router = useRouter();
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  // SKEW
-  useEffect(() => {
-    let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
-      clamp = gsap.utils.clamp(-0.4, 0.4);
-
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        let skew = clamp(self.getVelocity() / -2);
-        if (Math.abs(skew) > Math.abs(proxy.skew)) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 0.5,
-            ease: "circ",
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
-  }, []);
-
   gsap.registerPlugin(ScrollTrigger);
+
+  const refSec = useRef(null);
+
+  useEffect(() => {
+    const element = refSec.current;
+    gsap.fromTo(
+      element.querySelector("#header"),
+      {
+        paddingBottom: 0,
+        opacity: 1,
+      },
+      {
+        paddingBottom: "25rem",
+        opacity: 0.1,
+        duration: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element.querySelector("#header"),
+          start: "350 top",
+          end: "bottom top",
+          markers: true,
+          ease: "power1",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
 
   const variants = {
     visible: { opacity: 1 },
@@ -65,99 +68,101 @@ const Hero = () => {
 
   let { t } = useTranslation();
   return (
-    <header className="home-header-cnt flex-center">
-      <div className="big-font skewElem title-1-cnt">
-        <motion.em
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          variants={variants}
-          className="title-1 "
-        >
-          {t("home:speed")}
-        </motion.em>
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: 2, duration: 0.5 }}
-          variants={variants}
-        >
-          {t("home:header-title")} <br />
-          {t("home:header-title-2")} <br />
-          {t("home:header-title-3")}
-        </motion.p>
-      </div>
-      <div className="big-font skewElem title-2-cnt">
-        <Link href="/stuff" passHref>
-          <motion.a
+    <div ref={refSec} className="header__wrapper">
+      <header id="header" className="home-header-cnt ">
+        <div className="big-font  title-1-cnt">
+          <motion.em
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: 2, duration: 0.7 }}
-            style={{
-              padding: `${router.locale === "de" ? "50px 60px" : ""}`,
-            }}
-            variants={{
-              hidden: { y: 0, rotateZ: "0deg", opacity: 0 },
-              visible: { y: 0, rotateZ: "11deg", opacity: 1 },
-            }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="tiny-font absolute-small title-link btn-small-2"
+            transition={{ duration: 0.5 }}
+            variants={variants}
+            className="title-1 "
           >
-            {t("common:nav-stuff")}
-          </motion.a>
-        </Link>
-        <motion.em
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          variants={variants}
-          className="title-2 impact"
-        >
-          {t("home:security")}
-        </motion.em>
-      </div>
-      <div className="big-font skewElem flex-center title-3-cnt">
-        <motion.em
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: 1, duration: 0.5 }}
-          variants={variants}
-          className="title-3"
-        >
-          {t("home:and")}
-        </motion.em>
-        <motion.svg
-          height="120px"
-          width="100px"
-          alt="arrow down"
-          className="title-arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 59.126 22.371"
-        >
-          <motion.path
-            variants={icon}
+            {t("home:speed")}
+          </motion.em>
+          <motion.p
             initial="hidden"
-            animate="visible"
-            transition={{
-              default: { delay: 1.5, duration: 3, ease: "easeInOut" },
-            }}
-            id="Tracciato_22"
-            data-name="Tracciato 22"
-            d="M-4637.739,829.608l28.168,19.976,28.168-19.976"
-            transform="translate(4639.134 -828.213)"
-            fill="none"
-            strokeLinecap="round"
-            strokeWidth="1"
-          />
-        </motion.svg>
-      </div>
-    </header>
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+            variants={variants}
+          >
+            {t("home:header-title")} <br />
+            {t("home:header-title-2")} <br />
+            {t("home:header-title-3")}
+          </motion.p>
+        </div>
+        <div className="big-font  title-2-cnt">
+          <Link href="/stuff" passHref>
+            <motion.a
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 1.5, duration: 0.7 }}
+              style={{
+                padding: `${router.locale === "de" ? "50px 60px" : ""}`,
+              }}
+              variants={{
+                hidden: { y: 0, rotateZ: "0deg", opacity: 0 },
+                visible: { y: 0, rotateZ: "11deg", opacity: 1 },
+              }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="tiny-font absolute-small title-link btn-small-2"
+            >
+              {t("common:nav-stuff")}
+            </motion.a>
+          </Link>
+          <motion.em
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            variants={variants}
+            className="title-2 impact"
+          >
+            {t("home:security")}
+          </motion.em>
+        </div>
+        <div className="big-font  flex-center title-3-cnt">
+          <motion.em
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 1, duration: 0.5 }}
+            variants={variants}
+            className="title-3"
+          >
+            {t("home:and")}
+          </motion.em>
+          <motion.svg
+            height="120px"
+            width="100px"
+            alt="arrow down"
+            className="title-arrow"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 59.126 22.371"
+          >
+            <motion.path
+              variants={icon}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                default: { delay: 1.5, duration: 3, ease: "easeInOut" },
+              }}
+              id="Tracciato_22"
+              data-name="Tracciato 22"
+              d="M-4637.739,829.608l28.168,19.976,28.168-19.976"
+              transform="translate(4639.134 -828.213)"
+              fill="none"
+              strokeLinecap="round"
+              strokeWidth="1"
+            />
+          </motion.svg>
+        </div>
+      </header>
+    </div>
   );
 };
 
