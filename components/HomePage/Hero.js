@@ -33,7 +33,6 @@ const Hero = () => {
           trigger: element.querySelector("#header"),
           start: "350 top",
           end: "bottom top",
-          markers: true,
           ease: "power1",
           scrub: true,
         },
