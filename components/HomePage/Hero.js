@@ -69,7 +69,13 @@ const Hero = () => {
   let { t } = useTranslation();
   return (
     <div ref={refSec} className="header__wrapper">
-      <header id="header" className="home-header-cnt ">
+      <header
+        id="header"
+        style={{
+          left: `${router.locale === "it" ? "3%" : ""}`,
+        }}
+        className="home-header-cnt"
+      >
         <div className="big-font  title-1-cnt">
           <motion.em
             initial="hidden"
