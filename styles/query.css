@@ -2,6 +2,9 @@
   .footer__first-col {
     padding-right: 7vw;
   }
+  .canvas {
+    padding-right: 13rem;
+  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -10,6 +13,10 @@
   }
   .footer-name-cnt em {
     font-size: 21vw;
+  }
+
+  .canvas {
+    padding-right: 16rem;
   }
   .case-studio-header__first-row a {
     margin-right: 116px;

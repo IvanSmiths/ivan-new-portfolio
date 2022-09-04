@@ -1,8 +1,10 @@
 .footer {
   height: 100vh;
-  margin-top: var(--marginSection);
+  padding-top: var(--marginSection);
   display: flex;
-  padding-top: 30px;
+  position: relative;
+  background-color: var(--color-bg-primary);
+  z-index: 2;
   flex-direction: column;
   justify-content: space-between;
 }

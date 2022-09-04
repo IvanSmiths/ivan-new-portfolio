@@ -80,7 +80,7 @@
 .home-header-cnt {
   position: fixed;
   top: 0%;
-  left: 10%;
+  left: 20%;
   z-index: 1;
   min-height: 100vh;
   flex-direction: column;
@@ -166,19 +166,16 @@
 /* ABOUT */
 
 .homepage-about-cnt {
+  padding: var(--marginSection) 0;
   position: relative;
-  margin-top: -1rem;
   z-index: 2;
   background-color: var(--color-bg-primary);
-  height: 80vw;
 }
 
 .homepage-about-img-cnt {
-  position: absolute;
-  padding: var(--marginSection) 0;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 }
 
@@ -190,7 +187,8 @@
 }
 
 .homepage-about-p-cnt {
-  position: relative;
+  position: absolute;
+  top: 15%;
   z-index: 2;
   gap: 3rem;
   text-align: left;
@@ -232,10 +230,10 @@
 
 .homepage-about-link {
   transform: translate(-50%, -0%);
-  left: 45%;
-  bottom: 5rem;
-  z-index: 2;
+
   position: absolute;
+  top: 70%;
+  left: 50%;
 }
 
 .box-cnt {
@@ -397,11 +395,17 @@
 .box-fixed {
   position: fixed !important;
 }
-
+.caption__wrapper {
+  position: relative;
+  background-color: var(--color-bg-primary);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
 .caption-cnt {
   padding-top: var(--marginSection);
   text-transform: uppercase;
-  margin-left: 83px;
+  padding-left: 83px;
   width: 70vw;
 }
 

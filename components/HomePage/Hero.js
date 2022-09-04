@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
@@ -12,31 +12,34 @@ const Hero = () => {
   let router = useRouter();
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  // SKEW
-  useEffect(() => {
-    let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
-      clamp = gsap.utils.clamp(-0.4, 0.4);
-
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        let skew = clamp(self.getVelocity() / -2);
-        if (Math.abs(skew) > Math.abs(proxy.skew)) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 0.5,
-            ease: "circ",
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
-  }, []);
-
   gsap.registerPlugin(ScrollTrigger);
+
+  const refSec = useRef(null);
+
+  useEffect(() => {
+    const element = refSec.current;
+    gsap.fromTo(
+      element.querySelector("#header"),
+      {
+        paddingBottom: 0,
+        opacity: 1,
+      },
+      {
+        paddingBottom: "20rem",
+        opacity: 0,
+        duration: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element.querySelector("#header"),
+          start: "top top",
+          end: "bottom top",
+          markers: true,
+          ease: "power1",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
 
   const variants = {
     visible: { opacity: 1 },
@@ -65,9 +68,9 @@ const Hero = () => {
 
   let { t } = useTranslation();
   return (
-    <div className="header__wrapper">
-      <header className="home-header-cnt flex-center">
-        <div className="big-font skewElem title-1-cnt">
+    <div ref={refSec} className="header__wrapper">
+      <header id="header" className="home-header-cnt flex-center">
+        <div className="big-font  title-1-cnt">
           <motion.em
             initial="hidden"
             whileInView="visible"
@@ -90,7 +93,7 @@ const Hero = () => {
             {t("home:header-title-3")}
           </motion.p>
         </div>
-        <div className="big-font skewElem title-2-cnt">
+        <div className="big-font  title-2-cnt">
           <Link href="/stuff" passHref>
             <motion.a
               initial="hidden"
@@ -122,7 +125,7 @@ const Hero = () => {
             {t("home:security")}
           </motion.em>
         </div>
-        <div className="big-font skewElem flex-center title-3-cnt">
+        <div className="big-font  flex-center title-3-cnt">
           <motion.em
             initial="hidden"
             whileInView="visible"

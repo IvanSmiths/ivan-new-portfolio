@@ -96,29 +96,6 @@ function About() {
   //   );
   // }, []);
 
-  useEffect(() => {
-    let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
-      clamp = gsap.utils.clamp(-0.5, 0.5);
-
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        let skew = clamp(self.getVelocity() / -2);
-        if (Math.abs(skew) > Math.abs(proxy.skew)) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 0.8,
-            ease: "power3",
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
-  }, []);
-
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
@@ -197,20 +174,22 @@ function About() {
             </motion.p>
           </div>
         </div>
-        <Link href="/about" passHref>
-          <motion.a
-            className="btn-small btn-4 medium-font homepage-about-link  btn-5"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={variants}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            {t("home:about-2")}
-          </motion.a>
-        </Link>
+        <div className="homepage-about-link">
+          <Link href="/about" passHref>
+            <motion.a
+              className="btn-small btn-4 medium-font btn-5"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              variants={variants}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {t("home:about-2")}
+            </motion.a>
+          </Link>
+        </div>
       </main>
       <section ref={ref}>
         <div className="box-cnt" id="box-cnt">
@@ -586,16 +565,18 @@ function About() {
               </div>
             </div>
           </div>
-          <motion.h3
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            variants={variants}
-            className="caption-cnt impact large-font"
-          >
-            {t("home:home-caption")}
-          </motion.h3>
+          <div className="caption__wrapper">
+            <motion.h3
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              variants={variants}
+              className="caption-cnt impact large-font"
+            >
+              {t("home:home-caption")}
+            </motion.h3>
+          </div>
         </div>
       </section>
     </>
