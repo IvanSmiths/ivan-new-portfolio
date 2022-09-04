@@ -71,9 +71,17 @@
   align-items: center;
   flex-direction: column;
 }
-.home-header-cnt {
+
+.header__wrapper {
+  min-height: 150vh;
   position: relative;
-  z-index: 2;
+}
+
+.home-header-cnt {
+  position: fixed;
+  top: 0%;
+  left: 10%;
+  z-index: 1;
   min-height: 100vh;
   flex-direction: column;
   gap: 3rem;
@@ -159,14 +167,15 @@
 
 .homepage-about-cnt {
   position: relative;
-  height: fit-content;
   margin-top: -1rem;
-  margin-bottom: var(--marginSection);
+  z-index: 2;
+  background-color: var(--color-bg-primary);
   height: 80vw;
 }
 
 .homepage-about-img-cnt {
   position: absolute;
+  padding: var(--marginSection) 0;
   left: 50%;
   top: 0;
   transform: translate(-50%, -0%);
@@ -185,7 +194,7 @@
   z-index: 2;
   gap: 3rem;
   text-align: left;
-  padding-top: 7rem;
+  padding-top: 10rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -232,6 +241,8 @@
 .box-cnt {
   overflow: hidden;
   display: flex;
+  padding-top: var(--marginSection);
+  background-color: var(--color-bg-primary);
   flex-direction: row;
   position: relative;
   height: 300vh;
@@ -299,9 +310,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
   height: 130vh;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-inverse);
 }
 
 .canvas {
@@ -462,7 +473,7 @@
   left: 0;
   z-index: 3;
   position: absolute;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-inverse);
   width: 439px;
   height: 8.2rem;
 }
