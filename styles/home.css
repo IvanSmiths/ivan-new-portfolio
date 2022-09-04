@@ -422,6 +422,7 @@
 
 .marquee-cnt-rel {
   overflow: hidden;
+  background-color: var(--color-bg-inverse);
 }
 
 .marquee-innovation {
@@ -441,7 +442,7 @@
 .track-2 em {
   margin: 20px 0;
   color: rgba(245, 222, 179, 0);
-  -webkit-text-stroke: 1px var(--color-text-primary);
+  -webkit-text-stroke: 1px var(--color-text-inverse);
   text-transform: uppercase;
 }
 

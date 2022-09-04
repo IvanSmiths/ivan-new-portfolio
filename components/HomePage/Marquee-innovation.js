@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import useTranslation from 'next-translate/useTranslation';
+import React from "react";
+import { motion } from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 
 const marqueeVariants = {
   animate: {
@@ -8,15 +8,15 @@ const marqueeVariants = {
     transition: {
       x: {
         repeat: Infinity,
-        repeatType: 'loop',
+        repeatType: "loop",
         duration: 126,
-        ease: 'linear',
+        ease: "linear",
       },
     },
   },
 };
 
-const Marquee = () => {
+const Marquee = ({ number }) => {
   let { t } = useTranslation();
   return (
     <div className="marquee-cnt-rel">
@@ -27,7 +27,7 @@ const Marquee = () => {
             variants={marqueeVariants}
             animate="animate"
           >
-            <em className="impact large-font">{t('home:innovation')}</em>
+            <em className="impact large-font">{t("home:innovation")}</em>
           </motion.div>
         </div>
       </div>

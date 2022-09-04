@@ -26,7 +26,7 @@ const Hero = () => {
       },
       {
         paddingBottom: "20rem",
-        opacity: 0,
+        opacity: 0.2,
         duration: 1,
         ease: "none",
         scrollTrigger: {
@@ -85,7 +85,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: 2, duration: 0.5 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
             variants={variants}
           >
             {t("home:header-title")} <br />
@@ -99,7 +99,7 @@ const Hero = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: 2, duration: 0.7 }}
+              transition={{ delay: 1.5, duration: 0.7 }}
               style={{
                 padding: `${router.locale === "de" ? "50px 60px" : ""}`,
               }}
