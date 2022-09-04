@@ -73,16 +73,19 @@
 }
 
 .header__wrapper {
-  min-height: 150vh;
+  min-height: 180vh;
   position: relative;
 }
 
 .home-header-cnt {
   position: fixed;
-  top: 0%;
+  top: -35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 20%;
   z-index: 1;
-  min-height: 100vh;
+  min-height: 180vh;
   flex-direction: column;
   gap: 3rem;
 }
