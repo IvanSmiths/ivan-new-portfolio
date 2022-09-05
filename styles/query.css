@@ -697,6 +697,7 @@
   }
 
   .footer {
+    padding-left: 10px;
     justify-content: center;
   }
 
@@ -969,7 +970,7 @@
 
   .caption-cnt {
     width: 90vw;
-    margin-left: 0;
+    padding-left: 10px;
   }
 
   .project-item-container img {
