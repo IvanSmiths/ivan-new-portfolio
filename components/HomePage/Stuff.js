@@ -70,32 +70,6 @@ function About() {
     );
   }, []);
 
-  // const refSec = useRef(null);
-
-  // useEffect(() => {
-  //   const element = refSec.current;
-  //   gsap.fromTo(
-  //     element.querySelector("#about"),
-  //     {
-  //       marginTop: 0,
-  //       opacity: 1,
-  //     },
-  //     {
-  //       marginBottom: "20rem",
-  //       opacity: 1,
-  //       duration: 1,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: element.querySelector("#about"),
-  //         start: "top top",
-  //         end: "bottom top",
-  //         ease: "power1",
-  //         scrub: true,
-  //       },
-  //     }
-  //   );
-  // }, []);
-
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {

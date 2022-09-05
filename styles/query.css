@@ -458,7 +458,7 @@
     padding: 0 1rem;
   }
   .desktop {
-    display: none;
+    display: none !important;
   }
 
   .mobile {
