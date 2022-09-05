@@ -399,10 +399,6 @@ b {
   word-wrap: break-word;
 }
 
-.mobile {
-  display: none;
-}
-
 .bold {
   font-weight: 800;
 }

@@ -458,7 +458,7 @@
     padding: 0 1rem;
   }
   .desktop {
-    display: none;
+    display: none !important;
   }
 
   .mobile {
@@ -494,7 +494,6 @@
   }
 
   .home-header-cnt {
-    left: 30%;
     gap: 3rem;
   }
 
@@ -698,6 +697,7 @@
   }
 
   .footer {
+    padding-left: 10px;
     justify-content: center;
   }
 
@@ -970,7 +970,7 @@
 
   .caption-cnt {
     width: 90vw;
-    margin-left: 0;
+    padding-left: 10px;
   }
 
   .project-item-container img {
