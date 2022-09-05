@@ -143,13 +143,6 @@
   margin-left: 3rem;
 }
 
-.title-image {
-  height: auto;
-  width: 17rem;
-  margin-left: 6vw;
-  object-fit: contain;
-}
-
 .model {
   width: 100vw;
   height: 100vh;

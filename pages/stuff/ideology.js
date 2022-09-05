@@ -10,42 +10,9 @@ import Head from "next/head";
 import Marquee from "../../components/Ideology/Marquee";
 import { pageData } from "../../utils/sampleData";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
-import FooterIdeology from "../../components/Footers/FooterIdeology";
-import IdCredits from "../../components/Ideology/IdCredits";
-import IdHero from "../../components/Ideology/IdHero";
-import IdInfo from "../../components/Ideology/IdInfo";
-import IdExp from "../../components/Ideology/IdExp";
-import IdRising from "../../components/Ideology/IdRising";
-import IdFalling from "../../components/Ideology/IdFalling";
-import IdClimax from "../../components/Ideology/IdClimax";
-import IdDenouement from "../../components/Ideology/IdDenouement";
 import SrcImage from "../../components/SrcImage";
 
 const Ideology = () => {
-  // SKEW
-  useEffect(() => {
-    let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"),
-      clamp = gsap.utils.clamp(-0.5, 0.5);
-
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        let skew = clamp(self.getVelocity() / -2);
-        if (Math.abs(skew) > Math.abs(proxy.skew)) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 0.5,
-            ease: "circ",
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
-  }, []);
-
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
@@ -303,7 +270,7 @@ const Ideology = () => {
           </div>
         </div>
       </div>
-      <div className="climax-website-cnt skewElem">
+      <div className="climax-website-cnt">
         <ul className="climax-website">
           <motion.li
             initial="hidden"
@@ -426,7 +393,7 @@ const Ideology = () => {
       <Marquee />
       <div className="gallery-container" id="gallery-container"></div>
       <section>
-        <div className="main-container skewElem" id="main-container">
+        <div className="main-container " id="main-container">
           <ul>
             {pageData.map((project, index) => (
               <ProjectItem key={index} project={project} itemIndex={index} />
