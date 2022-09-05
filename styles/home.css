@@ -83,7 +83,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 19%;
+  left: 0;
+  right: 0;
+  margin: auto;
   z-index: 1;
   min-height: 180vh;
   flex-direction: column;
