@@ -25,7 +25,7 @@ const Hero = () => {
         opacity: 1,
       },
       {
-        paddingBottom: "25rem",
+        paddingBottom: "22rem",
         opacity: 0.1,
         duration: 1,
         ease: "none",
