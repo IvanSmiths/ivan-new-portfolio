@@ -89,7 +89,7 @@ function SuvFirstSection() {
           ) : (
             <video
               preload="none"
-              poster="scholz-und-volkmer-website-1.jpg"
+              poster="/scholz-und-volkmer-website-1.png"
               muted
               autoPlay
               loop
