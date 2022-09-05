@@ -1,7 +1,4 @@
 @media screen and (max-width: 1780px) {
-  .footer__first-col {
-    padding-right: 7vw;
-  }
   .canvas {
     padding-right: 13rem;
   }
@@ -10,9 +7,6 @@
 @media screen and (max-width: 1500px) {
   .case-studio-description__second-column p {
     padding-right: 15rem;
-  }
-  .footer-name-cnt em {
-    font-size: 21vw;
   }
 
   .canvas {
@@ -42,10 +36,6 @@
   }
   .case-studio-description__second-column p {
     padding-right: 6.5rem;
-  }
-
-  .footer {
-    padding-top: 150px;
   }
 }
 
@@ -88,57 +78,22 @@
     padding-left: 0;
     justify-content: center;
   }
+
   .title-2-cnt {
     padding-right: 0;
     justify-content: center;
-  }
-
-  .team-cnt picture {
-    margin-top: var(--marginSection);
-    width: 90%;
   }
 
   .canvas-cnt-home {
     display: none;
   }
 
-  .first-example img {
-    width: 100vw !important;
-    height: auto;
-  }
-
-  .second-example {
-    display: none;
-  }
-
   .innovation-cnt-home {
     display: block !important;
   }
+
   .btn-email {
     padding: 8.6rem 3.9rem !important;
-  }
-
-  .footer-first-col-cnt {
-    width: 100%;
-    padding-left: 0;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .footer-icon-cnt {
-    justify-content: center;
-  }
-
-  .footer-name-cnt em {
-    font-size: 18vw;
-  }
-
-  .footer-cnt {
-    height: 50vh;
-  }
-
-  .footer-sec-col-cnt {
-    display: none;
   }
 }
 
@@ -162,6 +117,10 @@
 
   .case-studio__screen-image {
     padding: 0 5rem;
+  }
+
+  .lang-cnt2 {
+    margin-bottom: 2rem;
   }
 
   .lang-cnt2 li a {
@@ -211,6 +170,7 @@
 
   .footer__second-col {
     width: 100%;
+    background-color: var(--color-bg-primary);
   }
 
   .footer__second-col-form {
@@ -243,15 +203,8 @@
       sans-serif !important;
   }
 
-  .footer-name-cnt em {
-    font-size: 16vw;
-  }
-
   .btn-small-2 {
     padding: 5.6vw 3.9vw !important;
-  }
-  .title-image {
-    display: none;
   }
 
   .homepage-about-cnt {
@@ -301,6 +254,7 @@
   .footer__name img {
     display: none;
   }
+
   .footer__form-name-object {
     gap: var(--marginElement);
   }
@@ -335,14 +289,6 @@
     width: 70%;
   }
 
-  .stuff-s-header-cnt {
-    flex-direction: column;
-  }
-
-  .stuff-s-header-info-cnt {
-    width: 100%;
-  }
-
   .article-content-cnt {
     width: 80%;
     margin-left: 7vw;
@@ -372,34 +318,9 @@
     align-items: center;
   }
 
-  .stuff-s-header-info-layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 5rem;
-  }
-
-  .contact-cnt {
-    width: 90% !important;
-  }
-
-  .form {
-    width: 100% !important;
-  }
-
-  .contact-info-cnt {
-    display: none;
-  }
-
   .title-arrow {
     width: 50px;
     height: 50px;
-  }
-
-  .stuff-s-header-image-cnt img {
-    width: auto;
-    height: 80vh;
   }
 
   .about {
@@ -519,10 +440,6 @@
   .box-subtitle {
     margin-bottom: 1rem;
   }
-  .info-link {
-    margin-top: 13rem;
-    margin-bottom: 10rem;
-  }
 
   .btn-big {
     padding: 6.1rem 2.8rem !important;
@@ -547,10 +464,6 @@
 
   .climax-website-2 {
     display: none;
-  }
-
-  .info-cnt ul {
-    margin-left: 5%;
   }
 
   .arrow-home {
@@ -652,25 +565,6 @@
     margin-top: 2rem;
   }
 
-  .rising-action-cnt {
-    width: 80%;
-  }
-
-  .exposition-cnt h2 {
-    padding-left: 0;
-  }
-
-  .footer-ivan-smiths {
-    padding-left: 0;
-  }
-
-  .based {
-    padding-top: 24px;
-  }
-
-  .footer-layout-cnt .lines {
-    width: 50%;
-  }
   .climax {
     width: 80%;
   }
@@ -764,11 +658,6 @@
     margin-top: var(--marginElementMedium);
   }
 
-  .footer__vertical-links {
-    align-items: center;
-    flex-direction: revert;
-  }
-
   .box-informations-cnt {
     height: 40%;
     padding-bottom: 20rem;
@@ -777,10 +666,6 @@
 
   .box-informations-info-cnt {
     flex-wrap: wrap;
-  }
-
-  .stuff-s-header-cnt {
-    flex-direction: column;
   }
 
   .menu-mobile {
@@ -793,10 +678,6 @@
   .burger-menu-info-cnt {
     width: 100%;
     margin-top: 0rem;
-  }
-
-  .box-informations-cnt ul {
-    margin-bottom: 3rem;
   }
 
   .case-studio-description__first-column {
@@ -939,23 +820,6 @@
   .project-item-container img {
     width: 1px !important;
     padding: 0;
-  }
-
-  .list-info b {
-    font-size: var(--mediumFont);
-    width: 30%;
-  }
-
-  .list-info em {
-    width: 70%;
-  }
-
-  .info-cnt ul {
-    margin-right: 0;
-  }
-
-  .emoji {
-    font-size: 25px;
   }
 
   .nav-dropdown-cnt {
