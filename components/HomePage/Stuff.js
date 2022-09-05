@@ -4,14 +4,11 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
 import SrcImage from "../SrcImage";
 
 function About() {
-  let router = useRouter();
-
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef(null);
