@@ -6,12 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@google/model-viewer": "^1.11.1",
     "@graphcms/rich-text-react-renderer": "^0.5.0",
+    "@next/bundle-analyzer": "^12.3.0",
     "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
     "framer-motion": "^6.3.3",
     "graphql": "^15.7.2",
     "graphql-request": "^3.6.1",
