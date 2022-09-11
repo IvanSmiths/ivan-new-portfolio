@@ -112,16 +112,6 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/post">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {t("common:nav-post")}
-                </a>
-              </Link>
-            </li>
-            <li>
               <ThemeToggle />
             </li>
           </ul>
@@ -172,14 +162,6 @@ function Navbar() {
                   <Link href="/about">
                     <a onClick={onClick} className="impact big-font">
                       {t("common:nav-about")}
-                    </a>
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/post">
-                    <a onClick={onClick} className="impact big-font">
-                      {t("common:nav-post")}
                     </a>
                   </Link>
                 </li>
