@@ -39,10 +39,6 @@ body {
   line-height: var(--impactLargeLine);
 }
 
-/* RESETS */
-/* RESETS */
-/* RESETS */
-
 a {
   cursor: pointer;
   text-decoration: none;
@@ -65,10 +61,6 @@ em {
   flex-direction: column;
   gap: 3rem;
 }
-
-/* VARIABLES */
-/* VARIABLES */
-/* VARIABLES */
 
 :root {
   --text-black: #2e2e2e;
@@ -262,10 +254,6 @@ li {
   color: var(--color-text-primary);
 }
 
-/* BUTTON */
-/* BUTTON */
-/* BUTTON */
-
 .btn-small-2 {
   text-align: center;
   background: linear-gradient(
@@ -403,36 +391,17 @@ b {
   font-weight: 800;
 }
 
-/* FLEX CLASSES */
-/* FLEX CLASSES */
-/* FLEX CLASSES */
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* THEME SWITCH */
-/* THEME SWITCH */
-/* THEME SWITCH */
-
 .theme-toggle {
   cursor: pointer;
   font-size: 1.4rem;
   z-index: 9;
 }
-
-/* SCROLL PERCENTAGE */
-/* SCROLL PERCENTAGE */
-/* SCROLL PERCENTAGE */
-
-.lang-cnt {
-}
-
-/* MOUSE FOLLOWER */
-/* MOUSE FOLLOWER */
-/* MOUSE FOLLOWER */
 
 .regular {
   width: 12rem;
@@ -448,10 +417,6 @@ b {
   width: 1.8rem;
   height: 1.8rem;
 }
-
-/* SCROLL PERCENTAGE */
-/* SCROLL PERCENTAGE */
-/* SCROLL PERCENTAGE */
 
 .progress-cnt {
   z-index: 996;
@@ -496,10 +461,6 @@ b {
   font-size: var(--tinyFont);
 }
 
-/* GLOBAL SOCIALS */
-/* GLOBAL SOCIALS */
-/* GLOBAL SOCIALS */
-
 .social-global-cnt {
   display: flex;
   flex-direction: column;
@@ -531,10 +492,6 @@ b {
   font-size: var(--tinyFont);
 }
 
-/* CURSOR */
-/* CURSOR */
-/* CURSOR */
-
 .secondary-cursor {
   z-index: 1000;
   border-radius: 50%;
@@ -549,10 +506,6 @@ b {
   pointer-events: none;
 }
 
-/* SCROLL TO TOP */
-/* SCROLL TO TOP */
-/* SCROLL TO TOP */
-
 .scroll-to-top {
   position: fixed;
   z-index: 999;
@@ -563,10 +516,6 @@ b {
   cursor: pointer;
   background-color: #c8870f00;
 }
-
-/* CONTACT */
-/* CONTACT */
-/* CONTACT */
 
 .form {
   display: flex;
