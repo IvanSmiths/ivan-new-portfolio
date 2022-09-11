@@ -19,7 +19,7 @@
     "graphql": "^15.7.2",
     "graphql-request": "^3.6.1",
     "gsap": "^3.10.4",
-    "moment": "^2.29.3",
+    "moment": "^2.29.4",
     "next": "^12.1.6",
     "next-translate": "^1.4.0",
     "postcss": "^8.4.13",
