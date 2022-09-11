@@ -4,7 +4,6 @@ import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import useTranslation from "next-translate/useTranslation";
-import Footer from "../components/Footer";
 const ModelMe = dynamic(() => import("../components/About/ModelMe"), {
   ssr: false,
 });
@@ -71,7 +70,6 @@ const About = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };
