@@ -80,22 +80,22 @@ const About = () => {
       </header>
       <main>
         <div ref={refContainer} className="about__container">
-          <div ref={refTextRoad} className="about__roadmap">
-            <h2>ROADMAP</h2>
-          </div>
-          <div ref={refDiv} className="absolute-right first-div">
-            <h1>Heading</h1>
-            <h2>Little heading</h2>
-          </div>
-          <div ref={refImage} className="absolute-left second-div">
-            <img src="favicon.ico" alt="" />
-          </div>
-          <div ref={refDiv2} className="absolute-right first-div">
-            <h1>Heading</h1>
-            <h2>Little heading</h2>
-          </div>
-          <div ref={refImage2} className="absolute-left second-div">
-            <img src="favicon.ico" alt="" />
+          <div className="about__roadmap">
+            <div className="about__roadmap__first-text">
+              <h2 ref={refTextRoad}>ROADMAP</h2>
+            </div>
+            <div ref={refDiv} className="about__roadmap__left-column">
+              <h1>Heading</h1>
+            </div>
+            <div ref={refImage} className="about__roadmap__right-column">
+              <img src="favicon.ico" alt="" />
+            </div>
+            <div ref={refDiv2} className="about__roadmap__left-column">
+              <h1>Heading</h1>
+            </div>
+            <div ref={refImage2} className="about__roadmap__right-column">
+              <img src="favicon.ico" alt="" />
+            </div>
           </div>
         </div>
       </main>
