@@ -10,11 +10,17 @@ const About = () => {
   gsap.registerPlugin(ScrollTrigger);
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
+  const ref2020 = useRef(null);
+  const ref2021 = useRef(null);
   const refImage = useRef(null);
   const refDiv = useRef(null);
   const refImage2 = useRef(null);
   const refDiv2 = useRef(null);
   useEffect(() => {
+    const delay = 1.5;
+    const delaySection = 7;
+    const durationScale = 7;
+
     var tl = gsap.timeline({
       scrollTrigger: {
         trigger: refContainer.current,
@@ -27,30 +33,58 @@ const About = () => {
     });
 
     tl.to(refTextRoad.current, {
-      duration: 2,
+      duration: `${durationScale}`,
       ease: "none",
       scale: 2,
       opacity: 0,
     });
 
+    tl.to(ref2020.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+          delay: `${delay}`,
+          duration: `${durationScale}`,
+        },
+        { opacity: 0, duration: 2, scale: 2 },
+      ],
+    });
+
     tl.to(refDiv.current, {
       opacity: 1,
+      delay: `${delay}`,
       duration: 3,
     });
 
     tl.to(refImage.current, {
       keyframes: [
         { opacity: 1, duration: 2 },
-        { opacity: 0, duration: 2 },
+        { opacity: 0, duration: 2, delay: `${delaySection}` },
       ],
     });
+
     tl.to(refDiv.current, {
       opacity: 0,
       duration: 3,
     });
+
+    tl.to(ref2021.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+          delay: `${delay}`,
+          duration: `${durationScale}`,
+        },
+        { opacity: 0, duration: 2, scale: 2 },
+      ],
+    });
+
     tl.to(refDiv2.current, {
       opacity: 1,
       duration: 3,
+      delay: `${delay}`,
     });
 
     tl.to(refImage2.current, {
@@ -59,6 +93,7 @@ const About = () => {
         { opacity: 0, duration: 2 },
       ],
     });
+
     tl.to(refDiv2.current, {
       opacity: 0,
       duration: 3,
@@ -83,12 +118,14 @@ const About = () => {
           <div className="about__roadmap">
             <div className="about__roadmap__first-text">
               <h2 ref={refTextRoad}>ROADMAP</h2>
+              <h3 ref={ref2020}>2020</h3>
+              <h3 ref={ref2021}>2021</h3>
             </div>
             <div ref={refDiv} className="about__roadmap__left-column">
-              <h1>Heading</h1>
+              <img src="scholz-und-volkmer-website-1.png" alt="" />
             </div>
             <div ref={refImage} className="about__roadmap__right-column">
-              <img src="favicon.ico" alt="" />
+              <h1>Heading</h1>
             </div>
             <div ref={refDiv2} className="about__roadmap__left-column">
               <h1>Heading</h1>
