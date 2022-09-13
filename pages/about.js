@@ -125,14 +125,16 @@ const About = () => {
               <img src="scholz-und-volkmer-website-1.png" alt="" />
             </div>
             <div ref={refImage} className="about__roadmap__right-column">
-              <h4>01 / Heading</h4>
-              <h5>Lorem ipsum dolor sit amet.</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam et
-                fugit neque, ipsum unde, minima, aperiam tempora saepe nam
-                aspernatur sed magni placeat nesciunt voluptate ea voluptas
-                aliquid quibusdam veritatis?
-              </p>
+              <div className="about__roadmap__copy">
+                <h4>01 / Heading</h4>
+                <h5>Lorem ipsum dolor sit amet.</h5>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                  et fugit neque, ipsum unde, minima, aperiam tempora saepe nam
+                  aspernatur sed magni placeat nesciunt voluptate ea voluptas
+                  aliquid quibusdam veritatis?
+                </p>
+              </div>
             </div>
             <div ref={refDiv2} className="about__roadmap__left-column">
               <h1>Heading</h1>
