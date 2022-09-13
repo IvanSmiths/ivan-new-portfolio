@@ -1,77 +1,104 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
-import Link from "next/link";
-import dynamic from "next/dynamic";
 import useTranslation from "next-translate/useTranslation";
-import Footer from "../components/Footer";
-const ModelMe = dynamic(() => import("../components/About/ModelMe"), {
-  ssr: false,
-});
 
 const About = () => {
   let { t } = useTranslation();
+
+  gsap.registerPlugin(ScrollTrigger);
+  const refContainer = useRef(null);
+  const refTextRoad = useRef(null);
+  const refImage = useRef(null);
+  const refDiv = useRef(null);
+  const refImage2 = useRef(null);
+  const refDiv2 = useRef(null);
+  useEffect(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: refContainer.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        pin: true,
+        markers: true,
+      },
+    });
+
+    tl.to(refTextRoad.current, {
+      duration: 2,
+      ease: "none",
+      scale: 2,
+      opacity: 0,
+    });
+
+    tl.to(refDiv.current, {
+      opacity: 1,
+      duration: 3,
+    });
+
+    tl.to(refImage.current, {
+      keyframes: [
+        { opacity: 1, duration: 2 },
+        { opacity: 0, duration: 2 },
+      ],
+    });
+    tl.to(refDiv.current, {
+      opacity: 0,
+      duration: 3,
+    });
+    tl.to(refDiv2.current, {
+      opacity: 1,
+      duration: 3,
+    });
+
+    tl.to(refImage2.current, {
+      keyframes: [
+        { opacity: 1, duration: 2 },
+        { opacity: 0, duration: 2 },
+      ],
+    });
+    tl.to(refDiv2.current, {
+      opacity: 0,
+      duration: 3,
+    });
+  }, []);
   return (
     <>
       <Head>
         <title>{t("about:title")}</title>
         <meta
           name="description"
-          content="Web developer, i help business owner from Ragusa to increasing their clients, by the creation of profitable websites."
+          content="Ivan Smiths, frontend web developer from Wiesbaden"
         />
       </Head>
-      <header>
+      <header className="about__header">
         <div className="about-title-cnt">
-          <motion.h1 className="large-font impact">
-            {t("about:title")}
-          </motion.h1>
+          <h1 className="large-font impact">{t("about:title")}</h1>
         </div>
       </header>
       <main>
-        <section className="about-main-cnt">
-          <ModelMe />
-          <div className="about-main-works-cnt">
-            <div className="about-presentation-cnt">
-              <h2 className="tiny-font">{t("about:presentation")}</h2>
-              <p className="small-font">
-                {t("about:presentation-1")}
-                <br />
-                <br />
-                {t("about:presentation-2")}
-              </p>
-            </div>
-            <div className="about-presentation-cnt about-2">
-              <h2 className="tiny-font">{t("about:stuff")}</h2>
-              <ul>
-                <Link href="/stuff/ideology">
-                  <a>
-                    <li className="small-font">{t("about:work")} - Ideology</li>
-                  </a>
-                </Link>
-                <Link href="/stuff/cg-prospect">
-                  <a>
-                    <li className="small-font">
-                      {t("about:project")} - CG Prospect
-                    </li>
-                  </a>
-                </Link>
-                <Link href="/stuff/old-portfolio">
-                  <a>
-                    <li className="small-font">
-                      {t("about:project")} - Old Portfolio
-                    </li>
-                  </a>
-                </Link>
-              </ul>
-            </div>
-            <div className="about-presentation-cnt about-2">
-              <h2 className="tiny-font">{t("about:contact")}</h2>
-              <h3 className="small-font">info@ivansmiths.com</h3>
-            </div>
+        <div ref={refContainer} className="about__container">
+          <div ref={refTextRoad} className="about__roadmap">
+            <h2>ROADMAP</h2>
           </div>
-        </section>
+          <div ref={refDiv} className="absolute-right first-div">
+            <h1>Heading</h1>
+            <h2>Little heading</h2>
+          </div>
+          <div ref={refImage} className="absolute-left second-div">
+            <img src="favicon.ico" alt="" />
+          </div>
+          <div ref={refDiv2} className="absolute-right first-div">
+            <h1>Heading</h1>
+            <h2>Little heading</h2>
+          </div>
+          <div ref={refImage2} className="absolute-left second-div">
+            <img src="favicon.ico" alt="" />
+          </div>
+        </div>
       </main>
-      <Footer />
     </>
   );
 };
