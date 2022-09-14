@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
 
 const About = () => {
   let { t } = useTranslation();
@@ -129,28 +130,38 @@ const About = () => {
                 ref={refImage}
                 className="about__roadmap__copy about__absolute-left about__opacity"
               >
-                <h4>01 / Heading</h4>
-                <h5>Lorem ipsum dolor sit amet.</h5>
+                <h4 className="small-font">01 / Heading</h4>
+                <h5 className="medium-font">Lorem ipsum dolor sit amet.</h5>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
                   et fugit neque, ipsum unde, minima, aperiam tempora saepe nam
                   aspernatur sed magni placeat nesciunt voluptate ea voluptas
                   aliquid quibusdam veritatis?
                 </p>
+                <div className="about__roadmap__copy-link">
+                  <Link href="/">
+                    <a className="btn-small">See more</a>
+                  </Link>
+                </div>
               </div>
               <h3 ref={ref2021}>2021</h3>
               <div
                 ref={refDiv2}
                 className="about__roadmap__copy about__absolute-left about__opacity"
               >
-                <h4>01 / Heading</h4>
-                <h5>Lorem ipsum dolor sit amet.</h5>
+                <h4 className="small-font">01 / Heading</h4>
+                <h5 className="medium-font">Lorem ipsum dolor sit amet.</h5>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
                   et fugit neque, ipsum unde, minima, aperiam tempora saepe nam
                   aspernatur sed magni placeat nesciunt voluptate ea voluptas
                   aliquid quibusdam veritatis?
                 </p>
+                <div className="about__roadmap__copy-link">
+                  <Link href="/">
+                    <a className="btn-small">See more</a>
+                  </Link>
+                </div>
               </div>
               <img
                 ref={refImage2}

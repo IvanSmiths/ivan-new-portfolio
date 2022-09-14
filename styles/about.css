@@ -72,27 +72,18 @@ h3 {
   width: 30%;
 }
 
-.about__roadmap__left-column {
-  opacity: 0;
-  position: relative;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background-color: red;
-  width: 50%;
+.about__roadmap__copy h5 {
+  margin: var(--marginElementLittle) 0;
+  font-weight: bold;
 }
-.about__roadmap__left-column img {
-  position: absolute;
-  top: 1%;
+
+.about__roadmap__copy p {
+  color: var(--color-text-sec);
+  padding-top: 6px;
 }
-.about__roadmap__right-column {
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  background-color: green;
-  width: 50%;
+
+.about__roadmap__copy-link {
+  margin-top: 5rem;
 }
 
 .about__opacity {
@@ -107,6 +98,7 @@ h3 {
   transform: translate(0%, -50%);
   opacity: 0;
 }
+
 .about__absolute-right {
   position: absolute;
   top: 50%;
