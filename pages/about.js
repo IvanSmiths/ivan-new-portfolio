@@ -9,6 +9,7 @@ const About = () => {
   let { t } = useTranslation();
 
   gsap.registerPlugin(ScrollTrigger);
+
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
   const ref2020 = useRef(null);
@@ -17,10 +18,12 @@ const About = () => {
   const secondRef = useRef(null);
   const thirdRef = useRef(null);
   const fourthRef = useRef(null);
+
   useEffect(() => {
     const delay = 1.5;
     const delaySection = 7;
     const durationScale = 10;
+    const durationGlobal = 7;
 
     var tl = gsap.timeline({
       scrollTrigger: {
@@ -48,26 +51,26 @@ const About = () => {
           delay: `${delay}`,
           duration: `${durationScale}`,
         },
-        { opacity: 0, duration: 2, scale: 2 },
+        { opacity: 0, duration: `${durationGlobal}`, scale: 2 },
       ],
     });
 
     tl.to(secondRef.current, {
       opacity: 1,
       delay: `${delay}`,
-      duration: 3,
+      duration: `${durationGlobal}`,
     });
 
     tl.to(firstRef.current, {
       keyframes: [
-        { opacity: 1, duration: 2 },
-        { opacity: 0, duration: 2, delay: `${delaySection}` },
+        { opacity: 1, duration: `${durationGlobal}` },
+        { opacity: 0, duration: `${durationGlobal}`, delay: `${delaySection}` },
       ],
     });
 
     tl.to(secondRef.current, {
       opacity: 0,
-      duration: 3,
+      duration: `${durationGlobal}`,
     });
 
     tl.to(ref2021.current, {
@@ -78,26 +81,26 @@ const About = () => {
           delay: `${delay}`,
           duration: `${durationScale}`,
         },
-        { opacity: 0, duration: 2, scale: 2 },
+        { opacity: 0, duration: `${durationGlobal}`, scale: 2 },
       ],
     });
 
     tl.to(fourthRef.current, {
       opacity: 1,
-      duration: 3,
+      duration: `${durationGlobal}`,
       delay: `${delay}`,
     });
 
     tl.to(thirdRef.current, {
       keyframes: [
-        { opacity: 1, duration: 2 },
-        { opacity: 0, duration: 2 },
+        { opacity: 1, duration: `${durationGlobal}` },
+        { opacity: 0, duration: `${durationGlobal}` },
       ],
     });
 
     tl.to(fourthRef.current, {
       opacity: 0,
-      duration: 3,
+      duration: `${durationGlobal}`,
     });
   }, []);
   return (
