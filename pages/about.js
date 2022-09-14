@@ -13,10 +13,10 @@ const About = () => {
   const refTextRoad = useRef(null);
   const ref2020 = useRef(null);
   const ref2021 = useRef(null);
-  const refImage = useRef(null);
-  const refDiv = useRef(null);
-  const refImage2 = useRef(null);
-  const refDiv2 = useRef(null);
+  const firstRef = useRef(null);
+  const secondRef = useRef(null);
+  const thirdRef = useRef(null);
+  const fourthRef = useRef(null);
   useEffect(() => {
     const delay = 1.5;
     const delaySection = 7;
@@ -52,20 +52,20 @@ const About = () => {
       ],
     });
 
-    tl.to(refDiv.current, {
+    tl.to(secondRef.current, {
       opacity: 1,
       delay: `${delay}`,
       duration: 3,
     });
 
-    tl.to(refImage.current, {
+    tl.to(firstRef.current, {
       keyframes: [
         { opacity: 1, duration: 2 },
         { opacity: 0, duration: 2, delay: `${delaySection}` },
       ],
     });
 
-    tl.to(refDiv.current, {
+    tl.to(secondRef.current, {
       opacity: 0,
       duration: 3,
     });
@@ -82,20 +82,20 @@ const About = () => {
       ],
     });
 
-    tl.to(refDiv2.current, {
+    tl.to(fourthRef.current, {
       opacity: 1,
       duration: 3,
       delay: `${delay}`,
     });
 
-    tl.to(refImage2.current, {
+    tl.to(thirdRef.current, {
       keyframes: [
         { opacity: 1, duration: 2 },
         { opacity: 0, duration: 2 },
       ],
     });
 
-    tl.to(refDiv2.current, {
+    tl.to(fourthRef.current, {
       opacity: 0,
       duration: 3,
     });
@@ -121,13 +121,13 @@ const About = () => {
               <h2 ref={refTextRoad}>ROADMAP</h2>
               <h3 ref={ref2020}>2020</h3>
               <img
-                ref={refDiv}
+                ref={secondRef}
                 className="about__absolute-right about__opacity"
                 src="scholz-und-volkmer-website-1.png"
                 alt=""
               />
               <div
-                ref={refImage}
+                ref={firstRef}
                 className="about__roadmap__copy about__absolute-left about__opacity"
               >
                 <h4 className="small-font">01 / Heading</h4>
@@ -146,7 +146,7 @@ const About = () => {
               </div>
               <h3 ref={ref2021}>2021</h3>
               <div
-                ref={refDiv2}
+                ref={fourthRef}
                 className="about__roadmap__copy about__absolute-left about__opacity"
               >
                 <h4 className="small-font">01 / Heading</h4>
@@ -164,7 +164,7 @@ const About = () => {
                 </div>
               </div>
               <img
-                ref={refImage2}
+                ref={thirdRef}
                 className="about__absolute-right about__opacity"
                 src="scholz-und-volkmer-website-1.png"
                 alt=""
