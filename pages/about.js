@@ -119,13 +119,16 @@ const About = () => {
             <div className="about__roadmap__first-text">
               <h2 ref={refTextRoad}>ROADMAP</h2>
               <h3 ref={ref2020}>2020</h3>
-              <h3 ref={ref2021}>2021</h3>
-            </div>
-            <div ref={refDiv} className="about__roadmap__left-column">
-              <img src="scholz-und-volkmer-website-1.png" alt="" />
-            </div>
-            <div ref={refImage} className="about__roadmap__right-column">
-              <div className="about__roadmap__copy">
+              <img
+                ref={refDiv}
+                className="about__absolute-right about__opacity"
+                src="scholz-und-volkmer-website-1.png"
+                alt=""
+              />
+              <div
+                ref={refImage}
+                className="about__roadmap__copy about__absolute-left about__opacity"
+              >
                 <h4>01 / Heading</h4>
                 <h5>Lorem ipsum dolor sit amet.</h5>
                 <p>
@@ -135,12 +138,26 @@ const About = () => {
                   aliquid quibusdam veritatis?
                 </p>
               </div>
-            </div>
-            <div ref={refDiv2} className="about__roadmap__left-column">
-              <h1>Heading</h1>
-            </div>
-            <div ref={refImage2} className="about__roadmap__right-column">
-              <img src="favicon.ico" alt="" />
+              <h3 ref={ref2021}>2021</h3>
+              <div
+                ref={refDiv2}
+                className="about__roadmap__copy about__absolute-left about__opacity"
+              >
+                <h4>01 / Heading</h4>
+                <h5>Lorem ipsum dolor sit amet.</h5>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                  et fugit neque, ipsum unde, minima, aperiam tempora saepe nam
+                  aspernatur sed magni placeat nesciunt voluptate ea voluptas
+                  aliquid quibusdam veritatis?
+                </p>
+              </div>
+              <img
+                ref={refImage2}
+                className="about__absolute-right about__opacity"
+                src="scholz-und-volkmer-website-1.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
