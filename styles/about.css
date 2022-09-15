@@ -52,7 +52,7 @@
 }
 
 .about__roadmap h2,
-h3 {
+.about__roadmap h3 {
   font-size: var(--bigFont);
   font-weight: bold;
   position: absolute;
