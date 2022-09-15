@@ -126,25 +126,29 @@ const About = () => {
               <img
                 ref={secondRef}
                 className="about__absolute-right about__opacity"
-                src="scholz-und-volkmer-website-1.png"
+                src="ivan-smiths-first-website.jpg"
                 alt=""
               />
               <div
                 ref={firstRef}
                 className="about__roadmap__copy about__absolute-left about__opacity"
               >
-                <h4 className="small-font">01 / Heading</h4>
-                <h5 className="medium-font">Lorem ipsum dolor sit amet.</h5>
+                <h4 className="small-font">01 / PASSION</h4>
+                <h5 className="medium-font">My journey begins</h5>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                  et fugit neque, ipsum unde, minima, aperiam tempora saepe nam
-                  aspernatur sed magni placeat nesciunt voluptate ea voluptas
-                  aliquid quibusdam veritatis?
+                  On 2020 my first website went online. My old portfolio was
+                  done in plain HTML, Css and JavaScript. Is still hosted on
+                  Netlify and it containes some really spooky designs.
                 </p>
                 <div className="about__roadmap__copy-link">
-                  <Link href="/">
-                    <a className="btn-small">See more</a>
-                  </Link>
+                  <a
+                    href="https://ivansmiths.netlify.app/"
+                    target="_blank"
+                    className="btn-small"
+                    rel="noreferrer noopener"
+                  >
+                    See more
+                  </a>
                 </div>
               </div>
               <h3 ref={ref2021}>2021</h3>
@@ -152,16 +156,17 @@ const About = () => {
                 ref={fourthRef}
                 className="about__roadmap__copy about__absolute-left about__opacity"
               >
-                <h4 className="small-font">01 / Heading</h4>
-                <h5 className="medium-font">Lorem ipsum dolor sit amet.</h5>
+                <h4 className="small-font">02 / DESING & FRONTEND</h4>
+                <h5 className="medium-font">
+                  First little steps in the Tech industry
+                </h5>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                  et fugit neque, ipsum unde, minima, aperiam tempora saepe nam
-                  aspernatur sed magni placeat nesciunt voluptate ea voluptas
-                  aliquid quibusdam veritatis?
+                  My first working experience was mainly as a UI/UX designer,
+                  but i had the chance of showing my frontend skills, using Css
+                  and jQuery.
                 </p>
                 <div className="about__roadmap__copy-link">
-                  <Link href="/">
+                  <Link href="/stuff/ideology">
                     <a className="btn-small">See more</a>
                   </Link>
                 </div>
