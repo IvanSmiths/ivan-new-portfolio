@@ -11,22 +11,8 @@
 }
 
 .about__container {
-  height: 600vh;
+  height: 800vh;
   position: relative;
-}
-
-.absolute-left {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  opacity: 0;
-}
-
-.absolute-right {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  opacity: 0;
 }
 
 .about__roadmap__first-text {
@@ -62,14 +48,22 @@
   right: 0;
   text-align: center;
 }
+
 .about__roadmap h3 {
   font-size: var(--bigFont);
   opacity: 0;
+  display: none;
 }
 
 .first-div {
   height: 100vh;
   width: 30%;
+}
+
+.about__roadmap__copy {
+  width: 25%;
+  margin: var(--marginElementLittle) 0;
+  font-weight: bold;
 }
 
 .about__roadmap__copy h5 {
@@ -94,7 +88,6 @@
   position: absolute;
   top: 50%;
   left: 20%;
-  width: 30%;
   transform: translate(0%, -50%);
   opacity: 0;
 }
@@ -102,7 +95,7 @@
 .about__absolute-right {
   position: absolute;
   top: 50%;
-  right: 20%;
+  right: 10%;
   transform: translate(-50%, -50%);
   opacity: 0;
 }

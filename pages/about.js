@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -14,16 +15,23 @@ const About = () => {
   const refTextRoad = useRef(null);
   const ref2020 = useRef(null);
   const ref2021 = useRef(null);
+  const ref2022 = useRef(null);
   const firstRef = useRef(null);
   const secondRef = useRef(null);
   const thirdRef = useRef(null);
   const fourthRef = useRef(null);
+  const fifthRef = useRef(null);
+  const sixthRef = useRef(null);
+  const seventhRef = useRef(null);
+  const eighthRef = useRef(null);
+  const ninethRef = useRef(null);
+  const tenthRef = useRef(null);
 
   useEffect(() => {
     const delay = 1.5;
     const delaySection = 7;
-    const durationScale = 10;
-    const durationGlobal = 7;
+    const durationScale = 20;
+    const durationGlobal = 20;
 
     var tl = gsap.timeline({
       scrollTrigger: {
@@ -41,6 +49,7 @@ const About = () => {
       ease: "none",
       scale: 2,
       opacity: 0,
+      display: "none",
     });
 
     tl.to(ref2020.current, {
@@ -48,10 +57,16 @@ const About = () => {
         {
           opacity: 1,
           scale: 1.5,
+          display: "inline-block",
           delay: `${delay}`,
           duration: `${durationScale}`,
         },
-        { opacity: 0, duration: `${durationGlobal}`, scale: 2 },
+        {
+          opacity: 0,
+          display: "none",
+          duration: `${durationGlobal}`,
+          scale: 2,
+        },
       ],
     });
 
@@ -64,25 +79,19 @@ const About = () => {
     tl.to(firstRef.current, {
       keyframes: [
         { opacity: 1, duration: `${durationGlobal}` },
-        { opacity: 0, duration: `${durationGlobal}`, delay: `${delaySection}` },
+        {
+          opacity: 0,
+          display: "none",
+          duration: `${durationGlobal}`,
+          delay: `${delaySection}`,
+        },
       ],
     });
 
     tl.to(secondRef.current, {
       opacity: 0,
+      display: "none",
       duration: `${durationGlobal}`,
-    });
-
-    tl.to(ref2021.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-          delay: `${delay}`,
-          duration: `${durationScale}`,
-        },
-        { opacity: 0, duration: `${durationGlobal}`, scale: 2 },
-      ],
     });
 
     tl.to(fourthRef.current, {
@@ -99,6 +108,92 @@ const About = () => {
     });
 
     tl.to(fourthRef.current, {
+      opacity: 0,
+      duration: `${durationGlobal}`,
+    });
+    tl.to(fifthRef.current, {
+      opacity: 1,
+      duration: `${durationGlobal}`,
+      delay: `${delay}`,
+    });
+
+    tl.to(sixthRef.current, {
+      keyframes: [
+        { opacity: 1, duration: `${durationGlobal}` },
+        { opacity: 0, duration: `${durationGlobal}` },
+      ],
+    });
+
+    tl.to(fifthRef.current, {
+      opacity: 0,
+      duration: `${durationGlobal}`,
+    });
+
+    tl.to(ref2021.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+          delay: `${delay}`,
+          display: "inline-block",
+          duration: `${durationScale}`,
+        },
+        {
+          opacity: 0,
+          duration: `${durationGlobal}`,
+          scale: 2,
+          display: "none",
+        },
+      ],
+    });
+    tl.to(eighthRef.current, {
+      opacity: 1,
+      duration: `${durationGlobal}`,
+      delay: `${delay}`,
+    });
+
+    tl.to(seventhRef.current, {
+      keyframes: [
+        { opacity: 1, duration: `${durationGlobal}` },
+        { opacity: 0, duration: `${durationGlobal}` },
+      ],
+    });
+
+    tl.to(eighthRef.current, {
+      opacity: 0,
+      duration: `${durationGlobal}`,
+    });
+    tl.to(ref2022.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+          display: "inline-block",
+          delay: `${delay}`,
+          duration: `${durationScale}`,
+        },
+        {
+          opacity: 0,
+          display: "none",
+          duration: `${durationGlobal}`,
+          scale: 2,
+        },
+      ],
+    });
+    tl.to(ninethRef.current, {
+      opacity: 1,
+      duration: `${durationGlobal}`,
+      delay: `${delay}`,
+    });
+
+    tl.to(tenthRef.current, {
+      keyframes: [
+        { opacity: 1, duration: `${durationGlobal}` },
+        { opacity: 0, duration: `${durationGlobal}` },
+      ],
+    });
+
+    tl.to(ninethRef.current, {
       opacity: 0,
       duration: `${durationGlobal}`,
     });
@@ -151,7 +246,6 @@ const About = () => {
                   </a>
                 </div>
               </div>
-              <h3 ref={ref2021}>2021</h3>
               <div
                 ref={fourthRef}
                 className="about__roadmap__copy about__absolute-left about__opacity"
@@ -174,10 +268,80 @@ const About = () => {
               <img
                 ref={thirdRef}
                 className="about__absolute-right about__opacity"
-                src="scholz-und-volkmer-website-1.png"
+                src="ideology-website-mobile-15.png"
+                alt=""
+              />
+              <div
+                ref={sixthRef}
+                className="about__roadmap__copy about__absolute-left about__opacity"
+              >
+                <h4 className="small-font">03 / REACT</h4>
+                <h5 className="medium-font">
+                  Getting inside the JAMStack world
+                </h5>
+                <p>
+                  As soon as i discovered React and Next.js, i felt in love with
+                  this technologies, and i remade my website from scratch using
+                  them.
+                </p>
+              </div>
+              <img
+                ref={fifthRef}
+                className="about__absolute-right about__opacity"
+                src="ivan-smiths-mobile.jpg"
                 alt=""
               />
             </div>
+            <h3 ref={ref2021}>2021</h3>
+            <div
+              ref={seventhRef}
+              className="about__roadmap__copy about__absolute-left about__opacity"
+            >
+              <h4 className="small-font">04 / PERSONAL WORK</h4>
+              <h5 className="medium-font">CG Prospect was born</h5>
+              <p>
+                With a more &quot;corporate like&quot; design, CG Prospect is a
+                website focused on performances and Seo, where i freely share my
+                3d models to the people.
+              </p>
+              <div className="about__roadmap__copy-link">
+                <Link href="/stuff/cg-prospect">
+                  <a className="btn-small">See more</a>
+                </Link>
+              </div>
+            </div>
+            <img
+              ref={eighthRef}
+              className="about__absolute-right about__opacity"
+              src="cg-prospect-mobile.jpg"
+              alt=""
+            />
+            <h3 ref={ref2022}>2022</h3>
+            <div
+              ref={ninethRef}
+              className="about__roadmap__copy about__absolute-left about__opacity"
+            >
+              <h4 className="small-font">05 / FRONTEND</h4>
+              <h5 className="medium-font">
+                Rocking with Vue (Nuxt.js) and Gsap
+              </h5>
+              <p>
+                As soon as i joined S&V, I started to work on various components
+                and animations, using Gsap for building animation and Vuex as a
+                state manager.
+              </p>
+              <div className="about__roadmap__copy-link">
+                <Link href="/stuff/scholz-und-volkmer">
+                  <a className="btn-small">See more</a>
+                </Link>
+              </div>
+            </div>
+            <img
+              ref={tenthRef}
+              className="about__absolute-right about__opacity"
+              src="scholz-und-volkmer-website-1.png"
+              alt=""
+            />
           </div>
         </div>
       </main>
