@@ -1,6 +1,9 @@
 const nextTranslate = require("next-translate");
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
-module.exports = {
+module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
@@ -11,7 +14,7 @@ module.exports = {
   },
   reactStrictMode: true,
   ...nextTranslate(),
-};
+});
 
 const ContentSecurityPolicy = `
   default-src 'self';
