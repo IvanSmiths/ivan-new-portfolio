@@ -21,9 +21,9 @@ const About = () => {
   const reactImageRef = useRef(null);
   const reactCopyRef = useRef(null);
   const cgCopyRef = useRef(null);
-  const cgI = useRef(null);
-  const ninethRef = useRef(null);
-  const tenthRef = useRef(null);
+  const cgImageRef = useRef(null);
+  const svCopyRef = useRef(null);
+  const svImageRef = useRef(null);
   const ref2021 = useRef(null);
   const ref2022 = useRef(null);
 
@@ -117,7 +117,7 @@ const About = () => {
         },
       ],
     });
-    tl.to(cgI.current, {
+    tl.to(cgImageRef.current, {
       opacity: 1,
     });
 
@@ -125,7 +125,7 @@ const About = () => {
       keyframes: [{ opacity: 1 }, { opacity: 0 }],
     });
 
-    tl.to(cgI.current, {
+    tl.to(cgImageRef.current, {
       opacity: 0,
     });
     tl.to(ref2022.current, {
@@ -141,15 +141,15 @@ const About = () => {
         },
       ],
     });
-    tl.to(ninethRef.current, {
+    tl.to(svCopyRef.current, {
       opacity: 1,
     });
 
-    tl.to(tenthRef.current, {
+    tl.to(svImageRef.current, {
       keyframes: [{ opacity: 1 }, { opacity: 0 }],
     });
 
-    tl.to(ninethRef.current, {
+    tl.to(svCopyRef.current, {
       opacity: 0,
     });
   }, []);
@@ -262,14 +262,14 @@ const About = () => {
             </div>
           </div>
           <img
-            ref={cgI}
+            ref={cgImageRef}
             className="about__absolute-right about__opacity"
             src="cg-prospect-mobile.jpg"
             alt=""
           />
           <h3 ref={ref2022}>2022</h3>
           <div
-            ref={ninethRef}
+            ref={svCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
             <h4 className="small-font">05 / FRONTEND</h4>
@@ -286,7 +286,7 @@ const About = () => {
             </div>
           </div>
           <img
-            ref={tenthRef}
+            ref={svImageRef}
             className="about__absolute-right about__opacity"
             src="scholz-und-volkmer-website-1.png"
             alt=""
