@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+const ModelMe = dynamic(() => import("../components/About/ModelMe"), {
+  ssr: false,
+});
 
 const About = () => {
   let { t } = useTranslation();
