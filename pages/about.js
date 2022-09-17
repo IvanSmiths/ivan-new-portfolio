@@ -26,19 +26,13 @@ const About = () => {
   const ref2022 = useRef(null);
 
   useEffect(() => {
-    const delay = 1.5;
-    const delaySection = 7;
-    const durationScale = 20;
-    const durationGlobal = 20;
-
     var tl = gsap.timeline({
       scrollTrigger: {
         trigger: refContainer.current,
         start: "top top",
-        end: "+=6200px bottom",
+        end: "+=19200px bottom",
         scrub: true,
         pin: true,
-        markers: true,
       },
     });
 
@@ -193,29 +187,28 @@ const About = () => {
           <img
             ref={idImageRef}
             className="about__absolute-right about__opacity"
-            src="ivan-smiths-first-website.jpg"
-            alt=""
+            src="id-bottone.jpg"
+            height="667px"
+            width="375px"
+            alt="image of a work"
           />
           <div
             ref={idCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">01 / PASSION</h4>
-            <h5 className="medium-font">My journey begins</h5>
+            <h4 className="small-font">02 / DESING & FRONTEND</h4>
+            <h5 className="medium-font">
+              First little steps in the Tech industry
+            </h5>
             <p>
-              On 2020 my first website went online. My old portfolio was done in
-              plain HTML, Css and JavaScript. Is still hosted on Netlify and it
-              containes some really spooky designs.
+              My first working experience was mainly as a UI/UX designer, but i
+              had the chance of showing my frontend skills, using Css and
+              jQuery.
             </p>
             <div className="about__roadmap__copy-link">
-              <a
-                href="https://ivansmiths.netlify.app/"
-                target="_blank"
-                className="btn-small"
-                rel="noreferrer noopener"
-              >
-                See more
-              </a>
+              <Link href="/stuff/ideology">
+                <a className="btn-small">See more</a>
+              </Link>
             </div>
           </div>
           <h3 ref={ref2021}>2021</h3>
@@ -223,7 +216,7 @@ const About = () => {
             ref={cgCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">02 / PERSONAL WORK</h4>
+            <h4 className="small-font">03 / PERSONAL WORK</h4>
             <h5 className="medium-font">CG Prospect was born</h5>
             <p>
               With a more &quot;corporate like&quot; design, CG Prospect is a
@@ -240,14 +233,14 @@ const About = () => {
             ref={cgImageRef}
             className="about__absolute-right about__opacity"
             src="cg-prospect-mobile.jpg"
-            alt=""
+            alt="image of a work"
           />
           <h3 ref={ref2022}>2022</h3>
           <div
             ref={svCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">03 / FRONTEND</h4>
+            <h4 className="small-font">04 / FRONTEND</h4>
             <h5 className="medium-font">Rocking with Vue (Nuxt.js) and Gsap</h5>
             <p>
               As soon as i joined S&V, I started to work on various components
@@ -264,7 +257,7 @@ const About = () => {
             ref={svImageRef}
             className="about__absolute-right about__opacity"
             src="scholz-und-volkmer-website-1.png"
-            alt=""
+            alt=" image of a work"
           />
         </div>
       </main>
