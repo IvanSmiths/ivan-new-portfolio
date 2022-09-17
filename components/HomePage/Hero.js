@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useContext, useRef } from "react";
-import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -15,6 +14,12 @@ const Hero = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const refSec = useRef(null);
+  const speedRef = useRef(null);
+  const securityRef = useRef(null);
+  const andRef = useRef(null);
+  const arrowRef = useRef(null);
+  const copyRef = useRef(null);
+  const linkRef = useRef(null);
 
   useEffect(() => {
     const element = refSec.current;
@@ -38,23 +43,20 @@ const Hero = () => {
         },
       }
     );
+    var tl = gsap.timeline({});
+    tl.fromTo(speedRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    tl.fromTo(
+      securityRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5 }
+    );
+    tl.fromTo([andRef.current], { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    tl.fromTo(
+      [copyRef.current, linkRef.current, arrowRef.current],
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5 }
+    );
   }, []);
-
-  const variants = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
-  const icon = {
-    hidden: {
-      pathLength: 0,
-      opacity: 0,
-    },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-    },
-  };
 
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
@@ -76,72 +78,39 @@ const Hero = () => {
         className="home-header-cnt"
       >
         <div className="big-font  title-1-cnt">
-          <motion.em
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            variants={variants}
-            className="title-1 "
-          >
+          <em ref={speedRef} className="title-1 ">
             {t("home:speed")}
-          </motion.em>
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            variants={variants}
-          >
+          </em>
+          <p ref={copyRef}>
             {t("home:header-title")} <br />
             {t("home:header-title-2")} <br />
             {t("home:header-title-3")}
-          </motion.p>
+          </p>
         </div>
         <div className="big-font  title-2-cnt">
           <Link href="/stuff" passHref>
-            <motion.a
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 1.5, duration: 0.7 }}
+            <a
+              ref={linkRef}
               style={{
                 padding: `${router.locale === "de" ? "50px 60px" : ""}`,
-              }}
-              variants={{
-                hidden: { y: 0, rotateZ: "0deg", opacity: 0 },
-                visible: { y: 0, rotateZ: "11deg", opacity: 1 },
               }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               className="tiny-font absolute-small title-link btn-small-2"
             >
               {t("common:nav-stuff")}
-            </motion.a>
+            </a>
           </Link>
-          <motion.em
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            variants={variants}
-            className="title-2 impact"
-          >
+          <em ref={securityRef} className="title-2 impact">
             {t("home:security")}
-          </motion.em>
+          </em>
         </div>
         <div className="big-font  flex-center title-3-cnt">
-          <motion.em
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 1, duration: 0.5 }}
-            variants={variants}
-            className="title-3"
-          >
+          <em ref={andRef} className="title-3">
             {t("home:and")}
-          </motion.em>
-          <motion.svg
+          </em>
+          <svg
+            ref={arrowRef}
             height="120px"
             width="100px"
             alt="arrow down"
@@ -149,13 +118,7 @@ const Hero = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 59.126 22.371"
           >
-            <motion.path
-              variants={icon}
-              initial="hidden"
-              animate="visible"
-              transition={{
-                default: { delay: 1.5, duration: 3, ease: "easeInOut" },
-              }}
+            <path
               id="Tracciato_22"
               data-name="Tracciato 22"
               d="M-4637.739,829.608l28.168,19.976,28.168-19.976"
@@ -164,7 +127,7 @@ const Hero = () => {
               strokeLinecap="round"
               strokeWidth="1"
             />
-          </motion.svg>
+          </svg>
         </div>
       </header>
     </div>
