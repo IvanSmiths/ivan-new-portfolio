@@ -14,12 +14,10 @@ const About = () => {
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
   const ref2020 = useRef(null);
+  const idCopyRef = useRef(null);
+  const idImageRef = useRef(null);
   const firstWebsiteCopyRef = useRef(null);
   const firstWebsiteImageRef = useRef(null);
-  const idImageRef = useRef(null);
-  const idCopyRef = useRef(null);
-  const reactImageRef = useRef(null);
-  const reactCopyRef = useRef(null);
   const cgCopyRef = useRef(null);
   const cgImageRef = useRef(null);
   const svCopyRef = useRef(null);
@@ -80,27 +78,20 @@ const About = () => {
     tl.to(firstWebsiteImageRef.current, {
       opacity: 0,
     });
+    tl.to(idImageRef.current, {
+      opacity: 1,
+    });
 
     tl.to(idCopyRef.current, {
-      opacity: 1,
+      keyframes: [
+        { opacity: 1 },
+        {
+          opacity: 0,
+        },
+      ],
     });
 
     tl.to(idImageRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0 }],
-    });
-
-    tl.to(idCopyRef.current, {
-      opacity: 0,
-    });
-    tl.to(reactImageRef.current, {
-      opacity: 1,
-    });
-
-    tl.to(reactCopyRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0 }],
-    });
-
-    tl.to(reactImageRef.current, {
       opacity: 0,
     });
 
@@ -198,57 +189,41 @@ const About = () => {
                 See more
               </a>
             </div>
-
-            <div
-              ref={idCopyRef}
-              className="about__roadmap__copy about__absolute-left about__opacity"
-            >
-              <h4 className="small-font">02 / DESING & FRONTEND</h4>
-              <h5 className="medium-font">
-                First little steps in the Tech industry
-              </h5>
-              <p>
-                My first working experience was mainly as a UI/UX designer, but
-                i had the chance of showing my frontend skills, using Css and
-                jQuery.
-              </p>
-              <div className="about__roadmap__copy-link">
-                <Link href="/stuff/ideology">
-                  <a className="btn-small">See more</a>
-                </Link>
-              </div>
+          </div>
+          <img
+            ref={idImageRef}
+            className="about__absolute-right about__opacity"
+            src="ivan-smiths-first-website.jpg"
+            alt=""
+          />
+          <div
+            ref={idCopyRef}
+            className="about__roadmap__copy about__absolute-left about__opacity"
+          >
+            <h4 className="small-font">01 / PASSION</h4>
+            <h5 className="medium-font">My journey begins</h5>
+            <p>
+              On 2020 my first website went online. My old portfolio was done in
+              plain HTML, Css and JavaScript. Is still hosted on Netlify and it
+              containes some really spooky designs.
+            </p>
+            <div className="about__roadmap__copy-link">
+              <a
+                href="https://ivansmiths.netlify.app/"
+                target="_blank"
+                className="btn-small"
+                rel="noreferrer noopener"
+              >
+                See more
+              </a>
             </div>
-            <img
-              ref={idImageRef}
-              className="about__absolute-right about__opacity"
-              src="ideology-website-mobile-15.png"
-              alt=""
-            />
-            <div
-              ref={reactCopyRef}
-              className="about__roadmap__copy about__absolute-left about__opacity"
-            >
-              <h4 className="small-font">03 / REACT</h4>
-              <h5 className="medium-font">Getting inside the JAMStack world</h5>
-              <p>
-                As soon as i discovered React and Next.js, i felt in love with
-                this technologies, and i remade my website from scratch using
-                them.
-              </p>
-            </div>
-            <img
-              ref={reactImageRef}
-              className="about__absolute-right about__opacity"
-              src="ivan-smiths-mobile.jpg"
-              alt=""
-            />
           </div>
           <h3 ref={ref2021}>2021</h3>
           <div
             ref={cgCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">04 / PERSONAL WORK</h4>
+            <h4 className="small-font">02 / PERSONAL WORK</h4>
             <h5 className="medium-font">CG Prospect was born</h5>
             <p>
               With a more &quot;corporate like&quot; design, CG Prospect is a
@@ -272,7 +247,7 @@ const About = () => {
             ref={svCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">05 / FRONTEND</h4>
+            <h4 className="small-font">03 / FRONTEND</h4>
             <h5 className="medium-font">Rocking with Vue (Nuxt.js) and Gsap</h5>
             <p>
               As soon as i joined S&V, I started to work on various components
