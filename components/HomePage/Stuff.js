@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
-import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
 import SrcImage from "../SrcImage";
@@ -12,6 +11,7 @@ function About() {
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef(null);
+  const refAbout = useRef(null);
 
   useEffect(() => {
     const element = ref.current;
@@ -19,11 +19,9 @@ function About() {
       element.querySelector("#box"),
       {
         x: 0,
-        opacity: 1,
       },
       {
         x: "-200vw",
-        opacity: 1,
         duration: 1,
         ease: "none",
         scrollTrigger: {
@@ -36,19 +34,9 @@ function About() {
         },
       }
     );
-  }, []);
-
-  const variants = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
-  const refAbout = useRef(null);
-
-  useEffect(() => {
-    const element = refAbout.current;
+    const element2 = refAbout.current;
     gsap.fromTo(
-      element.querySelector("#about-image-cnt"),
+      element2.querySelector("#about-image-cnt"),
       {
         scale: 1,
       },
@@ -57,7 +45,7 @@ function About() {
         duration: 1,
         ease: "none",
         scrollTrigger: {
-          trigger: element.querySelector("#about-image-cnt"),
+          trigger: element2.querySelector("#about-image-cnt"),
           start: "top bottom",
           end: "bottom top",
           ease: "power3",
@@ -82,22 +70,14 @@ function About() {
     <>
       <main ref={refAbout} className="homepage-about-cnt skewElem">
         <p className="description">
-          Ivan Smiths, <motion.strong>{t("home:bio-2")}</motion.strong>
+          Ivan Smiths, <strong>{t("home:bio-2")}</strong>
           {t("home:bio-3")}
           <strong>{t("home:bio-4")}</strong>
           {t("home:bio-5")}
           <strong>{t("home:bio-6")}</strong>
           {t("home:bio-7")}
         </p>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          variants={variants}
-          id="about-image-cnt"
-          className="homepage-about-img-cnt"
-        >
+        <div id="about-image-cnt" className="homepage-about-img-cnt">
           <SrcImage
             src={"/photo-of-me.jpg"}
             webp={"/photo-of-me.webp"}
@@ -105,60 +85,30 @@ function About() {
             width={"605.75px"}
             alt={"image"}
           />
-        </motion.div>
+        </div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">
             <div className="about-cnt">
-              <motion.h2
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                variants={variants}
-                className="tiny-font spacing"
-              >
-                ivan smiths
-              </motion.h2>
-              <motion.h3
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                variants={variants}
-                className="medium-font"
-              >
-                {t("home:about-desc")}
-              </motion.h3>
+              <h2 className="tiny-font spacing">ivan smiths</h2>
+              <h3 className="medium-font">{t("home:about-desc")}</h3>
             </div>
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              variants={variants}
-              className="small-font indent"
-            >
+            <p className="small-font indent">
               {t("home:about")}
               <br />
               <br />
               {t("home:about-p2")}
-            </motion.p>
+            </p>
           </div>
         </div>
         <div className="homepage-about-link">
           <Link href="/about" passHref>
-            <motion.a
+            <a
               className="btn-small btn-4 medium-font btn-5"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              variants={variants}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               {t("home:about-2")}
-            </motion.a>
+            </a>
           </Link>
         </div>
       </main>
@@ -172,18 +122,8 @@ function About() {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <motion.picture
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      variants={{
-                        hidden: { opacity: 0, rotateZ: "11deg" },
-                        visible: { opacity: 1, rotateZ: "11deg" },
-                      }}
-                      className="flex-center"
-                    >
-                      <motion.source
+                    <picture className="flex-center">
+                      <source
                         alt="image of a work"
                         decoding="async"
                         loading="lazy"
@@ -192,7 +132,7 @@ function About() {
                         srcSet="/scholz-und-volkmer-website-1.webp"
                         type="image/webp"
                       />
-                      <motion.img
+                      <img
                         alt="image of a work"
                         loading="lazy"
                         decoding="async"
@@ -200,43 +140,25 @@ function About() {
                         height="750"
                         width="600"
                       />
-                    </motion.picture>
+                    </picture>
                   </a>
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <motion.span
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  variants={variants}
-                  className="small-font box-subtitle"
-                >
+                <span className="small-font box-subtitle">
                   01 / {t("home:stuff-3")}
                   <br />
-                </motion.span>
+                </span>
                 <Link href="/stuff/scholz-und-volkmer" passHref>
-                  <motion.a
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    variants={variants}
+                  <a
                     className="medium-font box-title "
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     Scholz & Volkmer
-                  </motion.a>
+                  </a>
                 </Link>
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                  variants={variants}
-                >
+                <ul>
                   <li>
                     {t("home:box-list")}
                     {t("home:box-list-dev")}
@@ -245,19 +167,10 @@ function About() {
                     {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap, Sass
                   </li>
                   <li>2022 / {t("home:box-list-3")}</li>
-                </motion.ul>
+                </ul>
                 <div className="box-link-cnt">
                   <Link href="/stuff/scholz-und-volkmer" passHref>
-                    <motion.a
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.7, duration: 0.5 }}
-                      variants={variants}
-                      className="btn-small box-link"
-                    >
-                      {t("home:stuff")}
-                    </motion.a>
+                    <a className="btn-small box-link">{t("home:stuff")}</a>
                   </Link>
                 </div>
               </div>
@@ -269,18 +182,8 @@ function About() {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <motion.picture
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      variants={{
-                        hidden: { opacity: 0, rotateZ: "11deg" },
-                        visible: { opacity: 1, rotateZ: "11deg" },
-                      }}
-                      className="flex-center"
-                    >
-                      <motion.source
+                    <picture className="flex-center">
+                      <source
                         alt="image of a work"
                         decoding="async"
                         loading="lazy"
@@ -289,7 +192,7 @@ function About() {
                         srcSet="/ideology-website-mobile-4.webp"
                         type="image/webp"
                       />
-                      <motion.img
+                      <img
                         alt="image of a work"
                         loading="lazy"
                         decoding="async"
@@ -297,63 +200,40 @@ function About() {
                         height="750"
                         width="600"
                       />
-                    </motion.picture>
+                    </picture>
                   </a>
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <motion.span
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  variants={variants}
-                  className="small-font box-subtitle"
-                >
+                <span className="small-font box-subtitle">
                   02 / {t("home:stuff-3")}
                   <br />
-                </motion.span>
+                </span>
                 <Link href="/stuff/ideology" passHref>
-                  <motion.a
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    variants={variants}
+                  <a
                     className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     Ideology
-                  </motion.a>
+                  </a>
                 </Link>
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                  variants={variants}
-                >
+                <ul>
                   <li>{t("home:box-list")}UI/UX Designer</li>
                   <li>
                     {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
                   </li>
                   <li>2020 / 2022</li>
-                </motion.ul>
+                </ul>
                 <div className="box-link-cnt ">
                   <Link href="/stuff/ideology" passHref>
-                    <motion.a
+                    <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.6, duration: 0.5 }}
-                      variants={variants}
                       className="btn-small box-link"
                     >
                       {t("home:stuff")}
-                    </motion.a>
+                    </a>
                   </Link>
                 </div>
               </div>
@@ -365,18 +245,8 @@ function About() {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <motion.picture
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      variants={{
-                        hidden: { opacity: 0, rotateZ: "11deg" },
-                        visible: { opacity: 1, rotateZ: "11deg" },
-                      }}
-                      className="flex-center"
-                    >
-                      <motion.source
+                    <picture className="flex-center">
+                      <source
                         alt="image of a work"
                         decoding="async"
                         loading="lazy"
@@ -385,7 +255,7 @@ function About() {
                         srcSet="/cgprospect.webp"
                         type="image/webp"
                       />
-                      <motion.img
+                      <img
                         alt="image of a work"
                         loading="lazy"
                         decoding="async"
@@ -393,43 +263,25 @@ function About() {
                         height="750"
                         width="600"
                       />
-                    </motion.picture>
+                    </picture>
                   </a>
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <motion.span
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  variants={variants}
-                  className="small-font box-subtitle"
-                >
+                <span className="small-font box-subtitle">
                   03 / {t("home:stuff-4")}
                   <br />
-                </motion.span>
+                </span>
                 <Link href="/stuff/cg-prospect" passHref>
-                  <motion.a
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    variants={variants}
+                  <a
                     className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     CG Prospect
-                  </motion.a>
+                  </a>
                 </Link>
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                  variants={variants}
-                >
+                <ul>
                   <li>
                     {t("home:box-list")}
                     {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
@@ -440,21 +292,16 @@ function About() {
                     MetaShape
                   </li>
                   <li>2021 / {t("home:box-list-3")}</li>
-                </motion.ul>
+                </ul>
                 <div className="box-link-cnt">
                   <Link href="/stuff/cg-prospect" passHref>
-                    <motion.a
+                    <a
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.6, duration: 0.5 }}
-                      variants={variants}
                       className="btn-small box-link"
                     >
                       {t("home:stuff")}
-                    </motion.a>
+                    </a>
                   </Link>
                 </div>
               </div>
@@ -470,18 +317,8 @@ function About() {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <motion.picture
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      variants={{
-                        hidden: { opacity: 0, rotateZ: "11deg" },
-                        visible: { opacity: 1, rotateZ: "11deg" },
-                      }}
-                      className="flex-center"
-                    >
-                      <motion.source
+                    <picture className="flex-center">
+                      <source
                         alt="image of a work"
                         decoding="async"
                         loading="lazy"
@@ -490,7 +327,7 @@ function About() {
                         srcSet="/cgprospect.webp"
                         type="image/webp"
                       />
-                      <motion.img
+                      <img
                         alt="image of a work"
                         loading="lazy"
                         decoding="async"
@@ -498,7 +335,7 @@ function About() {
                         height="750"
                         width="600"
                       />
-                    </motion.picture>
+                    </picture>
                   </a>
                 </Link>
               </div>
@@ -537,16 +374,9 @@ function About() {
             </div>
           </div>
           <div className="caption__wrapper">
-            <motion.h3
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              variants={variants}
-              className="caption-cnt impact large-font"
-            >
+            <h3 className="caption-cnt impact large-font">
               {t("home:home-caption")}
-            </motion.h3>
+            </h3>
           </div>
         </div>
       </section>
