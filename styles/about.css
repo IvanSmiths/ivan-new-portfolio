@@ -1,72 +1,93 @@
 .about-title-cnt {
   width: 100%;
-  padding-top: 1rem;
+  padding-top: 4rem;
   text-align: right;
   padding-left: 20vw;
   text-transform: uppercase;
 }
 
-.about-main-cnt {
-  display: flex;
-  flex-direction: row;
-  margin-top: var(--marginSection);
+.about__header {
+  padding-bottom: var(--marginSection);
 }
 
-.cnt-model {
+.about__container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  width: 40%;
-  top: 0;
+  overflow: hidden;
+  align-items: center;
 }
 
-.sticky {
-  position: sticky;
-  top: 0px;
-  width: 100%;
-  height: 100vh;
-  left: 30px;
-}
-
-.model {
-  width: 100%;
-}
-
-.about-main-works-cnt {
-  width: 60%;
-}
-
-.about-presentation-cnt {
-  margin-top: 15rem;
+.about__roadmap {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.about-presentation-cnt h2 {
-  width: 40%;
+.about__container h2,
+.about__container h3 {
+  font-size: var(--bigFont);
+  font-weight: bold;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
-.about-presentation-cnt p {
-  width: 60%;
-  padding-right: 10vw;
+.about__container h3 {
+  font-size: var(--bigFont);
+  opacity: 0;
 }
 
-.about-presentation-cnt ul {
-  width: 60%;
-  padding-right: 10vw;
+.first-div {
+  height: 100vh;
+  width: 30%;
 }
 
-.about-presentation-cnt h3 {
-  width: 60%;
-  padding-right: 10vw;
+.about__roadmap__copy {
+  width: 25%;
+  margin: var(--marginElementLittle) 0;
+  font-weight: bold;
 }
 
-.about-paragraph-cnt {
-  margin: var(--marginSection) 0;
-  padding: 0 35vw;
+.about__roadmap__copy h5 {
+  margin: var(--marginElementLittle) 0;
+  font-weight: bold;
 }
 
-.about-2 {
-  margin-top: var(--marginSection);
+.about__roadmap__copy p {
+  color: var(--color-text-sec);
+  padding-top: 6px;
+}
+
+.about__roadmap__copy-link {
+  margin-top: 5rem;
+}
+
+.about__opacity {
+  opacity: 0;
+}
+
+.about__absolute-left {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(0%, -50%);
+  opacity: 0;
+}
+
+.about__absolute-right {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
 }
