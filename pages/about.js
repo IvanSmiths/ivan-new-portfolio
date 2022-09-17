@@ -1,74 +1,265 @@
-import React from "react";
-import { motion } from "framer-motion";
+/* eslint-disable @next/next/no-img-element */
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import useTranslation from "next-translate/useTranslation";
-const ModelMe = dynamic(() => import("../components/About/ModelMe"), {
-  ssr: false,
-});
 
 const About = () => {
   let { t } = useTranslation();
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const refContainer = useRef(null);
+  const refTextRoad = useRef(null);
+  const ref2020 = useRef(null);
+  const idCopyRef = useRef(null);
+  const idImageRef = useRef(null);
+  const firstWebsiteCopyRef = useRef(null);
+  const firstWebsiteImageRef = useRef(null);
+  const cgCopyRef = useRef(null);
+  const cgImageRef = useRef(null);
+  const svCopyRef = useRef(null);
+  const svImageRef = useRef(null);
+  const ref2021 = useRef(null);
+  const ref2022 = useRef(null);
+
+  useEffect(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: refContainer.current,
+        start: "top top",
+        end: "+=19200px bottom",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    tl.to(refTextRoad.current, {
+      ease: "none",
+      scale: 2,
+      opacity: 0,
+    });
+
+    tl.to(ref2020.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+
+    tl.to(firstWebsiteImageRef.current, {
+      opacity: 1,
+    });
+
+    tl.to(firstWebsiteCopyRef.current, {
+      keyframes: [
+        { opacity: 1 },
+        {
+          opacity: 0,
+        },
+      ],
+    });
+
+    tl.to(firstWebsiteImageRef.current, {
+      opacity: 0,
+    });
+    tl.to(idImageRef.current, {
+      opacity: 1,
+    });
+
+    tl.to(idCopyRef.current, {
+      keyframes: [
+        { opacity: 1 },
+        {
+          opacity: 0,
+        },
+      ],
+    });
+
+    tl.to(idImageRef.current, {
+      opacity: 0,
+    });
+
+    tl.to(ref2021.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+    tl.to(cgImageRef.current, {
+      opacity: 1,
+    });
+
+    tl.to(cgCopyRef.current, {
+      keyframes: [{ opacity: 1 }, { opacity: 0 }],
+    });
+
+    tl.to(cgImageRef.current, {
+      opacity: 0,
+    });
+    tl.to(ref2022.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+    tl.to(svCopyRef.current, {
+      opacity: 1,
+    });
+
+    tl.to(svImageRef.current, {
+      keyframes: [{ opacity: 1 }, { opacity: 0 }],
+    });
+
+    tl.to(svCopyRef.current, {
+      opacity: 0,
+    });
+  }, []);
   return (
     <>
       <Head>
         <title>{t("about:title")}</title>
         <meta
           name="description"
-          content="Web developer, i help business owner from Ragusa to increasing their clients, by the creation of profitable websites."
+          content="Ivan Smiths, frontend web developer from Wiesbaden"
         />
       </Head>
-      <header>
+      <header className="about__header">
         <div className="about-title-cnt">
-          <motion.h1 className="large-font impact">
-            {t("about:title")}
-          </motion.h1>
+          <h1 className="large-font impact">{t("about:title")}</h1>
         </div>
       </header>
       <main>
-        <section className="about-main-cnt">
-          <ModelMe />
-          <div className="about-main-works-cnt">
-            <div className="about-presentation-cnt">
-              <h2 className="tiny-font">{t("about:presentation")}</h2>
-              <p className="small-font">
-                {t("about:presentation-1")}
-                <br />
-                <br />
-                {t("about:presentation-2")}
-              </p>
-            </div>
-            <div className="about-presentation-cnt about-2">
-              <h2 className="tiny-font">{t("about:stuff")}</h2>
-              <ul>
-                <Link href="/stuff/ideology">
-                  <a>
-                    <li className="small-font">{t("about:work")} - Ideology</li>
-                  </a>
-                </Link>
-                <Link href="/stuff/cg-prospect">
-                  <a>
-                    <li className="small-font">
-                      {t("about:project")} - CG Prospect
-                    </li>
-                  </a>
-                </Link>
-                <Link href="/stuff/old-portfolio">
-                  <a>
-                    <li className="small-font">
-                      {t("about:project")} - Old Portfolio
-                    </li>
-                  </a>
-                </Link>
-              </ul>
-            </div>
-            <div className="about-presentation-cnt about-2">
-              <h2 className="tiny-font">{t("about:contact")}</h2>
-              <h3 className="small-font">info@ivansmiths.com</h3>
+        <div ref={refContainer} className="about__container">
+          <h2 ref={refTextRoad}>ROADMAP</h2>
+          <h3 ref={ref2020}>2020</h3>
+          <img
+            ref={firstWebsiteImageRef}
+            className="about__absolute-right about__opacity"
+            src="ivan-smiths-first-website.jpg"
+            alt=""
+          />
+          <div
+            ref={firstWebsiteCopyRef}
+            className="about__roadmap__copy about__absolute-left about__opacity"
+          >
+            <h4 className="small-font">01 / PASSION</h4>
+            <h5 className="medium-font">My journey begins</h5>
+            <p>
+              On 2020 my first website went online. My old portfolio was done in
+              plain HTML, Css and JavaScript. Is still hosted on Netlify and it
+              containes some really spooky designs.
+            </p>
+            <div className="about__roadmap__copy-link">
+              <a
+                href="https://ivansmiths.netlify.app/"
+                target="_blank"
+                className="btn-small"
+                rel="noreferrer noopener"
+              >
+                See more
+              </a>
             </div>
           </div>
-        </section>
+          <img
+            ref={idImageRef}
+            className="about__absolute-right about__opacity"
+            src="id-bottone.jpg"
+            height="667px"
+            width="375px"
+            alt="image of a work"
+          />
+          <div
+            ref={idCopyRef}
+            className="about__roadmap__copy about__absolute-left about__opacity"
+          >
+            <h4 className="small-font">02 / DESING & FRONTEND</h4>
+            <h5 className="medium-font">
+              First little steps in the Tech industry
+            </h5>
+            <p>
+              My first working experience was mainly as a UI/UX designer, but i
+              had the chance of showing my frontend skills, using Css and
+              jQuery.
+            </p>
+            <div className="about__roadmap__copy-link">
+              <Link href="/stuff/ideology">
+                <a className="btn-small">See more</a>
+              </Link>
+            </div>
+          </div>
+          <h3 ref={ref2021}>2021</h3>
+          <div
+            ref={cgCopyRef}
+            className="about__roadmap__copy about__absolute-left about__opacity"
+          >
+            <h4 className="small-font">03 / PERSONAL WORK</h4>
+            <h5 className="medium-font">CG Prospect was born</h5>
+            <p>
+              With a more &quot;corporate like&quot; design, CG Prospect is a
+              website focused on performances and Seo, where i freely share my
+              3d models to the people.
+            </p>
+            <div className="about__roadmap__copy-link">
+              <Link href="/stuff/cg-prospect">
+                <a className="btn-small">See more</a>
+              </Link>
+            </div>
+          </div>
+          <img
+            ref={cgImageRef}
+            className="about__absolute-right about__opacity"
+            src="cg-prospect-mobile.jpg"
+            alt="image of a work"
+          />
+          <h3 ref={ref2022}>2022</h3>
+          <div
+            ref={svCopyRef}
+            className="about__roadmap__copy about__absolute-left about__opacity"
+          >
+            <h4 className="small-font">04 / FRONTEND</h4>
+            <h5 className="medium-font">Rocking with Vue (Nuxt.js) and Gsap</h5>
+            <p>
+              As soon as i joined S&V, I started to work on various components
+              and animations, using Gsap for building animation and Vuex as a
+              state manager.
+            </p>
+            <div className="about__roadmap__copy-link">
+              <Link href="/stuff/scholz-und-volkmer">
+                <a className="btn-small">See more</a>
+              </Link>
+            </div>
+          </div>
+          <img
+            ref={svImageRef}
+            className="about__absolute-right about__opacity"
+            src="scholz-und-volkmer-website-1.png"
+            alt=" image of a work"
+          />
+        </div>
       </main>
     </>
   );

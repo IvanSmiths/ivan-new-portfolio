@@ -37,6 +37,15 @@
   .case-studio-description__second-column p {
     padding-right: 6.5rem;
   }
+  .about__absolute-right {
+    right: 0%;
+    width: 25%;
+    height: auto;
+  }
+
+  .about__roadmap__copy {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 1158px) {
@@ -117,6 +126,14 @@
 
   .case-studio__screen-image {
     padding: 0 5rem;
+  }
+
+  .about__absolute-left {
+    left: 10%;
+  }
+
+  .about__roadmap__copy {
+    width: 40%;
   }
 
   .lang-cnt2 {
@@ -406,6 +423,19 @@
     padding-bottom: 4rem;
   }
 
+  .about__absolute-right {
+    display: none;
+  }
+
+  .about__roadmap__copy {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .close-burger2 {
     right: 5px;
   }
@@ -417,7 +447,9 @@
   .home-header-cnt {
     gap: 3rem;
   }
-
+  .about__roadmap__copy-link {
+    margin-top: 4rem;
+  }
   .absolute-small {
     display: none;
     position: absolute;
