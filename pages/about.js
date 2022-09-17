@@ -3,8 +3,12 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import useTranslation from "next-translate/useTranslation";
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+>>>>>>> b6882070c75685956cf22dfbf426bb81257a279a
 
 const About = () => {
   let { t } = useTranslation();
