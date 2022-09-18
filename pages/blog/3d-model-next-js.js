@@ -36,7 +36,7 @@ function NextModel() {
       scrollTrigger: {
         trigger: mainImageOuterRef.current,
         start: "top top",
-        end: "+=2900px bottom",
+        end: "+=3500px bottom",
         scrub: true,
         pin: true,
       },
@@ -99,14 +99,16 @@ function NextModel() {
             src={articleMainImage}
             alt="tutorial"
           />
-          <p ref={excerptRef} className="blogpost__excerpt">
+          <div ref={excerptRef} className="blogpost__excerpt">
             <time dateTime={articleDate}>{articleDate}</time> <br />
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis sequi
-            in error suscipit laudantium, culpa eius saepe pariatur tempore,
-            quos est provident voluptates facere ut recusandae at, eveniet sint
-            itaque.
-          </p>
+            <p className="bold">
+              <br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              sequi in error suscipit laudantium, culpa eius saepe pariatur
+              tempore, quos est provident voluptates facere ut recusandae at,
+              eveniet sint itaque.
+            </p>
+          </div>
         </div>
       </article>
     </>
