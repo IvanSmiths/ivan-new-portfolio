@@ -8,16 +8,14 @@ function NextModel() {
   const articleTitle = "How to put a 3D model on a Next js website";
   const articleDescription = "How to put a model on a Next js website";
   const articleDate = "07/16/2022";
+  const articleMainImage = "/cg-prospect-website-1.jpg";
+  const articleUrl = "/3d-model-next-js";
   const schemaData = [
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       headline: `${articleTitle}`,
-      image: [
-        "https://example.com/photos/1x1/photo.jpg",
-        "https://example.com/photos/4x3/photo.jpg",
-        "https://example.com/photos/16x9/photo.jpg",
-      ],
+      image: `${articleMainImage}`,
       datePublished: `${articleDate}`,
       author: {
         "@type": "Person",
@@ -67,6 +65,28 @@ function NextModel() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`Ivan Smiths - ${articleTitle}`} />
+        <meta property="og:description" content={`${articleDescription}`} />
+        <meta property="article:published_time" content={articleDate} />
+        <meta
+          property="og:image"
+          content={`https://www.ivansmiths.com/${articleDescription}`}
+        />
+        <meta
+          property="og:image:secure_url"
+          content={`https://www.ivansmiths.com/${articleDescription}`}
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta
+          property="og:url"
+          content={`https://www.ivansmiths.com/blog/${articleUrl}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@IvanSmiths" />
+        <meta name="twitter:title" content={articleTitle} />
+        <meta name="twitter:description" content={articleDescription} />
+        <meta name="twitter:image" content={articleMainImage} />
       </Head>
       <article className="blogpost">
         <h1 className="blogpost__title large-font upper impact">
@@ -76,17 +96,18 @@ function NextModel() {
           <img
             ref={mainImageRef}
             className="blogpost__main-image"
-            src="/cg-prospect-website-1.jpg"
-            alt=""
+            src={articleMainImage}
+            alt="tutorial"
           />
           <p ref={excerptRef} className="blogpost__excerpt">
+            <time dateTime={articleDate}>{articleDate}</time> <br />
+            <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis sequi
             in error suscipit laudantium, culpa eius saepe pariatur tempore,
             quos est provident voluptates facere ut recusandae at, eveniet sint
             itaque.
           </p>
         </div>
-        <time dateTime={articleDate}>{articleDate}</time>
       </article>
     </>
   );
