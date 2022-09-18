@@ -59,10 +59,10 @@ function Blog() {
         {showAll === true ? (
           <>
             <BlogPost
-              link="/"
+              link="/blog/3d-model-next-js"
               image="cg-prospect-website-1.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="           3D models are becoming more and more presents on websites.
+              excerpt="3D models are becoming more and more presents on websites.
                       They can massively increase the user interaction, and the
                       whole user experience on your website. Today, i want to
                       write about my method to display a 3D model in a Next.js
@@ -74,7 +74,7 @@ function Blog() {
               link="/"
               image="scholz-und-volkmer-website-2.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="           3D models are becoming more and more presents on websites.
+              excerpt="3D models are becoming more and more presents on websites.
                       They can massively increase the user interaction, and the
                       whole user experience on your website. Today, i want to
                       write about my method to display a 3D model in a Next.js
@@ -86,7 +86,7 @@ function Blog() {
               link="/"
               image="scholz-und-volkmer-website-2.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="           3D models are becoming more and more presents on websites.
+              excerpt="3D models are becoming more and more presents on websites.
                       They can massively increase the user interaction, and the
                       whole user experience on your website. Today, i want to
                       write about my method to display a 3D model in a Next.js
