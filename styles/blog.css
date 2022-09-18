@@ -84,7 +84,6 @@
   top: 50%;
   left: var(--marginLayoutLeftSecond2);
   width: 30%;
-
   transform: translateY(-50%);
 }
 

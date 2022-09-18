@@ -34,6 +34,16 @@
   .case-studio-description__first-column {
     padding-left: 100px;
   }
+
+  .blogpost__excerpt {
+    left: var(--marginLayoutLeftFirst2);
+  }
+
+  .blogpost__title {
+    margin-left: var(--marginLayoutLeftFirst2);
+    padding-right: 30%;
+    padding-bottom: var(--marginSection);
+  }
   .case-studio-description__second-column p {
     padding-right: 6.5rem;
   }
@@ -135,6 +145,10 @@
 
   .blog__posts-single img {
     height: 40%;
+  }
+  .blogpost__title {
+    margin-left: 10px;
+    padding-right: 40%;
   }
 
   .about__absolute-left {
@@ -448,7 +462,10 @@
   .close-burger2 {
     right: 5px;
   }
-
+  .blogpost__excerpt {
+    left: 20px;
+    width: 50%;
+  }
   .title-arrow {
     margin-left: 1.5rem;
   }
