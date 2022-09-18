@@ -1,9 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React, { useState, useRef } from "react";
+import React, { useState, useContext } from "react";
 import BlogPost from "../../components/Blog/BlogPost";
+import { CursorContext } from "../../components/CursorManager";
 
 function Blog() {
+  // MOUSE ZOOM HANDLER //
+  const { setSize } = useContext(CursorContext);
+  const handleMouseEnter = () => {
+    setSize("medium");
+  };
+  const handleMouseLeave = () => {
+    setSize("small");
+  };
+
   const [showAll, setShowAll] = useState(true);
   const [showSnippets, setShowSnippets] = useState(false);
   const [showTutorials, setShowTutorials] = useState(false);
@@ -12,6 +22,8 @@ function Blog() {
     <div className="blog">
       <div className="blog__filters">
         <button
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onClick={() => [
             setShowAll(true),
             setShowSnippets(false),
@@ -21,6 +33,8 @@ function Blog() {
           All
         </button>
         <button
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onClick={() => [
             setShowAll(false),
             setShowTutorials(true),
@@ -30,6 +44,8 @@ function Blog() {
           Tutorials
         </button>
         <button
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onClick={() => [
             setShowSnippets(true),
             setShowAll(false),
