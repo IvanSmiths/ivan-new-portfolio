@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 
 function NextModel() {
-  const articleTitle = "How to put a model on a Next js website";
+  const articleTitle = "How to put a 3D model on a Next js website";
   const articleDescription = "How to put a model on a Next js website";
   const articleDate = "07/16/2022";
   const schemaData = [
@@ -90,6 +90,17 @@ function NextModel() {
       </article>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  await waitload(2);
+  return {
+    props: { load: "load" }, // will be passed to the page component as props
+  };
+}
+
+function waitload(sec) {
+  return new Promise((resolve) => setTimeout(resolve, sec * 300));
 }
 
 export default NextModel;
