@@ -128,6 +128,15 @@
     padding: 0 5rem;
   }
 
+  .blog__posts-single {
+    width: 80%;
+    height: fit-content;
+  }
+
+  .blog__posts-single img {
+    height: 40%;
+  }
+
   .about__absolute-left {
     left: 10%;
   }

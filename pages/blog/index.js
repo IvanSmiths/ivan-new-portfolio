@@ -66,6 +66,30 @@ function Blog() {
                       Augmented reality."
               date="13 October, 2022"
             />
+            <BlogPost
+              link="/"
+              image="scholz-und-volkmer-website-2.jpg"
+              title="How to put a 3d model on a Next.js website"
+              excerpt="           3D models are becoming more and more presents on websites.
+                      They can massively increase the user interaction, and the
+                      whole user experience on your website. Today, i want to
+                      write about my method to display a 3D model in a Next.js
+                      website, and make it visibile in your space thanks to the
+                      Augmented reality."
+              date="13 October, 2022"
+            />
+            <BlogPost
+              link="/"
+              image="scholz-und-volkmer-website-2.jpg"
+              title="How to put a 3d model on a Next.js website"
+              excerpt="           3D models are becoming more and more presents on websites.
+                      They can massively increase the user interaction, and the
+                      whole user experience on your website. Today, i want to
+                      write about my method to display a 3D model in a Next.js
+                      website, and make it visibile in your space thanks to the
+                      Augmented reality."
+              date="13 October, 2022"
+            />
           </>
         ) : null}
         {showSnippets === true ? (
