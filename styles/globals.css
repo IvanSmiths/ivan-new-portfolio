@@ -77,7 +77,7 @@ em {
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
   --mediumFont: clamp(1.5rem, 2vw, 5rem);
   --smallFont: clamp(0.9rem, 0.75vw, 1.3rem);
-  --smallFontHeight: clamp(1.4rem, 1.4vw, 2.7rem);
+  --smallFontHeight: clamp(1.2rem, 1.2vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
   --textIndent: 6rem;
 
@@ -138,6 +138,7 @@ em {
 body,
 body[data-theme="light"] {
   --color-bg-primary: #fefefe;
+  --color-bg-sec: #d9d9d9;
   --color-bg-sub: #050505;
   --case-studio-main-color: #2b2b2b;
   --color-text-primary: #2b2b2b;
@@ -149,6 +150,7 @@ body[data-theme="light"] {
 
 body[data-theme="dark"] {
   --color-bg-primary: #111111;
+  --color-bg-sec: #2e2e2e;
   --color-bg-sub: #ffffff;
   --color-text-primary: #f8f8f8;
   --case-studio-main-color: #d7f21d;
@@ -244,6 +246,7 @@ h3,
 h4,
 span,
 h5,
+button,
 h6,
 p,
 label,
@@ -568,6 +571,7 @@ b {
 @import "navbar.css";
 @import "stuff-single.css";
 @import "about.css";
+@import "blog.css";
 @import "footer.css";
 
 .guide-cnt {
