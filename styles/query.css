@@ -34,7 +34,9 @@
   .case-studio-description__first-column {
     padding-left: 100px;
   }
-
+  .blogpost__article-body {
+    width: 45%;
+  }
   .blogpost__excerpt {
     left: var(--marginLayoutLeftFirst2);
   }
@@ -385,6 +387,10 @@
     width: 100%;
   }
 
+  .blogpost__article-body {
+    width: 75%;
+  }
+
   .post-card-img-cnt {
     margin-top: 6.4rem;
   }
@@ -442,6 +448,9 @@
     padding-top: 0;
   }
 
+  .blogpost__article-body {
+    width: 90%;
+  }
   .footer-name-cnt {
     padding-bottom: 4rem;
   }

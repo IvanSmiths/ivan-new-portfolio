@@ -59,16 +59,11 @@ function Blog() {
         {showAll === true ? (
           <>
             <BlogPost
-              link="/blog/3d-model-next-js"
+              link="/blog/3d-model-react-nextjs"
               image="cg-prospect-website-1.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="3D models are becoming more and more presents on websites.
-                      They can massively increase the user interaction, and the
-                      whole user experience on your website. Today, i want to
-                      write about my method to display a 3D model in a Next.js
-                      website, and make it visibile in your space thanks to the
-                      Augmented reality."
-              date="13 October, 2022"
+              excerpt="3D models are becoming more and more presents on websites. They can massively increase the user interaction, and the whole user experience on your website. Today, i want to write about my method to display a 3D model in a Next.js website, and make it visibile in your space thanks to the Augmented reality."
+              date="19 September, 2022"
             />
             <BlogPost
               link="/"
@@ -127,10 +122,10 @@ function Blog() {
         {showTutorials === true ? (
           <>
             <BlogPost
-              link="/"
+              link="/blog/3d-model-react-nextjs"
               image="scholz-und-volkmer-website-2.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="           3D models are becoming more and more presents on websites.
+              excerpt="3D models are becoming more and more presents on websites.
                       They can massively increase the user interaction, and the
                       whole user experience on your website. Today, i want to
                       write about my method to display a 3D model in a Next.js
