@@ -77,12 +77,19 @@ em {
   --bigFontHeightTitle: clamp(2rem, 11vw, 9rem);
   --mediumFont: clamp(1.5rem, 2vw, 5rem);
   --smallFont: clamp(0.9rem, 0.75vw, 1.3rem);
-  --smallFontHeight: clamp(1.4rem, 1.4vw, 2.7rem);
+  --smallFontHeight: clamp(1.2rem, 1.2vw, 2.7rem);
   --tinyFont: clamp(1rem, 1vw, 1rem);
   --textIndent: 6rem;
 
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
+
+  --blogFont: clamp(0.9rem, 1vw, 1.3rem);
+  --blogFontHeight: clamp(1.2rem, 1.6vw, 2.7rem);
+  --blogFontMed: clamp(0.9rem, 1.5vw, 1.5rem);
+  --blogFontMedHeight: clamp(1.2rem, 1.6vw, 2.7rem);
+  --blogBigFont: clamp(5rem, 17vw, 22rem);
+  --blogBigFontHeight: clamp(5rem, 17vw, 18rem);
 
   --marginTop: 9rem;
 
@@ -138,6 +145,7 @@ em {
 body,
 body[data-theme="light"] {
   --color-bg-primary: #fefefe;
+  --color-bg-sec: #e4e4e4;
   --color-bg-sub: #050505;
   --case-studio-main-color: #2b2b2b;
   --color-text-primary: #2b2b2b;
@@ -149,6 +157,7 @@ body[data-theme="light"] {
 
 body[data-theme="dark"] {
   --color-bg-primary: #111111;
+  --color-bg-sec: #202020;
   --color-bg-sub: #ffffff;
   --color-text-primary: #f8f8f8;
   --case-studio-main-color: #d7f21d;
@@ -244,6 +253,7 @@ h3,
 h4,
 span,
 h5,
+button,
 h6,
 p,
 label,
@@ -568,6 +578,7 @@ b {
 @import "navbar.css";
 @import "stuff-single.css";
 @import "about.css";
+@import "blog.css";
 @import "footer.css";
 
 .guide-cnt {
