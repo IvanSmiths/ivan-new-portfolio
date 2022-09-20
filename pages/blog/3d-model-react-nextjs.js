@@ -143,6 +143,8 @@ function NextModel() {
             className="blogpost__main-image"
             src={articleMainImage}
             alt="tutorial"
+            height="929"
+            width="1902"
           />
           <div ref={excerptRef} className="blogpost__excerpt">
             <time dateTime={articleDate}>{articleDate}</time> <br />
@@ -181,7 +183,11 @@ function NextModel() {
               scroll down a bit. and click on Editor, then select your model.
               You should see it right away! Now we are ready to customize it.
             </p>
-            <SrcImage scr="/next-js-3d.jpg" webp="/next-js-3d.webp" />
+            <SrcImage
+              alt="model viewer"
+              scr="/next-js-3d.jpg"
+              webp="/next-js-3d.webp"
+            />
             <p>
               From here, scroll down, enable &quot;Ar&quot; in order to enable
               augmented reality, then scroll a little bit more and disable the
@@ -192,6 +198,7 @@ function NextModel() {
             <SrcImage
               scr="/nextjs-3d-model-2.jpg"
               webp="/nextjs-3d-model-2.webp"
+              alt="3d model"
             />
             <p>
               In the other tabs on the right, you can customize the textures of
