@@ -19,7 +19,7 @@ function BlogPost({ title, excerpt, date, image, link }) {
           <img src={image} alt="tutorial" />
           <span className="small-font blog__date">{date}</span>
           <div className="blog__posts__text">
-            <h2 className="small-font bold">{title}</h2>
+            <h2 className="bold">{title}</h2>
 
             <h3 className="small-font">{excerpt}</h3>
 

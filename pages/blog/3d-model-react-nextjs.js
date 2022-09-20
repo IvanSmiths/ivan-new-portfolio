@@ -10,8 +10,8 @@ function NextModel() {
   const articleTitle = "How to add 3d models on a Next.js website";
   const articleExcerpt =
     "Today, i want to write about my method to display a 3D model in a React/Next.js website, and make it visibile in your space thanks to the Augmented reality.";
-  const articleDate = "07/16/2022";
-  const articleMainImage = "/cg-prospect-website-1.jpg";
+  const articleDate = "09/20/2022";
+  const articleMainImage = "/next-js-3d-model-ar.jpg";
   const articleUrl = "/3d-model-react-nextjs";
   const schemaData = [
     {
@@ -115,11 +115,11 @@ function NextModel() {
         <meta property="article:published_time" content={articleDate} />
         <meta
           property="og:image"
-          content={`https://www.ivansmiths.com/${articleExcerpt}`}
+          content={`https://www.ivansmiths.com/${articleMainImage}`}
         />
         <meta
           property="og:image:secure_url"
-          content={`https://www.ivansmiths.com/${articleExcerpt}`}
+          content={`https://www.ivansmiths.com/${articleMainImage}`}
         />
         <meta property="og:image:type" content="image/jpeg" />
         <meta
@@ -130,7 +130,10 @@ function NextModel() {
         <meta name="twitter:site" content="@IvanSmiths" />
         <meta name="twitter:title" content={articleTitle} />
         <meta name="twitter:description" content={articleExcerpt} />
-        <meta name="twitter:image" content={articleMainImage} />
+        <meta
+          name="twitter:image"
+          content={`https://www.ivansmiths.com/${articleMainImage}`}
+        />
       </Head>
       <article className="blogpost">
         <h1 className="blogpost__title  upper impact">{articleTitle}</h1>
@@ -170,8 +173,8 @@ function NextModel() {
             </p>
             <h3>First steps with model-viewer</h3>
             <p>
-              In order to display the model, we are using model-viewer, an API
-              from Google, that handles the display of the model, mouse
+              In order to display the 3d model, we are using model-viewer, an
+              API from Google, that handles the display of the model, mouse
               interactions, augmented reality, and other really complex stuff
               out of the box.{" "}
               <BlogLink href="https://modelviewer.dev/" text="Go here" />,
@@ -192,8 +195,8 @@ function NextModel() {
             />
             <p>
               In the other tabs on the right, you can customize the textures of
-              the model (this 3d model have 3 textures in it), or the scene it
-              self, like the lightning, skybox and many others. But i do
+              the 3d model (this 3d model have 3 textures in it), or the scene
+              it self, like the lightning, skybox and many others. But i do
               recommend to go in the second list, and clicking on &quot;generate
               poster&quot; button, then click on download poster. This will
               create an image, to display in the website, while the 3D model is
@@ -201,12 +204,12 @@ function NextModel() {
               <br />
               <br />
               In addition to that, go in the next tab and click on auto-rotate,
-              in order to make the 3d-model auto rotating (you can also set the
+              in order to make the 3d model auto rotating (you can also set the
               speed and go crazy with it!), so it doesn&quot;t feel like a plain
               image.
               <br />
               <br />
-              Once you&quot;re finished to customize your 3D model, copy the
+              Once you&quot;re finished to customize your 3d model, copy the
               model-viewer snippet somewhere, and get ready to finally write
               some code!
             </p>
@@ -234,12 +237,9 @@ function NextModel() {
               <code>{modelViewer}</code>
             </pre>
             <p>
-              Create a folder called &quot;components&quot; in the root of the
-              directory and inside of it, create a file called ModelTree.js. In
-              here, import the package, create a function and put the snippet
-              that we previosly saved from model-viewer. In the case of the 3d
-              model, we have to import it from the client dynamically in order
-              to avoid the server side rendering, or we&quot;ll get an error.
+              In the case of the 3d model, we have to import it from the client
+              dynamically in order to avoid the server side rendering, or
+              we&quot;ll get an error.
             </p>
             <pre className="blogpost__code">
               <code>{importModel}</code>
@@ -249,7 +249,8 @@ function NextModel() {
               file, and import the component. Notice that we need to import it
               with the dynamic import, and not as a regular component. Get rid
               of the footer, the head tag, and everything inside the main tag,
-              then display the component as it would be normally. Et voilà! The
+              then display the component as it would be normally. Et voilà! You
+              have a <strong>3d model on your next js</strong> website. The 3d
               model shows perfectly, is fully responsive and ready to be seeing
               in your space thanks to the augmented reality. Now, it&quot;s just
               a 3d model in a blank page, soon i&quot;ll write about making a

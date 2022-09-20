@@ -40,7 +40,7 @@
 
 .blog__posts-single img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   height: 240px;
 }
 
@@ -56,7 +56,12 @@
   padding: 0 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
+}
+
+.blog__posts__text h2 {
+  font-size: var(--blogFontMed);
 }
 
 .blogpost {
@@ -107,6 +112,7 @@
 }
 
 .blogpost__article-body h3,
+.blogpost__article-body h1,
 .blogpost__article-body h4,
 .blogpost__article-body ul,
 .blogpost__article-body img,
@@ -149,6 +155,14 @@ pre {
 
 .blogpost__code {
   padding: 1rem 1rem;
-  background-color: rgb(42, 42, 42);
+  background-color: #232323;
+  background: linear-gradient(90deg, #232323, #111111);
   color: rgb(255, 255, 255);
+}
+.blog__link {
+  margin-bottom: auto;
+}
+
+.snippet {
+  margin-top: 9rem;
 }

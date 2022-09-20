@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import React, { useState, useContext } from "react";
 import BlogPost from "../../components/Blog/BlogPost";
 import { CursorContext } from "../../components/CursorManager";
@@ -60,62 +59,28 @@ function Blog() {
           <>
             <BlogPost
               link="/blog/3d-model-react-nextjs"
-              image="cg-prospect-website-1.jpg"
+              image="/nextjs-3d-model-2.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="3D models are becoming more and more presents on websites. They can massively increase the user interaction, and the whole user experience on your website. Today, i want to write about my method to display a 3D model in a Next.js website, and make it visibile in your space thanks to the Augmented reality."
-              date="19 September, 2022"
+              excerpt="Today, i want to write about my method to display a 3D model in a React/Next.js website, and make it visibile in your space thanks to the Augmented reality."
+              date="20 September, 2022"
             />
             <BlogPost
-              link="/"
-              image="scholz-und-volkmer-website-2.jpg"
-              title="How to put a 3d model on a Next.js website"
-              excerpt="3D models are becoming more and more presents on websites.
-                      They can massively increase the user interaction, and the
-                      whole user experience on your website. Today, i want to
-                      write about my method to display a 3D model in a Next.js
-                      website, and make it visibile in your space thanks to the
-                      Augmented reality."
-              date="13 October, 2022"
-            />
-            <BlogPost
-              link="/"
-              image="scholz-und-volkmer-website-2.jpg"
-              title="How to put a 3d model on a Next.js website"
-              excerpt="3D models are becoming more and more presents on websites.
-                      They can massively increase the user interaction, and the
-                      whole user experience on your website. Today, i want to
-                      write about my method to display a 3D model in a Next.js
-                      website, and make it visibile in your space thanks to the
-                      Augmented reality."
-              date="13 October, 2022"
-            />
-            <BlogPost
-              link="/"
-              image="scholz-und-volkmer-website-2.jpg"
-              title="How to put a 3d model on a Next.js website"
-              excerpt="           3D models are becoming more and more presents on websites.
-                      They can massively increase the user interaction, and the
-                      whole user experience on your website. Today, i want to
-                      write about my method to display a 3D model in a Next.js
-                      website, and make it visibile in your space thanks to the
-                      Augmented reality."
-              date="13 October, 2022"
+              link="/blog/scrolltrigger-timeline-react"
+              image="gsap-react.png"
+              title="How to use Scrolltrigger with timeline in React"
+              excerpt="The following snippets allows you to use Gsap timelines with Scrolltrigger in React (Next.js)"
+              date="20 September, 2022"
             />
           </>
         ) : null}
         {showSnippets === true ? (
           <>
             <BlogPost
-              link="/"
-              image="cg-prospect-website-1.jpg"
-              title="How to put a 3d model on a Next.js website"
-              excerpt="           3D models are becoming more and more presents on websites.
-                         They can massively increase the user interaction, and the
-                         whole user experience on your website. Today, i want to
-                         write about my method to display a 3D model in a Next.js
-                         website, and make it visibile in your space thanks to the
-                         Augmented reality."
-              date="13 October, 2022"
+              link="/blog/scrolltrigger-timeline-react"
+              image="gsap-react.png"
+              title="How to use Scrolltrigger with timeline in React"
+              excerpt="The following snippets allows you to use Gsap timelines with Scrolltrigger in React (Next.js)"
+              date="20 September, 2022"
             />
           </>
         ) : null}
@@ -123,15 +88,10 @@ function Blog() {
           <>
             <BlogPost
               link="/blog/3d-model-react-nextjs"
-              image="scholz-und-volkmer-website-2.jpg"
+              image="/nextjs-3d-model-2.jpg"
               title="How to put a 3d model on a Next.js website"
-              excerpt="3D models are becoming more and more presents on websites.
-                      They can massively increase the user interaction, and the
-                      whole user experience on your website. Today, i want to
-                      write about my method to display a 3D model in a Next.js
-                      website, and make it visibile in your space thanks to the
-                      Augmented reality."
-              date="13 October, 2022"
+              excerpt="Today, i want to write about my method to display a 3D model in a React/Next.js website, and make it visibile in your space thanks to the Augmented reality."
+              date="20 September, 2022"
             />
           </>
         ) : null}

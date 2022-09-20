@@ -86,6 +86,8 @@ em {
 
   --blogFont: clamp(0.9rem, 1vw, 1.3rem);
   --blogFontHeight: clamp(1.2rem, 1.6vw, 2.7rem);
+  --blogFontMed: clamp(0.9rem, 1.5vw, 1.5rem);
+  --blogFontMedHeight: clamp(1.2rem, 1.6vw, 2.7rem);
   --blogBigFont: clamp(5rem, 17vw, 22rem);
   --blogBigFontHeight: clamp(5rem, 17vw, 18rem);
 
@@ -143,7 +145,7 @@ em {
 body,
 body[data-theme="light"] {
   --color-bg-primary: #fefefe;
-  --color-bg-sec: #d9d9d9;
+  --color-bg-sec: #e4e4e4;
   --color-bg-sub: #050505;
   --case-studio-main-color: #2b2b2b;
   --color-text-primary: #2b2b2b;
@@ -155,7 +157,7 @@ body[data-theme="light"] {
 
 body[data-theme="dark"] {
   --color-bg-primary: #111111;
-  --color-bg-sec: #2e2e2e;
+  --color-bg-sec: #202020;
   --color-bg-sub: #ffffff;
   --color-text-primary: #f8f8f8;
   --case-studio-main-color: #d7f21d;
