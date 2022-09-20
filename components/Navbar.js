@@ -112,6 +112,16 @@ function Navbar() {
               </Link>
             </li>
             <li>
+              <Link href="/blog">
+                <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  what i write
+                </a>
+              </Link>
+            </li>
+            <li>
               <ThemeToggle />
             </li>
           </ul>

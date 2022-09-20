@@ -34,6 +34,18 @@
   .case-studio-description__first-column {
     padding-left: 100px;
   }
+  .blogpost__article-body {
+    width: 45%;
+  }
+  .blogpost__excerpt {
+    left: var(--marginLayoutLeftFirst2);
+  }
+
+  .blogpost__title {
+    margin-left: var(--marginLayoutLeftFirst2);
+    padding-right: 30%;
+    padding-bottom: var(--marginSection);
+  }
   .case-studio-description__second-column p {
     padding-right: 6.5rem;
   }
@@ -126,6 +138,19 @@
 
   .case-studio__screen-image {
     padding: 0 5rem;
+  }
+
+  .blog__posts-single {
+    width: 80%;
+    height: fit-content;
+  }
+
+  .blog__posts-single img {
+    height: 40%;
+  }
+  .blogpost__title {
+    margin-left: 10px;
+    padding-right: 40%;
   }
 
   .about__absolute-left {
@@ -362,6 +387,10 @@
     width: 100%;
   }
 
+  .blogpost__article-body {
+    width: 75%;
+  }
+
   .post-card-img-cnt {
     margin-top: 6.4rem;
   }
@@ -419,6 +448,9 @@
     padding-top: 0;
   }
 
+  .blogpost__article-body {
+    width: 90%;
+  }
   .footer-name-cnt {
     padding-bottom: 4rem;
   }
@@ -439,7 +471,10 @@
   .close-burger2 {
     right: 5px;
   }
-
+  .blogpost__excerpt {
+    left: 20px;
+    width: 50%;
+  }
   .title-arrow {
     margin-left: 1.5rem;
   }
