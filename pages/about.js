@@ -65,6 +65,7 @@ const About = () => {
         { opacity: 1 },
         {
           opacity: 0,
+          delay: 1,
         },
       ],
     });
@@ -81,6 +82,7 @@ const About = () => {
         { opacity: 1 },
         {
           opacity: 0,
+          delay: 1,
         },
       ],
     });
@@ -107,7 +109,7 @@ const About = () => {
     });
 
     tl.to(cgCopyRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0 }],
+      keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
     });
 
     tl.to(cgImageRef.current, {
@@ -131,7 +133,7 @@ const About = () => {
     });
 
     tl.to(svImageRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0 }],
+      keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
     });
 
     tl.to(svCopyRef.current, {
