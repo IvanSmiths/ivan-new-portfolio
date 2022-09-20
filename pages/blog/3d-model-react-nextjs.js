@@ -143,8 +143,6 @@ function NextModel() {
             className="blogpost__main-image"
             src={articleMainImage}
             alt="tutorial"
-            height="929"
-            width="1902"
           />
           <div ref={excerptRef} className="blogpost__excerpt">
             <time dateTime={articleDate}>{articleDate}</time> <br />
