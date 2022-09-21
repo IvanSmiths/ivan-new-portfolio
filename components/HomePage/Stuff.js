@@ -12,6 +12,7 @@ function About() {
   const refAbout = useRef(null);
 
   const containerRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useEffect(() => {
     const pin = gsap.fromTo(
@@ -24,10 +25,10 @@ function About() {
         ease: "none",
         duration: 0.5,
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: triggerRef.current,
           start: "top top",
           end: "6000px top",
-          scrub: true,
+          scrub: 1,
           pin: true,
         },
       }
@@ -116,205 +117,210 @@ function About() {
           </Link>
         </div>
       </main>
-      <section className="scroll-container-outer">
-        <div id="box" ref={containerRef} className="scroll-container ">
-          <div id="box1" className="scroll-section-1 scroll-section">
-            <div className="box-image-cnt">
-              <Link href="/stuff/scholz-und-volkmer">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <picture className="flex-center">
-                    <source
-                      alt="image of a work"
-                      decoding="async"
-                      loading="lazy"
-                      height="750"
-                      width="600"
-                      srcSet="/scholz-und-volkmer-website-1.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      alt="image of a work"
-                      loading="lazy"
-                      decoding="async"
-                      src="/scholz-und-volkmer-website-1.jpg"
-                      height="750"
-                      width="600"
-                    />
-                  </picture>
-                </a>
-              </Link>
-            </div>
-            <div className="box-informations-cnt">
-              <span className="small-font box-subtitle">
-                01 / {t("home:stuff-3")}
-                <br />
-              </span>
-              <Link href="/stuff/scholz-und-volkmer" passHref>
-                <a
-                  className="medium-font box-title "
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Scholz & Volkmer
-                </a>
-              </Link>
-              <ul>
-                <li>
-                  {t("home:box-list")}
-                  {t("home:box-list-dev")}
-                </li>
-                <li>
-                  {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap, Sass
-                </li>
-                <li>2022 / {t("home:box-list-3")}</li>
-              </ul>
-              <div className="box-link-cnt">
-                <Link href="/stuff/scholz-und-volkmer" passHref>
-                  <a className="btn-small box-link">{t("home:stuff")}</a>
+      <div>
+        <section ref={triggerRef} className="scroll-container-outer">
+          <div id="box" ref={containerRef} className="scroll-container ">
+            <div id="box1" className="scroll-section-1 scroll-section">
+              <div className="box-image-cnt">
+                <Link href="/stuff/scholz-und-volkmer">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <picture className="flex-center">
+                      <source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/scholz-und-volkmer-website-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/scholz-und-volkmer-website-1.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </picture>
+                  </a>
                 </Link>
               </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  01 / {t("home:stuff-3")}
+                  <br />
+                </span>
+                <Link href="/stuff/scholz-und-volkmer" passHref>
+                  <a
+                    className="medium-font box-title "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    Scholz & Volkmer
+                  </a>
+                </Link>
+                <ul>
+                  <li>
+                    {t("home:box-list")}
+                    {t("home:box-list-dev")}
+                  </li>
+                  <li>
+                    {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap, Sass
+                  </li>
+                  <li>2022 / {t("home:box-list-3")}</li>
+                </ul>
+                <div className="box-link-cnt">
+                  <Link href="/stuff/scholz-und-volkmer" passHref>
+                    <a className="btn-small box-link">{t("home:stuff")}</a>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-          <div id="box2" className="scroll-section-2 scroll-section">
-            <div className="box-image-cnt">
-              <Link href="/stuff/ideology">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <picture className="flex-center">
-                    <source
-                      alt="image of a work"
-                      decoding="async"
-                      loading="lazy"
-                      height="750"
-                      width="600"
-                      srcSet="/ideology-website-mobile-4.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      alt="image of a work"
-                      loading="lazy"
-                      decoding="async"
-                      src="/ideology-website-mobile-4.jpg"
-                      height="750"
-                      width="600"
-                    />
-                  </picture>
-                </a>
-              </Link>
-            </div>
-            <div className="box-informations-cnt">
-              <span className="small-font box-subtitle">
-                02 / {t("home:stuff-3")}
-                <br />
-              </span>
-              <Link href="/stuff/ideology" passHref>
-                <a
-                  className="medium-font box-title"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Ideology
-                </a>
-              </Link>
-              <ul>
-                <li>{t("home:box-list")}UI/UX Designer</li>
-                <li>{t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress</li>
-                <li>2020 / 2022</li>
-              </ul>
-              <div className="box-link-cnt ">
+            <div id="box2" className="scroll-section-2 scroll-section">
+              <div className="box-image-cnt">
+                <Link href="/stuff/ideology">
+                  <a
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <picture className="flex-center">
+                      <source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/ideology-website-mobile-4.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/ideology-website-mobile-4.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </picture>
+                  </a>
+                </Link>
+              </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  02 / {t("home:stuff-3")}
+                  <br />
+                </span>
                 <Link href="/stuff/ideology" passHref>
                   <a
+                    className="medium-font box-title"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="btn-small box-link"
                   >
-                    {t("home:stuff")}
+                    Ideology
                   </a>
                 </Link>
+                <ul>
+                  <li>{t("home:box-list")}UI/UX Designer</li>
+                  <li>
+                    {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                  </li>
+                  <li>2020 / 2022</li>
+                </ul>
+                <div className="box-link-cnt ">
+                  <Link href="/stuff/ideology" passHref>
+                    <a
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      className="btn-small box-link"
+                    >
+                      {t("home:stuff")}
+                    </a>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div id="box3" className="scroll-section-3 scroll-section">
-            <div className="box-image-cnt">
-              <Link href="/stuff/cg-prospect">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <picture className="flex-center">
-                    <source
-                      alt="image of a work"
-                      decoding="async"
-                      loading="lazy"
-                      height="750"
-                      width="600"
-                      srcSet="/cgprospect.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      alt="image of a work"
-                      loading="lazy"
-                      decoding="async"
-                      src="/cgprospect.jpg"
-                      height="750"
-                      width="600"
-                    />
-                  </picture>
-                </a>
-              </Link>
-            </div>
-            <div className="box-informations-cnt">
-              <span className="small-font box-subtitle">
-                03 / {t("home:stuff-4")}
-                <br />
-              </span>
-              <Link href="/stuff/cg-prospect" passHref>
-                <a
-                  className="medium-font box-title"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  CG Prospect
-                </a>
-              </Link>
-              <ul>
-                <li>
-                  {t("home:box-list")}
-                  {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
-                  {t("home:box-list-mod")}
-                </li>
-                <li>
-                  {t("home:box-list-2")}React (Next.js), MongoDB, CSS, MetaShape
-                </li>
-                <li>2021 / {t("home:box-list-3")}</li>
-              </ul>
-              <div className="box-link-cnt">
-                <Link href="/stuff/cg-prospect" passHref>
+            <div id="box3" className="scroll-section-3 scroll-section">
+              <div className="box-image-cnt">
+                <Link href="/stuff/cg-prospect">
                   <a
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="btn-small box-link"
                   >
-                    {t("home:stuff")}
+                    <picture className="flex-center">
+                      <source
+                        alt="image of a work"
+                        decoding="async"
+                        loading="lazy"
+                        height="750"
+                        width="600"
+                        srcSet="/cgprospect.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        alt="image of a work"
+                        loading="lazy"
+                        decoding="async"
+                        src="/cgprospect.jpg"
+                        height="750"
+                        width="600"
+                      />
+                    </picture>
                   </a>
                 </Link>
               </div>
+              <div className="box-informations-cnt">
+                <span className="small-font box-subtitle">
+                  03 / {t("home:stuff-4")}
+                  <br />
+                </span>
+                <Link href="/stuff/cg-prospect" passHref>
+                  <a
+                    className="medium-font box-title"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    CG Prospect
+                  </a>
+                </Link>
+                <ul>
+                  <li>
+                    {t("home:box-list")}
+                    {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
+                    {t("home:box-list-mod")}
+                  </li>
+                  <li>
+                    {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                    MetaShape
+                  </li>
+                  <li>2021 / {t("home:box-list-3")}</li>
+                </ul>
+                <div className="box-link-cnt">
+                  <Link href="/stuff/cg-prospect" passHref>
+                    <a
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      className="btn-small box-link"
+                    >
+                      {t("home:stuff")}
+                    </a>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className="caption__wrapper">
-            <h3 className="caption-cnt impact large-font">
-              {t("home:home-caption")}
-            </h3>
+          <div>
+            <div className="caption__wrapper">
+              <h3 className="caption-cnt impact large-font">
+                {t("home:home-caption")}
+              </h3>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
