@@ -259,6 +259,43 @@
   left: 50%;
 }
 
+.scroll-container-outer {
+  overflow: hidden;
+  background-color: var(--color-bg-primary);
+  z-index: 4;
+}
+
+.scroll-container {
+  position: relative;
+  height: 100vh;
+  background-color: var(--color-bg-primary);
+  z-index: 4;
+}
+
+.scroll-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  gap: 15rem;
+  background-color: var(--color-bg-primary);
+  z-index: 4;
+}
+
+.scroll-section-1 {
+}
+.scroll-section-2 {
+  background-color: var(--color-bg-primary);
+  left: 100vw;
+}
+.scroll-section-3 {
+  background-color: var(--color-bg-primary);
+  left: 200vw;
+}
+
 .box-cnt {
   overflow: hidden;
   display: flex;
