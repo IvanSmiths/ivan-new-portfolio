@@ -666,7 +666,7 @@
     padding-bottom: 0rem;
   }
 
-  .box1 {
+  .scroll-section-1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -676,7 +676,7 @@
     z-index: 3;
   }
 
-  .box2 {
+  .scroll-section-2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -686,7 +686,7 @@
     z-index: 3;
   }
 
-  .box3 {
+  .scroll-section-3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -694,16 +694,6 @@
     gap: 0;
     align-items: center;
     z-index: 3;
-  }
-
-  .box3-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
-    height: 130vh;
-    align-items: center;
-    z-index: 2;
   }
 
   .theme-toggle {
