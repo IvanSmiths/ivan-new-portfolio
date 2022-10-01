@@ -371,7 +371,7 @@ b {
   top: 0px;
   position: fixed;
   transform: translateY(-100%);
-  background-color: var(--main-color);
+  background-color: var(--color-bg-inverse);
 }
 .btn-4 {
   padding: 5vw 1vw;

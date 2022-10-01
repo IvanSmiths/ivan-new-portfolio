@@ -13,7 +13,7 @@ const PageTransition = () => {
         const tl = gsap.timeline();
         tl.to(".cover-strip", {
           yPercent: 100,
-          duration: 0.6,
+          duration: 0.5,
           ease: "Expo.easeInOut",
           stagger: 0.1,
         });
@@ -51,7 +51,7 @@ const PageTransition = () => {
         clearTimeout(timer);
       }
     };
-  }, [router]);
+  }, [router.events, isActive]);
   return (
     <>
       <div className="page-change-cnt">
