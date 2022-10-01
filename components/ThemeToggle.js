@@ -4,7 +4,7 @@ import { CursorContext } from "./CursorManager";
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
-  const inactiveTheme = activeTheme === "dark" ? "light" : "dark";
+  const inactiveTheme = activeTheme === "light" ? "dark" : "light";
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
