@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import Hero from "../components/HomePage/Hero";
-import { motion } from "framer-motion";
 import Loader from "../components/HomePage/Loader";
 import Stuff from "../components/HomePage/Stuff";
 import Head from "next/head";
-import Marquee from "../components/HomePage/Marquee-innovation";
 import useTranslation from "next-translate/useTranslation";
-import dynamic from "next/dynamic";
+import Innovation from "../components/HomePage/Innovation";
 
 const Home = () => {
-  const Canvas = dynamic(() => import("../components/HomePage/Canvas"), {
-    ssr: false,
-  });
   let { t } = useTranslation();
   // LOADER  ANIMATION //
   const [loading, setLoading] = useState(true);
@@ -61,9 +56,7 @@ const Home = () => {
   return (
     <>
       {loading && hasVisited ? (
-        <motion.div key="loader">
-          <Loader setLoading={setLoading} />
-        </motion.div>
+        <Loader setLoading={setLoading} />
       ) : (
         <>
           <Head>
@@ -79,16 +72,7 @@ const Home = () => {
             />
           </Head>
           <Hero />
-          <div
-            className="canvas-cnt-home"
-            style={{ minHeight: "130vh", position: "relative" }}
-          >
-            <div className="background-innovation"></div>
-            <Canvas />
-          </div>
-          <div className="innovation-cnt-home" style={{ display: "none" }}>
-            <Marquee />
-          </div>
+          <Innovation />
           <Stuff />
         </>
       )}
