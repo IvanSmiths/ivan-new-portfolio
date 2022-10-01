@@ -21,7 +21,7 @@ const Innovation = () => {
           trigger: innovationTriggerRef.current,
           start: "top top",
           end: "+=1200px top",
-          scrub: 1,
+          scrub: 0.3,
           pin: true,
         },
       }

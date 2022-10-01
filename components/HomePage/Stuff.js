@@ -131,7 +131,6 @@ function About() {
                       <source
                         alt="image of a work"
                         decoding="async"
-                        loading="lazy"
                         height="750"
                         width="600"
                         srcSet="/scholz-und-volkmer-website-1.webp"
@@ -139,7 +138,6 @@ function About() {
                       />
                       <img
                         alt="image of a work"
-                        loading="lazy"
                         decoding="async"
                         src="/scholz-und-volkmer-website-1.jpg"
                         height="750"
@@ -191,7 +189,6 @@ function About() {
                       <source
                         alt="image of a work"
                         decoding="async"
-                        loading="lazy"
                         height="750"
                         width="600"
                         srcSet="/ideology-website-mobile-4.webp"
@@ -199,7 +196,6 @@ function About() {
                       />
                       <img
                         alt="image of a work"
-                        loading="lazy"
                         decoding="async"
                         src="/ideology-website-mobile-4.jpg"
                         height="750"
@@ -254,7 +250,6 @@ function About() {
                       <source
                         alt="image of a work"
                         decoding="async"
-                        loading="lazy"
                         height="750"
                         width="600"
                         srcSet="/cgprospect.webp"
@@ -262,7 +257,6 @@ function About() {
                       />
                       <img
                         alt="image of a work"
-                        loading="lazy"
                         decoding="async"
                         src="/cgprospect.jpg"
                         height="750"
