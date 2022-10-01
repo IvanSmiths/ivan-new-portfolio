@@ -477,17 +477,19 @@
   transform: translateX(-30px);
 }
 
-.marquee-cnt-rel {
+.home__innnovation-inner {
+  position: relative;
+  height: 100vh;
   overflow: hidden;
-  background-color: var(--color-bg-inverse);
+  z-index: 5;
 }
 
-.marquee-innovation {
-  margin-top: 4rem;
-  position: relative;
-  height: 406px;
-  overflow: hidden;
-  transform: rotateZ(-10deg);
+.home__innnovation {
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .track-2 {

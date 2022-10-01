@@ -31,7 +31,7 @@ const Hero = () => {
       },
       {
         paddingBottom: "22rem",
-        opacity: 0.1,
+        opacity: 0,
         duration: 1,
         ease: "none",
         scrollTrigger: {
