@@ -31,10 +31,13 @@
 }
 
 .about__container h2,
-.about__container h3 {
+.about__container h3,
+.about__container span {
   font-size: var(--bigFont);
+  line-height: var(--bigFontHeight);
   font-weight: bold;
   position: absolute;
+  color: var(--color-text-main);
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -42,7 +45,8 @@
   text-align: center;
 }
 
-.about__container h3 {
+.about__container h3,
+.about__container span {
   font-size: var(--bigFont);
   opacity: 0;
 }

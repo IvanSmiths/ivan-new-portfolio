@@ -175,6 +175,13 @@ function Navbar() {
                     </a>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/about">
+                    <a onClick={onClick} className="impact big-font">
+                      {t("common:nav-post")}
+                    </a>
+                  </Link>
+                </li>
               </ul>
               <ul className="nav-social-cnt">
                 <li>
