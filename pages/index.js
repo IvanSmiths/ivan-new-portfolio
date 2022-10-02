@@ -14,6 +14,9 @@ const Home = () => {
     loading
       ? document.querySelector("body").classList.add("loading")
       : document.querySelector("body").classList.remove("loading");
+    return () => {
+      document.querySelector("body").classList.remove("loading");
+    };
   }, [loading]);
 
   const [hasVisited, setHasVisited] = useState(false);
