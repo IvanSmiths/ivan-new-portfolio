@@ -142,3 +142,11 @@
 .footer__name img {
   width: 100%;
 }
+
+.about-page .footer {
+  display: none;
+}
+
+.spacer-small {
+  height: 2px;
+}

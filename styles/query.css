@@ -492,6 +492,17 @@
     right: -85px;
   }
 
+  .spacer-small {
+    height: 50px;
+  }
+
+  .about__container h2,
+  .about__container h3,
+  .about__container span {
+    font-size: var(--mediumFont);
+    line-height: var(--mediumFontHeight);
+  }
+
   .mobile {
     display: block !important;
   }

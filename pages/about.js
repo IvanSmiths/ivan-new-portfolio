@@ -1,16 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 const About = () => {
   let { t } = useTranslation();
 
+  const router = useRouter();
   gsap.registerPlugin(ScrollTrigger);
-
+  const [complete, setComplete] = useState(false);
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
   const ref2020 = useRef(null);
@@ -24,6 +26,15 @@ const About = () => {
   const svImageRef = useRef(null);
   const ref2021 = useRef(null);
   const ref2022 = useRef(null);
+  const finRef = useRef(null);
+  const scrollingRef = useRef(null);
+  const scrollingMoreRef = useRef(null);
+  const scrollingBitRef = useRef(null);
+  const scrollingGoRef = useRef(null);
+
+  useEffect(() => {
+    document.body.classList.add("about-page");
+  });
 
   useEffect(() => {
     var tl = gsap.timeline({
@@ -32,6 +43,9 @@ const About = () => {
         start: "top top",
         end: "+=19200px bottom",
         scrub: true,
+        onLeave: function () {
+          setComplete(true);
+        },
         pin: true,
       },
     });
@@ -139,7 +153,82 @@ const About = () => {
     tl.to(svCopyRef.current, {
       opacity: 0,
     });
+
+    tl.to(finRef.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+
+    tl.to(scrollingRef.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+          delay: 2,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+
+    tl.to(scrollingMoreRef.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+
+    tl.to(scrollingBitRef.current, {
+      keyframes: [
+        {
+          opacity: 1,
+          scale: 1.5,
+        },
+        {
+          opacity: 0,
+
+          scale: 2,
+        },
+      ],
+    });
+
+    tl.to(scrollingGoRef.current, {
+      opacity: 1,
+      scale: 1.5,
+    });
+
+    return () => {};
   }, []);
+
+  useEffect(() => {
+    if (complete === true) {
+      router.push("/stuff");
+    }
+
+    return () => {
+      setComplete(complete === false);
+    };
+  }, [router, complete]);
+
   return (
     <>
       <Head>
@@ -261,8 +350,24 @@ const About = () => {
             src="scholz-und-volkmer-website-1.png"
             alt=" image of a work"
           />
+          <span ref={finRef}>
+            Fin. <br /> (for now)
+          </span>
+          <span ref={scrollingRef}>
+            Still <br /> Scrolling?
+          </span>
+          <span ref={scrollingMoreRef}>
+            Scroll <br /> a bit more.
+          </span>
+          <span ref={scrollingBitRef}>
+            Just <br /> a bit more...
+          </span>
+          <span ref={scrollingGoRef}>
+            Here <br /> you go!
+          </span>
         </div>
       </main>
+      <div className="spacer-small"></div>
     </>
   );
 };
