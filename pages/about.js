@@ -34,6 +34,9 @@ const About = () => {
 
   useEffect(() => {
     document.body.classList.add("about-page");
+    return () => {
+      document.body.classList.remove("about-page");
+    };
   });
 
   useEffect(() => {
@@ -215,8 +218,6 @@ const About = () => {
       opacity: 1,
       scale: 1.5,
     });
-
-    return () => {};
   }, []);
 
   useEffect(() => {
