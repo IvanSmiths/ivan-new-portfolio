@@ -28,7 +28,7 @@ function About() {
           trigger: triggerRef.current,
           start: "top top",
           end: "6000px top",
-          scrub: 1,
+          scrub: 0.6,
           pin: true,
         },
       }

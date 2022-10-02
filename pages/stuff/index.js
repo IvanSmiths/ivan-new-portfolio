@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useContext } from "react";
 import { gsap } from "gsap";
-import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../../components/CursorManager";
-import Footer from "../../components/Footer";
 
 const Index = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +27,7 @@ const Index = () => {
           trigger: triggerRef.current,
           start: "top top",
           end: "6000px top",
-          scrub: 1,
+          scrub: 0.2,
           pin: true,
         },
       }
