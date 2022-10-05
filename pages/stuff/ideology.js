@@ -13,6 +13,8 @@ import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import SrcImage from "../../components/SrcImage";
 
 const Ideology = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
@@ -24,7 +26,6 @@ const Ideology = () => {
 
   let { t } = useTranslation();
 
-  gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     const element = refVideo.current;
     gsap.fromTo(
@@ -43,30 +44,10 @@ const Ideology = () => {
           start: "center center",
           end: "+=1200px top",
           ease: "power3",
-          scrub: true,
+          scrub: 1,
         },
       }
     );
-  }, []);
-
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 768) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 768) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   const refVideo = useRef(null);
@@ -192,33 +173,17 @@ const Ideology = () => {
           </div>
         </div>
       </header>
-      <motion.h3
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        variants={{
-          hidden: { opacity: 0, y: 100 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        className="case-studio__caption impact large-font"
-      >
+      <h3 className="case-studio__caption impact large-font">
         {t("ideology:caption")}
-      </motion.h3>
+      </h3>
       <div
         ref={refVideo}
         className="case-studio__screen-image case-studio__screen-video suv-first-section"
       >
         <div className="case-studio__video" id="video">
-          {isDesktop ? (
-            <video muted autoPlay loop>
-              <source src="/ideology.mp4" type="video/mp4" />
-            </video>
-          ) : (
-            <video muted autoPlay loop>
-              <source src="/ideology-mobile.mp4" type="video/mp4" />
-            </video>
-          )}
+          <video muted autoPlay loop>
+            <source src="/ideology.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
       <div className="case-studio-description case-studio-description-first">
@@ -272,17 +237,7 @@ const Ideology = () => {
       </div>
       <div className="climax-website-cnt">
         <ul className="climax-website">
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          <li className="flex-center">
             <SrcImage
               src={"/ideology-website-mobile-1.jpg"}
               webp={"/ideology-website-mobile-1.webp"}
@@ -290,18 +245,8 @@ const Ideology = () => {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center climax-website-margin"
-          >
+          </li>
+          <li className="flex-center climax-website-margin">
             <SrcImage
               src={"/ideology-website-mobile-2.jpg"}
               webp={"/ideology-website-mobile-2.webp"}
@@ -309,18 +254,8 @@ const Ideology = () => {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          </li>
+          <li className="flex-center">
             <SrcImage
               src={"/ideology-website-mobile-13.jpg"}
               webp={"/ideology-website-mobile-13.webp"}
@@ -328,20 +263,10 @@ const Ideology = () => {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
+          </li>
         </ul>
         <ul className="climax-website climax-website-2">
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          <li className="flex-center">
             <SrcImage
               src={"/ideology-website-mobile-4.jpg"}
               webp={"/ideology-website-mobile-4.webp"}
@@ -349,18 +274,8 @@ const Ideology = () => {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center climax-website-margin"
-          >
+          </li>
+          <li className="flex-center climax-website-margin">
             <SrcImage
               src={"/ideology-website-mobile-5.jpg"}
               webp={"/ideology-website-mobile-5.webp"}
@@ -368,18 +283,8 @@ const Ideology = () => {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          </li>
+          <li className="flex-center">
             <SrcImage
               src={"/ideology-website-mobile-6.jpg"}
               webp={"/ideology-website-mobile-6.webp"}
@@ -387,7 +292,7 @@ const Ideology = () => {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
+          </li>
         </ul>
       </div>
       <Marquee />

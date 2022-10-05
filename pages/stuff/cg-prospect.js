@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
@@ -10,6 +9,8 @@ import SrcImage from "../../components/SrcImage";
 import Head from "next/head";
 
 const Ideology = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   const refVideo = useRef(null);
 
   useEffect(() => {
@@ -30,33 +31,11 @@ const Ideology = () => {
           start: "center center",
           end: "+=1200px top",
           ease: "power3",
-          scrub: true,
+          scrub: 1,
         },
       }
     );
   }, []);
-
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 768) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 768) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
-
-  gsap.registerPlugin(ScrollTrigger);
 
   // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
@@ -154,33 +133,17 @@ const Ideology = () => {
           </div>
         </div>
       </header>
-      <motion.h3
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        variants={{
-          hidden: { opacity: 0, y: 100 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        className="case-studio__caption impact large-font"
-      >
+      <h3 className="case-studio__caption impact large-font">
         {t("cg-prospect:caption")}
-      </motion.h3>
+      </h3>
       <div
         ref={refVideo}
         className="case-studio__screen-image case-studio__screen-video suv-first-section"
       >
         <div className="case-studio__video" id="video">
-          {isDesktop ? (
-            <video muted autoPlay loop>
-              <source src="/cg-prospect.mp4" type="video/mp4" />
-            </video>
-          ) : (
-            <video muted autoPlay loop>
-              <source src="/cg-prospect-mobile.mp4" type="video/mp4" />
-            </video>
-          )}
+          <video muted autoPlay loop>
+            <source src="/cg-prospect.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
       <div className="case-studio-description case-studio-description-first">
