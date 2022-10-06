@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useLayoutEffect, useContext, useRef } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -21,7 +21,7 @@ const Hero = () => {
   const copyRef = useRef(null);
   const linkRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element = refSec.current;
     gsap.fromTo(
       element.querySelector("#header"),
@@ -58,7 +58,6 @@ const Hero = () => {
     );
   }, []);
 
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { CursorContext } from "../components/CursorManager";
 
 const LanguageChange = () => {
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

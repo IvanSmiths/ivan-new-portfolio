@@ -21,7 +21,6 @@ const ThemeToggle = () => {
     window.localStorage.setItem("theme", activeTheme);
   }, [activeTheme]);
 
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

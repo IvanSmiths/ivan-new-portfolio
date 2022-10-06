@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
-import Link from 'next/link';
-import { CursorContext } from '../CursorManager';
-import { motion } from 'framer-motion';
-import useTranslation from 'next-translate/useTranslation';
+import React, { useContext } from "react";
+import Link from "next/link";
+import { CursorContext } from "../CursorManager";
+import { motion } from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 
 const FooterIdeology = () => {
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize('medium');
+    setSize("medium");
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setSize("small");
   };
 
   let { t } = useTranslation();
@@ -30,7 +29,7 @@ const FooterIdeology = () => {
           }}
           className="small-font spacing tiny-font"
         >
-          ...{t('ideology:next-up')}
+          ...{t("ideology:next-up")}
         </motion.em>
         <Link passHref href="/stuff/cg-prospect">
           <motion.a

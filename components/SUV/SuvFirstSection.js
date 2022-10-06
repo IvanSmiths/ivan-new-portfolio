@@ -1,14 +1,15 @@
-import React, { useRef, useEffect, useContext, useState } from "react";
-import Link from "next/link";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 import Marquee from "../Ideology/Marquee";
 import SrcImage from "../SrcImage";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { pageData } from "../../utils/sampleData2";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 
 function SuvFirstSection() {
+  gsap.registerPlugin(ScrollTrigger);
+
   useEffect(() => {
     const element = refVideo.current;
     gsap.fromTo(
@@ -27,7 +28,7 @@ function SuvFirstSection() {
           start: "center center",
           end: "+=1200px top",
           ease: "power3",
-          scrub: true,
+          scrub: 1,
         },
       }
     );
@@ -35,68 +36,27 @@ function SuvFirstSection() {
 
   const refVideo = useRef(null);
 
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 768) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 768) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
   let { t } = useTranslation();
 
   return (
     <>
-      <motion.h3
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        variants={{
-          hidden: { opacity: 0, y: 100 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        className="case-studio__caption impact large-font"
-      >
+      <h3 className="case-studio__caption impact large-font">
         {t("suv:caption")}
-      </motion.h3>
+      </h3>
       <div
         ref={refVideo}
         className="case-studio__screen-image case-studio__screen-video suv-first-section"
       >
         <div className="case-studio__video" id="video">
-          {isDesktop ? (
-            <video
-              preload="none"
-              poster="scholz-und-volkmer-website-2.jpg"
-              muted
-              autoPlay
-              loop
-            >
-              <source src="/suv.mp4" type="video/mp4" />
-            </video>
-          ) : (
-            <video
-              preload="none"
-              poster="/scholz-und-volkmer-website-1.png"
-              muted
-              autoPlay
-              loop
-            >
-              <source src="/suv-mobile.mp4" type="video/mp4" />
-            </video>
-          )}
+          <video
+            preload="none"
+            poster="scholz-und-volkmer-website-2.jpg"
+            muted
+            autoPlay
+            loop
+          >
+            <source src="/suv.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
       <div className="case-studio-description case-studio-description-first">
@@ -132,17 +92,7 @@ function SuvFirstSection() {
       </div>
       <div className="climax-website-cnt skewElem">
         <ul className="climax-website">
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          <li className="flex-center">
             <SrcImage
               src={"/scholz-und-volkmer-website-mobile.jpg"}
               webp={"/scholz-und-volkmer-website-mobile.webp"}
@@ -150,18 +100,8 @@ function SuvFirstSection() {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center climax-website-margin"
-          >
+          </li>
+          <li className="flex-center climax-website-margin">
             <SrcImage
               src={"/scholz-und-volkmer-website-mobile-2.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-2.webp"}
@@ -169,18 +109,8 @@ function SuvFirstSection() {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          </li>
+          <li className="flex-center">
             <SrcImage
               src={"/scholz-und-volkmer-website-mobile-3.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-3.webp"}
@@ -188,20 +118,10 @@ function SuvFirstSection() {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
+          </li>
         </ul>
         <ul className="climax-website climax-website-2">
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          <li className="flex-center">
             <SrcImage
               src={"/scholz-und-volkmer-website-mobile-4.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-4.webp"}
@@ -209,18 +129,8 @@ function SuvFirstSection() {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center climax-website-margin"
-          >
+          </li>
+          <li className="flex-center climax-website-margin">
             <SrcImage
               src={"/scholz-und-volkmer-website-mobile-5.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-5.webp"}
@@ -228,18 +138,8 @@ function SuvFirstSection() {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
-          <motion.li
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              hidden: { opacity: 0, y: 100 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex-center"
-          >
+          </li>
+          <li className="flex-center">
             <SrcImage
               src={"/scholz-und-volkmer-website-mobile-6.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-6.webp"}
@@ -247,7 +147,7 @@ function SuvFirstSection() {
               width={"500px"}
               alt={"image"}
             />
-          </motion.li>
+          </li>
         </ul>
       </div>
       <Marquee />

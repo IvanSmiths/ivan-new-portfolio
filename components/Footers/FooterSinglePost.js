@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
-import Link from 'next/link';
-import { CursorContext } from '../CursorManager';
+import React, { useContext } from "react";
+import Link from "next/link";
+import { CursorContext } from "../CursorManager";
 
 const FooterIdeology = () => {
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize('medium');
+    setSize("medium");
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setSize("small");
   };
   return (
     <div className="footer-home-cnt flex-center">
