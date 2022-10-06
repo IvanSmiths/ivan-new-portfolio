@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 import { CursorContext } from "../../components/CursorManager";
 
 function BlogPost({ title, excerpt, date, image, link }) {
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

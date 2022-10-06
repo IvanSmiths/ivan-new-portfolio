@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 
 const FooterCGProspect = () => {
   let { t } = useTranslation();
-  // MOUSE ZOOM HANDLER //
+
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

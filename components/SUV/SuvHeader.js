@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext } from "react";
-import { motion } from "framer-motion";
+import React, { useContext, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,10 +8,30 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../CursorManager";
 import SrcImage from "../SrcImage";
 
+function useArrayRef() {
+  const staggerRefs = useRef([]);
+  staggerRefs.current = [];
+  return [staggerRefs, (ref) => ref && staggerRefs.current.push(ref)];
+}
+
 function SuvHeader() {
   gsap.registerPlugin(ScrollTrigger);
 
-  // MOUSE ZOOM HANDLER //
+  const [staggerRefs, setStaggerRef] = useArrayRef();
+
+  useEffect(() => {
+    gsap.fromTo(
+      staggerRefs.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        stagger: 0.2,
+      }
+    );
+  }, [staggerRefs]);
+
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");
@@ -29,15 +48,16 @@ function SuvHeader() {
       <header className="case-studio-header">
         <div className="case-studio-header__first-row">
           <div>
-            <span className="small-font ">
+            <span ref={setStaggerRef} className="small-font stagger">
               {t("suv:header")} Vue.js (Nuxt.js)
             </span>
-            <h1 className="big-font impact">
+            <h1 ref={setStaggerRef} className="big-font impact stagger">
               Scholz & Volkmer <br />
             </h1>
           </div>
           <Link href="https://www.s-v.de/en/">
             <a
+              ref={setStaggerRef}
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={handleMouseEnter}
@@ -51,19 +71,22 @@ function SuvHeader() {
         <div className="case-studio-header__second-row">
           <div>
             <div className="case-studio-header__second-row__first-list">
-              <ul>
+              <ul ref={setStaggerRef}>
                 <li className="bold">{t("suv:tech")}</li>
                 <li>{t("suv:frontend")} Vue.js (Nuxt.js)</li>
                 <li>{t("suv:animation")} Gsap</li>
                 <li>{t("suv:style")} Scss/Sass</li>
               </ul>
-              <ul>
+              <ul ref={setStaggerRef}>
                 <li className="bold">{t("suv:date")}</li>
                 <li>12/03/2022</li>
                 <li>{t("suv:current")}</li>
               </ul>
             </div>
-            <div className="case-studio-header__second-row__first-list second-row__second-list">
+            <div
+              ref={setStaggerRef}
+              className="case-studio-header__second-row__first-list second-row__second-list"
+            >
               <ul>
                 <li className="bold">Clients:</li>
 
@@ -103,7 +126,10 @@ function SuvHeader() {
               </ul>
             </div>
           </div>
-          <div className="case-studio-header__second-row__image">
+          <div
+            ref={setStaggerRef}
+            className="case-studio-header__second-row__image"
+          >
             <SrcImage
               src={"/scholz-und-volkmer-website-2.jpg"}
               webp={"/scholz-und-volkmer-website-2.webp"}

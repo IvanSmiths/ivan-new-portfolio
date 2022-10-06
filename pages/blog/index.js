@@ -5,7 +5,6 @@ import BlogPost from "../../components/Blog/BlogPost";
 import { CursorContext } from "../../components/CursorManager";
 
 function Blog() {
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

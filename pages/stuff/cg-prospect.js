@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CursorContext } from "../../components/CursorManager";
 import SrcImage from "../../components/SrcImage";
 import Head from "next/head";
+import CgHero from "../../components/CgProspect/CgHero";
 
 const Ideology = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -36,15 +35,6 @@ const Ideology = () => {
       }
     );
   }, []);
-
-  // MOUSE ZOOM HANDLER //
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize("medium");
-  };
-  const handleMouseLeave = () => {
-    setSize("small");
-  };
 
   let { t } = useTranslation();
 
@@ -83,56 +73,7 @@ const Ideology = () => {
           content="preview of CG Prospect case studio"
         />
       </Head>
-      <header className="case-studio-header">
-        <div className="case-studio-header__first-row">
-          <div>
-            <span className="small-font ">
-              {t("cg-prospect:header")} React.js (Next.js)
-            </span>
-            <h1 className="big-font impact">
-              CG Prospect <br />
-            </h1>
-          </div>
-          <Link href="https://www.cgprospect.com/">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="case-studio-header__link btn-small"
-            >
-              website
-            </a>
-          </Link>
-        </div>
-        <div className="case-studio-header__second-row">
-          <div>
-            <div className="case-studio-header__second-row__first-list">
-              <ul>
-                <li className="bold">{t("cg-prospect:tech")}</li>
-                <li>{t("cg-prospect:frontend")}React.js (Next.js)</li>
-                <li>Backend: PostgreSQL (Prisma)</li>
-                <li>{t("cg-prospect:style")}CSS</li>
-              </ul>
-              <ul>
-                <li className="bold">{t("cg-prospect:date")}</li>
-                <li>11/06/2021</li>
-                <li>{t("cg-prospect:current")}</li>
-              </ul>
-            </div>
-            <div className="case-studio-header__second-row__first-list second-row__second-list"></div>
-          </div>
-          <div className="case-studio-header__second-row__image">
-            <SrcImage
-              src={"/cg-prospect-website-1.jpg"}
-              webp={"/cg-prospect-website-1.webp"}
-              height={"926px"}
-              width={"1900px"}
-              alt={"image"}
-            />
-          </div>
-        </div>
-      </header>
+      <CgHero />
       <h3 className="case-studio__caption impact large-font">
         {t("cg-prospect:caption")}
       </h3>

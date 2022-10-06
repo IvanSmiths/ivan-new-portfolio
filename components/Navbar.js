@@ -24,7 +24,6 @@ const path02Variants = {
 };
 
 function Navbar() {
-  // MOUSE ZOOM HANDLER //
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");
