@@ -834,4 +834,20 @@ textarea {
   background-color: red !important;
 }
 
+/* .picture-tag {
+  z-index: 3;
+  position: relative;
+}
+
+.picture-tag__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 7;
+  opacity: 1;
+  background-color: white;
+} */
+
 @import "query.css";

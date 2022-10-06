@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../CursorManager";
 import SrcImage from "../SrcImage";
 
@@ -15,8 +14,6 @@ function useArrayRef() {
 }
 
 function SuvHeader() {
-  gsap.registerPlugin(ScrollTrigger);
-
   const [staggerRefs, setStaggerRef] = useArrayRef();
 
   useEffect(() => {
