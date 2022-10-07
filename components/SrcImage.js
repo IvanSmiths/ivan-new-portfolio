@@ -17,7 +17,7 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
       scrollTrigger: {
         trigger: imageTriggerRef.current,
         start: "100px bottom",
-        ease: "power4.inOut",
+        ease: "Expo.easeInOut",
       },
     });
   }, []);
