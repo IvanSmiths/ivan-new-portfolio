@@ -9,11 +9,12 @@ import ProjectItem from "../../components/ProjectItem/ProjectItem";
 
 function SuvFirstSection() {
   gsap.registerPlugin(ScrollTrigger);
+  const videoRef = useRef(null);
+  const videoTriggerRef = useRef(null);
 
   useEffect(() => {
-    const element = refVideo.current;
-    gsap.fromTo(
-      element.querySelector("#video"),
+    const vidAnim = gsap.fromTo(
+      videoRef.current,
       {
         scale: 0.5,
       },
@@ -24,7 +25,7 @@ function SuvFirstSection() {
         ease: "none",
         scrollTrigger: {
           pin: true,
-          trigger: element.querySelector("#video"),
+          trigger: videoTriggerRef.current,
           start: "center center",
           end: "+=1200px top",
           ease: "power3",
@@ -32,9 +33,10 @@ function SuvFirstSection() {
         },
       }
     );
+    return () => {
+      vidAnim.kill();
+    };
   }, []);
-
-  const refVideo = useRef(null);
 
   let { t } = useTranslation();
 
@@ -43,12 +45,10 @@ function SuvFirstSection() {
       <h3 className="case-studio__caption impact large-font">
         {t("suv:caption")}
       </h3>
-      <div
-        ref={refVideo}
-        className="case-studio__screen-image case-studio__screen-video suv-first-section"
-      >
-        <div className="case-studio__video" id="video">
+      <div className="case-studio__screen-image case-studio__screen-video suv-first-section">
+        <div ref={videoTriggerRef} className="case-studio__video" id="video">
           <video
+            ref={videoRef}
             preload="none"
             poster="scholz-und-volkmer-website-2.jpg"
             muted

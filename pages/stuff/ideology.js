@@ -14,11 +14,12 @@ const Ideology = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   let { t } = useTranslation();
+  const videoIdRef = useRef(null);
+  const videoIdTriggerRef = useRef(null);
 
   useEffect(() => {
-    const element = refVideo.current;
-    gsap.fromTo(
-      element.querySelector("#video"),
+    const vidIdAnim = gsap.fromTo(
+      videoIdRef.current,
       {
         scale: 0.5,
       },
@@ -29,7 +30,7 @@ const Ideology = () => {
         ease: "none",
         scrollTrigger: {
           pin: true,
-          trigger: element.querySelector("#video"),
+          trigger: videoIdTriggerRef.current,
           start: "center center",
           end: "+=1200px top",
           ease: "power3",
@@ -37,9 +38,10 @@ const Ideology = () => {
         },
       }
     );
+    return () => {
+      vidIdAnim.kill();
+    };
   }, []);
-
-  const refVideo = useRef(null);
 
   return (
     <>
@@ -80,12 +82,9 @@ const Ideology = () => {
       <h3 className="case-studio__caption impact large-font">
         {t("ideology:caption")}
       </h3>
-      <div
-        ref={refVideo}
-        className="case-studio__screen-image case-studio__screen-video suv-first-section"
-      >
-        <div className="case-studio__video" id="video">
-          <video muted autoPlay loop>
+      <div className="case-studio__screen-image case-studio__screen-video suv-first-section">
+        <div ref={videoIdTriggerRef} className="case-studio__video" id="video">
+          <video ref={videoIdRef} muted autoPlay loop>
             <source src="/ideology.mp4" type="video/mp4" />
           </video>
         </div>
