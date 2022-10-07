@@ -82,13 +82,23 @@ function About() {
           {t("home:bio-7")}
         </p>
         <div id="about-image-cnt" className="homepage-about-img-cnt">
-          <SrcImage
-            src={"/photo-of-me.jpg"}
-            webp={"/photo-of-me.webp"}
-            height={"908.75px"}
-            width={"605.75px"}
-            alt={"image"}
-          />
+          <picture className="flex-center">
+            <source
+              alt="me"
+              decoding="async"
+              height="908.75px"
+              width="605.75px"
+              srcSet="/photo-of-me.webp"
+              type="image/webp"
+            />
+            <img
+              alt="me"
+              decoding="async"
+              src="/photo-of-me.jpg"
+              height="908.75px"
+              width="605.75px"
+            />
+          </picture>
         </div>
         <div id="about" className="homepage-about-p-cnt">
           <div className="about">

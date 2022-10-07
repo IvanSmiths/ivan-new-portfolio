@@ -12,15 +12,16 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
   useEffect(() => {
     gsap.to(imageRef.current, {
       width: 0,
-      duration: 0.5,
+      duration: 0.6,
       ease: "none",
       scrollTrigger: {
         trigger: imageTriggerRef.current,
-        start: "70px bottom",
+        start: "100px bottom",
         ease: "power4.inOut",
       },
     });
   }, []);
+
   return (
     <div ref={imageTriggerRef} className="picture-tag">
       <div ref={imageRef} className="picture-tag__mask"></div>
