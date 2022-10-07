@@ -847,7 +847,7 @@ textarea {
   width: 100%;
   z-index: 7;
   opacity: 1;
-  background-color: white;
+  background-color: var(--color-bg-inverse);
 }
 
 @import "query.css";

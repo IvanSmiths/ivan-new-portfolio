@@ -114,10 +114,7 @@ function IdHero() {
             </ul>
           </div>
         </div>
-        <div
-          ref={setStaggerRef}
-          className="case-studio-header__second-row__image"
-        >
+        <div className="case-studio-header__second-row__image">
           <SrcImage
             src={"/ideology-website-1.jpg"}
             webp={"/ideology-website-1.webp"}

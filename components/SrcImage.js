@@ -16,7 +16,7 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
       ease: "none",
       scrollTrigger: {
         trigger: imageTriggerRef.current,
-        start: "50px bottom",
+        start: "70px bottom",
         ease: "power4.inOut",
       },
     });
