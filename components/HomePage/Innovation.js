@@ -8,7 +8,7 @@ const Innovation = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap.fromTo(
+    const innHero = gsap.fromTo(
       innovationRef.current,
       {
         scale: 1,
@@ -26,6 +26,9 @@ const Innovation = () => {
         },
       }
     );
+    return () => {
+      innHero.kill();
+    };
   }, []);
 
   return (

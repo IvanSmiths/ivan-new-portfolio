@@ -23,7 +23,7 @@ const Hero = () => {
 
   useEffect(() => {
     const element = refSec.current;
-    gsap.fromTo(
+    const fadeHero = gsap.fromTo(
       element.querySelector("#header"),
       {
         paddingBottom: 0,
@@ -56,6 +56,9 @@ const Hero = () => {
       { opacity: 0 },
       { opacity: 1, duration: 0.5 }
     );
+    return () => {
+      fadeHero.kill();
+    };
   }, []);
 
   const { setSize } = useContext(CursorContext);
