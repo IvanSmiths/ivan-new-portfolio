@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef } from "react";
-/*import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";*/
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
-  /* gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
   const imageTriggerRef = useRef(null);
   const imageRef = useRef(null);
@@ -20,10 +20,10 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
         ease: "power4.inOut",
       },
     });
-  }, []); */
+  }, []);
   return (
-    <div className="picture-tag">
-      <div className="picture-tag__mask"></div>
+    <div ref={imageTriggerRef} className="picture-tag">
+      <div ref={imageRef} className="picture-tag__mask"></div>
       <picture className={` ${className}`}>
         <source
           alt={alt}

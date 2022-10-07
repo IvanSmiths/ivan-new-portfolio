@@ -834,7 +834,7 @@ textarea {
   background-color: red !important;
 }
 
-/* .picture-tag {
+.picture-tag {
   z-index: 3;
   position: relative;
 }
@@ -848,6 +848,6 @@ textarea {
   z-index: 7;
   opacity: 1;
   background-color: white;
-} */
+}
 
 @import "query.css";
