@@ -40,7 +40,7 @@ function About() {
 
   useEffect(() => {
     const element2 = refAbout.current;
-    gsap.fromTo(
+    const imageWidth = gsap.fromTo(
       element2.querySelector("#about-image-cnt"),
       {
         scale: 1,
@@ -58,6 +58,9 @@ function About() {
         },
       }
     );
+    return () => {
+      imageWidth.kill();
+    };
   }, []);
 
   const { setSize } = useContext(CursorContext);
