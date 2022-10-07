@@ -79,7 +79,7 @@ const About = () => {
 
     tl.to(firstWebsiteCopyRef.current, {
       keyframes: [
-        { opacity: 1 },
+        { opacity: 1, zIndex: 3 },
         {
           opacity: 0,
           delay: 1,
@@ -96,7 +96,7 @@ const About = () => {
 
     tl.to(idCopyRef.current, {
       keyframes: [
-        { opacity: 1 },
+        { opacity: 1, zIndex: 4 },
         {
           opacity: 0,
           delay: 1,
@@ -126,7 +126,10 @@ const About = () => {
     });
 
     tl.to(cgCopyRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
+      keyframes: [
+        { opacity: 1, zIndex: 5 },
+        { opacity: 0, delay: 1 },
+      ],
     });
 
     tl.to(cgImageRef.current, {
@@ -147,6 +150,7 @@ const About = () => {
     });
     tl.to(svCopyRef.current, {
       opacity: 1,
+      zIndex: 5,
     });
 
     tl.to(svImageRef.current, {
@@ -162,6 +166,7 @@ const About = () => {
         {
           opacity: 1,
           scale: 1.5,
+          zIndex: 6,
         },
         {
           opacity: 0,
@@ -177,6 +182,7 @@ const About = () => {
           opacity: 1,
           scale: 1.5,
           delay: 2,
+          zIndex: 7,
         },
         {
           opacity: 0,
@@ -191,6 +197,7 @@ const About = () => {
         {
           opacity: 1,
           scale: 1.5,
+          zIndex: 8,
         },
         {
           opacity: 0,
@@ -205,6 +212,7 @@ const About = () => {
         {
           opacity: 1,
           scale: 1.5,
+          zIndex: 9,
         },
         {
           opacity: 0,
@@ -217,7 +225,11 @@ const About = () => {
     tl.to(scrollingGoRef.current, {
       opacity: 1,
       scale: 1.5,
+      zIndex: 10,
     });
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   useEffect(() => {

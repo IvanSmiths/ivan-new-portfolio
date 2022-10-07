@@ -77,10 +77,7 @@ function CgHero() {
           </div>
           <div className="case-studio-header__second-row__first-list second-row__second-list"></div>
         </div>
-        <div
-          ref={setStaggerRef}
-          className="case-studio-header__second-row__image"
-        >
+        <div className="case-studio-header__second-row__image">
           <SrcImage
             src={"/cg-prospect-website-1.jpg"}
             webp={"/cg-prospect-website-1.webp"}

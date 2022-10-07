@@ -123,10 +123,7 @@ function SuvHeader() {
               </ul>
             </div>
           </div>
-          <div
-            ref={setStaggerRef}
-            className="case-studio-header__second-row__image"
-          >
+          <div className="case-studio-header__second-row__image">
             <SrcImage
               src={"/scholz-und-volkmer-website-2.jpg"}
               webp={"/scholz-und-volkmer-website-2.webp"}
