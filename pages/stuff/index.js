@@ -298,7 +298,7 @@ const Index = () => {
 export async function getServerSideProps(context) {
   await waitload(2);
   return {
-    props: { load: "load" }, // will be passed to the page component as props
+    props: { load: "load" },
   };
 }
 
