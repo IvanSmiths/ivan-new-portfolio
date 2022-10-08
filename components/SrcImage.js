@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React from "react";
 
 function SrcImage({
   src,
@@ -13,30 +11,8 @@ function SrcImage({
   classDiv,
   ...delegated
 }) {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const imageTriggerRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    gsap.to(imageRef.current, {
-      width: 0,
-      duration: 0.6,
-      ease: "none",
-      scrollTrigger: {
-        trigger: imageTriggerRef.current,
-        start: "100px bottom",
-        ease: "Expo.easeInOut",
-      },
-    });
-  }, []);
-
   return (
-    <div
-      ref={imageTriggerRef}
-      className={classDiv ? `${classDiv} picture-tag` : `picture-tag`}
-    >
-      <div ref={imageRef} className="picture-tag__mask"></div>
+    <>
       <picture className={className ? className : null}>
         <source
           alt={alt}
@@ -57,7 +33,7 @@ function SrcImage({
           {...delegated}
         />
       </picture>
-    </div>
+    </>
   );
 }
 
