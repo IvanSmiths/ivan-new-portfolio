@@ -1,35 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React from "react";
 
-function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const imageTriggerRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    gsap.to(imageRef.current, {
-      width: 0,
-      duration: 0.6,
-      ease: "none",
-      scrollTrigger: {
-        trigger: imageTriggerRef.current,
-        start: "100px bottom",
-        ease: "Expo.easeInOut",
-      },
-    });
-  }, []);
-
+function SrcImage({
+  src,
+  webp,
+  alt,
+  height,
+  width,
+  className,
+  classDiv,
+  ...delegated
+}) {
   return (
-    <div ref={imageTriggerRef} className="picture-tag">
-      <div ref={imageRef} className="picture-tag__mask"></div>
-      <picture className={` ${className}`}>
+    <>
+      <picture className={className ? className : null}>
         <source
           alt={alt}
-          decoding={"async"}
-          loading={"lazy"}
+          decoding="async"
+          loading="lazy"
           height={height}
           width={width}
           srcSet={webp}
@@ -37,15 +25,15 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
         />
         <img
           alt={alt}
-          loading={"lazy"}
-          decoding={"async"}
+          loading="lazy"
+          decoding="async"
           src={src}
           height={height}
           width={width}
           {...delegated}
         />
       </picture>
-    </div>
+    </>
   );
 }
 

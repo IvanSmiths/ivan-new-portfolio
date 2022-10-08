@@ -73,6 +73,7 @@ function SuvFirstSection() {
       <div className="case-studio__images">
         <div className="case-studio__screen-image">
           <SrcImage
+            classDiv={"flex-center"}
             src={"/scholz-und-volkmer-website-3.jpg"}
             webp={"/scholz-und-volkmer-website-3.webp"}
             height={"926px"}
@@ -82,6 +83,7 @@ function SuvFirstSection() {
         </div>
         <div className="case-studio__screen-image">
           <SrcImage
+            classDiv={"flex-center"}
             src={"/scholz-und-volkmer-website-4.jpg"}
             webp={"/scholz-und-volkmer-website-4.webp"}
             height={"926px"}
@@ -94,6 +96,7 @@ function SuvFirstSection() {
         <ul className="climax-website">
           <li className="flex-center">
             <SrcImage
+              classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile.jpg"}
               webp={"/scholz-und-volkmer-website-mobile.webp"}
               height={"130px"}
@@ -103,6 +106,7 @@ function SuvFirstSection() {
           </li>
           <li className="flex-center climax-website-margin">
             <SrcImage
+              classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-2.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-2.webp"}
               height={"130px"}
@@ -112,6 +116,7 @@ function SuvFirstSection() {
           </li>
           <li className="flex-center">
             <SrcImage
+              classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-3.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-3.webp"}
               height={"130px"}
@@ -123,6 +128,7 @@ function SuvFirstSection() {
         <ul className="climax-website climax-website-2">
           <li className="flex-center">
             <SrcImage
+              classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-4.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-4.webp"}
               height={"130px"}
@@ -132,6 +138,7 @@ function SuvFirstSection() {
           </li>
           <li className="flex-center climax-website-margin">
             <SrcImage
+              classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-5.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-5.webp"}
               height={"130px"}
@@ -141,6 +148,7 @@ function SuvFirstSection() {
           </li>
           <li className="flex-center">
             <SrcImage
+              classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-6.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-6.webp"}
               height={"130px"}
