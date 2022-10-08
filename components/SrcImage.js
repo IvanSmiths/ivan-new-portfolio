@@ -3,7 +3,16 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
+function SrcImage({
+  src,
+  webp,
+  alt,
+  height,
+  width,
+  className,
+  classDiv,
+  ...delegated
+}) {
   gsap.registerPlugin(ScrollTrigger);
 
   const imageTriggerRef = useRef(null);
@@ -23,13 +32,16 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
   }, []);
 
   return (
-    <div ref={imageTriggerRef} className="picture-tag">
+    <div
+      ref={imageTriggerRef}
+      className={classDiv ? `${classDiv} picture-tag` : `picture-tag`}
+    >
       <div ref={imageRef} className="picture-tag__mask"></div>
-      <picture className={` ${className}`}>
+      <picture className={className ? className : null}>
         <source
           alt={alt}
-          decoding={"async"}
-          loading={"lazy"}
+          decoding="async"
+          loading="lazy"
           height={height}
           width={width}
           srcSet={webp}
@@ -37,8 +49,8 @@ function SrcImage({ src, webp, alt, height, width, className, ...delegated }) {
         />
         <img
           alt={alt}
-          loading={"lazy"}
-          decoding={"async"}
+          loading="lazy"
+          decoding="async"
           src={src}
           height={height}
           width={width}
