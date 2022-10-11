@@ -136,6 +136,7 @@ function About() {
               <div className="box-image-cnt">
                 <Link href="/stuff/scholz-und-volkmer">
                   <a
+                    onClick={handleMouseLeave}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
