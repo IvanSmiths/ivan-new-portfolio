@@ -139,7 +139,7 @@
 }
 
 .case-studio-header {
-  margin-top: var(--marginTop);
+  padding: var(--marginTop) 0;
 }
 
 .case-studio-header__first-row {
@@ -175,7 +175,6 @@
   padding-left: var(--marginLayoutLeftFirst2);
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--marginSection);
 }
 
 .case-studio-header__second-row__first-list {
@@ -203,7 +202,7 @@
 
 .case-studio-header__second-row__image img {
   width: 100%;
-  height: auto;
+  object-fit: contain;
 }
 
 .case-studio-header__second-row__second-list {
