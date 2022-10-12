@@ -852,6 +852,10 @@
     width: 100%;
   }
 
+  .box__width ul {
+    padding-left: 8rem;
+  }
+
   .social-mobile-cnt li {
     color: var(--color-text-inverse);
   }
