@@ -28,7 +28,7 @@ function FooterCounter() {
       numberRef.current,
       { scale: 1 },
       {
-        scale: 1.8,
+        scale: 2,
         duration: 1,
         scrollTrigger: {
           trigger: triggerRef.current,

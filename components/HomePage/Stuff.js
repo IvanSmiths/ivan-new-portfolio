@@ -161,33 +161,36 @@ function About() {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  01 / {t("home:stuff-3")}
-                  <br />
-                </span>
-                <Link href="/stuff/scholz-und-volkmer" passHref>
-                  <a
-                    className="medium-font box-title "
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Scholz & Volkmer
-                  </a>
-                </Link>
-                <ul>
-                  <li>
-                    {t("home:box-list")}
-                    {t("home:box-list-dev")}
-                  </li>
-                  <li>
-                    {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap, Sass
-                  </li>
-                  <li>2022 / {t("home:box-list-3")}</li>
-                </ul>
-                <div className="box-link-cnt">
+                <div className="box__width">
+                  <span className="small-font box-subtitle">
+                    01 / {t("home:stuff-3")}
+                    <br />
+                  </span>
                   <Link href="/stuff/scholz-und-volkmer" passHref>
-                    <a className="btn-small box-link">{t("home:stuff")}</a>
+                    <a
+                      className="medium-font box-title "
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Scholz & Volkmer
+                    </a>
                   </Link>
+                  <ul>
+                    <li>
+                      {t("home:box-list")}
+                      {t("home:box-list-dev")}
+                    </li>
+                    <li>
+                      {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
+                      Sass
+                    </li>
+                    <li>2022 / {t("home:box-list-3")}</li>
+                  </ul>
+                  <div className="box-link-cnt">
+                    <Link href="/stuff/scholz-und-volkmer" passHref>
+                      <a className="btn-small box-link">{t("home:stuff")}</a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -219,36 +222,38 @@ function About() {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  02 / {t("home:stuff-3")}
-                  <br />
-                </span>
-                <Link href="/stuff/ideology" passHref>
-                  <a
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Ideology
-                  </a>
-                </Link>
-                <ul>
-                  <li>{t("home:box-list")}UI/UX Designer</li>
-                  <li>
-                    {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
-                  </li>
-                  <li>2020 / 2022</li>
-                </ul>
-                <div className="box-link-cnt ">
+                <div className="box__width">
+                  <span className="small-font box-subtitle">
+                    02 / {t("home:stuff-3")}
+                    <br />
+                  </span>
                   <Link href="/stuff/ideology" passHref>
                     <a
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="btn-small box-link"
                     >
-                      {t("home:stuff")}
+                      Ideology
                     </a>
                   </Link>
+                  <ul>
+                    <li>{t("home:box-list")}UI/UX Designer</li>
+                    <li>
+                      {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                    </li>
+                    <li>2020 / 2022</li>
+                  </ul>
+                  <div className="box-link-cnt ">
+                    <Link href="/stuff/ideology" passHref>
+                      <a
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="btn-small box-link"
+                      >
+                        {t("home:stuff")}
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -280,41 +285,43 @@ function About() {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  03 / {t("home:stuff-4")}
-                  <br />
-                </span>
-                <Link href="/stuff/cg-prospect" passHref>
-                  <a
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    CG Prospect
-                  </a>
-                </Link>
-                <ul>
-                  <li>
-                    {t("home:box-list")}
-                    {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
-                    {t("home:box-list-mod")}
-                  </li>
-                  <li>
-                    {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
-                    MetaShape
-                  </li>
-                  <li>2021 / {t("home:box-list-3")}</li>
-                </ul>
-                <div className="box-link-cnt">
+                <div className="box__width">
+                  <span className="small-font box-subtitle">
+                    03 / {t("home:stuff-4")}
+                    <br />
+                  </span>
                   <Link href="/stuff/cg-prospect" passHref>
                     <a
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="btn-small box-link"
                     >
-                      {t("home:stuff")}
+                      CG Prospect
                     </a>
                   </Link>
+                  <ul>
+                    <li>
+                      {t("home:box-list")}
+                      {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
+                      {t("home:box-list-mod")}
+                    </li>
+                    <li>
+                      {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                      MetaShape
+                    </li>
+                    <li>2021 / {t("home:box-list-3")}</li>
+                  </ul>
+                  <div className="box-link-cnt">
+                    <Link href="/stuff/cg-prospect" passHref>
+                      <a
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="btn-small box-link"
+                      >
+                        {t("home:stuff")}
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

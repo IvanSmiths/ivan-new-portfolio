@@ -31,6 +31,20 @@
     --marginLayoutLeftSecond: 230px;
     --marginLayoutLeftSecond2: 310px;
   }
+
+  .title-2-cnt {
+    padding-right: 15rem;
+    padding-top: 1.5rem;
+  }
+
+  .title-2-cnt em {
+    padding-top: 1rem;
+  }
+
+  .home-header-cnt {
+    gap: 0rem;
+  }
+
   .case-studio-description__first-column {
     padding-left: 100px;
   }
@@ -54,6 +68,11 @@
   .case-studio-description__second-column p {
     padding-right: 6.5rem;
   }
+
+  .homepage-about-p-cnt {
+    top: 8%;
+  }
+
   .about__absolute-right {
     right: 0%;
     width: 25%;
@@ -86,9 +105,6 @@
     padding: 8.6rem 3.5rem !important;
   }
 
-  .box-image-cnt {
-    width: 31%;
-  }
   .box1 {
     justify-content: center;
     gap: 5rem;
@@ -196,6 +212,10 @@
     width: 100%;
   }
 
+  .box-image-cnt img {
+    width: 50%;
+  }
+
   .footer__icon {
     width: 50%;
     align-self: flex-start;
@@ -280,16 +300,12 @@
     justify-content: center;
   }
 
-  .homepage-about-p-cnt div {
-    width: 89%;
+  .homepage-about-p-cnt .about {
+    width: 55%;
   }
 
   .btn-small-3 {
     padding: 10vw 1vw !important;
-  }
-
-  .home-header-cnt {
-    gap: 1rem;
   }
 
   .footer__first-row {
@@ -368,6 +384,10 @@
     padding-right: 0;
   }
 
+  .box-informations-cnt {
+    align-items: flex-start;
+  }
+
   .about-title-cnt {
     min-height: 100vh;
     display: flex;
@@ -387,10 +407,6 @@
 
   .homepage-about-p-cnt p {
     width: 100%;
-  }
-
-  .homepage-about-p-cnt {
-    padding-top: 0;
   }
 
   .climax {
@@ -413,6 +429,15 @@
   .links-socials-cnt {
     width: 100%;
   }
+
+  .box__width {
+    width: 70%;
+  }
+
+  .title-2-cnt em {
+    padding-top: 2rem;
+  }
+
   .btn-4 {
     padding: 8vw 1vw !important;
   }
@@ -427,7 +452,11 @@
   }
 
   .homepage-about-p-cnt {
+    padding-top: 0;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .burger-menu-info-cnt {
@@ -528,7 +557,8 @@
   }
 
   .box-image-cnt {
-    width: 30%;
+    width: 60%;
+    height: 50%;
   }
   .box-subtitle {
     margin-bottom: 1rem;
@@ -580,6 +610,7 @@
   }
 
   .title-2-cnt {
+    padding-top: 0;
     margin-left: 0rem;
   }
 
@@ -730,7 +761,6 @@
   .box-image-cnt img {
     width: 100%;
     height: auto;
-    padding-bottom: 12rem;
   }
 
   .lang-cnt {
@@ -742,9 +772,13 @@
   }
 
   .box-informations-cnt {
-    height: 40%;
-    padding-bottom: 20rem;
-    padding-right: 30px;
+    width: 80%;
+    height: 50%;
+    justify-content: flex-start;
+  }
+
+  .homepage-about-p-cnt .about {
+    width: 80%;
   }
 
   .box-informations-info-cnt {
@@ -812,6 +846,14 @@
     right: 20px;
     margin-left: 21px;
     top: 60px;
+  }
+
+  .box__width {
+    width: 100%;
+  }
+
+  .box__width ul {
+    padding-left: 3rem;
   }
 
   .social-mobile-cnt li {
