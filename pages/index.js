@@ -5,9 +5,17 @@ import Stuff from "../components/HomePage/Stuff";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import Innovation from "../components/HomePage/Innovation";
+import FooterCounter from "../components/Footers/FooterCounter";
 
 const Home = () => {
   let { t } = useTranslation();
+
+  useEffect(() => {
+    document.body.classList.add("home-page");
+    return () => {
+      document.body.classList.remove("home-page");
+    };
+  });
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -77,6 +85,7 @@ const Home = () => {
           <Hero />
           <Innovation />
           <Stuff />
+          <FooterCounter />
         </>
       )}
     </>
