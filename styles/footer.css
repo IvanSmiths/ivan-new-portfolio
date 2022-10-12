@@ -146,3 +146,20 @@
 .about-page .footer {
   display: none;
 }
+
+footer {
+  z-index: 9;
+  position: relative;
+}
+
+.footer-counter-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 var(--marginSection);
+}
+
+.footer-counter__contact div {
+  margin-top: var(--marginElement);
+}

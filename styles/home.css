@@ -544,3 +544,7 @@
   width: 439px;
   height: 8.2rem;
 }
+
+.home-page .footer {
+  display: none;
+}
