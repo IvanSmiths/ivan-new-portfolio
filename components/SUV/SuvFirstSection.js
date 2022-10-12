@@ -50,7 +50,7 @@ function SuvFirstSection() {
           <video
             ref={videoRef}
             preload="none"
-            poster="scholz-und-volkmer-website-2.jpg"
+            poster="/scholz-und-volkmer-website-2.jpg"
             muted
             autoPlay
             loop
