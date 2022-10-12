@@ -124,34 +124,36 @@ const Index = () => {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  01 / {t("stuff:stuff-3")}
-                  <br />
-                </span>
-                <Link href="/stuff/scholz-und-volkmer" passHref>
-                  <a
-                    className="medium-font box-title "
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Scholz & Volkmer
-                  </a>
-                </Link>
-                <ul>
-                  <li>
-                    {t("stuff:box-list")}
-                    {t("stuff:box-list-dev")}
-                  </li>
-                  <li>
-                    {t("stuff:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
-                    Sass
-                  </li>
-                  <li>2022 / {t("stuff:box-list-3")}</li>
-                </ul>
-                <div className="box-link-cnt">
+                <div className="box-width">
+                  <span className="small-font box-subtitle">
+                    01 / {t("stuff:stuff-3")}
+                    <br />
+                  </span>
                   <Link href="/stuff/scholz-und-volkmer" passHref>
-                    <a className="btn-small box-link">{t("stuff:stuff")}</a>
+                    <a
+                      className="medium-font box-title "
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      Scholz & Volkmer
+                    </a>
                   </Link>
+                  <ul>
+                    <li>
+                      {t("stuff:box-list")}
+                      {t("stuff:box-list-dev")}
+                    </li>
+                    <li>
+                      {t("stuff:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
+                      Sass
+                    </li>
+                    <li>2022 / {t("stuff:box-list-3")}</li>
+                  </ul>
+                  <div className="box-link-cnt">
+                    <Link href="/stuff/scholz-und-volkmer" passHref>
+                      <a className="btn-small box-link">{t("stuff:stuff")}</a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -183,36 +185,38 @@ const Index = () => {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  02 / {t("stuff:stuff-3")}
-                  <br />
-                </span>
-                <Link href="/stuff/ideology" passHref>
-                  <a
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Ideology
-                  </a>
-                </Link>
-                <ul>
-                  <li>{t("stuff:box-list")}UI/UX Designer</li>
-                  <li>
-                    {t("stuff:box-list-2")}Adobe XD, CSS, jQuery, WordPress
-                  </li>
-                  <li>2020 / 2022</li>
-                </ul>
-                <div className="box-link-cnt ">
+                <div className="box-width">
+                  <span className="small-font box-subtitle">
+                    02 / {t("stuff:stuff-3")}
+                    <br />
+                  </span>
                   <Link href="/stuff/ideology" passHref>
                     <a
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="btn-small box-link"
                     >
-                      {t("stuff:stuff")}
+                      Ideology
                     </a>
                   </Link>
+                  <ul>
+                    <li>{t("stuff:box-list")}UI/UX Designer</li>
+                    <li>
+                      {t("stuff:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                    </li>
+                    <li>2020 / 2022</li>
+                  </ul>
+                  <div className="box-link-cnt ">
+                    <Link href="/stuff/ideology" passHref>
+                      <a
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="btn-small box-link"
+                      >
+                        {t("stuff:stuff")}
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -244,41 +248,43 @@ const Index = () => {
                 </Link>
               </div>
               <div className="box-informations-cnt">
-                <span className="small-font box-subtitle">
-                  03 / {t("stuff:stuff-4")}
-                  <br />
-                </span>
-                <Link href="/stuff/cg-prospect" passHref>
-                  <a
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    CG Prospect
-                  </a>
-                </Link>
-                <ul>
-                  <li>
-                    {t("stuff:box-list")}
-                    {t("stuff:box-list-dev-2")}, UI/UX Designer,{" "}
-                    {t("stuff:box-list-mod")}
-                  </li>
-                  <li>
-                    {t("stuff:box-list-2")}React (Next.js), MongoDB, CSS,
-                    MetaShape
-                  </li>
-                  <li>2021 / {t("stuff:box-list-3")}</li>
-                </ul>
-                <div className="box-link-cnt">
+                <div className="box-width">
+                  <span className="small-font box-subtitle">
+                    03 / {t("stuff:stuff-4")}
+                    <br />
+                  </span>
                   <Link href="/stuff/cg-prospect" passHref>
                     <a
+                      className="medium-font box-title"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="btn-small box-link"
                     >
-                      {t("stuff:stuff")}
+                      CG Prospect
                     </a>
                   </Link>
+                  <ul>
+                    <li>
+                      {t("stuff:box-list")}
+                      {t("stuff:box-list-dev-2")}, UI/UX Designer,{" "}
+                      {t("stuff:box-list-mod")}
+                    </li>
+                    <li>
+                      {t("stuff:box-list-2")}React (Next.js), MongoDB, CSS,
+                      MetaShape
+                    </li>
+                    <li>2021 / {t("stuff:box-list-3")}</li>
+                  </ul>
+                  <div className="box-link-cnt">
+                    <Link href="/stuff/cg-prospect" passHref>
+                      <a
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="btn-small box-link"
+                      >
+                        {t("stuff:stuff")}
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

@@ -375,9 +375,7 @@ const About = () => {
           <span ref={scrollingBitRef}>
             Just <br /> a bit more...
           </span>
-          <span ref={scrollingGoRef}>
-            Here <br /> you go!
-          </span>
+          <span ref={scrollingGoRef}>Yeah!</span>
         </div>
       </main>
       <div className="spacer-small"></div>
