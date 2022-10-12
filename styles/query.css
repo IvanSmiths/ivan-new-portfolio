@@ -557,7 +557,7 @@
   }
 
   .box-image-cnt {
-    width: 30%;
+    width: 60%;
     height: 50%;
   }
   .box-subtitle {
@@ -853,7 +853,7 @@
   }
 
   .box__width ul {
-    padding-left: 8rem;
+    padding-left: 3rem;
   }
 
   .social-mobile-cnt li {
