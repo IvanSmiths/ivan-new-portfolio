@@ -94,6 +94,7 @@
 
 .blogpost__excerpt h2 {
   margin-top: var(--marginElement);
+  font-weight: 800;
 }
 
 .blogpost__main-image {
@@ -140,11 +141,7 @@ pre {
 }
 
 .blogpost__article-body h3 {
-  font-size: var(--mediumFont);
-  margin-bottom: var(--marginElementMedium);
-}
-
-.blogpost__article-body h3 {
+  font-weight: 800;
   font-size: var(--mediumFont);
   margin-bottom: var(--marginElementMedium);
 }
