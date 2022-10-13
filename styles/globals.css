@@ -541,10 +541,6 @@ b {
   color: var(--color-text-primary);
 }
 
-.overlay-burger-menu {
-  z-index: 99999;
-}
-
 .overlay-burger-menu main {
   color: var(--color-text-inverse);
 }

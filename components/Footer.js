@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useContext } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { CursorContext } from "./CursorManager";
 import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
