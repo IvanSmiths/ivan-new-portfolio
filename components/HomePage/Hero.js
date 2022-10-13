@@ -58,6 +58,7 @@ const Hero = () => {
     );
     return () => {
       fadeHero.kill();
+      tl.kill();
     };
   }, []);
 
