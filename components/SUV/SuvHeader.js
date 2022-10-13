@@ -129,7 +129,7 @@ function SuvHeader() {
               webp={"/scholz-und-volkmer-website-2.webp"}
               height={"926px"}
               width={"1900px"}
-              alt={"image"}
+              alt={"work"}
             />
           </div>
         </div>
