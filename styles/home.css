@@ -476,6 +476,7 @@
   height: 100vh;
   overflow: hidden;
   z-index: 5;
+  background-color: var(--color-bg-primary);
 }
 
 .home__innnovation {
