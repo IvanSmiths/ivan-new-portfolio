@@ -149,7 +149,7 @@
 }
 
 .case-studio__caption {
-  padding-bottom: var(--marginSection);
+  margin-bottom: var(--marginSection);
   text-transform: uppercase;
   margin-left: 83px;
   width: 70vw;

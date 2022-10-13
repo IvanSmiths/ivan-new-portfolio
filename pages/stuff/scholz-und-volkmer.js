@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import SuvHeader from "../../components/SUV/SuvHeader";
+import Footer from "../../components/Footer";
 import SuvFirstSection from "../../components/SUV/SuvFirstSection";
 
 function ScholzUndVolkmer() {
@@ -41,6 +42,7 @@ function ScholzUndVolkmer() {
       </Head>
       <SuvHeader />
       <SuvFirstSection />
+      <Footer link={"stuff/ideology"} />
     </>
   );
 }

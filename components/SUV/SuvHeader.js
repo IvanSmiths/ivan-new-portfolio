@@ -127,8 +127,8 @@ function SuvHeader() {
             <SrcImage
               src={"/scholz-und-volkmer-website-2.jpg"}
               webp={"/scholz-und-volkmer-website-2.webp"}
-              height={"926px"}
-              width={"1900px"}
+              height={"1109px"}
+              width={"1920px"}
               alt={"work"}
             />
           </div>

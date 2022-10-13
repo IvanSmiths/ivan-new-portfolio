@@ -118,8 +118,8 @@ function IdHero() {
           <SrcImage
             src={"/ideology-website-1.jpg"}
             webp={"/ideology-website-1.webp"}
-            height={"926px"}
-            width={"1900px"}
+            height={"755px"}
+            width={"1424px"}
             alt={"image"}
           />
         </div>
