@@ -36,33 +36,21 @@
 }
 
 .marquee {
-  width: 140vw;
-  max-width: 140%;
-  margin-left: -6rem;
-  margin-top: 12vw;
   position: relative;
   margin-bottom: 18vw;
-  height: 206px;
+  height: 300px;
   overflow: hidden;
-  transform: rotateZ(-11deg);
+  margin-top: var(--marginSection);
 }
 
-.track {
-  overflow: hidden;
-  background-color: var(--color-text-primary);
+.marquee em {
   position: absolute;
-  white-space: nowrap;
-  padding: 2rem;
-}
-
-.marq {
   overflow: hidden;
-}
-
-.track > em {
-  margin: 20px 0;
-  color: var(--color-text-inverse);
+  white-space: nowrap;
+  top: 0;
+  left: 0;
   text-transform: uppercase;
+  animation: marqueescroll 350s linear 0s infinite;
 }
 
 .project-item-container .ideology-image {
@@ -276,14 +264,11 @@
   height: auto;
 }
 
-.suv__video {
-  background-color: red;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.marq {
-  margin-top: var(--marginSection);
+@keyframes marqueescroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
