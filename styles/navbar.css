@@ -28,6 +28,7 @@
 
 .overlay-burger-menu {
   position: fixed;
+  transform: translateX(-100%);
   z-index: 4;
   width: 100vw;
   height: 100vh;
@@ -37,7 +38,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 10vh 50px;
+  z-index: 90;
   transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
@@ -287,4 +288,38 @@
   display: flex;
   gap: 60px;
   margin-right: var(--marginLayout3);
+}
+
+.menu {
+  position: fixed;
+  top: 30px;
+  right: -100%;
+  z-index: 99;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.menu-line-wrapper {
+  width: 3rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.menu-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+  transform-origin: center;
+  transition: width 0.3s;
+}
+
+.menu-line-2 {
+  width: 50%;
 }

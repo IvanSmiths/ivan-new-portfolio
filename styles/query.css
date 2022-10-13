@@ -405,6 +405,14 @@
     gap: 2rem;
   }
 
+  .menu {
+    right: 15px;
+  }
+
+  .navbar-desktop {
+    display: none;
+  }
+
   .homepage-about-p-cnt p {
     width: 100%;
   }
@@ -973,11 +981,6 @@
   .nav-dropdown-cnt ul {
     margin-top: 1.2rem;
     margin-left: 0.7rem;
-  }
-
-  .overlay-burger-menu {
-    padding: 0;
-    z-index: 99999;
   }
 
   .btn-4 {
