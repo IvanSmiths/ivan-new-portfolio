@@ -1,16 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 
-function SrcImage({
-  src,
-  webp,
-  alt,
-  height,
-  width,
-  className,
-  classDiv,
-  ...delegated
-}) {
+function SrcImage({ src, webp, alt, height, width, className, classDiv }) {
   return (
     <>
       <picture className={className ? className : null}>
@@ -30,7 +21,6 @@ function SrcImage({
           src={src}
           height={height}
           width={width}
-          {...delegated}
         />
       </picture>
     </>

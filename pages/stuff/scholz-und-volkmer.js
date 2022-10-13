@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
-
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React from "react";
 import Head from "next/head";
 import SuvHeader from "../../components/SUV/SuvHeader";
 import SuvFirstSection from "../../components/SUV/SuvFirstSection";
