@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import Head from "next/head";
 import BlogPost from "../../components/Blog/BlogPost";
 import { CursorContext } from "../../components/CursorManager";
+import Footer from "../../components/Footer";
 
 function Blog() {
   const { setSize } = useContext(CursorContext);
@@ -105,6 +106,7 @@ function Blog() {
           ) : null}
         </main>
       </div>
+      <Footer link={""} />
     </>
   );
 }

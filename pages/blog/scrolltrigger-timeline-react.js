@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Footer from "../../components/Footer";
 
 function ScrollTlReact() {
   const snippetTitle = "How to use Scrolltrigger with timeline in React";
@@ -118,6 +119,7 @@ function ScrollTlReact() {
           </pre>
         </div>
       </div>
+      <Footer link="blog" />
     </>
   );
 }

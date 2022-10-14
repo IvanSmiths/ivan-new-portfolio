@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SrcImage from "../../components/SrcImage";
 import Head from "next/head";
 import CgHero from "../../components/CgProspect/CgHero";
+import Footer from "../../components/Footer";
 
 const Ideology = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -105,8 +106,8 @@ const Ideology = () => {
           <SrcImage
             src={"/cg-prospect-website-2.jpg"}
             webp={"/cg-prospect-website-2.webp"}
-            height={"926px"}
-            width={"1900px"}
+            height={"756px"}
+            width={"1440px"}
             alt={"image of a website"}
           />
         </div>
@@ -114,12 +115,13 @@ const Ideology = () => {
           <SrcImage
             src={"/cg-prospect-website-3.jpg"}
             webp={"/cg-prospect-website-3.webp"}
-            height={"926px"}
-            width={"1900px"}
+            height={"755px"}
+            width={"1440px"}
             alt={"image of a website"}
           />
         </div>
       </div>
+      <Footer link={"blog"} />
     </>
   );
 };

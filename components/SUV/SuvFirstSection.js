@@ -76,8 +76,8 @@ function SuvFirstSection() {
             classDiv={"flex-center"}
             src={"/scholz-und-volkmer-website-3.jpg"}
             webp={"/scholz-und-volkmer-website-3.webp"}
-            height={"926px"}
-            width={"1900px"}
+            height={"970px"}
+            width={"1920px"}
             alt={"image of a website"}
           />
         </div>
@@ -86,8 +86,8 @@ function SuvFirstSection() {
             classDiv={"flex-center"}
             src={"/scholz-und-volkmer-website-4.jpg"}
             webp={"/scholz-und-volkmer-website-4.webp"}
-            height={"926px"}
-            width={"1900px"}
+            height={"1043px"}
+            width={"1920px"}
             alt={"image of a website"}
           />
         </div>
@@ -99,8 +99,8 @@ function SuvFirstSection() {
               classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile.jpg"}
               webp={"/scholz-und-volkmer-website-mobile.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"834px"}
+              width={"469px"}
               alt={"image"}
             />
           </li>
@@ -109,8 +109,8 @@ function SuvFirstSection() {
               classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-2.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-2.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"834px"}
+              width={"469px"}
               alt={"image"}
             />
           </li>
@@ -119,8 +119,8 @@ function SuvFirstSection() {
               classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-3.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-3.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"834px"}
+              width={"469px"}
               alt={"image"}
             />
           </li>
@@ -131,8 +131,8 @@ function SuvFirstSection() {
               classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-4.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-4.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"805px"}
+              width={"469px"}
               alt={"image"}
             />
           </li>
@@ -141,8 +141,8 @@ function SuvFirstSection() {
               classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-5.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-5.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"805px"}
+              width={"469px"}
               alt={"image"}
             />
           </li>
@@ -151,8 +151,8 @@ function SuvFirstSection() {
               classDiv={"flex-center"}
               src={"/scholz-und-volkmer-website-mobile-6.jpg"}
               webp={"/scholz-und-volkmer-website-mobile-6.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"834px"}
+              width={"469px"}
               alt={"image"}
             />
           </li>

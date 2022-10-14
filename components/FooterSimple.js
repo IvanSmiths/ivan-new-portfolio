@@ -1,19 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useState, useContext } from "react";
-import { CursorContext } from "../CursorManager";
+import { CursorContext } from "./CursorManager";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-function FooterCounter() {
+function Footer({ link, text }) {
   gsap.registerPlugin(ScrollTrigger);
-  const router = useRouter();
-
-  const [complete, setComplete] = useState(false);
-  const [num, setNum] = useState(0);
-
-  const numberRef = useRef(null);
-  const triggerRef = useRef(null);
 
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
@@ -23,46 +17,10 @@ function FooterCounter() {
     setSize("small");
   };
 
-  useEffect(() => {
-    const footerNum = gsap.fromTo(
-      numberRef.current,
-      { scale: 1 },
-      {
-        scale: 2,
-        duration: 1,
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          scrub: true,
-          end: "+=20000px bottom",
-          pin: true,
-          onUpdate: (self) => {
-            setNum(Math.min(Math.ceil(self.progress * 100), 100));
-          },
-          onLeave: function () {
-            setComplete(true);
-          },
-        },
-      }
-    );
-
-    return () => {
-      footerNum.kill();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (complete === true) {
-      router.push("/about");
-    }
-    return () => {
-      setComplete(false);
-    };
-  }, [router, complete]);
-
   return (
     <>
       <footer>
-        <div ref={triggerRef}>
+        <div>
           <div className="footer-counter-inner">
             <div className="footer-counter__contact">
               <ul className="footer__icon">
@@ -126,9 +84,11 @@ function FooterCounter() {
                 </a>
               </div>
             </div>
-            <span className="big-font" ref={numberRef}>
-              {num}
-            </span>
+            <Link href={link}>
+              <a>
+                <span className="big-font">{text}</span>
+              </a>
+            </Link>
           </div>
         </div>
         <div className="spacer-small"></div>
@@ -136,4 +96,4 @@ function FooterCounter() {
     </>
   );
 }
-export default FooterCounter;
+export default Footer;

@@ -34,12 +34,10 @@
   height: 100vh;
   background-color: #fefefe;
   color: var(--color-text-inverse);
-  clip-path: inset(0% 0 100% 0);
   display: flex;
   flex-direction: row;
   width: 100%;
   z-index: 90;
-  transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .close-nav {
@@ -120,54 +118,6 @@
 .burger-menu-links-cnt li a {
   text-align: left;
   color: var(--text-black);
-}
-
-.as-opened {
-  clip-path: inset(0% 0 0% 0);
-}
-
-.overlay-burger-icon {
-  right: 20px;
-  top: 5px;
-  position: fixed;
-  z-index: 43;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  border: none;
-  background: 0 0;
-  will-change: transform;
-  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.as-opened::after {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.as-opened::before {
-  transform: translate(-50%, -50%) rotate(315deg);
-}
-
-.overlay-burger-icon::after,
-.overlay-burger-icon::before {
-  content: "";
-  width: 48px;
-  height: 2px;
-  position: absolute;
-  background-color: var(--color-text-primary);
-  left: 50%;
-  top: 50%;
-  display: block;
-  will-change: transform;
-  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.overlay-burger-icon::before {
-  transform: translate(-50%, -5px) scaleY(0.7) rotate(180deg);
-}
-
-.overlay-burger-icon::after {
-  transform: translate(-50%, 5px) scaleY(0.7) rotate(0);
 }
 
 .burger-menu-info-personal-cnt {

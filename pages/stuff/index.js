@@ -6,6 +6,7 @@ import Link from "next/link";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../../components/CursorManager";
+import FooterSimple from "../../components/FooterSimple";
 
 const Index = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -60,15 +61,6 @@ const Index = () => {
     headline: "speed, security & INNOVATION",
     keywords: "next.js, wiesbaden, react.js, frontend developer",
     locationCreated: "wiesbaden",
-  };
-
-  const icon = {
-    hidden: {
-      pathLength: 0,
-    },
-    visible: {
-      pathLength: 1,
-    },
   };
 
   const { setSize } = useContext(CursorContext);
@@ -298,6 +290,7 @@ const Index = () => {
           </div>
         </section>
       </div>
+      <FooterSimple link="/blog" text="Blog" />
     </>
   );
 };

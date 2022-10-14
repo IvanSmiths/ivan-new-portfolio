@@ -9,6 +9,7 @@ import { pageData } from "../../utils/sampleData";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import SrcImage from "../../components/SrcImage";
 import IdHero from "../../components/Ideology/IdHero";
+import Footer from "../../components/Footer";
 
 const Ideology = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -84,7 +85,14 @@ const Ideology = () => {
       </h3>
       <div className="case-studio__screen-image case-studio__screen-video suv-first-section">
         <div ref={videoIdTriggerRef} className="case-studio__video" id="video">
-          <video ref={videoIdRef} muted autoPlay loop>
+          <video
+            ref={videoIdRef}
+            preload="none"
+            poster="/ideology-website-2.jpg"
+            muted
+            autoPlay
+            loop
+          >
             <source src="/ideology.mp4" type="video/mp4" />
           </video>
         </div>
@@ -144,8 +152,8 @@ const Ideology = () => {
             <SrcImage
               src={"/ideology-website-mobile-1.jpg"}
               webp={"/ideology-website-mobile-1.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"681px"}
+              width={"428px"}
               alt={"image"}
             />
           </li>
@@ -153,8 +161,8 @@ const Ideology = () => {
             <SrcImage
               src={"/ideology-website-mobile-2.jpg"}
               webp={"/ideology-website-mobile-2.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"555px"}
+              width={"344px"}
               alt={"image"}
             />
           </li>
@@ -162,8 +170,8 @@ const Ideology = () => {
             <SrcImage
               src={"/ideology-website-mobile-13.jpg"}
               webp={"/ideology-website-mobile-13.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"744px"}
+              width={"390px"}
               alt={"image"}
             />
           </li>
@@ -173,8 +181,8 @@ const Ideology = () => {
             <SrcImage
               src={"/ideology-website-mobile-4.jpg"}
               webp={"/ideology-website-mobile-4.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"572px"}
+              width={"343px"}
               alt={"image"}
             />
           </li>
@@ -182,8 +190,8 @@ const Ideology = () => {
             <SrcImage
               src={"/ideology-website-mobile-5.jpg"}
               webp={"/ideology-website-mobile-5.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"572px"}
+              width={"342px"}
               alt={"image"}
             />
           </li>
@@ -191,8 +199,8 @@ const Ideology = () => {
             <SrcImage
               src={"/ideology-website-mobile-6.jpg"}
               webp={"/ideology-website-mobile-6.webp"}
-              height={"130px"}
-              width={"500px"}
+              height={"573px"}
+              width={"353px"}
               alt={"image"}
             />
           </li>
@@ -210,6 +218,7 @@ const Ideology = () => {
           </ul>
         </div>
       </section>
+      <Footer link={"stuff/cg-prospect"} />
     </>
   );
 };
