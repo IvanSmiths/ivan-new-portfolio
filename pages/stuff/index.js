@@ -62,15 +62,6 @@ const Index = () => {
     locationCreated: "wiesbaden",
   };
 
-  const icon = {
-    hidden: {
-      pathLength: 0,
-    },
-    visible: {
-      pathLength: 1,
-    },
-  };
-
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");
