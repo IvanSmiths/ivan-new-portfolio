@@ -68,7 +68,7 @@ em {
   --text-white: #f8f8f8;
   --main-color: #d7f21d;
 
-  --extremeFont: calc(1.3rem + 100vw);
+  --extremeFont: calc(1.3rem + 90vw);
   --largeFont: clamp(4rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(3rem, 9.9vw, 9rem);
