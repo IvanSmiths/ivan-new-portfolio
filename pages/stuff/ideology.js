@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useRef, useContext, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
@@ -10,6 +10,7 @@ import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import SrcImage from "../../components/SrcImage";
 import IdHero from "../../components/Ideology/IdHero";
 import Footer from "../../components/Footer";
+import FooterSimple from "../../components/FooterSimple";
 
 const Ideology = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -42,6 +43,26 @@ const Ideology = () => {
     return () => {
       vidIdAnim.kill();
     };
+  }, []);
+
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 500) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 500) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   return (
@@ -218,7 +239,11 @@ const Ideology = () => {
           </ul>
         </div>
       </section>
-      <Footer link={"stuff/cg-prospect"} />
+      {isDesktop ? (
+        <Footer link={"stuff/cg-prospect"} />
+      ) : (
+        <FooterSimple text="Cg Prospect" link="/stuff/cg-prospect" />
+      )}
     </>
   );
 };

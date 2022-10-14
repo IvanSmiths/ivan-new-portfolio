@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import useTranslation from "next-translate/useTranslation";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -7,6 +7,7 @@ import SrcImage from "../../components/SrcImage";
 import Head from "next/head";
 import CgHero from "../../components/CgProspect/CgHero";
 import Footer from "../../components/Footer";
+import FooterSimple from "../../components/FooterSimple";
 
 const Ideology = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -35,6 +36,26 @@ const Ideology = () => {
         },
       }
     );
+  }, []);
+
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 500) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 500) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   let { t } = useTranslation();
@@ -121,7 +142,11 @@ const Ideology = () => {
           />
         </div>
       </div>
-      <Footer link={"blog"} />
+      {isDesktop ? (
+        <Footer link="blog" />
+      ) : (
+        <FooterSimple text="Blog" link="/blog" />
+      )}
     </>
   );
 };

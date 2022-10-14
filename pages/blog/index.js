@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import BlogPost from "../../components/Blog/BlogPost";
 import { CursorContext } from "../../components/CursorManager";
 import Footer from "../../components/Footer";
+import FooterSimple from "../../components/FooterSimple";
 
 function Blog() {
   const { setSize } = useContext(CursorContext);
@@ -17,6 +18,26 @@ function Blog() {
   const [showAll, setShowAll] = useState(true);
   const [showSnippets, setShowSnippets] = useState(false);
   const [showTutorials, setShowTutorials] = useState(false);
+
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 500) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 500) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  }, []);
 
   return (
     <>
@@ -106,7 +127,7 @@ function Blog() {
           ) : null}
         </main>
       </div>
-      <Footer link={""} />
+      {isDesktop ? <Footer link="" /> : <FooterSimple text="Home" link="" />}
     </>
   );
 }

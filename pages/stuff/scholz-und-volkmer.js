@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import SuvHeader from "../../components/SUV/SuvHeader";
-import Footer from "../../components/Footer";
 import SuvFirstSection from "../../components/SUV/SuvFirstSection";
+import Footer from "../../components/Footer";
+import FooterSimple from "../../components/FooterSimple";
 
 function ScholzUndVolkmer() {
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 500) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 500) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  }, []);
   return (
     <>
       <Head>
@@ -42,7 +62,11 @@ function ScholzUndVolkmer() {
       </Head>
       <SuvHeader />
       <SuvFirstSection />
-      <Footer link={"stuff/ideology"} />
+      {isDesktop ? (
+        <Footer link="stuff/ideology" />
+      ) : (
+        <FooterSimple text="Ideology" link="/stuff/ideology" />
+      )}
     </>
   );
 }
