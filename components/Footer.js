@@ -48,6 +48,7 @@ function Footer({ link }) {
 
     return () => {
       footerNum.kill();
+      ScrollTrigger.refresh();
     };
   }, []);
 

@@ -81,8 +81,8 @@ function CgHero() {
           <SrcImage
             src={"/cg-prospect-website-1.jpg"}
             webp={"/cg-prospect-website-1.webp"}
-            height={"926px"}
-            width={"1900px"}
+            height={"752px"}
+            width={"1440px"}
             alt={"image"}
           />
         </div>
