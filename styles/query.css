@@ -197,7 +197,7 @@
   }
 
   .lang-cnt2 li a {
-    color: var(--black-color);
+    color: var(--color-text-inverse);
   }
 
   .case-studio__screen-video {
@@ -759,11 +759,6 @@
     gap: 0;
     align-items: center;
     z-index: 3;
-  }
-
-  .theme-toggle {
-    left: 49% !important;
-    top: 26px !important;
   }
 
   .box-image-cnt img {

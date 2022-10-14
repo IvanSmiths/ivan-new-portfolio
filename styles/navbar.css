@@ -32,7 +32,7 @@
   z-index: 4;
   width: 100vw;
   height: 100vh;
-  background-color: #fefefe;
+  background-color: var(--color-bg-inverse);
   color: var(--color-text-inverse);
   display: flex;
   flex-direction: row;
@@ -42,11 +42,11 @@
 
 .close-nav {
   position: fixed;
-  right: -26px;
-  top: -26px;
-  padding: 4.1rem;
+  right: 0;
+  top: 0;
+  padding: 3rem;
+  border-radius: 0 0 0 2rem;
   background-color: var(--color-bg-primary);
-  border-radius: 32rem;
 }
 
 .lang-cnt2 {
@@ -107,7 +107,7 @@
 }
 
 .nav-social-cnt li a {
-  color: var(--text-black);
+  color: var(--color-text-inverse);
 }
 
 .burger-menu-links-cnt li {
@@ -117,7 +117,7 @@
 
 .burger-menu-links-cnt li a {
   text-align: left;
-  color: var(--text-black);
+  color: var(--color-text-inverse);
 }
 
 .burger-menu-info-personal-cnt {

@@ -143,6 +143,7 @@ function Navbar() {
           <ul className="nav-social-cnt">
             <li>
               <a
+                onClick={handleNavLinkClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://github.com/IvanSmiths"
@@ -152,6 +153,7 @@ function Navbar() {
             </li>
             <li>
               <a
+                onClick={handleNavLinkClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/ivan-fabbri/"
@@ -161,6 +163,7 @@ function Navbar() {
             </li>
             <li>
               <a
+                onClick={handleNavLinkClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.instagram.com/ivan_smiths"
@@ -172,17 +175,20 @@ function Navbar() {
           <ul className="lang-cnt2">
             <li>
               <Link locale="en" href={router.asPath}>
-                <a className="tiny-font">{router.locales[0]}</a>
+                <a onClick={handleNavLinkClick} className="tiny-font">
+                  {router.locales[0]}
+                </a>
               </Link>
             </li>
             <li className="tiny-font">/</li>
             <li>
               <Link locale="it" href={router.asPath}>
-                <a className="tiny-font">{router.locales[1]}</a>
+                <a onClick={handleNavLinkClick} className="tiny-font">
+                  {router.locales[1]}
+                </a>
               </Link>
             </li>
           </ul>
-          <ThemeToggle />
         </div>
         <div className="burger-menu-info-cnt">
           <a
