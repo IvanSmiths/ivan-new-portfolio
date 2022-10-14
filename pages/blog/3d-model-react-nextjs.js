@@ -99,7 +99,10 @@ function NextModel() {
       },
       { opacity: 1 }
     );
-  });
+    return () => {
+      tl.kill();
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -143,6 +146,8 @@ function NextModel() {
             className="blogpost__main-image"
             src={articleMainImage}
             alt="tutorial"
+            width="1423px"
+            height="754px"
           />
           <div ref={excerptRef} className="blogpost__excerpt">
             <time dateTime={articleDate}>{articleDate}</time> <br />
@@ -185,6 +190,8 @@ function NextModel() {
               alt="model viewer"
               scr="/next-js-3d.jpg"
               webp="/next-js-3d.webp"
+              width="1423px"
+              height="754px"
             />
             <p>
               From here, scroll down, enable &quot;Ar&quot; in order to enable
@@ -197,6 +204,8 @@ function NextModel() {
               scr="/nextjs-3d-model-2.jpg"
               webp="/nextjs-3d-model-2.webp"
               alt="3d model"
+              width="715px"
+              height="379px"
             />
             <p>
               In the other tabs on the right, you can customize the textures of

@@ -35,7 +35,7 @@ function Footer({ link }) {
           scrub: true,
           end: "+=10000px bottom",
           pin: true,
-          markers: true,
+
           onUpdate: (self) => {
             setNum(Math.min(Math.ceil(self.progress * 100), 100));
           },

@@ -74,7 +74,15 @@
   padding-bottom: var(--marginSection);
 }
 
-.blogpost__main-imag-outer {
+.blogpost__main-image-inner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blogpost__main-image-inner {
   position: relative;
   height: 100vh;
   width: 100%;
@@ -99,6 +107,8 @@
 
 .blogpost__main-image {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .blogpost h1 {
   font-size: var(--blogBigFont);
@@ -148,6 +158,7 @@ pre {
 
 .blogpost__article-body img {
   width: 100%;
+  height: 100%;
 }
 
 .blogpost__code {
