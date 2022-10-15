@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import BlogLink from "../../components/Blog/BlogLink";
 import SrcImage from "../../components/SrcImage";
-import Footer from "../../components/FooterSimple";
+import Footer from "../../components/Footer";
 
 function NextModel() {
   const articleTitle = "How to add 3d models on a Next.js website";
