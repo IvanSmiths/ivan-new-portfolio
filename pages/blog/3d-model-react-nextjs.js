@@ -278,7 +278,7 @@ function NextModel() {
           </div>
         </div>
       </article>
-      <Footer link="/blog" />
+      <Footer link="blog" />
     </>
   );
 }
