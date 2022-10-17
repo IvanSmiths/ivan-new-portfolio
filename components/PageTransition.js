@@ -20,7 +20,6 @@ const PageTransition = () => {
       }, 10);
     };
     const aniEnd = () => {
-      console.log(isActive);
       if (timer) {
         clearTimeout(timer);
       }
