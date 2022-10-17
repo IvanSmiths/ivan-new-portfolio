@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import BlogLink from "../../components/Blog/BlogLink";
 import SrcImage from "../../components/SrcImage";
-import FooterSimple from "../../components/FooterSimple";
+import Footer from "../../components/Footer";
 
 function NextModel() {
   const articleTitle = "How to add 3d models on a Next.js website";
@@ -72,16 +72,16 @@ function NextModel() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const mainImageOuterRef = useRef(null);
+  const mainImageInnerRef = useRef(null);
   const mainImageRef = useRef(null);
   const excerptRef = useRef(null);
 
   useEffect(() => {
     var tl = gsap.timeline({
       scrollTrigger: {
-        trigger: mainImageOuterRef.current,
+        trigger: mainImageInnerRef.current,
         start: "top top",
-        end: "+=3500px bottom",
+        end: "bottom bottom",
         scrub: true,
         pin: true,
       },
@@ -141,18 +141,22 @@ function NextModel() {
       </Head>
       <article className="blogpost">
         <h1 className="blogpost__title  upper impact">{articleTitle}</h1>
-        <div ref={mainImageOuterRef} className="blogpost__main-imag-outer">
-          <img
-            ref={mainImageRef}
-            className="blogpost__main-image"
-            src={articleMainImage}
-            alt="tutorial"
-            width="1423px"
-            height="754px"
-          />
-          <div ref={excerptRef} className="blogpost__excerpt">
-            <time dateTime={articleDate}>{articleDate}</time> <br />
-            <h2 className="bold medium-font">{articleExcerpt}</h2>
+        <div className="blogpost__main-image-outer">
+          <div ref={mainImageInnerRef} className="blogpost__main-image-inner">
+            <div className="blogpost__main-image-inner-absolute">
+              <div ref={mainImageRef} className="blogpost__main-image">
+                <img
+                  src={articleMainImage}
+                  alt="tutorial"
+                  width="1423px"
+                  height="754px"
+                />
+              </div>
+              <div ref={excerptRef} className="blogpost__excerpt">
+                <time dateTime={articleDate}>{articleDate}</time> <br />
+                <h2 className="bold medium-font">{articleExcerpt}</h2>
+              </div>
+            </div>
           </div>
         </div>
         <div className="blogpost__article-body-outer flex-center">
@@ -274,7 +278,7 @@ function NextModel() {
           </div>
         </div>
       </article>
-      <FooterSimple link="/blog" text="Blog" />
+      <Footer link="blog" />
     </>
   );
 }
