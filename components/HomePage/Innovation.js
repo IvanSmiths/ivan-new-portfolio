@@ -21,6 +21,7 @@ const Innovation = () => {
           start: "top top",
           end: "+=2900px top",
           scrub: true,
+          ease: "expo.inOut",
           pin: true,
         },
       }
