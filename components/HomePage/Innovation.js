@@ -14,7 +14,7 @@ const Innovation = () => {
         scale: 1,
       },
       {
-        scale: 0.07,
+        scale: 0.15,
         ease: "none",
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
