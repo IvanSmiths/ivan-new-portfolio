@@ -1,21 +1,22 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 
 const PageTransition = () => {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
+
+  const transitionRef = useRef(null);
   useEffect(() => {
     let timer;
     const aniStart = async () => {
       timer = setTimeout(() => {
         setIsActive(true);
         const tl = gsap.timeline();
-        tl.to(".cover-strip", {
+        tl.to(transitionRef.current, {
           yPercent: 100,
-          duration: 0.5,
-          ease: "Expo.easeInOut",
-          stagger: 0.1,
+          duration: 0.4,
+          ease: "Expo.e5aseInOut",
         });
       }, 10);
     };
@@ -25,16 +26,15 @@ const PageTransition = () => {
       }
       const tl = gsap.timeline();
       if (isActive) {
-        tl.to(".cover-strip", {
+        tl.to(transitionRef.current, {
           yPercent: 200,
           duration: 0.5,
           ease: "Expo.easeInOut",
-          stagger: -0.1,
         });
         setIsActive(false);
       }
 
-      tl.set(".cover-strip", { yPercent: 0 });
+      tl.set(transitionRef.current, { yPercent: 0 });
       clearTimeout(timer);
     };
 
@@ -55,20 +55,9 @@ const PageTransition = () => {
     <>
       <div className="page-change-cnt">
         <div
+          ref={transitionRef}
           id="cover"
-          className="cover-strip page-change-col page-change-col-1"
-        ></div>
-        <div
-          id="cover1"
-          className="cover-strip page-change-col page-change-col-2"
-        ></div>
-        <div
-          id="cover2"
-          className="cover-strip page-change-col page-change-col-3"
-        ></div>
-        <div
-          id="cover3"
-          className="cover-strip page-change-col page-change-col-4"
+          className="cover-strip page-change-col"
         ></div>
       </div>
     </>
