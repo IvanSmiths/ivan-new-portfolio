@@ -14,13 +14,14 @@ const Innovation = () => {
         scale: 1,
       },
       {
-        scale: 0.07,
+        scale: 0.15,
         ease: "none",
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
           start: "top top",
           end: "+=2900px top",
           scrub: true,
+          ease: "expo.inOut",
           pin: true,
         },
       }
