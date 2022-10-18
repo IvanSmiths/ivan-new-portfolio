@@ -367,7 +367,7 @@ b {
 
 .page-change-col {
   height: 100vh;
-  width: 25%;
+  width: 100%;
   top: 0px;
   position: fixed;
   transform: translateY(-100%);
@@ -377,20 +377,8 @@ b {
   padding: 5vw 1vw;
 }
 
-.page-change-col-1 {
-  left: 0px;
-}
-
 .page-change-col-2 {
-  left: 25%;
-}
-
-.page-change-col-3 {
-  left: 50%;
-}
-
-.page-change-col-4 {
-  left: 75%;
+  background-color: var(--main-color);
 }
 
 .word-wrap {
