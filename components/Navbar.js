@@ -14,6 +14,7 @@ const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
 function Navbar() {
   const { setSize } = useContext(CursorContext);
   const navRef = useRef();
+  const navLinksRef = useRef();
   const menuRef = useRef();
   const menuLine1 = useRef(null);
   const menuLine2 = useRef(null);
@@ -34,7 +35,13 @@ function Navbar() {
       .to(navRef.current, { x: "0%", ease: "expo.inOut" })
       .to(menuLine1.current, { rotate: "45deg", y: "1rem" }, "<")
       .to(menuLine2.current, { x: "-100%" }, "<")
-      .to(menuLine3.current, { rotate: "-45deg", y: "-1rem" }, "<");
+      .to(menuLine3.current, { rotate: "-45deg", y: "-1rem" }, "<")
+      .fromTo(
+        navLinksRef.current,
+        { opacity: 0 },
+        { delay: 0.3, opacity: 1, stagger: 0.2 },
+        "<"
+      );
   }, [animation]);
 
   const handleMenuClick = () => {
@@ -55,7 +62,6 @@ function Navbar() {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                {" "}
                 {t("common:nav-home")}
               </a>
             </Link>
@@ -107,7 +113,7 @@ function Navbar() {
       </div>
       <nav ref={navRef} className="overlay-burger-menu as-opened">
         <span className="close-nav"></span>
-        <div className="links-socials-cnt">
+        <div ref={navLinksRef} className="links-socials-cnt">
           <ul className="burger-menu-links-cnt">
             <li>
               <Link href="/">
@@ -116,7 +122,6 @@ function Navbar() {
                 </a>
               </Link>
             </li>
-
             <li>
               <Link href="/stuff">
                 <a onClick={handleNavLinkClick} className="impact big-font">
@@ -124,7 +129,6 @@ function Navbar() {
                 </a>
               </Link>
             </li>
-
             <li>
               <Link href="/about">
                 <a onClick={handleNavLinkClick} className="impact big-font">
