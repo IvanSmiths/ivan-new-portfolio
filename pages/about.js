@@ -11,8 +11,11 @@ const About = () => {
   let { t } = useTranslation();
 
   const router = useRouter();
+
   gsap.registerPlugin(ScrollTrigger);
+
   const [complete, setComplete] = useState(false);
+
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
   const ref2020 = useRef(null);
@@ -31,13 +34,6 @@ const About = () => {
   const scrollingMoreRef = useRef(null);
   const scrollingBitRef = useRef(null);
   const scrollingGoRef = useRef(null);
-
-  useEffect(() => {
-    document.body.classList.add("about-page");
-    return () => {
-      document.body.classList.remove("about-page");
-    };
-  });
 
   useEffect(() => {
     var tl = gsap.timeline({
@@ -73,16 +69,21 @@ const About = () => {
       ],
     });
 
-    tl.to(firstWebsiteImageRef.current, {
-      opacity: 1,
-    });
+    tl.fromTo(
+      firstWebsiteImageRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+      }
+    );
 
     tl.to(firstWebsiteCopyRef.current, {
       keyframes: [
-        { opacity: 1, zIndex: 3 },
+        { opacity: 1, zIndex: 3, translateX: 30 },
         {
           opacity: 0,
           delay: 1,
+          translateX: 0,
         },
       ],
     });
@@ -96,9 +97,10 @@ const About = () => {
 
     tl.to(idCopyRef.current, {
       keyframes: [
-        { opacity: 1, zIndex: 4 },
+        { opacity: 1, zIndex: 4, translateX: 30 },
         {
           opacity: 0,
+          translateX: 0,
           delay: 1,
         },
       ],
@@ -127,8 +129,8 @@ const About = () => {
 
     tl.to(cgCopyRef.current, {
       keyframes: [
-        { opacity: 1, zIndex: 5 },
-        { opacity: 0, delay: 1 },
+        { opacity: 1, zIndex: 5, translateX: 30 },
+        { opacity: 0, delay: 1, translateX: 0 },
       ],
     });
 
@@ -151,6 +153,7 @@ const About = () => {
     tl.to(svCopyRef.current, {
       opacity: 1,
       zIndex: 5,
+      translateX: 30,
     });
 
     tl.to(svImageRef.current, {
@@ -159,6 +162,7 @@ const About = () => {
 
     tl.to(svCopyRef.current, {
       opacity: 0,
+      translateX: 0,
     });
 
     tl.to(finRef.current, {
@@ -364,7 +368,7 @@ const About = () => {
             alt=" image of a work"
           />
           <span ref={finRef}>
-            Fin. <br /> (for now)
+            Fine. <br /> (for now)
           </span>
           <span ref={scrollingRef}>
             Still <br /> Scrolling?

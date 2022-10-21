@@ -517,7 +517,7 @@
   }
 
   .about__roadmap__copy {
-    width: 80%;
+    width: 70%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -540,7 +540,7 @@
     gap: 3rem;
   }
   .about__roadmap__copy-link {
-    margin-top: 4rem;
+    margin-top: 5.5rem;
   }
   .absolute-small {
     display: none;
