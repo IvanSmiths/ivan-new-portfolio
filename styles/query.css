@@ -686,6 +686,8 @@
   }
 
   .about-title-cnt {
+    word-break: break-word;
+    padding-left: 0;
     min-height: 80vh;
     display: flex;
     justify-content: center;
