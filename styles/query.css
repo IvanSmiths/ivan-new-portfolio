@@ -32,6 +32,20 @@
     --marginLayoutLeftSecond2: 310px;
   }
 
+  .case-studio-header__first-row {
+    padding-left: var(--marginElementLittle);
+  }
+
+  .case-studio-header__second-row {
+    flex-direction: column;
+    padding-left: var(--marginElementLittle);
+    margin-top: var(--marginElementMedium);
+  }
+
+  .case-studio-header__second-row img {
+    margin-top: var(--marginElementMedium);
+  }
+
   .title-2-cnt {
     padding-right: 15rem;
     padding-top: 1.5rem;
@@ -223,13 +237,7 @@
 
   .case-studio-header__first-row {
     flex-direction: column;
-    padding-left: var(--marginElementLittle);
     align-items: flex-start;
-  }
-
-  .case-studio-header__second-row {
-    flex-direction: column-reverse;
-    padding-left: var(--marginElementLittle);
   }
 
   .case-studio-header__second-row__image {
