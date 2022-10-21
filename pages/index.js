@@ -6,6 +6,7 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import Innovation from "../components/HomePage/Innovation";
 import Footer from "../components/Footer";
+import About from "../components/HomePage/About";
 
 const Home = () => {
   let { t } = useTranslation();
@@ -77,6 +78,7 @@ const Home = () => {
           </Head>
           <Hero />
           <Innovation />
+          <About />
           <Stuff />
           <Footer link={"about"} />
         </>
