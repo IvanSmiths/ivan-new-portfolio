@@ -42,7 +42,9 @@
     margin-top: var(--marginElementMedium);
   }
 
-  .case-studio-header__second-row img {
+  .case-studio-header__second-row__image {
+    width: 100%;
+    margin-bottom: var(--marginElementMedium);
     margin-top: var(--marginElementMedium);
   }
 
@@ -238,11 +240,6 @@
   .case-studio-header__first-row {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .case-studio-header__second-row__image {
-    width: 100%;
-    margin-bottom: var(--marginElementMedium);
   }
 
   .case-studio-header__link {
