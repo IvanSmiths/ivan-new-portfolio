@@ -14,7 +14,7 @@ const Innovation = () => {
         scale: 1,
       },
       {
-        scale: 0.15,
+        scale: 0.1,
         ease: "none",
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
@@ -33,10 +33,10 @@ const Innovation = () => {
 
   return (
     <div>
-      <div className="home__innnovation-inner" ref={innovationTriggerRef}>
-        <h2 className="home__innnovation extreme-font" ref={innovationRef}>
-          INNOVATION
-        </h2>
+      <div className="home__innnovation-outer" ref={innovationTriggerRef}>
+        <div className="home__innnovation-inner" ref={innovationRef}>
+          <h2 className="home__innnovation extreme-font">INNOVATION</h2>
+        </div>
       </div>
     </div>
   );

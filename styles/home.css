@@ -471,7 +471,7 @@
   transform: translateX(-30px);
 }
 
-.home__innnovation-inner {
+.home__innnovation-outer {
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -479,12 +479,14 @@
   background-color: var(--color-bg-primary);
 }
 
-.home__innnovation {
+.home__innnovation-outer {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 5;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  background-color: var(--color-bg-primary);
 }
 
 .track-2 {

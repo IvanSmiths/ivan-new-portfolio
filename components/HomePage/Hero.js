@@ -13,7 +13,7 @@ const Hero = () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const refSec = useRef(null);
+  const headerRef = useRef(null);
   const speedRef = useRef(null);
   const securityRef = useRef(null);
   const andRef = useRef(null);
@@ -22,20 +22,19 @@ const Hero = () => {
   const linkRef = useRef(null);
 
   useEffect(() => {
-    const element = refSec.current;
     const fadeHero = gsap.fromTo(
-      element.querySelector("#header"),
+      headerRef.current,
       {
-        paddingBottom: 0,
+        translateY: 0,
         opacity: 1,
       },
       {
-        paddingBottom: "22rem",
+        translateY: "-10rem",
         opacity: 0,
         duration: 1,
         ease: "none",
         scrollTrigger: {
-          trigger: element.querySelector("#header"),
+          trigger: headerRef.current,
           start: "350 top",
           end: "bottom top",
           ease: "power1",
@@ -72,9 +71,9 @@ const Hero = () => {
 
   let { t } = useTranslation();
   return (
-    <div ref={refSec} className="header__wrapper">
+    <div className="header__wrapper">
       <header
-        id="header"
+        ref={headerRef}
         style={{
           left: `${router.locale === "it" ? "3%" : ""}`,
         }}
