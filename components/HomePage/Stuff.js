@@ -65,23 +65,15 @@ function Stuff() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <picture className="flex-center">
-                    <source
-                      alt="image of a work"
-                      decoding="async"
-                      height="750"
-                      width="600"
-                      srcSet="/scholz-und-volkmer-website-1.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      alt="image of a work"
-                      decoding="async"
-                      src="/scholz-und-volkmer-website-1.jpg"
-                      height="750"
-                      width="600"
-                    />
-                  </picture>
+                  <SrcImage
+                    className="flex-center"
+                    src="/scholz-und-volkmer-website-1.jpg"
+                    webp="/scholz-und-volkmer-website-1.webp"
+                    height="563"
+                    width="337"
+                    alt="s-v work"
+                    lazyOff={true}
+                  />
                 </a>
               </Link>
             </div>
@@ -125,23 +117,15 @@ function Stuff() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <picture className="flex-center">
-                    <source
-                      alt="image of a work"
-                      decoding="async"
-                      height="750"
-                      width="600"
-                      srcSet="/ideology-website-mobile-4.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      alt="image of a work"
-                      decoding="async"
-                      src="/ideology-website-mobile-4.jpg"
-                      height="750"
-                      width="600"
-                    />
-                  </picture>
+                  <SrcImage
+                    className="flex-center"
+                    src="/ideology-website-mobile-4.jpg"
+                    webp="/ideology-website-mobile-4.webp"
+                    height="572"
+                    width="343"
+                    alt="ideology work"
+                    lazyOff={true}
+                  />
                 </a>
               </Link>
             </div>
@@ -188,23 +172,15 @@ function Stuff() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <picture className="flex-center">
-                    <source
-                      alt="image of a work"
-                      decoding="async"
-                      height="750"
-                      width="600"
-                      srcSet="/cgprospect.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      alt="image of a work"
-                      decoding="async"
-                      src="/cgprospect.jpg"
-                      height="750"
-                      width="600"
-                    />
-                  </picture>
+                  <SrcImage
+                    className="flex-center"
+                    src="/cgprospect.jpg"
+                    webp="/cgprospect.webp"
+                    height="637"
+                    width="448"
+                    alt="ideology work"
+                    lazyOff={true}
+                  />
                 </a>
               </Link>
             </div>
