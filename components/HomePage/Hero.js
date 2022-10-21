@@ -13,6 +13,9 @@ const Hero = () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  const firstRowRef = useRef(null);
+  const secondRowRef = useRef(null);
+  const thirdRowRef = useRef(null);
   const headerRef = useRef(null);
   const speedRef = useRef(null);
   const securityRef = useRef(null);
@@ -22,26 +25,67 @@ const Hero = () => {
   const linkRef = useRef(null);
 
   useEffect(() => {
-    const fadeHero = gsap.fromTo(
+    var timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: "350 top",
+        end: "bottom top",
+        ease: "power1",
+        scrub: true,
+      },
+    });
+
+    timeline.fromTo(
       headerRef.current,
       {
         translateY: 0,
         opacity: 1,
       },
       {
-        translateY: "-10rem",
+        translateY: "-12rem",
         opacity: 0,
         duration: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "350 top",
-          end: "bottom top",
-          ease: "power1",
-          scrub: true,
-        },
-      }
+      },
+      0
     );
+
+    timeline.fromTo(
+      firstRowRef.current,
+      {
+        translateX: 0,
+      },
+      {
+        translateX: "-5rem",
+
+        duration: 1,
+      },
+      0
+    );
+    timeline.fromTo(
+      secondRowRef.current,
+      {
+        translateX: 0,
+      },
+      {
+        translateX: "5rem",
+
+        duration: 1,
+      },
+      0
+    );
+    timeline.fromTo(
+      thirdRowRef.current,
+      {
+        translateX: 0,
+      },
+      {
+        translateX: "-5rem",
+
+        duration: 1,
+      },
+      0
+    );
+
     var tl = gsap.timeline({});
     tl.fromTo(speedRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 });
     tl.fromTo(
@@ -56,7 +100,7 @@ const Hero = () => {
       { opacity: 1, duration: 0.5 }
     );
     return () => {
-      fadeHero.kill();
+      timeline.kill();
       tl.kill();
     };
   }, []);
@@ -79,7 +123,7 @@ const Hero = () => {
         }}
         className="home-header-cnt"
       >
-        <div className="big-font  title-1-cnt">
+        <div ref={firstRowRef} className="big-font  title-1-cnt">
           <em ref={speedRef} className="title-1 ">
             {t("home:speed")}
           </em>
@@ -89,7 +133,7 @@ const Hero = () => {
             {t("home:header-title-3")}
           </p>
         </div>
-        <div className="big-font  title-2-cnt">
+        <div ref={secondRowRef} className="big-font  title-2-cnt">
           <Link href="/stuff" passHref>
             <a
               ref={linkRef}
@@ -107,7 +151,7 @@ const Hero = () => {
             {t("home:security")}
           </em>
         </div>
-        <div className="big-font  flex-center title-3-cnt">
+        <div ref={thirdRowRef} className="big-font  flex-center title-3-cnt">
           <em ref={andRef} className="title-3">
             {t("home:and")}
           </em>

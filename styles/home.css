@@ -472,14 +472,7 @@
 }
 
 .home__innnovation-outer {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 5;
-  background-color: var(--color-bg-primary);
-}
-
-.home__innnovation-outer {
+  margin-top: -4rem;
   height: 100vh;
   overflow: hidden;
   display: flex;
