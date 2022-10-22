@@ -33,9 +33,9 @@ const Innovation = () => {
 
   return (
     <div>
-      <div className="home__innnovation-outer" ref={innovationTriggerRef}>
-        <div className="home__innnovation-inner" ref={innovationRef}>
-          <h2 className="home__innnovation extreme-font">INNOVATION</h2>
+      <div className="home__innovation-outer" ref={innovationTriggerRef}>
+        <div className="home__innovation-inner" ref={innovationRef}>
+          <h2 className="home__innovation extreme-font">INNOVATION</h2>
         </div>
       </div>
     </div>
