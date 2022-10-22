@@ -27,12 +27,6 @@ function Stuff() {
           trigger: triggerRef.current,
           start: "top top",
           end: "6000px top",
-          snap: {
-            snapTo: 1 / (3 - 1),
-            duration: 0.3,
-            delay: 0.1,
-            ease: "power1.inOut",
-          },
           scrub: 0.6,
           pin: true,
         },
