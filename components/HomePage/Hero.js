@@ -107,7 +107,8 @@ const Hero = () => {
     tl.fromTo(
       [copyRef.current, linkRef.current, arrowRef.current],
       { opacity: 0 },
-      { opacity: 1, duration: 0.5 }
+      { opacity: 1, duration: 0.5 },
+      1
     );
     return () => {
       timeline.kill();
