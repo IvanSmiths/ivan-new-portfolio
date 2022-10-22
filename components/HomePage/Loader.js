@@ -6,7 +6,7 @@ const Loader = ({ setHasVisited }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setHasVisited(false);
-    }, 5555000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, [setHasVisited]);
 
