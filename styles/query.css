@@ -920,7 +920,7 @@
   }
 
   .loader-sub-title {
-    display: none;
+    left: 10px;
   }
 
   .about {
