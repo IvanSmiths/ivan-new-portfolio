@@ -667,12 +667,6 @@
     padding: 15vw 2vw !important;
   }
 
-  .marquee-cnt {
-    width: 140vw;
-    margin-top: 0rem;
-    height: 100vh;
-  }
-
   .article-content-cnt {
     width: 100%;
     margin-left: 0vw;
@@ -722,9 +716,6 @@
     margin-top: 13rem;
   }
 
-  .track em {
-    font-size: var(--largeFont);
-  }
   .menu-title {
     font-size: var(--largeFont);
   }
@@ -920,7 +911,7 @@
   }
 
   .loader-sub-title {
-    display: none;
+    left: 10px;
   }
 
   .about {

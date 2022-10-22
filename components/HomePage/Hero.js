@@ -37,11 +37,9 @@ const Hero = () => {
     timeline.fromTo(
       headerRef.current,
       {
-        translateY: 0,
         opacity: 1,
       },
       {
-        translateY: "-12rem",
         opacity: 0,
         duration: 1,
       },
