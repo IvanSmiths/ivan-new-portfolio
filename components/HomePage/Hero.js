@@ -9,7 +9,6 @@ import { CursorContext } from "../CursorManager";
 
 const Hero = () => {
   let router = useRouter();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -87,17 +86,29 @@ const Hero = () => {
     );
 
     var tl = gsap.timeline({});
-    tl.fromTo(speedRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    tl.fromTo(
+      speedRef.current,
+      { opacity: 0, translateY: 40 },
+      { opacity: 1, translateY: 0, duration: 1 },
+      0
+    );
     tl.fromTo(
       securityRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5 }
+      { opacity: 0, translateY: 40 },
+      { opacity: 1, translateY: 0, duration: 1 },
+      0.3
     );
-    tl.fromTo([andRef.current], { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    tl.fromTo(
+      [andRef.current],
+      { opacity: 0, translateY: 40 },
+      { opacity: 1, translateY: 0, duration: 1 },
+      0.5
+    );
     tl.fromTo(
       [copyRef.current, linkRef.current, arrowRef.current],
       { opacity: 0 },
-      { opacity: 1, duration: 0.5 }
+      { opacity: 1, duration: 0.5 },
+      1
     );
     return () => {
       timeline.kill();
