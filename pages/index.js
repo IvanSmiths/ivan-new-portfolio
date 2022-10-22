@@ -11,17 +11,8 @@ import About from "../components/HomePage/About";
 const Home = () => {
   let { t } = useTranslation();
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    loading
-      ? document.querySelector("body").classList.add("loading")
-      : document.querySelector("body").classList.remove("loading");
-    return () => {
-      document.querySelector("body").classList.remove("loading");
-    };
-  }, [loading]);
-
   const [hasVisited, setHasVisited] = useState(false);
+
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem("hasVisitedBefore");
     if (!hasVisitedBefore) {
@@ -30,38 +21,36 @@ const Home = () => {
     }
   }, []);
 
-  const schemaData = [
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      name: "IvanSmiths",
-      url: "https://www.ivansmiths.com",
-      image: "https://www.ivansmiths.com/main-texture.jpg",
-      description: `just another react developer`,
-      brand: {
-        "@type": "Brand",
-        logo: "https://www.ivansmiths.com/logo-icon-white.svg",
-      },
-      sameAs: "https://www.ivansmiths.com",
-      author: {
-        "@type": "Person",
-        name: "Ivan",
-        familyName: "Smiths",
-        url: "https://www.ivansmiths.com",
-      },
-      inLanguage: "en",
-      copyrightYear: 2020,
-      genre: "http://vocab.getty.edu/aat/300179434",
-      headline: "speed, security & INNOVATION",
-      keywords: "next.js, wiesbaden, react.js, frontend developer",
-      locationCreated: "wiesbaden",
+  const schemaData = {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    name: "IvanSmiths",
+    url: "https://www.ivansmiths.com",
+    image: "https://www.ivansmiths.com/main-texture.jpg",
+    description: "Frontend developer with 2 years of experience",
+    brand: {
+      "@type": "Brand",
+      logo: "https://www.ivansmiths.com/logo-icon-white.svg",
     },
-  ];
+    sameAs: "https://www.ivansmiths.com",
+    author: {
+      "@type": "Person",
+      name: "Ivan",
+      familyName: "Smiths",
+      url: "https://www.ivansmiths.com",
+    },
+    inLanguage: "en",
+    copyrightYear: 2020,
+    genre: "http://vocab.getty.edu/aat/300179434",
+    headline: "Speed, security & INNOVATION",
+    keywords: "next.js, wiesbaden, react.js, frontend developer",
+    locationCreated: "wiesbaden",
+  };
 
   return (
     <>
-      {loading && hasVisited ? (
-        <Loader setLoading={setLoading} />
+      {hasVisited ? (
+        <Loader setHasVisited={setHasVisited} />
       ) : (
         <>
           <Head>

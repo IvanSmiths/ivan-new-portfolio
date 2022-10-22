@@ -2,13 +2,13 @@
 import React, { useEffect } from "react";
 import useTranslation from "next-translate/useTranslation";
 
-const Loader = ({ setLoading }) => {
+const Loader = ({ setHasVisited }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
+      setHasVisited(false);
     }, 5000);
     return () => clearTimeout(timer);
-  }, [setLoading]);
+  }, [setHasVisited]);
 
   let { t } = useTranslation();
 
