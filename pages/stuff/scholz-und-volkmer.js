@@ -4,6 +4,7 @@ import SuvHeader from "../../components/SUV/SuvHeader";
 import SuvFirstSection from "../../components/SUV/SuvFirstSection";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
+import SuvGallery from "../../components/SUV/SuvGallery";
 
 function ScholzUndVolkmer() {
   const [isDesktop, setDesktop] = useState(false);

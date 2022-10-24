@@ -267,6 +267,15 @@
   height: auto;
 }
 
+.cs__gallery-main-image {
+  width: 99vw;
+  background-color: rgb(116, 116, 193);
+}
+
+.cs__gallery-main-image image {
+  width: 100%;
+}
+
 @keyframes marqueescroll {
   0% {
     transform: translateX(0%);
