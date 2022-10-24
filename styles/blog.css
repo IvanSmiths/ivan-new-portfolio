@@ -53,7 +53,7 @@
 }
 
 .blog__posts__text {
-  padding: 0 10px;
+  padding: 0 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -62,6 +62,7 @@
 
 .blog__posts__text h2 {
   font-size: var(--blogFontMed);
+  padding-top: var(--marginElement);
 }
 
 .blogpost {
@@ -132,7 +133,6 @@
   width: 40%;
 }
 
-.blogpost__article-body h3,
 .blogpost__article-body h1,
 .blogpost__article-body h4,
 .blogpost__article-body ul,
@@ -140,6 +140,10 @@
 .blogpost__article-body pre,
 .blogpost__article-body p {
   margin-bottom: var(--marginElementMedium);
+}
+
+.blogpost__article-body h3 {
+  margin-top: var(--marginElementBlog);
 }
 
 .blogpost__article-body pre {

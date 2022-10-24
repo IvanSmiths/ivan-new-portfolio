@@ -84,9 +84,9 @@ em {
   --impactBigLine: clamp(2.2rem, 6.3vw, 5.6rem);
   --impactLargeLine: clamp(2.2rem, 14vw, 12.6rem);
 
-  --blogFont: clamp(0.9rem, 1vw, 1.3rem);
-  --blogFontHeight: clamp(1.2rem, 1.6vw, 2.7rem);
-  --blogFontMed: clamp(0.9rem, 1.5vw, 1.5rem);
+  --blogFont: clamp(1rem, 1vw, 1.3rem);
+  --blogFontHeight: clamp(1.7rem, 1.65vw, 2.7rem);
+  --blogFontMed: clamp(1.5rem, 1.5vw, 1.5rem);
   --blogFontMedHeight: clamp(1.2rem, 1.6vw, 2.7rem);
   --blogBigFont: clamp(5rem, 17vw, 22rem);
   --blogBigFontHeight: clamp(5rem, 17vw, 18rem);
@@ -96,6 +96,7 @@ em {
   --marginElementLittle: 0.7rem;
   --marginElement: 1rem;
   --marginElementMedium: 4rem;
+  --marginElementBlog: 10rem;
   --marginElementBig: 15rem;
 
   --marginLayoutLeftFirst: 50px;
