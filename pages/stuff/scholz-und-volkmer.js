@@ -5,6 +5,7 @@ import SuvFirstSection from "../../components/SUV/SuvFirstSection";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
 import SuvGallery from "../../components/SUV/SuvGallery";
+import SuvHero from "../../components/SUV/SuvHero";
 
 function ScholzUndVolkmer() {
   const [isDesktop, setDesktop] = useState(false);
@@ -61,8 +62,8 @@ function ScholzUndVolkmer() {
           content="preview of Scholz & Volkmer case studio"
         />
       </Head>
+      <SuvHero />
       <SuvHeader />
-      <SuvFirstSection />
       {isDesktop ? (
         <Footer link="stuff/ideology" />
       ) : (
