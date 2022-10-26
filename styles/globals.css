@@ -248,6 +248,14 @@ p {
   font-size: var(--tinyFont);
 }
 
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
 h1,
 h2,
 h3,

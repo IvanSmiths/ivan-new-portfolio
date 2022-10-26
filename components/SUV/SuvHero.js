@@ -26,7 +26,7 @@ function SuvHero() {
       videoRef.current,
       {
         scale: 0.6,
-        duration: 4,
+        duration: 0.5,
       },
       0
     );
@@ -34,22 +34,24 @@ function SuvHero() {
       videoRef.current,
       {
         opacity: 1,
+        duration: 0.5,
       },
-      1
+      0
     );
     tl.to(
       companyRef.current,
       {
         opacity: 0,
+        duration: 0.5,
       },
-      1
+      0
     );
     tl.to(
       videoRef.current,
       {
         translateY: 100,
       },
-      2
+      0.5
     );
     tl.fromTo(
       workRef.current,
@@ -59,7 +61,7 @@ function SuvHero() {
       {
         opacity: 1,
       },
-      2
+      0.5
     );
 
     return () => {
@@ -74,16 +76,17 @@ function SuvHero() {
           <div ref={companyRef} className="cs__video-h1">
             <h1 className="big-font">Scholz & Volkmer</h1>
           </div>
-          <video
-            ref={videoRef}
-            preload="none"
-            poster="/scholz-und-volkmer-website-2.jpg"
-            muted
-            autoPlay
-            loop
-          >
-            <source src="/suv.mp4" type="video/mp4" />
-          </video>
+          <div ref={videoRef}>
+            <video
+              preload="none"
+              poster="/scholz-und-volkmer-website-2.jpg"
+              muted
+              autoPlay
+              loop
+            >
+              <source src="/suv.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div ref={workRef} className="cs__video-h1 cs__video-h2">
             <h2 className="medium-font">Frontend developer</h2>
           </div>
