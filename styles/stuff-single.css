@@ -308,6 +308,7 @@
 
 .cs__video-cnt {
   opacity: 0.5;
+  width: 100%;
 }
 
 @keyframes marqueescroll {
