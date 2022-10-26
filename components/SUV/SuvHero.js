@@ -15,7 +15,7 @@ function SuvHero() {
       scrollTrigger: {
         trigger: videoTriggerRef.current,
         start: "top top",
-        end: "+=" + 5000,
+        end: "+=" + 4000,
         scrub: true,
         markers: true,
         pin: true,
@@ -50,6 +50,7 @@ function SuvHero() {
       videoRef.current,
       {
         translateY: 100,
+        duration: 0.2,
       },
       0.2
     );
@@ -60,6 +61,7 @@ function SuvHero() {
       },
       {
         opacity: 1,
+        duration: 0.3,
       },
       0.2
     );
