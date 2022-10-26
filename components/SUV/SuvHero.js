@@ -42,7 +42,7 @@ function SuvHero() {
       companyRef.current,
       {
         opacity: 0,
-        duration: 0.3,
+        duration: 0.2,
       },
       0
     );
