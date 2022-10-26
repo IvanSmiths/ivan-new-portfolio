@@ -17,7 +17,6 @@ function SuvHero() {
         start: "top top",
         end: "+=" + 4000,
         scrub: true,
-        markers: true,
         pin: true,
       },
     });
