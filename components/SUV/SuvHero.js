@@ -75,7 +75,7 @@ function SuvHero() {
       <div ref={videoTriggerRef} className="cs__video-outer">
         <div className="cs__video-inner">
           <div ref={companyRef} className="cs__video-h1">
-            <h1 className="big-font">Scholz & Volkmer</h1>
+            <h1 className="big-font impact">Scholz & Volkmer</h1>
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
             <div className="desktop-video">
