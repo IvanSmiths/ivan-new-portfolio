@@ -316,7 +316,8 @@
   height: 100%;
 }
 
-.cs__video-cnt .desktop {
+.cs__video-cnt .desktop-video,
+.mobile-video {
   height: 100%;
   width: 100%;
   display: flex;

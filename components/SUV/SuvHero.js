@@ -24,7 +24,7 @@ function SuvHero() {
     tl.to(
       videoRef.current,
       {
-        scale: 0.6,
+        scale: 0.5,
         duration: 0.3,
       },
       0
@@ -78,7 +78,7 @@ function SuvHero() {
             <h1 className="big-font">Scholz & Volkmer</h1>
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
-            <div className="desktop">
+            <div className="desktop-video">
               <video
                 preload="none"
                 poster="/scholz-und-volkmer-website-2.jpg"
@@ -89,7 +89,7 @@ function SuvHero() {
                 <source src="/suv.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="mobile">
+            <div className="mobile-video">
               <video
                 preload="none"
                 poster="/scholz-und-volkmer-website-2.jpg"

@@ -248,11 +248,11 @@ p {
   font-size: var(--tinyFont);
 }
 
-.desktop {
+.desktop-mobile {
   display: block;
 }
 
-.mobile {
+.mobile-video {
   display: none;
 }
 
