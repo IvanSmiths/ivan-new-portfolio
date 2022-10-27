@@ -26,7 +26,7 @@ function Stuff() {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "6000px top",
+          end: "6000 top",
           scrub: 0.6,
           pin: true,
         },
