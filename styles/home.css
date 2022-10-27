@@ -126,6 +126,7 @@
 
 .title-1-cnt p {
   width: 20%;
+  color: var(--color-text-sec);
   opacity: 0;
   margin-left: var(--marginElementMedium);
 }
