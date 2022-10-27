@@ -19,9 +19,9 @@ const Innovation = () => {
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
           start: "top top",
-          end: "+=2900px top",
-          scrub: 1,
-          ease: "expo.out",
+          end: "+=2900 top",
+          scrub: 0.5,
+          ease: "expo.inOut",
           pin: true,
         },
       }
