@@ -262,7 +262,7 @@ function Stuff() {
         <div>
           <div className="caption__wrapper">
             <h3 className="caption-cnt impact large-font">
-              {t("home:home-caption")}
+              {t("common:caption")}
             </h3>
           </div>
         </div>
