@@ -59,15 +59,28 @@ function Stuff() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <SrcImage
-                    className="flex-center"
-                    src="/scholz-und-volkmer-website-1.jpg"
-                    webp="/scholz-und-volkmer-website-1.webp"
-                    height="563"
-                    width="337"
-                    alt="s-v work"
-                    lazyOff={true}
-                  />
+                  <div className="desktop">
+                    <SrcImage
+                      className="flex-center"
+                      src="/scholz-und-volkmer-website-2.jpg"
+                      webp="/scholz-und-volkmer-website-2.webp"
+                      height="563"
+                      width="337"
+                      alt="s-v work"
+                      lazyOff={true}
+                    />
+                  </div>
+                  <div className="mobile">
+                    <SrcImage
+                      className="flex-center"
+                      src="/scholz-und-volkmer-website-1.jpg"
+                      webp="/scholz-und-volkmer-website-1.webp"
+                      height="563"
+                      width="337"
+                      alt="s-v work"
+                      lazyOff={true}
+                    />
+                  </div>
                 </a>
               </Link>
             </div>
@@ -111,15 +124,28 @@ function Stuff() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <SrcImage
-                    className="flex-center"
-                    src="/ideology-website-mobile-4.jpg"
-                    webp="/ideology-website-mobile-4.webp"
-                    height="572"
-                    width="343"
-                    alt="ideology work"
-                    lazyOff={true}
-                  />
+                  <div className="desktop">
+                    <SrcImage
+                      className="flex-center"
+                      src="/ideology-website-5.jpg"
+                      webp="/ideology-website-5.webp"
+                      height="572"
+                      width="343"
+                      alt="ideology work"
+                      lazyOff={true}
+                    />
+                  </div>
+                  <div className="mobile">
+                    <SrcImage
+                      className="flex-center"
+                      src="/ideology-website-mobile-4.jpg"
+                      webp="/ideology-website-mobile-4.webp"
+                      height="572"
+                      width="343"
+                      alt="ideology work"
+                      lazyOff={true}
+                    />
+                  </div>
                 </a>
               </Link>
             </div>
@@ -166,15 +192,28 @@ function Stuff() {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <SrcImage
-                    className="flex-center"
-                    src="/cgprospect.jpg"
-                    webp="/cgprospect.webp"
-                    height="637"
-                    width="448"
-                    alt="ideology work"
-                    lazyOff={true}
-                  />
+                  <div className="desktop">
+                    <SrcImage
+                      className="flex-center"
+                      src="/cg-prospect-website-1.jpg"
+                      webp="/cg-prospect-website-1.webp"
+                      height="637"
+                      width="448"
+                      alt="ideology work"
+                      lazyOff={true}
+                    />
+                  </div>
+                  <div className="mobile">
+                    <SrcImage
+                      className="flex-center"
+                      src="/cgprospect.jpg"
+                      webp="/cgprospect.webp"
+                      height="637"
+                      width="448"
+                      alt="ideology work"
+                      lazyOff={true}
+                    />
+                  </div>
                 </a>
               </Link>
             </div>

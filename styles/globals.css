@@ -256,6 +256,14 @@ p {
   display: none;
 }
 
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
 h1,
 h2,
 h3,

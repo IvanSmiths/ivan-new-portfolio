@@ -377,7 +377,8 @@
 }
 
 .box-image-cnt {
-  width: 50%;
+  width: 60%;
+  padding-left: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
