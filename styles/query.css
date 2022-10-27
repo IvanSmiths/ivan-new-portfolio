@@ -772,6 +772,7 @@
 
   .box-informations-cnt {
     width: 80%;
+    margin-top: var(--marginElementMedium);
     height: 50%;
     justify-content: flex-start;
   }
