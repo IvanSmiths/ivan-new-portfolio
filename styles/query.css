@@ -771,10 +771,11 @@
   }
 
   .box-informations-cnt {
-    width: 80%;
+    width: 60%;
     margin-top: var(--marginElementMedium);
     height: 50%;
     justify-content: flex-start;
+    text-align: left;
   }
 
   .homepage-about-p-cnt .about {
@@ -817,7 +818,10 @@
   }
 
   .box-link-cnt .btn-small {
-    display: none;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    transform: rotateZ(11deg);
   }
 
   .case-studio__screen-image {
@@ -850,10 +854,6 @@
 
   .box__width {
     width: 100%;
-  }
-
-  .box__width ul {
-    padding-left: 3rem;
   }
 
   .social-mobile-cnt li {
@@ -979,6 +979,11 @@
     padding: 12vw 1vw !important;
   }
   .nav-dropdown-cnt {
+    display: none;
+  }
+}
+@media screen and (max-height: 600px) {
+  .box-link-cnt {
     display: none;
   }
 }
