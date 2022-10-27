@@ -60,7 +60,7 @@ function SuvHero() {
       },
       {
         opacity: 1,
-        duration: 0.3,
+        duration: 0.2,
       },
       0.2
     );
