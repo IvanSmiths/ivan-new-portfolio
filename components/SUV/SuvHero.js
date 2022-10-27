@@ -15,7 +15,7 @@ function SuvHero() {
       scrollTrigger: {
         trigger: videoTriggerRef.current,
         start: "top top",
-        end: "+=" + 4000,
+        end: "+=" + 2000,
         scrub: true,
         pin: true,
       },
@@ -32,7 +32,7 @@ function SuvHero() {
     tl.to(
       videoRef.current,
       {
-        opacity: 1,
+        filter: "brightness(1)",
         duration: 0.3,
       },
       0
@@ -60,7 +60,7 @@ function SuvHero() {
       },
       {
         opacity: 1,
-        duration: 0.2,
+        duration: 0.1,
       },
       0.2
     );
