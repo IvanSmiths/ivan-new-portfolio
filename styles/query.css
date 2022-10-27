@@ -234,7 +234,7 @@
     width: 100%;
   }
 
-  .box-image-cnt img {
+  .box-image-cnt {
     padding-left: 0;
   }
 
@@ -301,6 +301,7 @@
 
   .homepage-about-cnt {
     margin-top: 0rem;
+    margin-bottom: var(--marginSection);
   }
 
   .homepage-about-img-cnt img {
@@ -746,32 +747,12 @@
     padding-bottom: 0rem;
   }
 
-  .scroll-section-1 {
+  .scroll-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 0;
-    height: 130vh;
-    align-items: center;
-    z-index: 3;
-  }
-
-  .scroll-section-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
-    height: 130vh;
-    align-items: center;
-    z-index: 3;
-  }
-
-  .scroll-section-3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 130vh;
-    gap: 0;
+    height: 100vh;
     align-items: center;
     z-index: 3;
   }
