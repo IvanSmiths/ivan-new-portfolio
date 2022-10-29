@@ -359,7 +359,7 @@ li {
 .btn-small-3 {
   border: 1px solid var(--text-white) !important;
   color: var(--text-white);
-  padding: 9vw 1vw;
+  padding: 6vw 3vw;
 }
 
 .indent {
@@ -849,6 +849,27 @@ textarea {
   z-index: 7;
   opacity: 1;
   background-color: var(--color-bg-inverse);
+}
+
+.paragraph-block {
+  padding-left: var(--marginLayoutLeftSecond2);
+  padding-right: 30%;
+  margin: var(--marginSection) 0;
+}
+
+.paragraph-block__link-text {
+  margin-top: 13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paragraph-block__link-text__p {
+  padding-left: 20%;
+}
+
+.paragraph-block__link-text__p p {
+  color: var(--color-text-sec);
 }
 
 @import "query.css";

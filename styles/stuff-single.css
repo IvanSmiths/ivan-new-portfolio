@@ -331,7 +331,6 @@
   align-items: center;
   padding-left: var(--marginLayoutLeftSecond2);
   padding-right: var(--marginLayoutRightFirst2);
-  margin-bottom: var(--marginSection);
 }
 
 .cs__desc-inner {
