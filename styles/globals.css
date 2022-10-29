@@ -851,10 +851,13 @@ textarea {
   background-color: var(--color-bg-inverse);
 }
 
-.paragraph-block {
-  padding-left: var(--marginLayoutLeftSecond2);
-  padding-right: 30%;
+.paragraph-block-outer {
+  width: 100%;
   margin: var(--marginSection) 0;
+}
+
+.paragraph-block-inner {
+  width: 50%;
 }
 
 .paragraph-block__link-text {
