@@ -64,6 +64,7 @@ function ScholzUndVolkmer() {
       </Head>
       <SuvHero />
       <SuvHeader />
+      <SuvFirstSection />
       {isDesktop ? (
         <Footer link="stuff/ideology" />
       ) : (
