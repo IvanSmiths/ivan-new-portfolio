@@ -331,6 +331,7 @@
   align-items: center;
   padding-left: var(--marginLayoutLeftSecond2);
   padding-right: var(--marginLayoutRightFirst2);
+  margin-bottom: var(--marginSection);
 }
 
 .cs__desc-inner {
@@ -364,8 +365,13 @@
 
 .cs__desc-text li {
   position: absolute;
+  opacity: 0;
   bottom: 0;
   left: 0;
+}
+
+.cs__desc-text li:first-child {
+  opacity: 1;
 }
 
 @keyframes marqueescroll {

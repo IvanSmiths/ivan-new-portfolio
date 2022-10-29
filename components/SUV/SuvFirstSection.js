@@ -1,43 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
+import React from "react";
 import useTranslation from "next-translate/useTranslation";
 import Marquee from "../Ideology/Marquee";
 import SrcImage from "../SrcImage";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { pageData } from "../../utils/sampleData2";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 
 function SuvFirstSection() {
-  gsap.registerPlugin(ScrollTrigger);
-  const videoRef = useRef(null);
-  const videoTriggerRef = useRef(null);
-
-  useEffect(() => {
-    const vidAnim = gsap.fromTo(
-      videoRef.current,
-      {
-        scale: 0.5,
-      },
-      {
-        scale: 1,
-
-        duration: 1,
-        ease: "none",
-        scrollTrigger: {
-          pin: true,
-          trigger: videoTriggerRef.current,
-          start: "center center",
-          end: "+=1200px top",
-          ease: "power3",
-          scrub: 1,
-        },
-      }
-    );
-    return () => {
-      vidAnim.kill();
-    };
-  }, []);
-
   let { t } = useTranslation();
 
   return (
@@ -45,20 +13,6 @@ function SuvFirstSection() {
       <h3 className="case-studio__caption impact large-font">
         {t("suv:caption")}
       </h3>
-      <div className="case-studio__screen-image case-studio__screen-video suv-first-section">
-        <div ref={videoTriggerRef} className="case-studio__video" id="video">
-          <video
-            ref={videoRef}
-            preload="none"
-            poster="/scholz-und-volkmer-website-2.jpg"
-            muted
-            autoPlay
-            loop
-          >
-            <source src="/suv.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
       <div className="case-studio-description case-studio-description-first">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">

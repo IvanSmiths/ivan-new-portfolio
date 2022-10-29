@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import SuvHeader from "../../components/SUV/SuvHeader";
 import SuvFirstSection from "../../components/SUV/SuvFirstSection";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
@@ -65,7 +64,6 @@ function ScholzUndVolkmer() {
       </Head>
       <SuvHero />
       <SuvDesc />
-      <SuvHeader />
       <SuvFirstSection />
       {isDesktop ? (
         <Footer link="stuff/ideology" />
