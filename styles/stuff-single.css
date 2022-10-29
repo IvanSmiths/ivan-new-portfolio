@@ -325,6 +325,27 @@
   align-items: center;
 }
 
+.cs__desc {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: var(--marginElementMedium);
+  padding-left: var(--marginLayoutLeftFirst2);
+}
+
+.cs__desc-image {
+  width: 60%;
+  height: 100%;
+}
+.cs__desc-image img {
+  width: 100%;
+  height: auto;
+}
+
+.cs__desc-text {
+  width: 40%;
+}
+
 @keyframes marqueescroll {
   0% {
     transform: translateX(0%);

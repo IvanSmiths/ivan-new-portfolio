@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
 import SuvGallery from "../../components/SUV/SuvGallery";
 import SuvHero from "../../components/SUV/SuvHero";
+import SuvDesc from "../../components/SUV/SuvDesc";
 
 function ScholzUndVolkmer() {
   const [isDesktop, setDesktop] = useState(false);
@@ -63,6 +64,7 @@ function ScholzUndVolkmer() {
         />
       </Head>
       <SuvHero />
+      <SuvDesc />
       <SuvHeader />
       <SuvFirstSection />
       {isDesktop ? (
