@@ -18,7 +18,6 @@ function SuvDesc() {
         start: "top top",
         end: "2000 bottom",
         scrub: true,
-        markers: true,
         pin: true,
       },
     });
