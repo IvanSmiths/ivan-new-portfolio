@@ -87,33 +87,35 @@ function SuvDesc() {
   }, []);
 
   return (
-    <div ref={descTriggerRef} className="cs__desc-outer">
-      <div className="cs__desc-inner">
-        <div className="cs__desc-image flex-center">
-          <SrcImage
-            src="/scholz-und-volkmer-website-mobile-4.jpg"
-            webp="/scholz-und-volkmer-website-mobile-4.webp"
-            height="970px"
-            width="1920px"
-            alt="image of a website"
-          />
+    <section>
+      <div ref={descTriggerRef} className="cs__desc-outer">
+        <div className="cs__desc-inner">
+          <div className="cs__desc-image flex-center">
+            <SrcImage
+              src="/scholz-und-volkmer-website-mobile-4.jpg"
+              webp="/scholz-und-volkmer-website-mobile-4.webp"
+              height="970px"
+              width="1920px"
+              alt="image of a website"
+            />
+          </div>
+          <ul className="cs__desc-text">
+            <li ref={stackRef} className="medium-font">
+              Stack: <br /> Vue.js (Nuxt.js), JavaScript, TypeScript, Gsap
+            </li>
+            <li ref={dateRef} className="medium-font">
+              Date: <br />
+              12/03/2022 <br />
+              Current
+            </li>
+            <li ref={hourRef} className="medium-font">
+              Hour of coding: <br />
+              counting...
+            </li>
+          </ul>
         </div>
-        <ul className="cs__desc-text">
-          <li ref={stackRef} className="medium-font">
-            Stack: <br /> Vue.js (Nuxt.js), JavaScript, TypeScript, Gsap
-          </li>
-          <li ref={dateRef} className="medium-font">
-            Date: <br />
-            12/03/2022 <br />
-            Current
-          </li>
-          <li ref={hourRef} className="medium-font">
-            Hour of coding: <br />
-            counting...
-          </li>
-        </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
