@@ -125,7 +125,7 @@ function SuvDesc() {
           <div className="paragraph-block__link-text">
             <div>
               <a
-                className="medium-font btn-small-2 btn-small-3"
+                className="medium-font btn-small btn-small-3"
                 href="https://www.s-v.de/en/"
               >
                 Website

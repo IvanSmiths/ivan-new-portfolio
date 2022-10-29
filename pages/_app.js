@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar";
 import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import ScrollTop from "../components/ScrollTop";
 import PageTransition from "../components/PageTransition";
 
 function MyApp({ Component, pageProps }) {
@@ -88,7 +87,6 @@ function MyApp({ Component, pageProps }) {
         <PageTransition />
         <CustomCursor />
         <Navbar />
-        <ScrollTop />
         <Component {...pageProps} />
       </CursorManager>
     </>
