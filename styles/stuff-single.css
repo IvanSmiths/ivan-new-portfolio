@@ -325,25 +325,48 @@
   align-items: center;
 }
 
-.cs__desc {
+.cs__desc-outer {
   height: 100vh;
   display: flex;
   align-items: center;
-  gap: var(--marginElementMedium);
   padding-left: var(--marginLayoutLeftFirst2);
+  padding-right: var(--marginLayoutRightFirst2);
+}
+
+.cs__desc-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--marginElementMedium);
+  height: 80%;
+  width: 100%;
 }
 
 .cs__desc-image {
-  width: 60%;
+  width: 40%;
   height: 100%;
 }
-.cs__desc-image img {
+
+.cs__desc-image picture {
+  height: 100%;
   width: 100%;
-  height: auto;
+}
+
+.cs__desc-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .cs__desc-text {
-  width: 40%;
+  height: 100%;
+  width: 60%;
+  position: relative;
+}
+
+.cs__desc-text li {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 @keyframes marqueescroll {
