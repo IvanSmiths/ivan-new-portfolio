@@ -24,7 +24,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1230px) {
   :root {
     --marginLayoutLeftFirst: 50px;
     --marginLayoutLeftFirst2: 98px;
@@ -34,6 +34,11 @@
 
   .case-studio-header__first-row {
     padding-left: var(--marginElementLittle);
+  }
+
+  .cs__desc-outer {
+    padding-left: var(--marginLayoutLeftFirst2);
+    padding-right: var(--marginLayoutRightFirst2);
   }
 
   .case-studio-header__second-row {
@@ -721,6 +726,23 @@
   }
   .climax-website-2 {
     margin-top: 0rem;
+  }
+
+  .cs__desc-outer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cs__desc-image {
+    display: none !important;
+  }
+
+  .cs__desc-text {
+    width: 60%;
+  }
+
+  .cs__desc-text li {
+    left: 50px;
   }
 
   .falling-action-cnt {
