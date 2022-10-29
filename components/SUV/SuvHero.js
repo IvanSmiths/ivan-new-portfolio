@@ -15,7 +15,7 @@ function SuvHero() {
       scrollTrigger: {
         trigger: videoTriggerRef.current,
         start: "top top",
-        end: "2000 bottom",
+        end: "3000 bottom",
         scrub: true,
         pin: true,
       },
@@ -41,7 +41,7 @@ function SuvHero() {
       companyRef.current,
       {
         opacity: 0,
-        duration: 0.2,
+        duration: 0.1,
       },
       0
     );
