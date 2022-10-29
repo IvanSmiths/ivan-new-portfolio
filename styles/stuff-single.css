@@ -329,7 +329,7 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  padding-left: var(--marginLayoutLeftFirst2);
+  padding-left: var(--marginLayoutLeftSecond2);
   padding-right: var(--marginLayoutRightFirst2);
 }
 
@@ -337,12 +337,11 @@
   display: flex;
   align-items: center;
   gap: var(--marginElementMedium);
-  height: 80%;
+  height: 70%;
   width: 100%;
 }
 
 .cs__desc-image {
-  width: 40%;
   height: 100%;
 }
 
@@ -359,7 +358,7 @@
 
 .cs__desc-text {
   height: 100%;
-  width: 60%;
+  width: 40%;
   position: relative;
 }
 
