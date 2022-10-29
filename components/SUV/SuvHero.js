@@ -15,7 +15,7 @@ function SuvHero() {
       scrollTrigger: {
         trigger: videoTriggerRef.current,
         start: "top top",
-        end: "+=" + 2000,
+        end: "2000 bottom",
         scrub: true,
         pin: true,
       },
