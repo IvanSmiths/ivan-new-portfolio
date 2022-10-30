@@ -8,14 +8,13 @@ function SuvHero() {
   const videoTriggerRef = useRef(null);
   const videoRef = useRef(null);
   const companyRef = useRef(null);
-  const workRef = useRef(null);
 
   useEffect(() => {
     var tl = gsap.timeline({
       scrollTrigger: {
         trigger: videoTriggerRef.current,
         start: "top top",
-        end: "3000 bottom",
+        end: "3500 bottom",
         scrub: true,
         pin: true,
       },
@@ -25,9 +24,9 @@ function SuvHero() {
       videoRef.current,
       {
         scale: 0.5,
-        duration: 0.3,
+        duration: 1,
       },
-      0
+      0.8
     );
     tl.to(
       videoRef.current,
@@ -35,7 +34,7 @@ function SuvHero() {
         filter: "brightness(1)",
         duration: 0.3,
       },
-      0
+      0.3
     );
     tl.to(
       companyRef.current,
@@ -43,26 +42,7 @@ function SuvHero() {
         opacity: 0,
         duration: 0.1,
       },
-      0
-    );
-    tl.to(
-      videoRef.current,
-      {
-        translateY: 100,
-        duration: 0.2,
-      },
-      0.2
-    );
-    tl.fromTo(
-      workRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.1,
-      },
-      0.2
+      0.3
     );
 
     return () => {
@@ -101,7 +81,7 @@ function SuvHero() {
               </video>
             </div>
           </div>
-          <div ref={workRef} className="cs__video-h1 cs__video-h2">
+          <div className="cs__video-h1 cs__video-h2">
             <h2 className="medium-font">Frontend developer</h2>
           </div>
         </div>

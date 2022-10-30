@@ -215,7 +215,8 @@
 }
 
 .cs__video-h2 {
-  top: 20%;
+  top: 15%;
+  z-index: 3;
 }
 
 .cs__video-inner video {
@@ -225,6 +226,7 @@
 }
 
 .cs__video-cnt {
+  z-index: 4;
   filter: brightness(0.4);
   width: 100%;
   height: 100%;
