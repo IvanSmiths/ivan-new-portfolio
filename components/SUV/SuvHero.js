@@ -40,6 +40,7 @@ function SuvHero() {
       companyRef.current,
       {
         opacity: 0,
+        translateY: -20,
         duration: 0.1,
       },
       0.3
