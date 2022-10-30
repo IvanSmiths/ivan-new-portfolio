@@ -188,12 +188,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 4rem;
 }
 
 .homepage-about-p-cnt .about {
-  width: 50%;
+  width: 55%;
   color: var(--main-color);
 }
 
