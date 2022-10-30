@@ -190,7 +190,7 @@
   }
 
   .case-studio-description {
-    gap: var(--marginElementMedium);
+    gap: var(--marginElementLittle);
     width: 100%;
     flex-direction: column;
   }

@@ -309,10 +309,6 @@
   margin-top: 3rem;
 }
 
-.box-subtitle {
-  margin-bottom: 0.4rem;
-}
-
 .box-link-cnt {
   margin-top: 6.5rem;
 }
@@ -358,11 +354,13 @@
 }
 
 .box__width {
+  display: flex;
+  flex-direction: column;
   width: 50%;
 }
 
 .box-informations-cnt ul li {
-  margin-top: var(--marginElementLittle);
+  margin-top: var(--marginElementMin);
   color: var(--color-text-sec);
 }
 
@@ -378,6 +376,7 @@
 }
 
 .box-title {
+  margin-top: var(--marginElementLittle);
   z-index: 5;
 }
 
