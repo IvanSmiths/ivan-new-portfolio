@@ -189,6 +189,11 @@
     width: 50%;
   }
 
+  .about__header {
+    width: 90%;
+    padding-left: 30px;
+  }
+
   .case-studio-description {
     gap: var(--marginElementLittle);
     width: 100%;

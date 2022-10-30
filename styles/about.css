@@ -1,5 +1,6 @@
 .about__header {
-  padding-bottom: var(--marginSection);
+  width: 60%;
+  padding: 4rem 0 var(--marginSection) var(--marginLayoutLeftFirst2);
 }
 
 .about__container {
