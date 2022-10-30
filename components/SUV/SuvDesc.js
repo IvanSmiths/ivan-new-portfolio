@@ -26,7 +26,7 @@ function SuvDesc() {
       stackRef.current,
       {
         translateY: "-50%",
-        bottom: "30%",
+        bottom: "20%",
       },
       0
     );
@@ -51,7 +51,7 @@ function SuvDesc() {
       dateRef.current,
       {
         translateY: "-50%",
-        bottom: "30%",
+        bottom: "20%",
       },
       1
     );
@@ -59,7 +59,7 @@ function SuvDesc() {
     tl.to(
       stackRef.current,
       {
-        bottom: "70%",
+        bottom: "60%",
       },
       1
     );
@@ -109,7 +109,7 @@ function SuvDesc() {
             </li>
             <li ref={hourRef} className="medium-font">
               Hour of coding: <br />
-              counting...
+              Counting...
             </li>
           </ul>
         </div>

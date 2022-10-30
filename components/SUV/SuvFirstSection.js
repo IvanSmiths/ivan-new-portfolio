@@ -10,20 +10,6 @@ function SuvFirstSection() {
 
   return (
     <>
-      <h3 className="case-studio__caption impact large-font">
-        {t("suv:caption")}
-      </h3>
-      <div className="case-studio-description case-studio-description-first">
-        <div className="case-studio-description__first-column">
-          <h2 className="small-font">
-            01 / <span>{t("suv:case-studio-1-header")}</span>
-          </h2>
-          <h3 className="medium-font">{t("suv:case-studio-1-headline")}</h3>
-        </div>
-        <div className="case-studio-description__second-column">
-          <p>{t("suv:case-studio-1-paragraph")}</p>
-        </div>
-      </div>
       <div className="case-studio__images">
         <div className="case-studio__screen-image">
           <SrcImage
@@ -44,6 +30,17 @@ function SuvFirstSection() {
             width={"1920px"}
             alt={"image of a website"}
           />
+        </div>
+      </div>
+      <div className="case-studio-description case-studio-description-first">
+        <div className="case-studio-description__first-column">
+          <h2 className="small-font">
+            01 / <span>{t("suv:case-studio-1-header")}</span>
+          </h2>
+          <h3 className="medium-font">{t("suv:case-studio-1-headline")}</h3>
+        </div>
+        <div className="case-studio-description__second-column">
+          <p>{t("suv:case-studio-1-paragraph")}</p>
         </div>
       </div>
       <div className="climax-website-cnt skewElem">
