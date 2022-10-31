@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import SuvFirstSection from "../../components/SUV/SuvFirstSection";
+import SuvTextImage from "../../components/SUV/SuvTextImage";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
-import SuvGallery from "../../components/SUV/SuvGallery";
 import SuvHero from "../../components/SUV/SuvHero";
 import SuvDesc from "../../components/SUV/SuvDesc";
 import Marquee from "../../components/Marquee";
@@ -67,7 +66,7 @@ function ScholzUndVolkmer() {
       </Head>
       <SuvHero />
       <SuvDesc />
-      <SuvFirstSection />
+      <SuvTextImage />
       <SuvMobile />
       <Marquee />
       <SuvWorks />

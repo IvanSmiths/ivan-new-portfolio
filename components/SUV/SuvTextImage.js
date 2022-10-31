@@ -2,7 +2,7 @@ import React from "react";
 import useTranslation from "next-translate/useTranslation";
 import SrcImage from "../SrcImage";
 
-function SuvFirstSection() {
+function SuvTextImage() {
   let { t } = useTranslation();
 
   return (
@@ -44,4 +44,4 @@ function SuvFirstSection() {
   );
 }
 
-export default SuvFirstSection;
+export default SuvTextImage;
