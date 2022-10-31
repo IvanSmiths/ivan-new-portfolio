@@ -11,11 +11,12 @@ function SuvDesc() {
 
   useEffect(() => {
     var desc = gsap.to(descRef.current, {
-      bottom: "110%",
+      bottom: "120%",
       scrollTrigger: {
         trigger: descTriggerRef.current,
         start: "top top",
         end: "4000 bottom",
+        ease: "none",
         scrub: true,
         pin: true,
       },
@@ -49,6 +50,9 @@ function SuvDesc() {
                 Date: <br />
                 12/03/2022 <br />
                 Current
+              </li>
+              <li className="medium-font">
+                Happy clients: <br />4
               </li>
               <li className="medium-font">
                 Hour of coding: <br />
