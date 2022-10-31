@@ -10,22 +10,22 @@ function SuvTextImage() {
       <div className="case-studio__images">
         <div className="case-studio__screen-image">
           <SrcImage
-            classDiv={"flex-center"}
-            src={"/scholz-und-volkmer-website-3.jpg"}
-            webp={"/scholz-und-volkmer-website-3.webp"}
-            height={"970px"}
-            width={"1920px"}
-            alt={"image of a website"}
+            classDiv="flex-center"
+            src="/scholz-und-volkmer-website-3.jpg"
+            webp="/scholz-und-volkmer-website-3.webp"
+            height="970px"
+            width="1920px"
+            alt="image of a website"
           />
         </div>
         <div className="case-studio__screen-image">
           <SrcImage
-            classDiv={"flex-center"}
-            src={"/scholz-und-volkmer-website-4.jpg"}
-            webp={"/scholz-und-volkmer-website-4.webp"}
-            height={"1043px"}
-            width={"1920px"}
-            alt={"image of a website"}
+            classDiv="flex-center"
+            src="/scholz-und-volkmer-website-4.jpg"
+            webp="/scholz-und-volkmer-website-4.webp"
+            height="1043px"
+            width="1920px"
+            alt="image of a website"
           />
         </div>
       </div>
