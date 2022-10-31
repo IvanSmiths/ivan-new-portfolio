@@ -459,6 +459,11 @@
     margin-top: 0;
   }
 
+  .cs__desc-inner {
+    display: flex;
+    justify-content: center;
+  }
+
   .climax-website li picture {
     width: 100%;
   }
@@ -563,8 +568,12 @@
     display: none !important;
   }
 
-  .cs__desc-text {
-    width: 60%;
+  .cs__desc-text-wrapper {
+    width: 80%;
+  }
+
+  .paragraph-block-outer-first {
+    margin-top: 0 !important;
   }
 
   .cs__desc-text li {

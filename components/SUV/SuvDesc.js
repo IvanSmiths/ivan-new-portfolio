@@ -7,87 +7,29 @@ function SuvDesc() {
   gsap.registerPlugin(ScrollTrigger);
 
   const descTriggerRef = useRef(null);
-  const stackRef = useRef(null);
-  const dateRef = useRef(null);
-  const hourRef = useRef(null);
+  const descRef = useRef(null);
 
   useEffect(() => {
-    var tl = gsap.timeline({
+    var desc = gsap.to(descRef.current, {
+      bottom: "110%",
       scrollTrigger: {
         trigger: descTriggerRef.current,
         start: "top top",
-        end: "2000 bottom",
+        end: "4000 bottom",
         scrub: true,
         pin: true,
       },
     });
 
-    tl.to(
-      stackRef.current,
-      {
-        translateY: "-50%",
-        bottom: "20%",
-      },
-      0
-    );
-
-    tl.to(
-      dateRef.current,
-      {
-        opacity: 1,
-      },
-      0
-    );
-
-    tl.to(
-      stackRef.current,
-      {
-        opacity: 0.6,
-      },
-      0
-    );
-
-    tl.to(
-      dateRef.current,
-      {
-        translateY: "-50%",
-        bottom: "20%",
-      },
-      1
-    );
-
-    tl.to(
-      stackRef.current,
-      {
-        bottom: "60%",
-      },
-      1
-    );
-
-    tl.to(
-      dateRef.current,
-      {
-        opacity: 0.6,
-      },
-      1
-    );
-
-    tl.to(
-      hourRef.current,
-      {
-        opacity: 1,
-      },
-      1
-    );
-
     return () => {
-      tl.kill();
+      desc.kill();
     };
   }, []);
 
   return (
     <section>
       <div ref={descTriggerRef} className="cs__desc-outer">
+        <div className="cs__desc-text-mask"></div>
         <div className="cs__desc-inner">
           <div className="cs__desc-image flex-center">
             <SrcImage
@@ -98,23 +40,25 @@ function SuvDesc() {
               alt="image of a website"
             />
           </div>
-          <ul className="cs__desc-text">
-            <li ref={stackRef} className="medium-font">
-              Stack: <br /> Vue.js (Nuxt.js), JavaScript, TypeScript, Gsap
-            </li>
-            <li ref={dateRef} className="medium-font">
-              Date: <br />
-              12/03/2022 <br />
-              Current
-            </li>
-            <li ref={hourRef} className="medium-font">
-              Hour of coding: <br />
-              Counting...
-            </li>
-          </ul>
+          <div className="cs__desc-text-wrapper">
+            <ul ref={descRef} className="cs__desc-text">
+              <li className="medium-font">
+                Stack: <br /> Vue.js (Nuxt.js), JavaScript, TypeScript, Gsap
+              </li>
+              <li className="medium-font">
+                Date: <br />
+                12/03/2022 <br />
+                Current
+              </li>
+              <li className="medium-font">
+                Hour of coding: <br />
+                Counting...
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="paragraph-block-outer flex-center">
+      <div className="paragraph-block-outer paragraph-block-outer-first flex-center">
         <div className="paragraph-block-inner">
           <div className="paragraph-block__caption">
             <h3 className="medium-font">
