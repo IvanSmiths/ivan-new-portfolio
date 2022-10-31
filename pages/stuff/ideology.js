@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import Marquee from "../../components/Ideology/Marquee";
+import Marquee from "../../components/Marquee";
 import { pageData } from "../../utils/sampleData";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import SrcImage from "../../components/SrcImage";
