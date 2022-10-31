@@ -6,6 +6,9 @@ import FooterSimple from "../../components/FooterSimple";
 import SuvGallery from "../../components/SUV/SuvGallery";
 import SuvHero from "../../components/SUV/SuvHero";
 import SuvDesc from "../../components/SUV/SuvDesc";
+import Marquee from "../../components/Marquee";
+import SuvWorks from "../../components/SUV/SuvWorks";
+import SuvMobile from "../../components/SUV/SuvMobile";
 
 function ScholzUndVolkmer() {
   const [isDesktop, setDesktop] = useState(false);
@@ -65,6 +68,9 @@ function ScholzUndVolkmer() {
       <SuvHero />
       <SuvDesc />
       <SuvFirstSection />
+      <SuvMobile />
+      <Marquee />
+      <SuvWorks />
       {isDesktop ? (
         <Footer link="stuff/ideology" />
       ) : (
