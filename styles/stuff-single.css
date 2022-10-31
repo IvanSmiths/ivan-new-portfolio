@@ -226,6 +226,7 @@
 }
 
 .cs__video-cnt {
+  transform-origin: 50% 80%;
   z-index: 4;
   filter: brightness(0.4);
   width: 100%;
@@ -242,6 +243,7 @@
 }
 
 .cs__desc-outer {
+  margin-top: var(--marginSection);
   height: 100vh;
   display: flex;
   align-items: center;

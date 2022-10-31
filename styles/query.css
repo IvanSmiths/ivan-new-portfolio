@@ -560,6 +560,7 @@
   }
 
   .cs__desc-outer {
+    margin-top: 0;
     padding-left: 0;
     padding-right: 0;
   }
