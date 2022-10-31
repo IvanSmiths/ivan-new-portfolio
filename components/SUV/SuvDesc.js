@@ -12,12 +12,12 @@ function SuvDesc() {
   useEffect(() => {
     var desc = gsap.to(descRef.current, {
       bottom: "120%",
+      ease: "none",
       scrollTrigger: {
         trigger: descTriggerRef.current,
         start: "top top",
         end: "4000 bottom",
-        ease: "none",
-        scrub: true,
+        scrub: 2,
         pin: true,
       },
     });
