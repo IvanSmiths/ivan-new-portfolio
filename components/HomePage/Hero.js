@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useLayoutEffect, useContext, useRef } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Hero = () => {
   const copyRef = useRef(null);
   const linkRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     var timeline = gsap.timeline({
       scrollTrigger: {
         trigger: headerRef.current,
