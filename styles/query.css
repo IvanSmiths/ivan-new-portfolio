@@ -357,6 +357,10 @@
     flex-direction: column;
   }
 
+  .cs__video-h2 {
+    padding: 0 30%;
+  }
+
   .burger-menu-links-cnt li a {
     font-size: var(--bigFont);
   }
@@ -578,7 +582,7 @@
   }
 
   .cs__desc-text-mask {
-    height: 100%;
+    height: 103%;
   }
 
   .climax-website-2 {
@@ -600,7 +604,7 @@
   }
 
   .paragraph-block-outer-first {
-    margin-top: 0 !important;
+    margin-top: 8% !important;
   }
 
   .cs__desc-text li {

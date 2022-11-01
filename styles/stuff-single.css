@@ -211,7 +211,8 @@
 }
 
 .cs__video-h2 {
-  top: 20%;
+  top: 25%;
+  text-align: center;
   z-index: 3;
 }
 
