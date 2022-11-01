@@ -304,6 +304,10 @@
   gap: var(--marginElementMedium);
 }
 
+.cs__desc-text li {
+  font-weight: 600;
+}
+
 @keyframes marqueescroll {
   0% {
     transform: translateX(0%);
