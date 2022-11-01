@@ -32,12 +32,22 @@ function SuvTextImage() {
       <div className="case-studio-description case-studio-description-first">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">
-            01 / <span>{t("suv:case-studio-1-header")}</span>
+            01 / <span> Gsap</span>
           </h2>
-          <h3 className="medium-font">{t("suv:case-studio-1-headline")}</h3>
+          <h3 className="medium-font">{t("suv:cs-1-h")}</h3>
         </div>
         <div className="case-studio-description__second-column">
-          <p>{t("suv:case-studio-1-paragraph")}</p>
+          <p>
+            {t("suv:cs-1-p")}{" "}
+            <a
+              className="bold"
+              href="https://perfection.wmf.com/de/perfection/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {t("suv:cs-wmf")}
+            </a>
+          </p>
         </div>
       </div>
     </>
