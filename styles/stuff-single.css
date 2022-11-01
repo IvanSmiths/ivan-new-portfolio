@@ -287,16 +287,16 @@
   width: 100%;
   background: linear-gradient(
     0deg,
-    var(--color-bg-primary) 10%,
-    rgba(255, 255, 255, 0) 55%,
-    var(--color-bg-primary) 90%
+    var(--color-bg-primary) 15%,
+    rgba(255, 255, 255, 0) 60%,
+    var(--color-bg-primary) 85%
   );
 }
 
 .cs__desc-text {
   position: absolute;
   z-index: 1;
-  bottom: -100%;
+  bottom: -110%;
   height: 100%;
   width: 100%;
   display: flex;

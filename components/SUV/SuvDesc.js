@@ -11,7 +11,7 @@ function SuvDesc() {
 
   useEffect(() => {
     var desc = gsap.to(descRef.current, {
-      bottom: "120%",
+      bottom: "130%",
       ease: "none",
       scrollTrigger: {
         trigger: descTriggerRef.current,
