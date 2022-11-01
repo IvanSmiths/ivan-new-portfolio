@@ -89,6 +89,7 @@ function NextModel() {
 
     tl.to(mainImageRef.current, {
       scale: 0.3,
+      ease: "power3",
     });
     tl.to(mainImageRef.current, {
       x: "25%",
