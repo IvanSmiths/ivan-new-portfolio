@@ -169,7 +169,7 @@
   width: 70vw;
   height: auto;
   z-index: 1;
-  filter: brightness(0.9);
+  filter: brightness(0.8);
 }
 
 .homepage-about-p-cnt {
