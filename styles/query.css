@@ -410,10 +410,6 @@
     padding-right: 0;
   }
 
-  .title-2-cnt em {
-    padding-top: 0;
-  }
-
   .blogpost__article-body {
     width: 90%;
   }
@@ -544,10 +540,6 @@
     position: relative;
   }
 
-  .homepage-about-p-cnt div {
-    width: 80%;
-  }
-
   .homepage-about-cnt {
     margin-bottom: var(--marginSection);
   }
@@ -638,7 +630,7 @@
   }
 
   .box-image-cnt img {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
 
