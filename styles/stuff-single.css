@@ -287,7 +287,7 @@
   width: 100%;
   background: linear-gradient(
     0deg,
-    var(--color-bg-primary) 15%,
+    var(--color-bg-primary) 20%,
     rgba(255, 255, 255, 0) 60%,
     var(--color-bg-primary) 85%
   );
