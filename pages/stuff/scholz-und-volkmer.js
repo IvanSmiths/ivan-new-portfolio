@@ -9,6 +9,7 @@ import SuvDesc from "../../components/SUV/SuvDesc";
 import Marquee from "../../components/Marquee";
 import SuvWorks from "../../components/SUV/SuvWorks";
 import SuvMobile from "../../components/SUV/SuvMobile";
+import SuvTextBlock from "../../components/SUV/SuvTextBlock";
 
 function ScholzUndVolkmer() {
   const [isDesktop, setDesktop] = useState(false);
@@ -67,6 +68,7 @@ function ScholzUndVolkmer() {
       </Head>
       <SuvHero />
       <SuvDesc />
+      <SuvTextBlock />
       <SuvTextImage />
       <SuvMobile />
       <SuvImageText />

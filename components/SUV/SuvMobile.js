@@ -61,7 +61,7 @@ function SuvMobile() {
         </li>
         <li
           ref={setBottomRefs}
-          className="flex-centers desktop climax-website-margin"
+          className="flex-center desktop climax-website-margin"
         >
           <SrcImage
             classDiv="flex-center"

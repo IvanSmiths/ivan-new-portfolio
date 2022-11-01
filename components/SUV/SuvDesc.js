@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SrcImage from "../SrcImage";
+import useTranslation from "next-translate/useTranslation";
 
 function SuvDesc() {
   gsap.registerPlugin(ScrollTrigger);
@@ -27,6 +28,8 @@ function SuvDesc() {
     };
   }, []);
 
+  let { t } = useTranslation();
+
   return (
     <section>
       <div ref={descTriggerRef} className="cs__desc-outer">
@@ -44,49 +47,22 @@ function SuvDesc() {
           <div className="cs__desc-text-wrapper">
             <ul ref={descRef} className="cs__desc-text">
               <li className="medium-font">
-                Stack: <br /> Vue.js (Nuxt.js), JavaScript, TypeScript, Gsap
+                {t("suv:stack")} <br /> Vue.js (Nuxt.js), JavaScript,
+                TypeScript, Gsap
               </li>
               <li className="medium-font">
-                Date: <br />
+                {t("suv:date")} <br />
                 12/03/2022 <br />
-                Current
+                {t("suv:current")}
               </li>
               <li className="medium-font">
-                Happy clients: <br />4
+                {t("suv:happy")} <br />4
               </li>
               <li className="medium-font">
-                Hour of coding: <br />
-                Counting...
+                {t("suv:coding")} <br />
+                {t("suv:hours")}
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-      <div className="paragraph-block-outer paragraph-block-outer-first flex-center">
-        <div className="paragraph-block-inner">
-          <div className="paragraph-block__caption">
-            <h3 className="medium-font">
-              First concept, then design è il motto dell azienda. Ogni sito web
-              partiva dal wireframing, il primo passaggio essenziale.
-            </h3>
-          </div>
-          <div className="paragraph-block__link-text">
-            <div>
-              <a
-                className="medium-font btn-small btn-small-3"
-                href="https://www.s-v.de/en/"
-              >
-                Website
-              </a>
-            </div>
-            <div className="paragraph-block__link-text__p">
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet
-                nobis ad saepe unde tempore reprehenderit corrupti corporis,
-                doloribus aspernatur similique earum aliquid iure ipsa, quam,
-                dolore veritatis commodi necessitatibus numquam?
-              </p>
-            </div>
           </div>
         </div>
       </div>
