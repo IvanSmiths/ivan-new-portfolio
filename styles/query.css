@@ -555,6 +555,10 @@
     width: 80%;
   }
 
+  .cs__desc-text-mask {
+    height: 100%;
+  }
+
   .climax-website-2 {
     margin-top: 0rem;
   }
