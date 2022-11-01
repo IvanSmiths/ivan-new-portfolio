@@ -15,13 +15,12 @@ const Innovation = () => {
       },
       {
         scale: 0.1,
-        ease: "none",
+        ease: "expo.inOut",
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
           start: "top top",
-          end: "+=2900 top",
-          scrub: 0.5,
-          ease: "expo.inOut",
+          end: "2500 top",
+          scrub: 1,
           pin: true,
         },
       }
