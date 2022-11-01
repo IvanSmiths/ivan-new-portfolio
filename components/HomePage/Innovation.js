@@ -19,7 +19,7 @@ const Innovation = () => {
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
           start: "top top",
-          end: "2500 top",
+          end: "3000 top",
           scrub: 1,
           pin: true,
         },
