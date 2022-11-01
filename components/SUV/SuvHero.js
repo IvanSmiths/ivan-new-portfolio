@@ -25,6 +25,7 @@ function SuvHero() {
       {
         scale: 0.5,
         duration: 1,
+        ease: "power4",
       },
       0.8
     );
