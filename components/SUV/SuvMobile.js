@@ -59,7 +59,10 @@ function SuvMobile() {
             alt="image"
           />
         </li>
-        <li ref={setBottomRefs} className="flex-center climax-website-margin">
+        <li
+          ref={setBottomRefs}
+          className="flex-centers desktop climax-website-margin"
+        >
           <SrcImage
             classDiv="flex-center"
             src="/scholz-und-volkmer-website-mobile-2.jpg"
