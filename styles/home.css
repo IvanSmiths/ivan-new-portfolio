@@ -169,7 +169,7 @@
   width: 70vw;
   height: auto;
   z-index: 1;
-  opacity: 0.6;
+  filter: brightness(0.9);
 }
 
 .homepage-about-p-cnt {
@@ -202,11 +202,22 @@
 }
 
 .about-cnt h2 {
+  color: rgb(255, 255, 255);
   padding-bottom: var(--marginElementLittle);
 }
 
+.about-cnt h3 {
+  color: rgb(255, 255, 255);
+}
+
 .homepage-about-p-cnt p {
+  color: rgb(255, 255, 255);
   width: 50%;
+}
+
+.homepage-about-link .btn-small {
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
 }
 
 .homepage-about-link {
