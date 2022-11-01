@@ -14,8 +14,9 @@ function SuvHero() {
       scrollTrigger: {
         trigger: videoTriggerRef.current,
         start: "top top",
-        end: "3500 bottom",
+        end: "5000 bottom",
         scrub: true,
+        markers: true,
         pin: true,
       },
     });
@@ -27,7 +28,7 @@ function SuvHero() {
         duration: 1,
         ease: "power4",
       },
-      0.8
+      1
     );
     tl.to(
       videoRef.current,
