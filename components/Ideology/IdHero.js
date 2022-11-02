@@ -1,131 +1,95 @@
-import React, { useEffect, useRef, useContext, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
-import { CursorContext } from "../../components/CursorManager";
-import SrcImage from "../../components/SrcImage";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-function useArrayRef() {
-  const staggerRefs = useRef([]);
-  staggerRefs.current = [];
-  return [staggerRefs, (ref) => ref && staggerRefs.current.push(ref)];
-}
+function SuvHero() {
+  gsap.registerPlugin(ScrollTrigger);
 
-function IdHero() {
-  const [staggerRefs, setStaggerRef] = useArrayRef();
+  const videoTriggerRef = useRef(null);
+  const videoRef = useRef(null);
+  const companyRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      staggerRefs.current,
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: videoTriggerRef.current,
+        start: "top top",
+        end: "5000 bottom",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    tl.to(
+      videoRef.current,
+      {
+        scale: 0.5,
+        duration: 1,
+        ease: "power4",
+      },
+      1
+    );
+    tl.to(
+      videoRef.current,
+      {
+        filter: "brightness(1)",
+        duration: 0.3,
+      },
+      0.3
+    );
+    tl.to(
+      companyRef.current,
       {
         opacity: 0,
+        translateY: -20,
+        duration: 0.1,
       },
-      {
-        opacity: 1,
-        stagger: 0.2,
-      }
+      0.3
     );
-  }, [staggerRefs]);
 
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize("medium");
-  };
-  const handleMouseLeave = () => {
-    setSize("small");
-  };
-  let { t } = useTranslation();
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
-    <header className="case-studio-header">
-      <div className="case-studio-header__first-row">
-        <div>
-          <span ref={setStaggerRef} className="small-font ">
-            UI/UX Designer: (Adobe XD)
-          </span>
-          <h1 ref={setStaggerRef} className="big-font impact">
-            Ideology <br />
-          </h1>
-        </div>
-        <Link href="https://www.ideology.it/">
-          <a
-            ref={setStaggerRef}
-            target="_blank"
-            rel="noopener noreferrer"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="case-studio-header__link btn-small"
-          >
-            website
-          </a>
-        </Link>
-      </div>
-      <div className="case-studio-header__second-row">
-        <div>
-          <div className="case-studio-header__second-row__first-list">
-            <ul ref={setStaggerRef}>
-              <li className="bold">{t("ideology:tech")}</li>
-              <li>{t("ideology:animation")} Adobe XD</li>
-              <li>{t("ideology:frontend")} HTML, CSS, jQuery</li>
-              <li>{t("ideology:style")} WooCommerce, Stripe, PayPal</li>
-            </ul>
-            <ul ref={setStaggerRef}>
-              <li className="bold">{t("ideology:date")}</li>
-              <li>12/08/2020</li>
-              <li>18/02/2022</li>
-            </ul>
+    <header>
+      <div ref={videoTriggerRef} className="cs__video-outer">
+        <div className="cs__video-inner">
+          <div ref={companyRef} className="cs__video-h1">
+            <h1 className="big-font impact">Ideology</h1>
           </div>
-          <div className="case-studio-header__second-row__first-list second-row__second-list">
-            <ul ref={setStaggerRef}>
-              <li className="bold">Clients:</li>
-
-              <li>
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://lemonsoda.it/special-edition/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Lemon Soda
-                </a>
-              </li>
-              <li>
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://www.remax-primaclasse.it/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Remax
-                </a>
-              </li>
-              <li>
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://www.mabuprofumerie.it/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  MABÙ
-                </a>
-              </li>
-            </ul>
+          <div className="cs__video-cnt" ref={videoRef}>
+            <div className="desktop-video">
+              <video
+                preload="none"
+                poster="/ideology-website-1.jpg"
+                muted
+                autoPlay
+                loop
+              >
+                <source src="/ideology.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div className="mobile-video">
+              <video
+                preload="none"
+                poster="/ideology-website-1.jpg"
+                muted
+                autoPlay
+                loop
+              >
+                <source src="/ideology-mobile.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
-        </div>
-        <div className="case-studio-header__second-row__image">
-          <SrcImage
-            src={"/ideology-website-1.jpg"}
-            webp={"/ideology-website-1.webp"}
-            height={"755px"}
-            width={"1424px"}
-            alt={"image"}
-          />
+          <div className="cs__video-h1 cs__video-h2">
+            <h2 className="big-font impact">UI/UX Designer</h2>
+          </div>
         </div>
       </div>
     </header>
   );
 }
 
-export default IdHero;
+export default SuvHero;

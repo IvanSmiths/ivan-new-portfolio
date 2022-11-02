@@ -177,10 +177,6 @@
     color: var(--color-text-inverse);
   }
 
-  .case-studio__screen-video {
-    padding: 0 10rem;
-  }
-
   .box-image-cnt {
     padding-left: 0;
   }
@@ -672,10 +668,6 @@
 
   .case-studio__screen-image {
     padding: 0 1rem;
-  }
-
-  .case-studio__screen-video {
-    padding: 0 5rem;
   }
 
   .box__width {
