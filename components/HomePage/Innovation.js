@@ -20,7 +20,7 @@ const Innovation = () => {
           trigger: innovationTriggerRef.current,
           start: "top top",
           end: "3000 top",
-          scrub: 1,
+          scrub: true,
           pin: true,
         },
       }
