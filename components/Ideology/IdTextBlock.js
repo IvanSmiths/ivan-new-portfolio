@@ -12,7 +12,7 @@ function IdTextBlock() {
           <div>
             <a
               className="medium-font btn-small btn-small-3"
-              href="https://www.s-v.de/en/"
+              href="https://www.ideology.it//"
               target="_blank"
               rel="noreferrer noopener"
             >

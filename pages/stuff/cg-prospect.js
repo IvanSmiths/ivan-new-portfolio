@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
 import CgDesc from "../../components/CgProspect/CgDesc";
 import CgImageText from "../../components/CgProspect/CgImageText";
+import CgTextBlock from "../../components/CgProspect/CgTextBlock";
 
 const CgProspect = () => {
   const [isDesktop, setDesktop] = useState(false);
@@ -65,6 +66,7 @@ const CgProspect = () => {
       </Head>
       <CgHero />
       <CgDesc />
+      <CgTextBlock />
       <CgImageText />
       {isDesktop ? (
         <Footer link="blog" />
