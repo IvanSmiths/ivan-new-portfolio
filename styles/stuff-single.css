@@ -234,7 +234,7 @@
 .cs__video-cnt {
   transform-origin: 50% 80%;
   z-index: 4;
-  filter: brightness(0.4);
+  filter: brightness(0.3);
   width: 100%;
   height: 100%;
 }
@@ -316,6 +316,10 @@
 
 .cs__desc-text li {
   font-weight: 600;
+}
+
+.margin-top {
+  margin-top: var(--marginSection);
 }
 
 @keyframes marqueescroll {

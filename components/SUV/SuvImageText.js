@@ -7,6 +7,7 @@ function SuvTextImage() {
 
   return (
     <>
+      {/*
       <div className="case-studio-description case-studio-description-first">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">
@@ -17,8 +18,8 @@ function SuvTextImage() {
         <div className="case-studio-description__second-column">
           <p>{t("suv:cs-1-p")}</p>
         </div>
-      </div>
-      <div className="case-studio__images">
+  </div> */}
+      <div className="case-studio__images margin-top">
         <div className="case-studio__screen-image">
           <SrcImage
             classDiv="flex-center"

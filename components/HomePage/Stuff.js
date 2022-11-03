@@ -74,7 +74,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  01 / {t("home:stuff-3")}
+                  01 / {t("common:stuff-3")}
                   <br />
                 </span>
                 <Link href="/stuff/scholz-und-volkmer" passHref>
@@ -88,17 +88,18 @@ function Stuff() {
                 </Link>
                 <ul>
                   <li>
-                    {t("home:box-list")}
-                    {t("home:box-list-dev")}
+                    {t("common:box-list")}
+                    {t("common:box-list-dev")}
                   </li>
                   <li>
-                    {t("home:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap, Sass
+                    {t("common:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
+                    Sass
                   </li>
-                  <li>2022 / {t("home:box-list-3")}</li>
+                  <li>2022 / {t("common:box-list-3")}</li>
                 </ul>
                 <div className="box-link-cnt">
                   <Link href="/stuff/scholz-und-volkmer" passHref>
-                    <a className="btn-small box-link">{t("home:stuff")}</a>
+                    <a className="btn-small box-link">{t("common:stuff")}</a>
                   </Link>
                 </div>
               </div>
@@ -126,7 +127,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  02 / {t("home:stuff-3")}
+                  02 / {t("common:stuff-3")}
                   <br />
                 </span>
                 <Link href="/stuff/ideology" passHref>
@@ -139,9 +140,9 @@ function Stuff() {
                   </a>
                 </Link>
                 <ul>
-                  <li>{t("home:box-list")}UI/UX Designer</li>
+                  <li>{t("common:box-list")}UI/UX Designer</li>
                   <li>
-                    {t("home:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                    {t("common:box-list-2")}Adobe XD, CSS, jQuery, WordPress
                   </li>
                   <li>2020 / 2022</li>
                 </ul>
@@ -152,7 +153,7 @@ function Stuff() {
                       onMouseLeave={handleMouseLeave}
                       className="btn-small box-link"
                     >
-                      {t("home:stuff")}
+                      {t("common:stuff")}
                     </a>
                   </Link>
                 </div>
@@ -181,7 +182,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  03 / {t("home:stuff-4")}
+                  03 / {t("common:stuff-4")}
                   <br />
                 </span>
                 <Link href="/stuff/cg-prospect" passHref>
@@ -195,15 +196,15 @@ function Stuff() {
                 </Link>
                 <ul>
                   <li>
-                    {t("home:box-list")}
-                    {t("home:box-list-dev-2")}, UI/UX Designer,{" "}
-                    {t("home:box-list-mod")}
+                    {t("common:box-list")}
+                    {t("common:box-list-dev-2")}, UI/UX Designer,{" "}
+                    {t("common:box-list-mod")}
                   </li>
                   <li>
-                    {t("home:box-list-2")}React (Next.js), MongoDB, CSS,
+                    {t("common:box-list-2")}React (Next.js), MongoDB, CSS,
                     MetaShape
                   </li>
-                  <li>2021 / {t("home:box-list-3")}</li>
+                  <li>2021 / {t("common:box-list-3")}</li>
                 </ul>
                 <div className="box-link-cnt">
                   <Link href="/stuff/cg-prospect" passHref>
@@ -212,7 +213,7 @@ function Stuff() {
                       onMouseLeave={handleMouseLeave}
                       className="btn-small box-link"
                     >
-                      {t("home:stuff")}
+                      {t("common:stuff")}
                     </a>
                   </Link>
                 </div>
