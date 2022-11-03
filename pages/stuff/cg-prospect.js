@@ -34,11 +34,11 @@ const CgProspect = () => {
         <title>Ivan Smiths | CG Prospect case studio</title>
         <meta
           name="description"
-          content="I have built CG Prospect, a really fast website about 3d modeling."
+          content="CG Prospect case studio. A really, really fast website about 3d modeling coded with Next.js."
         />
         <meta
           property="og:description"
-          content="CG Prospect case studio. A really fast website about 3d modeling coded with Next.js"
+          content="CG Prospect case studio. A really, really fast website about 3d modeling coded with Next.js"
         />
         <meta
           property="og:image"
@@ -52,7 +52,7 @@ const CgProspect = () => {
         />
         <meta
           name="twitter:description"
-          content="CG Prospect case studio. A really fast website about 3d modeling coded with Next.js"
+          content="CG Prospect case studio. A really, really fast website about 3d modeling coded with Next.js"
         />
         <meta
           name="twitter:image"
