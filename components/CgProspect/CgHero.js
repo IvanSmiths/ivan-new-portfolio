@@ -76,9 +76,10 @@ function CgHero() {
               />
             </div>
             <div className="mobile">
+              <div className="cs__image-mask"></div>
               <SrcImage
-                src="/cg-prospect-mobile.jpg"
-                webp="/cg-prospect-mobile.webp"
+                src="/cgprospect.jpg"
+                webp="/cgprospect.webp"
                 height="755px"
                 width="1440px"
                 alt="image of a website"

@@ -73,6 +73,7 @@ function SuvHero() {
               />
             </div>
             <div className="mobile">
+              <div className="cs__image-mask"></div>
               <SrcImage
                 src="/ideology-website-mobile-6.jpg"
                 webp="/ideology-website-mobile-6.webp"

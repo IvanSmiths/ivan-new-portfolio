@@ -77,6 +77,7 @@ function SuvHero() {
               />
             </div>
             <div className="mobile">
+              <div className="cs__image-mask"></div>
               <SrcImage
                 classDiv="flex-center"
                 src="/scholz-und-volkmer-website-1.jpg"
