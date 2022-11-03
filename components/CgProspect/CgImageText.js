@@ -9,14 +9,12 @@ function CgImageText() {
       <div className="case-studio-description case-studio-description-first">
         <div className="case-studio-description__first-column">
           <h2 className="small-font">
-            01 / <span>{t("cg-prospect:case-studio-1-header")}</span>
+            01 / <span> Performances</span>
           </h2>
-          <h3 className="medium-font">
-            {t("cg-prospect:case-studio-1-headline")}
-          </h3>
+          <h3 className="medium-font">{t("cg-prospect:cs-1-h")}</h3>
         </div>
         <div className="case-studio-description__second-column">
-          <p>{t("cg-prospect:case-studio-1-paragraph")}</p>
+          <p>{t("cg-prospect:cs-1-p")}</p>
         </div>
       </div>
       <div className="case-studio__images">

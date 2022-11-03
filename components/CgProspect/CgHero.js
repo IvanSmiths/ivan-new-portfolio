@@ -66,7 +66,7 @@ function CgHero() {
             <div className="desktop-video">
               <video
                 preload="none"
-                poster="/cg-prospect-website.jpg"
+                poster="/cg-prospect-website-1.jpg"
                 muted
                 autoPlay
                 loop
@@ -77,7 +77,7 @@ function CgHero() {
             <div className="mobile-video">
               <video
                 preload="none"
-                poster="/cg-prospect-website.jpg"
+                poster="/cg-prospect-website-1.jpg"
                 muted
                 autoPlay
                 loop
@@ -87,7 +87,7 @@ function CgHero() {
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">
-            <h2 className="big-font impact">{t("suv:role")}</h2>
+            <h2 className="big-font impact">{t("cg-prospect:role")}</h2>
           </div>
         </div>
       </div>

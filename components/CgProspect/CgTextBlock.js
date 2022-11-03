@@ -6,7 +6,7 @@ function CgTextBlock() {
     <div className="paragraph-block-outer paragraph-block-outer-first flex-center">
       <div className="paragraph-block-inner">
         <div className="paragraph-block__caption">
-          <h3 className="medium-font">{t("suv:caption")}</h3>
+          <h3 className="medium-font">{t("cg-prospect:caption")}</h3>
         </div>
         <div className="paragraph-block__link-text">
           <div>
@@ -20,7 +20,7 @@ function CgTextBlock() {
             </a>
           </div>
           <div className="paragraph-block__link-text__p">
-            <p>{t("suv:caption-desc")}</p>
+            <p>{t("cg-prospect:caption-desc")}</p>
           </div>
         </div>
       </div>

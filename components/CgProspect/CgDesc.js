@@ -47,17 +47,17 @@ function CgDesc() {
           <div className="cs__desc-text-wrapper">
             <ul ref={descRef} className="cs__desc-text">
               <li className="medium-font">
-                {t("suv:stack")} <br />
+                {t("cg-prospect:stack")} <br />
                 React.js (Next.js), PostgreSql, Prisma
               </li>
               <li className="medium-font">
-                {t("suv:date")} <br />
+                {t("cg-prospect:date")} <br />
                 3/09/2021 <br />
-                {t("suv:current")}
+                {t("cg-prospect:current")}
               </li>
               <li className="medium-font">
-                {t("suv:coding")} <br />
-                {t("suv:hours")}
+                {t("cg-prospect:coding")} <br />
+                {t("cg-prospect:hours")}
               </li>
             </ul>
           </div>
