@@ -68,6 +68,7 @@ function SuvHero() {
                 height="755px"
                 width="1424px"
                 alt="image of a website"
+                lazyOff={true}
               />
             </div>
             <div className="mobile">
@@ -77,6 +78,7 @@ function SuvHero() {
                 height="755px"
                 width="1424px"
                 alt="image of a website"
+                lazyOff={true}
               />
             </div>
           </div>
