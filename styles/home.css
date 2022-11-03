@@ -150,6 +150,7 @@
   stroke-linejoin: round;
   stroke-linecap: round;
   margin-left: 3rem;
+  opacity: 0;
 }
 
 .homepage-about-cnt {
