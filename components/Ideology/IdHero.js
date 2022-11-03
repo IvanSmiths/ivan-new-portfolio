@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import SrcImage from "../SrcImage";
 
 function SuvHero() {
   gsap.registerPlugin(ScrollTrigger);
@@ -60,27 +61,23 @@ function SuvHero() {
             <h1 className="big-font impact">Ideology</h1>
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
-            <div className="desktop-video">
-              <video
-                preload="none"
-                poster="/ideology-website-1.jpg"
-                muted
-                autoPlay
-                loop
-              >
-                <source src="/ideology.mp4" type="video/mp4" />
-              </video>
+            <div className="desktop">
+              <SrcImage
+                src="/ideology-website-2.jpg"
+                webp="/ideology-website-2.webp"
+                height="755px"
+                width="1424px"
+                alt="image of a website"
+              />
             </div>
-            <div className="mobile-video">
-              <video
-                preload="none"
-                poster="/ideology-website-1.jpg"
-                muted
-                autoPlay
-                loop
-              >
-                <source src="/ideology-mobile.mp4" type="video/mp4" />
-              </video>
+            <div className="mobile">
+              <SrcImage
+                src="/ideology-website-mobile-6.jpg"
+                webp="/ideology-website-mobile-6.webp"
+                height="755px"
+                width="1424px"
+                alt="image of a website"
+              />
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">
