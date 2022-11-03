@@ -458,11 +458,7 @@
 
   .box-image-cnt {
     width: 60%;
-    height: 50%;
-  }
-
-  .box-subtitle {
-    margin-bottom: 1rem;
+    height: 10%;
   }
 
   .btn-big {
@@ -626,7 +622,7 @@
   }
 
   .box-image-cnt img {
-    width: 80%;
+    width: 100%;
     height: auto;
   }
 
