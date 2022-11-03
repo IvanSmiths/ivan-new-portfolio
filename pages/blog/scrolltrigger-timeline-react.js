@@ -39,7 +39,7 @@ function ScrollTlReact() {
       scrollTrigger: {
         trigger: myRef.current,
         start: "top top",
-        end: "+=3500px bottom",
+        end: "3500 bottom",
         scrub: true,
         pin: true,
       },

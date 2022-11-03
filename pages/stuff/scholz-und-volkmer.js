@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import SuvHeader from "../../components/SUV/SuvHeader";
-import SuvFirstSection from "../../components/SUV/SuvFirstSection";
+import SuvTextImage from "../../components/SUV/SuvTextImage";
+import SuvImageText from "../../components/SUV/SuvImageText";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
+import SuvHero from "../../components/SUV/SuvHero";
+import SuvDesc from "../../components/SUV/SuvDesc";
+import Marquee from "../../components/Marquee";
+import SuvWorks from "../../components/SUV/SuvWorks";
+import SuvMobile from "../../components/SUV/SuvMobile";
+import SuvTextBlock from "../../components/SUV/SuvTextBlock";
 
 function ScholzUndVolkmer() {
   const [isDesktop, setDesktop] = useState(false);
@@ -60,8 +66,14 @@ function ScholzUndVolkmer() {
           content="preview of Scholz & Volkmer case studio"
         />
       </Head>
-      <SuvHeader />
-      <SuvFirstSection />
+      <SuvHero />
+      <SuvDesc />
+      <SuvTextBlock />
+      <SuvTextImage />
+      <SuvMobile />
+      <SuvImageText />
+      <Marquee />
+      <SuvWorks />
       {isDesktop ? (
         <Footer link="stuff/ideology" />
       ) : (

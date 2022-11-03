@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
 
-function CgHero() {
+function SuvHero() {
   gsap.registerPlugin(ScrollTrigger);
 
   const videoTriggerRef = useRef(null);
@@ -60,34 +60,34 @@ function CgHero() {
       <div ref={videoTriggerRef} className="cs__video-outer">
         <div className="cs__video-inner">
           <div ref={companyRef} className="cs__video-h1">
-            <h1 className="big-font impact">CG Prospect</h1>
+            <h1 className="big-font impact">Scholz & Volkmer</h1>
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
             <div className="desktop-video">
               <video
                 preload="none"
-                poster="/cg-prospect-website-1.jpg"
+                poster="/scholz-und-volkmer-website-2.jpg"
                 muted
                 autoPlay
                 loop
               >
-                <source src="/cg-prospect.mp4" type="video/mp4" />
+                <source src="/suv.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="mobile-video">
               <video
                 preload="none"
-                poster="/cg-prospect-website-1.jpg"
+                poster="/scholz-und-volkmer-website-2.jpg"
                 muted
                 autoPlay
                 loop
               >
-                <source src="/cg-prospect-mobile.mp4" type="video/mp4" />
+                <source src="/suv-mobile.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">
-            <h2 className="big-font impact">{t("cg-prospect:role")}</h2>
+            <h2 className="big-font impact">{t("suv:role")}</h2>
           </div>
         </div>
       </div>
@@ -95,4 +95,4 @@ function CgHero() {
   );
 }
 
-export default CgHero;
+export default SuvHero;

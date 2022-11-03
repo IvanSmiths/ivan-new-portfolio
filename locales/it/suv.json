@@ -1,14 +1,14 @@
 {
-  "header": "Sviluppatore frontend: ",
-  "tech": "Tecnologie: ",
-  "animation": "Animationi: ",
-  "frontend": "Frontend: ",
-  "style": "Stile: ",
+  "role": "Sviluppatore Frontend",
+  "stack": "Tecnologie: ",
+  "happy": "Clienti felici: ",
   "date": "Data: ",
-  "current": "In corso",
-  "clients": "Clienti: ",
-  "caption": "Creare animazioni estremamente complesse con Gsap",
-  "case-studio-1-header": "Vue.js / Nuxt.js",
-  "case-studio-1-headline": "Animazioni, animazioni... animazioni!",
-  "case-studio-1-paragraph": "Non appena sono entrato in S&V, ho iniziato a lavorare su vari componenti e animazioni, utilizzando Gsap per la creazione di animazioni e Vuex come state manager."
+  "current": "Impiego corrente",
+  "coding": "Ore di scrittura codice: ",
+  "hours": "Contando...",
+  "caption": "Mission: Typesafety (and coding jawdropping animations with Gsap and ScrollTrigger)",
+  "caption-desc": "Scholz & Volkmer is a creative agency for digital branding. Counting +150 employee and more than 30 clients such as Mercedes, DB and Adidas, S&V have been developing interactive communication since 1994 and every piece of work is based on a unique idea and presented using excellent design.",
+  "cs-1-h": "Animations, animations... animations!",
+  "cs-1-p": "As soon as i joined S&V, my firsts Jira tickets were about dealing with animations. Using Gsap, i managed to code animations that are curently in production website like in the ",
+  "cs-wmf": "Wmf one."
 }

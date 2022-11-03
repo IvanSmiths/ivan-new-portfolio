@@ -1,5 +1,12 @@
 export const pageData = [
   {
+    id: "lemon-image",
+    title: "Lemon Soda",
+    url: "/lemon-soda.jpg",
+    info: ["UI/UX", "DEVELOPMENT", "2021"],
+    page: "https://lemonsoda.it/special-edition/",
+  },
+  {
     id: "remax-image",
     title: "REMAX",
     url: "/ideology-website-mobile-11.png",

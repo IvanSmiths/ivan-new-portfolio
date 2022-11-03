@@ -1,13 +1,6 @@
-.about-title-cnt {
-  width: 100%;
-  padding-top: 4rem;
-  text-align: right;
-  padding-left: 20vw;
-  text-transform: uppercase;
-}
-
 .about__header {
-  padding-bottom: var(--marginSection);
+  width: 60%;
+  padding: 4rem 0 var(--marginSection) var(--marginLayoutLeftFirst2);
 }
 
 .about__container {

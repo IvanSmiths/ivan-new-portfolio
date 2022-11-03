@@ -176,7 +176,7 @@ function Navbar() {
               </a>
             </li>
           </ul>
-          <ul className="lang-cnt2">
+          <ul className="lang-cnt">
             <li>
               <Link locale="en" href={router.asPath}>
                 <a onClick={handleNavLinkClick} className="tiny-font">
@@ -193,14 +193,6 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className="burger-menu-info-cnt">
-          <a
-            href="mailto:info@ivansmiths.com"
-            className="btn-big btn-email small-font"
-          >
-            info@ivansmiths.com
-          </a>
         </div>
       </nav>
     </>

@@ -77,10 +77,10 @@ function About() {
       <div id="about" className="homepage-about-p-cnt">
         <div className="about">
           <div className="about-cnt">
-            <h2 className="tiny-font spacing">ivan smiths</h2>
+            <h2 className="tiny-font ">ivan smiths</h2>
             <h3 className="medium-font">{t("home:about-desc")}</h3>
           </div>
-          <p className="small-font indent">
+          <p className="small-font">
             {t("home:about")}
             <br />
             <br />
