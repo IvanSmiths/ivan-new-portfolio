@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
+import SrcImage from "../SrcImage";
 
 function SuvHero() {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,27 +64,25 @@ function SuvHero() {
             <h1 className="big-font impact">Scholz & Volkmer</h1>
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
-            <div className="desktop-video">
-              <video
-                preload="none"
-                poster="/scholz-und-volkmer-website-2.jpg"
-                muted
-                autoPlay
-                loop
-              >
-                <source src="/suv.mp4" type="video/mp4" />
-              </video>
+            <div className="desktop">
+              <SrcImage
+                classDiv="flex-center"
+                src="/scholz-und-volkmer-website-3.jpg"
+                webp="/scholz-und-volkmer-website-3.webp"
+                height="929px"
+                width="1902px"
+                alt="image of a website"
+              />
             </div>
-            <div className="mobile-video">
-              <video
-                preload="none"
-                poster="/scholz-und-volkmer-website-2.jpg"
-                muted
-                autoPlay
-                loop
-              >
-                <source src="/suv-mobile.mp4" type="video/mp4" />
-              </video>
+            <div className="mobile">
+              <SrcImage
+                classDiv="flex-center"
+                src="/scholz-und-volkmer-website-1.jpg"
+                webp="/scholz-und-volkmer-website-1.webp"
+                height="929px"
+                width="1902px"
+                alt="image of a website"
+              />
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">

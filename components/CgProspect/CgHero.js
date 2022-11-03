@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
+import SrcImage from "../SrcImage";
 
 function CgHero() {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,27 +64,23 @@ function CgHero() {
             <h1 className="big-font impact">CG Prospect</h1>
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
-            <div className="desktop-video">
-              <video
-                preload="none"
-                poster="/cg-prospect-website-1.jpg"
-                muted
-                autoPlay
-                loop
-              >
-                <source src="/cg-prospect.mp4" type="video/mp4" />
-              </video>
+            <div className="desktop">
+              <SrcImage
+                src="/cg-prospect-website-1.jpg"
+                webp="/cg-prospect-website-1.webp"
+                height="755px"
+                width="1440px"
+                alt="image of a website"
+              />
             </div>
-            <div className="mobile-video">
-              <video
-                preload="none"
-                poster="/cg-prospect-website-1.jpg"
-                muted
-                autoPlay
-                loop
-              >
-                <source src="/cg-prospect-mobile.mp4" type="video/mp4" />
-              </video>
+            <div className="mobile">
+              <SrcImage
+                src="/cg-prospect-mobile.jpg"
+                webp="/cg-prospect-mobile.webp"
+                height="755px"
+                width="1440px"
+                alt="image of a website"
+              />
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">

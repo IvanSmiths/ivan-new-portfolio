@@ -107,7 +107,7 @@
   }
 
   .mobile-video {
-    display: block !important;
+    display: flex !important;
   }
 
   .cs__video-inner video {
