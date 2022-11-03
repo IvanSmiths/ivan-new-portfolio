@@ -71,6 +71,7 @@ function CgHero() {
                 height="755px"
                 width="1440px"
                 alt="image of a website"
+                lazyOff={true}
               />
             </div>
             <div className="mobile">
@@ -80,6 +81,7 @@ function CgHero() {
                 height="755px"
                 width="1440px"
                 alt="image of a website"
+                lazyOff={true}
               />
             </div>
           </div>
