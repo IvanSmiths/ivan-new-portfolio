@@ -65,6 +65,7 @@ function CgHero() {
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
             <div className="desktop">
+              <div className="cs__image-mask"></div>
               <SrcImage
                 src="/cg-prospect-website-1.jpg"
                 webp="/cg-prospect-website-1.webp"
