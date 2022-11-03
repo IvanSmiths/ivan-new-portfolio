@@ -6,17 +6,6 @@ function CgImageText() {
   let { t } = useTranslation();
   return (
     <>
-      <div className="case-studio-description case-studio-description-first">
-        <div className="case-studio-description__first-column">
-          <h2 className="small-font">
-            01 / <span> Performances</span>
-          </h2>
-          <h3 className="medium-font">{t("cg-prospect:cs-1-h")}</h3>
-        </div>
-        <div className="case-studio-description__second-column">
-          <p>{t("cg-prospect:cs-1-p")}</p>
-        </div>
-      </div>
       <div className="case-studio__images">
         <div className="case-studio__screen-image">
           <SrcImage
@@ -35,6 +24,17 @@ function CgImageText() {
             width="1440px"
             alt="image of a website"
           />
+        </div>
+      </div>
+      <div className="case-studio-description case-studio-description-first">
+        <div className="case-studio-description__first-column">
+          <h2 className="small-font">
+            01 / <span> Performances</span>
+          </h2>
+          <h3 className="medium-font">{t("cg-prospect:cs-1-h")}</h3>
+        </div>
+        <div className="case-studio-description__second-column">
+          <p>{t("cg-prospect:cs-1-p")}</p>
         </div>
       </div>
     </>
