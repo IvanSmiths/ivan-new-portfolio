@@ -1,90 +1,94 @@
-import React, { useEffect, useContext, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import Link from "next/link";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
-import { CursorContext } from "../../components/CursorManager";
-import SrcImage from "../../components/SrcImage";
-
-function useArrayRef() {
-  const staggerRefs = useRef([]);
-  staggerRefs.current = [];
-  return [staggerRefs, (ref) => ref && staggerRefs.current.push(ref)];
-}
 
 function CgHero() {
-  const [staggerRefs, setStaggerRef] = useArrayRef();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const videoTriggerRef = useRef(null);
+  const videoRef = useRef(null);
+  const companyRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      staggerRefs.current,
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: videoTriggerRef.current,
+        start: "top top",
+        end: "5000 bottom",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    tl.to(
+      videoRef.current,
+      {
+        scale: 0.5,
+        duration: 1,
+        ease: "power4",
+      },
+      1
+    );
+    tl.to(
+      videoRef.current,
+      {
+        filter: "brightness(1)",
+        duration: 0.3,
+      },
+      0.3
+    );
+    tl.to(
+      companyRef.current,
       {
         opacity: 0,
+        translateY: -20,
+        duration: 0.1,
       },
-      {
-        opacity: 1,
-        stagger: 0.2,
-      }
+      0.3
     );
-  }, [staggerRefs]);
 
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize("medium");
-  };
-  const handleMouseLeave = () => {
-    setSize("small");
-  };
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   let { t } = useTranslation();
+
   return (
-    <header className="case-studio-header">
-      <div className="case-studio-header__first-row">
-        <div>
-          <span ref={setStaggerRef} className="small-font ">
-            {t("cg-prospect:header")} React.js (Next.js)
-          </span>
-          <h1 ref={setStaggerRef} className="big-font impact">
-            CG Prospect <br />
-          </h1>
-        </div>
-        <Link href="https://www.cgprospect.com/">
-          <a
-            ref={setStaggerRef}
-            target="_blank"
-            rel="noopener noreferrer"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="case-studio-header__link btn-small"
-          >
-            website
-          </a>
-        </Link>
-      </div>
-      <div className="case-studio-header__second-row">
-        <div>
-          <div className="case-studio-header__second-row__first-list">
-            <ul ref={setStaggerRef}>
-              <li className="bold">{t("cg-prospect:tech")}</li>
-              <li>{t("cg-prospect:frontend")}React.js (Next.js)</li>
-              <li>Backend: PostgreSQL (Prisma)</li>
-              <li>{t("cg-prospect:style")}CSS</li>
-            </ul>
-            <ul ref={setStaggerRef}>
-              <li className="bold">{t("cg-prospect:date")}</li>
-              <li>11/06/2021</li>
-              <li>{t("cg-prospect:current")}</li>
-            </ul>
+    <header>
+      <div ref={videoTriggerRef} className="cs__video-outer">
+        <div className="cs__video-inner">
+          <div ref={companyRef} className="cs__video-h1">
+            <h1 className="big-font impact">CG Prospect</h1>
           </div>
-          <div className="case-studio-header__second-row__first-list second-row__second-list"></div>
-        </div>
-        <div className="case-studio-header__second-row__image">
-          <SrcImage
-            src={"/cg-prospect-website-1.jpg"}
-            webp={"/cg-prospect-website-1.webp"}
-            height={"752px"}
-            width={"1440px"}
-            alt={"image"}
-          />
+          <div className="cs__video-cnt" ref={videoRef}>
+            <div className="desktop-video">
+              <video
+                preload="none"
+                poster="/cg-prospect-website.jpg"
+                muted
+                autoPlay
+                loop
+              >
+                <source src="/cg-prospect.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div className="mobile-video">
+              <video
+                preload="none"
+                poster="/cg-prospect-website.jpg"
+                muted
+                autoPlay
+                loop
+              >
+                <source src="/cg-prospect-mobile.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div className="cs__video-h1 cs__video-h2">
+            <h2 className="big-font impact">{t("suv:role")}</h2>
+          </div>
         </div>
       </div>
     </header>
