@@ -77,16 +77,20 @@ const About = () => {
       }
     );
 
-    tl.to(firstWebsiteCopyRef.current, {
-      keyframes: [
-        { opacity: 1, zIndex: 3, translateX: 30 },
-        {
-          opacity: 0,
-          delay: 1,
-          translateX: 0,
-        },
-      ],
-    });
+    tl.fromTo(
+      firstWebsiteCopyRef.current,
+      { translateX: -30 },
+      {
+        keyframes: [
+          { opacity: 1, zIndex: 3, translateX: 0 },
+          {
+            opacity: 0,
+            delay: 1,
+            translateX: -30,
+          },
+        ],
+      }
+    );
 
     tl.to(firstWebsiteImageRef.current, {
       opacity: 0,
@@ -95,16 +99,20 @@ const About = () => {
       opacity: 1,
     });
 
-    tl.to(idCopyRef.current, {
-      keyframes: [
-        { opacity: 1, zIndex: 4, translateX: 30 },
-        {
-          opacity: 0,
-          translateX: 0,
-          delay: 1,
-        },
-      ],
-    });
+    tl.fromTo(
+      idCopyRef.current,
+      { translateX: -30 },
+      {
+        keyframes: [
+          { opacity: 1, zIndex: 4, translateX: 0 },
+          {
+            opacity: 0,
+            translateX: -30,
+            delay: 1,
+          },
+        ],
+      }
+    );
 
     tl.to(idImageRef.current, {
       opacity: 0,
@@ -127,12 +135,16 @@ const About = () => {
       opacity: 1,
     });
 
-    tl.to(cgCopyRef.current, {
-      keyframes: [
-        { opacity: 1, zIndex: 5, translateX: 30 },
-        { opacity: 0, delay: 1, translateX: 0 },
-      ],
-    });
+    tl.fromTo(
+      cgCopyRef.current,
+      { translateX: -30 },
+      {
+        keyframes: [
+          { opacity: 1, zIndex: 5, translateX: 0 },
+          { opacity: 0, delay: 1, translateX: -30 },
+        ],
+      }
+    );
 
     tl.to(cgImageRef.current, {
       opacity: 0,
@@ -150,11 +162,15 @@ const About = () => {
         },
       ],
     });
-    tl.to(svCopyRef.current, {
-      opacity: 1,
-      zIndex: 5,
-      translateX: 30,
-    });
+    tl.fromTo(
+      svCopyRef.current,
+      { translateX: -30 },
+      {
+        opacity: 1,
+        zIndex: 5,
+        translateX: 0,
+      }
+    );
 
     tl.to(svImageRef.current, {
       keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
@@ -162,7 +178,7 @@ const About = () => {
 
     tl.to(svCopyRef.current, {
       opacity: 0,
-      translateX: 0,
+      translateX: -30,
     });
 
     tl.to(finRef.current, {
