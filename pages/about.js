@@ -267,8 +267,9 @@ const About = () => {
           <img
             ref={firstWebsiteImageRef}
             className="about__absolute-right about__opacity"
-            src="ivan-smiths-first-website.jpg"
-            alt=""
+            src="/ivan-smiths-first-website.jpg"
+            alt="first website"
+            loading="lazy"
           />
           <div
             ref={firstWebsiteCopyRef}
@@ -295,10 +296,11 @@ const About = () => {
           <img
             ref={idImageRef}
             className="about__absolute-right about__opacity"
-            src="id-bottone.jpg"
+            src="/id-bottone.jpg"
             height="667px"
             width="375px"
             alt="image of a work"
+            loading="lazy"
           />
           <div
             ref={idCopyRef}
@@ -340,8 +342,9 @@ const About = () => {
           <img
             ref={cgImageRef}
             className="about__absolute-right about__opacity"
-            src="cg-prospect-mobile.jpg"
+            src="/cg-prospect-mobile.jpg"
             alt="image of a work"
+            loading="lazy"
           />
           <h3 ref={ref2022}>2022</h3>
           <div
@@ -364,8 +367,9 @@ const About = () => {
           <img
             ref={svImageRef}
             className="about__absolute-right about__opacity"
-            src="scholz-und-volkmer-website-1.png"
+            src="/scholz-und-volkmer-website-1.png"
             alt=" image of a work"
+            loading="lazy"
           />
           <span ref={finRef}>
             Fine. <br /> (for now)
