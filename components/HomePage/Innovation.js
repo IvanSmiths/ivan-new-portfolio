@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import useTranslation from "next-translate/useTranslation";
 
 const Innovation = () => {
+  let { t } = useTranslation();
   const innovationRef = useRef(null);
   const innovationTriggerRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
@@ -34,7 +36,9 @@ const Innovation = () => {
     <div>
       <div className="home__innovation-outer" ref={innovationTriggerRef}>
         <div className="home__innovation-inner" ref={innovationRef}>
-          <h2 className="home__innovation extreme-font">INNOVATION</h2>
+          <h2 className="home__innovation extreme-font">
+            {t("home:innovation")}
+          </h2>
         </div>
       </div>
     </div>

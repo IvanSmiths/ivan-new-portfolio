@@ -6,9 +6,9 @@
   "current": "Impiego corrente",
   "coding": "Ore di scrittura codice: ",
   "hours": "Contando...",
-  "caption": "Mission: Typesafety (and coding jawdropping animations with Gsap and ScrollTrigger)",
-  "caption-desc": "Scholz & Volkmer is a creative agency for digital branding. Counting +150 employee and more than 30 clients such as Mercedes, DB and Adidas, S&V have been developing interactive communication since 1994 and every piece of work is based on a unique idea and presented using excellent design.",
-  "cs-1-h": "Animations, animations... animations!",
-  "cs-1-p": "As soon as i joined S&V, my firsts Jira tickets were about dealing with animations. Using Gsap, i managed to code animations that are curently in production website like in the ",
-  "cs-wmf": "Wmf one."
+  "caption": "Missione: Typesafety (e scrivere animazioni sbalorditive con Gsap e ScrollTrigger)",
+  "caption-desc": "Scholz & Volkmer è un'agenzia creativa per il branding digitale. Con oltre 180 dipendenti e più di 30 clienti come Mercedes, DB e Adidas, S&V sviluppa la comunicazione interattiva dal 1994 ed ogni lavoro si basa su un'idea unica e presentato utilizzando un design eccellente.",
+  "cs-1-h": "Animazioni, animazioni... animazioni!",
+  "cs-1-p": "Non appena sono entrato in S&V, i miei primi ticket di Jira riguardavano le animazioni. Usando Gsap, sono riuscito a creare animazioni che sono attualmente nel sito Web di ",
+  "cs-wmf": "Wmf."
 }

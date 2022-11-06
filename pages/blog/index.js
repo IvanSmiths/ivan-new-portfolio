@@ -96,7 +96,7 @@ function Blog() {
               />
               <BlogPost
                 link="/blog/scrolltrigger-timeline-react"
-                image="gsap-react.png"
+                image="/gsap-react.png"
                 title="How to use Scrolltrigger with timeline in React"
                 excerpt="The following snippets allows you to use Gsap timelines with Scrolltrigger in React (Next.js)"
                 date="20 September, 2022"
@@ -107,7 +107,7 @@ function Blog() {
             <>
               <BlogPost
                 link="/blog/scrolltrigger-timeline-react"
-                image="gsap-react.png"
+                image="/gsap-react.png"
                 title="How to use Scrolltrigger with timeline in React"
                 excerpt="The following snippets allows you to use Gsap timelines with Scrolltrigger in React (Next.js)"
                 date="20 September, 2022"
@@ -127,7 +127,7 @@ function Blog() {
           ) : null}
         </main>
       </div>
-      {isDesktop ? <Footer link="" /> : <FooterSimple text="Home" link="" />}
+      {isDesktop ? <Footer link="" /> : <FooterSimple text="Home" link="/" />}
     </>
   );
 }
