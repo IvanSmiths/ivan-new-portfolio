@@ -94,7 +94,7 @@ function Navbar() {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                what i write
+                {t("common:nav-post")}
               </a>
             </Link>
           </li>
