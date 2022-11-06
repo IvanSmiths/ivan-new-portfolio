@@ -423,6 +423,10 @@
   z-index: 5;
 }
 
+.home__innovation-inner h2 {
+  padding: var(--marginElementMedium) 0;
+}
+
 .description {
   width: 50%;
   position: absolute;
