@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../CursorManager";
 function SuvTextBlock() {
