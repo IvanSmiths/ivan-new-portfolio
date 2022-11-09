@@ -1,7 +1,15 @@
 import React from "react";
 import useTranslation from "next-translate/useTranslation";
+import { CursorContext } from "../CursorManager";
 function CgTextBlock() {
   let { t } = useTranslation();
+  const { setSize } = useContext(CursorContext);
+  const handleMouseEnter = () => {
+    setSize("medium");
+  };
+  const handleMouseLeave = () => {
+    setSize("small");
+  };
   return (
     <div className="paragraph-block-outer paragraph-block-outer-first flex-center">
       <div className="paragraph-block-inner">
@@ -11,6 +19,8 @@ function CgTextBlock() {
         <div className="paragraph-block__link-text">
           <div>
             <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               className="medium-font btn-small btn-small-3"
               href="https://www.cgprospect.com"
               target="_blank"

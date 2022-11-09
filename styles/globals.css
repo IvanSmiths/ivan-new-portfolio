@@ -11,10 +11,6 @@ body,
     sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
