@@ -25,8 +25,8 @@ function Second() {
   }, []);
 
   return (
-    <div>
-      <div ref={triggerRef} className="works__outer">
+    <div ref={triggerRef}>
+      <div className="works__outer">
         <div className="works__inner">
           <div className="works__company">
             <div className="works__mask-top"></div>
@@ -49,6 +49,26 @@ function Second() {
               <li>Date</li>
             </ul>
             <div className="works__mask-bottom"></div>
+          </div>
+        </div>
+        <div className="works__inner">
+          <div className="works__company">
+            <h1>Suv</h1>
+          </div>
+          <div className="works__image">
+            <img
+              src="ideology-website-mobile-1.png"
+              height="805px"
+              with="469px"
+              alt="work"
+            />
+          </div>
+          <div className="works__desc">
+            <ul>
+              <li>Frontend developer</li>
+              <li>Stack used</li>
+              <li>Date</li>
+            </ul>
           </div>
         </div>
         <div className="works__inner">
