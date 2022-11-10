@@ -61,6 +61,13 @@
   overflow: hidden;
 }
 
+.work {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 300vh;
+}
+
 .works__outer {
   height: 100vh;
   width: 100%;
@@ -84,24 +91,14 @@
 .works__company-inner {
   position: absolute;
   top: 50%;
+  overflow: hidden;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.works__mask-top {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 40%;
-}
-
-.works__mask-bottom {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 40%;
 }
 
 .works__image {

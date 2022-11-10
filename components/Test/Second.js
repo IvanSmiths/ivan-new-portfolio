@@ -29,7 +29,7 @@ function Second() {
     tl.to(
       textRef.current,
       {
-        translateY: -100,
+        color: "red",
       },
       0
     );
