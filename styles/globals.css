@@ -334,6 +334,7 @@ li {
 @import "about.css";
 @import "blog.css";
 @import "footer.css";
+@import "test.css";
 
 .word-wrap {
   word-wrap: break-word;
