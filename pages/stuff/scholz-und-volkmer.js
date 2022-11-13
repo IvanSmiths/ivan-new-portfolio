@@ -3,7 +3,6 @@ import Head from "next/head";
 import SuvTextImage from "../../components/SUV/SuvTextImage";
 import SuvImageText from "../../components/SUV/SuvImageText";
 import Footer from "../../components/Footer";
-import FooterSimple from "../../components/FooterSimple";
 import SuvHero from "../../components/SUV/SuvHero";
 import SuvDesc from "../../components/SUV/SuvDesc";
 import Marquee from "../../components/Marquee";

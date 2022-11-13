@@ -4,7 +4,6 @@ import Head from "next/head";
 import Marquee from "../../components/Marquee";
 import IdHero from "../../components/Ideology/IdHero";
 import Footer from "../../components/Footer";
-import FooterSimple from "../../components/FooterSimple";
 import IdDesc from "../../components/Ideology/IdDesc";
 import IdTextImage from "../../components/Ideology/IdTextImage";
 import IdImageText from "../../components/Ideology/IdImageText";
