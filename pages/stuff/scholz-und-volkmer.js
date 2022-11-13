@@ -70,15 +70,11 @@ function ScholzUndVolkmer() {
       <SuvDesc />
       <SuvTextBlock />
       <SuvTextImage />
-      <SuvMobile />
+      {isDesktop ? <SuvMobile /> : null}
       <SuvImageText />
       <Marquee />
       <SuvWorks />
-      {isDesktop ? (
-        <Footer link="stuff/ideology" />
-      ) : (
-        <FooterSimple text="Ideology" link="/stuff/ideology" />
-      )}
+      <Footer link="stuff/ideology" />
     </>
   );
 }
