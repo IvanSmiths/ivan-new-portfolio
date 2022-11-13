@@ -606,6 +606,14 @@
     width: 80%;
   }
 
+  .theme-toggle {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 2rem;
+    z-index: 9999;
+  }
+
   .paragraph-block-outer-first {
     margin-top: 8% !important;
   }

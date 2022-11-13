@@ -103,7 +103,6 @@ function Navbar() {
           </li>
         </ul>
       </nav>
-
       <div className="menu" ref={menuRef} onClick={handleMenuClick}>
         <div className="menu-line-wrapper">
           <div ref={menuLine1} className="menu-line menu-line-1"></div>
@@ -111,6 +110,8 @@ function Navbar() {
           <div ref={menuLine3} className="menu-line menu-line-3"></div>
         </div>
       </div>
+      <ThemeToggle />
+
       <nav ref={navRef} className="overlay-burger-menu as-opened">
         <span className="close-nav"></span>
         <div ref={navLinksRef} className="links-socials-cnt">
