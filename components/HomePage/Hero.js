@@ -132,7 +132,7 @@ const Hero = () => {
         }}
         className="home-header-cnt"
       >
-        <div ref={firstRowRef} className="big-font  title-1-cnt">
+        <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
             {t("home:speed")}
           </em>
@@ -142,7 +142,7 @@ const Hero = () => {
             {t("home:header-title-3")}
           </p>
         </div>
-        <div ref={secondRowRef} className="big-font  title-2-cnt">
+        <div ref={secondRowRef} className="big-font title-2-cnt">
           <Link href="/stuff" passHref>
             <a
               ref={linkRef}
@@ -151,7 +151,7 @@ const Hero = () => {
               }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="tiny-font absolute-small title-link btn-small btn-small-2"
+              className="tiny-font desktop title-link btn-small btn-small-2"
             >
               {t("common:nav-stuff")}
             </a>

@@ -512,11 +512,21 @@
     margin-top: 1rem;
   }
 
+  .header__wrapper {
+    position: relative;
+  }
+
   .lang-cnt {
     display: flex;
     flex-direction: row;
     z-index: 99;
     gap: 0.6rem;
+  }
+
+  .cta-hero-home {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .title-image {
@@ -525,6 +535,7 @@
 
   .title-2-cnt {
     padding-top: 0;
+    padding-bottom: 1rem;
     margin-left: 0rem;
   }
 
