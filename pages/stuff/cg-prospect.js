@@ -68,11 +68,8 @@ const CgProspect = () => {
       <CgDesc />
       <CgTextBlock />
       <CgImageText />
-      {isDesktop ? (
-        <Footer link="blog" />
-      ) : (
-        <FooterSimple text="Blog" link="/blog" />
-      )}
+
+      <Footer link="blog" />
     </>
   );
 };
