@@ -11,25 +11,6 @@ import SuvMobile from "../../components/SUV/SuvMobile";
 import SuvTextBlock from "../../components/SUV/SuvTextBlock";
 
 function ScholzUndVolkmer() {
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 500) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 500) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
   return (
     <>
       <Head>
@@ -69,7 +50,7 @@ function ScholzUndVolkmer() {
       <SuvDesc />
       <SuvTextBlock />
       <SuvTextImage />
-      {isDesktop ? <SuvMobile /> : null}
+      <SuvMobile />
       <SuvImageText />
       <Marquee />
       <SuvWorks />

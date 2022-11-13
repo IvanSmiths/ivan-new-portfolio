@@ -47,7 +47,7 @@ function SuvMobile() {
   }, [topRefs, bottomRefs]);
 
   return (
-    <div ref={triggerRef} className="climax-website-cnt">
+    <div ref={triggerRef} className="desktop climax-website-cnt">
       <ul className="climax-website">
         <li ref={setTopRefs} className="flex-center">
           <SrcImage

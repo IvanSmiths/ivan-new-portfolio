@@ -12,26 +12,6 @@ import IdWorks from "../../components/Ideology/IdWorks";
 import IdTextBlock from "../../components/Ideology/IdTextBlock";
 
 const Ideology = () => {
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 500) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 500) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
-
   return (
     <>
       <Head>
@@ -72,7 +52,7 @@ const Ideology = () => {
       <IdTextBlock />
       <IdTextImage />
       <IdImageText />
-      {isDesktop ? <IdMobile /> : null}
+      <IdMobile />
       <Marquee />
       <IdWorks />
       <Footer link="stuff/cg-prospect" />
