@@ -110,7 +110,9 @@ function Navbar() {
           <div ref={menuLine3} className="menu-line menu-line-3"></div>
         </div>
       </div>
-      <ThemeToggle />
+      <div className="mobile">
+        <ThemeToggle />
+      </div>
 
       <nav ref={navRef} className="overlay-burger-menu as-opened">
         <span className="close-nav"></span>

@@ -233,8 +233,8 @@ li {
 .btn-small {
   background: linear-gradient(
     to bottom,
-    var(--main-color) 0%,
-    var(--main-color) 100%
+    var(--color-text-primary) 0%,
+    var(--color-text-primary) 100%
   );
   background-position: right center;
   background-repeat: no-repeat;
@@ -248,7 +248,7 @@ li {
 
 .btn-small:hover {
   border: 1px solid var(--color-bg-primary);
-  color: black;
+  color: var(--color-text-inverse);
   background-size: 100% 100%;
   background-position: left center;
 }
