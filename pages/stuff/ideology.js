@@ -4,7 +4,6 @@ import Head from "next/head";
 import Marquee from "../../components/Marquee";
 import IdHero from "../../components/Ideology/IdHero";
 import Footer from "../../components/Footer";
-import FooterSimple from "../../components/FooterSimple";
 import IdDesc from "../../components/Ideology/IdDesc";
 import IdTextImage from "../../components/Ideology/IdTextImage";
 import IdImageText from "../../components/Ideology/IdImageText";
@@ -13,26 +12,6 @@ import IdWorks from "../../components/Ideology/IdWorks";
 import IdTextBlock from "../../components/Ideology/IdTextBlock";
 
 const Ideology = () => {
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 500) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 500) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
-
   return (
     <>
       <Head>
@@ -76,11 +55,7 @@ const Ideology = () => {
       <IdMobile />
       <Marquee />
       <IdWorks />
-      {isDesktop ? (
-        <Footer link={"stuff/cg-prospect"} />
-      ) : (
-        <FooterSimple text="Cg Prospect" link="/stuff/cg-prospect" />
-      )}
+      <Footer link="stuff/cg-prospect" />
     </>
   );
 };

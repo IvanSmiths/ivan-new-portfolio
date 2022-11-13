@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import CgHero from "../../components/CgProspect/CgHero";
 import Footer from "../../components/Footer";
-import FooterSimple from "../../components/FooterSimple";
 import CgDesc from "../../components/CgProspect/CgDesc";
 import CgImageText from "../../components/CgProspect/CgImageText";
 import CgTextBlock from "../../components/CgProspect/CgTextBlock";
@@ -68,11 +67,8 @@ const CgProspect = () => {
       <CgDesc />
       <CgTextBlock />
       <CgImageText />
-      {isDesktop ? (
-        <Footer link="blog" />
-      ) : (
-        <FooterSimple text="Blog" link="/blog" />
-      )}
+
+      <Footer link="blog" />
     </>
   );
 };

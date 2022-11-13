@@ -56,7 +56,7 @@ em {
   --text-white: #f8f8f8;
   --main-color: #d7f21d;
 
-  --extremeFont: calc(1.3rem + 90vw);
+  --extremeFont: calc(1.3rem + 110vw);
   --largeFont: clamp(4rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(3rem, 9.9vw, 9rem);
@@ -121,7 +121,7 @@ em {
 
 body,
 body[data-theme="light"] {
-  --color-bg-primary: #fefefe;
+  --color-bg-primary: #ffffff;
   --color-bg-sec: #e4e4e4;
   --color-bg-sub: #000000;
   --case-studio-main-color: #2b2b2b;
@@ -233,8 +233,8 @@ li {
 .btn-small {
   background: linear-gradient(
     to bottom,
-    var(--main-color) 0%,
-    var(--main-color) 100%
+    var(--color-text-primary) 0%,
+    var(--color-text-primary) 100%
   );
   background-position: right center;
   background-repeat: no-repeat;
@@ -248,7 +248,7 @@ li {
 
 .btn-small:hover {
   border: 1px solid var(--color-bg-primary);
-  color: black;
+  color: var(--color-text-inverse);
   background-size: 100% 100%;
   background-position: left center;
 }
@@ -304,13 +304,13 @@ li {
 }
 
 .medium {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .small {
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
 }
 
 .secondary-cursor {
@@ -334,6 +334,7 @@ li {
 @import "about.css";
 @import "blog.css";
 @import "footer.css";
+@import "test.css";
 
 .word-wrap {
   word-wrap: break-word;

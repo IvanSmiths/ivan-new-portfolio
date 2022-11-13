@@ -181,10 +181,6 @@
     width: 40%;
   }
 
-  .lang-cnt {
-    margin-bottom: 2rem;
-  }
-
   .lang-cnt li a {
     color: var(--color-text-inverse);
   }
@@ -452,8 +448,13 @@
     padding: 8vw 4.5vw !important;
   }
 
+  .about__absolute-left {
+    transform: translate(-50%, -50%);
+    left: 50%;
+  }
+
   .home-header-cnt {
-    gap: 3rem;
+    gap: 1rem;
   }
 
   .about__roadmap__copy-link {
@@ -511,10 +512,21 @@
     margin-top: 1rem;
   }
 
+  .header__wrapper {
+    position: relative;
+  }
+
   .lang-cnt {
+    display: flex;
+    flex-direction: row;
     z-index: 99;
-    display: none;
     gap: 0.6rem;
+  }
+
+  .cta-hero-home {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .title-image {
@@ -523,6 +535,7 @@
 
   .title-2-cnt {
     padding-top: 0;
+    padding-bottom: 1rem;
     margin-left: 0rem;
   }
 
@@ -599,6 +612,14 @@
 
   .cs__desc-text-wrapper {
     width: 80%;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 2rem;
+    z-index: 9999;
   }
 
   .paragraph-block-outer-first {

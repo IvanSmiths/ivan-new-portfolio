@@ -64,8 +64,8 @@ function SuvHero() {
             <div className="desktop">
               <div className="cs__image-mask"></div>
               <SrcImage
-                src="/ideology-website-2.jpg"
-                webp="/ideology-website-2.webp"
+                src="//ideology-website-5.jpg"
+                webp="/ideology-website-5.webp"
                 height="755px"
                 width="1424px"
                 alt="image of a website"

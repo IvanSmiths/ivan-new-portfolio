@@ -1,0 +1,134 @@
+.stuff {
+  display: flex;
+  height: 100vh;
+}
+
+.stuff__company {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10%;
+}
+
+.stuff__company-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70px;
+  overflow: hidden;
+  width: 60%;
+}
+
+.stuff__image {
+  width: 30%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.stuff__image img {
+  width: 60%;
+  height: auto;
+  transform: translateY(180px);
+}
+
+.stuff__desc {
+  width: 20%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stuff__desc-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 55px;
+  overflow: hidden;
+}
+
+.work {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 300vh;
+}
+
+.works__outer {
+  height: 100vh;
+  width: 100%;
+}
+
+.works__inner {
+  display: flex;
+  height: 100%;
+}
+
+.works__company {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10%;
+}
+
+.works__company-inner {
+  position: absolute;
+  top: 50%;
+  overflow: hidden;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.works__image {
+  width: 30%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.works__image-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.works__image img {
+  width: 70%;
+  height: auto;
+}
+
+.works__image-inner img {
+  width: auto;
+  height: auto;
+}
+
+.works__desc {
+  width: 20%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
