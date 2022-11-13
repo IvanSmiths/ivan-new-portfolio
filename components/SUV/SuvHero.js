@@ -68,8 +68,8 @@ function SuvHero() {
               <div className="cs__image-mask"></div>
               <SrcImage
                 classDiv="flex-center"
-                src="/scholz-und-volkmer-website-3.jpg"
-                webp="/scholz-und-volkmer-website-3.webp"
+                src="//scholz-und-volkmer-website-2.jpg"
+                webp="/scholz-und-volkmer-website-2.webp"
                 height="929px"
                 width="1902px"
                 alt="image of a website"
