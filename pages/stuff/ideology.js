@@ -73,14 +73,10 @@ const Ideology = () => {
       <IdTextBlock />
       <IdTextImage />
       <IdImageText />
-      <IdMobile />
+      {isDesktop ? <IdMobile /> : null}
       <Marquee />
       <IdWorks />
-      {isDesktop ? (
-        <Footer link={"stuff/cg-prospect"} />
-      ) : (
-        <FooterSimple text="Cg Prospect" link="/stuff/cg-prospect" />
-      )}
+      <Footer link="stuff/cg-prospect" />
     </>
   );
 };
