@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import SuvTextImage from "../../components/SUV/SuvTextImage";
 import SuvImageText from "../../components/SUV/SuvImageText";
