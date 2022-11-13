@@ -121,7 +121,7 @@ em {
 
 body,
 body[data-theme="light"] {
-  --color-bg-primary: #fefefe;
+  --color-bg-primary: #ffffff;
   --color-bg-sec: #e4e4e4;
   --color-bg-sub: #000000;
   --case-studio-main-color: #2b2b2b;
