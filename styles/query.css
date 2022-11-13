@@ -181,10 +181,6 @@
     width: 40%;
   }
 
-  .lang-cnt {
-    margin-bottom: 2rem;
-  }
-
   .lang-cnt li a {
     color: var(--color-text-inverse);
   }
@@ -517,8 +513,9 @@
   }
 
   .lang-cnt {
+    display: flex;
+    flex-direction: row;
     z-index: 99;
-    display: none;
     gap: 0.6rem;
   }
 
