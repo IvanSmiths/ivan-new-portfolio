@@ -452,6 +452,11 @@
     padding: 8vw 4.5vw !important;
   }
 
+  .about__absolute-left {
+    transform: translate(-50%, -50%);
+    left: 50%;
+  }
+
   .home-header-cnt {
     gap: 3rem;
   }
