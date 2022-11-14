@@ -145,10 +145,13 @@ body[data-theme="dark"] {
 }
 
 ::-moz-selection {
-  color: var(--main-color);
+  color: var(--color-bg-primary);
+  background-color: var(--color-text-primary);
 }
+
 ::selection {
-  color: var(--main-color);
+  color: var(--color-bg-primary);
+  background-color: var(--color-text-primary);
 }
 
 ::-webkit-scrollbar {
