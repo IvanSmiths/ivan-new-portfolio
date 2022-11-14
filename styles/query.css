@@ -19,6 +19,10 @@
     padding-top: 1.5rem;
   }
 
+  .box__width {
+    width: 70%;
+  }
+
   .title-2-cnt em {
     padding-top: 1rem;
   }
