@@ -65,7 +65,6 @@ function SuvHero() {
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
             <div className="desktop">
-              <div className="cs__image-mask"></div>
               <SrcImage
                 classDiv="flex-center"
                 src="//scholz-und-volkmer-website-2.jpg"
