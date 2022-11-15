@@ -374,6 +374,11 @@
     font-size: var(--bigFont);
   }
 
+  .cs__video-cnt img {
+    width: 100%;
+    object-fit: contain;
+  }
+
   .homepage-about-p-cnt {
     padding-top: 0;
     position: relative;
