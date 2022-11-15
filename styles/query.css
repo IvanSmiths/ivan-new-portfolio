@@ -351,7 +351,8 @@
   }
 
   .title-2-cnt em {
-    padding-top: 2rem;
+    padding-top: 0;
+    padding-bottom: 10px;
   }
 
   .btn-4 {
@@ -640,6 +641,10 @@
     margin-top: 13rem;
   }
 
+  .title-2-cnt em {
+    padding-top: 25px;
+    padding-bottom: 0;
+  }
   .menu-title {
     font-size: var(--largeFont);
   }
