@@ -52,6 +52,14 @@ em {
   display: none;
 }
 
+.page__404 .menu-line {
+  background-color: #000000;
+}
+
+.page__404 .close-nav {
+  background-color: var(--main-color);
+}
+
 .page__404 .secondary-cursor {
   background-color: #000000;
 }
