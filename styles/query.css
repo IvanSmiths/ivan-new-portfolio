@@ -380,7 +380,13 @@
     justify-content: center;
     align-items: center;
   }
-
+  .theme-toggle {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 2rem;
+    z-index: 9999;
+  }
   .btn-small-3 {
     padding: 7vw 3vw !important;
   }
@@ -616,14 +622,6 @@
 
   .cs__desc-text-wrapper {
     width: 80%;
-  }
-
-  .theme-toggle {
-    position: fixed;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 2rem;
-    z-index: 9999;
   }
 
   .paragraph-block-outer-first {
