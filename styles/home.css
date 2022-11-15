@@ -414,19 +414,6 @@
   width: 70vw;
 }
 
-.home__innovation-outer {
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-}
-
-.home__innovation-inner h2 {
-  padding: var(--marginElementMedium) 0;
-}
-
 .description {
   width: 50%;
   position: absolute;
