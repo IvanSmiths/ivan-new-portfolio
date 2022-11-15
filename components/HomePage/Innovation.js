@@ -14,7 +14,7 @@ function Innovation() {
       innovationRef.current,
       {
         scale: 1,
-        translateX: "15.98%",
+        translateX: "14.59%",
       },
       {
         scale: 0.1,
