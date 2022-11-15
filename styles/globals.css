@@ -89,6 +89,7 @@ em {
   --main-color: #d7f21d;
 
   --extremeFont: calc(1.3rem + 110vw);
+  --extremeFontHeight: clamp(50rem, 130vw, 300rem);
   --largeFont: clamp(4rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(3rem, 9.9vw, 9rem);
@@ -200,6 +201,7 @@ body[data-theme="dark"] {
 
 .extreme-font {
   font-size: var(--extremeFont);
+  line-height: var(--extremeFontHeight);
 }
 
 .large-font {

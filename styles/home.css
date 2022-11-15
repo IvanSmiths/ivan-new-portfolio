@@ -432,3 +432,19 @@
   position: absolute;
   left: -1000vw;
 }
+
+.inn-outer {
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inn-outer h2 {
+}
+
+.inn-inner {
+  background-color: green;
+}
