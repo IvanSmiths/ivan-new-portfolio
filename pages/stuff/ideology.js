@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import Marquee from "../../components/Marquee";
 import IdHero from "../../components/Ideology/IdHero";

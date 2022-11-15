@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import CgHero from "../../components/CgProspect/CgHero";
 import Footer from "../../components/Footer";
@@ -8,26 +7,6 @@ import CgImageText from "../../components/CgProspect/CgImageText";
 import CgTextBlock from "../../components/CgProspect/CgTextBlock";
 
 const CgProspect = () => {
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 500) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 500) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
-
   return (
     <>
       <Head>

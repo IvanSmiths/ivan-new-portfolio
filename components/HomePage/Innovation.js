@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import useTranslation from "next-translate/useTranslation";
 
-const Innovation = () => {
+function Innovation() {
   let { t } = useTranslation();
   const innovationRef = useRef(null);
   const innovationTriggerRef = useRef(null);
@@ -14,14 +14,16 @@ const Innovation = () => {
       innovationRef.current,
       {
         scale: 1,
+        translateX: "14.51%",
       },
       {
         scale: 0.1,
+        translateX: 0,
         ease: "expo.inOut",
         scrollTrigger: {
           trigger: innovationTriggerRef.current,
-          start: "top top",
-          end: "3000 top",
+          start: "center center",
+          end: "4000 top",
           scrub: true,
           pin: true,
         },
@@ -31,18 +33,15 @@ const Innovation = () => {
       innHero.kill();
     };
   }, []);
-
   return (
     <div>
-      <div className="home__innovation-outer" ref={innovationTriggerRef}>
-        <div className="home__innovation-inner" ref={innovationRef}>
-          <h2 className="home__innovation extreme-font">
-            {t("home:innovation")}
-          </h2>
-        </div>
+      <div ref={innovationTriggerRef} className="inn-outer">
+        <h2 ref={innovationRef} className="extreme-font">
+          {t("home:innovation")}
+        </h2>
       </div>
     </div>
   );
-};
+}
 
 export default Innovation;

@@ -62,9 +62,8 @@ function SuvHero() {
           </div>
           <div className="cs__video-cnt" ref={videoRef}>
             <div className="desktop">
-              <div className="cs__image-mask"></div>
               <SrcImage
-                src="//ideology-website-5.jpg"
+                src="/ideology-website-5.jpg"
                 webp="/ideology-website-5.webp"
                 height="755px"
                 width="1424px"

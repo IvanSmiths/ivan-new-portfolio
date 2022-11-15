@@ -6,9 +6,8 @@ body,
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Century Gothic", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 body {
@@ -44,10 +43,42 @@ em {
   font-style: normal;
 }
 
-.cnt-404 {
-  padding-top: 2rem;
+.page__404 nav li a {
+  color: #000000;
+}
+
+.page__404 .theme-toggle {
+  display: none;
+}
+
+.page__404 .menu-line {
+  background-color: #000000;
+}
+
+.page__404 .close-nav {
+  background-color: var(--main-color);
+}
+
+.page__404 .secondary-cursor {
+  background-color: #000000;
+}
+
+.page-404 {
+  min-height: 100vh;
+  background-color: var(--main-color);
+  width: 100%;
   flex-direction: column;
-  gap: 3rem;
+  gap: var(--marginElementMedium);
+  text-align: center;
+}
+
+.page-404 h1 {
+  color: black;
+}
+
+.page-404 .btn-small {
+  color: black;
+  border: black 1px solid !important;
 }
 
 :root {
@@ -56,7 +87,8 @@ em {
   --text-white: #f8f8f8;
   --main-color: #d7f21d;
 
-  --extremeFont: calc(1.3rem + 110vw);
+  --extremeFont: calc(1.3rem + 125vw);
+  --extremeFontHeight: clamp(50rem, 130vw, 110rem);
   --largeFont: clamp(4rem, 17vw, 22rem);
   --largeFontHeight: clamp(4.5rem, 15vw, 19rem);
   --bigFont: clamp(3rem, 9.9vw, 9rem);
@@ -145,10 +177,13 @@ body[data-theme="dark"] {
 }
 
 ::-moz-selection {
-  color: var(--main-color);
+  color: var(--color-bg-primary);
+  background-color: var(--color-text-primary);
 }
+
 ::selection {
-  color: var(--main-color);
+  color: var(--color-bg-primary);
+  background-color: var(--color-text-primary);
 }
 
 ::-webkit-scrollbar {
@@ -165,6 +200,7 @@ body[data-theme="dark"] {
 
 .extreme-font {
   font-size: var(--extremeFont);
+  line-height: var(--extremeFontHeight);
 }
 
 .large-font {
@@ -262,7 +298,7 @@ li {
 }
 
 .btn-4 {
-  padding: 5.5vw 1vw;
+  padding: 6.3vw 1vw;
 }
 
 .page-change-cnt {
