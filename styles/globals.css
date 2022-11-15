@@ -44,10 +44,34 @@ em {
   font-style: normal;
 }
 
-.cnt-404 {
-  padding-top: 2rem;
+.page__404 nav li a {
+  color: #000000;
+}
+
+.page__404 .theme-toggle {
+  display: none;
+}
+
+.page__404 .secondary-cursor {
+  background-color: #000000;
+}
+
+.page-404 {
+  min-height: 100vh;
+  background-color: var(--main-color);
+  width: 100%;
   flex-direction: column;
-  gap: 3rem;
+  gap: var(--marginElementMedium);
+  text-align: center;
+}
+
+.page-404 h1 {
+  color: black;
+}
+
+.page-404 .btn-small {
+  color: black;
+  border: black 1px solid !important;
 }
 
 :root {

@@ -1,21 +1,24 @@
-/* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
-import Head from 'next/head';
+import React, { useEffect } from "react";
+import Link from "next/link";
+import Head from "next/head";
 
 export default function Custom404() {
+  useEffect(() => {
+    document.body.classList.add("page__404");
+    return () => {
+      document.body.classList.remove("page__404");
+    };
+  });
   return (
     <>
       <Head>
         <title>Ok, this is embarassing.</title>
-        <meta
-          name="description"
-          content="DAAAAAAMN how did you ened up here?!"
-        />
+        <meta name="description" content="How did you ended up here?!" />
       </Head>
-      <div className="cnt-404 flex-center">
-        <img src="/404-image.jpg" height="600" width="500" alt="404 image" />
+      <div className="page-404 flex-center">
+        <h1 className="big-font impact">Ok, this is embarassing.</h1>
         <Link href="/">
-          <a>GTFOH BUTTON</a>
+          <a className="btn-small">home</a>
         </Link>
       </div>
     </>
