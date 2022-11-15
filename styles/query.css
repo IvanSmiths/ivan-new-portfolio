@@ -381,6 +381,11 @@
     justify-content: center;
     align-items: center;
   }
+
+  .about__absolute-left {
+    left: 10%;
+  }
+
   .theme-toggle {
     position: fixed;
     transform: translate(-50%, -50%);

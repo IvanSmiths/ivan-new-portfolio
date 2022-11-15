@@ -31,9 +31,6 @@ const About = () => {
   const ref2022 = useRef(null);
   const finRef = useRef(null);
   const scrollingRef = useRef(null);
-  const scrollingMoreRef = useRef(null);
-  const scrollingBitRef = useRef(null);
-  const scrollingGoRef = useRef(null);
 
   useEffect(() => {
     var tl = gsap.timeline({
@@ -211,42 +208,6 @@ const About = () => {
         },
       ],
     });
-
-    tl.to(scrollingMoreRef.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-          zIndex: 8,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-
-    tl.to(scrollingBitRef.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-          zIndex: 9,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-
-    tl.to(scrollingGoRef.current, {
-      opacity: 1,
-      scale: 1.5,
-      zIndex: 10,
-    });
     return () => {
       tl.kill();
     };
@@ -391,15 +352,8 @@ const About = () => {
             Fine. <br /> (for now)
           </span>
           <span ref={scrollingRef}>
-            Still <br /> Scrolling?
+            Redirecting <br /> for more <br /> details.
           </span>
-          <span ref={scrollingMoreRef}>
-            Scroll <br /> a bit more.
-          </span>
-          <span ref={scrollingBitRef}>
-            Just <br /> a bit more...
-          </span>
-          <span ref={scrollingGoRef}>Yeah!</span>
         </div>
       </main>
       <div className="spacer-small"></div>
