@@ -27,7 +27,7 @@ const Hero = () => {
     var timeline = gsap.timeline({
       scrollTrigger: {
         trigger: headerRef.current,
-        start: "350 top",
+        start: "10px top",
         end: "bottom top",
         ease: "power1",
         scrub: true,
@@ -42,6 +42,14 @@ const Hero = () => {
       {
         opacity: 0,
         duration: 1,
+      },
+      0
+    );
+
+    timeline.to(
+      headerRef.current,
+      {
+        position: "fixed",
       },
       0
     );
@@ -81,6 +89,13 @@ const Hero = () => {
         duration: 1,
       },
       0
+    );
+    timeline.to(
+      headerRef.current,
+      {
+        position: "relative",
+      },
+      5
     );
 
     var tl = gsap.timeline({});

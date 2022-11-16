@@ -82,21 +82,23 @@
 }
 
 .header__wrapper {
-  min-height: 130vh;
+  min-height: 100vh;
   position: relative;
 }
 
 .home-header-cnt {
   position: fixed;
-  top: -35%;
+  top: 0;
+  padding-top: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
   left: 0;
   right: 0;
   margin: auto;
+  overflow: hidden;
   z-index: 1;
-  min-height: 180vh;
+  min-height: 100vh;
   flex-direction: column;
   gap: 3rem;
 }
@@ -421,8 +423,6 @@
 }
 
 .inn-outer {
-  position: relative;
-  z-index: 9;
   overflow: hidden;
   display: flex;
   justify-content: center;
