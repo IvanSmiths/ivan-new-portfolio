@@ -10,7 +10,7 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "gsap": "^3.10.4",
+    "gsap": "^3.11.3",
     "next": "^12.1.6",
     "next-translate": "^1.4.0",
     "postcss": "^8.4.13",
