@@ -243,17 +243,12 @@
   align-items: center;
 }
 
-.cs__video-cnt picture {
-  height: 100%;
-  width: 100%;
-}
-
 .cs__video-cnt img {
   position: relative;
   z-index: 1;
   height: 100%;
-  width: 100%;
-  object-fit: contain;
+  width: auto;
+  object-fit: cover;
 }
 
 .cs__desc-outer {

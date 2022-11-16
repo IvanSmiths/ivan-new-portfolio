@@ -24,7 +24,7 @@ function SuvHero() {
     tl.to(
       videoRef.current,
       {
-        scale: 0.5,
+        scale: 0.4,
         duration: 1,
         ease: "power4",
       },
