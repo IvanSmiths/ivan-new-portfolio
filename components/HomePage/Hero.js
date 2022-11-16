@@ -41,7 +41,7 @@ const Hero = () => {
       },
       {
         opacity: 0,
-        duration: 1,
+        duration: 3,
       },
       0
     );
@@ -62,7 +62,7 @@ const Hero = () => {
       {
         translateX: "-5rem",
 
-        duration: 1,
+        duration: 3,
       },
       0
     );
@@ -74,7 +74,7 @@ const Hero = () => {
       {
         translateX: "5rem",
 
-        duration: 1,
+        duration: 3,
       },
       0
     );
@@ -86,7 +86,7 @@ const Hero = () => {
       {
         translateX: "-5rem",
 
-        duration: 1,
+        duration: 3,
       },
       0
     );
@@ -98,34 +98,8 @@ const Hero = () => {
       5
     );
 
-    var tl = gsap.timeline({});
-    tl.fromTo(
-      speedRef.current,
-      { opacity: 0, translateY: 40 },
-      { opacity: 1, translateY: 0, duration: 1 },
-      0
-    );
-    tl.fromTo(
-      securityRef.current,
-      { opacity: 0, translateY: 40 },
-      { opacity: 1, translateY: 0, duration: 1 },
-      0.3
-    );
-    tl.fromTo(
-      [andRef.current],
-      { opacity: 0, translateY: 40 },
-      { opacity: 1, translateY: 0, duration: 1 },
-      0.5
-    );
-    tl.fromTo(
-      [copyRef.current, linkRef.current, arrowRef.current],
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5 },
-      1
-    );
     return () => {
       timeline.kill();
-      tl.kill();
     };
   }, []);
 
