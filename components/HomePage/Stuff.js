@@ -234,13 +234,6 @@ function Stuff() {
             </div>
           </div>
         </div>
-        <div>
-          <div className="caption__wrapper">
-            <h3 className="caption-cnt impact large-font">
-              {t("common:caption")}
-            </h3>
-          </div>
-        </div>
       </section>
     </div>
   );
