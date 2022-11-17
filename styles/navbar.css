@@ -45,7 +45,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  padding: 3rem;
+  padding: 2rem 2.5rem;
   border-radius: 0 0 0 2rem;
   background-color: var(--color-bg-primary);
 }
@@ -144,7 +144,7 @@
 
 .menu {
   position: fixed;
-  top: 30px;
+  top: 1rem;
   right: -100%;
   z-index: 99;
   display: flex;
@@ -185,7 +185,8 @@
 
 .navbar__logo-mobile {
   position: fixed;
-  top: 2rem;
+  top: 1rem;
+  z-index: 9999;
   left: 10px;
 }
 
