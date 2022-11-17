@@ -77,33 +77,48 @@ function NextModel() {
   const excerptRef = useRef(null);
 
   useEffect(() => {
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: mainImageInnerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        pin: true,
-      },
-    });
+    let mm = gsap.matchMedia(),
+      breakPoint = 500;
 
-    tl.to(mainImageRef.current, {
-      scale: 0.3,
-      ease: "power3",
-    });
-    tl.to(mainImageRef.current, {
-      x: "25%",
-    });
-    tl.fromTo(
-      excerptRef.current,
+    mm.add(
       {
-        opacity: 0,
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
       },
-      { opacity: 1 }
+      (context) => {
+        let { isDesktop } = context.conditions;
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: mainImageInnerRef.current,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+            pin: true,
+          },
+        });
+
+        tl.to(mainImageRef.current, {
+          scale: 0.3,
+          opacity: isDesktop ? 1 : 0,
+          ease: "power3",
+        });
+
+        tl.to(mainImageRef.current, {
+          x: isDesktop ? "25%" : 0,
+        });
+
+        tl.fromTo(
+          excerptRef.current,
+          {
+            opacity: 0,
+          },
+          { opacity: 1 }
+        );
+        return () => {
+          tl.kill();
+        };
+      }
     );
-    return () => {
-      tl.kill();
-    };
   }, []);
   return (
     <>
