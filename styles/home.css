@@ -230,10 +230,7 @@
 }
 
 .scroll-container {
-  position: relative;
   height: 100vh;
-  background-color: var(--color-bg-primary);
-  z-index: 4;
 }
 
 .scroll-section {
@@ -244,16 +241,12 @@
   width: 100vw;
   display: flex;
   flex-direction: row;
-  background-color: var(--color-bg-primary);
-  z-index: 4;
 }
 
 .scroll-section-2 {
-  background-color: var(--color-bg-primary);
   left: 100vw;
 }
 .scroll-section-3 {
-  background-color: var(--color-bg-primary);
   left: 200vw;
 }
 
