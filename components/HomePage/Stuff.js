@@ -37,7 +37,7 @@ function Stuff() {
             scrollTrigger: {
               trigger: triggerRef.current,
               start: "top top",
-              end: isDesktop ? "6000 top" : "2000 top",
+              end: isDesktop ? "6000 top" : "1500 top",
               scrub: 0.6,
               pin: true,
             },
