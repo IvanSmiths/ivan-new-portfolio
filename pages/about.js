@@ -74,16 +74,15 @@ const About = () => {
       }
     );
 
-    tl.fromTo(
+    tl.to(
       firstWebsiteCopyRef.current,
-      { translateY: -30 },
+
       {
         keyframes: [
-          { opacity: 1, zIndex: 3, translateY: 0 },
+          { opacity: 1, zIndex: 3 },
           {
             opacity: 0,
             delay: 1,
-            translateY: -30,
           },
         ],
       }
@@ -96,15 +95,15 @@ const About = () => {
       opacity: 1,
     });
 
-    tl.fromTo(
+    tl.to(
       idCopyRef.current,
-      { translateY: -30 },
+
       {
         keyframes: [
-          { opacity: 1, zIndex: 4, translateY: 0 },
+          { opacity: 1, zIndex: 4 },
           {
             opacity: 0,
-            translateY: -30,
+
             delay: 1,
           },
         ],
@@ -132,13 +131,13 @@ const About = () => {
       opacity: 1,
     });
 
-    tl.fromTo(
+    tl.to(
       cgCopyRef.current,
-      { translateY: -30 },
+
       {
         keyframes: [
-          { opacity: 1, zIndex: 5, translateY: 0 },
-          { opacity: 0, delay: 1, translateY: -30 },
+          { opacity: 1, zIndex: 5 },
+          { opacity: 0, delay: 1 },
         ],
       }
     );
@@ -159,13 +158,12 @@ const About = () => {
         },
       ],
     });
-    tl.fromTo(
+    tl.to(
       svCopyRef.current,
-      { translateY: -30 },
+
       {
         opacity: 1,
         zIndex: 5,
-        translateY: 0,
       }
     );
 
@@ -175,7 +173,6 @@ const About = () => {
 
     tl.to(svCopyRef.current, {
       opacity: 0,
-      translateY: -30,
     });
 
     tl.to(finRef.current, {
