@@ -135,9 +135,6 @@ const Hero = () => {
           <Link href="/stuff" passHref>
             <a
               ref={linkRef}
-              style={{
-                padding: `${router.locale === "de" ? "50px 60px" : ""}`,
-              }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               className="tiny-font desktop title-link btn-small btn-small-2"

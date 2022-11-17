@@ -395,7 +395,7 @@
     position: fixed;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 2rem;
+    top: 2.5rem;
     z-index: 9999;
   }
   .btn-small-3 {
@@ -709,8 +709,8 @@
 
   .box-link-cnt .btn-small {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
   }
 
   .case-studio__screen-image {

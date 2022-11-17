@@ -172,6 +172,23 @@
   transition: width 0.3s;
 }
 
+.navbar__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--marginElementLittle);
+}
+
 .menu-line-2 {
   width: 50%;
+}
+
+.navbar__logo-mobile {
+  position: fixed;
+  top: 2rem;
+  left: 10px;
+}
+
+#logo {
+  stroke: var(--color-text-primary);
 }

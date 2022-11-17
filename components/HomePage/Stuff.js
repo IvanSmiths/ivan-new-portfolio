@@ -21,7 +21,6 @@ function Stuff() {
       {
         isDesktop: `(min-width: ${breakPoint}px)`,
         isMobile: `(max-width: ${breakPoint - 1}px)`,
-        reduceMotion: "(prefers-reduced-motion: reduce)",
       },
       (context) => {
         let { isDesktop } = context.conditions;
@@ -233,13 +232,6 @@ function Stuff() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div>
-          <div className="caption__wrapper">
-            <h3 className="caption-cnt impact large-font">
-              {t("common:caption")}
-            </h3>
           </div>
         </div>
       </section>
