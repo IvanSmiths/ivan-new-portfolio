@@ -10,28 +10,40 @@ function Innovation() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    const innHero = gsap.fromTo(
-      innovationRef.current,
+    let mm = gsap.matchMedia(),
+      breakPoint = 500;
+
+    mm.add(
       {
-        scale: 1,
-        translateX: "14.51%",
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
       },
-      {
-        scale: 0.1,
-        translateX: 0,
-        ease: "expo.inOut",
-        scrollTrigger: {
-          trigger: innovationTriggerRef.current,
-          start: "center center",
-          end: "4000 top",
-          scrub: true,
-          pin: true,
-        },
+      (context) => {
+        let { isDesktop } = context.conditions;
+        const innHero = gsap.fromTo(
+          innovationRef.current,
+          {
+            scale: 1,
+            translateX: "14.51%",
+          },
+          {
+            scale: 0.1,
+            translateX: 0,
+            ease: "expo.inOut",
+            scrollTrigger: {
+              trigger: innovationTriggerRef.current,
+              start: "center center",
+              end: isDesktop ? "4000 top" : "2000 center",
+              scrub: true,
+              pin: true,
+            },
+          }
+        );
+        return () => {
+          innHero.kill();
+        };
       }
     );
-    return () => {
-      innHero.kill();
-    };
   }, []);
   return (
     <div>
