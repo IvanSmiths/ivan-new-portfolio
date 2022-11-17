@@ -21,7 +21,6 @@ function Stuff() {
       {
         isDesktop: `(min-width: ${breakPoint}px)`,
         isMobile: `(max-width: ${breakPoint - 1}px)`,
-        reduceMotion: "(prefers-reduced-motion: reduce)",
       },
       (context) => {
         let { isDesktop } = context.conditions;
