@@ -59,9 +59,22 @@ function Navbar() {
           <li>
             <Link href="/">
               <a
+                className="navbar__logo"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 45 45"
+                >
+                  <g id="logo" fill="none" strokeWidth="6">
+                    <circle cx="22.5" cy="22.5" r="22.5" stroke="none" />
+                    <circle cx="22.5" cy="22.5" r="19.5" fill="none" />
+                  </g>
+                </svg>
+                <span className="navbar__logo-line">/</span>
                 {t("common:nav-home")}
               </a>
             </Link>
@@ -111,6 +124,27 @@ function Navbar() {
         </div>
       </div>
       <div className="mobile">
+        <Link href="/">
+          <a
+            className="navbar__logo navbar__logo-mobile"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              viewBox="0 0 45 45"
+            >
+              <g id="logo" fill="none" strokeWidth="6">
+                <circle cx="22.5" cy="22.5" r="22.5" stroke="none" />
+                <circle cx="22.5" cy="22.5" r="19.5" fill="none" />
+              </g>
+            </svg>
+            <span className="navbar__logo-line">/</span>
+            {t("common:nav-home")}
+          </a>
+        </Link>
         <ThemeToggle />
       </div>
 
