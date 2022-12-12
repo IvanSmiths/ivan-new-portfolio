@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect, useContext } from "react";
-import Link from "next/link";
-import { gsap } from "gsap";
-import { CursorContext } from "../CursorManager";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
-import SrcImage from "../SrcImage";
+import React, { useRef, useEffect, useContext } from 'react';
+import Link from 'next/link';
+import { gsap } from 'gsap';
+import { CursorContext } from '../CursorManager';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useTranslation from 'next-translate/useTranslation';
+import SrcImage from '../SrcImage';
 
 function Stuff() {
   gsap.registerPlugin(ScrollTrigger);
@@ -23,7 +23,7 @@ function Stuff() {
         isMobile: `(max-width: ${breakPoint - 1}px)`,
       },
       (context) => {
-        let { isDesktop } = context.conditions;
+        let { isDesktop, isMobile } = context.conditions;
 
         const pin = gsap.fromTo(
           containerRef.current,
@@ -31,13 +31,13 @@ function Stuff() {
             translateX: 0,
           },
           {
-            translateX: "-200vw",
-            ease: "none",
+            translateX: '-200vw',
+            ease: 'none',
             duration: 0.5,
             scrollTrigger: {
               trigger: triggerRef.current,
-              start: "top top",
-              end: isDesktop ? "6000 top" : "1500 top",
+              start: 'top top',
+              end: isDesktop ? '6000 top' : '1500 top',
               scrub: 0.6,
               pin: true,
             },
@@ -52,10 +52,10 @@ function Stuff() {
 
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
-    setSize("medium");
+    setSize('medium');
   };
   const handleMouseLeave = () => {
-    setSize("small");
+    setSize('small');
   };
 
   let { t } = useTranslation();
@@ -87,7 +87,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  01 / {t("common:stuff-3")}
+                  01 / {t('common:stuff-3')}
                   <br />
                 </span>
                 <Link href="/stuff/scholz-und-volkmer" passHref>
@@ -101,18 +101,18 @@ function Stuff() {
                 </Link>
                 <ul>
                   <li>
-                    {t("common:box-list")}
-                    {t("common:box-list-dev")}
+                    {t('common:box-list')}
+                    {t('common:box-list-dev')}
                   </li>
                   <li>
-                    {t("common:box-list-2")}Vue.js, Nuxt.js,TypeScript, Gsap,
+                    {t('common:box-list-2')}Vue.js, Nuxt.js,TypeScript, Gsap,
                     Sass
                   </li>
-                  <li>2022 / {t("common:box-list-3")}</li>
+                  <li>2022 / {t('common:box-list-3')}</li>
                 </ul>
                 <div className="box-link-cnt">
                   <Link href="/stuff/scholz-und-volkmer" passHref>
-                    <a className="btn-small box-link">{t("common:stuff")}</a>
+                    <a className="btn-small box-link">{t('common:stuff')}</a>
                   </Link>
                 </div>
               </div>
@@ -140,7 +140,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  02 / {t("common:stuff-3")}
+                  02 / {t('common:stuff-3')}
                   <br />
                 </span>
                 <Link href="/stuff/ideology" passHref>
@@ -153,9 +153,9 @@ function Stuff() {
                   </a>
                 </Link>
                 <ul>
-                  <li>{t("common:box-list")}UI/UX Designer</li>
+                  <li>{t('common:box-list')}UI/UX Designer</li>
                   <li>
-                    {t("common:box-list-2")}Adobe XD, CSS, jQuery, WordPress
+                    {t('common:box-list-2')}Adobe XD, CSS, jQuery, WordPress
                   </li>
                   <li>2020 / 2022</li>
                 </ul>
@@ -166,7 +166,7 @@ function Stuff() {
                       onMouseLeave={handleMouseLeave}
                       className="btn-small box-link"
                     >
-                      {t("common:stuff")}
+                      {t('common:stuff')}
                     </a>
                   </Link>
                 </div>
@@ -195,7 +195,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  03 / {t("common:stuff-4")}
+                  03 / {t('common:stuff-4')}
                   <br />
                 </span>
                 <Link href="/stuff/cg-prospect" passHref>
@@ -209,15 +209,15 @@ function Stuff() {
                 </Link>
                 <ul>
                   <li>
-                    {t("common:box-list")}
-                    {t("common:box-list-dev-2")}, UI/UX Designer,{" "}
-                    {t("common:box-list-mod")}
+                    {t('common:box-list')}
+                    {t('common:box-list-dev-2')}, UI/UX Designer,{' '}
+                    {t('common:box-list-mod')}
                   </li>
                   <li>
-                    {t("common:box-list-2")}React (Next.js), MongoDB, CSS,
+                    {t('common:box-list-2')}React (Next.js), MongoDB, CSS,
                     MetaShape
                   </li>
-                  <li>2021 / {t("common:box-list-3")}</li>
+                  <li>2021 / {t('common:box-list-3')}</li>
                 </ul>
                 <div className="box-link-cnt">
                   <Link href="/stuff/cg-prospect" passHref>
@@ -226,7 +226,7 @@ function Stuff() {
                       onMouseLeave={handleMouseLeave}
                       className="btn-small box-link"
                     >
-                      {t("common:stuff")}
+                      {t('common:stuff')}
                     </a>
                   </Link>
                 </div>

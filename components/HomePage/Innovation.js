@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useTranslation from 'next-translate/useTranslation';
 
 function Innovation() {
   let { t } = useTranslation();
@@ -10,34 +10,46 @@ function Innovation() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    const innHero = gsap.fromTo(
-      innovationRef.current,
+    let mm = gsap.matchMedia(),
+      breakPoint = 500;
+
+    mm.add(
       {
-        scale: 1,
-        translateX: "14.51%",
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
       },
-      {
-        scale: 0.1,
-        translateX: 0,
-        ease: "expo.inOut",
-        scrollTrigger: {
-          trigger: innovationTriggerRef.current,
-          start: "center center",
-          end: "4000 top",
-          scrub: true,
-          pin: true,
-        },
+      (context) => {
+        let { isDesktop, isMobile } = context.conditions;
+        const innHero = gsap.fromTo(
+          innovationRef.current,
+          {
+            scale: 1,
+            translateX: '14.51%',
+          },
+          {
+            scale: 0.1,
+            translateX: 0,
+            ease: 'expo.inOut',
+            scrollTrigger: {
+              trigger: innovationTriggerRef.current,
+              start: 'center center',
+              end: isDesktop ? '4000 top' : '2000 center',
+              scrub: true,
+              pin: true,
+            },
+          }
+        );
+        return () => {
+          innHero.kill();
+        };
       }
     );
-    return () => {
-      innHero.kill();
-    };
   }, []);
   return (
     <div>
       <div ref={innovationTriggerRef} className="inn-outer">
         <h2 ref={innovationRef} className="extreme-font">
-          {t("home:innovation")}
+          {t('home:innovation')}
         </h2>
       </div>
     </div>
