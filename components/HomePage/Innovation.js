@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useTranslation from 'next-translate/useTranslation';
 
 function Innovation() {
   let { t } = useTranslation();
@@ -19,21 +19,21 @@ function Innovation() {
         isMobile: `(max-width: ${breakPoint - 1}px)`,
       },
       (context) => {
-        let { isDesktop } = context.conditions;
+        let { isDesktop, isMobile } = context.conditions;
         const innHero = gsap.fromTo(
           innovationRef.current,
           {
             scale: 1,
-            translateX: "14.51%",
+            translateX: '14.51%',
           },
           {
             scale: 0.1,
             translateX: 0,
-            ease: "expo.inOut",
+            ease: 'expo.inOut',
             scrollTrigger: {
               trigger: innovationTriggerRef.current,
-              start: "center center",
-              end: isDesktop ? "4000 top" : "2000 center",
+              start: 'center center',
+              end: isDesktop ? '4000 top' : '2000 center',
               scrub: true,
               pin: true,
             },
@@ -49,7 +49,7 @@ function Innovation() {
     <div>
       <div ref={innovationTriggerRef} className="inn-outer">
         <h2 ref={innovationRef} className="extreme-font">
-          {t("home:innovation")}
+          {t('home:innovation')}
         </h2>
       </div>
     </div>
