@@ -10,6 +10,14 @@ body,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+#globalLoader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  z-index: 9999999;
+}
+
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
