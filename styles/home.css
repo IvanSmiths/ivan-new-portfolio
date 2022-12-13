@@ -81,6 +81,15 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .header__wrapper {
   min-height: 100vh;
   position: relative;
@@ -113,7 +122,12 @@
 .title-1-cnt p {
   width: 20%;
   color: var(--color-text-sec);
-
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 1s;
   margin-left: var(--marginElementMedium);
 }
 
@@ -131,6 +145,12 @@
 
 .title-link {
   margin-right: 5rem;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 1s;
 }
 
 .title-1,
@@ -142,6 +162,21 @@
   font-family: "Cormorant Upright", serif, Georgia, -apple-system,
     BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
     Droid Sans, Helvetica Neue, sans-serif;
+  animation-name: fadeIn;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.title-1 {
+  animation-delay: 0.1s;
+}
+.title-2 {
+  animation-delay: 0.3s;
+}
+.title-3 {
+  animation-delay: 0.5s;
 }
 
 .title-arrow {
@@ -150,6 +185,12 @@
   stroke-linejoin: round;
   stroke-linecap: round;
   margin-left: 3rem;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 1s;
 }
 
 .homepage-about-cnt {
