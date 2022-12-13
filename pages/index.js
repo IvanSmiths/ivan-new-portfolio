@@ -49,9 +49,15 @@ const Home = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const loader = document.getElementById("globalLoader");
-      if (loader) loader.style.display = "none";
+      const loader = document.getElementById("homeLoader");
+      if (loader) {
+        loader.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
     }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [hasVisited]);
 
   return (
@@ -72,7 +78,7 @@ const Home = () => {
               content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
             />
           </Head>
-          <div id="globalLoader"></div>
+          <div id="homeLoader"></div>
           <Hero />
           <Innovation />
           <About />
