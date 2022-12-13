@@ -49,13 +49,13 @@ const Home = () => {
 
   useEffect(() => {
     const onPageLoad = () => {
-      console.log('page loaded');
+      
     };
     if (document.readyState === 'complete') {
       onPageLoad();
     } else {
       window.addEventListener('load', onPageLoad, false);
-      console.log('loading');
+      
       return () => window.removeEventListener('load', onPageLoad);
     }
   }, []);
@@ -89,7 +89,7 @@ const Home = () => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   await waitload(1);
   return {
     props: { load: "load" },
