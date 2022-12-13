@@ -132,7 +132,7 @@ function Blog() {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   await waitload(2);
   return {
     props: { load: "load" },
