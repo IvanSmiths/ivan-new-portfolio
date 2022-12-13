@@ -44,7 +44,7 @@ const Home = () => {
     genre: "http://vocab.getty.edu/aat/300179434",
     headline: "Speed, security & INNOVATION",
     keywords: "next.js, wiesbaden, react.js, frontend developer",
-    locationCreated: "wiesbaden",
+    locationCreated: "Wiesbaden",
   };
 
   return (
