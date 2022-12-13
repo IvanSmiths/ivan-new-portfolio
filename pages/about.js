@@ -358,7 +358,7 @@ const About = () => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   await waitload(1);
   return {
     props: { load: "load" },
