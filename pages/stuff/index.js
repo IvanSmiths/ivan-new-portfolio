@@ -19,7 +19,7 @@ const Index = () => {
     </>
   );
 };
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   await waitload(1);
   return {
     props: { load: "load" },
