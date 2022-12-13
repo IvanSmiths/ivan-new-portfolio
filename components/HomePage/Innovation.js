@@ -33,7 +33,7 @@ function Innovation() {
             scrollTrigger: {
               trigger: innovationTriggerRef.current,
               start: "center center",
-              end: isDesktop ? "8000 top" : "2000 center",
+              end: isDesktop ? "8000 top" : "4000 center",
               scrub: true,
               pin: true,
             },
