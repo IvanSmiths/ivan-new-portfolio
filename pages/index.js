@@ -59,31 +59,37 @@ const Home = () => {
       return () => window.removeEventListener('load', onPageLoad);
     }
   }, []);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(true), 4000);
+  }, []);
 
   return (
     <>
-      {hasVisited ? (
-        <Loader setHasVisited={setHasVisited} />
+      {!loading && hasVisited ? (
+          <Loader setHasVisited={setHasVisited} />
       ) : (
         <>
-          <Head>
-            <title> {t("home:title")}</title>
-            <meta name="description" content={t("home:desc")} />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-            />
-            <meta
-              name="msvalidate.01"
-              content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
-            />
-          </Head>
-          <Hero />
-          <Innovation />
-          <About />
-          <Stuff />
-          <Footer link={"about"} />
-        </>
+        <Head>
+          <title> {t("home:title")}</title>
+          <meta name="description" content={t("home:desc")} />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          />
+          <meta
+            name="msvalidate.01"
+            content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
+          />
+        </Head>
+        <Hero />
+        <Innovation />
+        <About />
+        <Stuff />
+        <Footer link={"about"} />
+      </>
+        
       )}
     </>
   );
