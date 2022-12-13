@@ -47,6 +47,19 @@ const Home = () => {
     locationCreated: "Wiesbaden",
   };
 
+  useEffect(() => {
+    const onPageLoad = () => {
+      console.log('page loaded');
+    };
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad, false);
+      console.log('loading');
+      return () => window.removeEventListener('load', onPageLoad);
+    }
+  }, []);
+
   return (
     <>
       {hasVisited ? (
