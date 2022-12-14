@@ -81,13 +81,19 @@ em {
   text-align: center;
 }
 
-.page-404 h1 {
-  color: black;
+.page-404 h1,
+.page-404 span {
+  color: black !important;
 }
 
 .page-404 .btn-small {
   color: black;
   border: black 1px solid !important;
+  padding: 3.3rem 2.4rem;
+}
+
+.page__404 #logo {
+  stroke: #000000;
 }
 
 :root {

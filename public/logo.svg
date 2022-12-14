@@ -1,8 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="29" height="57" viewBox="0 0 29 57">
-  <g id="Raggruppa_20" data-name="Raggruppa 20" transform="translate(-51 -37)">
-    <g id="Raggruppa_14" data-name="Raggruppa 14" transform="translate(-27 -23)">
-      <text id="I" transform="translate(85 105)" fill="#ccc" font-size="38" font-family="Georgia"><tspan x="0" y="0">I</tspan></text>
-      <text id="S" transform="translate(78 106)" fill="#ccc" font-size="50" font-family="Georgia"><tspan x="0" y="0">S</tspan></text>
-    </g>
-  </g>
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="20px"
+height="20px"
+viewBox="0 0 45 45"
+>
+<g id="logo" fill="none" stroke="#f8f8f8" stroke-width="6">
+  <circle cx="22.5" cy="22.5" r="22.5" stroke="none"></circle>
+  <circle cx="22.5" cy="22.5" r="19.5" fill="none"></circle>
+</g>
 </svg>
