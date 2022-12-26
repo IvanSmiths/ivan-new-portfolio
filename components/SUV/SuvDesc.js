@@ -52,7 +52,7 @@ function SuvDesc() {
               </li>
               <li className="medium-font">
                 {t("suv:date")} <br />
-                12/03/2022 <br />
+                15/03/2022 <br />
                 {t("suv:current")}
               </li>
               <li className="medium-font">
