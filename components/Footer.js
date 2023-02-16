@@ -2,6 +2,7 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import { CursorContext } from "./CursorManager";
 import { gsap } from "gsap";
+import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 
@@ -33,7 +34,7 @@ function Footer({ link }) {
         scrollTrigger: {
           trigger: triggerRef.current,
           scrub: true,
-          end: "+=10000px bottom",
+          end: "+=5000px bottom",
           pin: true,
 
           onUpdate: (self) => {
@@ -126,6 +127,19 @@ function Footer({ link }) {
                 >
                   info@ivansmiths.com
                 </a>
+                <ul className="lang-cnt-footer">
+                  <li>
+                    <Link locale="en" href={router.asPath}>
+                      <a className="tiny-font">{router.locales[0]}</a>
+                    </Link>
+                  </li>
+                  <li className="tiny-font">/</li>
+                  <li>
+                    <Link locale="it" href={router.asPath}>
+                      <a className="tiny-font">{router.locales[1]}</a>
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
             <span className="big-font" ref={numberRef}>

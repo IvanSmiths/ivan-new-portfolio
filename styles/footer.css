@@ -16,3 +16,15 @@
 .footer-counter__contact div {
   margin-top: var(--marginElement);
 }
+
+.lang-cnt-footer {
+  display: flex;
+  gap: 1rem;
+  padding-top: var(--marginElement);
+  color: var(--color-text-sec);
+}
+
+.lang-cnt-footer a,
+li {
+  color: var(--color-text-sec) !important;
+}
