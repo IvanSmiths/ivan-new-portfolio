@@ -114,13 +114,7 @@ const Hero = () => {
   let { t } = useTranslation();
   return (
     <div className="header__wrapper">
-      <header
-        ref={headerRef}
-        style={{
-          left: `${router.locale === "it" ? "3%" : ""}`,
-        }}
-        className="home-header-cnt"
-      >
+      <header ref={headerRef} className="home-header-cnt">
         <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
             {t("home:speed")}
