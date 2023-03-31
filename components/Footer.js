@@ -34,7 +34,7 @@ function Footer({ link }) {
         scrollTrigger: {
           trigger: triggerRef.current,
           scrub: true,
-          end: "+=5000px bottom",
+          end: "+=2000px bottom",
           pin: true,
 
           onUpdate: (self) => {
