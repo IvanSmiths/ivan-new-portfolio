@@ -107,11 +107,11 @@ function Footer({ link }) {
                     onMouseLeave={handleMouseLeave}
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.instagram.com/ivan_smiths/"
+                    href="https://twitter.com/IvanSmiths"
                   >
                     <img
-                      src="/instagram-icon.svg"
-                      alt="instagram icon"
+                      src="/icon-twitter.svg"
+                      alt="twitter icon"
                       height="25px"
                       width="25px"
                     />
