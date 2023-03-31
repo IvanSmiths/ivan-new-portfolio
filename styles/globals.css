@@ -22,7 +22,6 @@ body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   transition: background 0.25s ease-in-out;
-  overflow: hidden;
 }
 
 .serif {
@@ -282,11 +281,9 @@ li {
 }
 
 .btn-small {
-  background: linear-gradient(
-    to bottom,
-    var(--color-text-primary) 0%,
-    var(--color-text-primary) 100%
-  );
+  background: linear-gradient(to bottom,
+      var(--color-text-primary) 0%,
+      var(--color-text-primary) 100%);
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 0 100%;
