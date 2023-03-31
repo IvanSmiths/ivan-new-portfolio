@@ -14,6 +14,7 @@ function Footer({ link }) {
   const [num, setNum] = useState(0);
 
   const numberRef = useRef(null);
+  const scrollRef = useRef(null);
   const triggerRef = useRef(null);
 
   const { setSize } = useContext(CursorContext);
@@ -25,6 +26,13 @@ function Footer({ link }) {
   };
 
   useEffect(() => {
+    const showAnim = gsap.fromTo(scrollRef.current, {
+      opacity: 0,
+    }, {
+      opacity: 1,
+      paused: true,
+      duration: 0.2
+    }).progress(1);
     const footerNum = gsap.fromTo(
       numberRef.current,
       { scale: 1 },
@@ -39,6 +47,7 @@ function Footer({ link }) {
 
           onUpdate: (self) => {
             setNum(Math.min(Math.ceil(self.progress * 100), 100));
+            self.direction === -1 ? showAnim.play() : showAnim.reverse()
           },
           onLeave: function () {
             setComplete(true);
@@ -144,6 +153,9 @@ function Footer({ link }) {
             </div>
             <span className="big-font" ref={numberRef}>
               {num}
+            </span>
+            <span ref={scrollRef} className="footer__scroll">
+              scroll.
             </span>
           </div>
         </div>

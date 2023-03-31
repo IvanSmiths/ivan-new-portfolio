@@ -1,3 +1,7 @@
+.footer {
+  position: relative;
+}
+
 .footer__icon {
   margin-top: -0.25rem;
   display: flex;
@@ -27,4 +31,11 @@
 .lang-cnt-footer a,
 li {
   color: var(--color-text-sec) !important;
+}
+
+.footer__scroll {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: 40px;
+  left: 50%;
 }
