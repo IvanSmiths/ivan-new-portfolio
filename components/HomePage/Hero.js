@@ -1,15 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../CursorManager";
 
 const Hero = () => {
-  let router = useRouter();
-
   gsap.registerPlugin(ScrollTrigger);
 
   const firstRowRef = useRef(null);
@@ -24,82 +21,83 @@ const Hero = () => {
   const linkRef = useRef(null);
 
   useEffect(() => {
-    var timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: headerRef.current,
-        start: "10px top",
-        end: "bottom top",
-        ease: "power1",
-        scrub: true,
-      },
-    });
+    let ctx = gsap.context(() => {
+      var timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "10px top",
+          end: "bottom top",
+          ease: "power1",
+          scrub: true,
+        },
+      });
 
-    timeline.fromTo(
-      headerRef.current,
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-        duration: 3,
-      },
-      0
-    );
+      timeline.fromTo(
+        headerRef.current,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          duration: 3,
+        },
+        0
+      );
 
-    timeline.to(
-      headerRef.current,
-      {
-        position: "fixed",
-      },
-      0
-    );
+      timeline.to(
+        headerRef.current,
+        {
+          position: "fixed",
+        },
+        0
+      );
 
-    timeline.fromTo(
-      firstRowRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "-5rem",
+      timeline.fromTo(
+        firstRowRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: "-5rem",
 
-        duration: 3,
-      },
-      0
-    );
-    timeline.fromTo(
-      secondRowRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "5rem",
+          duration: 3,
+        },
+        0
+      );
+      timeline.fromTo(
+        secondRowRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: "5rem",
 
-        duration: 3,
-      },
-      0
-    );
-    timeline.fromTo(
-      thirdRowRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "-5rem",
+          duration: 3,
+        },
+        0
+      );
+      timeline.fromTo(
+        thirdRowRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: "-5rem",
 
-        duration: 3,
-      },
-      0
-    );
-    timeline.to(
-      headerRef.current,
-      {
-        position: "relative",
-      },
-      5
-    );
-
+          duration: 3,
+        },
+        0
+      );
+      timeline.to(
+        headerRef.current,
+        {
+          position: "relative",
+        },
+        5
+      );
+    })
     return () => {
-      timeline.kill();
+      ctx.revert()
     };
   }, []);
 
