@@ -36,6 +36,6 @@ li {
 .footer__scroll {
   position: absolute;
   transform: translate(-50%, -50%);
-  bottom: 40px;
+  bottom: 140px;
   left: 50%;
 }
