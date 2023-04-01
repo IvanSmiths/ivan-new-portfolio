@@ -72,7 +72,7 @@ function Footer({ link }) {
     };
   }, [router, complete, link]);
 
-  const iconWidth = "28px"
+  const iconWidth = "32x"
 
   return (
     <>
