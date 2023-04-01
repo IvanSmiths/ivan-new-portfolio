@@ -1,5 +1,5 @@
 import React from "react";
-import { pageData } from "../../utils/sampleData2";
+import { pageData } from "../../utils/suvData";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 
 function SuvWorks() {
