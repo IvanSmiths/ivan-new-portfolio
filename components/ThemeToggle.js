@@ -16,12 +16,8 @@ const ThemeToggle = () => {
     savedTheme && setActiveTheme(savedTheme);
   }, []);
 
-  useEffect(() => {
-    document.body.dataset.theme = activeTheme;
-    window.localStorage.setItem("theme", activeTheme);
-  }, [activeTheme]);
-
   const { setSize } = useContext(CursorContext);
+
   const handleMouseEnter = () => {
     setSize("medium");
   };
@@ -31,29 +27,16 @@ const ThemeToggle = () => {
 
   return (
     <>
-      {activeTheme === "dark" ? (
-        <img
-          height="25px"
-          width="25px"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="theme-toggle"
-          onClick={() => setActiveTheme(inactiveTheme)}
-          src="/moon.svg"
-          alt={`Change to ${inactiveTheme}`}
-        />
-      ) : (
-        <img
-          height="25px"
-          width="25px"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="theme-toggle"
-          onClick={() => setActiveTheme(inactiveTheme)}
-          src="/sun.svg"
-          alt={`Change to ${inactiveTheme}`}
-        />
-      )}
+      <img
+        height="25px"
+        width="25px"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="theme-toggle"
+        onClick={() => setActiveTheme(inactiveTheme)}
+        src={activeTheme === "dark" ? "/moon.svg" : "/sun.svg"}
+        alt={`Change to ${inactiveTheme}`}
+      />
     </>
   );
 };
