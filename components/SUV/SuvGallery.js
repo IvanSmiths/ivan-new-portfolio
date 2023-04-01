@@ -8,7 +8,6 @@ function SuvGallery() {
 
   const mainImageTriggerRef = useRef(null);
   const mainImageRef = useRef(null);
-  const image1Ref = useRef(null);
 
   useEffect(() => {
     var tl = gsap.timeline({
