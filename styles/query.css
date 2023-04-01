@@ -781,4 +781,12 @@
   .btn-4 {
     padding: 18vw 3vw !important;
   }
+
+  .lang-cnt-footer {
+    display: none;
+  }
+
+  .footer__scroll {
+    bottom: 219px;
+  }
 }
