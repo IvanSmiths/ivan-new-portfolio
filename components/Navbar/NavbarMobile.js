@@ -113,8 +113,8 @@ function NavbarMobile() {
                         </li>
                     </ul>
                     <ul className="nav-social-cnt">
-                        {icons.map((icon) => (
-                            <li>
+                        {icons.map((icon, index) => (
+                            <li key={index}>
                                 <a href={icon.link}
                                     onClick={handleNavLinkClick}
                                     target="_blank"

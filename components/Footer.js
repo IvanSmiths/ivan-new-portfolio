@@ -81,8 +81,8 @@ function Footer({ link }) {
           <div className="footer-counter-inner">
             <div className="footer-counter__contact">
               <ul className="footer__icon">
-                {icons.map((icon) => (
-                  <li>
+                {icons.map((icon, index) => (
+                  <li key={index}>
                     <a href={icon.link}
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
