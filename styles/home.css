@@ -15,7 +15,7 @@
 }
 
 .loader__header em {
-  animation-name: moveUp;
+  animation-name: opacityLoader;
   opacity: 0;
   animation-delay: 4.5s;
   animation-duration: 0.5s;
@@ -58,7 +58,7 @@
     Droid Sans, Helvetica Neue, sans-serif;
 }
 
-@keyframes moveUp {
+@keyframes opacityLoader {
   0% {
     opacity: 1;
   }
