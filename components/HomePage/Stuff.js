@@ -66,22 +66,18 @@ function Stuff() {
         <div id="box" ref={containerRef} className="scroll-container ">
           <div id="box1" className="scroll-section-1 scroll-section">
             <div className="box-image-cnt">
-              <Link href="/stuff/scholz-und-volkmer">
-                <a
-                  onClick={handleMouseLeave}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <SrcImage
-                    className="flex-center"
-                    src="/scholz-und-volkmer-website-2.jpg"
-                    webp="/scholz-und-volkmer-website-2.webp"
-                    height="563"
-                    width="337"
-                    alt="s-v work"
-                    lazyOff={true}
-                  />
-                </a>
+              <Link onClick={handleMouseLeave}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave} href="/stuff/scholz-und-volkmer">
+                <SrcImage
+                  className="flex-center"
+                  src="/scholz-und-volkmer-website-2.jpg"
+                  webp="/scholz-und-volkmer-website-2.webp"
+                  height="563"
+                  width="337"
+                  alt="s-v work"
+                  lazyOff={true}
+                />
               </Link>
             </div>
             <div className="box-informations-cnt">
@@ -90,14 +86,10 @@ function Stuff() {
                   01 / {t('common:stuff-3')}
                   <br />
                 </span>
-                <Link href="/stuff/scholz-und-volkmer" passHref>
-                  <a
-                    className="medium-font box-title "
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Scholz & Volkmer
-                  </a>
+                <Link className="medium-font box-title "
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave} href="/stuff/scholz-und-volkmer" passHref>
+                  Scholz & Volkmer
                 </Link>
                 <ul>
                   <li>
@@ -111,8 +103,8 @@ function Stuff() {
                   <li>2022 / {t('common:box-list-3')}</li>
                 </ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/scholz-und-volkmer" passHref>
-                    <a className="btn-small box-link">{t('common:stuff')}</a>
+                  <Link className="btn-small box-link" href="/stuff/scholz-und-volkmer" passHref>
+                    {t('common:stuff')}
                   </Link>
                 </div>
               </div>
@@ -120,21 +112,17 @@ function Stuff() {
           </div>
           <div id="box2" className="scroll-section-2 scroll-section">
             <div className="box-image-cnt">
-              <Link href="/stuff/ideology">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <SrcImage
-                    className="flex-center"
-                    src="/ideology-website-5.jpg"
-                    webp="/ideology-website-5.webp"
-                    height="572"
-                    width="343"
-                    alt="ideology work"
-                    lazyOff={true}
-                  />
-                </a>
+              <Link onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave} href="/stuff/ideology">
+                <SrcImage
+                  className="flex-center"
+                  src="/ideology-website-5.jpg"
+                  webp="/ideology-website-5.webp"
+                  height="572"
+                  width="343"
+                  alt="ideology work"
+                  lazyOff={true}
+                />
               </Link>
             </div>
             <div className="box-informations-cnt">
@@ -143,14 +131,10 @@ function Stuff() {
                   02 / {t('common:stuff-3')}
                   <br />
                 </span>
-                <Link href="/stuff/ideology" passHref>
-                  <a
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    Ideology
-                  </a>
+                <Link className="medium-font box-title"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave} href="/stuff/ideology" passHref>
+                  Ideology
                 </Link>
                 <ul>
                   <li>{t('common:box-list')}UI/UX Designer</li>
@@ -160,14 +144,10 @@ function Stuff() {
                   <li>2020 / 2022</li>
                 </ul>
                 <div className="box-link-cnt ">
-                  <Link href="/stuff/ideology" passHref>
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      className="btn-small box-link"
-                    >
-                      {t('common:stuff')}
-                    </a>
+                  <Link onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="btn-small box-link" href="/stuff/ideology" passHref>
+                    {t('common:stuff')}
                   </Link>
                 </div>
               </div>
@@ -175,21 +155,17 @@ function Stuff() {
           </div>
           <div id="box3" className="scroll-section-3 scroll-section">
             <div className="box-image-cnt">
-              <Link href="/stuff/cg-prospect">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <SrcImage
-                    className="flex-center"
-                    src="/cg-prospect-website-1.jpg"
-                    webp="/cg-prospect-website-1.webp"
-                    height="637"
-                    width="448"
-                    alt="ideology work"
-                    lazyOff={true}
-                  />
-                </a>
+              <Link onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave} href="/stuff/cg-prospect">
+                <SrcImage
+                  className="flex-center"
+                  src="/cg-prospect-website-1.jpg"
+                  webp="/cg-prospect-website-1.webp"
+                  height="637"
+                  width="448"
+                  alt="ideology work"
+                  lazyOff={true}
+                />
               </Link>
             </div>
             <div className="box-informations-cnt">
@@ -198,14 +174,10 @@ function Stuff() {
                   03 / {t('common:stuff-4')}
                   <br />
                 </span>
-                <Link href="/stuff/cg-prospect" passHref>
-                  <a
-                    className="medium-font box-title"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    CG Prospect
-                  </a>
+                <Link className="medium-font box-title"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave} href="/stuff/cg-prospect" passHref>
+                  CG Prospect
                 </Link>
                 <ul>
                   <li>
@@ -220,14 +192,10 @@ function Stuff() {
                   <li>2021 / {t('common:box-list-3')}</li>
                 </ul>
                 <div className="box-link-cnt">
-                  <Link href="/stuff/cg-prospect" passHref>
-                    <a
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      className="btn-small box-link"
-                    >
-                      {t('common:stuff')}
-                    </a>
+                  <Link onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="btn-small box-link" href="/stuff/cg-prospect" passHref>
+                    {t('common:stuff')}
                   </Link>
                 </div>
               </div>

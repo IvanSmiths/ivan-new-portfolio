@@ -59,23 +59,20 @@ function NavbarMobile() {
                 </div>
             </div>
             <div className="mobile">
-                <Link href="/">
-                    <a
-                        className="navbar__logo navbar__logo-mobile">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20px"
-                            height="20px"
-                            viewBox="0 0 45 45"
-                        >
-                            <g id="logo" fill="none" strokeWidth="6">
-                                <circle cx="22.5" cy="22.5" r="22.5" stroke="none" />
-                                <circle cx="22.5" cy="22.5" r="19.5" fill="none" />
-                            </g>
-                        </svg>
-                        <span className="navbar__logo-line">/</span>
-                        {t("common:nav-home")}
-                    </a>
+                <Link className="navbar__logo navbar__logo-mobile" href="/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20px"
+                        height="20px"
+                        viewBox="0 0 45 45"
+                    >
+                        <g id="logo" fill="none" strokeWidth="6">
+                            <circle cx="22.5" cy="22.5" r="22.5" stroke="none" />
+                            <circle cx="22.5" cy="22.5" r="19.5" fill="none" />
+                        </g>
+                    </svg>
+                    <span className="navbar__logo-line">/</span>
+                    {t("common:nav-home")}
                 </Link>
                 <ThemeToggle />
             </div>
@@ -84,31 +81,23 @@ function NavbarMobile() {
                 <div ref={navLinksRef} className="links-socials-cnt">
                     <ul className="burger-menu-links-cnt">
                         <li>
-                            <Link href="/">
-                                <a onClick={handleNavLinkClick} className="impact big-font">
-                                    {t("common:nav-home")}
-                                </a>
+                            <Link onClick={handleNavLinkClick} className="impact big-font" href="/">
+                                {t("common:nav-home")}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/stuff">
-                                <a onClick={handleNavLinkClick} className="impact big-font">
-                                    {t("common:nav-stuff")}
-                                </a>
+                            <Link onClick={handleNavLinkClick} className="impact big-font" href="/stuff">
+                                {t("common:nav-stuff")}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/about">
-                                <a onClick={handleNavLinkClick} className="impact big-font">
-                                    {t("common:nav-about")}
-                                </a>
+                            <Link onClick={handleNavLinkClick} className="impact big-font" href="/about">
+                                {t("common:nav-about")}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/blog">
-                                <a onClick={handleNavLinkClick} className="impact big-font">
-                                    {t("common:nav-post")}
-                                </a>
+                            <Link onClick={handleNavLinkClick} className="impact big-font" href="/blog">
+                                {t("common:nav-post")}
                             </Link>
                         </li>
                     </ul>
@@ -126,18 +115,14 @@ function NavbarMobile() {
                     </ul>
                     <ul className="lang-cnt">
                         <li>
-                            <Link locale="en" href={router.asPath}>
-                                <a onClick={handleNavLinkClick} className="tiny-font">
-                                    {router.locales[0]}
-                                </a>
+                            <Link onClick={handleNavLinkClick} className="tiny-font" locale="en" href={router.asPath}>
+                                {router.locales[0]}
                             </Link>
                         </li>
                         <li className="tiny-font">/</li>
                         <li>
-                            <Link locale="it" href={router.asPath}>
-                                <a onClick={handleNavLinkClick} className="tiny-font">
-                                    {router.locales[1]}
-                                </a>
+                            <Link onClick={handleNavLinkClick} className="tiny-font" locale="it" href={router.asPath}>
+                                {router.locales[1]}
                             </Link>
                         </li>
                     </ul>

@@ -263,8 +263,8 @@ const About = () => {
             <h5 className="medium-font">{t("about:step")}</h5>
             <p>{t("about:step-p")}</p>
             <div className="about__roadmap__copy-link">
-              <Link href="/stuff/ideology">
-                <a className="btn-small">{t("about:see")}</a>
+              <Link className="btn-small" href="/stuff/ideology">
+                {t("about:see")}
               </Link>
             </div>
           </div>
@@ -277,8 +277,8 @@ const About = () => {
             <h5 className="medium-font">{t("about:cg")}</h5>
             <p>{t("about:cg-p")}</p>
             <div className="about__roadmap__copy-link">
-              <Link href="/stuff/cg-prospect">
-                <a className="btn-small">{t("about:see")}</a>
+              <Link className="btn-small" href="/stuff/cg-prospect">
+                {t("about:see")}
               </Link>
             </div>
           </div>
@@ -298,8 +298,8 @@ const About = () => {
             <h5 className="medium-font">{t("about:rock")}</h5>
             <p>{t("about:rock-p")}</p>
             <div className="about__roadmap__copy-link">
-              <Link href="/stuff/scholz-und-volkmer">
-                <a className="btn-small">{t("about:see")}</a>
+              <Link className="btn-small" href="/stuff/scholz-und-volkmer">
+                {t("about:see")}
               </Link>
             </div>
           </div>

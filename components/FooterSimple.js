@@ -85,9 +85,7 @@ function Footer({ link, text }) {
               </div>
             </div>
             <Link href={link}>
-              <a>
-                <span className="big-font">{text}</span>
-              </a>
+              <span className="big-font">{text}</span>
             </Link>
           </div>
         </div>

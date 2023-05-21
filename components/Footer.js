@@ -104,14 +104,14 @@ function Footer({ link }) {
                 </a>
                 <ul className="lang-cnt-footer">
                   <li>
-                    <Link locale="en" href={router.asPath}>
-                      <a className="tiny-font">{router.locales[0]}</a>
+                    <Link className="tiny-font" locale="en" href={router.asPath}>
+                      {router.locales[0]}
                     </Link>
                   </li>
                   <li className="tiny-font">/</li>
                   <li>
-                    <Link locale="it" href={router.asPath}>
-                      <a className="tiny-font">{router.locales[1]}</a>
+                    <Link className="tiny-font" locale="it" href={router.asPath}>
+                      {router.locales[1]}
                     </Link>
                   </li>
                 </ul>
