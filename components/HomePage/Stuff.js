@@ -14,40 +14,27 @@ function Stuff() {
   const triggerRef = useRef(null);
 
   useEffect(() => {
-    let mm = gsap.matchMedia(),
-      breakPoint = 500;
-
-    mm.add(
-      {
-        isDesktop: `(min-width: ${breakPoint}px)`,
-        isMobile: `(max-width: ${breakPoint - 1}px)`,
-      },
-      (context) => {
-        let { isDesktop, isMobile } = context.conditions;
-
-        const pin = gsap.fromTo(
-          containerRef.current,
-          {
-            translateX: 0,
+    let ctx = gsap.context(() => {
+      gsap.fromTo(
+        containerRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: '-200vw',
+          ease: 'none',
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: 'top top',
+            end: '+=6000 top',
+            scrub: 0.6,
+            pin: true,
           },
-          {
-            translateX: '-200vw',
-            ease: 'none',
-            duration: 0.5,
-            scrollTrigger: {
-              trigger: triggerRef.current,
-              start: 'top top',
-              end: isDesktop ? '6000 top' : '1500 top',
-              scrub: 0.6,
-              pin: true,
-            },
-          }
-        );
-        return () => {
-          pin.kill();
-        };
-      }
-    );
+        }
+      )
+    })
+    return () => ctx.revert();
   }, []);
 
   const { setSize } = useContext(CursorContext);
