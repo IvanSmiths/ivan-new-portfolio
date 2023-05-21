@@ -124,15 +124,11 @@ const Hero = () => {
           </p>
         </div>
         <div ref={secondRowRef} className="big-font title-2-cnt">
-          <Link href="/stuff" passHref>
-            <a
-              ref={linkRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="tiny-font desktop title-link btn-small btn-small-2"
-            >
-              {t("common:nav-stuff")}
-            </a>
+          <Link ref={linkRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="tiny-font desktop title-link btn-small btn-small-2" href="/stuff" passHref>
+            {t("common:nav-stuff")}
           </Link>
           <em ref={securityRef} className="title-2 impact">
             {t("home:security")}
