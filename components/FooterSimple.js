@@ -1,14 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { CursorContext } from "./CursorManager";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { icons } from "../utils/icons";
+import { useRouter } from "next/router";
 
-function Footer({ link, text }) {
-  gsap.registerPlugin(ScrollTrigger);
-
+function FooterSimple() {
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");
@@ -16,62 +13,27 @@ function Footer({ link, text }) {
   const handleMouseLeave = () => {
     setSize("small");
   };
+  const router = useRouter();
+  const iconWidth = "32x"
 
   return (
     <>
       <footer>
-        <div>
+        <div className="footer-simple">
           <div className="footer-counter-inner">
             <div className="footer-counter__contact">
               <ul className="footer__icon">
-                <li>
-                  <a
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/IvanSmiths"
-                  >
-                    <img
-                      src="/github-icon.svg"
-                      alt="github icon"
-                      height="25px"
-                      width="25px"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/ivan-fabbri/"
-                  >
-                    <img
-                      src="/linkedin-icon.svg"
-                      alt="linkedin icon"
-                      height="25px"
-                      width="25px"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.instagram.com/ivan_smiths/"
-                  >
-                    <img
-                      src="/instagram-icon.svg"
-                      alt="instagram icon"
-                      height="25px"
-                      width="25px"
-                    />
-                  </a>
-                </li>
+                {icons.map((icon, index) => (
+                  <li key={index}>
+                    <a href={icon.link}
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <img src={icon.icon} alt={icon.alt} height={iconWidth} width={iconWidth} />
+                    </a>
+                  </li>
+                ))}
               </ul>
               <div>
                 <a
@@ -82,11 +44,21 @@ function Footer({ link, text }) {
                 >
                   info@ivansmiths.com
                 </a>
+                <ul className="lang-cnt-footer">
+                  <li>
+                    <Link className="tiny-font" locale="en" href={router.asPath}>
+                      {router.locales[0]}
+                    </Link>
+                  </li>
+                  <li className="tiny-font">/</li>
+                  <li>
+                    <Link className="tiny-font" locale="it" href={router.asPath}>
+                      {router.locales[1]}
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
-            <Link href={link}>
-              <span className="big-font">{text}</span>
-            </Link>
           </div>
         </div>
         <div className="spacer-small"></div>
@@ -94,4 +66,4 @@ function Footer({ link, text }) {
     </>
   );
 }
-export default Footer;
+export default FooterSimple;

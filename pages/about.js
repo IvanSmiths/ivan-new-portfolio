@@ -5,16 +5,13 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import { useRouter } from "next/router";
+import Footer from "../components/Footer";
+import FooterSimple from "../components/FooterSimple";
 
 const About = () => {
   let { t } = useTranslation();
 
-  const router = useRouter();
-
   gsap.registerPlugin(ScrollTrigger);
-
-  const [complete, setComplete] = useState(false);
 
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
@@ -32,176 +29,119 @@ const About = () => {
   const finRef = useRef(null);
 
   useEffect(() => {
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: refContainer.current,
-        start: "top top",
-        end: "+=19200px bottom",
-        scrub: true,
-        onLeave: function () {
-          setComplete(true);
+    let ctx = gsap.context(() => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: refContainer.current,
+          start: "top top",
+          end: "19200 bottom",
+          scrub: true,
+          pin: true,
         },
-        pin: true,
-      },
-    });
-
-    tl.to(refTextRoad.current, {
-      ease: "none",
-      scale: 2,
-      opacity: 0,
-    });
-
-    tl.to(ref2020.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-
-    tl.fromTo(
-      firstWebsiteImageRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-      }
-    );
-
-    tl.to(
-      firstWebsiteCopyRef.current,
-
-      {
+      }).to(refTextRoad.current, {
+        ease: "none",
+        scale: 2,
+        opacity: 0,
+      }).to(ref2020.current, {
         keyframes: [
-          { opacity: 1, zIndex: 3 },
           {
-            opacity: 0,
-            delay: 1,
+            opacity: 1,
+            scale: 1.5,
           },
-        ],
-      }
-    );
-
-    tl.to(firstWebsiteImageRef.current, {
-      opacity: 0,
-    });
-    tl.to(idImageRef.current, {
-      opacity: 1,
-    });
-
-    tl.to(
-      idCopyRef.current,
-
-      {
-        keyframes: [
-          { opacity: 1, zIndex: 4 },
           {
             opacity: 0,
 
-            delay: 1,
+            scale: 2,
           },
         ],
-      }
-    );
-
-    tl.to(idImageRef.current, {
-      opacity: 0,
-    });
-
-    tl.to(ref2021.current, {
-      keyframes: [
+      }).fromTo(
+        firstWebsiteImageRef.current,
+        { opacity: 0 },
         {
           opacity: 1,
-          scale: 1.5,
-        },
+        }
+      ).to(
+        firstWebsiteCopyRef.current,
+
         {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-    tl.to(cgImageRef.current, {
-      opacity: 1,
-    });
-
-    tl.to(
-      cgCopyRef.current,
-
-      {
-        keyframes: [
-          { opacity: 1, zIndex: 5 },
-          { opacity: 0, delay: 1 },
-        ],
-      }
-    );
-
-    tl.to(cgImageRef.current, {
-      opacity: 0,
-    });
-    tl.to(ref2022.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-    tl.to(
-      svCopyRef.current,
-
-      {
+          keyframes: [
+            { opacity: 1, zIndex: 3 },
+            {
+              opacity: 0,
+              delay: 1,
+            },
+          ],
+        }
+      ).to(firstWebsiteImageRef.current, {
+        opacity: 0,
+      }).to(idImageRef.current, {
         opacity: 1,
-        zIndex: 5,
-      }
-    );
+      }).to(
+        idCopyRef.current,
 
-    tl.to(svImageRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
-    });
+        {
+          keyframes: [
+            { opacity: 1, zIndex: 4 },
+            {
+              opacity: 0,
 
-    tl.to(svCopyRef.current, {
-      opacity: 0,
-    });
+              delay: 1,
+            },
+          ],
+        }
+      ).to(idImageRef.current, {
+        opacity: 0,
+      }).to(ref2021.current, {
+        keyframes: [
+          {
+            opacity: 1,
+            scale: 1.5,
+          },
+          {
+            opacity: 0,
 
-    tl.to(finRef.current, {
-      keyframes: [
+            scale: 2,
+          },
+        ],
+      }).to(cgImageRef.current, {
+        opacity: 1,
+      }).to(
+        cgCopyRef.current,
+
+        {
+          keyframes: [
+            { opacity: 1, zIndex: 5 },
+            { opacity: 0, delay: 1 },
+          ],
+        }
+      ).to(cgImageRef.current, {
+        opacity: 0,
+      }).to(ref2022.current, {
+        keyframes: [
+          {
+            opacity: 1,
+            scale: 1.5,
+          },
+          {
+            opacity: 0,
+
+            scale: 2,
+          },
+        ],
+      }).to(
+        svCopyRef.current,
         {
           opacity: 1,
-          scale: 1.5,
-          zIndex: 6,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-    return () => {
-      tl.kill();
-    };
+          zIndex: 5,
+        }
+      ).to(svImageRef.current, {
+        keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
+      }).to(svCopyRef.current, {
+        opacity: 0,
+      })
+    })
+    return () => ctx.revert();
   }, []);
-
-  useEffect(() => {
-    if (complete === true) {
-      router.push("/stuff");
-    }
-
-    return () => {
-      setComplete(complete === false);
-    };
-  }, [router, complete]);
 
   return (
     <>
@@ -310,12 +250,9 @@ const About = () => {
             alt=" image of a work"
             loading="lazy"
           />
-          <span ref={finRef}>
-            Fine. <br /> {t("about:fine")}
-          </span>
         </div>
       </main>
-      <div className="spacer-small"></div>
+      <FooterSimple />
     </>
   );
 };
@@ -328,7 +265,7 @@ export async function getServerSideProps(context) {
 }
 
 function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 100));
+  return new Promise((resolve) => setTimeout(resolve, sec * 200));
 }
 
 export default About;
