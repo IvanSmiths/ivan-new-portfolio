@@ -83,7 +83,7 @@ const Home = () => {
           <Innovation />
           <About />
           <Stuff />
-          <Footer link={"about"} />
+          <Footer link="stuff" />
         </>
       )}
     </>
