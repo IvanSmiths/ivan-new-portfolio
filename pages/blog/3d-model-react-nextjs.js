@@ -77,48 +77,51 @@ function NextModel() {
   const excerptRef = useRef(null);
 
   useEffect(() => {
-    let mm = gsap.matchMedia(),
-      breakPoint = 500;
+    let ctx = gsap.context(() => {
 
-    mm.add(
-      {
-        isDesktop: `(min-width: ${breakPoint}px)`,
-        isMobile: `(max-width: ${breakPoint - 1}px)`,
-      },
-      (context) => {
-        let { isDesktop } = context.conditions;
-        var tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: mainImageInnerRef.current,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-            pin: true,
-          },
-        });
 
-        tl.to(mainImageRef.current, {
-          scale: 0.3,
-          opacity: isDesktop ? 1 : 0,
-          ease: "power3",
-        });
+      let mm = gsap.matchMedia(),
+        breakPoint = 500;
 
-        tl.to(mainImageRef.current, {
-          x: isDesktop ? "25%" : 0,
-        });
+      mm.add(
+        {
+          isDesktop: `(min-width: ${breakPoint}px)`,
+          isMobile: `(max-width: ${breakPoint - 1}px)`,
+        },
+        (context) => {
+          let { isDesktop } = context.conditions;
+          var tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: mainImageInnerRef.current,
+              start: "top top",
+              end: "bottom bottom",
+              scrub: true,
+              pin: true,
+            },
+          });
 
-        tl.fromTo(
-          excerptRef.current,
-          {
-            opacity: 0,
-          },
-          { opacity: 1 }
-        );
-        return () => {
-          tl.kill();
-        };
-      }
-    );
+          tl.to(mainImageRef.current, {
+            scale: 0.3,
+            opacity: isDesktop ? 1 : 0,
+            ease: "power3",
+          });
+
+          tl.to(mainImageRef.current, {
+            x: isDesktop ? "25%" : 0,
+          });
+
+          tl.fromTo(
+            excerptRef.current,
+            {
+              opacity: 0,
+            },
+            { opacity: 1 }
+          );
+
+        }
+      );
+    })
+    return () => ctx.revert();
   }, []);
   return (
     <>
