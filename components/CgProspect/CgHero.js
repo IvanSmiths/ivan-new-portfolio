@@ -12,46 +12,45 @@ function CgHero() {
   const companyRef = useRef(null);
 
   useEffect(() => {
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: videoTriggerRef.current,
-        start: "top top",
-        end: "5000 bottom",
-        scrub: true,
-        pin: true,
-      },
-    });
+    let ctx = gsap.context(() => {
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: videoTriggerRef.current,
+          start: "top top",
+          end: "5000 bottom",
+          scrub: true,
+          pin: true,
+        },
+      });
 
-    tl.to(
-      videoRef.current,
-      {
-        scale: 0.4,
-        duration: 1,
-        ease: "power4",
-      },
-      1
-    );
-    tl.to(
-      videoRef.current,
-      {
-        filter: "brightness(1)",
-        duration: 0.3,
-      },
-      0.3
-    );
-    tl.to(
-      companyRef.current,
-      {
-        opacity: 0,
-        translateY: -20,
-        duration: 0.1,
-      },
-      0.3
-    );
-
-    return () => {
-      tl.kill();
-    };
+      tl.to(
+        videoRef.current,
+        {
+          scale: 0.4,
+          duration: 1,
+          ease: "power4",
+        },
+        1
+      );
+      tl.to(
+        videoRef.current,
+        {
+          filter: "brightness(1)",
+          duration: 0.3,
+        },
+        0.3
+      );
+      tl.to(
+        companyRef.current,
+        {
+          opacity: 0,
+          translateY: -20,
+          duration: 0.1,
+        },
+        0.3
+      );
+    })
+    return () => ctx.revert();
   }, []);
 
   let { t } = useTranslation();
