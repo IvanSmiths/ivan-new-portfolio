@@ -9,14 +9,6 @@
   gap: 30px;
 }
 
-.footer-simple .footer-counter-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 0 var(--marginSection);
-}
-
 .footer-counter-inner {
   display: flex;
   justify-content: space-between;
