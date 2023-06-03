@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import Footer from "../components/Footer";
 import FooterSimple from "../components/FooterSimple";
 
 const About = () => {
@@ -20,13 +19,9 @@ const About = () => {
   const idImageRef = useRef(null);
   const firstWebsiteCopyRef = useRef(null);
   const firstWebsiteImageRef = useRef(null);
-  const cgCopyRef = useRef(null);
-  const cgImageRef = useRef(null);
   const svCopyRef = useRef(null);
   const svImageRef = useRef(null);
-  const ref2021 = useRef(null);
   const ref2022 = useRef(null);
-  const finRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -90,31 +85,6 @@ const About = () => {
           ],
         }
       ).to(idImageRef.current, {
-        opacity: 0,
-      }).to(ref2021.current, {
-        keyframes: [
-          {
-            opacity: 1,
-            scale: 1.5,
-          },
-          {
-            opacity: 0,
-
-            scale: 2,
-          },
-        ],
-      }).to(cgImageRef.current, {
-        opacity: 1,
-      }).to(
-        cgCopyRef.current,
-
-        {
-          keyframes: [
-            { opacity: 1, zIndex: 5 },
-            { opacity: 0, delay: 1 },
-          ],
-        }
-      ).to(cgImageRef.current, {
         opacity: 0,
       }).to(ref2022.current, {
         keyframes: [
@@ -208,27 +178,6 @@ const About = () => {
               </Link>
             </div>
           </div>
-          <h3 ref={ref2021}>2021</h3>
-          <div
-            ref={cgCopyRef}
-            className="about__roadmap__copy about__absolute-left about__opacity"
-          >
-            <h4 className="small-font">03 / {t("about:personal")}</h4>
-            <h5 className="medium-font">{t("about:cg")}</h5>
-            <p>{t("about:cg-p")}</p>
-            <div className="about__roadmap__copy-link">
-              <Link className="btn-small" href="/stuff/cg-prospect">
-                {t("about:see")}
-              </Link>
-            </div>
-          </div>
-          <img
-            ref={cgImageRef}
-            className="about__absolute-right about__opacity"
-            src="/cg-prospect-mobile.jpg"
-            alt="image of a work"
-            loading="lazy"
-          />
           <h3 ref={ref2022}>2022</h3>
           <div
             ref={svCopyRef}

@@ -303,7 +303,7 @@
   background-color: var(--color-bg-primary);
   flex-direction: row;
   position: relative;
-  height: 300vh;
+  height: 200vh;
   z-index: 3;
 }
 

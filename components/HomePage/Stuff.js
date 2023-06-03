@@ -21,13 +21,13 @@ function Stuff() {
           translateX: 0,
         },
         {
-          translateX: '-200vw',
+          translateX: '-100vw',
           ease: 'none',
           duration: 0.5,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: 'top top',
-            end: '+=6000 top',
+            end: '+=4000 top',
             scrub: 0.6,
             pin: true,
           },
@@ -134,54 +134,6 @@ function Stuff() {
                   <Link onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className="btn-small box-link" href="/stuff/ideology" passHref>
-                    {t('common:stuff')}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="box3" className="scroll-section-3 scroll-section">
-            <div className="box-image-cnt">
-              <Link onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave} href="/stuff/cg-prospect">
-                <SrcImage
-                  className="flex-center"
-                  src="/cg-prospect-website-1.jpg"
-                  webp="/cg-prospect-website-1.webp"
-                  height="637"
-                  width="448"
-                  alt="ideology work"
-                  lazyOff={true}
-                />
-              </Link>
-            </div>
-            <div className="box-informations-cnt">
-              <div className="box__width">
-                <span className="small-font box-subtitle">
-                  03 / {t('common:stuff-4')}
-                  <br />
-                </span>
-                <Link className="medium-font box-title"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave} href="/stuff/cg-prospect" passHref>
-                  CG Prospect
-                </Link>
-                <ul>
-                  <li>
-                    {t('common:box-list')}
-                    {t('common:box-list-dev-2')}, UI/UX Designer,{' '}
-                    {t('common:box-list-mod')}
-                  </li>
-                  <li>
-                    {t('common:box-list-2')}React (Next.js), MongoDB, CSS,
-                    MetaShape
-                  </li>
-                  <li>2021 / {t('common:box-list-3')}</li>
-                </ul>
-                <div className="box-link-cnt">
-                  <Link onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    className="btn-small box-link" href="/stuff/cg-prospect" passHref>
                     {t('common:stuff')}
                   </Link>
                 </div>
