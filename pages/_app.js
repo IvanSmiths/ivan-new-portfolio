@@ -133,7 +133,6 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
       <CursorManager>
-        <PageTransition />
         <CustomCursor />
         <Navbar />
         <Component {...pageProps} />
