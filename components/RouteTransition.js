@@ -13,7 +13,6 @@ function RouteTransition() {
             tl.to(transitionRef.current, {
                 yPercent: 100,
                 duration: 0.6,
-                ease: "Expo.e5aseInOut",
             });
         };
         const aniEnd = () => {
