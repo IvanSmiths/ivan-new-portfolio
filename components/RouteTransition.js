@@ -2,18 +2,17 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 
-
 function RouteTransition() {
     const router = useRouter()
     const [isChanging, setIsChanging] = useState(false);
     const transitionRef = useRef(null);
 
     useEffect(() => {
-        const aniStart = async () => {
+        const aniStart = () => {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
                 yPercent: 100,
-                duration: 0.3,
+                duration: 0.6,
                 ease: "Expo.e5aseInOut",
             });
         };
@@ -21,7 +20,7 @@ function RouteTransition() {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
                 yPercent: 200,
-                duration: 0.3,
+                duration: 0.6,
                 ease: "Expo.easeInOut",
             });
             tl.set(transitionRef.current, { yPercent: 0 });
