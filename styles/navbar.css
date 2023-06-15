@@ -131,6 +131,7 @@
   position: absolute;
   right: var(--marginLayoutRightSecond);
 }
+
 .navbar-desktop__second-list li:nth-child(1) {
   position: absolute;
   right: var(--marginLayoutRightThird);

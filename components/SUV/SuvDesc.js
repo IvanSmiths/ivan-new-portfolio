@@ -47,19 +47,19 @@ function SuvDesc() {
           <div className="cs__desc-text-wrapper">
             <ul ref={descRef} className="cs__desc-text">
               <li className="medium-font">
-                {t("suv:stack")} <br /> Vue.js (Nuxt.js), JavaScript,
+                {t("suv:stack")} <br /> Vue.js (Nuxt.js), React.js (Next.js) JavaScript,
                 TypeScript, Gsap
               </li>
               <li className="medium-font">
                 {t("suv:date")} <br />
                 15/03/2022 <br />
-                {t("suv:current")}
+                31/01/2023
               </li>
               <li className="medium-font">
                 {t("suv:happy")} <br />4
               </li>
               <li className="medium-font">
-                {t("suv:coding")} <br />
+                3.943 <br />
                 {t("suv:hours")}
               </li>
             </ul>

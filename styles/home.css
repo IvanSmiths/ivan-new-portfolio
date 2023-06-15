@@ -15,9 +15,10 @@
 }
 
 .loader__header em {
-  animation-name: moveUp;
+  animation-name: opacityLoader;
   opacity: 0;
-  animation-duration: 5s;
+  animation-delay: 4.5s;
+  animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   animation-fill-mode: forwards;
 }
@@ -57,13 +58,11 @@
     Droid Sans, Helvetica Neue, sans-serif;
 }
 
-@keyframes moveUp {
+@keyframes opacityLoader {
   0% {
-    opacity: 0;
-  }
-  90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -73,9 +72,11 @@
   0% {
     opacity: 0;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -85,6 +86,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -172,9 +174,11 @@
 .title-1 {
   animation-delay: 0.1s;
 }
+
 .title-2 {
   animation-delay: 0.3s;
 }
+
 .title-3 {
   animation-delay: 0.5s;
 }
@@ -287,6 +291,7 @@
 .scroll-section-2 {
   left: 100vw;
 }
+
 .scroll-section-3 {
   left: 200vw;
 }
@@ -298,7 +303,7 @@
   background-color: var(--color-bg-primary);
   flex-direction: row;
   position: relative;
-  height: 300vh;
+  height: 200vh;
   z-index: 3;
 }
 

@@ -1,15 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../CursorManager";
 
 const Hero = () => {
-  let router = useRouter();
-
   gsap.registerPlugin(ScrollTrigger);
 
   const firstRowRef = useRef(null);
@@ -24,82 +21,83 @@ const Hero = () => {
   const linkRef = useRef(null);
 
   useEffect(() => {
-    var timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: headerRef.current,
-        start: "10px top",
-        end: "bottom top",
-        ease: "power1",
-        scrub: true,
-      },
-    });
+    let ctx = gsap.context(() => {
+      var timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "10px top",
+          end: "bottom top",
+          ease: "power1",
+          scrub: true,
+        },
+      });
 
-    timeline.fromTo(
-      headerRef.current,
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-        duration: 3,
-      },
-      0
-    );
+      timeline.fromTo(
+        headerRef.current,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          duration: 3,
+        },
+        0
+      );
 
-    timeline.to(
-      headerRef.current,
-      {
-        position: "fixed",
-      },
-      0
-    );
+      timeline.to(
+        headerRef.current,
+        {
+          position: "fixed",
+        },
+        0
+      );
 
-    timeline.fromTo(
-      firstRowRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "-5rem",
+      timeline.fromTo(
+        firstRowRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: "-5rem",
 
-        duration: 3,
-      },
-      0
-    );
-    timeline.fromTo(
-      secondRowRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "5rem",
+          duration: 3,
+        },
+        0
+      );
+      timeline.fromTo(
+        secondRowRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: "5rem",
 
-        duration: 3,
-      },
-      0
-    );
-    timeline.fromTo(
-      thirdRowRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "-5rem",
+          duration: 3,
+        },
+        0
+      );
+      timeline.fromTo(
+        thirdRowRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          translateX: "-5rem",
 
-        duration: 3,
-      },
-      0
-    );
-    timeline.to(
-      headerRef.current,
-      {
-        position: "relative",
-      },
-      5
-    );
-
+          duration: 3,
+        },
+        0
+      );
+      timeline.to(
+        headerRef.current,
+        {
+          position: "relative",
+        },
+        5
+      );
+    })
     return () => {
-      timeline.kill();
+      ctx.revert()
     };
   }, []);
 
@@ -114,13 +112,7 @@ const Hero = () => {
   let { t } = useTranslation();
   return (
     <div className="header__wrapper">
-      <header
-        ref={headerRef}
-        style={{
-          left: `${router.locale === "it" ? "3%" : ""}`,
-        }}
-        className="home-header-cnt"
-      >
+      <header ref={headerRef} className="home-header-cnt">
         <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
             {t("home:speed")}
@@ -132,15 +124,11 @@ const Hero = () => {
           </p>
         </div>
         <div ref={secondRowRef} className="big-font title-2-cnt">
-          <Link href="/stuff" passHref>
-            <a
-              ref={linkRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="tiny-font desktop title-link btn-small btn-small-2"
-            >
-              {t("common:nav-stuff")}
-            </a>
+          <Link ref={linkRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="tiny-font desktop title-link btn-small btn-small-2" href="/stuff" passHref>
+            {t("common:nav-stuff")}
           </Link>
           <em ref={securityRef} className="title-2 impact">
             {t("home:security")}

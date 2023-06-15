@@ -1,3 +1,7 @@
+.footer {
+  position: relative;
+}
+
 .footer__icon {
   margin-top: -0.25rem;
   display: flex;
@@ -15,4 +19,23 @@
 
 .footer-counter__contact div {
   margin-top: var(--marginElement);
+}
+
+.lang-cnt-footer {
+  display: flex;
+  gap: 1rem;
+  padding-top: var(--marginElement);
+  color: var(--color-text-sec);
+}
+
+.lang-cnt-footer a,
+li {
+  color: var(--color-text-sec) !important;
+}
+
+.footer__scroll {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: 140px;
+  left: 50%;
 }

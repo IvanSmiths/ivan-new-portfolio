@@ -89,14 +89,11 @@ function About() {
         </div>
       </div>
       <div className="homepage-about-link">
-        <Link href="/about" passHref>
-          <a
-            className="btn-small btn-4 medium-font btn-5"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            {t("home:about-2")}
-          </a>
+        <Link className="btn-small btn-4 medium-font btn-5"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave} href="/about" passHref>
+
+          {t("home:about-2")}
         </Link>
       </div>
     </main>

@@ -13,18 +13,16 @@ function BlogPost({ title, excerpt, date, image, link }) {
   };
   return (
     <div className="blog__posts-single">
-      <Link href={link}>
-        <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <img src={image} alt="tutorial" />
-          <span className="small-font blog__date">{date}</span>
-          <div className="blog__posts__text">
-            <h2 className="bold">{title}</h2>
+      <Link onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href={link}>
+        <img src={image} alt="tutorial" />
+        <span className="small-font blog__date">{date}</span>
+        <div className="blog__posts__text">
+          <h2 className="bold">{title}</h2>
 
-            <h3 className="small-font">{excerpt}</h3>
+          <h3 className="small-font">{excerpt}</h3>
 
-            <span className="blog__link bold">Read more</span>
-          </div>
-        </a>
+          <span className="blog__link bold">Read more</span>
+        </div>
       </Link>
     </div>
   );

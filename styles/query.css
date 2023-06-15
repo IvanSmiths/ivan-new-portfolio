@@ -267,6 +267,7 @@
     margin-top: 0;
     align-items: center;
   }
+
   .about h2,
   h3,
   p,
@@ -291,6 +292,7 @@
     color: var(--color-text-primary);
     border: 1px solid var(--color-text-primary);
   }
+
   .desktop {
     display: none !important;
   }
@@ -398,6 +400,7 @@
     top: 1.6rem;
     z-index: 9999;
   }
+
   .btn-small-3 {
     padding: 7vw 3vw !important;
   }
@@ -655,6 +658,7 @@
     padding-top: 25px;
     padding-bottom: 0;
   }
+
   .menu-title {
     font-size: var(--largeFont);
   }
@@ -762,6 +766,7 @@
 
   .links-socials-cnt {
     padding: 20px;
+    gap: 2rem;
   }
 
   .caption-cnt {
@@ -775,5 +780,13 @@
 
   .btn-4 {
     padding: 18vw 3vw !important;
+  }
+
+  .lang-cnt-footer {
+    display: none;
+  }
+
+  .footer__scroll {
+    bottom: 219px;
   }
 }

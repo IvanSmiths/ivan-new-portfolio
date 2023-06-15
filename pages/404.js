@@ -17,8 +17,8 @@ export default function Custom404() {
       </Head>
       <div className="page-404 flex-center">
         <h1 className="big-font impact">Ok, this is embarassing.</h1>
-        <Link href="/">
-          <a className="btn-small">home</a>
+        <Link className="btn-small" href="/">
+          home
         </Link>
       </div>
     </>

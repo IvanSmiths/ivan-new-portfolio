@@ -83,22 +83,11 @@ const Home = () => {
           <Innovation />
           <About />
           <Stuff />
-          <Footer link={"about"} />
+          <Footer link="stuff" />
         </>
       )}
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  await waitload(1);
-  return {
-    props: { load: "load" },
-  };
-}
-
-function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 300));
-}
 
 export default Home;

@@ -5,16 +5,12 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import { useRouter } from "next/router";
+import FooterSimple from "../components/FooterSimple";
 
 const About = () => {
   let { t } = useTranslation();
 
-  const router = useRouter();
-
   gsap.registerPlugin(ScrollTrigger);
-
-  const [complete, setComplete] = useState(false);
 
   const refContainer = useRef(null);
   const refTextRoad = useRef(null);
@@ -23,202 +19,99 @@ const About = () => {
   const idImageRef = useRef(null);
   const firstWebsiteCopyRef = useRef(null);
   const firstWebsiteImageRef = useRef(null);
-  const cgCopyRef = useRef(null);
-  const cgImageRef = useRef(null);
   const svCopyRef = useRef(null);
   const svImageRef = useRef(null);
-  const ref2021 = useRef(null);
   const ref2022 = useRef(null);
-  const finRef = useRef(null);
-  const scrollingRef = useRef(null);
 
   useEffect(() => {
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: refContainer.current,
-        start: "top top",
-        end: "+=19200px bottom",
-        scrub: true,
-        onLeave: function () {
-          setComplete(true);
+    let ctx = gsap.context(() => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: refContainer.current,
+          start: "top top",
+          end: "19200 bottom",
+          scrub: true,
+          pin: true,
         },
-        pin: true,
-      },
-    });
-
-    tl.to(refTextRoad.current, {
-      ease: "none",
-      scale: 2,
-      opacity: 0,
-    });
-
-    tl.to(ref2020.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-
-    tl.fromTo(
-      firstWebsiteImageRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-      }
-    );
-
-    tl.to(
-      firstWebsiteCopyRef.current,
-
-      {
+      }).to(refTextRoad.current, {
+        ease: "none",
+        scale: 2,
+        opacity: 0,
+      }).to(ref2020.current, {
         keyframes: [
-          { opacity: 1, zIndex: 3 },
           {
-            opacity: 0,
-            delay: 1,
+            opacity: 1,
+            scale: 1.5,
           },
-        ],
-      }
-    );
-
-    tl.to(firstWebsiteImageRef.current, {
-      opacity: 0,
-    });
-    tl.to(idImageRef.current, {
-      opacity: 1,
-    });
-
-    tl.to(
-      idCopyRef.current,
-
-      {
-        keyframes: [
-          { opacity: 1, zIndex: 4 },
           {
             opacity: 0,
 
-            delay: 1,
+            scale: 2,
           },
         ],
-      }
-    );
-
-    tl.to(idImageRef.current, {
-      opacity: 0,
-    });
-
-    tl.to(ref2021.current, {
-      keyframes: [
+      }).fromTo(
+        firstWebsiteImageRef.current,
+        { opacity: 0 },
         {
           opacity: 1,
-          scale: 1.5,
-        },
+        }
+      ).to(
+        firstWebsiteCopyRef.current,
+
         {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-    tl.to(cgImageRef.current, {
-      opacity: 1,
-    });
-
-    tl.to(
-      cgCopyRef.current,
-
-      {
-        keyframes: [
-          { opacity: 1, zIndex: 5 },
-          { opacity: 0, delay: 1 },
-        ],
-      }
-    );
-
-    tl.to(cgImageRef.current, {
-      opacity: 0,
-    });
-    tl.to(ref2022.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-    tl.to(
-      svCopyRef.current,
-
-      {
+          keyframes: [
+            { opacity: 1, zIndex: 3 },
+            {
+              opacity: 0,
+              delay: 1,
+            },
+          ],
+        }
+      ).to(firstWebsiteImageRef.current, {
+        opacity: 0,
+      }).to(idImageRef.current, {
         opacity: 1,
-        zIndex: 5,
-      }
-    );
+      }).to(
+        idCopyRef.current,
 
-    tl.to(svImageRef.current, {
-      keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
-    });
+        {
+          keyframes: [
+            { opacity: 1, zIndex: 4 },
+            {
+              opacity: 0,
 
-    tl.to(svCopyRef.current, {
-      opacity: 0,
-    });
+              delay: 1,
+            },
+          ],
+        }
+      ).to(idImageRef.current, {
+        opacity: 0,
+      }).to(ref2022.current, {
+        keyframes: [
+          {
+            opacity: 1,
+            scale: 1.5,
+          },
+          {
+            opacity: 0,
 
-    tl.to(finRef.current, {
-      keyframes: [
+            scale: 2,
+          },
+        ],
+      }).to(
+        svCopyRef.current,
         {
           opacity: 1,
-          scale: 1.5,
-          zIndex: 6,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-
-    tl.to(scrollingRef.current, {
-      keyframes: [
-        {
-          opacity: 1,
-          scale: 1.5,
-          delay: 2,
-          zIndex: 7,
-        },
-        {
-          opacity: 0,
-
-          scale: 2,
-        },
-      ],
-    });
-    return () => {
-      tl.kill();
-    };
+          zIndex: 5,
+        }
+      ).to(svImageRef.current, {
+        keyframes: [{ opacity: 1 }, { opacity: 0, delay: 1 }],
+      }).to(svCopyRef.current, {
+        opacity: 0,
+      })
+    })
+    return () => ctx.revert();
   }, []);
-
-  useEffect(() => {
-    if (complete === true) {
-      router.push("/stuff");
-    }
-
-    return () => {
-      setComplete(complete === false);
-    };
-  }, [router, complete]);
 
   return (
     <>
@@ -236,7 +129,7 @@ const About = () => {
       </header>
       <main>
         <div ref={refContainer} className="about__container">
-          <h2 ref={refTextRoad}>ROADMAP</h2>
+          <h2 ref={refTextRoad}>TIMELINE</h2>
           <h3 ref={ref2020}>2020</h3>
           <img
             ref={firstWebsiteImageRef}
@@ -249,13 +142,9 @@ const About = () => {
             ref={firstWebsiteCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">01 / PASSION</h4>
-            <h5 className="medium-font">My journey begins</h5>
-            <p>
-              On 2020 my first website went online. My old portfolio was done in
-              plain HTML, Css and JavaScript. Is still hosted on Netlify and it
-              containes some really spooky designs.
-            </p>
+            <h4 className="small-font">01 / {t("about:passion")}</h4>
+            <h5 className="medium-font">{t("about:journey")}</h5>
+            <p>{t("about:journey-p")}</p>
             <div className="about__roadmap__copy-link">
               <a
                 href="https://ivansmiths.netlify.app/"
@@ -263,7 +152,7 @@ const About = () => {
                 className="btn-small"
                 rel="noreferrer noopener"
               >
-                See more
+                {t("about:see")}
               </a>
             </div>
           </div>
@@ -280,61 +169,26 @@ const About = () => {
             ref={idCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">02 / DESING & FRONTEND</h4>
-            <h5 className="medium-font">
-              First little steps in the Tech industry
-            </h5>
-            <p>
-              My first working experience was mainly as a UI/UX designer, but i
-              had the chance of showing my frontend skills, using Css and
-              jQuery.
-            </p>
+            <h4 className="small-font">02 / {t("about:design")}</h4>
+            <h5 className="medium-font">{t("about:step")}</h5>
+            <p>{t("about:step-p")}</p>
             <div className="about__roadmap__copy-link">
-              <Link href="/stuff/ideology">
-                <a className="btn-small">See more</a>
+              <Link className="btn-small" href="/stuff/ideology">
+                {t("about:see")}
               </Link>
             </div>
           </div>
-          <h3 ref={ref2021}>2021</h3>
-          <div
-            ref={cgCopyRef}
-            className="about__roadmap__copy about__absolute-left about__opacity"
-          >
-            <h4 className="small-font">03 / PERSONAL WORK</h4>
-            <h5 className="medium-font">CG Prospect was born</h5>
-            <p>
-              With a more &quot;corporate like&quot; design, CG Prospect is a
-              website focused on performances and Seo, where i freely share my
-              3d models to the people.
-            </p>
-            <div className="about__roadmap__copy-link">
-              <Link href="/stuff/cg-prospect">
-                <a className="btn-small">See more</a>
-              </Link>
-            </div>
-          </div>
-          <img
-            ref={cgImageRef}
-            className="about__absolute-right about__opacity"
-            src="/cg-prospect-mobile.jpg"
-            alt="image of a work"
-            loading="lazy"
-          />
           <h3 ref={ref2022}>2022</h3>
           <div
             ref={svCopyRef}
             className="about__roadmap__copy about__absolute-left about__opacity"
           >
-            <h4 className="small-font">04 / FRONTEND</h4>
-            <h5 className="medium-font">Rocking with Vue (Nuxt.js) and Gsap</h5>
-            <p>
-              As soon as i joined S&V, I started to work on various components
-              and animations, using Gsap for building animation and Vuex as a
-              state manager.
-            </p>
+            <h4 className="small-font">04 / {t("about:see")}</h4>
+            <h5 className="medium-font">{t("about:rock")}</h5>
+            <p>{t("about:rock-p")}</p>
             <div className="about__roadmap__copy-link">
-              <Link href="/stuff/scholz-und-volkmer">
-                <a className="btn-small">See more</a>
+              <Link className="btn-small" href="/stuff/scholz-und-volkmer">
+                {t("about:see")}
               </Link>
             </div>
           </div>
@@ -345,28 +199,11 @@ const About = () => {
             alt=" image of a work"
             loading="lazy"
           />
-          <span ref={finRef}>
-            Fine. <br /> (for now)
-          </span>
-          <span ref={scrollingRef}>
-            Redirecting <br /> for more <br /> details.
-          </span>
         </div>
       </main>
-      <div className="spacer-small"></div>
+      <FooterSimple />
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  await waitload(1);
-  return {
-    props: { load: "load" },
-  };
-}
-
-function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 100));
-}
 
 export default About;

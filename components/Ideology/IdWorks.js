@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectItem from "../ProjectItem/ProjectItem";
-import { pageData } from "../../utils/sampleData";
+import { pageData } from "../../utils/ideologyData";
 
 function IdWorks() {
   return (
