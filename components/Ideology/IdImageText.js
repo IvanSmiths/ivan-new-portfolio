@@ -29,12 +29,12 @@ function IdImageText() {
           <h2 className="small-font">
             01 / <span> Coding</span>
           </h2>
-          <h3 className="medium-font">{t("ideology:cs-2-h")}</h3>
+          <h3 className="medium-font">Counter the inflexibility of WordPress</h3>
         </div>
         <div className="case-studio-description__second-column">
           <p>
-            {t("ideology:cs-2-p")} <br /> <br />
-            {t("ideology:cs-2-p-2")}
+            By being a Frontend developer, I had full control over the layout and design, adding CSS code in order to counter the inflexibility and lack of design of some WordPress themes and plug-ins. <br /> <br />
+            I have also used WordPress by myself, building Website from scratch using YooTheme as a theme builder. I was used to to setup Stripe and PayPal payments with WooCommerce, how to deal with payied subsciption, and gained experience with the use of the most valuable plug-ins.
           </p>
         </div>
       </div>

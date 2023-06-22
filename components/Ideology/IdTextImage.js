@@ -33,10 +33,10 @@ function IdTextImage() {
           <h2 className="small-font">
             01 / <span> Design</span>
           </h2>
-          <h3 className="medium-font">{t("ideology:cs-1-h")}</h3>
+          <h3 className="medium-font">Got my design chosen by Lemon Soda.</h3>
         </div>
         <div className="case-studio-description__second-column">
-          <p>{t("ideology:cs-1-p")}</p>
+          <p>Getting my design chosen from LemonSoda, among at least other 15 companies designs. The landing page is used for one of their limited edition, and is undoubtedly one of my biggest goals that i have achieved. The landing page was designed in Adobe XD and presented to the client along with a brief, carefully explaining the design core concepts and the ux solutions i designed and adopted.;</p>
         </div>
       </div>
     </>

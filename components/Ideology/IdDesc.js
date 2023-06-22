@@ -47,20 +47,20 @@ function IdDesc() {
           <div className="cs__desc-text-wrapper">
             <ul ref={descRef} className="cs__desc-text">
               <li className="medium-font">
-                {t("ideology:stack")} <br /> AdobeXd, CSS, PHP, WordPress
+                Stack:  <br /> AdobeXd, CSS, PHP, WordPress
               </li>
               <li className="medium-font">
-                {t("ideology:date")} <br />
+                Date:  <br />
                 12/08/2020
                 <br />
                 18/02/2022
               </li>
               <li className="medium-font">
-                {t("ideology:happy")} <br />
+                Happy clients:  <br />
                 14
               </li>
               <li className="medium-font">
-                {t("ideology:coding")} <br />
+                Hours of designing:  <br />
                 8,618.
               </li>
             </ul>
