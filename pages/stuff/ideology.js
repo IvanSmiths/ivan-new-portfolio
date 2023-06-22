@@ -55,7 +55,7 @@ const Ideology = () => {
       <IdMobile />
       <Marquee />
       <IdWorks />
-      <Footer link="stuff/cg-prospect" />
+      <Footer link="stuff/scholz-und-volkmer" />
     </>
   );
 };
