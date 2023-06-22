@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
 import { icons } from "../../utils/icons";
 
@@ -18,9 +16,6 @@ function NavbarMobile() {
     const menuLine1 = useRef(null);
     const menuLine2 = useRef(null);
     const menuLine3 = useRef(null);
-    let router = useRouter();
-    let { t } = useTranslation();
-
     const animation = gsap.timeline(
         { paused: true, reversed: true }
     );

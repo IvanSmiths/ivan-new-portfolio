@@ -1,9 +1,7 @@
 import React from "react";
 import SrcImage from "../SrcImage";
-import useTranslation from "next-translate/useTranslation";
 
 function IdImageText() {
-  let { t } = useTranslation();
   return (
     <div className="case-studio__images">
       <div className="case-studio__screen-image">

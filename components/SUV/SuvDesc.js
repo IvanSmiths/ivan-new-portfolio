@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SrcImage from "../SrcImage";
-import useTranslation from "next-translate/useTranslation";
 
 function SuvDesc() {
   gsap.registerPlugin(ScrollTrigger);
@@ -27,8 +26,6 @@ function SuvDesc() {
       desc.kill();
     };
   }, []);
-
-  let { t } = useTranslation();
 
   return (
     <section>
@@ -60,7 +57,6 @@ function SuvDesc() {
               </li>
               <li className="medium-font">
                 3.943 <br />
-                {t("suv:hours")}
               </li>
             </ul>
           </div>

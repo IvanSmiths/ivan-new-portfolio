@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useContext } from "react";
 import { CursorContext } from "./CursorManager";
-import Link from "next/link";
 import { icons } from "../utils/icons";
 import { useRouter } from "next/router";
 

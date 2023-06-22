@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../CursorManager";
+
 function SuvTextBlock() {
-  let { t } = useTranslation();
   const { setSize } = useContext(CursorContext);
   const handleMouseEnter = () => {
     setSize("medium");

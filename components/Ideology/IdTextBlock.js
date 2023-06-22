@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import useTranslation from "next-translate/useTranslation";
 import { CursorContext } from "../CursorManager";
 
 function IdTextBlock() {
@@ -10,8 +9,6 @@ function IdTextBlock() {
   const handleMouseLeave = () => {
     setSize("small");
   };
-
-  let { t } = useTranslation();
 
   return (
     <div className="paragraph-block-outer paragraph-block-outer-first flex-center">

@@ -2,7 +2,6 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import { CursorContext } from "./CursorManager";
 import { gsap } from "gsap";
-import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { icons } from "../utils/icons";

@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
 import SrcImage from "../SrcImage";
 
 function SuvHero() {
@@ -52,8 +51,6 @@ function SuvHero() {
     })
     return () => ctx.revert();
   }, []);
-
-  let { t } = useTranslation();
 
   return (
     <header>

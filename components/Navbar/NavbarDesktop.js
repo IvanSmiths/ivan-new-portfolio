@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { CursorContext } from "../CursorManager";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
 
 const ThemeToggle = dynamic(() => import("../ThemeToggle"), {
@@ -17,7 +16,6 @@ function NavbarDesktop() {
     const handleMouseLeave = () => {
         setSize("small");
     };
-    let { t } = useTranslation();
 
     return (
         <nav className="navbar-desktop">
