@@ -1,10 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 
 function RouteTransition() {
     const router = useRouter()
-    const [isChanging, setIsChanging] = useState(false);
     const transitionRef = useRef(null);
 
     useEffect(() => {
@@ -15,6 +14,7 @@ function RouteTransition() {
                 duration: 0.6,
             });
         };
+
         const aniEnd = () => {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
@@ -26,13 +26,9 @@ function RouteTransition() {
         };
 
         const handler = () => {
-            console.log("changing:", isChanging)
-            setIsChanging(true);
             aniStart();
             setTimeout(() => {
-                console.log("changing:", isChanging)
                 aniEnd();
-                setIsChanging(false);
             }, 600);
         };
 
