@@ -15,7 +15,7 @@ const Index = () => {
         />
       </Head>
       <Stuff />
-      <Footer link="/blog" />
+      <Footer link="blog" />
     </>
   );
 };
