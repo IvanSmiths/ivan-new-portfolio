@@ -88,7 +88,7 @@ function SuvHero() {
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">
-            <h2 className="big-font impact">{t("suv:role")}</h2>
+            <h2 className="big-font impact">Frontend Developer</h2>
           </div>
         </div>
       </div>

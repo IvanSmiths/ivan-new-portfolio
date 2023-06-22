@@ -34,18 +34,18 @@ function SuvTextImage() {
           <h2 className="small-font">
             01 / <span> Gsap</span>
           </h2>
-          <h3 className="medium-font">{t("suv:cs-1-h")}</h3>
+          <h3 className="medium-font">Animations, animations... animations!</h3>
         </div>
         <div className="case-studio-description__second-column">
           <p>
-            {t("suv:cs-1-p")}{" "}
+            As soon as i joined S&V, my firsts Jira tickets were about dealing with animations. Using Gsap, i managed to code animations that are curently in production website like in the {" "}
             <a
               className="bold"
               href="https://perfection.wmf.com/de/perfection/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              {t("suv:cs-wmf")}
+              Wmf one.
             </a>
           </p>
         </div>
