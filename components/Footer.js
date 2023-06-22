@@ -102,19 +102,6 @@ function Footer({ link }) {
                 >
                   info@ivansmiths.com
                 </a>
-                <ul className="lang-cnt-footer">
-                  <li>
-                    <Link className="tiny-font" locale="en" href={router.asPath}>
-                      {router.locales[0]}
-                    </Link>
-                  </li>
-                  <li className="tiny-font">/</li>
-                  <li>
-                    <Link className="tiny-font" locale="it" href={router.asPath}>
-                      {router.locales[1]}
-                    </Link>
-                  </li>
-                </ul>
               </div>
             </div>
             <span className="big-font" ref={numberRef}>

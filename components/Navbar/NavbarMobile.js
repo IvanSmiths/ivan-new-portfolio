@@ -108,19 +108,6 @@ function NavbarMobile() {
                             </li>
                         ))}
                     </ul>
-                    <ul className="lang-cnt">
-                        <li>
-                            <Link onClick={handleNavLinkClick} className="tiny-font" locale="en" href={router.asPath}>
-                                {router.locales[0]}
-                            </Link>
-                        </li>
-                        <li className="tiny-font">/</li>
-                        <li>
-                            <Link onClick={handleNavLinkClick} className="tiny-font" locale="it" href={router.asPath}>
-                                {router.locales[1]}
-                            </Link>
-                        </li>
-                    </ul>
                 </div>
             </nav>
         </>
