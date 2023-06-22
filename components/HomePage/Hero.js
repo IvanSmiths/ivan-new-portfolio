@@ -118,9 +118,9 @@ const Hero = () => {
             Speed
           </em>
           <p ref={copyRef}>
-            {t("home:header-title")} <br />
-            {t("home:header-title-2")} <br />
-            {t("home:header-title-3")}
+            ivan smiths <br />
+            frontend developer <br />
+            3 years of working experience
           </p>
         </div>
         <div ref={secondRowRef} className="big-font title-2-cnt">
