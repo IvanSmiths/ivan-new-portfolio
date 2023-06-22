@@ -1,14 +1,30 @@
 {
-  "locales": ["en", "it"],
+  "locales": [
+    "en",
+    "it"
+  ],
   "defaultLocale": "en",
   "pages": {
-    "*": ["common"],
-    "/": ["home"],
-    "/about": ["about"],
-    "/stuff": ["stuff"],
-    "/stuff/ideology": ["ideology"],
-    "/stuff/cg-prospect": ["cg-prospect"],
-    "/stuff/old-portfolio": ["old-portfolio"],
-    "/stuff/scholz-und-volkmer": ["suv"]
+    "*": [
+      "common"
+    ],
+    "/": [
+      "home"
+    ],
+    "/about": [
+      "about"
+    ],
+    "/stuff": [
+      "stuff"
+    ],
+    "/stuff/ideology": [
+      "ideology"
+    ],
+    "/stuff/old-portfolio": [
+      "old-portfolio"
+    ],
+    "/stuff/scholz-und-volkmer": [
+      "suv"
+    ]
   }
 }
