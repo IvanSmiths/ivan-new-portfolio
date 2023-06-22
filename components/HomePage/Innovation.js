@@ -39,7 +39,7 @@ function Innovation() {
     <div>
       <div ref={innovationTriggerRef} className="inn-outer">
         <h2 ref={innovationRef} className="extreme-font">
-          {t("home:innovation")}
+          INNOVATION
         </h2>
       </div>
     </div>

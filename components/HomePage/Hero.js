@@ -115,7 +115,7 @@ const Hero = () => {
       <header ref={headerRef} className="home-header-cnt">
         <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
-            {t("home:speed")}
+            Speed
           </em>
           <p ref={copyRef}>
             {t("home:header-title")} <br />
@@ -131,12 +131,12 @@ const Hero = () => {
             what i do
           </Link>
           <em ref={securityRef} className="title-2 impact">
-            {t("home:security")}
+            Security
           </em>
         </div>
         <div ref={thirdRowRef} className="big-font  flex-center title-3-cnt">
           <em ref={andRef} className="title-3">
-            {t("home:and")}
+            &
           </em>
           <svg
             ref={arrowRef}

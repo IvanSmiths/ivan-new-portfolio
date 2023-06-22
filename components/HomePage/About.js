@@ -47,14 +47,6 @@ function About() {
 
   return (
     <main ref={refAbout} className="homepage-about-cnt skewElem">
-      <p className="description">
-        Ivan Smiths, <strong>{t("home:bio-2")}</strong>
-        {t("home:bio-3")}
-        <strong>{t("home:bio-4")}</strong>
-        {t("home:bio-5")}
-        <strong>{t("home:bio-6")}</strong>
-        {t("home:bio-7")}
-      </p>
       <div id="about-image-cnt" className="homepage-about-img-cnt">
         <picture className="flex-center">
           <source
@@ -78,23 +70,15 @@ function About() {
         <div className="about">
           <div className="about-cnt">
             <h2 className="tiny-font ">ivan smiths</h2>
-            <h3 className="medium-font">{t("home:about-desc")}</h3>
+            <h3 className="medium-font">Frontend developer highly focused web experiences</h3>
           </div>
           <p className="small-font">
-            {t("home:about")}
+            Frontend Developer highly focused on UI/UX design and visual experiences, since 3 years professionally in the field.
             <br />
             <br />
-            {t("home:about-p2")}
+            Passionate about 3D modeling and augmented reality, I tend to join these two worlds together.
           </p>
         </div>
-      </div>
-      <div className="homepage-about-link">
-        <Link className="btn-small btn-4 medium-font btn-5"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave} href="/about" passHref>
-
-          {t("home:about-2")}
-        </Link>
       </div>
     </main>
   );

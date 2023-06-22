@@ -5,23 +5,11 @@
   ],
   "defaultLocale": "en",
   "pages": {
-    "/": [
-      "home"
-    ],
-    "/about": [
-      "about"
-    ],
     "/stuff": [
       "stuff"
     ],
     "/stuff/ideology": [
       "ideology"
-    ],
-    "/stuff/cg-prospect": [
-      "cg-prospect"
-    ],
-    "/stuff/old-portfolio": [
-      "old-portfolio"
     ],
     "/stuff/scholz-und-volkmer": [
       "suv"
