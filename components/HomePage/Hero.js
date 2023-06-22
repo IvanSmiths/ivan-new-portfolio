@@ -2,7 +2,6 @@
 import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../CursorManager";
 
@@ -109,18 +108,17 @@ const Hero = () => {
     setSize("small");
   };
 
-  let { t } = useTranslation();
   return (
     <div className="header__wrapper">
       <header ref={headerRef} className="home-header-cnt">
         <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
-            {t("home:speed")}
+            Speed
           </em>
           <p ref={copyRef}>
-            {t("home:header-title")} <br />
-            {t("home:header-title-2")} <br />
-            {t("home:header-title-3")}
+            ivan smiths <br />
+            frontend developer <br />
+            3 years of working experience
           </p>
         </div>
         <div ref={secondRowRef} className="big-font title-2-cnt">
@@ -128,15 +126,15 @@ const Hero = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className="tiny-font desktop title-link btn-small btn-small-2" href="/stuff" passHref>
-            {t("common:nav-stuff")}
+            what i do
           </Link>
           <em ref={securityRef} className="title-2 impact">
-            {t("home:security")}
+            Security
           </em>
         </div>
         <div ref={thirdRowRef} className="big-font  flex-center title-3-cnt">
           <em ref={andRef} className="title-3">
-            {t("home:and")}
+            &
           </em>
           <svg
             ref={arrowRef}

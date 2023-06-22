@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
 import { icons } from "../../utils/icons";
 
@@ -18,9 +16,6 @@ function NavbarMobile() {
     const menuLine1 = useRef(null);
     const menuLine2 = useRef(null);
     const menuLine3 = useRef(null);
-    let router = useRouter();
-    let { t } = useTranslation();
-
     const animation = gsap.timeline(
         { paused: true, reversed: true }
     );
@@ -72,7 +67,7 @@ function NavbarMobile() {
                         </g>
                     </svg>
                     <span className="navbar__logo-line">/</span>
-                    {t("common:nav-home")}
+                    home
                 </Link>
                 <ThemeToggle />
             </div>
@@ -82,17 +77,17 @@ function NavbarMobile() {
                     <ul className="burger-menu-links-cnt">
                         <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/">
-                                {t("common:nav-home")}
+                                home
                             </Link>
                         </li>
                         <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/stuff">
-                                {t("common:nav-stuff")}
+                                what i do
                             </Link>
                         </li>
                         <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/blog">
-                                {t("common:nav-post")}
+                                what i write
                             </Link>
                         </li>
                     </ul>
@@ -107,19 +102,6 @@ function NavbarMobile() {
                                 </a>
                             </li>
                         ))}
-                    </ul>
-                    <ul className="lang-cnt">
-                        <li>
-                            <Link onClick={handleNavLinkClick} className="tiny-font" locale="en" href={router.asPath}>
-                                {router.locales[0]}
-                            </Link>
-                        </li>
-                        <li className="tiny-font">/</li>
-                        <li>
-                            <Link onClick={handleNavLinkClick} className="tiny-font" locale="it" href={router.asPath}>
-                                {router.locales[1]}
-                            </Link>
-                        </li>
                     </ul>
                 </div>
             </nav>

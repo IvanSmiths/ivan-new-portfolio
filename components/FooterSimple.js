@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useContext } from "react";
 import { CursorContext } from "./CursorManager";
-import Link from "next/link";
 import { icons } from "../utils/icons";
 import { useRouter } from "next/router";
 
@@ -44,19 +43,6 @@ function FooterSimple() {
                 >
                   info@ivansmiths.com
                 </a>
-                <ul className="lang-cnt-footer">
-                  <li>
-                    <Link className="tiny-font" locale="en" href={router.asPath}>
-                      {router.locales[0]}
-                    </Link>
-                  </li>
-                  <li className="tiny-font">/</li>
-                  <li>
-                    <Link className="tiny-font" locale="it" href={router.asPath}>
-                      {router.locales[1]}
-                    </Link>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

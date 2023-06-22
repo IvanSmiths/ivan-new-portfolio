@@ -3,14 +3,11 @@ import Hero from "../components/HomePage/Hero";
 import Loader from "../components/HomePage/Loader";
 import Stuff from "../components/HomePage/Stuff";
 import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
 import Innovation from "../components/HomePage/Innovation";
 import Footer from "../components/Footer";
 import About from "../components/HomePage/About";
 
 const Home = () => {
-  let { t } = useTranslation();
-
   const [hasVisited, setHasVisited] = useState(false);
 
   useEffect(() => {
@@ -67,8 +64,8 @@ const Home = () => {
       ) : (
         <>
           <Head>
-            <title> {t("home:title")}</title>
-            <meta name="description" content={t("home:desc")} />
+            <title>React/Frontend developer from Wiesbaden</title>
+            <meta name="description" content="React/Frontend developer & UI/UX designer with three years of experience, based and currently living in Wiesbaden" />
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}

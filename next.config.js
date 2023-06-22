@@ -1,4 +1,3 @@
-const nextTranslate = require("next-translate");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -13,7 +12,6 @@ module.exports = withBundleAnalyzer({
     ];
   },
   reactStrictMode: true,
-  ...nextTranslate(),
 });
 
 const ContentSecurityPolicy = `

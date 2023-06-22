@@ -2,7 +2,6 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import { CursorContext } from "./CursorManager";
 import { gsap } from "gsap";
-import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { icons } from "../utils/icons";
@@ -102,19 +101,6 @@ function Footer({ link }) {
                 >
                   info@ivansmiths.com
                 </a>
-                <ul className="lang-cnt-footer">
-                  <li>
-                    <Link className="tiny-font" locale="en" href={router.asPath}>
-                      {router.locales[0]}
-                    </Link>
-                  </li>
-                  <li className="tiny-font">/</li>
-                  <li>
-                    <Link className="tiny-font" locale="it" href={router.asPath}>
-                      {router.locales[1]}
-                    </Link>
-                  </li>
-                </ul>
               </div>
             </div>
             <span className="big-font" ref={numberRef}>

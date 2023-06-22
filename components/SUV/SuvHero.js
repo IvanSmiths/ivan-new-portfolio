@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
 import SrcImage from "../SrcImage";
 
 function SuvHero() {
@@ -53,8 +52,6 @@ function SuvHero() {
     return () => ctx.revert();
   }, []);
 
-  let { t } = useTranslation();
-
   return (
     <header>
       <div ref={videoTriggerRef} className="cs__video-outer">
@@ -88,7 +85,7 @@ function SuvHero() {
             </div>
           </div>
           <div className="cs__video-h1 cs__video-h2">
-            <h2 className="big-font impact">{t("suv:role")}</h2>
+            <h2 className="big-font impact">Frontend Developer</h2>
           </div>
         </div>
       </div>

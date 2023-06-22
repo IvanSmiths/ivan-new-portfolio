@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { gsap } from 'gsap';
 import { CursorContext } from '../CursorManager';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import useTranslation from 'next-translate/useTranslation';
 import SrcImage from '../SrcImage';
 
 function Stuff() {
@@ -45,8 +44,6 @@ function Stuff() {
     setSize('small');
   };
 
-  let { t } = useTranslation();
-
   return (
     <div>
       <section ref={triggerRef} className="scroll-container-outer">
@@ -70,7 +67,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  01 / {t('common:stuff-3')}
+                  01 / Work
                   <br />
                 </span>
                 <Link className="medium-font box-title "
@@ -80,18 +77,18 @@ function Stuff() {
                 </Link>
                 <ul>
                   <li>
-                    {t('common:box-list')}
-                    {t('common:box-list-dev')}
+                    Main role
+                    Frontend developer
                   </li>
                   <li>
-                    {t('common:box-list-2')}Vue.js, Nuxt.js,TypeScript, Gsap,
+                    Frontend/backend developer: Vue.js, Nuxt.js,TypeScript, Gsap,
                     Sass
                   </li>
-                  <li>2022 / {t('common:box-list-3')}</li>
+                  <li>2022 / Current</li>
                 </ul>
                 <div className="box-link-cnt">
                   <Link className="btn-small box-link" href="/stuff/scholz-und-volkmer" passHref>
-                    {t('common:stuff')}
+                    Find out
                   </Link>
                 </div>
               </div>
@@ -115,7 +112,7 @@ function Stuff() {
             <div className="box-informations-cnt">
               <div className="box__width">
                 <span className="small-font box-subtitle">
-                  02 / {t('common:stuff-3')}
+                  02 / Work
                   <br />
                 </span>
                 <Link className="medium-font box-title"
@@ -124,9 +121,9 @@ function Stuff() {
                   Ideology
                 </Link>
                 <ul>
-                  <li>{t('common:box-list')}UI/UX Designer</li>
+                  <li>Main role: UI/UX Designer</li>
                   <li>
-                    {t('common:box-list-2')}Adobe XD, CSS, jQuery, WordPress
+                    Main technologies: Adobe XD, CSS, jQuery, WordPress
                   </li>
                   <li>2020 / 2022</li>
                 </ul>
@@ -134,7 +131,7 @@ function Stuff() {
                   <Link onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className="btn-small box-link" href="/stuff/ideology" passHref>
-                    {t('common:stuff')}
+                    Find out
                   </Link>
                 </div>
               </div>
