@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useContext } from "react";
-import Link from "next/link";
 import { gsap } from "gsap";
 import { CursorContext } from "../CursorManager";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
 
 function About() {
   gsap.registerPlugin(ScrollTrigger);
@@ -42,8 +40,6 @@ function About() {
   const handleMouseLeave = () => {
     setSize("small");
   };
-
-  let { t } = useTranslation();
 
   return (
     <main ref={refAbout} className="homepage-about-cnt skewElem">

@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SrcImage from "../SrcImage";
-import useTranslation from "next-translate/useTranslation";
 
 function IdDesc() {
   gsap.registerPlugin(ScrollTrigger);
@@ -27,8 +26,6 @@ function IdDesc() {
       desc.kill();
     };
   }, []);
-
-  let { t } = useTranslation();
 
   return (
     <section>

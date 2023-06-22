@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useReducer, useRef } from "react";
-import useTranslation from "next-translate/useTranslation";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const Loader = ({ setHasVisited }) => {
@@ -11,7 +10,6 @@ const Loader = ({ setHasVisited }) => {
     return () => clearTimeout(timer);
   }, [setHasVisited]);
 
-  let { t } = useTranslation();
   const [lettersRef, setlettersRef] = useArrayRef();
 
   function useArrayRef() {

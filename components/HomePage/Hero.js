@@ -2,7 +2,6 @@
 import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../CursorManager";
 
@@ -109,7 +108,6 @@ const Hero = () => {
     setSize("small");
   };
 
-  let { t } = useTranslation();
   return (
     <div className="header__wrapper">
       <header ref={headerRef} className="home-header-cnt">
