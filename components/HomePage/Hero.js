@@ -128,7 +128,7 @@ const Hero = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className="tiny-font desktop title-link btn-small btn-small-2" href="/stuff" passHref>
-            {t("common:nav-stuff")}
+            what i do
           </Link>
           <em ref={securityRef} className="title-2 impact">
             {t("home:security")}

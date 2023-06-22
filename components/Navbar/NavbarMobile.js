@@ -72,7 +72,7 @@ function NavbarMobile() {
                         </g>
                     </svg>
                     <span className="navbar__logo-line">/</span>
-                    {t("common:nav-home")}
+                    home
                 </Link>
                 <ThemeToggle />
             </div>
@@ -82,17 +82,17 @@ function NavbarMobile() {
                     <ul className="burger-menu-links-cnt">
                         <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/">
-                                {t("common:nav-home")}
+                                home
                             </Link>
                         </li>
                         <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/stuff">
-                                {t("common:nav-stuff")}
+                                what i do
                             </Link>
                         </li>
                         <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/blog">
-                                {t("common:nav-post")}
+                                what i write
                             </Link>
                         </li>
                     </ul>
