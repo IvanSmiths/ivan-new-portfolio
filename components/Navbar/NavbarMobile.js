@@ -91,11 +91,6 @@ function NavbarMobile() {
                             </Link>
                         </li>
                         <li>
-                            <Link onClick={handleNavLinkClick} className="impact big-font" href="/about">
-                                {t("common:nav-about")}
-                            </Link>
-                        </li>
-                        <li>
                             <Link onClick={handleNavLinkClick} className="impact big-font" href="/blog">
                                 {t("common:nav-post")}
                             </Link>
