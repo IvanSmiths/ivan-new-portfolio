@@ -51,12 +51,6 @@ function NavbarDesktop() {
             <ul className="navbar-desktop__second-list">
                 <li>
                     <Link onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave} href="/about">
-                        {t("common:nav-about")}
-                    </Link>
-                </li>
-                <li>
-                    <Link onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave} href="/blog">
                         {t("common:nav-post")}
                     </Link>
