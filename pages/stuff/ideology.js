@@ -1,14 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Head from "next/head";
-import Marquee from "../../components/Marquee";
 import IdHero from "../../components/Ideology/IdHero";
 import Footer from "../../components/Footer";
 import IdDesc from "../../components/Ideology/IdDesc";
 import IdTextImage from "../../components/Ideology/IdTextImage";
 import IdImageText from "../../components/Ideology/IdImageText";
 import IdMobile from "../../components/Ideology/IdMobile";
-import IdWorks from "../../components/Ideology/IdWorks";
 import IdTextBlock from "../../components/Ideology/IdTextBlock";
 
 const Ideology = () => {
@@ -53,8 +51,6 @@ const Ideology = () => {
       <IdTextImage />
       <IdImageText />
       <IdMobile />
-      <Marquee />
-      <IdWorks />
       <Footer link="stuff/scholz-und-volkmer" />
     </>
   );
