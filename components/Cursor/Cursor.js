@@ -1,24 +1,18 @@
-import { useRef, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Cursor() {
-  const cursorRef = useRef(null);
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
+
   useEffect(() => {
-    if (cursorRef.current == null || cursorRef == null) return;
-    document.addEventListener('mousemove', (e) => {
-      if (cursorRef.current == null) return;
-      cursorRef.current.setAttribute(
-        'style',
-        'top: ' + e.pageY + 'px; left: ' + e.pageX + 'px;'
-      );
-    });
-    document.addEventListener('click', () => {
-      if (cursorRef.current == null) return;
-      cursorRef.current.classList.add('expand');
-      setTimeout(() => {
-        if (cursorRef.current == null) return;
-        cursorRef.current.classList.remove('expand');
-      }, 500);
-    });
-  }, []);
-  return <div className="cursor" ref={cursorRef}></div>;
+    const handleMouseMovement = (e) => {
+      setX(e.clientX)
+      setY(e.clientY)
+    }
+    document.addEventListener('mousemove', handleMouseMovement);
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMovement);
+    }
+  }, [x, y])
+  return <div className="cursor"></div>;
 }
