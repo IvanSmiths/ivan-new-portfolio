@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import "../styles/style.scss";
 import React, { useEffect } from "react";
 import CursorManager from "../components/CursorManager";
 import CustomCursor from "../components/CustomCursor";
