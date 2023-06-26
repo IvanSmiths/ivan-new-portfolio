@@ -27,10 +27,6 @@ const CustomCursor = () => {
         mouseY - secondaryCursor.current.clientHeight / 2;
     });
 
-    return () => {};
-  }, []);
-
-  useEffect(() => {
     const followMouse = () => {
       positionRef.current.key = requestAnimationFrame(followMouse);
       const {
@@ -48,9 +44,9 @@ const CustomCursor = () => {
         positionRef.current.distanceX = (mouseX - destinationX) * 0.1;
         positionRef.current.distanceY = (mouseY - destinationY) * 0.1;
         if (
-          Math.abs(positionRef.current.distanceX) +
+            Math.abs(positionRef.current.distanceX) +
             Math.abs(positionRef.current.distanceY) <
-          0.1
+            0.1
         ) {
           positionRef.current.destinationX = mouseX;
           positionRef.current.destinationY = mouseY;
@@ -63,7 +59,10 @@ const CustomCursor = () => {
         secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`;
     };
     followMouse();
+
+    return () => {};
   }, []);
+
   return (
     <div className={`cursor-wrapper default`}>
       <div className={`secondary-cursor ${size}`} ref={secondaryCursor}></div>
