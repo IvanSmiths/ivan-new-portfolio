@@ -2,7 +2,6 @@
 import React, { useContext } from "react";
 import { CursorContext } from "./Cursor/CursorManager";
 import { icons } from "../utils/icons";
-import { useRouter } from "next/router";
 
 function FooterSimple() {
   const { setSize } = useContext(CursorContext);
@@ -12,7 +11,6 @@ function FooterSimple() {
   const handleMouseLeave = () => {
     setSize("small");
   };
-  const router = useRouter();
   const iconWidth = "32x"
 
   return (
