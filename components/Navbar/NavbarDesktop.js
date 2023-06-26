@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CursorContext } from "../CursorManager";
+import { CursorContext } from "../Cursor/CursorManager";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 

@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import React, { useEffect } from "react";
-import CursorManager from "../components/CursorManager";
-import CustomCursor from "../components/CustomCursor";
+import CursorManager from "../components/Cursor/CursorManager";
+import CustomCursor from "../components/Cursor/CustomCursor";
 import Navbar from "../components/Navbar";
 import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";

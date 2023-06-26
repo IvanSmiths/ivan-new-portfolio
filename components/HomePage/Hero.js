@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useRef } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CursorContext } from "../CursorManager";
+import { CursorContext } from "../Cursor/CursorManager";
 
 const Hero = () => {
   gsap.registerPlugin(ScrollTrigger);

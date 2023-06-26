@@ -2,7 +2,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import BlogPost from "../../components/Blog/BlogPost";
-import { CursorContext } from "../../components/CursorManager";
+import { CursorContext } from "../../components/Cursor/CursorManager";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
 

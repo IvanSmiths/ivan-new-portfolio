@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useContext } from "react";
 import { gsap } from "gsap";
-import { CursorContext } from "../CursorManager";
+import { CursorContext } from "../Cursor/CursorManager";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function About() {

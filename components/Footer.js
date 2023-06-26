@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useState, useContext } from "react";
-import { CursorContext } from "./CursorManager";
+import { CursorContext } from "./Cursor/CursorManager";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";

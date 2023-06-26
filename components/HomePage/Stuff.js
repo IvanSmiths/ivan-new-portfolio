@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
-import { CursorContext } from '../CursorManager';
+import { CursorContext } from '../Cursor/CursorManager';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SrcImage from '../SrcImage';
 
