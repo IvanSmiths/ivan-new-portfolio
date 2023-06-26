@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { CursorContext } from "../Cursor/CursorManager";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function About() {
@@ -33,21 +32,11 @@ function About() {
     };
   }, []);
 
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize("medium");
-  };
-  const handleMouseLeave = () => {
-    setSize("small");
-  };
-
   return (
     <main ref={refAbout} className="homepage-about-cnt skewElem">
       <div id="about-image-cnt" className="homepage-about-img-cnt">
         <picture className="flex-center">
           <source
-            alt="me"
-            decoding="async"
             height="908.75px"
             width="605.75px"
             srcSet="/photo-of-me.webp"
@@ -57,8 +46,8 @@ function About() {
             alt="me"
             decoding="async"
             src="/photo-of-me.jpg"
-            height="908.75px"
-            width="605.75px"
+            height="3635"
+            width="2423"
           />
         </picture>
       </div>
