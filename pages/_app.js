@@ -117,7 +117,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:description"
-          content="Ivan smiths's portfolio. React developer with 2 years of professional exprerience, based in Wisbaden."
+          content="Ivan Smiths portfolio. React developer with 2 years of professional experience, based in Wiesbaden."
         />
         <meta
           name="twitter:image"
@@ -125,10 +125,10 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:image:alt"
-          content="preview of ivan smiths's website"
+          content="preview of Ivan Smiths website"
         />
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-        <meta name="application-name" content="Ivan Smiths's Portfolio" />
+        <meta name="application-name" content="Ivan Smiths Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
       <CursorManager>
