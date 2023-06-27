@@ -6,6 +6,7 @@ import Head from "next/head";
 import Innovation from "../components/HomePage/Innovation";
 import Footer from "../components/Footer";
 import About from "../components/HomePage/About";
+import Time from "../components/Time";
 
 const Home = () => {
   const [hasVisited, setHasVisited] = useState(false);
@@ -76,6 +77,7 @@ const Home = () => {
             />
           </Head>
           <div id="homeLoader"></div>
+          <Time/>
           <Hero />
           <Innovation />
           <About />
