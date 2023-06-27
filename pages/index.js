@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import Hero from "../components/HomePage/Hero";
 import Loader from "../components/HomePage/Loader";
 import Stuff from "../components/HomePage/Stuff";
@@ -7,10 +7,10 @@ import Innovation from "../components/HomePage/Innovation";
 import Footer from "../components/Footer";
 import About from "../components/HomePage/About";
 import Time from "../components/Time";
+import {CursorContext} from "../components/Cursor/CursorManager";
 
 const Home = () => {
   const [hasVisited, setHasVisited] = useState(false);
-  const [scrollHint, setScrollHint] = useState(true);
 
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem("hasVisitedBefore");
@@ -59,13 +59,11 @@ const Home = () => {
     };
   }, [hasVisited]);
 
+  const { setScrollHint, scrollHint } = useContext(CursorContext);
 
-  function scrollHintHandlerOff() {
-    setScrollHint(false)
-  }
 
   setTimeout( () =>
-      scrollHintHandlerOff(),7000
+      setScrollHint(false),4000
   )
 
   console.log(scrollHint)
