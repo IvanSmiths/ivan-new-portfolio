@@ -10,6 +10,7 @@ import Time from "../components/Time";
 
 const Home = () => {
   const [hasVisited, setHasVisited] = useState(false);
+  const [scrollHint, setScrollHint] = useState(true);
 
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem("hasVisitedBefore");
@@ -57,6 +58,17 @@ const Home = () => {
       document.body.style.overflow = "auto";
     };
   }, [hasVisited]);
+
+
+  function scrollHintHandlerOff() {
+    setScrollHint(false)
+  }
+
+  setTimeout( () =>
+      scrollHintHandlerOff(),7000
+  )
+
+  console.log(scrollHint)
 
   return (
     <>
