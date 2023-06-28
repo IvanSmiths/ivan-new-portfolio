@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import {gsap} from "gsap";
 
 const Time = () => {
     const [currentTime, setCurrentTime] = useState("");
+    const timeRef = useRef(null);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -19,10 +21,16 @@ const Time = () => {
     }, []);
 
     useEffect(() => {
-        console.log(`Current time is: ${currentTime}`);
+        gsap.timeline().to(timeRef.current, {
+            opacity:0,
+            duration:0.4
+        }).to(timeRef.current, {
+            opacity:1,
+            duration:0.4
+        })
     }, [currentTime]);
 
-    return <span>{currentTime}</span>;
+    return <span ref={timeRef}>{currentTime}</span>;
 };
 
 export default Time;
