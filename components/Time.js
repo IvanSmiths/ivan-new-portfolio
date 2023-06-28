@@ -18,6 +18,10 @@ const Time = () => {
         return () => clearInterval(intervalId);
     }, []);
 
+    useEffect(() => {
+        console.log(`Current time is: ${currentTime}`);
+    }, [currentTime]);
+
     return <span>{currentTime}</span>;
 };
 
