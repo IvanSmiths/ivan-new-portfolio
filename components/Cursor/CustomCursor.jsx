@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useEffect } from 'react';
-import { CursorContext } from './CursorManager';
+import { useRef, useEffect } from 'react';
+import {useHoverStore} from "../../utils/store";
 
 const CustomCursor = () => {
-  const { size, scrollHint } = useContext(CursorContext);
+  const {hover} = useHoverStore();
   const secondaryCursor = useRef(null);
   const positionRef = useRef({
     mouseX: 0,
@@ -65,10 +65,7 @@ const CustomCursor = () => {
 
   return (
     <div className={`cursor-wrapper default`}>
-      <div className={`secondary-cursor ${size}`} ref={secondaryCursor}>
-        {scrollHint === true ? <>
-        <span>scroll</span>
-        </> : null}
+      <div className={`secondary-cursor ${hover}`} ref={secondaryCursor}>
       </div>
     </div>
   );
