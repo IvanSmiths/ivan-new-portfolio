@@ -21,6 +21,7 @@ const Time = () => {
     }, []);
 
     useEffect(() => {
+        gsap.set(timeRef.current, {opacity: 0})
         gsap.timeline().to(timeRef.current, {
             opacity:0,
             duration:0.4
