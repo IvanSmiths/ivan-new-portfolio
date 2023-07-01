@@ -66,6 +66,7 @@ const CustomCursor = () => {
   return (
     <div className={`cursor-wrapper default`}>
       <div className={`secondary-cursor ${hover}`} ref={secondaryCursor}>
+
       </div>
     </div>
   );
