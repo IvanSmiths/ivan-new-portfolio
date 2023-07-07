@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useContext, useRef } from "react";
+import React, {useEffect, useContext, useRef} from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../Cursor/CursorManager";
+import {useHoverStore} from "../../utils/store";
 
 const Hero = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +19,19 @@ const Hero = () => {
   const arrowRef = useRef(null);
   const copyRef = useRef(null);
   const linkRef = useRef(null);
+
+  const {setUserScroll, userScroll} = useHoverStore()
+
+    useEffect(() => {
+        function updatePosition() {
+            setUserScroll(window.scrollY)
+        }
+
+        window.addEventListener('scroll', updatePosition)
+        updatePosition()
+
+        return () => window.removeEventListener('scroll', updatePosition)
+    }, [setUserScroll])
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -113,7 +127,7 @@ const Hero = () => {
       <header ref={headerRef} className="home-header-cnt">
         <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
-            Speed
+            Speed {userScroll}
           </em>
           <p ref={copyRef}>
             ivan smiths <br />
@@ -140,7 +154,6 @@ const Hero = () => {
             ref={arrowRef}
             height="120px"
             width="100px"
-            alt="arrow down"
             className="title-arrow"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 59.126 22.371"
