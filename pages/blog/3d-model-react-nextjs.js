@@ -123,6 +123,23 @@ function NextModel() {
     })
     return () => ctx.revert();
   }, []);
+
+
+  const opacityRef = useRef(null)
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(opacityRef.current, {
+        opacity: 0
+      }, {
+        opacity: 1,
+        delay: 0.5,
+        duration: 1
+      })
+    })
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
       <Head>
@@ -159,7 +176,7 @@ function NextModel() {
         />
       </Head>
       <article className="blogpost">
-        <h1 className="blogpost__title  upper impact">{articleTitle}</h1>
+        <h1 style={{opacity: 0}} ref={opacityRef} className="blogpost__title  upper impact">{articleTitle}</h1>
         <div className="blogpost__main-image-outer">
           <div ref={mainImageInnerRef} className="blogpost__main-image-inner">
             <div className="blogpost__main-image-inner-absolute">
