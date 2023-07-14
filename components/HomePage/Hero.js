@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CursorContext } from "../Cursor/CursorManager";
-import {useHoverStore} from "../../utils/store";
 
 const Hero = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -19,19 +18,6 @@ const Hero = () => {
   const arrowRef = useRef(null);
   const copyRef = useRef(null);
   const linkRef = useRef(null);
-
-  const {setUserScroll, userScroll} = useHoverStore()
-
-    useEffect(() => {
-        function updatePosition() {
-            setUserScroll(window.scrollY)
-        }
-
-        window.addEventListener('scroll', updatePosition)
-        updatePosition()
-
-        return () => window.removeEventListener('scroll', updatePosition)
-    }, [setUserScroll])
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -127,7 +113,7 @@ const Hero = () => {
       <header ref={headerRef} className="home-header-cnt">
         <div ref={firstRowRef} className="big-font title-1-cnt">
           <em ref={speedRef} className="title-1 ">
-            Speed {userScroll}
+            Speed
           </em>
           <p ref={copyRef}>
             ivan smiths <br />
