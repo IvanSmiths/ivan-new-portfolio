@@ -59,13 +59,11 @@ const Home = () => {
   }, [hasVisited]);
 
 
-  const {setScrollHint, scrollHint} = useHoverStore();
+  const {setScrollHint} = useHoverStore();
 
   setTimeout( () =>
       setScrollHint(false),4000
   )
-
-  console.log(scrollHint)
 
   return (
     <>
