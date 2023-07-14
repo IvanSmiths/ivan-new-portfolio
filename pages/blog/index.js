@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import Head from "next/head";
 import BlogPost from "../../components/Blog/BlogPost";
 import { CursorContext } from "../../components/Cursor/CursorManager";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
+import {gsap} from "gsap";
 
 function Blog() {
   const { setSize } = useContext(CursorContext);
@@ -39,6 +40,21 @@ function Blog() {
     return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
+    const opacityRef = useRef(null)
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.fromTo(opacityRef.current, {
+                opacity: 0
+            }, {
+                opacity: 1,
+                delay: 0.5,
+                duration: 1
+            })
+        })
+        return () => ctx.revert();
+    }, []);
+
   return (
     <>
       <Head>
@@ -48,7 +64,7 @@ function Blog() {
           content="From tutorials to snippets, i publish all my contant in this page"
         />
       </Head>
-      <div className="blog">
+      <div style={{opacity: 0}} ref={opacityRef} className="blog">
         <div className="blog__filters">
           <button
             onMouseEnter={handleMouseEnter}
