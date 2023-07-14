@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
-import { CursorContext } from '../Cursor/CursorManager';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SrcImage from '../SrcImage';
+import {useHoverStore} from "../../utils/store";
 
 function Stuff() {
   gsap.registerPlugin(ScrollTrigger);
@@ -36,12 +36,12 @@ function Stuff() {
     return () => ctx.revert();
   }, []);
 
-  const { setSize } = useContext(CursorContext);
+  const {setHover} = useHoverStore();
   const handleMouseEnter = () => {
-    setSize('medium');
+    setHover('medium');
   };
   const handleMouseLeave = () => {
-    setSize('small');
+    setHover('small');
   };
 
   return (

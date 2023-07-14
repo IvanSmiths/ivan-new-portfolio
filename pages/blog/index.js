@@ -1,19 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import BlogPost from "../../components/Blog/BlogPost";
-import { CursorContext } from "../../components/Cursor/CursorManager";
 import Footer from "../../components/Footer";
 import FooterSimple from "../../components/FooterSimple";
 import {gsap} from "gsap";
+import {useHoverStore} from "../../utils/store";
 
 function Blog() {
-  const { setSize } = useContext(CursorContext);
+
+    const {setHover} = useHoverStore();
   const handleMouseEnter = () => {
-    setSize("medium");
+    setHover("medium");
   };
   const handleMouseLeave = () => {
-    setSize("small");
+    setHover("small");
   };
 
   const [showAll, setShowAll] = useState(true);
