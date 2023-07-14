@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect, useState, useContext } from "react";
-import { CursorContext } from "./Cursor/CursorManager";
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { icons } from "../utils/icons";
+import {useHoverStore} from "../utils/store";
 
 function Footer({ link }) {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,12 +17,12 @@ function Footer({ link }) {
   const scrollRef = useRef(null);
   const triggerRef = useRef(null);
 
-  const { setSize } = useContext(CursorContext);
+  const {setHover} = useHoverStore();
   const handleMouseEnter = () => {
-    setSize("medium");
+    setHover("medium");
   };
   const handleMouseLeave = () => {
-    setSize("small");
+    setHover("small");
   };
 
   useEffect(() => {

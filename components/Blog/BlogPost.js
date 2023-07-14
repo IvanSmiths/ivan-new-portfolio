@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React, { useContext } from "react";
-import { CursorContext } from "../Cursor/CursorManager";
+import {useHoverStore} from "../../utils/store";
 
 function BlogPost({ title, excerpt, date, image, link }) {
-  const { setSize } = useContext(CursorContext);
+
+  const {setHover} = useHoverStore();
   const handleMouseEnter = () => {
-    setSize("medium");
+    setHover("medium");
   };
   const handleMouseLeave = () => {
-    setSize("small");
+    setHover("small");
   };
   return (
     <div className="blog__posts-single">
