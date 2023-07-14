@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
-import { CursorContext } from "../Cursor/CursorManager";
+import {useHoverStore} from "../../utils/store";
 
 function BlogLink({ href, text }) {
-  const { setSize } = useContext(CursorContext);
-
+  const {setHover} = useHoverStore();
   const handleMouseEnter = () => {
-    setSize("medium");
+    setHover("medium");
   };
   const handleMouseLeave = () => {
-    setSize("small");
+    setHover("small");
   };
   return (
     <a
