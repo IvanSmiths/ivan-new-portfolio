@@ -20,7 +20,7 @@ function SuvHero() {
         delay:0.5,
         duration: 1
       })
-      var tl = gsap.timeline({
+      let tl = gsap.timeline({
         scrollTrigger: {
           trigger: videoTriggerRef.current,
           start: "top top",
