@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Hero from "../components/HomePage/Hero";
 import Loader from "../components/HomePage/Loader";
 import Stuff from "../components/HomePage/Stuff";
@@ -6,7 +6,7 @@ import Head from "next/head";
 import Innovation from "../components/HomePage/Innovation";
 import Footer from "../components/Footer";
 import About from "../components/HomePage/About";
-import {CursorContext} from "../components/Cursor/CursorManager";
+import {useHoverStore} from "../utils/store";
 
 const Home = () => {
   const [hasVisited, setHasVisited] = useState(false);
@@ -58,8 +58,8 @@ const Home = () => {
     };
   }, [hasVisited]);
 
-  const { setScrollHint, scrollHint } = useContext(CursorContext);
 
+  const {setScrollHint, scrollHint} = useHoverStore();
 
   setTimeout( () =>
       setScrollHint(false),4000
