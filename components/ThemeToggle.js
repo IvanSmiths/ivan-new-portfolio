@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect, useContext } from "react";
-import { CursorContext } from "./Cursor/CursorManager";
+import { useState, useEffect } from "react";
+import {useHoverStore} from "../utils/store";
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
@@ -16,13 +16,12 @@ const ThemeToggle = () => {
     savedTheme && setActiveTheme(savedTheme);
   }, []);
 
-  const { setSize } = useContext(CursorContext);
-
+  const {setHover} = useHoverStore();
   const handleMouseEnter = () => {
-    setSize("medium");
+    setHover("medium");
   };
   const handleMouseLeave = () => {
-    setSize("small");
+    setHover("small");
   };
 
   return (
