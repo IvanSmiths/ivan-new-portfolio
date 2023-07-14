@@ -9,9 +9,17 @@ function SuvHero() {
   const videoTriggerRef = useRef(null);
   const videoRef = useRef(null);
   const companyRef = useRef(null);
+  const opacityRef = useRef(null)
 
   useEffect(() => {
     let ctx = gsap.context(() => {
+      gsap.fromTo(opacityRef.current, {
+        opacity: 0
+      }, {
+        opacity: 1,
+        delay:0.5,
+        duration: 1
+      })
       var tl = gsap.timeline({
         scrollTrigger: {
           trigger: videoTriggerRef.current,
@@ -53,7 +61,7 @@ function SuvHero() {
   }, []);
 
   return (
-    <header>
+    <header style={{opacity: 0}} ref={opacityRef}>
       <div ref={videoTriggerRef} className="cs__video-outer">
         <div className="cs__video-inner">
           <div ref={companyRef} className="cs__video-h1">
