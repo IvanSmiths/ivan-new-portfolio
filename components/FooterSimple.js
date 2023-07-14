@@ -1,16 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useContext } from "react";
-import { CursorContext } from "./Cursor/CursorManager";
 import { icons } from "../utils/icons";
 
 function FooterSimple() {
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize("medium");
-  };
-  const handleMouseLeave = () => {
-    setSize("small");
-  };
   const iconWidth = "32x"
 
   return (
@@ -23,8 +14,6 @@ function FooterSimple() {
                 {icons.map((icon, index) => (
                   <li key={index}>
                     <a href={icon.link}
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
                       target="_blank"
                       rel="noopener noreferrer">
                       <img src={icon.icon} alt={icon.alt} height={iconWidth} width={iconWidth} />
@@ -34,8 +23,6 @@ function FooterSimple() {
               </ul>
               <div>
                 <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
                   href="mailto:ivansmiths.com"
                   className="medium-font"
                 >
