@@ -1,11 +1,9 @@
 import React from "react";
-import useTranslation from "next-translate/useTranslation";
 
 const Marquee = () => {
-  let { t } = useTranslation();
   return (
     <div className="marquee">
-      <em className="impact large-font">{t("common:marquee")}</em>
+      <em className="impact large-font">Marquee</em>
     </div>
   );
 };

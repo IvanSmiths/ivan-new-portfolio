@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useReducer, useRef } from "react";
-import useTranslation from "next-translate/useTranslation";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const Loader = ({ setHasVisited }) => {
@@ -11,7 +10,6 @@ const Loader = ({ setHasVisited }) => {
     return () => clearTimeout(timer);
   }, [setHasVisited]);
 
-  let { t } = useTranslation();
   const [lettersRef, setlettersRef] = useArrayRef();
 
   function useArrayRef() {
@@ -20,10 +18,10 @@ const Loader = ({ setHasVisited }) => {
     return [lettersRef, (ref) => ref && lettersRef.current.push(ref)];
   }
 
-  const text = t("common:web-dev");
-  const text2 = t("common:web-dev-2");
-  const text3 = t("common:web-dev-3");
-  const text4 = t("common:web-dev-4");
+  const text = "Web";
+  const text2 = "development";
+  const text3 = "is just about";
+  const text4 = "three things";
 
   useEffect(() => {
     const anim = gsap.to(
@@ -44,7 +42,7 @@ const Loader = ({ setHasVisited }) => {
     <div className="loader">
       <div className="loader-cnt">
         <h1 className="tiny-font spacing loader-sub-title">
-          Ivan Smiths <br /> {t("common:web-react")} <br /> focused on visual
+          Ivan Smiths <br /> Frontend developer <br /> focused on visual
           effects
         </h1>
         <div className="uppercase big-font loader-title">

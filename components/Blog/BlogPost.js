@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useContext } from "react";
-import { CursorContext } from "../../components/CursorManager";
+import { CursorContext } from "../Cursor/CursorManager";
 
 function BlogPost({ title, excerpt, date, image, link }) {
   const { setSize } = useContext(CursorContext);

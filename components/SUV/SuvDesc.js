@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SrcImage from "../SrcImage";
-import useTranslation from "next-translate/useTranslation";
 
 function SuvDesc() {
   gsap.registerPlugin(ScrollTrigger);
@@ -28,8 +27,6 @@ function SuvDesc() {
     };
   }, []);
 
-  let { t } = useTranslation();
-
   return (
     <section>
       <div ref={descTriggerRef} className="cs__desc-outer">
@@ -47,20 +44,19 @@ function SuvDesc() {
           <div className="cs__desc-text-wrapper">
             <ul ref={descRef} className="cs__desc-text">
               <li className="medium-font">
-                {t("suv:stack")} <br /> Vue.js (Nuxt.js), React.js (Next.js) JavaScript,
+                Stack:  <br /> Vue.js (Nuxt.js), React.js (Next.js) JavaScript,
                 TypeScript, Gsap
               </li>
               <li className="medium-font">
-                {t("suv:date")} <br />
+                Date:  <br />
                 15/03/2022 <br />
                 31/01/2023
               </li>
               <li className="medium-font">
-                {t("suv:happy")} <br />4
+                Happy clients:  <br />4
               </li>
               <li className="medium-font">
                 3.943 <br />
-                {t("suv:hours")}
               </li>
             </ul>
           </div>

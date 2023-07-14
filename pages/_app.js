@@ -1,13 +1,12 @@
 import "../styles/globals.css";
-import "../styles/style.scss";
 import React, { useEffect } from "react";
-import CursorManager from "../components/CursorManager";
-import CustomCursor from "../components/CustomCursor";
+import CursorManager from "../components/Cursor/CursorManager";
+import CustomCursor from "../components/Cursor/CustomCursor";
 import Navbar from "../components/Navbar";
 import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import PageTransition from "../components/PageTransition";
+import RouteTransition from "../components/RouteTransition";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -118,7 +117,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:description"
-          content="Ivan smiths's portfolio. React developer with 2 years of professional exprerience, based in Wisbaden."
+          content="Ivan Smiths portfolio. React developer with 2 years of professional experience, based in Wiesbaden."
         />
         <meta
           name="twitter:image"
@@ -126,16 +125,16 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:image:alt"
-          content="preview of ivan smiths's website"
+          content="preview of Ivan Smiths website"
         />
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-        <meta name="application-name" content="Ivan Smiths's Portfolio" />
+        <meta name="application-name" content="Ivan Smiths Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
       <CursorManager>
-        <PageTransition />
         <CustomCursor />
         <Navbar />
+        <RouteTransition />
         <Component {...pageProps} />
       </CursorManager>
     </>

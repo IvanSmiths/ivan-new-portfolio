@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import Hero from "../components/HomePage/Hero";
 import Loader from "../components/HomePage/Loader";
 import Stuff from "../components/HomePage/Stuff";
 import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
 import Innovation from "../components/HomePage/Innovation";
 import Footer from "../components/Footer";
 import About from "../components/HomePage/About";
+import {CursorContext} from "../components/Cursor/CursorManager";
 
 const Home = () => {
-  let { t } = useTranslation();
-
   const [hasVisited, setHasVisited] = useState(false);
 
   useEffect(() => {
@@ -60,6 +58,15 @@ const Home = () => {
     };
   }, [hasVisited]);
 
+  const { setScrollHint, scrollHint } = useContext(CursorContext);
+
+
+  setTimeout( () =>
+      setScrollHint(false),4000
+  )
+
+  console.log(scrollHint)
+
   return (
     <>
       {hasVisited ? (
@@ -67,8 +74,8 @@ const Home = () => {
       ) : (
         <>
           <Head>
-            <title> {t("home:title")}</title>
-            <meta name="description" content={t("home:desc")} />
+            <title>React/Frontend developer from Wiesbaden</title>
+            <meta name="description" content="React/Frontend developer & UI/UX designer with three years of experience, based and currently living in Wiesbaden" />
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -89,16 +96,5 @@ const Home = () => {
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  await waitload(1);
-  return {
-    props: { load: "load" },
-  };
-}
-
-function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 300));
-}
 
 export default Home;

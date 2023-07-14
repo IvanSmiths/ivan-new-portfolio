@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import useTranslation from "next-translate/useTranslation";
-import { CursorContext } from "../CursorManager";
+import { CursorContext } from "../Cursor/CursorManager";
 
 function IdTextBlock() {
   const { setSize } = useContext(CursorContext);
@@ -11,13 +10,11 @@ function IdTextBlock() {
     setSize("small");
   };
 
-  let { t } = useTranslation();
-
   return (
     <div className="paragraph-block-outer paragraph-block-outer-first flex-center">
       <div className="paragraph-block-inner">
         <div className="paragraph-block__caption">
-          <h3 className="medium-font">{t("ideology:caption")}</h3>
+          <h3 className="medium-font">Taking boring WordPress websites to the next level.</h3>
         </div>
         <div className="paragraph-block__link-text">
           <div>
@@ -33,7 +30,7 @@ function IdTextBlock() {
             </a>
           </div>
           <div className="paragraph-block__link-text__p">
-            <p>{t("ideology:caption-desc")}</p>
+            <p>`First concept, then design` is the motto of Ideology Creative Studio, an agency based in Ragusa counting almost 20 people, with clients such as Lemon Soda and Re/Max.</p>
           </div>
         </div>
       </div>

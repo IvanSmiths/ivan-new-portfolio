@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect, useContext } from "react";
-import Link from "next/link";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { CursorContext } from "../CursorManager";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useTranslation from "next-translate/useTranslation";
 
 function About() {
   gsap.registerPlugin(ScrollTrigger);
@@ -35,31 +32,11 @@ function About() {
     };
   }, []);
 
-  const { setSize } = useContext(CursorContext);
-  const handleMouseEnter = () => {
-    setSize("medium");
-  };
-  const handleMouseLeave = () => {
-    setSize("small");
-  };
-
-  let { t } = useTranslation();
-
   return (
     <main ref={refAbout} className="homepage-about-cnt skewElem">
-      <p className="description">
-        Ivan Smiths, <strong>{t("home:bio-2")}</strong>
-        {t("home:bio-3")}
-        <strong>{t("home:bio-4")}</strong>
-        {t("home:bio-5")}
-        <strong>{t("home:bio-6")}</strong>
-        {t("home:bio-7")}
-      </p>
       <div id="about-image-cnt" className="homepage-about-img-cnt">
         <picture className="flex-center">
           <source
-            alt="me"
-            decoding="async"
             height="908.75px"
             width="605.75px"
             srcSet="/photo-of-me.webp"
@@ -69,8 +46,8 @@ function About() {
             alt="me"
             decoding="async"
             src="/photo-of-me.jpg"
-            height="908.75px"
-            width="605.75px"
+            height="3635"
+            width="2423"
           />
         </picture>
       </div>
@@ -78,23 +55,15 @@ function About() {
         <div className="about">
           <div className="about-cnt">
             <h2 className="tiny-font ">ivan smiths</h2>
-            <h3 className="medium-font">{t("home:about-desc")}</h3>
+            <h3 className="medium-font">Frontend developer highly focused web experiences</h3>
           </div>
           <p className="small-font">
-            {t("home:about")}
+            Frontend Developer highly focused on UI/UX design and visual experiences, since 3 years professionally in the field.
             <br />
             <br />
-            {t("home:about-p2")}
+            Passionate about 3D modeling and augmented reality, I tend to join these two worlds together.
           </p>
         </div>
-      </div>
-      <div className="homepage-about-link">
-        <Link className="btn-small btn-4 medium-font btn-5"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave} href="/about" passHref>
-
-          {t("home:about-2")}
-        </Link>
       </div>
     </main>
   );

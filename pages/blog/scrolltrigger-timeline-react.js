@@ -1,8 +1,24 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import Head from "next/head";
 import Footer from "../../components/Footer";
+import {gsap} from "gsap";
 
 function ScrollTlReact() {
+
+  const opacityRef = useRef(null)
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(opacityRef.current, {
+        opacity: 0
+      }, {
+        opacity: 1,
+        delay: 0.5,
+        duration: 1
+      })
+    })
+    return () => ctx.revert();
+  }, []);
   const snippetTitle = "How to use Scrolltrigger with timeline in React";
   const snippetExcerpt =
     "The following snippets allows you to use Gsap timeline with Scrolltrigger in React (Next.js)";
@@ -90,7 +106,7 @@ function ScrollTlReact() {
           content="https://www.ivansmiths.com/react-gsap.png"
         />
       </Head>
-      <div className="snippet blogpost__article-body-outer flex-center">
+      <div style={{opacity: 0}} ref={opacityRef} className="snippet blogpost__article-body-outer flex-center">
         <div className="blogpost__article-body ">
           <h1 className="medium-font">{snippetTitle}</h1>
           <pre className="blogpost__code">
@@ -122,17 +138,6 @@ function ScrollTlReact() {
       <Footer link="blog" />
     </>
   );
-}
-
-export async function getServerSideProps(context) {
-  await waitload(2);
-  return {
-    props: { load: "load" },
-  };
-}
-
-function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 300));
 }
 
 export default ScrollTlReact;

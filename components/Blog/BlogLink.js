@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CursorContext } from "../../components/CursorManager";
+import { CursorContext } from "../Cursor/CursorManager";
 
 function BlogLink({ href, text }) {
   const { setSize } = useContext(CursorContext);

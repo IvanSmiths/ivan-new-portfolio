@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 * {
@@ -410,6 +414,42 @@ li {
 
 .paragraph-block__link-text__p p {
   color: var(--color-text-sec);
+}
+
+@keyframes slideUpEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUpEnter {
+  animation-name: slideUpEnter;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slideUpLeave {
+  0% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUpLeave {
+  animation-name: slideUpLeave;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
 }
 
 @import "query.css";

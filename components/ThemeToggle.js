@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useContext } from "react";
-import { CursorContext } from "./CursorManager";
+import { CursorContext } from "./Cursor/CursorManager";
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
