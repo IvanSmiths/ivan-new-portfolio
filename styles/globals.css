@@ -298,9 +298,7 @@ li {
 .btn-small {
     background: linear-gradient(to bottom,
     var(--color-text-primary) 0%,
-    var(--color-text-primary) 100%);
-    background-position: right center;
-    background-repeat: no-repeat;
+    var(--color-text-primary) 100%) right center no-repeat;
     background-size: 0 100%;
     border: 1px solid var(--color-text-primary);
     padding: 3.8rem 2.4rem;
