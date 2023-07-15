@@ -1,6 +1,17 @@
+@import "home.css";
+@import "project-item.css";
+@import "navbar.css";
+@import "stuff-single.css";
+@import "about.css";
+@import "blog.css";
+@import "footer.css";
+@import "test.css";
+@import "query.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 html,
 body,
@@ -377,15 +388,6 @@ li {
     transform-origin: center;
 }
 
-@import "home.css";
-@import "project-item.css";
-@import "navbar.css";
-@import "stuff-single.css";
-@import "about.css";
-@import "blog.css";
-@import "footer.css";
-@import "test.css";
-
 .word-wrap {
     word-wrap: break-word;
 }
@@ -472,5 +474,3 @@ li {
 .grid-debug-item {
     background-color: rgba(221, 221, 221, 0.54);
 }
-
-@import "query.css";
