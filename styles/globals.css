@@ -371,12 +371,10 @@ li {
     pointer-events: none;
     transform: translate3d(0, 0, 0);
     position: fixed;
-    background: transparent;
     background-color: var(--main-color);
     transition: width 0.7s cubic-bezier(0.19, 1, 0.22, 1),
     height 0.7s cubic-bezier(0.19, 1, 0.22, 1);
     transform-origin: center;
-    pointer-events: none;
 }
 
 @import "home.css";
