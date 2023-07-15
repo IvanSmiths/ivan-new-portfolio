@@ -61,7 +61,7 @@ function SuvHero() {
     }, []);
 
     return (
-        <header style={{opacity: 0}} ref={opacityRef}>
+        <header className="ideology" ref={opacityRef}>
             <div ref={videoTriggerRef} className="cs__video-outer">
                 <div className="cs__video-inner">
                     <div ref={companyRef} className="cs__video-h1">
