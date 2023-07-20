@@ -27,8 +27,8 @@ const ThemeToggle = () => {
   return (
     <>
       <img
-        height="25px"
-        width="25px"
+        height="20px"
+        width="20px"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className="theme-toggle"
