@@ -197,7 +197,15 @@ body[data-theme="light"] {
     --color-text-inverse: #ffffff;
     --color-bg-inverse: #0e0e0c;
 }
+@layer base {
+    body[data-theme="light"] {
+        --color-bg-primary: #ffffff;
+    }
 
+    body[data-theme="dark"] {
+        --color-bg-primary: #000000;
+    }
+}
 body[data-theme="dark"] {
     --color-bg-primary: #000000;
     --color-bg-sec: #202020;
