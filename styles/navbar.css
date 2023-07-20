@@ -93,15 +93,6 @@
   color: var(--color-text-inverse);
 }
 
-.navbar-desktop {
-  position: fixed;
-  top: 30px;
-  z-index: 999999;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .navbar-desktop a {
   font-size: var(--smallFont);
 }

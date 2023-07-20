@@ -160,6 +160,11 @@ em {
     --marginLayoutRightThird: 330px;
 
     --marginSection: clamp(17rem, 24vw, 28rem);
+
+    --primary-color: #d7f21d;
+
+    --small: 20px;
+    --medium: 40px;
 }
 
 @media screen and (max-width: 1500px) {
