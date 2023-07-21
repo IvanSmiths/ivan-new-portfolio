@@ -12,7 +12,8 @@ module.exports = {
         extend: {
             colors: {
                 "brand": "var(--brand)",
-                "primary": "var(--primary)"
+                "primary": "var(--primary)",
+                "primary-light": "var(--primary-light)"
             },
             spacing: {
                 "small": "var(--small)",

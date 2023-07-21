@@ -200,10 +200,12 @@ body[data-theme="light"] {
 @layer base {
     body[data-theme="light"] {
         --primary: #09090B;
+        --primary-light: #71717A;
     }
 
     body[data-theme="dark"] {
         --primary: #ECECEC;
+        --primary-light: #A1A1AA;
     }
 }
 body[data-theme="dark"] {
