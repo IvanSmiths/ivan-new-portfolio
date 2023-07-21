@@ -23,7 +23,7 @@ function NavbarDesktop() {
     const {setHover} = useHoverStore();
 
     return (
-        <nav className="fixed z-40 w-full top-small left-small">
+        <nav className="fixed z-40 w-full top-small left-small navbar-desktop">
             <ul className="flex gap-medium">
                 {links.map((link) => (
                     <li key={link.index}>
