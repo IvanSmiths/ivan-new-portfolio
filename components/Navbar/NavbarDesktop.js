@@ -25,8 +25,8 @@ function NavbarDesktop() {
     return (
         <nav className="fixed z-40 w-full top-small left-small navbar-desktop">
             <ul className="flex gap-medium">
-                {links.map((link) => (
-                    <li key={link.index}>
+                {links.map((link, index) => (
+                    <li key={index}>
                         <Link href={link.link} onMouseEnter={() => setHover('medium')}
                               onMouseLeave={() => setHover('small')}>
                             {link.page}
