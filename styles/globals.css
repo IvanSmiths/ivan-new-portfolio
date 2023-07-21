@@ -201,11 +201,13 @@ body[data-theme="light"] {
     body[data-theme="light"] {
         --primary: #09090B;
         --primary-light: #71717A;
+        --secondary: #ECECEC;
     }
 
     body[data-theme="dark"] {
         --primary: #ECECEC;
         --primary-light: #A1A1AA;
+        --secondary: #09090B;
     }
 }
 body[data-theme="dark"] {

@@ -13,7 +13,8 @@ module.exports = {
             colors: {
                 "brand": "var(--brand)",
                 "primary": "var(--primary)",
-                "primary-light": "var(--primary-light)"
+                "primary-light": "var(--primary-light)",
+                "secondary": "var(--secondary)"
             },
             spacing: {
                 "small": "var(--small)",
