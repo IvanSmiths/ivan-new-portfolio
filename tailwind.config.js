@@ -11,7 +11,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "primary-color": "var(--primary-color)",
+                "brand": "var(--brand)",
+                "primary": "var(--primary)"
             },
             spacing: {
                 "small": "var(--small)",

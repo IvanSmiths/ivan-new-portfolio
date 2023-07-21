@@ -161,7 +161,7 @@ em {
 
     --marginSection: clamp(17rem, 24vw, 28rem);
 
-    --primary-color: #d7f21d;
+    --brand: #d7f21d;
 
     --small: 20px;
     --medium: 40px;
@@ -199,11 +199,11 @@ body[data-theme="light"] {
 }
 @layer base {
     body[data-theme="light"] {
-        --color-bg-primary: #ffffff;
+        --primary: #09090B;
     }
 
     body[data-theme="dark"] {
-        --color-bg-primary: #000000;
+        --primary: #ECECEC;
     }
 }
 body[data-theme="dark"] {
