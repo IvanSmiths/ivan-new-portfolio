@@ -116,15 +116,10 @@ function HomeWorks() {
                 trigger = ScrollTrigger.create({
                     start: 0,
                     onUpdate(self) {
-                        let scroll = self.scroll();
-                        if (scroll > self.end - 1) {
-                            wrap(1, 1);
-                        } else if (scroll < 1 && self.direction < 0) {
-                            wrap(-1, self.end - 1);
-                        } else {
-                            scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
-                            scrub.invalidate().restart();
-                        }
+                        self.scroll();
+                        scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
+                        scrub.invalidate().restart();
+
                     },
                     end: "+=3000",
                     pin: pinRef.current
@@ -153,9 +148,6 @@ function HomeWorks() {
                     seamlessLoop = gsap.timeline({
                         paused: true,
                         repeat: -1,
-                        onRepeat() {
-                            this._time === this._dur && (this._tTime += this._dur - 0.01);
-                        },
                         onReverseComplete() {
                             this.totalTime(this.rawTime() + this.duration() * 100);
                         }
