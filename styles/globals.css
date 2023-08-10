@@ -197,19 +197,7 @@ body[data-theme="light"] {
     --color-text-inverse: #ffffff;
     --color-bg-inverse: #0e0e0c;
 }
-@layer base {
-    body[data-theme="light"] {
-        --primary: #09090B;
-        --primary-light: #71717A;
-        --secondary: #ECECEC;
-    }
 
-    body[data-theme="dark"] {
-        --primary: #ECECEC;
-        --primary-light: #A1A1AA;
-        --secondary: #09090B;
-    }
-}
 body[data-theme="dark"] {
     --color-bg-primary: #000000;
     --color-bg-sec: #202020;
@@ -488,4 +476,49 @@ li {
 
 .grid-debug-item {
     background-color: rgba(221, 221, 221, 0.54);
+}
+
+.heading-1 {
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.heading-1-bold {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.heading-2 {
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.heading-2-link {
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--primary-light);
+}
+
+.paragraph {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.paragraph-light {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+@layer base {
+    body[data-theme="light"] {
+        --primary: #09090B;
+        --primary-light: #71717A;
+        --secondary: #ECECEC;
+    }
+
+    body[data-theme="dark"] {
+        --primary: #ECECEC;
+        --primary-light: #A1A1AA;
+        --secondary: #09090B;
+    }
 }
