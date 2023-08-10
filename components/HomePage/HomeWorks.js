@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
 import HomeWork from "./HomeWork"
@@ -6,22 +6,7 @@ import HomeWork from "./HomeWork"
 gsap.registerPlugin(ScrollTrigger);
 
 function HomeWorks() {
-
-    const [isNotScrolling, setIsNotScrolling] = useState(true);
-
-    const onScroll = () => {
-        clearTimeout(window.scrollFinished);
-        setIsNotScrolling(false);
-        window.scrollFinished = setTimeout(() => setIsNotScrolling(true), 800);
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
-
     const [projectsRef, setProjectsRef] = useArrayRef();
-
     const pinRef = useRef(null)
 
     function useArrayRef() {
@@ -180,10 +165,9 @@ function HomeWorks() {
             <div ref={pinRef} className="w-full h-3/5 absolute bottom-0 overflow-hidden">
                 <ul className="absolute w-1/2 h-full bottom-0 left-2/4 -translate-x-2/4 ">
                     {works.map((work, index) => (
-                        <HomeWork
-                            isNotScrolling={isNotScrolling} key={index} title={work.title} link={work.link}
-                            img={work.img}
-                            setProjectsRef={setProjectsRef}/>
+                        <HomeWork key={index} title={work.title} link={work.link}
+                                  img={work.img}
+                                  setProjectsRef={setProjectsRef}/>
                     ))}
                 </ul>
             </div>
