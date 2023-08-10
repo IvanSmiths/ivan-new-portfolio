@@ -31,33 +31,32 @@ function HomeWorks() {
             let iteration = 0;
             const xPercent = 163
             const spacing = 0.34;
-            const opacity = 0.3;
-            const initialOpacity = 0;
+            const initialOpacity = 0.6;
+            const opacity = 0.55;
 
             projectsRef.current.forEach((project) => {
                 gsap.set(project, {
                     xPercent: `${xPercent}`,
-                    opacity: `${initialOpacity}`
                 });
             })
 
             gsap.fromTo(projectsRef.current[0],
                 {
-                    opacity: `${initialOpacity}`
+                    opacity: 0
                 }, {
                     opacity: 1
                 });
             gsap.fromTo(projectsRef.current[1],
                 {
-                    opacity: `${initialOpacity}`
+                    opacity: 0
                 }, {
-                    opacity: `${opacity}`
+                    opacity: `${initialOpacity}`
                 });
             gsap.fromTo(projectsRef.current[2],
                 {
-                    opacity: `${initialOpacity}`
+                    opacity: 0
                 }, {
-                    opacity: `${opacity}`
+                    opacity: `${initialOpacity}`
                 });
 
             const snapTime = gsap.utils.snap(spacing),
