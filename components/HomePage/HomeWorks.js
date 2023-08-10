@@ -100,10 +100,15 @@ function HomeWorks() {
                 trigger = ScrollTrigger.create({
                     start: 0,
                     onUpdate(self) {
-                        self.scroll();
-                        scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
-                        scrub.invalidate().restart();
-
+                        let scroll = self.scroll();
+                        if (scroll > self.end - 1) {
+                            wrap(1, 1);
+                        } else if (scroll < 1 && self.direction < 0) {
+                            wrap(-1, self.end - 1);
+                        } else {
+                            scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
+                            scrub.invalidate().restart();
+                        }
                     },
                     end: "+=3000",
                     pin: pinRef.current
