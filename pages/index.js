@@ -51,9 +51,9 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-            <main className="grid fixed h-[30%] sm:h-2/4 bottom-small sm:top-0">
-                <HomeText/>
-            </main>
+
+            <HomeText/>
+
             <HomeWorks/>
         </>
     );

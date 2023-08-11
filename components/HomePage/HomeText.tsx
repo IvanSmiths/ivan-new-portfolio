@@ -1,18 +1,19 @@
 import {FC} from 'react';
+import Time from "./Time";
+import HomeParagraph from "./HomeParagraph";
+import HomeCity from "./HomeCity";
 
 const HomeText: FC = () => {
     return (
-        <>
-            <div className="grid-column-8-11 z-10 heading-2 flex flex-wrap items-center pb-small">
-                <p className="heading-2">
-                    <strong>ivan smiths.</strong> frontend ui/ux developer. 3 years of experience. seeking the
-                    limit.
-                    currently at
-                    <a className="heading-2-link" href="https://www.cowen.com/" target="_blank"
-                       rel="noreferrer noopener"> td cowen.</a>
-                </p>
+        <main className="grid z-10 fixed h-[30%] sm:h-2/4 bottom-small sm:top-0">
+            <div className="grid-column-8-11 flex  flex-col justify-center">
+                <div className="flex gap-3">
+                    <Time/>
+                    <HomeCity/>
+                </div>
+                <HomeParagraph/>
             </div>
-        </>
+        </main>
     )
 }
 

@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import {FC, useEffect, useRef, useState} from "react";
 import {gsap} from "gsap";
 
-const Time = () => {
-    const [currentTime, setCurrentTime] = useState("");
-    const timeRef = useRef(null);
+const Time: FC = () => {
+    const [currentTime, setCurrentTime] = useState<string>("");
+    const timeRef = useRef<HTMLSpanElement | null>(null);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -23,11 +23,11 @@ const Time = () => {
     useEffect(() => {
         gsap.set(timeRef.current, {opacity: 0})
         gsap.timeline().to(timeRef.current, {
-            opacity:0,
-            duration:0.4
+            opacity: 0,
+            duration: 0.4
         }).to(timeRef.current, {
-            opacity:1,
-            duration:0.4
+            opacity: 1,
+            duration: 0.4
         })
     }, [currentTime]);
 
