@@ -52,7 +52,7 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-            <main className="grid fixed">
+            <main className="grid fixed h-2/4">
                 <GridDebug/>
                 <HomeText/>
             </main>
