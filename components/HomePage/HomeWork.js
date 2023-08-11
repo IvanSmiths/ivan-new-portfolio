@@ -3,7 +3,7 @@
 import Link from "next/link"
 import {useState} from "react";
 
-function HomeWork({setProjectsRef, title, key, img, link}) {
+function HomeWork({setProjectsRef, title, img, link}) {
     const [hovered, setHovered] = useState(false)
 
     const handleMouseEnter = () => {
@@ -15,7 +15,7 @@ function HomeWork({setProjectsRef, title, key, img, link}) {
     };
 
     return (
-        <li key={key} ref={setProjectsRef} className='p-0 opacity-0 m-0 w-full h-full flex justify-center
+        <li ref={setProjectsRef} className='p-0 opacity-0 m-0 w-full h-full flex justify-center
             items-center text-center absolute top-0 left-0'>
             <Link className="h-full w-full" href={link}>
                 {hovered === true ? <>
