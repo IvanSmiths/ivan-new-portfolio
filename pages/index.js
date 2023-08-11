@@ -1,7 +1,6 @@
 import Head from "next/head";
 import {useHoverStore} from "../utils/store";
 import HomeWorks from "../components/HomePage/HomeWorks";
-import GridDebug from "../components/GridDebug";
 import HomeText from "../components/HomePage/HomeText";
 
 const Home = () => {
@@ -52,8 +51,7 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-            <main className="grid fixed h-2/4">
-                <GridDebug/>
+            <main className="grid fixed h-[30%] sm:h-2/4 bottom-small sm:top-0">
                 <HomeText/>
             </main>
             <HomeWorks/>

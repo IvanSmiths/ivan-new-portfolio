@@ -165,6 +165,8 @@ em {
 
     --small: 20px;
     --medium: 40px;
+    --small-mobile: 10px;
+    --medium-mobile: 20px;
 }
 
 @media screen and (max-width: 1500px) {
@@ -531,6 +533,26 @@ li {
 
     .grid-column-8-11 {
         grid-column: 1 / 5;
+    }
+}
+
+@media (max-width: 640px) {
+    .heading-2 {
+        font-size: 20px;
+    }
+
+    .heading-2-link {
+        font-size: 20px;
+    }
+
+    .grid {
+        grid-gap: 10px;
+        padding: 0 10px;
+    }
+
+    .grid-debug {
+        grid-gap: 10px;
+        padding: 0 10px;
     }
 }
 
