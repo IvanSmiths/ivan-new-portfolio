@@ -2,7 +2,7 @@ function HomeText() {
 
     return (
         <>
-            <div className="grid-column-8-11 heading-2 flex flex-wrap items-center pb-small">
+            <div className="grid-column-8-11 z-10 heading-2 flex flex-wrap items-center pb-small">
                 <p className="heading-2">
                     <strong>ivan smiths.</strong> frontend ui/ux developer. 3 years of experience. seeking the limit.
                     currently at
