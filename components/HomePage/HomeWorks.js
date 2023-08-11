@@ -137,6 +137,9 @@ function HomeWorks() {
                     seamlessLoop = gsap.timeline({
                         paused: true,
                         repeat: -1,
+                        onRepeat() {
+                            this._time === this._dur && (this._tTime += this._dur - 0.01);
+                        },
                         onReverseComplete() {
                             this.totalTime(this.rawTime() + this.duration() * 100);
                         }
@@ -167,7 +170,7 @@ function HomeWorks() {
     return (
         <section>
             <div ref={pinRef} className="w-full h-2/4 absolute bottom-small overflow-hidden">
-                <ul className="absolute w-2/4 h-full top-0 left-2/4 -translate-x-2/4 ">
+                <ul className="absolute w-2/4 max-md:w-3/4 h-full top-0 left-2/4 -translate-x-2/4 ">
                     {works.map((work, index) => (
                         <HomeWork key={index} title={work.title} link={work.link}
                                   img={work.img}
