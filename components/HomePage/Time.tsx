@@ -31,7 +31,7 @@ const Time: FC = () => {
         })
     }, [currentTime]);
 
-    return <span ref={timeRef}>{currentTime}</span>;
+    return <span className="paragraph-light" ref={timeRef}>{currentTime}</span>;
 };
 
 export default Time;

@@ -519,7 +519,6 @@ a,
 li {
     font-size: 15px;
     font-weight: 400;
-    color: var(--color-text-primary);
 }
 
 @media (max-width: 768px) {

@@ -2,7 +2,7 @@ import {FC} from 'react';
 
 const HomeCity: FC = () => {
     return (
-        <h2>wiesbaden (de)</h2>
+        <h2 className="paragraph-light">wiesbaden (de)</h2>
     )
 }
 
