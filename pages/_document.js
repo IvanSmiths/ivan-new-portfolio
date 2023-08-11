@@ -1,15 +1,15 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GA_TRACKING_ID } from "../utils/gtag";
+import Document, {Head, Html, Main, NextScript} from "next/document";
+import {GA_TRACKING_ID} from "../utils/gtag";
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
+    static async getInitialProps(ctx) {
+        const initialProps = await Document.getInitialProps(ctx);
+        return {...initialProps};
+    }
 
-  render() {
-    const setInitialTheme = `
+    render() {
+        const setInitialTheme = `
     function getUserPreference() {
       if(window.localStorage.getItem('theme')) {
         return window.localStorage.getItem('theme')
@@ -20,20 +20,24 @@ class MyDocument extends Document {
     }
     document.body.dataset.theme = getUserPreference();
   `;
-    return (
-      <Html lang="en">
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Bebas+Neue&family=Cormorant+Upright:wght@300&display=swap"
-            rel="stylesheet"
-          />
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
+        return (
+            <Html lang="en">
+                <Head>
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Bebas+Neue&family=Cormorant+Upright:wght@300&display=swap"
+                        rel="stylesheet"
+                    />
+                    <script
+                        async
+                        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                    />
+                    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+                    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;400;700&display=swap"
+                          rel="stylesheet"/>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -42,17 +46,17 @@ class MyDocument extends Document {
               page_path: window.location.pathname,
             });
           `,
-            }}
-          />
-        </Head>
-        <body>
-          <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+                        }}
+                    />
+                </Head>
+                <body>
+                <script dangerouslySetInnerHTML={{__html: setInitialTheme}}/>
+                <Main/>
+                <NextScript/>
+                </body>
+            </Html>
+        );
+    }
 }
 
 export default MyDocument;
