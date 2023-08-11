@@ -475,7 +475,11 @@ li {
 }
 
 .grid-debug-item {
-    background-color: rgba(221, 221, 221, 0.54);
+    background-color: rgba(236, 111, 111, 0.35);
+}
+
+.grid-column-8-11 {
+    grid-column: 8 / 12;
 }
 
 .heading-1 {
@@ -490,6 +494,7 @@ li {
 
 .heading-2 {
     font-size: 26px;
+    line-height: normal;
     font-weight: 400;
 }
 
