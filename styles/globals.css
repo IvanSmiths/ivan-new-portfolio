@@ -520,6 +520,20 @@ li {
     color: var(--color-text-primary);
 }
 
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .grid-debug {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .grid-column-8-11 {
+        grid-column: 1 / 5;
+    }
+}
+
 @layer base {
     body[data-theme="light"] {
         --primary: #09090B;
