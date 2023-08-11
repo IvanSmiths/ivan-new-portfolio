@@ -1,12 +1,18 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {useHoverStore} from '../../utils/store';
+import React from "react";
 
 const ThemeToggle = dynamic(() => import("../ThemeToggle"), {
     ssr: false,
 });
 
-const links = [
+interface LinkType {
+    page: string;
+    link: string;
+}
+
+const links: LinkType[] = [
     {
         page: "home",
         link: "/"
@@ -19,7 +25,7 @@ const links = [
     },
 ]
 
-function NavbarDesktop() {
+const NavbarDesktop: React.FC = () => {
     const {setHover} = useHoverStore();
 
     return (
