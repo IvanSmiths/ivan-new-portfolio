@@ -21,8 +21,7 @@ body,
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
 }
 
 #homeLoader {
@@ -34,6 +33,7 @@ body,
 }
 
 body {
+    font-family: 'Jost', sans-serif;
     background: var(--color-bg-primary);
     color: var(--color-text-primary);
     transition: background 0.25s ease-in-out;
@@ -283,22 +283,6 @@ p {
     display: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-span,
-h5,
-button,
-h6,
-p,
-label,
-a,
-li {
-    font-size: var(--smallFont);
-    font-weight: 400;
-    color: var(--color-text-primary);
-}
 
 .btn-small {
     background: linear-gradient(to bottom,
@@ -512,6 +496,28 @@ li {
 .paragraph-light {
     font-size: 15px;
     font-weight: 300;
+}
+
+strong {
+    font-weight: normal;
+    color: var(--primary-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+span,
+h5,
+button,
+h6,
+p,
+label,
+a,
+li {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-text-primary);
 }
 
 @layer base {
