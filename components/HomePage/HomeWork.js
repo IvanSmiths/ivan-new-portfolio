@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link"
 import {useState} from "react";
 
@@ -13,18 +15,17 @@ function HomeWork({setProjectsRef, title, key, img, link}) {
     };
 
     return (
-        <li key={key} ref={setProjectsRef} className='p-0 opacity-0 m-0 w-full h-full text-primary flex justify-center
-            items-center text-center text-xl absolute top-0 left-0 rounded-md'>
-            <Link href={link}>
-                <span className="absolute opacity-0 top-3 font-medium text-amber-50">{title}</span>
+        <li key={key} ref={setProjectsRef} className='p-0 opacity-0 m-0 w-full h-full flex justify-center
+            items-center text-center absolute top-0 left-0'>
+            <Link className="h-full" href={link}>
                 {hovered === true ? <>
-                    <h1 className="text-white fixed bottom-2 text-xs mb-2">
+                    <h1 className="text-white absolute bottom-small left-small text-xs">
                         {title}
                     </h1>
                 </> : null}
                 <img onMouseEnter={handleMouseEnter}
                      onMouseLeave={handleMouseLeave}
-                     src={img} alt={title} className='h-full object-contain'/>
+                     src={img} alt={title} className='h-full object-cover'/>
             </Link>
         </li>
     )

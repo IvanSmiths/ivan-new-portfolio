@@ -166,8 +166,8 @@ function HomeWorks() {
 
     return (
         <section>
-            <div ref={pinRef} className="w-full h-3/5 absolute bottom-0 overflow-hidden">
-                <ul className="absolute w-1/2 h-full bottom-0 left-2/4 -translate-x-2/4 ">
+            <div ref={pinRef} className="w-full h-2/4 absolute bottom-small overflow-hidden">
+                <ul className="absolute w-2/4 h-full top-0 left-2/4 -translate-x-2/4 ">
                     {works.map((work, index) => (
                         <HomeWork key={index} title={work.title} link={work.link}
                                   img={work.img}
