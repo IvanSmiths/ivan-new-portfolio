@@ -536,6 +536,10 @@ li {
 }
 
 @media (max-width: 640px) {
+    :root {
+        --medium: 20px;
+    }
+    
     .heading-2 {
         font-size: 20px;
     }
@@ -552,6 +556,16 @@ li {
     .grid-debug {
         grid-gap: 10px;
         padding: 0 10px;
+    }
+
+    .grid-column-8-11 {
+        grid-column: 1 / 6;
+    }
+}
+
+@media (max-width: 380px) {
+    .grid-column-8-11 {
+        grid-column: 1 / 7;
     }
 }
 
