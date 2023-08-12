@@ -20,18 +20,33 @@ const Time: FC = () => {
         return () => clearInterval(intervalId);
     }, []);
 
-    useEffect(() => {
-        gsap.set(timeRef.current, {opacity: 0})
-        gsap.timeline().to(timeRef.current, {
-            opacity: 0,
-            duration: 0.4
-        }).to(timeRef.current, {
-            opacity: 1,
-            duration: 0.4
-        })
+    useEffect((): void => {
+        gsap.timeline()
+            .to(timeRef.current, {
+                opacity: 0,
+                top: 20,
+                duration: 0.3
+            })
+            .set(timeRef.current, {top: 0})
+            .to(timeRef.current, {
+                opacity: 0,
+                top: -20,
+                duration: 0.3
+            })
+            .to(timeRef.current, {
+                opacity: 1,
+                top: 0,
+                duration: 0.3
+            })
+
     }, [currentTime]);
 
-    return <span className="paragraph-light" ref={timeRef}>{currentTime}</span>;
+    return (
+        <div className="relative pr-medium pl-medium overflow-hidden">
+            <span className="paragraph-light absolute ml-auto mr-auto top-0 left-0 right-0"
+                  ref={timeRef}>{currentTime}</span>
+        </div>
+    )
 };
 
 export default Time;
