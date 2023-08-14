@@ -165,8 +165,6 @@ em {
 
     --small: 20px;
     --medium: 40px;
-    --small-mobile: 10px;
-    --medium-mobile: 20px;
 }
 
 @media screen and (max-width: 1500px) {

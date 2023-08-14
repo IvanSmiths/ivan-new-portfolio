@@ -19,8 +19,6 @@ module.exports = {
             spacing: {
                 "small": "var(--small)",
                 "medium": "var(--medium)",
-                "small-mobile": "var(--small-mobile)",
-                "medium-mobile": "var(--medium-mobile)",
             },
         },
     },
