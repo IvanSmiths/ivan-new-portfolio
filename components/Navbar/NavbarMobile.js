@@ -40,33 +40,19 @@ function NavbarMobile() {
 
     return (
         <>
-            <div className="menu" ref={menuRef} onClick={handleMenuClick}>
-                <div className="menu-line-wrapper">
-                    <div ref={menuLine1} className="menu-line menu-line-1"></div>
-                    <div ref={menuLine2} className="menu-line menu-line-2"></div>
-                    <div ref={menuLine3} className="menu-line menu-line-3"></div>
+            <div className="menu fixed bottom-small right-small z-40 flex justify-stretch items-center" ref={menuRef}
+                 onClick={handleMenuClick}>
+                <div
+                    className="menu-line-wrapper rounded-full p-4 pt-[1.4rem] pb-[1.4rem] bg-primary w-14 h-14 ml-1 flex flex-col justify-between overflow-hidden z-50">
+                    <div ref={menuLine1}
+                         className="menu-line w-full h-[1px] bg-secondary origin-center menu-line-1"></div>
+                    <div ref={menuLine2}
+                         className="menu-line menu-line w-full h-[1px] bg-secondary origin-center menu-line-2"></div>
+                    <div ref={menuLine3}
+                         className="menu-line menu-line w-full h-[1px] bg-secondary origin-center menu-line-3"></div>
                 </div>
             </div>
-            <div className="mobile">
-                <Link className="navbar__logo navbar__logo-mobile" href="/">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20px"
-                        height="20px"
-                        viewBox="0 0 45 45"
-                    >
-                        <g id="logo" fill="none" strokeWidth="6">
-                            <circle cx="22.5" cy="22.5" r="22.5" stroke="none" />
-                            <circle cx="22.5" cy="22.5" r="19.5" fill="none" />
-                        </g>
-                    </svg>
-                    <span className="navbar__logo-line">/</span>
-                    home
-                </Link>
-                <ThemeToggle />
-            </div>
             <nav ref={navRef} className="overlay-burger-menu as-opened">
-                <span className="close-nav"></span>
                 <div ref={navLinksRef} className="links-socials-cnt">
                     <ul className="burger-menu-links-cnt">
                         <li>
@@ -89,10 +75,10 @@ function NavbarMobile() {
                         {icons.map((icon, index) => (
                             <li key={index}>
                                 <a href={icon.link}
-                                    onClick={handleNavLinkClick}
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    <img src={icon.icon} alt={icon.alt} height={iconWidth} width={iconWidth} />
+                                   onClick={handleNavLinkClick}
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    <img src={icon.icon} alt={icon.alt} height={iconWidth} width={iconWidth}/>
                                 </a>
                             </li>
                         ))}
