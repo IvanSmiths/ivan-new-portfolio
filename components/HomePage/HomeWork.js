@@ -15,7 +15,7 @@ function HomeWork({setProjectsRef, title, img, link}) {
     };
 
     return (
-        <li ref={setProjectsRef} className='p-0 pb-0 sm:pb-small opacity-0 m-0 w-full h-full flex justify-center
+        <li ref={setProjectsRef} className='p-0 pb-0 pt-small sm:pt-0 sm:pb-small pl-small sm:pl-0 opacity-0 m-0 w-full h-full flex justify-center
             items-center text-center absolute top-0 left-0'>
             <Link className="h-full w-full" href={link}>
                 {hovered === true ? <>
