@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import {useEffect, useRef} from "react";
+import {gsap} from "gsap";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { icons } from "../../utils/icons";
+import {icons} from "../../utils/icons";
 
 const ThemeToggle = dynamic(() => import("../ThemeToggle"), {
     ssr: false,
@@ -17,21 +17,15 @@ function NavbarMobile() {
     const menuLine2 = useRef(null);
     const menuLine3 = useRef(null);
     const animation = gsap.timeline(
-        { paused: true, reversed: true }
+        {paused: true, reversed: true}
     );
 
     useEffect(() => {
         animation
-            .to(navRef.current, { x: "0%", ease: "expo.inOut" })
-            .to(menuLine1.current, { rotate: "45deg", y: "1rem" }, "<")
-            .to(menuLine2.current, { x: "-100%" }, "<")
-            .to(menuLine3.current, { rotate: "-45deg", y: "-1rem" }, "<")
-            .fromTo(
-                navLinksRef.current,
-                { opacity: 0 },
-                { delay: 0.3, opacity: 1, stagger: 0.2 },
-                "<"
-            );
+            .to(navRef.current, {x: "0%", ease: "expo.inOut"}, "<")
+            .to(menuLine1.current, {rotate: "45deg", y: "5px"}, "<")
+            .to(menuLine2.current, {x: "-200%"}, "<")
+            .to(menuLine3.current, {rotate: "-45deg", y: "-5px"}, "<")
     }, [animation]);
 
     const handleMenuClick = () => {
