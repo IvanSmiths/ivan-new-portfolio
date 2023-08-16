@@ -78,10 +78,6 @@ em {
     background-color: #000000;
 }
 
-.page__404 .close-nav {
-    background-color: var(--main-color);
-}
-
 .page__404 .secondary-cursor {
     background-color: #000000;
 }
@@ -165,6 +161,8 @@ em {
 
     --small: 20px;
     --medium: 40px;
+
+    --body: 15px;
 }
 
 @media screen and (max-width: 1500px) {
@@ -515,7 +513,7 @@ p,
 label,
 a,
 li {
-    font-size: 15px;
+    font-size: var(--body);
     font-weight: 400;
 }
 
@@ -548,16 +546,16 @@ li {
 
     .grid {
         grid-gap: 10px;
-        padding: 0 10px;
+        padding: 0 20px;
     }
 
     .grid-debug {
         grid-gap: 10px;
-        padding: 0 10px;
+        padding: 0 20px;
     }
 
     .grid-column-8-11 {
-        grid-column: 1 / 6;
+        grid-column: 1 / 7;
     }
 }
 
