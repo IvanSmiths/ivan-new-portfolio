@@ -51,9 +51,7 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-
             <HomeText/>
-
             <HomeWorks/>
         </>
     );
