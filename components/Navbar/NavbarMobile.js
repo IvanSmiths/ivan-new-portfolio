@@ -40,7 +40,8 @@ function NavbarMobile() {
 
     return (
         <>
-            <div className="menu fixed bottom-small right-small z-40 flex justify-stretch items-center" ref={menuRef}
+            <div className="menu fixed md:hidden bottom-small right-small z-40 flex justify-stretch items-center"
+                 ref={menuRef}
                  onClick={handleMenuClick}>
                 <div
                     className="menu-line-wrapper rounded-full p-4 pt-[1.4rem] pb-[1.4rem] bg-primary w-14 h-14 ml-1 flex flex-col justify-between overflow-hidden z-50">
