@@ -437,6 +437,18 @@ p {
     animation-timing-function: ease-in-out;
 }
 
+html {
+    scrollbar-width: none;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
