@@ -3,23 +3,26 @@
 import Link from "next/link"
 import {useEffect, useRef} from "react";
 import gsap from "gsap"
+import {useAnimationStore} from "../../utils/store";
 
 function HomeWork({setProjectsRef, title, img, link, role}) {
     const triggerRef = useRef(null);
     const roleRef = useRef(null);
     const workRef = useRef(null);
 
+    const {duration} = useAnimationStore();
+
     useEffect(() => {
         const tl = gsap.timeline({paused: true});
         tl.to(roleRef.current,
             {
                 bottom: 1,
-                duration: 0.3,
+                duration: duration,
                 ease: "circ.out"
             }).to(workRef.current,
             {
                 bottom: 2,
-                duration: 0.3,
+                duration: duration,
                 ease: "circ.out"
             }, 0.1)
 
@@ -39,7 +42,7 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
             trigger.removeEventListener('mouseenter', handleMouseEnter);
             trigger.removeEventListener('mouseleave', handleMouseLeave);
         };
-    }, []);
+    }, [duration]);
 
     return (
         <li ref={setProjectsRef} className='pb-0 sm:pb-small pt-small sm:pt-0 pl-small sm:pl-0 opacity-0 m-0 w-full

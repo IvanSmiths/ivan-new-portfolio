@@ -6,3 +6,7 @@ export const useHoverStore = create(set => ({
     scrollHint: true,
     setScrollHint: (newState) => set({scrollHint: newState}),
 }))
+
+export const useAnimationStore = create(set => ({
+    duration: 0.3,
+}))
