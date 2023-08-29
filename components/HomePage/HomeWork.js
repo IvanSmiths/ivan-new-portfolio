@@ -14,11 +14,13 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
         tl.to(roleRef.current,
             {
                 bottom: 1,
-                duration: 0.3
+                duration: 0.3,
+                ease: "circ.out"
             }).to(workRef.current,
             {
                 bottom: 2,
-                duration: 0.3
+                duration: 0.3,
+                ease: "circ.out"
             }, 0.1)
 
         function handleMouseEnter() {
