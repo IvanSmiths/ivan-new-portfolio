@@ -5,17 +5,17 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap"
 
 function HomeWork({setProjectsRef, title, img, link, role}) {
-    const trigger = useRef(null);
-    const h2 = useRef(null);
-    const h3 = useRef(null);
+    const triggerRef = useRef(null);
+    const roleRef = useRef(null);
+    const workRef = useRef(null);
 
     useEffect(() => {
         const tl = gsap.timeline({paused: true});
-        tl.to(h2.current,
+        tl.to(roleRef.current,
             {
                 bottom: 1,
                 duration: 0.3
-            }).to(h3.current,
+            }).to(workRef.current,
             {
                 bottom: 2,
                 duration: 0.3
@@ -29,13 +29,13 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
             tl.reverse();
         }
 
-        const div = trigger.current;
-        div.addEventListener('mouseenter', handleMouseEnter);
-        div.addEventListener('mouseleave', handleMouseLeave);
+        const trigger = triggerRef.current;
+        trigger.addEventListener('mouseenter', handleMouseEnter);
+        trigger.addEventListener('mouseleave', handleMouseLeave);
 
         return () => {
-            div.removeEventListener('mouseenter', handleMouseEnter);
-            div.removeEventListener('mouseleave', handleMouseLeave);
+            trigger.removeEventListener('mouseenter', handleMouseEnter);
+            trigger.removeEventListener('mouseleave', handleMouseLeave);
         };
     }, []);
 
@@ -45,17 +45,17 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
             <Link className="relative h-full w-full sm:flex sm:justify-center" href={link}>
                 <div className="absolute bottom-small w-full left-small text-left">
                     <div className="overflow-hidden relative h-10">
-                        <h2 ref={h2} className="paragraph absolute -bottom-5 left-0 lowercase">
+                        <h2 ref={roleRef} className="paragraph absolute -bottom-5 left-0 lowercase">
                             {role}
                         </h2>
                     </div>
                     <div className="overflow-hidden mt-1 relative h-10">
-                        <h3 ref={h3} className="absolute -bottom-9 left-0 heading-1-bold -mb-5 uppercase">
+                        <h3 ref={workRef} className="absolute -bottom-9 left-0 heading-1-bold -mb-5 uppercase">
                             {title}
                         </h3>
                     </div>
                 </div>
-                <img ref={trigger} src={img} alt={title} className='w-full h-full object-cover'/>
+                <img ref={triggerRef} src={img} alt={title} className='w-full h-full object-cover'/>
             </Link>
         </li>
     )
