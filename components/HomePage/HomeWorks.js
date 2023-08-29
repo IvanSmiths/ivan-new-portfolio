@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
 import HomeWork from "./HomeWork"
@@ -97,42 +97,42 @@ function HomeWorks() {
                                 immediateRender: false
                             }, 0);
                     return tl;
-                },
-
-                seamlessLoop = buildSeamlessLoop(projectsRef.current, spacing, animateFunc),
-                playhead = {offset: 0},
-                wrapTime = gsap.utils.wrap(0, seamlessLoop.duration()),
-                scrub = gsap.to(playhead, {
-                    offset: 0,
-                    onUpdate() {
-                        seamlessLoop.time(wrapTime(playhead.offset));
-                    },
-                    duration: 0.7,
-                    ease: "power3",
-                    paused: true
-                }),
-                trigger = ScrollTrigger.create({
-                    start: 0,
-                    onUpdate(self) {
-                        let scroll = self.scroll();
-                        if (scroll > self.end - 1) {
-                            wrap(1, 1);
-                        } else if (scroll < 1 && self.direction < 0) {
-                            wrap(-1, self.end - 1);
-                        } else {
-                            scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
-                            scrub.invalidate().restart();
-                        }
-                    },
-                    end: "+=3000",
-                    pin: pinRef.current
-                }),
-                progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end),
-                wrap = (iterationDelta, scrollTo) => {
-                    iteration += iterationDelta;
-                    trigger.scroll(scrollTo);
-                    trigger.update();
                 };
+
+            const seamlessLoop = buildSeamlessLoop(projectsRef.current, spacing, animateFunc);
+            const playhead = {offset: 0};
+            const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
+            const scrub = gsap.to(playhead, {
+                offset: 0,
+                onUpdate() {
+                    seamlessLoop.time(wrapTime(playhead.offset));
+                },
+                duration: 0.7,
+                ease: "power3",
+                paused: true
+            });
+            const trigger = ScrollTrigger.create({
+                start: 0,
+                onUpdate(self) {
+                    let scroll = self.scroll();
+                    if (scroll > self.end - 1) {
+                        wrap(1, 1);
+                    } else if (scroll < 1 && self.direction < 0) {
+                        wrap(-1, self.end - 1);
+                    } else {
+                        scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
+                        scrub.invalidate().restart();
+                    }
+                },
+                end: "+=3000",
+                pin: pinRef.current
+            })
+            const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end)
+            const wrap = (iterationDelta, scrollTo) => {
+                iteration += iterationDelta;
+                trigger.scroll(scrollTo);
+                trigger.update();
+            };
             ScrollTrigger.refresh()
             ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
 
