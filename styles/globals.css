@@ -526,6 +526,7 @@ label,
 a,
 li {
     font-size: var(--body);
+    color: var(--primary);
     font-weight: 400;
 }
 
