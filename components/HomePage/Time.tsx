@@ -1,5 +1,5 @@
-import {FC, useEffect, useRef, useState} from "react";
-import {gsap} from "gsap";
+import { FC, useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 const Time: FC = () => {
     const [currentTime, setCurrentTime] = useState<string>("");
@@ -25,18 +25,21 @@ const Time: FC = () => {
             .to(timeRef.current, {
                 opacity: 0,
                 top: 20,
-                duration: 0.3
+                duration: 0.3,
+                ease: "circ.out"
             })
             .set(timeRef.current, {top: 0})
             .to(timeRef.current, {
                 opacity: 0,
                 top: -20,
-                duration: 0.3
+                duration: 0.3,
+                ease: "circ.out"
             })
             .to(timeRef.current, {
                 opacity: 1,
                 top: 0,
-                duration: 0.3
+                duration: 0.3,
+                ease: "circ.out"
             })
 
     }, [currentTime]);
