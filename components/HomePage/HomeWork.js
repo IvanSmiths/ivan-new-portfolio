@@ -19,10 +19,10 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
             items-center text-center absolute top-0 left-0'>
             <Link className="relative h-full w-full sm:flex sm:justify-center" href={link}>
                 <div className="absolute bottom-small left-small text-left -mb-3">
-                    <h2 className="paragraph -mb-2">
+                    <h2 className="paragraph -mb-2 lowercase">
                         {role}
                     </h2>
-                    <h3 className="heading-1-bold">
+                    <h3 className="heading-1-bold uppercase">
                         {title}
                     </h3>
                 </div>
