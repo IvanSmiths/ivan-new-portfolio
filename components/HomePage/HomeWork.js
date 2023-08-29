@@ -14,12 +14,12 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
         tl.to(h2.current,
             {
                 bottom: 0,
-                duration: 0.2
+                duration: 0.3
             }).to(h3.current,
             {
                 bottom: 0,
-                duration: 0.2
-            })
+                duration: 0.3
+            }, 0.1)
 
         function handleMouseEnter() {
             tl.play();
