@@ -64,10 +64,12 @@ function HomeWorks() {
                     const tl = gsap.timeline();
                     tl.fromTo(element,
                         {
-                            opacity: `${opacity}`
+                            opacity: `${opacity}`,
+                            filter: "grayscale(100%)",
                         },
                         {
                             opacity: 1,
+                            filter: "grayscale(0%)",
                             duration: 0.5,
                             yoyo: true,
                             repeat: 1,
