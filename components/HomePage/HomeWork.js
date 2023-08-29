@@ -25,7 +25,7 @@ function HomeWork({setProjectsRef, title, img, link}) {
                 </> : null}
                 <img onMouseEnter={handleMouseEnter}
                      onMouseLeave={handleMouseLeave}
-                     src={img} alt={title} className='w-full object-cover'/>
+                     src={img} alt={title} className='w-full h-full object-cover'/>
             </Link>
         </li>
     )
