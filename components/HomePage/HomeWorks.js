@@ -16,14 +16,25 @@ function HomeWorks() {
     }
 
     const works = [
-        {title: "Ideology", role: "UI/UX Designer", link: "/works/work", img: "/images/id/id-website-1.png"},
+        {
+            title: "TD Cowen",
+            role: "UI/UX Developer",
+            link: "/works/work-2",
+            img: "/images/td/td-website-1.png"
+        },
         {
             title: "Scholz & Volkmer",
             role: "Frontend developer",
             link: "/works/work-2",
             img: "/images/suv/suv-website-1.png"
         },
-        {title: "TD Cowen", role: "UI/UX Developer", link: "/works/work-2", img: "/images/td/td-website-1.png"},
+        {
+            title: "Ideology",
+            role: "UI/UX Designer",
+            link: "/works/work",
+            img: "/images/id/id-website-1.png"
+        },
+
     ]
 
     useEffect(() => {
