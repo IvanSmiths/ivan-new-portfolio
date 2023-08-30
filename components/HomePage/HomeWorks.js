@@ -134,7 +134,9 @@ function HomeWorks() {
                 trigger.update();
             };
             ScrollTrigger.refresh()
-            ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
+
+            let snapOnEnd = () => scrollToOffset(scrub.vars.offset);
+            ScrollTrigger.addEventListener('scrollEnd', snapOnEnd);
 
             function scrollToOffset(offset) {
                 let snappedTime = snapTime(offset),
@@ -176,6 +178,8 @@ function HomeWorks() {
                 });
                 return seamlessLoop;
             }
+
+            return () => ScrollTrigger.removeEventListener('scrollEnd', snapOnEnd);
         }, app);
         return () => ctx.revert();
 
