@@ -327,7 +327,7 @@ p {
     top: 0;
     position: fixed;
     transform: translateY(-100%);
-    background-color: var(--color-bg-inverse);
+    background-color: var(--color-bg-primary);
 }
 
 .bold {
