@@ -20,13 +20,13 @@ function HomeWorks() {
         {
             title: "TD Cowen",
             role: "UI/UX Developer",
-            link: "/about",
+            link: "/test",
             img: "/images/td/td-website-1.png"
         },
         {
             title: "Scholz & Volkmer",
             role: "Frontend developer",
-            link: "/blog/scrolltrigger-timeline-react",
+            link: "/test",
             img: "/images/suv/suv-website-1.png"
         },
         {
