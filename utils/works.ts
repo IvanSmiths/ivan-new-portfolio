@@ -1,20 +1,30 @@
 export interface Work {
+    slug: string;
     title: string;
     description: string;
+    company: string;
     images?: string[];
 }
 
 export const works: Work[] = [
     {
-        title: "title-1",
+        slug: "td-cowen",
+        title: "Ivan Smiths - TD COWEN",
         description: "description",
+        company: "TD COWEN",
         images: ["/public"],
-    }, {
-        title: "title-2",
+    },
+    {
+        slug: "scholz-und-volkmer",
+        title: "Ivan Smiths - SCHOLZ&VOLKMER",
         description: "description",
-    }, {
-        title: "title-3",
+        company: "SCHOLZ&VOLKMER",
+    },
+    {
+        slug: "ideology-creative-studio",
+        title: "Ivan Smiths - Ideology Creative Studio",
         description: "description",
+        company: "Ideology Creative Studio",
         images: ["/public"],
     },
 ]
