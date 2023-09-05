@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { Work, works } from '../utils/works';
+import Header from "../components/Work/Header";
 
 interface Params extends ParsedUrlQuery {
     slug: string;
@@ -13,9 +14,7 @@ interface WorkPageProps {
 const WorkPage: NextPage<WorkPageProps> = ({work}) => {
     return (
         <div>
-            <h1>{work.title}</h1>
-            <p>{work.description}</p>
-            {work.images && work.images.map((image, index) => <img src={image} key={index}/>)}
+            <Header work={work}/>;
         </div>
     );
 };

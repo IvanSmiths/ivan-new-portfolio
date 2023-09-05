@@ -12,7 +12,6 @@ export const works: Work[] = [
     }, {
         title: "title-2",
         description: "description",
-        images: ["/public"],
     }, {
         title: "title-3",
         description: "description",
