@@ -21,7 +21,7 @@ const WorkPage: NextPage<WorkPageProps> = ({work}) => {
 
 export const getStaticProps: GetStaticProps<WorkPageProps, Params> = async ({params}) => {
     const slug = params?.slug;
-    const work = works.find((work) => work.title === slug);
+    const work = works.find((work) => work.slug === slug);
 
     return {
         props: {
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps<WorkPageProps, Params> = async ({par
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
     const paths = works.map((work) => ({
         params: {
-            slug: work.title,
+            slug: work.slug,
         },
     }));
 

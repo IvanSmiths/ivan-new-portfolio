@@ -20,7 +20,7 @@ function HomeWorks() {
         {
             title: "TD Cowen",
             role: "UI/UX Developer",
-            link: "/test",
+            link: "/td-cowen",
             img: "/images/td/td-website-1.png"
         },
         {
@@ -30,7 +30,7 @@ function HomeWorks() {
             img: "/images/suv/suv-website-1.png"
         },
         {
-            title: "Ideology",
+            title: "ideology-creative-studio",
             role: "UI/UX Designer",
             link: "/works/work",
             img: "/images/id/id-website-1.png"
