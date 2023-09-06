@@ -14,7 +14,7 @@ interface WorkPageProps {
 const WorkPage: NextPage<WorkPageProps> = ({work}) => {
     return (
         <div>
-            <Header work={work}/>;
+            <Header work={work}/>
         </div>
     );
 };
