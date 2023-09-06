@@ -476,6 +476,10 @@ body {
     grid-column: 8 / 12;
 }
 
+.grid-column-2-11 {
+    grid-column: 2 / 12;
+}
+
 .heading-1 {
     font-size: 48px;
     font-weight: 400;
