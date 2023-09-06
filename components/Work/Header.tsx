@@ -41,8 +41,8 @@ const Header: FC<HeaderProps> = ({work}) => {
                     </ul>
                     <img src={work.mainImage} alt={`${work.company} main image`}/>
                 </div>
-                <div className="grid-column-2-11 h-[100vh] flex justify-center items-center">
-                    <p className="heading-1 ">{work.jobDescription}</p>
+                <div className="grid-column-3-10 h-[100vh] flex justify-center items-center">
+                    <p className="heading-1 text-center">{work.jobDescription}</p>
                 </div>
             </header>
         </>

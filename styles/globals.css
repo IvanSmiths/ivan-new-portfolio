@@ -475,6 +475,10 @@ body {
     grid-column: 8 / 12;
 }
 
+.grid-column-3-10 {
+    grid-column: 3 / 11;
+}
+
 .grid-column-2-11 {
     grid-column: 2 / 12;
 }
