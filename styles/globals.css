@@ -258,7 +258,6 @@ body[data-theme="dark"] {
 p {
     font-weight: 400;
     font-size: var(--smallFont);
-    line-height: var(--smallFontHeight);
 }
 
 .tiny-font {
