@@ -22,7 +22,7 @@ export const works: Work[] = [
         job: "ui/ux developer",
         mainImage: "/images/td/td-website-1.png",
         website: "https://www.cowen.com/",
-        jobDates: ["febraury 2022 -", "january 2023"],
+        jobDates: ["april 2023 -", "ongoing"],
         jobStack: ["Figma", "TypeScript", "Angular", "RxJs", "Observable Plot", "eCharts"],
         jobLinkedin: "https://www.linkedin.com/company/td-cowen-continental-europe/",
         jobDescription: "Working at the CRM currently used at one of the biggest bank in the world.",
