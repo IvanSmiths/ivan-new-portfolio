@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({work}) => {
-    const scopeRef = useRef<HTMLHeadElement | null>(null);
+    const scope2Ref = useRef<HTMLHeadElement | null>(null);
     const jobRef = useRef<HTMLHeadingElement | null>(null);
     const companyRef = useRef<HTMLHeadingElement | null>(null);
 
@@ -27,13 +27,13 @@ const Header: FC<HeaderProps> = ({work}) => {
                     duration: 0.5,
                     ease: "circ.out"
                 }, 0.1)
-        }, scopeRef);
+        }, scope2Ref);
         return () => ctx.revert();
     }, []);
 
     return (
         <>
-            <header ref={scopeRef} className="grid">
+            <header ref={scope2Ref} className="grid">
                 <div className="grid-column-8-11 h-[75vh] flex flex-col justify-center">
                     <div className="overflow-hidden relative h-10">
                         <h1 ref={jobRef} className="paragraph absolute -bottom-5 left-0 lowercase">{work.job}</h1>

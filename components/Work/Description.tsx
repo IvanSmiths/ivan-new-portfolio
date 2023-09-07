@@ -17,7 +17,7 @@ const useArrayRef = (): [MutableRefObject<HTMLSpanElement[]>, SetRef] => {
     return [lettersRef, (ref: HTMLSpanElement | null) => ref && lettersRef.current.push(ref)];
 }
 const Header: FC<HeaderProps> = ({work}) => {
-    const scopeRef = useRef<HTMLDivElement | null>(null);
+    const scope3Ref = useRef<HTMLDivElement | null>(null);
     const [lettersRef, setLettersRef] = useArrayRef();
     const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -40,13 +40,13 @@ const Header: FC<HeaderProps> = ({work}) => {
                     stagger: 1,
                 }
             );
-        }, scopeRef);
+        }, scope3Ref);
         return () => ctx.revert();
     }, [lettersRef]);
 
     return (
         <>
-            <div ref={scopeRef} className="grid">
+            <div ref={scope3Ref} className="grid">
                 <div ref={triggerRef}
                      className="grid-column-3-10 h-[100vh] text-center flex justify-center items-center">
                     <div className="h-fit">
