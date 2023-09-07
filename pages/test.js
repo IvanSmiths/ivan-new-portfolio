@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import {useEffect} from "react";
-
+import ScrollSection from "../components/Tests/ScrollSection";
 
 function Test() {
 
@@ -9,23 +8,7 @@ function Test() {
     }, []);
 
     return (
-        <div>
-            <Link href="/">
-                <h2 className="text-white">go back</h2>
-            </Link>
-            <h1 className="text-9xl">Teest text</h1>
-            <h1 className="text-9xl">Teest text</h1>
-            <img
-                src="/ideology-website-7.png"
-                className="w-full h-full object-cover"
-            />
-            <img
-                src="ideology-website-7.png"
-                className="w-full h-full object-cover"
-            />
-            <h1 className="text-9xl">Teest text</h1>
-            <h1 className="text-9xl">Teest text</h1>
-        </div>
+        <ScrollSection/>
     );
 }
 
