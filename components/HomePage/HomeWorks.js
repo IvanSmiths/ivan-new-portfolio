@@ -26,13 +26,13 @@ function HomeWorks() {
         {
             title: "Scholz & Volkmer",
             role: "Frontend developer",
-            link: "/test",
+            link: "/scholz-und-volkmer",
             img: "/images/suv/suv-website-1.png"
         },
         {
             title: "ideology-creative-studio",
             role: "UI/UX Designer",
-            link: "/works/work",
+            link: "/ideology-creative-studio",
             img: "/images/id/id-website-1.png"
         },
 
