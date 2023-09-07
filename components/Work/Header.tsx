@@ -8,7 +8,6 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({work}) => {
-
     const scopeRef = useRef<HTMLHeadElement | null>(null);
     const jobRef = useRef<HTMLHeadingElement | null>(null);
     const companyRef = useRef<HTMLHeadingElement | null>(null);
@@ -68,8 +67,14 @@ const Header: FC<HeaderProps> = ({work}) => {
                     </ul>
                     <img src={work.mainImage} alt={`${work.company} main image`}/>
                 </div>
-                <div className="grid-column-3-10 h-[100vh] flex justify-center items-center">
-                    <p className="heading-1 text-center">{work.jobDescription}</p>
+                <div className="grid-column-3-10 h-[100vh] text-center flex justify-center items-center">
+                    <div className="h-fit">
+                        {work.jobDescription.split("").map((letter, index) => (
+                            <span className="heading-1 text-center" key={index}>
+                            {letter}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </header>
         </>
