@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { Work, works } from '../utils/works';
 import Header from "../components/Work/Header";
+import Description from "../components/Work/Description";
 
 interface Params extends ParsedUrlQuery {
     slug: string;
@@ -15,6 +16,7 @@ const WorkPage: NextPage<WorkPageProps> = ({work}) => {
     return (
         <div>
             <Header work={work}/>
+            <Description work={work}/>
         </div>
     );
 };
