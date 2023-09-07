@@ -30,9 +30,9 @@ export const works: Work[] = [
     },
     {
         slug: "scholz-und-volkmer",
-        title: "Ivan Smiths - SCHOLZ&VOLKMER",
+        title: "Ivan Smiths - SCHOLZ & VOLKMER",
         description: "description",
-        company: "SCHOLZ&VOLKMER",
+        company: "SCHOLZ & VOLKMER",
         job: "frontend developer",
         mainImage: "/images/suv/suv-website-1.png",
         website: "https://www.s-v.de/en/",
