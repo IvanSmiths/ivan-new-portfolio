@@ -153,9 +153,6 @@ function HomeWorks() {
                     seamlessLoop = gsap.timeline({
                         paused: true,
                         repeat: -1,
-                        onRepeat() {
-                            this._time === this._dur && (this._tTime += this._dur - 0.01);
-                        },
                         onReverseComplete() {
                             this.totalTime(this.rawTime() + this.duration() * 100);
                         }
