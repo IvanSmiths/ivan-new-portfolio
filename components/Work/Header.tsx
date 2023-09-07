@@ -13,6 +13,7 @@ const Header: FC<HeaderProps> = ({work}) => {
     const companyRef = useRef<HTMLHeadingElement | null>(null);
 
     useEffect(() => {
+        window.scrollTo({top: 0});
         let ctx = gsap.context(() => {
             const tl = gsap.timeline();
             tl.to(jobRef.current,
