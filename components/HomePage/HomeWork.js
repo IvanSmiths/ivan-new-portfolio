@@ -47,9 +47,9 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
     return (
         <li ref={setProjectsRef} className='pb-0 sm:pb-small pt-small sm:pt-0 pl-small sm:pl-0 opacity-0 m-0 w-full
         h-full flex justify-center items-center text-center absolute top-0 left-0'>
-            <Link className="relative h-full w-full sm:flex sm:justify-center" href={link}>
+            <Link ref={triggerRef} className="relative h-full w-full sm:flex sm:justify-center" href={link}>
                 <div className="absolute bottom-small w-full left-small text-left">
-                    <div className="overflow-hidden relative h-10">
+                    <div className="overflow-hidden relative h-10 pointer-events-none">
                         <h2 ref={roleRef} className="paragraph absolute -bottom-5 left-0 lowercase">
                             {role}
                         </h2>
@@ -60,7 +60,7 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
                         </h3>
                     </div>
                 </div>
-                <img ref={triggerRef} src={img} alt={title} className='w-full h-full object-cover'/>
+                <img src={img} alt={title} className='w-full h-full object-cover'/>
             </Link>
         </li>
     )
