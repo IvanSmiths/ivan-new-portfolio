@@ -1,28 +1,57 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, MutableRefObject, useEffect, useRef } from 'react';
 import { Work } from '../../utils/works';
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface HeaderProps {
     work: Work;
 }
 
+type SetRef = (ref: HTMLSpanElement | null) => void;
+
+const useArrayRef = (): [MutableRefObject<HTMLSpanElement[]>, SetRef] => {
+    const lettersRef = useRef<HTMLSpanElement[]>([]);
+    lettersRef.current = [];
+    return [lettersRef, (ref: HTMLSpanElement | null) => ref && lettersRef.current.push(ref)];
+}
 const Header: FC<HeaderProps> = ({work}) => {
     const scopeRef = useRef<HTMLDivElement | null>(null);
+    const [lettersRef, setLettersRef] = useArrayRef();
+    const triggerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         let ctx = gsap.context(() => {
+            gsap.to(
+                lettersRef.current,
+                {
+                    scrollTrigger: {
+                        trigger: triggerRef.current,
+                        scrub: true,
+                        start: "top top",
+                        end: "2000 top",
+                        pin: true,
+                        markers: true
 
+                    },
+                    color: "#2A2A2A",
+                    duration: 5,
+                    stagger: 1,
+                }
+            );
         }, scopeRef);
         return () => ctx.revert();
-    }, []);
+    }, [lettersRef]);
 
     return (
         <>
             <div ref={scopeRef} className="grid">
-                <div className="grid-column-3-10 h-[100vh] text-center flex justify-center items-center">
+                <div ref={triggerRef}
+                     className="grid-column-3-10 h-[100vh] text-center flex justify-center items-center">
                     <div className="h-fit">
                         {work.jobDescription.split("").map((letter, index) => (
-                            <span className="heading-1 text-center" key={index}>
+                            <span className="heading-1 text-center" ref={setLettersRef} key={index}>
                                 {letter}
                             </span>
                         ))}
