@@ -20,13 +20,13 @@ export const works: Work[] = [
         description: "description",
         company: "TD COWEN",
         job: "ui/ux developer",
-        images: ["/public"],
         mainImage: "/images/td/td-website-1.png",
         website: "https://www.cowen.com/",
         jobDates: ["febraury 2022 -", "january 2023"],
-        jobStack: ["VUE.JS (NUXT.JS)", "REACT.JS (NEXT.JS)", "TYPESCRIPT", "GSAP"],
+        jobStack: ["Figma", "TypeScript", "Angular", "RxJs", "Observable Plot", "eCharts"],
         jobLinkedin: "https://www.linkedin.com/company/td-cowen-continental-europe/",
-        jobDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        jobDescription: "Working at the CRM currently used at one of the biggest bank in the world.",
+        images: ["/public"],
     },
     {
         slug: "scholz-und-volkmer",
@@ -36,10 +36,10 @@ export const works: Work[] = [
         job: "frontend developer",
         mainImage: "/images/suv/suv-website-1.png",
         website: "https://www.s-v.de/en/",
-        jobDates: ["febraury 2022 -", "january 2023"],
-        jobStack: ["VUE.JS (NUXT.JS)", "REACT.JS (NEXT.JS)", "TYPESCRIPT", "GSAP"],
+        jobDates: ["marz 2022 -", "january 2023"],
+        jobStack: ["TypeScript", "Vue (Nuxt)", "React (Next)", "Gsap"],
         jobLinkedin: "https://www.linkedin.com/company/scholzvolkmer/",
-        jobDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        jobDescription: "Mission: Typesafety (and coding jawdropping animations with Gsap and ScrollTrigger)."
     },
     {
         slug: "ideology-creative-studio",
@@ -47,12 +47,12 @@ export const works: Work[] = [
         description: "description",
         company: "Ideology Creative Studio",
         job: "ui/ux designer",
-        images: ["/public"],
         mainImage: "/images/id/id-website-1.png",
         website: "https://www.ideology.it/",
-        jobDates: ["febraury 2022 -", "january 2023"],
-        jobStack: ["VUE.JS (NUXT.JS)", "REACT.JS (NEXT.JS)", "TYPESCRIPT", "GSAP"],
+        jobDates: ["october 2020 -", "febraury 2022"],
+        jobStack: ["Adobe XD", "CSS", "JavaScript", "PHP", "WordPress"],
         jobLinkedin: "https://www.linkedin.com/company/ideology-creative-studio",
-        jobDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        jobDescription: "Taking boring WordPress websites to the next level.",
+        images: ["/public"],
     },
 ]
