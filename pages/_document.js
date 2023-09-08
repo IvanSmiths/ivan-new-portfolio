@@ -32,7 +32,7 @@ class MyDocument extends Document {
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
                     />
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700&display=swap"
                           rel="stylesheet"/>
                     <script
