@@ -6,7 +6,7 @@ import Navbar from "../components/Global/Navbar/Navbar";
 import * as gtag from "../utils/gtag";
 import {useRouter} from "next/router";
 import Head from "next/head";
-import RouteTransition from "../components/HomePage/RouteTransition";
+import RouteTransition from "../components/Global/RouteTransition";
 
 function MyApp({Component, pageProps}) {
     const router = useRouter();
