@@ -1,5 +1,5 @@
-import {useRef, useEffect} from 'react';
-import {useHoverStore} from "../../utils/store";
+import {useEffect, useRef} from 'react';
+import {useHoverStore} from "../../../utils/store";
 
 const CustomCursor = () => {
     const {hover} = useHoverStore();

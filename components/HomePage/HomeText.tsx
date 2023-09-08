@@ -1,7 +1,7 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import Time from "./Time";
-import HomeParagraph from "./HomeParagraph";
-import HomeCity from "./HomeCity";
+import Paragraph from "./Paragraph";
+import City from "./City";
 import HomeWeatherPlaceholder from "./HomeWeatherPlaceholder";
 
 const HomeText: FC = () => {
@@ -9,11 +9,11 @@ const HomeText: FC = () => {
         <main className="grid z-20 fixed h-[30%] sm:h-2/4 bottom-small sm:top-0">
             <div className="grid-column-8-11 flex flex-col justify-center">
                 <div className="flex gap-medium">
-                    <HomeCity/>
+                    <City/>
                     <HomeWeatherPlaceholder/>
                     <Time/>
                 </div>
-                <HomeParagraph/>
+                <Paragraph/>
             </div>
         </main>
     )

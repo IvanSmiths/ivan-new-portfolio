@@ -3,7 +3,7 @@ import {useEffect, useRef} from "react";
 import {gsap} from "gsap";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {icons} from "../../utils/icons";
+import {icons} from "../../../utils/icons";
 
 const ThemeToggle = dynamic(() => import("../ThemeToggle"), {
     ssr: false,

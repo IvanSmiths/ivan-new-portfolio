@@ -1,7 +1,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {useHoverStore} from '../../utils/store';
-import {FC} from "react";
+import { useHoverStore } from '../../../utils/store';
+import { FC } from "react";
 
 const ThemeToggle = dynamic(() => import("../ThemeToggle"), {
     ssr: false,
