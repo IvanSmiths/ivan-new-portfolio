@@ -53,7 +53,7 @@ function NavbarMobile() {
                          className="menu-line menu-line w-full h-[1px] bg-secondary origin-center menu-line-3"></div>
                 </div>
             </div>
-            <nav ref={navRef} className="overlay-burger-menu as-opened">
+            <nav ref={navRef} className="overlay-burger-menu md:hidden as-opened">
                 <div ref={navLinksRef} className="links-socials-cnt">
                     <ul className="burger-menu-links-cnt">
                         <li>
