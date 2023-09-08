@@ -1,6 +1,6 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
-const HomeParagraph: FC = () => {
+const Paragraph: FC = () => {
     return (
         <div className="flex flex-wrap items-center pb-small">
             <p className="heading-2">
@@ -14,4 +14,4 @@ const HomeParagraph: FC = () => {
     )
 }
 
-export default HomeParagraph
+export default Paragraph

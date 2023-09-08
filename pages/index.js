@@ -1,7 +1,7 @@
 import Head from "next/head";
 import {useHoverStore} from "../utils/store";
-import HomeWorks from "../components/HomePage/HomeWorks";
-import HomeText from "../components/HomePage/HomeText";
+import Works from "../components/HomePage/Works";
+import Text from "../components/HomePage/Text";
 
 const Home = () => {
     const schemaData = {
@@ -51,8 +51,8 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-            <HomeText/>
-            <HomeWorks/>
+            <Text/>
+            <Works/>
         </>
     );
 };

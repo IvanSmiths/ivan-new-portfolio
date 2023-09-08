@@ -1,9 +1,9 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
-const HomeCity: FC = () => {
+const City: FC = () => {
     return (
         <h2 className="paragraph-light">wiesbaden (de)</h2>
     )
 }
 
-export default HomeCity
+export default City

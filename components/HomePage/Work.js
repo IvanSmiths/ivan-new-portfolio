@@ -5,7 +5,7 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap"
 import {useAnimationStore} from "../../utils/store";
 
-function HomeWork({setProjectsRef, title, img, link, role}) {
+function Work({setProjectsRef, title, img, link, role}) {
     const triggerRef = useRef(null);
     const roleRef = useRef(null);
     const workRef = useRef(null);
@@ -66,4 +66,4 @@ function HomeWork({setProjectsRef, title, img, link, role}) {
     )
 }
 
-export default HomeWork
+export default Work
