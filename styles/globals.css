@@ -105,7 +105,7 @@ li {
     top: 0;
     position: fixed;
     transform: translateY(-100%);
-    background-color: var(--secondary);
+    background-color: var(--primary);
 }
 
 .grid {
