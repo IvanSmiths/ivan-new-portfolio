@@ -21,19 +21,19 @@ function Works() {
             title: "TD Cowen",
             role: "UI/UX Developer",
             link: "/td-cowen",
-            img: "/images/td/td-website-1.png"
+            img: "/images/td/mockup.jpg"
         },
         {
             title: "Scholz & Volkmer",
             role: "Frontend developer",
             link: "/scholz-und-volkmer",
-            img: "/images/suv/suv-website-1.png"
+            img: "/images/suv/mockup.jpg"
         },
         {
             title: "ideology-creative-studio",
             role: "UI/UX Designer",
             link: "/ideology-creative-studio",
-            img: "/images/id/id-website-1.png"
+            img: "/images/id/mockup.jpg"
         },
 
     ]
