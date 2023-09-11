@@ -6,7 +6,6 @@ import Navbar from "../components/Global/Navbar/Navbar";
 import * as gtag from "../utils/gtag";
 import {useRouter} from "next/router";
 import Head from "next/head";
-import RouteTransition from "../components/Global/RouteTransition";
 
 function MyApp({Component, pageProps}) {
     const router = useRouter();
@@ -134,7 +133,6 @@ function MyApp({Component, pageProps}) {
             <CursorManager>
                 <CustomCursor/>
                 <Navbar/>
-                <RouteTransition/>
                 <Component {...pageProps} />
             </CursorManager>
         </>
