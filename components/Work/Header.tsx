@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC, useEffect, useRef } from 'react';
-import { Work } from '../../utils/works';
+import { Revert, Work } from '../../utils/works';
 import { gsap } from "gsap";
 
 interface HeaderProps {
@@ -13,7 +13,7 @@ const Header: FC<HeaderProps> = ({work}) => {
     const companyRef = useRef<HTMLHeadingElement | null>(null);
 
     useEffect(() => {
-        let scope = work.scope
+        let scope: Revert = work.scope as Revert;
         scope = gsap.context(() => {
             const tl = gsap.timeline();
             tl.to(jobRef.current,
