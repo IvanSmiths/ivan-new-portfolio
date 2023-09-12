@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
-import { useRouter } from "next/router";
-import { gsap } from "gsap";
+import {useEffect, useRef} from "react";
+import {useRouter} from "next/router";
+import {gsap} from "gsap";
 
-function RouteTransition() {
+function RouteTransition({children}) {
     const router = useRouter()
     const transitionRef = useRef(null);
 
@@ -10,29 +10,29 @@ function RouteTransition() {
         const aniStart = () => {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
-                yPercent: 100,
-                duration: 0.6,
+                opacity: 0,
+                duration: 0.2,
             });
         };
 
         const aniEnd = () => {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
-                yPercent: 200,
-                duration: 0.6,
-                ease: "Expo.easeInOut",
+                opacity: 1,
+                duration: 0.2,
             });
-            tl.set(transitionRef.current, { yPercent: 0 });
         };
 
         const handler = () => {
             aniStart();
+            console.log('aniStart')
             setTimeout(() => {
                 aniEnd();
-            }, 600);
+                console.log('aniEnd')
+            }, 400);
         };
 
-        router.events.on('routeChangeComplete', handler);
+        router.events.on('routeChangeStart', handler);
 
         return () => {
             router.events.off('routeChangeComplete', handler);
@@ -40,12 +40,8 @@ function RouteTransition() {
     }, [router.events])
     return (
         <>
-            <div className="page-change-cnt">
-                <div
-                    ref={transitionRef}
-                    id="cover"
-                    className="cover-strip page-change-col"
-                ></div>
+            <div ref={transitionRef}>
+                {children}
             </div>
         </>
     )

@@ -6,6 +6,7 @@ import Navbar from "../components/Global/Navbar/Navbar";
 import * as gtag from "../utils/gtag";
 import {useRouter} from "next/router";
 import Head from "next/head";
+import RouteTransition from "../components/Global/RouteTransition";
 
 function MyApp({Component, pageProps}) {
     const router = useRouter();
@@ -131,9 +132,11 @@ function MyApp({Component, pageProps}) {
                 <meta name="apple-mobile-web-app-capable" content="yes"/>
             </Head>
             <CursorManager>
-                <CustomCursor/>
-                <Navbar/>
-                <Component {...pageProps} />
+                <RouteTransition>
+                    <CustomCursor/>
+                    <Navbar/>
+                    <Component {...pageProps} />
+                </RouteTransition>
             </CursorManager>
         </>
     );
