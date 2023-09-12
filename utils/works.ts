@@ -13,6 +13,7 @@ export interface Work {
     jobLinkedin: string;
     nextWorkTitle: string;
     nextWorkLink: string;
+    scope: any;
 }
 
 export const works: Work[] = [
@@ -30,7 +31,8 @@ export const works: Work[] = [
         jobDescription: "Working at the CRM currently used at one of the biggest bank in the world.",
         images: ["/public"],
         nextWorkTitle: "SCHOLZ & VOLKMER",
-        nextWorkLink: "/scholz-und-volkmer"
+        nextWorkLink: "/scholz-und-volkmer",
+        scope: "scope-0",
     },
     {
         slug: "scholz-und-volkmer",
@@ -45,7 +47,8 @@ export const works: Work[] = [
         jobLinkedin: "https://www.linkedin.com/company/scholzvolkmer/",
         jobDescription: "Mission: Typesafety (and coding jawdropping animations with Gsap and ScrollTrigger).",
         nextWorkTitle: "Ideology Creative Studio",
-        nextWorkLink: "/ideology-creative-studio"
+        nextWorkLink: "/ideology-creative-studio",
+        scope: "scope-1",
     },
     {
         slug: "ideology-creative-studio",
@@ -61,6 +64,7 @@ export const works: Work[] = [
         jobDescription: "Taking boring WordPress websites to the next level.",
         images: ["/public"],
         nextWorkTitle: "TD Cowen",
-        nextWorkLink: "/td-cowen"
+        nextWorkLink: "/td-cowen",
+        scope: "scope-2",
     },
 ]

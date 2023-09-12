@@ -22,7 +22,8 @@ const Header: FC<HeaderProps> = ({work}) => {
     const triggerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        let scope = work.scope
+        scope = gsap.context(() => {
             gsap.to(
                 lettersRef.current,
                 {
@@ -33,7 +34,6 @@ const Header: FC<HeaderProps> = ({work}) => {
                         end: "2000 top",
                         pin: true,
                         markers: true
-
                     },
                     color: "#2A2A2A",
                     duration: 5,
@@ -41,8 +41,8 @@ const Header: FC<HeaderProps> = ({work}) => {
                 }
             );
         }, scope3Ref);
-        return () => ctx.revert();
-    }, [lettersRef]);
+        return () => scope.revert();
+    }, [lettersRef, work.scope]);
 
     return (
         <>

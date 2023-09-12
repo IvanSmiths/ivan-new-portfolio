@@ -13,7 +13,8 @@ const Header: FC<HeaderProps> = ({work}) => {
     const companyRef = useRef<HTMLHeadingElement | null>(null);
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        let scope = work.scope
+        scope = gsap.context(() => {
             const tl = gsap.timeline();
             tl.to(jobRef.current,
                 {
@@ -27,8 +28,8 @@ const Header: FC<HeaderProps> = ({work}) => {
                     ease: "circ.out"
                 }, 0.1)
         }, scope2Ref);
-        return () => ctx.revert();
-    }, []);
+        return () => scope.revert();
+    }, [work.scope]);
 
     return (
         <>
