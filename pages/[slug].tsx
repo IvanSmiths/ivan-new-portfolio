@@ -3,6 +3,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { Work, works } from '../utils/works';
 import Header from "../components/Work/Header";
 import Description from "../components/Work/Description";
+import Footer from "../components/Work/Footer";
 
 interface Params extends ParsedUrlQuery {
     slug: string;
@@ -17,6 +18,7 @@ const WorkPage: NextPage<WorkPageProps> = ({work}) => {
         <div>
             <Header work={work}/>
             <Description work={work}/>
+            <Footer work={work}/>
         </div>
     );
 };

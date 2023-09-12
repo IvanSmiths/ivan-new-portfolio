@@ -11,6 +11,8 @@ export interface Work {
     jobStack: string[];
     jobDates: string[];
     jobLinkedin: string;
+    nextWorkTitle: string;
+    nextWorkLink: string;
 }
 
 export const works: Work[] = [
@@ -27,6 +29,8 @@ export const works: Work[] = [
         jobLinkedin: "https://www.linkedin.com/company/td-cowen-continental-europe/",
         jobDescription: "Working at the CRM currently used at one of the biggest bank in the world.",
         images: ["/public"],
+        nextWorkTitle: "SCHOLZ & VOLKMER",
+        nextWorkLink: "/scholz-und-volkmer"
     },
     {
         slug: "scholz-und-volkmer",
@@ -39,7 +43,9 @@ export const works: Work[] = [
         jobDates: ["marz 2022 -", "january 2023"],
         jobStack: ["TypeScript", "Vue (Nuxt)", "React (Next)", "Gsap"],
         jobLinkedin: "https://www.linkedin.com/company/scholzvolkmer/",
-        jobDescription: "Mission: Typesafety (and coding jawdropping animations with Gsap and ScrollTrigger)."
+        jobDescription: "Mission: Typesafety (and coding jawdropping animations with Gsap and ScrollTrigger).",
+        nextWorkTitle: "Ideology Creative Studio",
+        nextWorkLink: "/ideology-creative-studio"
     },
     {
         slug: "ideology-creative-studio",
@@ -54,5 +60,7 @@ export const works: Work[] = [
         jobLinkedin: "https://www.linkedin.com/company/ideology-creative-studio",
         jobDescription: "Taking boring WordPress websites to the next level.",
         images: ["/public"],
+        nextWorkTitle: "TD Cowen",
+        nextWorkLink: "/td-cowen"
     },
 ]
