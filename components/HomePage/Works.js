@@ -57,29 +57,29 @@ function Works() {
                 }, {
                     opacity: 1,
                     top: 0,
-                    duration: 1.5,
-                    ease: "power2.out",
-                });
+                    duration: 2,
+                    ease: "power4.out",
+                }, 0.1);
             tl.fromTo(projectsRef.current[0],
                 {
                     opacity: 0,
                     top: 500
                 }, {
-                    duration: 1.5,
+                    duration: 2,
                     opacity: 1,
                     top: 0,
-                    ease: "power2.out",
-                }, 0.1);
+                    ease: "power4.out",
+                }, 0.2);
             tl.fromTo(projectsRef.current[1],
                 {
                     opacity: 0,
                     top: 500
                 }, {
                     opacity: 1,
-                    duration: 1.5,
+                    duration: 2,
                     top: 0,
-                    ease: "power2.out",
-                }, 0.2);
+                    ease: "power4.out",
+                }, 0.3);
 
             const snapTime = gsap.utils.snap(spacing),
                 animateFunc = element => {
