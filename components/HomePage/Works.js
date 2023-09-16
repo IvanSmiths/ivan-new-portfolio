@@ -43,8 +43,6 @@ function Works() {
             let iteration = 0;
             const xPercent = 163
             const spacing = 0.34;
-            const initialOpacity = 0.6;
-            const opacity = 0.55;
 
             projectsRef.current.forEach((project) => {
                 gsap.set(project, {
@@ -57,40 +55,40 @@ function Works() {
                     opacity: 0,
                     top: 500,
                 }, {
-                    opacity: `${initialOpacity}`,
+                    opacity: 1,
                     top: 0,
-                    duration: 0.4
+                    duration: 1.5,
+                    ease: "power2.out",
                 });
             tl.fromTo(projectsRef.current[0],
                 {
                     opacity: 0,
                     top: 500
                 }, {
-                    duration: 0.4,
+                    duration: 1.5,
                     opacity: 1,
                     top: 0,
-                    ease: "circ.out",
-                });
+                    ease: "power2.out",
+                }, 0.1);
             tl.fromTo(projectsRef.current[1],
                 {
                     opacity: 0,
                     top: 500
                 }, {
-                    opacity: `${initialOpacity}`,
-                    duration: 0.4,
-                    top: 0
-                });
+                    opacity: 1,
+                    duration: 1.5,
+                    top: 0,
+                    ease: "power2.out",
+                }, 0.2);
 
             const snapTime = gsap.utils.snap(spacing),
                 animateFunc = element => {
                     const tl = gsap.timeline();
                     tl.fromTo(element,
                         {
-                            opacity: `${opacity}`,
                             filter: "grayscale(100%)",
                         },
                         {
-                            opacity: 1,
                             filter: "grayscale(0%)",
                             duration: 0.5,
                             yoyo: true,

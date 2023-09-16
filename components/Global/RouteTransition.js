@@ -1,12 +1,15 @@
 import {useEffect, useRef} from "react";
 import {useRouter} from "next/router";
 import {gsap} from "gsap";
+import {useAnimationStore} from "../../utils/store";
 
 function RouteTransition({children}) {
     const router = useRouter()
-    
+
     const scope = useRef();
     const transitionRef = useRef(null);
+
+    const {duration} = useAnimationStore();
 
     useEffect(() => {
         let ctx = gsap.context(() => {
@@ -14,7 +17,7 @@ function RouteTransition({children}) {
                 const tl = gsap.timeline();
                 tl.to(transitionRef.current, {
                     opacity: 0,
-                    duration: 0.2,
+                    duration: duration,
                 });
             };
 
@@ -22,7 +25,7 @@ function RouteTransition({children}) {
                 const tl = gsap.timeline();
                 tl.to(transitionRef.current, {
                     opacity: 1,
-                    duration: 0.2,
+                    duration: duration,
                 });
             };
 
@@ -39,7 +42,7 @@ function RouteTransition({children}) {
             return () => router.events.off('routeChangeComplete', handler);
         }, scope);
         return () => ctx.revert();
-    }, [router.events])
+    }, [duration, router.events])
 
     return (
         <>
