@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Works() {
     const [projectsRef, setProjectsRef] = useArrayRef();
-    const app = useRef();
+    const scope = useRef();
     const pinRef = useRef(null)
 
     function useArrayRef() {
@@ -51,24 +51,34 @@ function Works() {
                     xPercent: `${xPercent}`,
                 });
             })
-
-            gsap.fromTo(projectsRef.current[0],
+            const tl = gsap.timeline()
+            tl.fromTo(projectsRef.current[2],
                 {
-                    opacity: 0
+                    opacity: 0,
+                    top: 500,
                 }, {
-                    opacity: 1
+                    opacity: 1,
+                    top: 0,
+                    duration: 0.4
                 });
-            gsap.fromTo(projectsRef.current[1],
+            tl.fromTo(projectsRef.current[0],
                 {
-                    opacity: 0
+                    opacity: 0,
+                    top: 500
                 }, {
-                    opacity: `${initialOpacity}`
+                    duration: 0.4,
+                    opacity: `${initialOpacity}`,
+                    top: 0,
+                    ease: "circ.out",
                 });
-            gsap.fromTo(projectsRef.current[2],
+            tl.fromTo(projectsRef.current[1],
                 {
-                    opacity: 0
+                    opacity: 0,
+                    top: 500
                 }, {
-                    opacity: `${initialOpacity}`
+                    opacity: `${initialOpacity}`,
+                    duration: 0.4,
+                    top: 0
                 });
 
             const snapTime = gsap.utils.snap(spacing),
@@ -177,13 +187,13 @@ function Works() {
             }
 
             return () => ScrollTrigger.removeEventListener('scrollEnd', snapOnEnd);
-        }, app);
+        }, scope);
         return () => ctx.revert();
 
     }, [projectsRef]);
 
     return (
-        <section ref={app}>
+        <section ref={scope}>
             <div ref={pinRef}
                  className="w-full z-10 sm:h-2/4 h-[67%] sm:absolute max-sm:fixed bottom-0 overflow-hidden">
                 <ul className="absolute mt-small-mobile md:mt-0 w-5/6 sm:w-3/4 md:w-[48%] h-full top-0 sm:left-2/4 left-small-mobile sm:-translate-x-2/4 -translate-x-0">
