@@ -87,10 +87,12 @@ function Works() {
                     tl.fromTo(element,
                         {
                             filter: "grayscale(100%)",
+                            scale: 0.8
                         },
                         {
                             filter: "grayscale(0%)",
                             duration: 0.5,
+                            scale: 1,
                             yoyo: true,
                             repeat: 1,
                             ease: "power1.in",
