@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({work}) => {
     const scope2Ref = useRef<HTMLHeadElement | null>(null);
     const jobRef = useRef<HTMLHeadingElement | null>(null);
-    const companyRef = useRef<HTMLHeadingElement | null>(null);
+    const companyRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         let scope: Revert = work.scope as Revert;
@@ -18,13 +18,13 @@ const Header: FC<HeaderProps> = ({work}) => {
             const tl = gsap.timeline();
             tl.to(jobRef.current,
                 {
-                    bottom: 1,
-                    duration: 0.5,
+                    top: 0,
+                    duration: 0.6,
                     ease: "circ.out"
                 }).to(companyRef.current,
                 {
-                    bottom: 2,
-                    duration: 0.5,
+                    top: -10,
+                    duration: 0.6,
                     ease: "circ.out"
                 }, 0.1)
         }, scope2Ref);
@@ -36,11 +36,11 @@ const Header: FC<HeaderProps> = ({work}) => {
             <header ref={scope2Ref} className="grid">
                 <div className="grid-column-8-11 h-[75vh] flex flex-col justify-center">
                     <div className="overflow-hidden relative h-10">
-                        <h1 ref={jobRef} className="paragraph absolute -bottom-5 left-0 lowercase">{work.job}</h1>
+                        <h1 ref={jobRef} className="paragraph absolute top-40 left-0 lowercase">{work.job}</h1>
                     </div>
-                    <div className="overflow-hidden mt-1 relative h-10">
+                    <div className="overflow-hidden mt-1 relative h-40">
                         <h2 ref={companyRef}
-                            className="heading-1-bold absolute -bottom-9 left-0 -mb-5 uppercase">{work.company}</h2>
+                            className="heading-1-bold absolute top-40 left-0 -mb-5 uppercase">{work.company}</h2>
                     </div>
                 </div>
                 <div className="grid-column-2-11">
