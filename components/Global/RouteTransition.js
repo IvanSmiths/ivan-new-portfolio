@@ -6,7 +6,7 @@ import {useAnimationStore} from "../../utils/store";
 function RouteTransition({children}) {
     const router = useRouter()
 
-    const scope = useRef();
+    const scopeRef = useRef(null);
     const transitionRef = useRef(null);
 
     const {duration} = useAnimationStore();
@@ -40,18 +40,16 @@ function RouteTransition({children}) {
 
             router.events.on('routeChangeStart', handler);
             return () => router.events.off('routeChangeComplete', handler);
-        }, scope);
+        }, scopeRef);
         return () => ctx.revert();
     }, [duration, router.events])
 
     return (
-        <>
-            <div ref={scope}>
-                <div ref={transitionRef}>
-                    {children}
-                </div>
+        <div ref={scopeRef}>
+            <div ref={transitionRef}>
+                {children}
             </div>
-        </>
+        </div>
     )
 }
 
