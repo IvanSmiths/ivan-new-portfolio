@@ -48,7 +48,7 @@ const Time: FC = () => {
 
     return (
         <div className="relative pr-medium pl-medium overflow-hidden">
-            <span className="paragraph-light absolute ml-auto mr-auto top-0 left-0 right-0"
+            <span className="absolute ml-auto mr-auto top-0 left-0 right-0"
                   ref={timeRef}>{currentTime}</span>
         </div>
     )

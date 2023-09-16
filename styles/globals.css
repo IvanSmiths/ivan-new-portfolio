@@ -170,11 +170,6 @@ li {
     font-weight: 400;
 }
 
-.paragraph-light {
-    font-size: 15px;
-    font-weight: 300;
-}
-
 strong {
     font-weight: normal;
     color: var(--primary-light);
