@@ -30,7 +30,7 @@ function Works() {
             img: "/images/suv/mockup.jpg"
         },
         {
-            title: "ideology-creative-studio",
+            title: "Ideology Creative Studio",
             role: "UI/UX Designer",
             link: "/ideology-creative-studio",
             img: "/images/id/mockup.jpg"
@@ -57,7 +57,7 @@ function Works() {
                     opacity: 0,
                     top: 500,
                 }, {
-                    opacity: 1,
+                    opacity: `${initialOpacity}`,
                     top: 0,
                     duration: 0.4
                 });
@@ -67,7 +67,7 @@ function Works() {
                     top: 500
                 }, {
                     duration: 0.4,
-                    opacity: `${initialOpacity}`,
+                    opacity: 1,
                     top: 0,
                     ease: "circ.out",
                 });
@@ -134,7 +134,7 @@ function Works() {
                         scrub.invalidate().restart();
                     }
                 },
-                end: "+=3000",
+                end: "+=2000",
                 pin: pinRef.current
             })
             const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end)
