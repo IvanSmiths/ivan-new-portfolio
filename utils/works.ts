@@ -1,9 +1,3 @@
-import Context = gsap.Context;
-
-export interface Revert extends gsap.Context {
-    revert(): void;
-}
-
 export interface Work {
     slug: string;
     title: string;
@@ -19,7 +13,7 @@ export interface Work {
     jobLinkedin: string;
     nextWorkTitle: string;
     nextWorkLink: string;
-    scope: Context | string;
+    scope: any;
 }
 
 export const works: Work[] = [
