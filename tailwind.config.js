@@ -14,7 +14,8 @@ module.exports = {
                 "brand": "var(--brand)",
                 "primary": "var(--primary)",
                 "primary-light": "var(--primary-light)",
-                "secondary": "var(--secondary)"
+                "secondary": "var(--secondary)",
+                "white": "#ECECEC"
             },
             spacing: {
                 "small": "var(--small)",

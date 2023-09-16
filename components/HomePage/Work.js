@@ -50,12 +50,13 @@ function Work({setProjectsRef, title, img, link, role}) {
             <Link ref={triggerRef} className="relative h-full w-full sm:flex sm:justify-center" href={link}>
                 <div className="absolute bottom-small w-full left-small text-left">
                     <div className="overflow-hidden relative h-10 pointer-events-none">
-                        <h2 ref={roleRef} className="paragraph absolute -bottom-5 left-0 lowercase">
+                        <h2 ref={roleRef} className="paragraph absolute text-white -bottom-5 left-0 lowercase">
                             {role}
                         </h2>
                     </div>
                     <div className="overflow-hidden mt-1 relative h-10">
-                        <h3 ref={workRef} className="absolute -bottom-9 left-0 heading-1-bold -mb-5 uppercase">
+                        <h3 ref={workRef}
+                            className="absolute -bottom-9 left-0 heading-1-bold text-white -mb-5 uppercase">
                             {title}
                         </h3>
                     </div>
