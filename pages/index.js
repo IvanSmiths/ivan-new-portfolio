@@ -2,6 +2,7 @@ import Head from "next/head";
 import {useHoverStore} from "../utils/store";
 import Works from "../components/HomePage/Works";
 import Text from "../components/HomePage/Text";
+import Layout from "../components/Global/Layout";
 
 const Home = () => {
     const schemaData = {
@@ -51,8 +52,10 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-            <Text/>
-            <Works/>
+            <Layout>
+                <Text/>
+                <Works/>
+            </Layout>
 
         </>
     );
