@@ -4,7 +4,6 @@ import { Work, works } from '../utils/works';
 import Header from "../components/Work/Header";
 import Description from "../components/Work/Description";
 import Footer from "../components/Work/Footer";
-import Layout from "../components/Global/Layout";
 import React from "react";
 
 interface Params extends ParsedUrlQuery {
@@ -17,11 +16,11 @@ interface WorkPageProps {
 
 const WorkPage: NextPage<WorkPageProps> = ({work}) => {
     return (
-        <Layout>
+        <>
             <Header work={work}/>
             <Description work={work}/>
             <Footer work={work}/>
-        </Layout>
+        </>
     );
 };
 
