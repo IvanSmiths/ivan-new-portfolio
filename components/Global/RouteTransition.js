@@ -7,43 +7,30 @@ function RouteTransition({children}) {
     const transitionRef = useRef(null);
 
     useEffect(() => {
-        const aniStart = () => {
-            const tl = gsap.timeline();
-            tl.to(transitionRef.current, {
-                opacity: 0,
-                duration: 0.2,
-            });
-        };
-
-        const aniEnd = () => {
-            const tl = gsap.timeline();
-            tl.to(transitionRef.current, {
-                opacity: 1,
-                duration: 0.2,
-            });
-        };
-
-        const handler = () => {
-            aniStart();
-            console.log('aniStart')
-            setTimeout(() => {
-                aniEnd();
-                console.log('aniEnd')
-            }, 400);
-        };
-
-        router.events.on('routeChangeStart', handler);
-
-        return () => {
-            router.events.off('routeChangeComplete', handler);
-        }
+        let scope = gsap.context(() => {
+            const transition = () => {
+                const tl = gsap.timeline();
+                tl.to(transitionRef.current, {
+                    opacity: 0,
+                    duration: 0.2,
+                });
+                tl.to(transitionRef.current, {
+                    opacity: 1,
+                    duration: 0.2,
+                });
+                tl.play()
+            };
+            router.events.on('routeChangeStart', transition);
+            return () => {
+                router.events.off("routeChangeStart", transition);
+            }
+        })
+        return () => scope.revert();
     }, [router.events])
     return (
-        <>
-            <div ref={transitionRef}>
-                {children}
-            </div>
-        </>
+        <div ref={transitionRef}>
+            {children}
+        </div>
     )
 }
 
