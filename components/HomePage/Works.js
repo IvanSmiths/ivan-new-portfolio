@@ -117,7 +117,7 @@ function Works() {
                 onUpdate() {
                     seamlessLoop.time(wrapTime(playhead.offset));
                 },
-                duration: 0.7,
+                duration: 0.5,
                 ease: "power3",
                 paused: true
             });
@@ -134,7 +134,7 @@ function Works() {
                         scrub.invalidate().restart();
                     }
                 },
-                end: "+=2000",
+                end: "+=1500",
                 pin: pinRef.current
             })
             const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end)
