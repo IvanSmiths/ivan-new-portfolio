@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Time from "./Time";
 import Paragraph from "./Paragraph";
 import City from "./City";
-import WeatherPlaceholder from "./WeatherPlaceholder";
+import Weather from "./Weather";
 
 const Text: FC = () => {
     return (
@@ -10,7 +10,7 @@ const Text: FC = () => {
             <div className="grid-column-8-11 flex flex-col gap-1 justify-center">
                 <div className="flex gap-medium">
                     <City/>
-                    <WeatherPlaceholder/>
+                    <Weather/>
                     <Time/>
                 </div>
                 <Paragraph/>

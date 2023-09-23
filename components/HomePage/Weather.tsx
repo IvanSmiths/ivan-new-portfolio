@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { useAnimationStore } from "../../utils/store";
 import { gsap } from "gsap";
 
-const WeatherPlaceholder: FC = () => {
+const Weather: FC = () => {
     const [data, setData] = useState(null)
     const scopeRef = useRef<HTMLDivElement | null>(null);
     const weatherRef = useRef<HTMLSpanElement | null>(null);
@@ -47,8 +47,7 @@ const WeatherPlaceholder: FC = () => {
 
     if (!data) return
 
-    const stringify = Math.round(data.main.temp).toString()
-    let temperature = stringify.slice(0, -1);
+    const temperature = Math.round(data.main.temp)
     let weather = data.weather[0].main
 
     return (
@@ -59,4 +58,4 @@ const WeatherPlaceholder: FC = () => {
         </div>
     );
 }
-export default WeatherPlaceholder;
+export default Weather;
