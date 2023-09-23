@@ -24,6 +24,6 @@ export const useHoverStore = create<HoverState>()((set) => ({
 export const useAnimationStore = create<AnimationState>()((set) => ({
     duration: 0.3,
     durationFast: 0.3,
-    durationMedium: 0.6,
+    durationMedium: 0.5,
     durationSlow: 1.5,
 }))
