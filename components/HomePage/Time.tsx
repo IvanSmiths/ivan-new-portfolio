@@ -5,7 +5,7 @@ import { useAnimationStore } from "../../utils/store";
 const Time: FC = () => {
     const [currentTime, setCurrentTime] = useState<string>("");
     const timeRef = useRef<HTMLSpanElement | null>(null);
-    const scopeRef = useRef<HTMLDivElement | null>(null);
+    const timeScopeRef = useRef<HTMLDivElement | null>(null);
     const {durationMedium} = useAnimationStore();
 
     useEffect(() => {
@@ -47,11 +47,11 @@ const Time: FC = () => {
                     ease: "circ.out"
                 })
             return () => scope.revert();
-        }, scopeRef)
+        }, timeScopeRef)
     }, [currentTime, durationMedium]);
 
     return (
-        <div className="relative pr-medium pl-medium overflow-hidden">
+        <div ref={timeScopeRef} className="relative pr-medium pl-medium overflow-hidden">
             <span className="absolute ml-auto mr-auto top-0 left-0 right-0"
                   ref={timeRef}>{currentTime}</span>
         </div>

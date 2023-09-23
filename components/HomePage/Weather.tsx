@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 
 const Weather: FC = () => {
     const [data, setData] = useState(null)
-    const scopeRef = useRef<HTMLDivElement | null>(null);
+    const weatherScopeRef = useRef<HTMLDivElement | null>(null);
     const weatherRef = useRef<HTMLSpanElement | null>(null);
     const {durationMedium} = useAnimationStore();
 
@@ -41,7 +41,7 @@ const Weather: FC = () => {
                         ease: "circ.out"
                     })
                 return () => scope.revert();
-            }, scopeRef)
+            }, weatherScopeRef)
         }
     }, [durationMedium, data]);
 
@@ -51,7 +51,7 @@ const Weather: FC = () => {
     let weather = data.weather[0].main
 
     return (
-        <div ref={scopeRef} className="relative pr-medium pl-medium overflow-hidden">
+        <div ref={weatherScopeRef} className="relative pr-medium pl-medium overflow-hidden">
             <span ref={weatherRef} className="lowercase absolute ml-auto mr-auto top-0 left-0 right-0">
                     {temperature}° {weather}
             </span>
