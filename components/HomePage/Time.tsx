@@ -5,7 +5,8 @@ import { useAnimationStore } from "../../utils/store";
 const Time: FC = () => {
     const [currentTime, setCurrentTime] = useState<string>("");
     const timeRef = useRef<HTMLSpanElement | null>(null);
-    const {duration} = useAnimationStore();
+    const scopeRef = useRef<HTMLDivElement | null>(null);
+    const {durationMedium} = useAnimationStore();
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -23,28 +24,31 @@ const Time: FC = () => {
     }, []);
 
     useEffect((): void => {
-        gsap.timeline()
-            .to(timeRef.current, {
-                opacity: 0,
-                top: 20,
-                duration: duration,
-                ease: "circ.out"
-            })
-            .set(timeRef.current, {top: 0})
-            .to(timeRef.current, {
-                opacity: 0,
-                top: -20,
-                duration: duration,
-                ease: "circ.out"
-            })
-            .to(timeRef.current, {
-                opacity: 1,
-                top: 0,
-                duration: duration,
-                ease: "circ.out"
-            })
-
-    }, [currentTime, duration]);
+        const scope = gsap.context(() => {
+            gsap.timeline()
+                .set(timeRef.current, {opacity: 0})
+                .to(timeRef.current, {
+                    opacity: 0,
+                    top: 20,
+                    duration: durationMedium,
+                    ease: "circ.out"
+                })
+                .set(timeRef.current, {top: 0})
+                .to(timeRef.current, {
+                    opacity: 0,
+                    top: -20,
+                    duration: durationMedium,
+                    ease: "circ.out"
+                })
+                .to(timeRef.current, {
+                    opacity: 1,
+                    top: 0,
+                    duration: durationMedium,
+                    ease: "circ.out"
+                })
+            return () => scope.revert();
+        }, scopeRef)
+    }, [currentTime, durationMedium]);
 
     return (
         <div className="relative pr-medium pl-medium overflow-hidden">

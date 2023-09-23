@@ -9,6 +9,9 @@ interface HoverState {
 
 interface AnimationState {
     duration: number;
+    durationFast: number,
+    durationMedium: number,
+    durationSlow: number,
 }
 
 export const useHoverStore = create<HoverState>()((set) => ({
@@ -20,4 +23,7 @@ export const useHoverStore = create<HoverState>()((set) => ({
 
 export const useAnimationStore = create<AnimationState>()((set) => ({
     duration: 0.3,
+    durationFast: 0.3,
+    durationMedium: 0.6,
+    durationSlow: 1.5,
 }))
