@@ -17,6 +17,9 @@ module.exports = {
                 "secondary": "var(--secondary)",
                 "white": "#ECECEC"
             },
+            transitionProperty: {
+                'dimensions': 'height, width',
+            },
             spacing: {
                 "small": "var(--small)",
                 "medium": "var(--medium)",

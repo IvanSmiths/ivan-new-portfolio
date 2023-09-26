@@ -66,12 +66,12 @@ const CustomCursor = () => {
     }, []);
 
     return (
-        <div className={`cursor-wrapper default`}>
-            <div className={`secondary-cursor ${hover}`} ref={secondaryCursor}>
-                {userScroll > 9 ? <>
-                    <span>text</span>
-                </> : null}
-            </div>
+        <div
+            className={`fixed bg-brand rounded-full pointer-events-none transform-gpu origin-center z-50 transition-dimensions duration-300 ease-in-out ${hover}`}
+            ref={secondaryCursor}>
+            {userScroll > 9 ? <>
+                <span>text</span>
+            </> : null}
         </div>
     );
 };
