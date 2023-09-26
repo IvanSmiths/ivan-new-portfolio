@@ -48,7 +48,7 @@ const Header: FC<HeaderProps> = ({work}) => {
         <>
             <div ref={scope3Ref} className="grid">
                 <div ref={triggerRef}
-                     className="grid-column-3-10 h-[100vh] text-center flex justify-center items-center">
+                     className="grid-small h-[100vh] text-center flex justify-center items-center">
                     <div className="h-fit">
                         {work.jobDescription.split("").map((letter, index) => (
                             <span className="heading-big text-center" ref={setLettersRef} key={index}>
