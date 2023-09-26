@@ -8,34 +8,26 @@ const PageTransition = () => {
 
     const transitionRef = useRef(null);
     useEffect(() => {
-        let timer;
         const aniStart = async () => {
-            timer = setTimeout(() => {
-                setIsActive(true);
-                const tl = gsap.timeline();
-                tl.to(transitionRef.current, {
-                    yPercent: 100,
-                    duration: 0.4,
-                    ease: "Expo.e5aseInOut",
-                });
-            }, 10);
+            setIsActive(true);
+            const tl = gsap.timeline();
+            tl.to(transitionRef.current, {
+                yPercent: 100,
+                duration: 0.8,
+                ease: "expo.inOut"
+            });
         };
         const aniEnd = () => {
-            if (timer) {
-                clearTimeout(timer);
-            }
             const tl = gsap.timeline();
             if (isActive) {
                 tl.to(transitionRef.current, {
-                    yPercent: 200,
-                    duration: 0.5,
-                    ease: "Expo.easeInOut",
+                    yPercent: 0,
+                    duration: 1.2,
+                    ease: "expo.inOut"
                 });
                 setIsActive(false);
             }
-
             tl.set(transitionRef.current, {yPercent: 0});
-            clearTimeout(timer);
         };
 
         router.events.on("routeChangeStart", aniStart);
@@ -46,9 +38,6 @@ const PageTransition = () => {
             router.events.off("routeChangeStart", aniStart);
             router.events.off("routeChangeComplete", aniEnd);
             router.events.off("routeChangeError", aniEnd);
-            if (timer) {
-                clearTimeout(timer);
-            }
         };
     }, [router.events, isActive]);
     return (
@@ -57,7 +46,7 @@ const PageTransition = () => {
                 <div
                     ref={transitionRef}
                     id="cover"
-                    className="h-screen w-full top-0 fixed -translate-y-full bg-black"
+                    className="h-screen w-full top-0 fixed -translate-y-full bg-primary"
                 ></div>
             </div>
         </>

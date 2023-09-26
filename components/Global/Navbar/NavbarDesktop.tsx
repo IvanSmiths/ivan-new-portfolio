@@ -18,7 +18,7 @@ const links: LinkType[] = [
         link: "/"
     }, {
         page: "what i do",
-        link: "/stuff"
+        link: "/about"
     }, {
         page: "what i write",
         link: "/blog"

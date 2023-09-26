@@ -13,8 +13,8 @@ function About() {
     );
 }
 
-export async function getServerSideProps(context) {
-    await waitload(1);
+export async function getServerSideProps() {
+    await waitload(4.3);
     return {
         props: {load: "load"},
     };
