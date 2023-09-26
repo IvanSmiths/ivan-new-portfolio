@@ -45,7 +45,6 @@ const PageTransition = () => {
             <div className="z-[99999950] overflow-hidden flex flex-col relative">
                 <div
                     ref={transitionRef}
-                    id="cover"
                     className="h-screen w-full top-0 fixed -translate-y-full bg-primary"
                 ></div>
             </div>
