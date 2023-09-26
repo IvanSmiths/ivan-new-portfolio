@@ -2,7 +2,6 @@ import Head from "next/head";
 import {useHoverStore} from "../utils/store";
 import Works from "../components/HomePage/Works";
 import Text from "../components/HomePage/Text";
-import Layout from "../components/Global/Layout";
 
 const Home = () => {
     const schemaData = {
@@ -52,13 +51,21 @@ const Home = () => {
                     content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC"
                 />
             </Head>
-            <Layout>
-                <Text/>
-                <Works/>
-            </Layout>
-
+            <Text/>
+            <Works/>
         </>
     );
 };
+
+export async function getServerSideProps(context) {
+    await waitload(1);
+    return {
+        props: {load: "load"},
+    };
+}
+
+function waitload(sec) {
+    return new Promise((resolve) => setTimeout(resolve, sec * 300));
+}
 
 export default Home;
