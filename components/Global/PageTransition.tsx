@@ -13,6 +13,7 @@ const PageTransition = () => {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
                 yPercent: 100,
+                display: "block",
                 duration: 0.7,
                 ease: "expo.inOut"
             });
@@ -39,7 +40,7 @@ const PageTransition = () => {
                 });
                 setIsActive(false);
             }
-            tl.set(transitionRef.current, {yPercent: 0});
+            tl.set(transitionRef.current, {yPercent: 0, display: "none"});
         };
 
         router.events.on("routeChangeStart", aniStart);
