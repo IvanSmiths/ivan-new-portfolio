@@ -31,7 +31,7 @@ export const works: Work[] = [
         jobDescription: "Working at the CRM currently used at one of the biggest bank in the world.",
         images: ["/public"],
         nextWorkTitle: "SCHOLZ & VOLKMER",
-        nextWorkLink: "/scholz-und-volkmer",
+        nextWorkLink: "/scholz-&-volkmer",
         scope: "scope-0",
     },
     {
@@ -51,10 +51,10 @@ export const works: Work[] = [
         scope: "scope-1",
     },
     {
-        slug: "ideology-creative-studio",
-        title: "Ivan Smiths - Ideology Creative Studio",
+        slug: "ideology",
+        title: "Ivan Smiths - Ideology",
         description: "description",
-        company: "Ideology Creative Studio",
+        company: "Ideology",
         job: "ui/ux designer",
         mainImage: "/images/id/mockup.jpg",
         website: "https://www.ideology.it/",

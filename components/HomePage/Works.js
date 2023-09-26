@@ -30,9 +30,9 @@ function Works() {
             img: "/images/suv/mockup.jpg"
         },
         {
-            title: "Ideology Creative Studio",
+            title: "Ideology",
             role: "UI/UX Designer",
-            link: "/ideology-creative-studio",
+            link: "/ideology",
             img: "/images/id/mockup.jpg"
         },
 
