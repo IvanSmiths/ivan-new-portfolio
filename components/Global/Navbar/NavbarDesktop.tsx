@@ -33,8 +33,8 @@ const NavbarDesktop: FC = () => {
             <ul className="flex gap-medium">
                 {links.map((link, index) => (
                     <li key={index}>
-                        <Link href={link.link} onMouseEnter={() => setHover('medium')}
-                              onMouseLeave={() => setHover('small')}>
+                        <Link href={link.link} onMouseEnter={() => setHover('w-5 h-5')}
+                              onMouseLeave={() => setHover('w-2 h-2')}>
                             {link.page}
                         </Link>
                     </li>

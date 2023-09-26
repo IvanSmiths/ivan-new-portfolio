@@ -15,7 +15,7 @@ interface AnimationState {
 }
 
 export const useHoverStore = create<HoverState>()((set) => ({
-    hover: "small",
+    hover: "w-2 h-2",
     setHover: (newState) => set({hover: newState}),
     scrollHint: true,
     setScrollHint: (newState) => set({scrollHint: newState}),
