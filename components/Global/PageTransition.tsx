@@ -64,7 +64,7 @@ const PageTransition = () => {
                     className="h-screen w-full top-0 fixed -translate-y-full bg-primary"
                 >
                     <span ref={queryRef}
-                          className="text-secondary fixed right-2 heading-1-bold bottom-20">{cleanPath}</span>
+                          className="text-secondary fixed right-2 heading-big font-bold bottom-20">{cleanPath}</span>
                 </div>
             </div>
         </>

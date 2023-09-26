@@ -56,7 +56,7 @@ function Work({setProjectsRef, title, img, link, role}) {
                     </div>
                     <div className="overflow-hidden mt-1 relative h-10">
                         <h3 ref={workRef}
-                            className="absolute -bottom-9 left-0 heading-1-bold text-white -mb-5 uppercase">
+                            className="absolute -bottom-9 left-0 heading-big font-bold text-white -mb-5 uppercase">
                             {title}
                         </h3>
                     </div>

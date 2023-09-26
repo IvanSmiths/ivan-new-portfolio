@@ -40,7 +40,7 @@ const Header: FC<HeaderProps> = ({work}) => {
                     </div>
                     <div className="overflow-hidden mt-1 relative h-40">
                         <h2 ref={companyRef}
-                            className="heading-1-bold absolute top-40 left-0 -mb-5 uppercase">{work.company}</h2>
+                            className="heading-big font-bold absolute top-40 left-0 -mb-5 uppercase">{work.company}</h2>
                     </div>
                 </div>
                 <div className="grid-column-2-11">

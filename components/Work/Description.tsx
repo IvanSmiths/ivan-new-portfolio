@@ -51,7 +51,7 @@ const Header: FC<HeaderProps> = ({work}) => {
                      className="grid-column-3-10 h-[100vh] text-center flex justify-center items-center">
                     <div className="h-fit">
                         {work.jobDescription.split("").map((letter, index) => (
-                            <span className="heading-1 text-center" ref={setLettersRef} key={index}>
+                            <span className="heading-big text-center" ref={setLettersRef} key={index}>
                                 {letter}
                             </span>
                         ))}

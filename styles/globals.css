@@ -143,26 +143,25 @@ li {
     grid-column: 2 / 12;
 }
 
-.heading-1 {
+.heading-large {
+    font-size: 143px;
+    font-weight: 400;
+}
+
+.heading-big {
     font-size: 48px;
     font-weight: 400;
 }
 
-.heading-1-bold {
+.heading-big-bold {
     font-size: 48px;
     font-weight: 600;
 }
 
-.heading-2 {
+.heading-regular {
     font-size: 26px;
     line-height: normal;
     font-weight: 400;
-}
-
-.heading-2-link {
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--primary-light);
 }
 
 .paragraph {
@@ -211,11 +210,7 @@ li {
         --medium: 20px;
     }
 
-    .heading-2 {
-        font-size: 19px;
-    }
-
-    .heading-2-link {
+    .heading-regular {
         font-size: 19px;
     }
 
