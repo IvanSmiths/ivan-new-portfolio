@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 const PageTransition = () => {
     const router = useRouter();
     const [isActive, setIsActive] = useState(false);
-
     const transitionRef = useRef(null);
     const queryRef = useRef(null);
     useEffect(() => {
@@ -53,7 +52,10 @@ const PageTransition = () => {
             router.events.off("routeChangeError", aniEnd);
         };
     }, [router.events, isActive]);
-    console.log(router.asPath)
+
+    const path = router.asPath;
+    const cleanPath = path === '/' ? 'home' : path.replace(/^\/|\/$/g, '').replace(/-/g, ' ');
+
     return (
         <>
             <div className="z-[99999950] overflow-hidden flex flex-col relative">
@@ -62,7 +64,7 @@ const PageTransition = () => {
                     className="h-screen w-full top-0 fixed -translate-y-full bg-primary"
                 >
                     <span ref={queryRef}
-                          className="text-secondary fixed right-2 heading-1-bold bottom-20">{router.asPath}</span>
+                          className="text-secondary fixed right-2 heading-1-bold bottom-20">{cleanPath}</span>
                 </div>
             </div>
         </>
