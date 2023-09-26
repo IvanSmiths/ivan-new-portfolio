@@ -17,12 +17,12 @@ const ThemeToggle = () => {
     }, []);
 
     const {setHover} = useHoverStore();
-    
+
     const handleMouseEnter = () => {
-        setHover("medium");
+        setHover("w-4 h-4");
     };
     const handleMouseLeave = () => {
-        setHover("small");
+        setHover("w-2 h-2");
     };
 
     return (
@@ -32,7 +32,7 @@ const ThemeToggle = () => {
                 width="20px"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="cursor-pointer z-10"
+                className="cursor-pointer"
                 onClick={() => setActiveTheme(inactiveTheme)}
                 src={activeTheme === "dark" ? "/moon.svg" : "/sun.svg"}
                 alt={`Change to ${inactiveTheme}`}
