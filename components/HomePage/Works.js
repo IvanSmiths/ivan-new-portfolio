@@ -26,7 +26,7 @@ function Works() {
         {
             title: "Scholz & Volkmer",
             role: "Frontend developer",
-            link: "/scholz-und-volkmer",
+            link: "/scholz-&-volkmer",
             img: "/images/suv/mockup.jpg"
         },
         {

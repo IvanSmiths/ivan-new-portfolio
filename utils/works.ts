@@ -35,7 +35,7 @@ export const works: Work[] = [
         scope: "scope-0",
     },
     {
-        slug: "scholz-und-volkmer",
+        slug: "scholz-&-volkmer",
         title: "Ivan Smiths - SCHOLZ & VOLKMER",
         description: "description",
         company: "SCHOLZ & VOLKMER",
