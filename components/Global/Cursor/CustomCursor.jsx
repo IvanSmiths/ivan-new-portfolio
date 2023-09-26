@@ -67,7 +67,7 @@ const CustomCursor = () => {
 
     return (
         <div
-            className={`fixed bg-brand rounded-full pointer-events-none transform-gpu origin-center z-50 transition-dimensions duration-300 ease-in-out ${hover}`}
+            className={`fixed bg-brand rounded-full pointer-events-none transform-gpu origin-center z-10 transition-dimensions duration-300 ease-in-out ${hover}`}
             ref={secondaryCursor}>
             {userScroll > 9 ? <>
                 <span>text</span>
