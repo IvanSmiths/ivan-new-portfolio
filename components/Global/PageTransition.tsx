@@ -13,7 +13,7 @@ const PageTransition = () => {
             const tl = gsap.timeline();
             tl.to(transitionRef.current, {
                 yPercent: 100,
-                duration: 0.8,
+                duration: 0.7,
                 ease: "expo.inOut"
             });
         };
@@ -22,7 +22,7 @@ const PageTransition = () => {
             if (isActive) {
                 tl.to(transitionRef.current, {
                     yPercent: 0,
-                    duration: 1.2,
+                    duration: 1.3,
                     ease: "expo.inOut"
                 });
                 setIsActive(false);

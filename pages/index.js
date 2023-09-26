@@ -58,7 +58,7 @@ const Home = () => {
 };
 
 export async function getServerSideProps() {
-    await waitload(4.3);
+    await waitload(2.5);
     return {
         props: {load: "load"},
     };
