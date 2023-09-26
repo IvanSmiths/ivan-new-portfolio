@@ -14,19 +14,19 @@ const PageTransition = () => {
             tl.to(transitionRef.current, {
                 yPercent: 100,
                 display: "block",
-                duration: 0.7,
+                duration: 0.6,
                 ease: "expo.inOut"
             });
             tl.to(queryRef.current,
                 {
                     opacity: 0,
-                    duration: 0.4,
+                    duration: 0.3,
                     ease: "circ.out"
                 })
             tl.to(queryRef.current,
                 {
                     opacity: 1,
-                    duration: 0.4,
+                    duration: 0.3,
                     ease: "circ.out"
                 })
         };
@@ -35,7 +35,7 @@ const PageTransition = () => {
             if (isActive) {
                 tl.to(transitionRef.current, {
                     yPercent: 0,
-                    duration: 1.3,
+                    duration: 1,
                     ease: "expo.inOut"
                 });
                 setIsActive(false);
