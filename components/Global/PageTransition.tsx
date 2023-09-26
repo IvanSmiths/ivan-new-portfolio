@@ -7,6 +7,7 @@ const PageTransition = () => {
     const [isActive, setIsActive] = useState(false);
 
     const transitionRef = useRef(null);
+    const queryRef = useRef(null);
     useEffect(() => {
         const aniStart = async () => {
             setIsActive(true);
@@ -16,6 +17,18 @@ const PageTransition = () => {
                 duration: 0.7,
                 ease: "expo.inOut"
             });
+            tl.to(queryRef.current,
+                {
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: "circ.out"
+                })
+            tl.to(queryRef.current,
+                {
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: "circ.out"
+                })
         };
         const aniEnd = () => {
             const tl = gsap.timeline();
@@ -40,13 +53,17 @@ const PageTransition = () => {
             router.events.off("routeChangeError", aniEnd);
         };
     }, [router.events, isActive]);
+    console.log(router.asPath)
     return (
         <>
             <div className="z-[99999950] overflow-hidden flex flex-col relative">
                 <div
                     ref={transitionRef}
                     className="h-screen w-full top-0 fixed -translate-y-full bg-primary"
-                ></div>
+                >
+                    <span ref={queryRef}
+                          className="text-secondary fixed right-2 heading-1-bold bottom-20">{router.asPath}</span>
+                </div>
             </div>
         </>
     );
