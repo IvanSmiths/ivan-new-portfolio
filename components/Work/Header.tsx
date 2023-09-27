@@ -32,8 +32,8 @@ const Header: FC<HeaderProps> = ({work}) => {
     }, [work.scope]);
 
     return (
-        <header ref={scope2Ref} className="grid-work-header">
-            <div className=" h-[75vh] flex flex-col justify-center">
+        <header ref={scope2Ref} className="grid">
+            <div className=" h-[75vh] flex flex-col justify-center grid-work-header">
                 <div className="overflow-hidden relative h-10">
                     <h1 ref={jobRef} className="paragraph absolute top-40 left-0 lowercase">{work.job}</h1>
                 </div>

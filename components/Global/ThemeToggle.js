@@ -27,16 +27,13 @@ const ThemeToggle = () => {
 
     return (
         <>
-            <img
-                height="20px"
-                width="20px"
+            <span
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="cursor-pointer"
                 onClick={() => setActiveTheme(inactiveTheme)}
-                src={activeTheme === "dark" ? "/moon.svg" : "/sun.svg"}
-                alt={`Change to ${inactiveTheme}`}
-            />
+                className="cursor-pointer">
+                {activeTheme === "dark" ? "light mode" : "dark mode"}
+            </span>
         </>
     );
 };
