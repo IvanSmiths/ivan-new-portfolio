@@ -16,11 +16,11 @@ interface WorkPageProps {
 
 const WorkPage: NextPage<WorkPageProps> = ({work}) => {
     return (
-        <div className="grid w-full">
+        <>
             <Header work={work}/>
             <Description work={work}/>
             <Footer work={work}/>
-        </div>
+        </>
     );
 };
 
