@@ -26,7 +26,7 @@ export const works: Work[] = [
         mainImage: "/images/td/mockup.jpg",
         website: "https://www.cowen.com/",
         jobDates: ["april 2023 -", "ongoing"],
-        jobStack: ["Figma", "TypeScript", "Angular", "RxJs", "Observable Plot", "eCharts"],
+        jobStack: ["Figma", "TypeScript", "Angular", "RxJs", "Prisma"],
         jobLinkedin: "https://www.linkedin.com/company/td-cowen-continental-europe/",
         jobDescription: "Working at the CRM currently used at one of the biggest bank in the world.",
         images: ["/public"],

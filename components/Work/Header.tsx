@@ -32,44 +32,42 @@ const Header: FC<HeaderProps> = ({work}) => {
     }, [work.scope]);
 
     return (
-        <>
-            <header ref={scope2Ref} className="grid">
-                <div className="grid-large h-[75vh] flex flex-col justify-center">
-                    <div className="overflow-hidden relative h-10">
-                        <h1 ref={jobRef} className="paragraph absolute top-40 left-0 lowercase">{work.job}</h1>
-                    </div>
-                    <div className="overflow-hidden mt-1 relative h-40">
-                        <h2 ref={companyRef}
-                            className="heading-big font-bold absolute top-40 left-0 -mb-5 uppercase">{work.company}</h2>
-                    </div>
+        <header ref={scope2Ref} className="grid-work-header">
+            <div className=" h-[75vh] flex flex-col justify-center">
+                <div className="overflow-hidden relative h-10">
+                    <h1 ref={jobRef} className="paragraph absolute top-40 left-0 lowercase">{work.job}</h1>
                 </div>
-                <div className="grid-smallest">
-                    <ul className="flex justify-between items-end pb-small">
-                        <li>
-                            <a href={work.website} rel="noopener" target="_blank">
-                                website
-                            </a>
-                        </li>
-                        <li className="flex flex-col">
-                            {work.jobStack.map((date, i) => (
-                                <span key={i}>{date}</span>
-                            ))}
-                        </li>
-                        <li className="flex flex-col">
-                            {work.jobDates.map((date, i) => (
-                                <span key={i}>{date}</span>
-                            ))}
-                        </li>
-                        <li>
-                            <a href={work.jobLinkedin} rel="noopener" target="_blank">
-                                linkedin
-                            </a>
-                        </li>
-                    </ul>
-                    <img src={work.mainImage} alt={`${work.company} main image`}/>
+                <div className="overflow-hidden mt-1 relative h-40">
+                    <h2 ref={companyRef}
+                        className="heading-big font-bold absolute top-40 left-0 -mb-5 uppercase">{work.company}</h2>
                 </div>
-            </header>
-        </>
+            </div>
+            <div className="grid-smallest">
+                <ul className="flex justify-between items-end pb-small">
+                    <li>
+                        <a href={work.website} rel="noopener" target="_blank">
+                            website
+                        </a>
+                    </li>
+                    <li className="flex flex-col">
+                        {work.jobStack.map((date, i) => (
+                            <span key={i}>{date}</span>
+                        ))}
+                    </li>
+                    <li className="flex flex-col">
+                        {work.jobDates.map((date, i) => (
+                            <span key={i}>{date}</span>
+                        ))}
+                    </li>
+                    <li>
+                        <a href={work.jobLinkedin} rel="noopener" target="_blank">
+                            linkedin
+                        </a>
+                    </li>
+                </ul>
+                <img src={work.mainImage} alt={`${work.company} main image`} className="w-full"/>
+            </div>
+        </header>
     )
 };
 
