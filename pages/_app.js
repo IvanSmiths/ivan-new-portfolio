@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import React, {useEffect} from "react";
 import CursorManager from "../components/Global/Cursor/CursorManager";
 import CustomCursor from "../components/Global/Cursor/CustomCursor";
-import Navbar from "../components/Global/Navbar/Navbar";
+import Navbar from "../components/Global/Navbar";
 import * as gtag from "../utils/gtag";
 import {useRouter} from "next/router";
 import Head from "next/head";
