@@ -1,10 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import {useEffect, useState} from "react";
-import {useHoverStore} from "../../utils/store";
+import {useEffect, useRef, useState} from "react";
+import {useAnimationStore, useHoverStore} from "../../utils/store";
+import {gsap} from "gsap";
 
 const ThemeToggle = () => {
     const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
     const inactiveTheme = activeTheme === "light" ? "dark" : "light";
+    const themeRef = useRef(null);
+    const [clicked, setClicked] = useState(false)
+    const {durationMedium} = useAnimationStore();
 
     useEffect(() => {
         document.body.dataset.theme = activeTheme;
@@ -25,16 +29,50 @@ const ThemeToggle = () => {
         setHover("w-2 h-2");
     };
 
+    const handleMouseClick = () => {
+        setActiveTheme(inactiveTheme)
+        setClicked(true)
+    }
+
+    useEffect(() => {
+        const scope = gsap.context(() => {
+            const tl = gsap.timeline()
+            tl.to(themeRef.current, {
+                top: 40,
+                duration: 1,
+                ease: "circ.out"
+            })
+            tl.set(themeRef.current, {top: -40})
+            tl.to(themeRef.current, {
+                top: 0,
+                duration: 1,
+                ease: "circ.out"
+            })
+
+            tl.pause()
+
+            if (clicked) {
+                tl.play()
+                setTimeout(() => {
+                    setClicked(false)
+                }, 1000);
+            }
+
+            return () => scope.revert();
+        })
+    }, [themeRef, durationMedium, clicked]);
+
     return (
-        <>
+        <div className="relative pr-medium pl-medium overflow-hidden h-6 w-9">
             <span
+                ref={themeRef}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => setActiveTheme(inactiveTheme)}
-                className="cursor-pointer">
+                onClick={handleMouseClick}
+                className="cursor-pointer absolute left-0">
                 {activeTheme === "dark" ? "light mode" : "dark mode"}
             </span>
-        </>
+        </div>
     );
 };
 
