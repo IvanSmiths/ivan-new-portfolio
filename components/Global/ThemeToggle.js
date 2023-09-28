@@ -69,7 +69,7 @@ const ThemeToggle = () => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleMouseClick}
-                className="cursor-pointer absolute left-0">
+                className="cursor-pointer absolute left-0 text-primary-light">
                 {activeTheme === "dark" ? "light mode" : "dark mode"}
             </span>
         </div>
