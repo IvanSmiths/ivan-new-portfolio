@@ -10,8 +10,8 @@ const Text: FC = () => {
             <div className="grid-home-text flex flex-col gap-1 justify-center">
                 <div className="flex gap-medium">
                     <City/>
-                    <Weather/>
                     <Time/>
+                    <Weather/>
                 </div>
                 <Paragraph/>
             </div>
