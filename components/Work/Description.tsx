@@ -31,7 +31,7 @@ const Header: FC<HeaderProps> = ({work}) => {
                         trigger: triggerRef.current,
                         scrub: true,
                         start: "top top",
-                        end: "2000 top",
+                        end: "+=2000 top",
                         pin: true,
                         markers: true
                     },
