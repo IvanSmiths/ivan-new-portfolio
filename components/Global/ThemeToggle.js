@@ -4,6 +4,8 @@ import {useAnimationStore, useHoverStore} from "../../utils/store";
 import {gsap} from "gsap";
 import {CustomEase} from 'gsap/dist/CustomEase'
 
+gsap.registerPlugin(CustomEase)
+
 const ThemeToggle = () => {
     const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
     const inactiveTheme = activeTheme === "light" ? "dark" : "light";
