@@ -26,7 +26,8 @@ const PageTransition = () => {
             tl.to(queryRef.current,
                 {
                     opacity: 1,
-                    duration: 0.3,
+                    delay: 0.1,
+                    duration: 0.4,
                     ease: "circ.out"
                 })
         };
@@ -35,7 +36,7 @@ const PageTransition = () => {
             if (isActive) {
                 tl.to(transitionRef.current, {
                     yPercent: 0,
-                    duration: 1,
+                    duration: 1.5,
                     ease: "expo.inOut"
                 });
                 setIsActive(false);
