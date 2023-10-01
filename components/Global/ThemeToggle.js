@@ -8,7 +8,7 @@ const ThemeToggle = () => {
     const inactiveTheme = activeTheme === "light" ? "dark" : "light";
     const themeRef = useRef(null);
     const [clicked, setClicked] = useState(false)
-    const {durationMedium} = useAnimationStore();
+    const {durationMedium, durationSlow} = useAnimationStore();
 
     useEffect(() => {
         document.body.dataset.theme = activeTheme;
@@ -39,13 +39,13 @@ const ThemeToggle = () => {
             const tl = gsap.timeline()
             tl.to(themeRef.current, {
                 top: 40,
-                duration: 1,
+                duration: durationSlow,
                 ease: "circ.out"
             })
             tl.set(themeRef.current, {top: -40})
             tl.to(themeRef.current, {
                 top: 0,
-                duration: 1,
+                duration: durationMedium,
                 ease: "circ.out"
             })
 
@@ -55,12 +55,12 @@ const ThemeToggle = () => {
                 tl.play()
                 setTimeout(() => {
                     setClicked(false)
-                }, 1000);
+                }, 600);
             }
 
             return () => scope.revert();
         })
-    }, [themeRef, durationMedium, clicked]);
+    }, [themeRef, durationMedium, durationSlow, clicked]);
 
     return (
         <div className="relative pr-medium pl-medium overflow-hidden h-6 w-9">
