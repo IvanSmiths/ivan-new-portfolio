@@ -2,6 +2,7 @@
 import {useEffect, useRef, useState} from "react";
 import {useAnimationStore, useHoverStore} from "../../utils/store";
 import {gsap} from "gsap";
+import {CustomEase} from 'gsap/dist/CustomEase'
 
 const ThemeToggle = () => {
     const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
@@ -10,9 +11,16 @@ const ThemeToggle = () => {
     const [clicked, setClicked] = useState(false)
     const {durationMedium, durationSlow} = useAnimationStore();
 
+    const [theme, setTheme] = useState(activeTheme === "dark" ? "light mode" : "dark mode");
+
     useEffect(() => {
         document.body.dataset.theme = activeTheme;
         window.localStorage.setItem("theme", activeTheme);
+        const timeoutId = setTimeout(() => {
+            setTheme(activeTheme === "dark" ? "light mode" : "dark mode");
+        }, 600);
+
+        return () => clearTimeout(timeoutId);
     }, [activeTheme]);
 
     useEffect(() => {
@@ -39,8 +47,8 @@ const ThemeToggle = () => {
             const tl = gsap.timeline()
             tl.to(themeRef.current, {
                 top: 40,
-                duration: durationSlow,
-                ease: "circ.out"
+                duration: durationMedium,
+                ease: CustomEase.create("custom", "M0,0 C0.766,0.76 0.612,0.694 0.988,0.648 0.988,0.69 1,0.824 1,1 ")
             })
             tl.set(themeRef.current, {top: -40})
             tl.to(themeRef.current, {
@@ -48,9 +56,7 @@ const ThemeToggle = () => {
                 duration: durationMedium,
                 ease: "circ.out"
             })
-
             tl.pause()
-
             if (clicked) {
                 tl.play()
                 setTimeout(() => {
@@ -70,7 +76,7 @@ const ThemeToggle = () => {
                 onMouseLeave={handleMouseLeave}
                 onClick={handleMouseClick}
                 className="cursor-pointer absolute left-0 text-primary-light">
-                {activeTheme === "dark" ? "light mode" : "dark mode"}
+               {theme}
             </span>
         </div>
     );
