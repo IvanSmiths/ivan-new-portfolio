@@ -20,13 +20,13 @@ const PageTransition = () => {
             tl.to(queryRef.current,
                 {
                     opacity: 0,
-                    duration: 0.3,
+                    duration: 0.2,
                     ease: "circ.out"
                 })
             tl.to(queryRef.current,
                 {
                     opacity: 1,
-                    delay: 0.1,
+                    delay: 0.2,
                     duration: 0.4,
                     ease: "circ.out"
                 })
