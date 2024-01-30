@@ -17,15 +17,20 @@ const PageTransition = () => {
         duration: 0.6,
         ease: "expo.inOut",
       });
-      tl.to(queryRef.current, {
-        opacity: 0,
-        duration: 0.3,
-        ease: "circ.out",
-      });
+      tl.to(
+        queryRef.current,
+        {
+          opacity: 0,
+          delay: 0.5,
+          duration: 0.2,
+          ease: "circ.out",
+        },
+        "<",
+      );
       tl.to(queryRef.current, {
         opacity: 1,
-        delay: 0.3,
-        duration: 0.4,
+        delay: 0.4,
+        duration: 0.3,
         ease: "circ.out",
       });
     };
