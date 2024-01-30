@@ -1,25 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import { FC, RefObject, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useAnimationStore } from "../../utils/store";
 
 interface WorkProps {
-  setProjectsRef: React.RefObject<HTMLLIElement>;
+  setProjectsRef: RefObject<HTMLLIElement>;
   title: string;
   img: string;
   link: string;
   role: string;
 }
 
-const Work: React.FC<WorkProps> = ({
-  setProjectsRef,
-  title,
-  img,
-  link,
-  role,
-}) => {
+const Work: FC<WorkProps> = ({ setProjectsRef, title, img, link, role }) => {
   const triggerRef = useRef<HTMLAnchorElement>(null);
   const roleRef = useRef<HTMLHeadingElement>(null);
   const workRef = useRef<HTMLHeadingElement>(null);
