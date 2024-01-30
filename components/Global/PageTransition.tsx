@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const PageTransition = () => {
+const PageTransition: FC = () => {
   const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
-  const transitionRef = useRef(null);
-  const queryRef = useRef(null);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const transitionRef = useRef<HTMLDivElement | null>(null);
+  const queryRef = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
-    const aniStart = async () => {
+    const aniStart: () => void = async () => {
       setIsActive(true);
       const tl = gsap.timeline();
       tl.to(transitionRef.current, {
@@ -34,7 +34,7 @@ const PageTransition = () => {
         ease: "circ.out",
       });
     };
-    const aniEnd = () => {
+    const aniEnd: () => void = async () => {
       const tl = gsap.timeline();
       if (isActive) {
         tl.to(transitionRef.current, {
