@@ -21,16 +21,15 @@ const PageTransition: FC = () => {
         queryRef.current,
         {
           opacity: 0,
-          delay: 0.5,
-          duration: 0.2,
+          delay: 0,
+          duration: 0.1,
           ease: "circ.out",
         },
         "<",
       );
       tl.to(queryRef.current, {
         opacity: 1,
-        delay: 0.4,
-        duration: 0.3,
+        duration: 0.4,
         ease: "circ.out",
       });
     };
