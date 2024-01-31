@@ -28,10 +28,14 @@ const Description: FC<HeaderProps> = ({ work }) => {
         </ul>
         <div className="flex flex-col gap-small pt-medium">
           <span>
-            <a href={work.linkedin}>LinkedIn page {">"}</a>
+            <a rel="noopener noreferrer" target="_blank" href={work.linkedin}>
+              LinkedIn page {">"}
+            </a>
           </span>
           <span>
-            <a href={work.website}>Website {">"}</a>
+            <a rel="noopener noreferrer" target="_blank" href={work.website}>
+              Website {">"}
+            </a>
           </span>
         </div>
       </div>
