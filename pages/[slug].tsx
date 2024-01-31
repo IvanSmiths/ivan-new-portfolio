@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { Work, works } from "../utils/works";
 import Description from "../components/Work/Description";
+import Images from "../components/Work/Images";
 import React from "react";
 
 interface Params extends ParsedUrlQuery {
@@ -17,6 +18,7 @@ const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
     <>
       <div className="grid">
         <Description work={work} />
+        <Images work={work} />
       </div>
     </>
   );

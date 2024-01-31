@@ -10,7 +10,7 @@ export interface Work {
   linkedin: string;
   warning?: string;
   stack: string[];
-  dates: string[];
+  date: string;
 }
 
 export const works: Work[] = [
@@ -19,7 +19,7 @@ export const works: Work[] = [
     title: "Ivan Smiths - TD Cowen",
     metaDescription: "meta description",
     company: "TD Cowen",
-    role: "ui/ux frontend developer",
+    role: "UI/UX Frontend Developer",
     description: [
       "Develop and implement highly data-driven dashboard features using TypeScript to enhance user decision-making capabilities.",
       "Execute comprehensive testing for every added functionality using Cypress to ensure robustness and reliability.",
@@ -30,15 +30,15 @@ export const works: Work[] = [
       "As the CRM is private and only the people working in TD are allowed to see it, I am not allowed to show any screenshots of the CRM.",
     website: "https://www.cowen.com/",
     linkedin: "https://www.linkedin.com/company/td-cowen",
-    dates: ["april 2023 -", "ongoing"],
-    stack: ["Figma", "TypeScript", "Angular", "RxJs", "Prisma"],
+    date: "april 2023 - ongoing",
+    stack: ["TypeScript, ", "Angular, ", "RxJs, ", "Prisma, ", "Figma."],
   },
   {
     slug: "scholz-&-volkmer",
     title: "Ivan Smiths - Scholz & Volkmer",
     metaDescription: "meta description",
     company: "SCHOLZ & VOLKMER",
-    role: "frontend developer",
+    role: "Frontend Developer",
     description: [
       "Provided mentorship and guidance to colleagues on utilising Next.js, facilitating their proficiency in the framework.",
       "Developed cutting-edge animations for Wmf, enhancing the brand's website with a distinctive user experience.",
@@ -47,8 +47,15 @@ export const works: Work[] = [
     ],
     website: "https://www.s-v.de/en/",
     linkedin: "https://www.linkedin.com/company/scholzvolkmer/",
-    dates: ["marz 2022 -", "january 2023"],
-    stack: ["TypeScript", "Vue (Nuxt)", "React (Next)", "Gsap"],
+    date: "Marz 2022 - January 2023",
+    stack: [
+      "TypeScript, ",
+      "React, ",
+      "Next.js, ",
+      "Vue, ",
+      "Gsap, ",
+      "Docker.",
+    ],
     images: ["/public"],
   },
   {
@@ -56,7 +63,7 @@ export const works: Work[] = [
     title: "Ivan Smiths - Ideology",
     metaDescription: "meta description",
     company: "Ideology",
-    role: "ui/ux designer",
+    role: "UI/UX Designer",
     description: [
       "Awarded the design contract by LemonSoda over 15 competing companies, showcasing my design vision.",
       "Leveraged CSS extensively to create cohesive and visually appealing website styles across multiple projects.",
@@ -65,8 +72,8 @@ export const works: Work[] = [
     ],
     website: "https://www.ideology.it/",
     linkedin: "https://www.linkedin.com/company/ideology-creative-studio",
-    dates: ["october 2020 -", "febraury 2022"],
-    stack: ["Adobe XD", "CSS", "JavaScript", "PHP", "WordPress"],
+    date: "October 2020 - February 2022",
+    stack: ["Adobe XD, ", "CSS, ", "JavaScript, ", "PHP, ", "WordPress."],
     images: ["/public"],
   },
 ];

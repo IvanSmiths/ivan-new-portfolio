@@ -5,6 +5,7 @@
 :root {
     --brand: #d7f21d;
 
+    --smallest: 10px;
     --small: 20px;
     --medium: 40px;
 
@@ -48,6 +49,11 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
+
+li::marker {
+    font-size: 8px;
+}
+
 
 a {
     cursor: pointer;
