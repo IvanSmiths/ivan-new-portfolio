@@ -11,7 +11,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
     <>
       <div className="grid-work-description pt-5 flex flex-col gap-small w-full">
         <span className="pb-medium">
-          <Link href="/">back home</Link>
+          <Link href="/">{"<"} back home</Link>
         </span>
         <h1 className="heading-regular font-bold">{work.company}</h1>
         <ul className="flex flex-col gap-smallest">
