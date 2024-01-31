@@ -15,7 +15,9 @@ interface WorkPageProps {
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
   return (
     <>
-      <Description work={work} />
+      <div className="grid">
+        <Description work={work} />
+      </div>
     </>
   );
 };

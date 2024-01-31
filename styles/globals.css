@@ -103,6 +103,14 @@ li {
     grid-column: 8 / 12;
 }
 
+.grid-work-description {
+    grid-column: 1 / 5;
+}
+
+.grid-work-images {
+    grid-column: 5 / 13;
+}
+
 .grid-work-header {
     grid-column: 8 / 12;
 }

@@ -6,7 +6,14 @@ interface HeaderProps {
 }
 
 const Description: FC<HeaderProps> = ({ work }) => {
-  return <></>;
+  return (
+    <>
+      <div className="grid-work-description bg-gray-700 h-full w-full">
+        <h1 className="heading-regular font-bold">{work.company}</h1>
+      </div>
+      <div className="grid-work-images bg-red-300 h-full w-full"></div>
+    </>
+  );
 };
 
 export default Description;
