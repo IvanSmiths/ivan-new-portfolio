@@ -16,7 +16,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
         <h1 className="heading-regular font-bold">{work.company}</h1>
         <ul>
           {work.description.map((desc) => (
-            <li className="list-disc" key={desc.index}>
+            <li className="list-disc" key={desc}>
               {desc}
             </li>
           ))}
