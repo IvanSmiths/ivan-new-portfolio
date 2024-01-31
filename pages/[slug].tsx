@@ -4,6 +4,7 @@ import { Work, works } from "../utils/works";
 import Description from "../components/Work/Description";
 import Images from "../components/Work/Images";
 import React from "react";
+import Head from "next/head";
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -16,6 +17,10 @@ interface WorkPageProps {
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
   return (
     <>
+      <Head>
+        <title>{work.title}</title>
+        <meta name="description" content={work.metaDescription} />
+      </Head>
       <div className="grid">
         <Description work={work} />
         <Images work={work} />
