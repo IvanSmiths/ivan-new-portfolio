@@ -1,18 +1,23 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 const Paragraph: FC = () => {
-    return (
-        <div className="flex flex-wrap items-center pb-small">
-            <p className="heading-regular">
-                <strong className="text-primary-light font-normal">ivan smiths.</strong> frontend ui/ux developer. 3
-                years of experience. seeking the
-                limit.
-                currently at
-                <a className="heading-regular text-primary-light" href="https://www.cowen.com/" target="_blank"
-                   rel="noreferrer noopener"> td cowen.</a>
-            </p>
-        </div>
-    )
-}
+  return (
+    <div className="flex flex-wrap items-center pb-small">
+      <p className="heading-regular">
+        <strong className="font-normal">Ivan Smiths -</strong> Frontend UI/UX
+        Developer - 3 years of experience. Seeking the limit. Currently at
+        <a
+          className="heading-regular"
+          href="https://www.cowen.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {" "}
+          TD Cowen.
+        </a>
+      </p>
+    </div>
+  );
+};
 
-export default Paragraph
+export default Paragraph;
