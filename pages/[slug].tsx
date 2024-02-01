@@ -32,7 +32,7 @@ const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
 export const getStaticProps: GetStaticProps<WorkPageProps, Params> = async ({
   params,
 }) => {
-  await waitload(2);
+  await waitload(2.6);
   const slug = params?.slug;
   const work = works.find((work) => work.slug === slug);
 
