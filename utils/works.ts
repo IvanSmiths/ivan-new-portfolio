@@ -59,10 +59,10 @@ export const works: Work[] = [
     images: ["/public"],
   },
   {
-    slug: "ideology",
-    title: "Ivan Smiths - Ideology",
+    slug: "ideology Creative Studio",
+    title: "Ivan Smiths - Ideology Creative Studio",
     metaDescription: "meta description",
-    company: "Ideology",
+    company: "Ideology Creative Studio",
     role: "UI/UX Designer",
     description: [
       "Awarded the design contract by LemonSoda over 15 competing companies, showcasing my design vision.",
