@@ -18,8 +18,8 @@ type SetProjectsRefType = any;
 function Works() {
   const [projectsRef, setProjectsRef]: [ProjectsRefType, SetProjectsRefType] =
     useArrayRef();
-  const scope = useRef();
-  const pinRef = useRef(null);
+  const scope = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
 
   function useArrayRef(): [MutableRefObject<any[]>, (ref: number) => void] {
     const projectsRef = useRef<any[]>([]);
