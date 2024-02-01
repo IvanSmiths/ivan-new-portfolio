@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { Work, works } from "../utils/works";
 import Description from "../components/Work/Description";
 import Images from "../components/Work/Images";
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 
 interface Params extends ParsedUrlQuery {
@@ -15,6 +15,10 @@ interface WorkPageProps {
 }
 
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   return (
     <>
       <Head>
