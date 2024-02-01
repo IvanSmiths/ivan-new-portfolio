@@ -56,7 +56,12 @@ export const works: Work[] = [
       "Gsap, ",
       "Docker.",
     ],
-    images: ["/public"],
+    images: [
+      "/images/suv/scholz-und-volkmer-website-1.jpg",
+      "/images/suv/scholz-und-volkmer-website-2.jpg",
+      "/images/suv/scholz-und-volkmer-website-3.jpg",
+      "/images/suv/scholz-und-volkmer-website-4.jpg",
+    ],
   },
   {
     slug: "ideology-creative-studio",
@@ -74,6 +79,10 @@ export const works: Work[] = [
     linkedin: "https://www.linkedin.com/company/ideology-creative-studio",
     date: "October 2020 - February 2022",
     stack: ["Adobe XD, ", "CSS, ", "JavaScript, ", "PHP, ", "WordPress."],
-    images: ["/public"],
+    images: [
+      "/images/id/ideology-website-1.jpg",
+      "/images/id/ideology-website-2.jpg",
+      "/images/id/ideology-website-3.jpg",
+    ],
   },
 ];
