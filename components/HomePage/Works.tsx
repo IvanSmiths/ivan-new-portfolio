@@ -233,8 +233,6 @@ function Works() {
     return () => ctx.revert();
   }, [projectsRef]);
 
-  // @ts-ignore
-  // @ts-ignore
   return (
     <section ref={scope}>
       <div
