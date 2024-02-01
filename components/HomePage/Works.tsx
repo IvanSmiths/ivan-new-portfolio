@@ -23,6 +23,7 @@ function Works() {
     return [projectsRef, (ref) => ref && projectsRef.current.push(ref)];
   }
 
+  // TODO replace with works.ts
   const works: WorkProps[] = [
     {
       title: "TD Cowen",
@@ -39,7 +40,7 @@ function Works() {
     {
       title: "Ideology",
       role: "UI/UX Designer",
-      link: "/ideology",
+      link: "/ideology-creative-studio",
       img: "/images/id/mockup.jpg",
     },
   ];

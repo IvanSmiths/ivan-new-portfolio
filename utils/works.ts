@@ -59,7 +59,7 @@ export const works: Work[] = [
     images: ["/public"],
   },
   {
-    slug: "ideology Creative Studio",
+    slug: "ideology-creative-studio",
     title: "Ivan Smiths - Ideology Creative Studio",
     metaDescription: "meta description",
     company: "Ideology Creative Studio",
