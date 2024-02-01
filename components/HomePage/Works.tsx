@@ -12,8 +12,12 @@ interface WorkProps {
   img: string;
 }
 
+type ProjectsRefType = any;
+type SetProjectsRefType = any;
+
 function Works() {
-  const [projectsRef, setProjectsRef] = useArrayRef();
+  const [projectsRef, setProjectsRef]: [ProjectsRefType, SetProjectsRefType] =
+    useArrayRef();
   const scope = useRef();
   const pinRef = useRef(null);
 
