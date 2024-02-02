@@ -105,7 +105,7 @@ function Works() {
       );
 
       const snapTime = gsap.utils.snap(spacing),
-        animateFunc = (element) => {
+        animateFunc = (element: gsap.TweenTarget) => {
           const tl = gsap.timeline();
           tl.fromTo(
             element,
