@@ -165,6 +165,14 @@ li {
     .grid-work-header {
         grid-column: 1 / 7;
     }
+
+    .grid-work-description {
+        grid-column: 1 / 7
+    }
+
+    .grid-work-images {
+        grid-column: 1 / 7
+    }
 }
 
 @media (max-width: 640px) {

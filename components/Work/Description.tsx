@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
-    <div className="grid-work-description pt-5 flex flex-col gap-small w-full sticky h-1/5 top-1">
+    <div className="grid-work-description pt-5 flex flex-col gap-small w-full md:sticky md:h-1/5 md:top-1">
       <Link className="flex gap-smallest pb-medium" href="/">
         <img src="/icons/arrow.svg" className="rotate-180" alt="arrow" />
         back home
