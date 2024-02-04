@@ -176,6 +176,10 @@ li {
         font-size: 19px;
     }
 
+    .heading-large {
+        font-size: 64px;
+    }
+
     .grid {
         grid-gap: 10px;
         padding: 0 20px;
@@ -198,5 +202,9 @@ li {
 @media (max-width: 380px) {
     .grid-home-text {
         grid-column: 1 / 7;
+    }
+
+    .heading-large {
+        font-size: 48px;
     }
 }
