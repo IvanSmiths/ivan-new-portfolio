@@ -7,7 +7,7 @@ const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
 
 const Navbar: FC = () => {
   return (
-    <nav className="fixed w-full p-small z-10 flex justify-end">
+    <nav className="fixed right-0 top-0 p-small z-10">
       <ThemeToggle />
     </nav>
   );

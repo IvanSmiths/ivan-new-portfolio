@@ -9,10 +9,12 @@ interface HeaderProps {
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
     <div className="grid-work-description pt-small flex flex-col gap-small w-full md:sticky md:h-1/5 md:top-1">
-      <Link className="flex gap-smallest mb-medium" href="/">
-        <img src="/icons/arrow.svg" className="rotate-180" alt="arrow" />
-        back home
-      </Link>
+      <div className="z-30">
+        <Link className="flex gap-smallest mb-medium" href="/">
+          <img src="/icons/arrow.svg" className="rotate-180" alt="arrow" />
+          back home
+        </Link>
+      </div>
       <h1 className="heading-regular font-bold">{work.company}</h1>
       <ul className="pl-small">
         {work.description.map((desc) => (
