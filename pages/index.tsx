@@ -2,8 +2,9 @@ import Head from "next/head";
 import { useHoverStore } from "../utils/store";
 import Works from "../components/HomePage/Works";
 import Text from "../components/HomePage/Text";
+import { FC } from "react";
 
-const Home = () => {
+const Home: FC = () => {
   const schemaData = {
     "@context": "http://schema.org",
     "@type": "WebSite",

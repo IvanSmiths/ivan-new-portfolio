@@ -4,10 +4,12 @@ import CursorManager from "../components/Global/Cursor/CursorManager";
 import CustomCursor from "../components/Global/Cursor/CustomCursor";
 import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
 import Head from "next/head";
 import PageTransition from "../components/Global/PageTransition";
+import Navbar from "../components/Global/Navbar";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -132,6 +134,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <CursorManager>
         <PageTransition />
+        <Navbar />
         <CustomCursor />
         <Component {...pageProps} />
       </CursorManager>
