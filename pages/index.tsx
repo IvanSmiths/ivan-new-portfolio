@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useHoverStore } from "../utils/store";
-import Text from "../components/HomePage/Text";
 import { FC } from "react";
 
 const Home: FC = () => {
@@ -48,7 +47,6 @@ const Home: FC = () => {
         />
         <meta name="msvalidate.01" content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC" />
       </Head>
-      <Text />
     </>
   );
 };
