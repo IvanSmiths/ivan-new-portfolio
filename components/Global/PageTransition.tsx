@@ -63,7 +63,7 @@ const PageTransition: FC = () => {
 
   return (
     <>
-      <div className="z-10 overflow-hidden flex flex-col relative">
+      <div className="z-20 overflow-hidden flex flex-col relative">
         <div
           ref={transitionRef}
           className="h-screen w-full top-0 fixed -translate-y-full bg-primary"
