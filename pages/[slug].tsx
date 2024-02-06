@@ -36,7 +36,7 @@ const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
 export const getStaticProps: GetStaticProps<WorkPageProps, Params> = async ({
   params,
 }) => {
-  await waitload(2.6);
+  await waitLoad(2.6);
   const slug = params?.slug;
   const work = works.find((work) => work.slug === slug);
 
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps<WorkPageProps, Params> = async ({
   };
 };
 
-function waitload(sec) {
+function waitLoad(sec) {
   return new Promise((resolve) => setTimeout(resolve, sec * 200));
 }
 
@@ -58,7 +58,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
       slug: work.slug,
     },
   }));
-
+  await waitLoad(2.6);
   return {
     paths,
     fallback: false,
