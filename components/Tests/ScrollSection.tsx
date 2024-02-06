@@ -5,60 +5,62 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const projects = [
   {
     name: "Project 1",
-    image: "/images/td/td-website-1.png",
+    image: "/images/td/mockup.jpg",
   },
   {
     name: "Project 2",
-    image: "/images/suv/suv-website-1.png",
+    image: "/images/suv/mockup.jpg",
   },
   {
     name: "Project 3",
-    image: "/images/id/id-website-1.png",
+    image: "/images/id/mockup.jpg",
   },
   {
     name: "Project 1",
-    image: "/images/td/td-website-1.png",
+    image: "/images/td/mockup.jpg",
   },
 ];
 
 const InfiniteScroll: FC = () => {
-  const triggerRef = useRef(null);
-  const containerRef = useRef(null);
+  const test = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.fromTo(
-        containerRef.current,
-        {
-          translateX: 0,
+      ScrollTrigger.create({
+        start: 1,
+        end: "max",
+        snap: {
+          snapTo: 1 / (projects.length - 1),
+          duration: 0.8,
+          delay: 0,
+          ease: "circ.out",
         },
-        {
-          translateX: "-100vw",
-          ease: "none",
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: "top top",
-            end: "+=15000 bottom",
-            markers: true,
-            scrub: 0.6,
-            pin: true,
-            onLeaveBack: (self) =>
-              self.scroll(ScrollTrigger.maxScroll(window) - 2),
-            onLeave: (self) => self.scroll(2),
-          },
-        },
-      );
+        onLeaveBack: (self) => self.scroll(ScrollTrigger.maxScroll(window) - 2),
+        onLeave: (self) => self.scroll(2),
+      }).scroll(2);
     });
     return () => ctx.revert();
   }, []);
+
   return (
     <>
-      <div ref={triggerRef} className="">
-        <div ref={containerRef} className="flex gap-24">
+      <div className="flex justify-end" ref={test}>
+        <div className="fixed h-full w-full"></div>
+        <div className="w-[43%] flex items-end flex-col gap-medium pr-medium">
           {projects.map((project, index) => (
-            <img width="800px" key={index} src={project.image} alt="" />
+            <div
+              ref={test}
+              className="h-[100vh] flex justify-center flex-col gap-small"
+              key={index}
+            >
+              <img
+                className="w-full mix-blend-difference"
+                src={project.image}
+                alt=""
+              />
+              <h2>{project.name}</h2>
+            </div>
           ))}
         </div>
       </div>
