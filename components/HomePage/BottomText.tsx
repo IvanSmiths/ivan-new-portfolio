@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import City from "../HomePage/City";
-import Time from "../HomePage/Time";
-import Weather from "../HomePage/Weather";
+import City from "./City";
+import Time from "./Time";
+import Weather from "./Weather";
 
 const BottomText: FC = () => {
   return (

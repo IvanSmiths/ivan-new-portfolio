@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useHoverStore } from "../utils/store";
 import { FC } from "react";
-import ScrollSection from "../components/Tests/ScrollSection";
-import Paragraph from "../components/Tests/Paragraph";
-import BottomText from "../components/Tests/BottomText";
+import ScrollSection from "../components/HomePage/ScrollSection";
+import Paragraph from "../components/HomePage/Paragraph";
+import BottomText from "../components/HomePage/BottomText";
 
 const Home: FC = () => {
   const schemaData = {

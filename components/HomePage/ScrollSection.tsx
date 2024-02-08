@@ -1,7 +1,7 @@
 import React, { FC, MutableRefObject, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Work from "../HomePage/Work";
+import Work from "./Work";
 
 type WorkProps = {
   title: string;
