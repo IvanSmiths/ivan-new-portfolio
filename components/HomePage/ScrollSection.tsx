@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, MutableRefObject, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";

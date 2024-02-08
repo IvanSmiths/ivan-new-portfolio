@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { FC, useEffect, useRef, useState } from "react";
 import { useAnimationStore } from "../../utils/store";
 import { gsap } from "gsap";

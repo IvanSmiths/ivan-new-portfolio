@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useHoverStore } from "../utils/store";
 import { FC } from "react";
 import ScrollSection from "../components/HomePage/ScrollSection";
 import Paragraph from "../components/HomePage/Paragraph";
@@ -31,10 +30,6 @@ const Home: FC = () => {
     keywords: "next.js, wiesbaden, react.js, frontend developer",
     locationCreated: "Wiesbaden",
   };
-
-  const { setScrollHint } = useHoverStore();
-
-  setTimeout(() => setScrollHint(false), 4000);
 
   return (
     <>
