@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
 import { Work } from "../../utils/works";
 import Link from "next/link";
