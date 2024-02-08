@@ -67,7 +67,7 @@ const ThemeToggle: FC = () => {
   }, [themeRef, durationMedium, durationSlow, clicked]);
 
   return (
-    <div className="relative pr-medium pl-medium overflow-hidden h-6 w-9">
+    <div className="relative pr-medium pl-medium ml-12 overflow-hidden h-6 w-9">
       <span
         ref={themeRef}
         onClick={handleMouseClick}

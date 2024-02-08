@@ -243,6 +243,10 @@ li {
         grid-column: 1 / 7;
     }
 
+    .grid-navbar-theme-toggle {
+        grid-column: 6 / 7;
+    }
+
     .grid-work-header {
         grid-column: 1 / 7;
     }

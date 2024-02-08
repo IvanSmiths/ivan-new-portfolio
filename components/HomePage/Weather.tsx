@@ -58,7 +58,7 @@ const Weather: FC = () => {
     >
       <span
         ref={weatherRef}
-        className="lowercase w-fit absolute ml-auto mr-auto top-0 left-0 right-0"
+        className="lowercase w-fit absolute mr-auto top-0 left-0 right-0"
       >
         {temperature}° {weather}
       </span>
