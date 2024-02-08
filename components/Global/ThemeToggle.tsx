@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC, useEffect, useRef, useState } from "react";
-import { useAnimationStore, useHoverStore } from "../../utils/store";
+import { useAnimationStore } from "../../utils/store";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/dist/CustomEase";
 
@@ -31,15 +31,6 @@ const ThemeToggle: FC = () => {
     const savedTheme = window.localStorage.getItem("theme");
     savedTheme && setActiveTheme(savedTheme);
   }, []);
-
-  const { setHover } = useHoverStore();
-
-  const handleMouseEnter = () => {
-    setHover("w-5 h-5");
-  };
-  const handleMouseLeave = () => {
-    setHover("w-2 h-2");
-  };
 
   const handleMouseClick = () => {
     setActiveTheme(inactiveTheme);
@@ -79,8 +70,6 @@ const ThemeToggle: FC = () => {
     <div className="relative pr-medium pl-medium overflow-hidden h-6 w-9">
       <span
         ref={themeRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={handleMouseClick}
         className="cursor-pointer absolute left-0 text-primary"
       >
