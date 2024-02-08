@@ -82,7 +82,7 @@ const ThemeToggle: FC = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleMouseClick}
-        className="cursor-pointer absolute left-0 text-primary-light"
+        className="cursor-pointer absolute left-0 text-primary"
       >
         {theme}
       </span>
