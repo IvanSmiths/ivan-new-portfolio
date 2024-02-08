@@ -25,6 +25,9 @@ module.exports = {
         small: "var(--small)",
         medium: "var(--medium)",
       },
+      grayscale: {
+        50: "50%",
+      },
     },
   },
   plugins: [],

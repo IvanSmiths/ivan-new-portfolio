@@ -1,25 +1,44 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, MutableRefObject, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Work from "../HomePage/Work";
 
-const projects = [
+type WorkProps = {
+  title: string;
+  role: string;
+  link: string;
+  image: string;
+};
+
+const works: WorkProps[] = [
   {
-    name: "Project 1",
+    title: "TD Cowen",
+    role: "UI/UX Developer",
+    link: "/td-cowen",
     image: "/images/td/mockup.jpg",
   },
   {
-    name: "Project 2",
+    title: "Scholz & Volkmer",
+    role: "Frontend developer",
+    link: "/scholz-&-volkmer",
     image: "/images/suv/mockup.jpg",
   },
   {
-    name: "Project 3",
+    title: "Ideology",
+    role: "UI/UX Designer",
+    link: "/ideology-creative-studio",
     image: "/images/id/mockup.jpg",
   },
   {
-    name: "Project 1",
+    title: "TD Cowen",
+    role: "UI/UX Developer",
+    link: "/td-cowen",
     image: "/images/td/mockup.jpg",
   },
 ];
+
+type WorksRefType = any;
+type SetWorksRefType = any;
 
 const InfiniteScroll: FC = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,12 +48,6 @@ const InfiniteScroll: FC = () => {
       ScrollTrigger.create({
         start: 1,
         end: "max",
-        snap: {
-          snapTo: 1 / (projects.length - 1),
-          duration: 1,
-          delay: 0.6,
-          ease: "circ.out",
-        },
         onLeaveBack: (self) => self.scroll(ScrollTrigger.maxScroll(window) - 2),
         onLeave: (self) => self.scroll(2),
       }).scroll(2);
@@ -42,22 +55,29 @@ const InfiniteScroll: FC = () => {
     return () => ctx.revert();
   }, []);
 
+  const [worksRef, setWorksRef]: [WorksRefType, SetWorksRefType] =
+    useArrayRef();
+
+  function useArrayRef(): [MutableRefObject<any[]>, (ref: number) => void] {
+    const worksRef = useRef<any[]>([]);
+    worksRef.current = [];
+    return [worksRef, (ref) => ref && worksRef.current.push(ref)];
+  }
+
   return (
     <div className="grid">
       <div className="fixed h-full w-full"></div>
       <div className="flex grid-home-works">
-        <ul className="w-full flex flex-col justify-center">
-          {projects.map((project, index) => (
-            <li
-              className="h-[100vh] flex justify-center flex-col gap-small"
+        <ul className="w-full flex flex-col gap-medium justify-center">
+          {works.map((work, index) => (
+            <Work
               key={index}
-            >
-              <img
-                className="w-[100%] rounded-lg h-[70%] object-cover"
-                src={project.image}
-                alt=""
-              />
-            </li>
+              title={work.title}
+              link={work.link}
+              img={work.image}
+              role={work.role}
+              setWorksRef={setWorksRef}
+            />
           ))}
         </ul>
       </div>
