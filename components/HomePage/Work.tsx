@@ -83,7 +83,7 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
             ref={triggerRef}
             src={img}
             alt={title}
-            className="w-[100%] grayscale hover:grayscale-50 duration-500 rounded-lg h-[70%] object-cover"
+            className="w-[100%] grayscale-0 hover:grayscale-50 md:grayscale duration-500 rounded-lg h-[70%] object-cover"
           />
         </div>
       </Link>
