@@ -57,15 +57,4 @@ const Home: FC = () => {
   );
 };
 
-export async function getServerSideProps() {
-  await waitload(2.6);
-  return {
-    props: { load: "load" },
-  };
-}
-
-function waitload(sec) {
-  return new Promise((resolve) => setTimeout(resolve, sec * 200));
-}
-
 export default Home;
