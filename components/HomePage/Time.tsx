@@ -52,9 +52,12 @@ const Time: FC = () => {
   }, [currentTime, durationMedium]);
 
   return (
-    <div ref={timeScopeRef} className="relative overflow-hidden">
+    <div
+      ref={timeScopeRef}
+      className="relative overflow-hidden w-[65px] h-[21px]"
+    >
       <span
-        className="absolute ml-auto mr-auto top-0 left-0 right-0 w-fit"
+        className="absolute ml-auto mr-auto top-0 left-0 right-0 bottom-0 w-fit"
         ref={timeRef}
       >
         {currentTime}

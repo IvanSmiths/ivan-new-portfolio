@@ -52,7 +52,10 @@ const Weather: FC = () => {
   let weather = data.weather[0].main;
 
   return (
-    <div ref={weatherScopeRef} className="relative overflow-hidden">
+    <div
+      ref={weatherScopeRef}
+      className="relative overflow-hidden w-[50px] h-[21px]"
+    >
       <span
         ref={weatherRef}
         className="lowercase w-fit absolute ml-auto mr-auto top-0 left-0 right-0"

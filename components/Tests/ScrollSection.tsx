@@ -53,7 +53,7 @@ const InfiniteScroll: FC = () => {
               key={index}
             >
               <img
-                className="w-[100%] rounded-lg h-[70%] object-cover"
+                className="w-[100%] rounded-lg h-[80%] object-cover"
                 src={project.image}
                 alt=""
               />
