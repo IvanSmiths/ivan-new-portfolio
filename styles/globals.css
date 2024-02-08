@@ -99,14 +99,31 @@ li {
 }
 
 .grid {
+    transition: background 0.25s ease-in-out;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 20px;
     padding: 0 20px;
 }
 
+.grid-home-works {
+    grid-column: 2 / 12;
+}
+
 .grid-home-text {
     grid-column: 8 / 12;
+}
+
+.grid-home-text-2 {
+    grid-column: 2 / 6;
+}
+
+.grid-home-text-bottom {
+    grid-column: 2 / 12;
+}
+
+.grid-navbar-theme-toggle {
+    grid-column: 11 / 12;
 }
 
 .grid-work-description {

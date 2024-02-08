@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from "react";
+import React, { FC, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -22,7 +22,6 @@ const projects = [
 ];
 
 const InfiniteScroll: FC = () => {
-  const test = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
@@ -32,8 +31,8 @@ const InfiniteScroll: FC = () => {
         end: "max",
         snap: {
           snapTo: 1 / (projects.length - 1),
-          duration: 0.8,
-          delay: 0,
+          duration: 1,
+          delay: 0.6,
           ease: "circ.out",
         },
         onLeaveBack: (self) => self.scroll(ScrollTrigger.maxScroll(window) - 2),
@@ -44,27 +43,25 @@ const InfiniteScroll: FC = () => {
   }, []);
 
   return (
-    <>
-      <div className="flex justify-end" ref={test}>
-        <div className="fixed h-full w-full"></div>
-        <div className="w-[43%] flex items-end flex-col gap-medium pr-medium">
+    <div className="grid">
+      <div className="fixed h-full w-full"></div>
+      <div className="flex grid-home-works">
+        <ul className="w-full flex flex-col justify-center gap-medium">
           {projects.map((project, index) => (
-            <div
-              ref={test}
+            <li
               className="h-[100vh] flex justify-center flex-col gap-small"
               key={index}
             >
               <img
-                className="w-full mix-blend-difference"
+                className="w-[100%] rounded-lg h-[70%] object-cover"
                 src={project.image}
                 alt=""
               />
-              <h2>{project.name}</h2>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 
