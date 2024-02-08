@@ -14,7 +14,7 @@ interface WorkProps {
 }
 
 const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
-  const triggerRef = useRef<HTMLLIElement>(null);
+  const triggerRef = useRef<HTMLImageElement>(null);
   const roleRef = useRef<HTMLHeadingElement>(null);
   const workRef = useRef<HTMLHeadingElement>(null);
 
@@ -55,7 +55,7 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
   }, [duration]);
 
   return (
-    <li ref={triggerRef}>
+    <li>
       <Link href={link}>
         <div
           ref={setWorksRef}
@@ -80,6 +80,7 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
             </div>
           </div>
           <img
+            ref={triggerRef}
             src={img}
             alt={title}
             className="w-[100%] grayscale hover:grayscale-50 duration-500 rounded-lg h-[70%] object-cover"
