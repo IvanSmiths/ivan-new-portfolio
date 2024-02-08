@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 const Paragraph: FC = () => {
   return (
-    <div className="grid fixed top-0 bg-secondary h-[10%]">
+    <div className="grid fixed top-0 bg-secondary h-[20%] md:h-[10%]">
       <div className="flex flex-wrap justify-center grid-home-text-2 items-center">
         <p className="paragraph">
           Ivan Smiths - Frontend UI/UX Developer - 3 years of experience.

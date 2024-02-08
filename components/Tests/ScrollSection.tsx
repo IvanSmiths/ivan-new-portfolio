@@ -46,14 +46,14 @@ const InfiniteScroll: FC = () => {
     <div className="grid">
       <div className="fixed h-full w-full"></div>
       <div className="flex grid-home-works">
-        <ul className="w-full flex flex-col justify-center gap-medium">
+        <ul className="w-full flex flex-col justify-center">
           {projects.map((project, index) => (
             <li
               className="h-[100vh] flex justify-center flex-col gap-small"
               key={index}
             >
               <img
-                className="w-[100%] rounded-lg h-[80%] object-cover"
+                className="w-[100%] rounded-lg h-[70%] object-cover"
                 src={project.image}
                 alt=""
               />
