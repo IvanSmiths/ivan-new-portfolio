@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FC, RefObject, useEffect, useRef } from "react";
 import gsap from "gsap";
-import { useAnimationStore } from "../../utils/store";
+import { useAnimationStore, useHoverStore } from "../../utils/store";
 
 interface WorkProps {
   setWorksRef: RefObject<HTMLDivElement>;
@@ -19,6 +19,8 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
   const workRef = useRef<HTMLHeadingElement>(null);
 
   const { duration } = useAnimationStore();
+
+  const { setHover } = useHoverStore();
 
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
@@ -38,10 +40,12 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
 
     function handleMouseEnter() {
       tl.play();
+      setHover("w-5 h-5");
     }
 
     function handleMouseLeave() {
       tl.reverse();
+      setHover("w-2 h-2");
     }
 
     const trigger = triggerRef.current;

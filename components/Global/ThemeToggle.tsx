@@ -35,7 +35,7 @@ const ThemeToggle: FC = () => {
   const { setHover } = useHoverStore();
 
   const handleMouseEnter = () => {
-    setHover("w-4 h-4");
+    setHover("w-5 h-5");
   };
   const handleMouseLeave = () => {
     setHover("w-2 h-2");
