@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Navbar from "../components/Global/Navbar";
 import React from "react";
+import GoogleAnalytics from "../utils/GoogleAnalytics";
 
 export default function RootLayout({
   children,
@@ -9,6 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID} />
       <body>
         <Navbar />
         {children}

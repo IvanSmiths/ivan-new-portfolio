@@ -13,7 +13,7 @@ export interface Work {
   date: string;
 }
 
-export const works: Work[] = [
+export const projectlist: Work[] = [
   {
     slug: "td-cowen",
     title: "Ivan Smiths - TD Cowen",
