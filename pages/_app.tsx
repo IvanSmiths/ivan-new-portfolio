@@ -6,7 +6,6 @@ import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Navbar from "../components/Global/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -132,7 +131,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
       <CursorManager>
-        <Navbar />
         <CustomCursor />
         <Component {...pageProps} />
       </CursorManager>

@@ -1,12 +1,9 @@
 "use client";
 import React, { FC } from "react";
 import Script from "next/script";
+import { GA_TRACKING_ID } from "./gtag";
 
-const GoogleAnalytics: FC = ({
-  GA_TRACKING_ID,
-}: {
-  GA_TRACKING_ID: string;
-}) => {
+const GoogleAnalytics: FC = () => {
   return (
     <>
       <Script

@@ -1,6 +1,5 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import { GA_TRACKING_ID } from "../utils/gtag";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -29,26 +28,8 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700&display=swap"
             rel="stylesheet"
           />
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                            window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-                
-                            gtag('config', '${GA_TRACKING_ID}', {
-                              page_path: window.location.pathname,
-                            });
-                           `,
-            }}
-          />
         </Head>
         <body>
-          <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
           <Main />
           <NextScript />
         </body>
