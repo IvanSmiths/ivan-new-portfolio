@@ -3,6 +3,7 @@ import Navbar from "../components/Global/Navbar";
 import React from "react";
 import GoogleAnalytics from "../utils/GoogleAnalytics";
 import { GA_TRACKING_ID } from "../utils/gtag";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -26,12 +27,17 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
-        <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
-        <script
+        <Script
+          id="ThemeToggle"
+          dangerouslySetInnerHTML={{ __html: setInitialTheme }}
+        />
+        <Script
+          strategy="afterInteractive"
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         />
-        <script
+        <Script
+          id="GooglenAlytics"
           dangerouslySetInnerHTML={{
             __html: `
                             window.dataLayer = window.dataLayer || [];
