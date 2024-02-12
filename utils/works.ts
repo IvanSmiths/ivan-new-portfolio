@@ -61,6 +61,7 @@ export const works: Work[] = [
       "/images/suv/scholz-und-volkmer-website-2.jpg",
       "/images/suv/scholz-und-volkmer-website-3.jpg",
       "/images/suv/scholz-und-volkmer-website-4.jpg",
+      "/images/suv/scholz-und-volkmer-website-5.jpg",
     ],
   },
   {
@@ -83,6 +84,14 @@ export const works: Work[] = [
       "/images/id/ideology-website-1.jpg",
       "/images/id/ideology-website-2.jpg",
       "/images/id/ideology-website-3.jpg",
+      "/images/id/ideology-website-4.png",
+      "/images/id/ideology-website-5.png",
+      "/images/id/ideology-website-6.png",
+      "/images/id/ideology-website-7.png",
+      "/images/id/ideology-website-8.png",
+      "/images/id/ideology-website-9.png",
+      "/images/id/ideology-website-10.png",
+      "/images/id/ideology-website-12.png",
     ],
   },
 ];
