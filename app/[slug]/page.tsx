@@ -1,4 +1,18 @@
-async function getWorks(slug) {
+type Work = {
+  id: string;
+  slug: string;
+  workTitle: string;
+};
+
+type QueryResult = {
+  works: Work[];
+};
+
+type Response = {
+  data: QueryResult;
+};
+
+async function getWorks(slug: string): Promise<Work[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
@@ -26,7 +40,7 @@ async function getWorks(slug) {
       },
     }),
   });
-  const { data } = await response.json();
+  const { data }: Response = await response.json();
 
   return data.works;
 }
@@ -36,7 +50,7 @@ export default async function Work({ params }) {
   console.log(works);
   return (
     <main>
-      {works.map((work) => (
+      {works.map((work: Work) => (
         <div key={work.id}>{work.workTitle}</div>
       ))}
     </main>
