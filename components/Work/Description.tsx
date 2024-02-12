@@ -23,7 +23,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
       <ul className="flex flex-col gap-smallest">
         <li className="paragraph text-primary-light">Role: {work.role}</li>
         <li className="paragraph text-primary-light">Date: {work.date}</li>
-        <li className="paragraph text-primary-light">Stack: {work.w}</li>
+        <li className="paragraph text-primary-light">Stack: {work.stack}</li>
       </ul>
       <div className="flex flex-col gap-small pt-medium">
         <a

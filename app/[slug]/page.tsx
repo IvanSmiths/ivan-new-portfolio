@@ -10,6 +10,7 @@ export type Work = {
   role: string;
   linkedinLink: string;
   websiteLink: string;
+  stack: string;
 };
 
 type QueryResult = {
@@ -44,6 +45,7 @@ async function getWorks(slug: string): Promise<Work[]> {
             role
             linkedinLink
             websiteLink
+            stack
             }
           }
         `,
