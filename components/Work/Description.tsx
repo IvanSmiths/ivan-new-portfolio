@@ -30,7 +30,6 @@ const Description: FC<HeaderProps> = ({ work }) => {
           href={work.linkedin}
         >
           LinkedIn
-          <img src="/icons/arrow.svg" alt="arrow" />
         </a>
         <a
           className="flex gap-smallest"
@@ -39,7 +38,6 @@ const Description: FC<HeaderProps> = ({ work }) => {
           href={work.website}
         >
           Website
-          <img src="/icons/arrow.svg" alt="arrow" />
         </a>
       </div>
     </div>
