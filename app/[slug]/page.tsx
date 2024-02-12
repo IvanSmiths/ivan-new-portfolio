@@ -1,4 +1,7 @@
-async function getWorks() {
+async function getWorks(slug) {
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
   const response = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {
@@ -7,8 +10,8 @@ async function getWorks() {
     },
     body: JSON.stringify({
       query: `
-        query Works {
-          works {
+        query Works($slug: String!) {
+          works(where: {slug: $slug}) {
             createdAt
             id
             publishedAt
@@ -18,6 +21,9 @@ async function getWorks() {
             }
           }
         `,
+      variables: {
+        slug: slug,
+      },
     }),
   });
   const { data } = await response.json();
@@ -25,8 +31,8 @@ async function getWorks() {
   return data.works;
 }
 
-export default async function UniquePage() {
-  const works = await getWorks();
+export default async function Work({ params }) {
+  const works = await getWorks(params.slug);
   console.log(works);
   return (
     <main>

@@ -22,7 +22,7 @@ const works: WorkProps[] = [
   {
     title: "Scholz & Volkmer",
     role: "Frontend developer",
-    link: "/scholz-&-volkmer",
+    link: "/scholz-und-volkmer",
     image: "/images/suv/mockup.jpg",
   },
   {
