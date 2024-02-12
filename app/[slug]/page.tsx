@@ -1,9 +1,13 @@
 import Description from "../../components/Work/Description";
+import { RichTextContent } from "@graphcms/rich-text-types";
 
 export type Work = {
   id: string;
   slug: string;
-  workTitle: string;
+  company: string;
+  description: RichTextContent;
+  date: string;
+  role: string;
 };
 
 type QueryResult = {
@@ -28,12 +32,14 @@ async function getWorks(slug: string): Promise<Work[]> {
       query: `
         query Works($slug: String!) {
           works(where: {slug: $slug}) {
-            createdAt
             id
-            publishedAt
             slug
-            updatedAt
-            workTitle
+            company
+            date
+            description {
+      raw
+            }
+            role
             }
           }
         `,
