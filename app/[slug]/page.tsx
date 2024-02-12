@@ -8,6 +8,8 @@ export type Work = {
   description: RichTextContent;
   date: string;
   role: string;
+  linkedinLink: string;
+  websiteLink: string;
 };
 
 type QueryResult = {
@@ -40,6 +42,8 @@ async function getWorks(slug: string): Promise<Work[]> {
       raw
             }
             role
+            linkedinLink
+            websiteLink
             }
           }
         `,

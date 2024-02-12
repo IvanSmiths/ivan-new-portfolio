@@ -14,6 +14,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
       <RichText
         content={work.description.raw}
         renderers={{
+          ul: ({ children }) => <ul className="pl-small">{children}</ul>,
           li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
       />
@@ -22,14 +23,14 @@ const Description: FC<HeaderProps> = ({ work }) => {
       <ul className="flex flex-col gap-smallest">
         <li className="paragraph text-primary-light">Role: {work.role}</li>
         <li className="paragraph text-primary-light">Date: {work.date}</li>
-        <li className="paragraph text-primary-light">Stack: {work.stack}</li>
+        <li className="paragraph text-primary-light">Stack: {work.w}</li>
       </ul>
       <div className="flex flex-col gap-small pt-medium">
         <a
           className="flex gap-smallest"
           rel="noopener noreferrer"
           target="_blank"
-          href={work.linkedin}
+          href={work.linkedinLink}
         >
           LinkedIn
           <img src="/icons/arrow.svg" alt="arrow" />
@@ -38,7 +39,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
           className="flex gap-smallest"
           rel="noopener noreferrer"
           target="_blank"
-          href={work.website}
+          href={work.websiteLink}
         >
           Website
           <img src="/icons/arrow.svg" alt="arrow" />
