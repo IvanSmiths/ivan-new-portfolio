@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
-import { Work } from "../../utils/works";
+import { Work } from "../../app/[slug]/page";
 
-interface HeaderProps {
+type HeaderProps = {
   work: Work;
-}
+};
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
     <div className="grid-work-description pt-small flex flex-col gap-small w-full md:sticky md:h-1/5 md:top-1">
-      <h1 className="heading-regular font-bold">{work.company}</h1>
+      <h1 className="heading-regular font-bold">{work.workTitle}</h1>
       <ul className="pl-small">
         {work.description.map((desc) => (
           <li className="list-disc" key={desc}>

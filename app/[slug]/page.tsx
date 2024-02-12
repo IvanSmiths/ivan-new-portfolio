@@ -1,4 +1,6 @@
-type Work = {
+import Description from "../../components/Work/Description";
+
+export type Work = {
   id: string;
   slug: string;
   workTitle: string;
@@ -46,13 +48,14 @@ async function getWorks(slug: string): Promise<Work[]> {
 }
 
 export default async function Work({ params }) {
-  const works = await getWorks(params.slug);
-  console.log(works);
+  const works: Work[] = await getWorks(params.slug);
   return (
-    <main>
+    <>
       {works.map((work: Work) => (
-        <div key={work.id}>{work.workTitle}</div>
+        <div key={work.id}>
+          <Description work={work} />
+        </div>
       ))}
-    </main>
+    </>
   );
 }
