@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Work } from "../../utils/works";
+import { Work } from "../../app/[slug]/page";
+import { RichText } from "@graphcms/rich-text-react-renderer";
 
 interface HeaderProps {
   work: Work;
@@ -9,11 +10,16 @@ const Images: FC<HeaderProps> = ({ work }) => {
     return (
       <div className="grid-work-images w-full pt-small">
         <ul className="flex flex-col gap-small">
-          {work.images.map((image) => (
-            <li key={image}>
-              <img src={image} width="1920" height="1109" alt="" />
-            </li>
-          ))}
+          <RichText
+            // @ts-ignore
+            content={work.images.raw}
+            renderers={{
+              // @ts-ignore
+              img: ({ children }) => (
+                <img src={children.props.parent.src} className="pl-small"></img>
+              ),
+            }}
+          />
         </ul>
       </div>
     );

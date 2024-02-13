@@ -1,5 +1,6 @@
 import Description from "../../components/Work/Description";
 import { RichTextContent } from "@graphcms/rich-text-types";
+import Images from "../../components/Work/Images";
 
 export type Work = {
   id: string;
@@ -11,6 +12,7 @@ export type Work = {
   linkedinLink: string;
   websiteLink: string;
   stack: string;
+  images: RichTextContent;
 };
 
 type QueryResult = {
@@ -40,12 +42,15 @@ async function getWorks(slug: string): Promise<Work[]> {
             company
             date
             description {
-      raw
+                raw
             }
             role
             linkedinLink
             websiteLink
             stack
+            images {
+              raw
+            }
             }
           }
         `,
@@ -64,8 +69,9 @@ export default async function Work({ params }) {
   return (
     <>
       {works.map((work: Work) => (
-        <div key={work.id}>
+        <div className="grid" key={work.id}>
           <Description work={work} />
+          <Images work={work} />
         </div>
       ))}
     </>
