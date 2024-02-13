@@ -2,6 +2,43 @@ import Description from "../../components/Work/Description";
 import { RichTextContent } from "@graphcms/rich-text-types";
 import Images from "../../components/Work/Images";
 
+export async function generateMetadata(slug: string): Promise<QueryResultMeta> {
+  // @ts-ignore
+  const product = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Works($slug: String!) {
+          works(where: {slug: $slug}) {
+           title
+            }
+          }
+        `,
+      variables: {
+        slug: slug,
+      },
+    }),
+  }).then((res) => res.json());
+
+  const title =
+    product.data && product.data.works && product.data.works[0]
+      ? product.data.works[0].title
+      : "";
+  console.log(title);
+
+  return {
+    title: title,
+  };
+}
+
+type Test = {
+  title: string;
+};
+
 export type Work = {
   id: string;
   slug: string;
@@ -17,6 +54,10 @@ export type Work = {
 
 type QueryResult = {
   works: Work[];
+};
+
+type QueryResultMeta = {
+  title: Test[];
 };
 
 type Response = {
@@ -66,6 +107,7 @@ async function getWorks(slug: string): Promise<Work[]> {
 
 export default async function Work({ params }) {
   const works: Work[] = await getWorks(params.slug);
+  await generateMetadata(params.slug);
   return (
     <>
       {works.map((work: Work) => (

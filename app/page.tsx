@@ -3,6 +3,13 @@ import { FC } from "react";
 import ScrollSection from "../components/HomePage/ScrollSection";
 import Paragraph from "../components/HomePage/Paragraph";
 import BottomText from "../components/HomePage/BottomText";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+  description:
+    "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen",
+};
 
 const Home: FC = () => {
   const schemaData = {
