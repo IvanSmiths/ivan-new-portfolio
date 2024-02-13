@@ -47,8 +47,9 @@ const Weather: FC = () => {
   }, [durationMedium, data]);
 
   if (!data) return;
-
+  // @ts-ignore
   const temperature = Math.round(data.main.temp);
+  // @ts-ignore
   let weather = data.weather[0].main;
 
   return (
