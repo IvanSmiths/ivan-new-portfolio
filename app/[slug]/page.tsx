@@ -1,8 +1,12 @@
 import Description from "../../components/Work/Description";
 import { RichTextContent } from "@graphcms/rich-text-types";
 import Images from "../../components/Work/Images";
+import type { Metadata } from "next";
 
-export async function generateMetadata(slug: string): Promise<QueryResultMeta> {
+type Props = {
+  params: { slug: string };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // @ts-ignore
   const product = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
@@ -19,29 +23,20 @@ export async function generateMetadata(slug: string): Promise<QueryResultMeta> {
           }
         `,
       variables: {
-        slug: slug,
+        slug: params,
       },
     }),
   }).then((res) => res.json());
-
-  const title =
-    product.data && product.data.works && product.data.works[0]
-      ? product.data.works[0].title
-      : "";
-  console.log(title);
-
+  console.log(product.title);
   return {
-    title: title,
+    title: product.title,
   };
 }
-
-type Test = {
-  title: string;
-};
 
 export type Work = {
   id: string;
   slug: string;
+  title: string;
   company: string;
   description: RichTextContent;
   date: string;
@@ -54,10 +49,6 @@ export type Work = {
 
 type QueryResult = {
   works: Work[];
-};
-
-type QueryResultMeta = {
-  title: Test[];
 };
 
 type Response = {
@@ -107,7 +98,6 @@ async function getWorks(slug: string): Promise<Work[]> {
 
 export default async function Work({ params }) {
   const works: Work[] = await getWorks(params.slug);
-  await generateMetadata(params.slug);
   return (
     <>
       {works.map((work: Work) => (
