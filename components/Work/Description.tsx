@@ -12,6 +12,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
     <div className="grid-work-description pt-small flex flex-col gap-small w-full md:sticky md:h-1/5 md:top-1">
       <h1 className="heading-regular font-bold">{work.company}</h1>
       <RichText
+        // @ts-ignore
         content={work.description.raw}
         renderers={{
           ul: ({ children }) => <ul className="pl-small">{children}</ul>,
