@@ -41,20 +41,15 @@ const Home: FC = () => {
   return (
     <>
       <Head>
-        <title>React/Frontend developer from Wiesbaden</title>
-        <meta
-          name="description"
-          content="React/Frontend developer & UI/UX designer with three years of experience, based and currently living in Wiesbaden"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
         <meta name="msvalidate.01" content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC" />
       </Head>
       <Paragraph />
       <ScrollSection />
       <BottomText />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </>
   );
 };
