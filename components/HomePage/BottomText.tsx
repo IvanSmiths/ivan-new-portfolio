@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import City from "./City";
 import Time from "./Time";
+import FetchWeather from "./FetchWeather";
 
 const BottomText: FC = () => {
   return (
@@ -8,6 +9,7 @@ const BottomText: FC = () => {
       <div className="flex gap-medium items-center flex-wrap w-full grid-home-text-bottom">
         <City />
         <Time />
+        <FetchWeather />
       </div>
     </div>
   );
