@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     body: JSON.stringify({
       query: `
-        query Works($slug: String!) {
-          works(where: {slug: $slug}) {
+        query Works() {
+          works() {
            title
             }
           }
@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     }),
   }).then((res) => res.json());
-  console.log(product.title);
+  console.log(product.data.works[0]);
   return {
-    title: product.title,
+    title: product.data.works[0].title,
   };
 }
 
