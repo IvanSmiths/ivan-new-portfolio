@@ -45,13 +45,15 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
     }
 
     const trigger = triggerRef.current;
-    trigger.addEventListener("mouseenter", handleMouseEnter);
-    trigger.addEventListener("mouseleave", handleMouseLeave);
+    if (trigger) {
+      trigger.addEventListener("mouseenter", handleMouseEnter);
+      trigger.addEventListener("mouseleave", handleMouseLeave);
 
-    return () => {
-      trigger.removeEventListener("mouseenter", handleMouseEnter);
-      trigger.removeEventListener("mouseleave", handleMouseLeave);
-    };
+      return () => {
+        trigger.removeEventListener("mouseenter", handleMouseEnter);
+        trigger.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
   }, [duration]);
 
   return (

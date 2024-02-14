@@ -1,20 +1,17 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+"use client";
+
+import React, { FC, useEffect, useRef } from "react";
 import { useAnimationStore } from "../../utils/store";
 import { gsap } from "gsap";
 
-const Weather: FC = () => {
-  const [data, setData] = useState(null);
+type WeatherProps = {
+  data: any;
+};
+
+const Weather: FC = ({ data }: WeatherProps) => {
   const weatherScopeRef = useRef<HTMLDivElement | null>(null);
   const weatherRef = useRef<HTMLSpanElement | null>(null);
   const { durationMedium } = useAnimationStore();
-
-  useEffect(() => {
-    fetch("api/weather")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  }, []);
 
   useEffect((): void => {
     if (data) {
@@ -47,8 +44,9 @@ const Weather: FC = () => {
   }, [durationMedium, data]);
 
   if (!data) return;
-
+  // @ts-ignore
   const temperature = Math.round(data.main.temp);
+  // @ts-ignore
   let weather = data.weather[0].main;
 
   return (

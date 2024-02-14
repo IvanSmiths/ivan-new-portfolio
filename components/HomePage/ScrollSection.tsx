@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, MutableRefObject, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -20,7 +22,7 @@ const works: WorkProps[] = [
   {
     title: "Scholz & Volkmer",
     role: "Frontend developer",
-    link: "/scholz-&-volkmer",
+    link: "/scholz-und-volkmer",
     image: "/images/suv/mockup.jpg",
   },
   {

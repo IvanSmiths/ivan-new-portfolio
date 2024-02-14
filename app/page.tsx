@@ -1,9 +1,14 @@
-import Head from "next/head";
-import { useHoverStore } from "../utils/store";
 import { FC } from "react";
 import ScrollSection from "../components/HomePage/ScrollSection";
 import Paragraph from "../components/HomePage/Paragraph";
 import BottomText from "../components/HomePage/BottomText";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+  description:
+    "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen",
+};
 
 const Home: FC = () => {
   const schemaData = {
@@ -32,27 +37,15 @@ const Home: FC = () => {
     locationCreated: "Wiesbaden",
   };
 
-  const { setScrollHint } = useHoverStore();
-
-  setTimeout(() => setScrollHint(false), 4000);
-
   return (
     <>
-      <Head>
-        <title>React/Frontend developer from Wiesbaden</title>
-        <meta
-          name="description"
-          content="React/Frontend developer & UI/UX designer with three years of experience, based and currently living in Wiesbaden"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
-        <meta name="msvalidate.01" content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC" />
-      </Head>
       <Paragraph />
       <ScrollSection />
       <BottomText />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </>
   );
 };

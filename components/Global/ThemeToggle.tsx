@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { FC, useEffect, useRef, useState } from "react";
 import { useAnimationStore } from "../../utils/store";
 import { gsap } from "gsap";
@@ -19,7 +21,9 @@ const ThemeToggle: FC = () => {
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
-    window.localStorage.setItem("theme", activeTheme);
+    if (activeTheme != null) {
+      window.localStorage.setItem("theme", activeTheme);
+    }
     const timeoutId = setTimeout(() => {
       setTheme(activeTheme === "dark" ? "light mode" : "dark mode");
     }, 600);

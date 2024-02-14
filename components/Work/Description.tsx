@@ -1,22 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
-import { Work } from "../../utils/works";
+import { Work } from "../../app/[slug]/page";
+import { RichText } from "@graphcms/rich-text-react-renderer";
 
-interface HeaderProps {
+type HeaderProps = {
   work: Work;
-}
+};
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
     <div className="grid-work-description pt-small flex flex-col gap-small w-full md:sticky md:h-1/5 md:top-1">
       <h1 className="heading-regular font-bold">{work.company}</h1>
-      <ul className="pl-small">
-        {work.description.map((desc) => (
-          <li className="list-disc" key={desc}>
-            {desc}
-          </li>
-        ))}
-      </ul>
+      <RichText
+        // @ts-ignore
+        content={work.description.raw}
+        renderers={{
+          ul: ({ children }) => <ul className="pl-small">{children}</ul>,
+          li: ({ children }) => <li className="list-disc">{children}</li>,
+        }}
+      />
+
       <ul className="flex flex-col gap-smallest">
         <li className="paragraph text-primary-light">Role: {work.role}</li>
         <li className="paragraph text-primary-light">Date: {work.date}</li>
@@ -27,7 +30,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
           className="flex gap-smallest"
           rel="noopener noreferrer"
           target="_blank"
-          href={work.linkedin}
+          href={work.linkedinLink}
         >
           LinkedIn
         </a>
@@ -35,7 +38,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
           className="flex gap-smallest"
           rel="noopener noreferrer"
           target="_blank"
-          href={work.website}
+          href={work.websiteLink}
         >
           Website
         </a>
