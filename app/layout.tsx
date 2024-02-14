@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleAnalytics />
-      <body>
+      <body suppressHydrationWarning={true}>
         <Navbar />
         {children}
         <Script
