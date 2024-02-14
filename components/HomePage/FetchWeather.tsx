@@ -15,7 +15,6 @@ async function getData() {
 
 async function FetchWeather() {
   const data = await getData();
-  console.log(data);
   return (
     <>
       <Weather data={data} />
