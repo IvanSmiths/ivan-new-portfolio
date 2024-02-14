@@ -16,7 +16,16 @@ const Images: FC<HeaderProps> = ({ work }) => {
             renderers={{
               // @ts-ignore
               img: ({ children }) => (
-                <img src={children.props.parent.src} className="pl-small"></img>
+                <li>
+                  <img
+                    src={children.props.parent.src}
+                    className="pl-small"
+                    alt="project"
+                    loading="lazy"
+                    height={children.props.parent.height}
+                    width={children.props.parent.width}
+                  ></img>
+                </li>
               ),
             }}
           />
