@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { FC } from "react";
 import ScrollSection from "../components/HomePage/ScrollSection";
 import Paragraph from "../components/HomePage/Paragraph";
@@ -40,9 +39,6 @@ const Home: FC = () => {
 
   return (
     <>
-      <Head>
-        <meta name="msvalidate.01" content="4BBF8C331FF33E2E7BFD0EF4CDD32BEC" />
-      </Head>
       <Paragraph />
       <ScrollSection />
       <BottomText />
