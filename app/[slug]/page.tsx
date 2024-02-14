@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         query Works() {
           works() {
            title
+           metaId
             }
           }
         `,
@@ -27,9 +28,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     }),
   }).then((res) => res.json());
-  console.log(product.data.works[0]);
+  const ids = product.data.works.map((work) => work.id); // Assuming each work has an 'id' property
+  const titles = ids.map(
+    (id) => product.data.works.find((work) => work.id === id).metaId,
+  ); // Find the work with the matching id and get its title
+
+  // Returning an object with titles mapped to IDs
+  const titlesWithIds = ids.reduce((acc, id, index) => {
+    acc[id] = titles[index];
+    return acc;
+  }, {});
+
+  console.log(titlesWithIds);
   return {
-    title: product.data.works[0].title,
+    title: product,
   };
 }
 
