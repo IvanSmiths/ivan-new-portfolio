@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       query Works() {
       works(where: {slug: "${params.slug}"}) {
       title
+      metaDescription
     }
   }
   `,
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }).then((res) => res.json());
   return {
     title: product.data.works[0].title,
+    description: product.data.works[0].metaDescription,
   };
 }
 
