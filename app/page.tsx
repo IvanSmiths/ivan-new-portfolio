@@ -1,7 +1,6 @@
 import { FC } from "react";
 import type { Metadata } from "next";
 import Header from "./components/Header";
-import GridDebug from "../components/Debug/GridDebug";
 import Text from "./components/Text";
 
 export const metadata: Metadata = {
@@ -41,7 +40,6 @@ const Home: FC = () => {
     <div className="grid">
       <Header />
       <Text />
-      <GridDebug />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
