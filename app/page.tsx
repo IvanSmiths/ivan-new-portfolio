@@ -2,6 +2,7 @@ import { FC } from "react";
 import type { Metadata } from "next";
 import Header from "./components/Header";
 import GridDebug from "../components/Debug/GridDebug";
+import Text from "./components/Text";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -37,14 +38,15 @@ const Home: FC = () => {
   };
 
   return (
-    <>
+    <div className="grid">
       <Header />
+      <Text />
       <GridDebug />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-    </>
+    </div>
   );
 };
 
