@@ -1,4 +1,6 @@
 import React from "react";
+import Time from "../../components/HomePage/Time";
+import FetchWeather from "../../components/HomePage/FetchWeather";
 
 function Text() {
   return (
@@ -11,11 +13,19 @@ function Text() {
         </h1>
       </div>
       <div className="flex">
-        <span className="pr-6 text-right">Social</span>
+        <span className="text-right">Social</span>
         <ul>
           <li>GitHub</li>
           <li>LinkedIn</li>
           <li>YouGTube</li>
+        </ul>
+      </div>
+      <div className="flex">
+        <span className=" text-right">Coding from</span>
+        <ul className="flex-col gap-small">
+          <li>Wiesbaden (DE)</li>
+          <Time />
+          <FetchWeather />
         </ul>
       </div>
     </div>
