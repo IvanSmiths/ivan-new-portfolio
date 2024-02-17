@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import Navbar from "../components/Global/Navbar";
 import React from "react";
 import GoogleAnalytics from "../utils/GoogleAnalytics";
 import { GA_TRACKING_ID } from "../utils/gtag";
@@ -25,7 +24,6 @@ export default function RootLayout({
     <html lang="en">
       <GoogleAnalytics />
       <body suppressHydrationWarning={true}>
-        <Navbar />
         {children}
         <Script
           id="ThemeToggle"

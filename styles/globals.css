@@ -106,6 +106,10 @@ li {
     padding: 0 20px;
 }
 
+.grid-home-name {
+    grid-column: 1 / 13;
+}
+
 .grid-home-works {
     grid-column: 2 / 12;
 }
@@ -147,19 +151,12 @@ li {
 }
 
 .grid-debug {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 20px;
-    padding: 0 20px;
 }
 
 .grid-debug-item {
-    background-color: rgba(236, 111, 111, 0.35);
+    background-color: rgba(236, 111, 111, 0.21);
 }
 
 @media (max-width: 1100px) {
@@ -231,9 +228,11 @@ li {
         grid-gap: 10px;
         padding: 0 20px;
     }
+
     .grid-home-text-2 {
         grid-column: 1 / 5;
     }
+
     .grid-debug {
         grid-gap: 10px;
         padding: 0 20px;

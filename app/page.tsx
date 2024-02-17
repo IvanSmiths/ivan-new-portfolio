@@ -1,8 +1,7 @@
 import { FC } from "react";
-import ScrollSection from "../components/HomePage/ScrollSection";
-import Paragraph from "../components/HomePage/Paragraph";
-import BottomText from "../components/HomePage/BottomText";
 import type { Metadata } from "next";
+import Header from "./components/Header";
+import GridDebug from "../components/Debug/GridDebug";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -39,9 +38,8 @@ const Home: FC = () => {
 
   return (
     <>
-      <Paragraph />
-      <ScrollSection />
-      <BottomText />
+      <Header />
+      <GridDebug />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
