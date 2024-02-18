@@ -89,16 +89,16 @@ function Works() {
               key={index}
               className="h-[100vh] w-[100vw] flex justify-center items-center"
             >
-              <div className="w-2/3 h-2/3 relative p-small flex flex-col justify-between">
+              <Link
+                href={work.slug}
+                className="w-2/3 h-2/3 relative p-small flex flex-col justify-between"
+              >
                 <img
                   src={work.image}
                   className="absolute left-1/2 top-1/2 h-full object-cover -translate-x-1/2 -translate-y-1/2 w-full"
                   alt="image of work"
                 />
-                <Link
-                  className="absolute left-1/2 top-1/2 h-full bg-[#00000066] -translate-x-1/2 -translate-y-1/2 w-full"
-                  href={work.slug}
-                ></Link>
+                <div className="absolute left-1/2 top-1/2 h-full bg-[#00000066] -translate-x-1/2 -translate-y-1/2 w-full"></div>
                 <img
                   src={work.logo}
                   alt="logo"
@@ -117,10 +117,10 @@ function Works() {
                     </p>
                   </div>
                   <div className="absolute right-0 bottom-0">
-                    <ButtonLink href={work.slug} />
+                    <ButtonLink />
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
