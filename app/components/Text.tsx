@@ -25,7 +25,7 @@ const links: Link[] = [
 function Text() {
   return (
     <div className="grid">
-      <div className="grid-home-text md:pt-medium pt-24 flex gap-small flex-col">
+      <div className="grid-home-text md:pt-medium pt-12 flex gap-small flex-col">
         <div className="flex gap-small">
           <span className="font-bold w-28 md:w-60 lg:w-96 text-xl text-right">
             TLDR
