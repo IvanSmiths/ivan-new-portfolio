@@ -11,7 +11,6 @@ function Works() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    const components = document.querySelectorAll("#component");
     const pin = gsap.fromTo(
       scrollRef.current,
       {
@@ -20,7 +19,7 @@ function Works() {
       {
         translateX: "-200vw",
         ease: "none",
-        duration: 1,
+        duration: 2,
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
@@ -40,13 +39,13 @@ function Works() {
       <div ref={triggerRef}>
         <div ref={scrollRef} className="h-[100vh] flex w-[300vw]">
           <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-            <img src="/images/id/id-cover.png" alt="" />
+            <img src="/images/td/td-cover.png" alt="" />
           </div>
           <div className="h-[100vh] w-[100vw] flex justify-center items-center">
             <img src="/images/suv/suv-cover.png" alt="" />
           </div>
           <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-            <img src="/images/td/td-cover.png" alt="" />
+            <img src="/images/id/id-cover.png" alt="" />
           </div>
         </div>
       </div>
