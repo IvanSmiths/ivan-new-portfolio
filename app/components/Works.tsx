@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function Works() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -9,20 +11,22 @@ function Works() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+    const components = document.querySelectorAll("#component");
     const pin = gsap.fromTo(
       scrollRef.current,
       {
         translateX: 0,
       },
       {
-        translateX: "-300vw",
+        translateX: "-200vw",
         ease: "none",
         duration: 1,
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "2000 top",
+          markers: true,
           scrub: 0.6,
+          snap: 1 / 2,
           pin: true,
         },
       },
@@ -32,10 +36,18 @@ function Works() {
     };
   }, []);
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pt-medium">
       <div ref={triggerRef}>
-        <div ref={scrollRef} className="h-[100vh] flex gap-small">
-          <img src="/images/id/id-cover.png" alt="" />
+        <div ref={scrollRef} className="h-[100vh] flex w-[300vw]">
+          <div className="h-[100vh] w-[100vw] flex justify-center items-center">
+            <img src="/images/id/id-cover.png" alt="" />
+          </div>
+          <div className="h-[100vh] w-[100vw] flex justify-center items-center">
+            <img src="/images/suv/suv-cover.png" alt="" />
+          </div>
+          <div className="h-[100vh] w-[100vw] flex justify-center items-center">
+            <img src="/images/td/td-cover.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
