@@ -37,13 +37,13 @@ body {
     body[data-theme="light"] {
         --primary: #09090B;
         --primary-light: #71717A;
-        --secondary: #ECECEC;
+        --secondary: #ffffff;
     }
 
     body[data-theme="dark"] {
-        --primary: #ECECEC;
-        --primary-light: #A1A1AA;
-        --secondary: #09090B;
+        --primary: #09090B;
+        --primary-light: #71717A;
+        --secondary: #ffffff;
     }
 }
 
