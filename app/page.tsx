@@ -41,7 +41,7 @@ const Home: FC = () => {
 
   return (
     <>
-      <div className="h-[95vh]">
+      <div className="min-h-[95vh]">
         <Header />
         <Text />
       </div>
