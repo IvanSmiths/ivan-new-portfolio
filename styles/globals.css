@@ -8,6 +8,7 @@
     --smallest: 10px;
     --small: 20px;
     --medium: 60px;
+    --section: 120px;
 
     --body: 15px;
 }
@@ -65,7 +66,8 @@ li {
 }
 
 .heading-large {
-    font-size: 123px;
+    font-size: 70px;
+    line-height: 80px;
 }
 
 .heading-big {
@@ -116,6 +118,18 @@ li {
 
 .grid-home-text {
     grid-column: 2 / 7;
+}
+
+.grid-home-about-h2 {
+    grid-column: 4 / 13;
+}
+
+.grid-home-about-span {
+    grid-column: 4 / 4;
+}
+
+.grid-home-about-p {
+    grid-column: 7 / 11;
 }
 
 .grid-home-text-tldr {

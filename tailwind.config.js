@@ -24,6 +24,7 @@ module.exports = {
         smallest: "var(--smallest)",
         small: "var(--small)",
         medium: "var(--medium)",
+        section: "var(--section)",
       },
       grayscale: {
         50: "50%",
