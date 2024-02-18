@@ -102,6 +102,7 @@ function Works() {
                 <img
                   src={work.logo}
                   alt="logo"
+                  loading="lazy"
                   width="80"
                   height="80"
                   className="z-20 relative"
