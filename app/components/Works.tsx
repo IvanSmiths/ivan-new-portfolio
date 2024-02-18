@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ButtonLink from "./ButtonLink";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
 
 type Work = {
   image: string;
@@ -51,30 +52,35 @@ function Works() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    const pin = gsap.fromTo(
-      scrollRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "-200vw",
-        ease: "none",
-        duration: 2,
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          start: "top top",
-          markers: true,
-          scrub: 0.6,
-          snap: 1 / 2,
-          pin: true,
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        scrollRef.current,
+        {
+          translateX: 0,
         },
-      },
-    );
-    return () => {
-      pin.kill();
-    };
-  }, []);
+        {
+          translateX: "-200vw",
+          ease: "none",
+          duration: 2,
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top top",
+            markers: true,
+            scrub: 0.6,
+            snap: {
+              snapTo: 1 / 2,
+              duration: 0.6,
+              delay: 0,
+              ease: "power1.inOut",
+            },
+            pin: true,
+          },
+        },
+      );
+    },
+    { scope: triggerRef },
+  );
   return (
     <div className="overflow-hidden pt-medium">
       <div ref={triggerRef}>
