@@ -7,7 +7,7 @@ function About() {
           industry. Passionate about crafting innovative web experiences.
         </h2>
       </div>
-      <div className="grid w-full mt-medium">
+      <div className="grid w-full sm:mt-medium mt-28">
         <span className="grid-home-about-span">Who I am</span>
         <p className="grid-home-about-p">
           Having begun my career as a UI/UX Designer, I spent two years in
