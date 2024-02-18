@@ -36,7 +36,8 @@ const Home: FC = () => {
     copyrightYear: 2020,
     genre: "http://vocab.getty.edu/aat/300179434",
     headline: "Speed, security & INNOVATION",
-    keywords: "next.js, wiesbaden, react.js, frontend developer",
+    keywords:
+      "next.js, ui/ux developer, wiesbaden, react.js, frontend developer",
     locationCreated: "Wiesbaden",
   };
 
