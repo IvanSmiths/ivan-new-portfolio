@@ -1,10 +1,11 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import type { Metadata } from "next";
 import Header from "./components/Header";
 import Text from "./components/Text";
 import About from "./components/About";
 import Works from "./components/Works";
 import Navbar from "./components/Navbar";
+import Footer from "../components/Global/Footer";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -52,6 +53,7 @@ const Home: FC = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
+      <Footer />
     </>
   );
 };

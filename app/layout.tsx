@@ -3,7 +3,6 @@ import React from "react";
 import GoogleAnalytics from "../utils/GoogleAnalytics";
 import { GA_TRACKING_ID } from "../utils/gtag";
 import Script from "next/script";
-import Footer from "../components/Global/Footer";
 
 export default function RootLayout({
   children,
@@ -49,7 +48,6 @@ export default function RootLayout({
             `,
           }}
         />
-        <Footer />
       </body>
     </html>
   );

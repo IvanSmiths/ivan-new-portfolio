@@ -3,6 +3,8 @@ import { RichTextContent } from "@graphcms/rich-text-types";
 import Images from "../../../components/Work/Images";
 import type { Metadata } from "next";
 import Navbar from "../../components/Navbar";
+import Footer from "../../../components/Global/Footer";
+import React from "react";
 
 type Props = {
   params: { slug: string };
@@ -109,6 +111,7 @@ export default async function Work({ params }) {
           <Images work={work} />
         </div>
       ))}
+      <Footer />
     </>
   );
 }
