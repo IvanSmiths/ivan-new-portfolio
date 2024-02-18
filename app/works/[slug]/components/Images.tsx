@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { FC } from "react";
 import { Work } from "../page";
 import { RichText } from "@graphcms/rich-text-react-renderer";
