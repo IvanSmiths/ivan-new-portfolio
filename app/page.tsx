@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Text from "./components/Text";
 import About from "./components/About";
 import Works from "./components/Works";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -40,8 +41,11 @@ const Home: FC = () => {
 
   return (
     <>
-      <Header />
-      <Text />
+      <div className="h-[95vh]">
+        <Header />
+        <Text />
+      </div>
+      <Navbar />
       <About />
       <Works />
       <script
