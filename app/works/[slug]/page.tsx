@@ -1,9 +1,9 @@
-import Description from "../../../components/Work/Description";
+import Description from "./components/Description";
 import { RichTextContent } from "@graphcms/rich-text-types";
-import Images from "../../../components/Work/Images";
+import Images from "./components/Images";
 import type { Metadata } from "next";
-import Navbar from "../../components/Navbar";
-import Footer from "../../../components/Global/Footer";
+import Navbar from "../../globalComponents/Navbar";
+import Footer from "../../globalComponents/Footer";
 import React from "react";
 
 type Props = {

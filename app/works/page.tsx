@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar";
-import ScrollSection from "../../components/HomePage/ScrollSection";
+import Navbar from "../globalComponents/Navbar";
+import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import Text from "./components/Text";
 import About from "./components/About";
 import Works from "./components/Works";
-import Navbar from "./components/Navbar";
-import Footer from "../components/Global/Footer";
+import Navbar from "./globalComponents/Navbar";
+import Footer from "./globalComponents/Footer";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",

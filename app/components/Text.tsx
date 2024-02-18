@@ -1,6 +1,6 @@
 import React from "react";
-import Time from "../../components/HomePage/Time";
-import FetchWeather from "../../components/HomePage/FetchWeather";
+import Time from "./Time";
+import FetchWeather from "./FetchWeather";
 
 type Link = {
   title: string;
