@@ -45,7 +45,7 @@ const Time: FC = () => {
         })
         .to(timeRef.current, {
           opacity: 1,
-          top: 0,
+          top: -3,
           duration: durationMedium,
           ease: "circ.out",
         });

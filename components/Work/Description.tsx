@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
-import { Work } from "../../app/[slug]/page";
+import { Work } from "../../app/works/[slug]/page";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 type HeaderProps = {
@@ -9,7 +9,7 @@ type HeaderProps = {
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
-    <div className="grid-work-description pt-small flex flex-col gap-small w-full md:sticky md:h-1/5 md:top-1">
+    <div className="grid-work-description pt-medium flex flex-col gap-small w-full md:sticky md:h-fit md:top-1">
       <h1 className="heading-regular font-bold">{work.company}</h1>
       <RichText
         // @ts-ignore

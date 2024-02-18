@@ -1,7 +1,8 @@
-import Description from "../../components/Work/Description";
+import Description from "../../../components/Work/Description";
 import { RichTextContent } from "@graphcms/rich-text-types";
-import Images from "../../components/Work/Images";
+import Images from "../../../components/Work/Images";
 import type { Metadata } from "next";
+import Navbar from "../../components/Navbar";
 
 type Props = {
   params: { slug: string };
@@ -101,6 +102,7 @@ export default async function Work({ params }) {
   const works: Work[] = await getWorks(params.slug);
   return (
     <>
+      <Navbar />
       {works.map((work: Work) => (
         <div className="grid" key={work.id}>
           <Description work={work} />

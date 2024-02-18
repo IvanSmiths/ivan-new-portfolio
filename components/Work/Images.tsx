@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Work } from "../../app/[slug]/page";
+import { Work } from "../../app/works/[slug]/page";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 interface HeaderProps {
@@ -8,7 +8,7 @@ interface HeaderProps {
 const Images: FC<HeaderProps> = ({ work }) => {
   if (work.images) {
     return (
-      <div className="grid-work-images w-full pt-small">
+      <div className="grid-work-images w-full pt-medium">
         <ul className="flex flex-col gap-small">
           <RichText
             // @ts-ignore
