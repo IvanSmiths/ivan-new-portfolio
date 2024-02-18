@@ -2,6 +2,26 @@ import React from "react";
 import Time from "../../components/HomePage/Time";
 import FetchWeather from "../../components/HomePage/FetchWeather";
 
+type Link = {
+  title: string;
+  url: string;
+};
+
+const links: Link[] = [
+  {
+    title: "GitHub",
+    url: "https://github.com/IvanSmiths",
+  },
+  {
+    title: "LinkedIn",
+    url: "https://www.linkedin.com/in/ivan-fabbri/",
+  },
+  {
+    title: "YouTube",
+    url: "https://youtube.com/@ivansmiths",
+  },
+];
+
 function Text() {
   return (
     <div className="grid">
@@ -16,9 +36,13 @@ function Text() {
         <div className="flex gap-small">
           <span className="w-96 text-right">Social</span>
           <ul className="font-bold text-xl w-full">
-            <li>GitHub</li>
-            <li>LinkedIn</li>
-            <li>YouTube</li>
+            {links.map((link, index) => (
+              <li key={index}>
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="flex gap-small">
