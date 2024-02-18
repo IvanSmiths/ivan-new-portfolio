@@ -54,7 +54,13 @@ function Works() {
               key={index}
               className="h-[100vh] w-[100vw] flex justify-center items-center"
             >
-              <img src={work.image} alt="" />
+              <div className="w-1/2 h-1/2 relative">
+                <img
+                  src={work.image}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
+                  alt=""
+                />
+              </div>
             </div>
           ))}
         </div>
