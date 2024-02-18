@@ -21,7 +21,7 @@ function Works() {
     {
       image: "/images/td/td-cover.png",
       logo: "/images/td/td-logo.jpeg",
-      slug: "/td-cowen",
+      slug: "/works/td-cowen",
       company: "TD Cowen",
       role: "UI/UX Developer",
       paragraph:
@@ -30,7 +30,7 @@ function Works() {
     {
       image: "/images/suv/suv-cover.png",
       logo: "/images/suv/suv-logo.jpeg",
-      slug: "/scholz-und-volkmer",
+      slug: "/works/scholz-und-volkmer",
       company: "Scholz & Volkmer",
       role: "Frontend Developer",
       paragraph:
@@ -39,7 +39,7 @@ function Works() {
     {
       image: "/images/id/id-cover.png",
       logo: "/images/id/id-logo.jpeg",
-      slug: "/ideology-creative-studio",
+      slug: "/works/ideology-creative-studio",
       company: "Ideology Creative Studio",
       role: "UI/UX Designer",
       paragraph:
@@ -66,7 +66,6 @@ function Works() {
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
-            markers: true,
             scrub: 0.6,
             snap: {
               snapTo: 1 / 2,

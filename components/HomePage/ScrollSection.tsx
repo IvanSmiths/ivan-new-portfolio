@@ -16,25 +16,25 @@ const works: WorkProps[] = [
   {
     title: "TD Cowen",
     role: "UI/UX Developer",
-    link: "/td-cowen",
+    link: "/works/td-cowen",
     image: "/images/td/mockup.jpg",
   },
   {
     title: "Scholz & Volkmer",
     role: "Frontend developer",
-    link: "/scholz-und-volkmer",
+    link: "/works/scholz-und-volkmer",
     image: "/images/suv/mockup.jpg",
   },
   {
     title: "Ideology",
     role: "UI/UX Designer",
-    link: "/ideology-creative-studio",
+    link: "/works/ideology-creative-studio",
     image: "/images/id/mockup.jpg",
   },
   {
     title: "TD Cowen",
     role: "UI/UX Developer",
-    link: "/td-cowen",
+    link: "/works/td-cowen",
     image: "/images/td/mockup.jpg",
   },
 ];
