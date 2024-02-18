@@ -4,7 +4,18 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+type Work = {
+  image: string;
+};
+
 function Works() {
+  const works: Work[] = [
+    {
+      image: "/images/td/td-cover.png",
+    },
+    { image: "/images/suv/suv-cover.png" },
+    { image: "/images/id/id-cover.png" },
+  ];
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -38,15 +49,14 @@ function Works() {
     <div className="overflow-hidden pt-medium">
       <div ref={triggerRef}>
         <div ref={scrollRef} className="h-[100vh] flex w-[300vw]">
-          <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-            <img src="/images/td/td-cover.png" alt="" />
-          </div>
-          <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-            <img src="/images/suv/suv-cover.png" alt="" />
-          </div>
-          <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-            <img src="/images/id/id-cover.png" alt="" />
-          </div>
+          {works.map((work, index) => (
+            <div
+              key={index}
+              className="h-[100vh] w-[100vw] flex justify-center items-center"
+            >
+              <img src={work.image} alt="" />
+            </div>
+          ))}
         </div>
       </div>
     </div>
