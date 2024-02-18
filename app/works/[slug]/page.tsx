@@ -65,7 +65,6 @@ async function getWorks(slug: string): Promise<Work[]> {
   }
   const response = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
-    cache: "no-store",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
