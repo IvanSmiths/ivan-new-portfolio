@@ -25,7 +25,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
         <li className="paragraph text-primary-light">Date: {work.date}</li>
         <li className="paragraph text-primary-light">Stack: {work.stack}</li>
       </ul>
-      <div className="flex flex-col gap-small pt-medium">
+      <div className="flex flex-col gap-small pt-small">
         <a
           className="flex gap-smallest"
           rel="noopener noreferrer"
@@ -33,6 +33,13 @@ const Description: FC<HeaderProps> = ({ work }) => {
           href={work.linkedinLink}
         >
           LinkedIn
+          <img
+            src="/icons/arrow.svg"
+            width="20px"
+            height="20px"
+            loading="lazy"
+            alt="arrow"
+          />
         </a>
         <a
           className="flex gap-smallest"
@@ -41,6 +48,13 @@ const Description: FC<HeaderProps> = ({ work }) => {
           href={work.websiteLink}
         >
           Website
+          <img
+            src="/icons/arrow.svg"
+            width="20px"
+            height="20px"
+            loading="lazy"
+            alt="arrow"
+          />
         </a>
       </div>
     </div>
