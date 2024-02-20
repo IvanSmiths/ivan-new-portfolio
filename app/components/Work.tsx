@@ -11,7 +11,7 @@ function Work({ work, index }) {
       className="h-[100vh] w-[100vw] flex justify-center items-center"
     >
       <Link
-        href={work.slug}
+        href={work.slugHome}
         className="w-2/3 h-2/3 relative p-small flex flex-col justify-between"
       >
         <img

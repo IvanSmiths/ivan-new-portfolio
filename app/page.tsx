@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export type Work = {
-  slug: string;
+  slugHome: string;
   title: string;
   company: string;
   role: string;
@@ -37,6 +37,7 @@ async function getWorks(): Promise<Work[]> {
   }
   const response = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
+    cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -45,7 +46,7 @@ async function getWorks(): Promise<Work[]> {
       query: `
         query Works() {
           works() {
-            slug
+            slugHome
             company
             role
             homeDescription
