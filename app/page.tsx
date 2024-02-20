@@ -44,8 +44,9 @@ async function getWorks(): Promise<WorkType[]> {
     body: JSON.stringify({
       query: `
         query Works() {
-          works() {
+          works(orderBy: createdAt_ASC) {
             slugHome
+            createdAt
             company
             role
             homeDescription
