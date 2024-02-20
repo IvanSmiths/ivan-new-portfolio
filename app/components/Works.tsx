@@ -2,10 +2,11 @@
 
 /* eslint-disable @next/next/no-img-element */
 
-import { useRef } from "react";
+import { Key, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "./Work";
+import { WorkType } from "../page";
 import { useGSAP } from "@gsap/react";
 
 function Works({ works }) {
@@ -46,7 +47,7 @@ function Works({ works }) {
     <div className="overflow-hidden pt-medium">
       <div ref={triggerRef}>
         <div ref={scrollRef} className="h-[100vh] flex w-[300vw]">
-          {works.map((work, index) => (
+          {works.map((work: WorkType, index: Key | null | undefined) => (
             <Work key={index} work={work} index={index} />
           ))}
         </div>

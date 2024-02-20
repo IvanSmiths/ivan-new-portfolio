@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen",
 };
 
-export type Work = {
+export type WorkType = {
   slugHome: string;
   title: string;
   company: string;
@@ -24,14 +24,14 @@ export type Work = {
 };
 
 type QueryResult = {
-  works: Work[];
+  works: WorkType[];
 };
 
 type Response = {
   data: QueryResult;
 };
 
-async function getWorks(): Promise<Work[]> {
+async function getWorks(): Promise<WorkType[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
@@ -65,7 +65,7 @@ async function getWorks(): Promise<Work[]> {
 }
 
 async function Home() {
-  const works: Work[] = await getWorks();
+  const works: WorkType[] = await getWorks();
   const schemaData = {
     "@context": "http://schema.org",
     "@type": "WebSite",
