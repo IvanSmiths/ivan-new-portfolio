@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import type { Metadata } from "next";
 import Header from "./components/Header";
 import Text from "./components/Text";
@@ -13,7 +13,59 @@ export const metadata: Metadata = {
     "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen",
 };
 
-const Home: FC = () => {
+export type Work = {
+  slug: string;
+  title: string;
+  company: string;
+  role: string;
+  homeDescription: string;
+  homeLogo: string;
+  homeImage: string;
+};
+
+type QueryResult = {
+  works: Work[];
+};
+
+type Response = {
+  data: QueryResult;
+};
+
+async function getWorks(): Promise<Work[]> {
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
+  const response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Works() {
+          works() {
+            slug
+            company
+            role
+            homeDescription
+            homeLogo {
+              url
+            }
+            homeImage {
+              url
+            }
+            }
+          }
+        `,
+    }),
+  });
+  const { data }: Response = await response.json();
+  return data.works;
+}
+
+async function Home() {
+  const works: Work[] = await getWorks();
   const schemaData = {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -49,7 +101,7 @@ const Home: FC = () => {
       </div>
       <Navbar />
       <About />
-      <Works />
+      <Works works={works} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -57,6 +109,6 @@ const Home: FC = () => {
       <Footer />
     </>
   );
-};
+}
 
 export default Home;

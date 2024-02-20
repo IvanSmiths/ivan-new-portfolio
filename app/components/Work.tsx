@@ -15,13 +15,13 @@ function Work({ work, index }) {
         className="w-2/3 h-2/3 relative p-small flex flex-col justify-between"
       >
         <img
-          src={work.image}
+          src={work.homeImage.url}
           className="absolute left-1/2 top-1/2 h-full object-cover -translate-x-1/2 -translate-y-1/2 w-full"
           alt="image of work"
         />
         <div className="absolute left-1/2 top-1/2 h-full bg-[#00000066] -translate-x-1/2 -translate-y-1/2 w-full"></div>
         <img
-          src={work.logo}
+          src={work.homeLogo.url}
           alt="logo"
           loading="lazy"
           width="80"
@@ -34,7 +34,9 @@ function Work({ work, index }) {
               {work.company} <br />
               {work.role}
             </h3>
-            <p className="pr-[50%] pt-small text-white">{work.paragraph}</p>
+            <p className="pr-[50%] pt-small text-white">
+              {work.homeDescription}
+            </p>
           </div>
           <div className="absolute right-0 bottom-0">
             <ButtonLink />
