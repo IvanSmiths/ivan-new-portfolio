@@ -100,6 +100,7 @@ async function Home() {
         <Header />
         <Text />
       </div>
+      {/*  <Loader />*/}
       <Navbar />
       <About />
       <Works works={works} />
