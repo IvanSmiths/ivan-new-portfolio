@@ -52,17 +52,13 @@ body {
 }
 
 li::marker {
-    font-size: 8px;
+    font-size: 15px;
 }
 
 
 a {
     cursor: pointer;
     text-decoration: none;
-}
-
-li {
-    list-style: none;
 }
 
 .heading-large {
