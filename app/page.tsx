@@ -6,6 +6,7 @@ import About from "./components/About";
 import Works from "./components/Works";
 import Navbar from "./globalComponents/Navbar";
 import Footer from "./globalComponents/Footer";
+import Loader from "./components/Loader";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -100,7 +101,7 @@ async function Home() {
         <Header />
         <Text />
       </div>
-      {/*  <Loader />*/}
+      <Loader />
       <Navbar />
       <About />
       <Works works={works} />

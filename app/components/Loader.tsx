@@ -22,6 +22,9 @@ function Loader() {
       tl.to(imageRef.current, {
         translateX: 0,
       });
+      tl.to(containerRef.current, {
+        display: "none",
+      });
     },
     { scope: containerRef },
   );
