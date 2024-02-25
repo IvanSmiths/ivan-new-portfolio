@@ -7,7 +7,6 @@ import Works from "./components/Works";
 import Navbar from "./globalComponents/Navbar";
 import Footer from "./globalComponents/Footer";
 import Loader from "./components/Loader";
-import Test from "./components/test";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -98,7 +97,6 @@ async function Home() {
 
   return (
     <>
-      <Test />
       <div className="min-h-[95vh]">
         <Header />
         <Text />
