@@ -15,15 +15,11 @@ function LoaderWrapper() {
     }
   }, []);
 
-  return (
-    <>
-      {loader ? (
-        <div className={loader ? "block" : "hidden"}>
-          <Loader />
-        </div>
-      ) : null}
-    </>
-  );
+  if (loader) {
+    return <Loader />;
+  }
+
+  return null;
 }
 
 export default LoaderWrapper;
