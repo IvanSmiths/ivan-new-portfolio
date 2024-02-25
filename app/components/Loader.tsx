@@ -12,16 +12,13 @@ function Loader() {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    const timeout = function timeoutId() {
-      setTimeout(() => {
-        document.body.style.overflow = "auto";
-      }, 4000);
-      return () => {
-        clearTimeout(timeout);
-      };
-    };
+    const timeoutId = setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 4000);
 
-    timeout();
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   useGSAP(
