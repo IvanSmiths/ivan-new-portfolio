@@ -47,6 +47,23 @@ body {
     }
 }
 
+.hide-loader {
+  animation-name: show;
+    animation-duration: 0.2s;
+}
+
+@keyframes show {
+    from {
+   opacity: 0;
+        display: none;
+    }
+
+    to {
+    opacity: 1;
+        display: block;
+    }
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
