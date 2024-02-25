@@ -29,17 +29,17 @@ function Loader() {
       });
       tl.to(imageRef.current, {
         opacity: 1,
-        duration: 0.4,
+        duration: 0.6,
       });
       tl.to(imageRef.current, {
         scale: 1,
         ease: "back.inOut(1.3)",
-        duration: 1,
+        duration: 1.5,
       });
       tl.to(imageRef.current, {
         margin: 0,
         top: 0,
-        duration: 1,
+        duration: 1.5,
         ease: "expo.inOut",
       });
       tl.to(containerRef.current, {
