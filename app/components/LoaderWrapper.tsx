@@ -4,17 +4,16 @@ import React, { useEffect, useState } from "react";
 import Loader from "./Loader";
 
 function LoaderWrapper() {
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(() => {
+    const hasComponentRendered = sessionStorage.getItem("loader");
+    return !hasComponentRendered;
+  });
 
   useEffect(() => {
-    const hasComponentRendered = sessionStorage.getItem("loader");
-
-    if (!hasComponentRendered) {
-      setLoader(true);
+    if (loader) {
       sessionStorage.setItem("loader", "true");
     }
-  }, []);
-
+  }, [loader]);
   return (
     <>
       {loader ? (
