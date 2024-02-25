@@ -1,8 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 function Header() {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   return (
     <div className="grid z-20 relative">
       <div className="grid-home-name pt-small flex gap-4 flex-col">
