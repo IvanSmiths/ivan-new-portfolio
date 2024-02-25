@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
+
 import React from "react";
 
 function Header() {
   return (
-    <div className="grid">
+    <div className="grid z-20 relative">
       <div className="grid-home-name pt-small flex gap-4 flex-col">
         <div className="h-6 w-full bg-black"></div>
         <img

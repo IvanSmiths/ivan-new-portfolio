@@ -2,13 +2,12 @@
 
 import { FC, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { useAnimationStore } from "../../utils/store";
+import { useGSAP } from "@gsap/react";
 
 const Time: FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
   const timeRef = useRef<HTMLSpanElement | null>(null);
   const timeScopeRef = useRef<HTMLDivElement | null>(null);
-  const { durationMedium } = useAnimationStore();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -25,33 +24,32 @@ const Time: FC = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  useEffect((): void => {
-    const scope = gsap.context(() => {
+  useGSAP(
+    () => {
       gsap
         .timeline()
-        .set(timeRef.current, { opacity: 0 })
         .to(timeRef.current, {
           opacity: 0,
           top: 20,
-          duration: durationMedium,
+          duration: 0.4,
           ease: "circ.out",
         })
         .set(timeRef.current, { top: 0 })
         .to(timeRef.current, {
           opacity: 0,
           top: -20,
-          duration: durationMedium,
+          duration: 0.4,
           ease: "circ.out",
         })
         .to(timeRef.current, {
           opacity: 1,
           top: -3,
-          duration: durationMedium,
+          duration: 0.4,
           ease: "circ.out",
         });
-      return () => scope.revert();
-    }, timeScopeRef);
-  }, [currentTime, durationMedium]);
+    },
+    { dependencies: [currentTime], scope: timeScopeRef },
+  );
 
   return (
     <div
