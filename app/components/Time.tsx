@@ -3,11 +3,14 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useAnimationStore } from "../../utils/store";
 
 const Time: FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
   const timeRef = useRef<HTMLSpanElement | null>(null);
   const timeScopeRef = useRef<HTMLDivElement | null>(null);
+
+  const { normal } = useAnimationStore();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -31,20 +34,20 @@ const Time: FC = () => {
         .to(timeRef.current, {
           opacity: 0,
           top: 20,
-          duration: 0.4,
+          duration: normal,
           ease: "circ.out",
         })
         .set(timeRef.current, { top: 0 })
         .to(timeRef.current, {
           opacity: 0,
           top: -20,
-          duration: 0.4,
+          duration: normal,
           ease: "circ.out",
         })
         .to(timeRef.current, {
           opacity: 1,
           top: -3,
-          duration: 0.4,
+          duration: normal,
           ease: "circ.out",
         });
     },

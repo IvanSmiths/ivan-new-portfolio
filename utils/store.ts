@@ -1,29 +1,18 @@
-import { create } from 'zustand'
+import { create, StoreApi, UseBoundStore } from "zustand";
 
-interface HoverState {
-    hover: string;
-    setHover: (newState: string) => void;
-    scrollHint: boolean;
-    setScrollHint: (newState: boolean) => void;
-}
+type Animation = {
+  fast: number;
+  normal: number;
+  medium: number;
+  slow: number;
+  slowest: number;
+};
 
-interface AnimationState {
-    duration: number;
-    durationFast: number,
-    durationMedium: number,
-    durationSlow: number,
-}
-
-export const useHoverStore = create<HoverState>()((set) => ({
-    hover: "w-2 h-2",
-    setHover: (newState) => set({hover: newState}),
-    scrollHint: true,
-    setScrollHint: (newState) => set({scrollHint: newState}),
-}))
-
-export const useAnimationStore = create<AnimationState>()((set) => ({
-    duration: 0.3,
-    durationFast: 0.3,
-    durationMedium: 0.5,
-    durationSlow: 1.5,
-}))
+export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
+  create<Animation>()(() => ({
+    fast: 0.4,
+    normal: 0.6,
+    medium: 1,
+    slow: 1.5,
+    slowest: 2,
+  }));

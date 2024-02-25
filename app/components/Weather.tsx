@@ -11,7 +11,7 @@ type WeatherProps = {
 const Weather: FC = ({ data }: WeatherProps) => {
   const weatherScopeRef = useRef<HTMLDivElement | null>(null);
   const weatherRef = useRef<HTMLSpanElement | null>(null);
-  const { durationMedium } = useAnimationStore();
+  const { normal } = useAnimationStore();
 
   useEffect((): void => {
     if (data) {
@@ -22,26 +22,26 @@ const Weather: FC = ({ data }: WeatherProps) => {
           .to(weatherRef.current, {
             opacity: 0,
             top: 20,
-            duration: durationMedium,
+            duration: normal,
             ease: "circ.out",
           })
           .set(weatherRef.current, { top: 0 })
           .to(weatherRef.current, {
             opacity: 0,
             top: -20,
-            duration: durationMedium,
+            duration: normal,
             ease: "circ.out",
           })
           .to(weatherRef.current, {
             opacity: 1,
             top: 0,
-            duration: durationMedium,
+            duration: normal,
             ease: "circ.out",
           });
         return () => scope.revert();
       }, weatherScopeRef);
     }
-  }, [durationMedium, data]);
+  }, [normal, data]);
 
   if (!data) return;
   // @ts-ignore

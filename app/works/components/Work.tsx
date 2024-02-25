@@ -18,19 +18,19 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
   const roleRef = useRef<HTMLHeadingElement>(null);
   const workRef = useRef<HTMLHeadingElement>(null);
 
-  const { duration } = useAnimationStore();
+  const { fast } = useAnimationStore();
 
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
     tl.to(roleRef.current, {
       bottom: 1,
-      duration: duration,
+      duration: fast,
       ease: "circ.out",
     }).to(
       workRef.current,
       {
         bottom: 2,
-        duration: duration,
+        duration: fast,
         ease: "circ.out",
       },
       0.1,
@@ -54,7 +54,7 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
         trigger.removeEventListener("mouseleave", handleMouseLeave);
       };
     }
-  }, [duration]);
+  }, [fast]);
 
   return (
     <li>
