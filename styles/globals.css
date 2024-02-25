@@ -48,20 +48,11 @@ body {
 }
 
 .hide-loader {
-  animation-name: show;
-    animation-duration: 0.2s;
+display: none;
 }
 
-@keyframes show {
-    from {
-   opacity: 0;
-        display: none;
-    }
-
-    to {
-    opacity: 1;
-        display: block;
-    }
+.display-loader {
+    display: block !important;
 }
 
 ::-webkit-scrollbar {

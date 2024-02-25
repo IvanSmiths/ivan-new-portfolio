@@ -18,7 +18,7 @@ function LoaderWrapper() {
   return (
     <>
       {loader ? (
-        <div className={`hide-loader ${loader ? "block" : "hidden"}`}>
+        <div className={`hide-loader ${loader ? "display-loader" : "hidden"}`}>
           <Loader />
         </div>
       ) : null}
