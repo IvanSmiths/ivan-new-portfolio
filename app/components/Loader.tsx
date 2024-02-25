@@ -14,7 +14,7 @@ function Loader() {
     document.body.style.overflow = "hidden";
     const timeoutId = setTimeout(() => {
       document.body.style.overflow = "auto";
-    }, 4000);
+    }, 3000);
 
     return () => {
       clearTimeout(timeoutId);
@@ -29,12 +29,12 @@ function Loader() {
       });
       tl.to(imageRef.current, {
         opacity: 1,
-        duration: 0.6,
+        duration: 0.4,
       });
       tl.to(imageRef.current, {
         scale: 1,
         ease: "back.inOut(1.3)",
-        duration: 1.4,
+        duration: 1,
       });
       tl.to(imageRef.current, {
         margin: 0,
@@ -47,7 +47,7 @@ function Loader() {
       });
       tl.to(faderRef.current, {
         opacity: 0,
-        duration: 1,
+        duration: 0.6,
       });
       tl.to(faderRef.current, {
         display: "none",
