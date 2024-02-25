@@ -7,20 +7,24 @@ import { useRef } from "react";
 
 function Loader() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const revealRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
     () => {
       const tl = gsap.timeline();
-      tl.to(revealRef.current, {
-        translateX: 0,
+      tl.to(imageRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        delay: 0.2,
       });
       tl.to(imageRef.current, {
-        translateX: 0,
+        width: "100%",
+        duration: 0.8,
       });
       tl.to(imageRef.current, {
-        translateX: 0,
+        margin: 0,
+        top: 0,
+        duration: 0.8,
       });
       tl.to(containerRef.current, {
         display: "none",
@@ -28,13 +32,16 @@ function Loader() {
     },
     { scope: containerRef },
   );
+
   return (
     <div
       ref={containerRef}
       className="fixed w-full h-full top-0 left-0 bg-secondary z-20"
     >
-      <div ref={revealRef}></div>
-      <div ref={imageRef} className="w-full">
+      <div
+        ref={imageRef}
+        className="w-1/4 h-fit inline opacity-0 absolute mx-auto my-auto inset-0"
+      >
         <Header />
       </div>
     </div>
