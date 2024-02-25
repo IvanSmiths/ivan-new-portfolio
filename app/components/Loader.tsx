@@ -12,14 +12,16 @@ function Loader() {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-
-    function timeoutId() {
+    const timeout = function timeoutId() {
       setTimeout(() => {
         document.body.style.overflow = "auto";
-      }, 3000);
-    }
+      }, 4000);
+      return () => {
+        clearTimeout(timeout);
+      };
+    };
 
-    timeoutId();
+    timeout();
   }, []);
 
   useGSAP(
@@ -31,7 +33,6 @@ function Loader() {
       tl.to(imageRef.current, {
         opacity: 1,
         duration: 0.6,
-        delay: 0.1,
       });
       tl.to(imageRef.current, {
         scale: 1,
