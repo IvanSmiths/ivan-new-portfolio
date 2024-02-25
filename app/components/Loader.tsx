@@ -60,7 +60,7 @@ function Loader() {
     <>
       <div
         ref={faderRef}
-        className="absolute w-full h-[55%] bottom-0 left-0 bg-secondary z-10"
+        className="absolute w-full h-full bottom-0 left-0 bg-secondary z-10"
       ></div>
       <div
         ref={containerRef}
