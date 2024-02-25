@@ -25,21 +25,24 @@ function Loader() {
   useGSAP(
     () => {
       const tl = gsap.timeline();
+      tl.set(imageRef.current, {
+        scale: 0.3,
+      });
       tl.to(imageRef.current, {
         opacity: 1,
         duration: 0.6,
-        delay: 0.2,
+        delay: 0.1,
       });
       tl.to(imageRef.current, {
-        width: "100%",
-        ease: "back.in(1)",
-        duration: 1,
+        scale: 1,
+        ease: "back.inOut(1.3)",
+        duration: 1.4,
       });
       tl.to(imageRef.current, {
         margin: 0,
         top: 0,
         duration: 1,
-        ease: "back.inOut(1)",
+        ease: "expo.inOut",
       });
       tl.to(containerRef.current, {
         display: "none",
@@ -59,7 +62,7 @@ function Loader() {
     <>
       <div
         ref={faderRef}
-        className="absolute w-full h-[55%] bottom-0 left-0 bg-secondary z-20"
+        className="absolute w-full h-[55%] bottom-0 left-0 bg-secondary z-10"
       ></div>
       <div
         ref={containerRef}
@@ -67,7 +70,7 @@ function Loader() {
       >
         <div
           ref={imageRef}
-          className="w-1/4 h-fit inline opacity-0 absolute mx-auto my-auto inset-0"
+          className="w-full h-fit opacity-0 absolute mx-auto my-auto inset-0 z-20"
         >
           <Header />
         </div>
