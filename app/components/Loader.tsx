@@ -4,11 +4,14 @@ import Header from "./Header";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import { useAnimationStore } from "../../utils/store";
 
 function Loader() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const faderRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
+
+  const { normal, slow } = useAnimationStore();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -29,17 +32,17 @@ function Loader() {
       });
       tl.to(imageRef.current, {
         opacity: 1,
-        duration: 0.6,
+        duration: normal,
       });
       tl.to(imageRef.current, {
         scale: 1,
         ease: "back.inOut(1.3)",
-        duration: 1.5,
+        duration: slow,
       });
       tl.to(imageRef.current, {
         margin: 0,
         top: 0,
-        duration: 1.5,
+        duration: slow,
         ease: "expo.inOut",
       });
       tl.to(containerRef.current, {
@@ -47,7 +50,7 @@ function Loader() {
       });
       tl.to(faderRef.current, {
         opacity: 0,
-        duration: 0.6,
+        duration: normal,
       });
       tl.to(faderRef.current, {
         display: "none",

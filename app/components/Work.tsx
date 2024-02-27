@@ -12,7 +12,7 @@ function Work({ work, index }) {
     >
       <Link
         href={work.slugHome}
-        className="w-2/3 h-2/3 relative p-small flex flex-col justify-between"
+        className="w-4/5 sm:w-2/3 h-2/3 relative p-small flex flex-col justify-between"
       >
         <img
           src={work.homeImage.url}

@@ -8,12 +8,15 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "./Work";
 import { WorkType } from "../page";
 import { useGSAP } from "@gsap/react";
+import { useAnimationStore } from "../../utils/store";
 
 function Works({ works }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
   gsap.registerPlugin(ScrollTrigger);
+
+  const { slowest, normal } = useAnimationStore();
 
   useGSAP(
     () => {
@@ -25,14 +28,14 @@ function Works({ works }) {
         {
           translateX: "-200vw",
           ease: "none",
-          duration: 2,
+          duration: slowest,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
             scrub: 0.6,
             snap: {
               snapTo: 1 / 2,
-              duration: 0.6,
+              duration: normal,
               delay: 0,
               ease: "power1.inOut",
             },
