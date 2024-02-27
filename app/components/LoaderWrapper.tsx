@@ -7,11 +7,11 @@ function LoaderWrapper() {
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    const hasComponentRendered = localStorage.getItem("loader");
+    const hasComponentRendered = sessionStorage.getItem("loader");
 
     if (!hasComponentRendered) {
       setLoader(true);
-      localStorage.setItem("loader", "true");
+      sessionStorage.setItem("loader", "true");
     }
   }, []);
 
