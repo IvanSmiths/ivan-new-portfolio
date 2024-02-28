@@ -6,7 +6,7 @@ import { Key, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "./Work";
-import { WorkType } from "../page";
+import { WorkType } from "../../utils/graphql";
 import { useGSAP } from "@gsap/react";
 import { useAnimationStore } from "../../utils/store";
 
