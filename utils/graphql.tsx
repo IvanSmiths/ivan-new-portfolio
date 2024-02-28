@@ -20,14 +20,16 @@ export async function getWorks(): Promise<WorkType[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
-  const response = await fetch(process.env.HYGRAPH_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: `
+  const response: globalThis.Response = await fetch(
+    process.env.HYGRAPH_ENDPOINT,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        query: `
         query Works() {
           works(orderBy: createdAt_ASC) {
             slugHome
@@ -44,8 +46,9 @@ export async function getWorks(): Promise<WorkType[]> {
             }
           }
         `,
-    }),
-  });
+      }),
+    },
+  );
   const { data }: Response = await response.json();
   return data.works;
 }
