@@ -5,6 +5,6 @@ Built with:
 - Next.js
 - TypeScript
 - Tailwind
-- HyGraph
+- Hygraph
 - Gsap
 - Jest (testing in progress)
