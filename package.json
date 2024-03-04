@@ -15,6 +15,7 @@
     "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@graphcms/rich-text-types": "^0.5.1",
     "@gsap/react": "^2.1.0",
+    "@vercel/analytics": "^1.2.2",
     "gsap": "^3.12.5",
     "next": "^14.1.0",
     "prettier": "^3.2.4",
