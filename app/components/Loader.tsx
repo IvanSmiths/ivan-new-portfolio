@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import { useAnimationStore, useOverlayStore } from "../../utils/store";
 
 function Loader() {
-  const { hide } = useOverlayStore();
+  const { hide, isHidden } = useOverlayStore();
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const faderRef = useRef<HTMLDivElement | null>(null);
@@ -25,6 +25,8 @@ function Loader() {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  console.log(isHidden);
 
   useGSAP(
     () => {
