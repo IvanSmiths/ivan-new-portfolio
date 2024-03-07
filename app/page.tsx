@@ -8,7 +8,6 @@ import Navbar from "./globalComponents/Navbar";
 import Footer from "./globalComponents/Footer";
 import LoaderWrapper from "./components/LoaderWrapper";
 import { getWorks, WorkType } from "../utils/graphql";
-import Overlay from "./components/Overlay";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -47,7 +46,6 @@ async function Home() {
 
   return (
     <>
-      <Overlay />
       <div className="min-h-[95vh]">
         <Header />
         <Text />
