@@ -1,4 +1,5 @@
 import { create, StoreApi, UseBoundStore } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type Animation = {
   fast: number;
@@ -22,8 +23,15 @@ export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
     slowest: 2,
   }));
 
-export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> =
-  create<Overlay>((set) => ({
-    isHidden: true,
-    hide: () => set(() => ({ isHidden: false })),
-  }));
+export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
+  persist<Overlay>(
+    (set, get) => ({
+      isHidden: true,
+      hide: () => set(() => ({ isHidden: false })),
+    }),
+    {
+      name: "overlay-storage",
+      storage: createJSONStorage(() => sessionStorage),
+    },
+  ),
+);
