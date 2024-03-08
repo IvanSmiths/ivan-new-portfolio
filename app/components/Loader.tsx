@@ -60,7 +60,7 @@ function Loader() {
         display: "none",
       });
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [hide, slow, normal] },
   );
 
   return (
