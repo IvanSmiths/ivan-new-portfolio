@@ -11,15 +11,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const setInitialTheme = `
-    function getUserPreference() {
-      if(window.localStorage.getItem('theme')) {
-        return window.localStorage.getItem('theme')
-      }
-      return window.matchMedia('(prefers-color-scheme: light)').matches
-                ? 'dark'
-                : 'light'
-    }
-    document.body.dataset.theme = getUserPreference();
+function getUserPreference() {
+  const storedTheme = localStorage.getItem('theme');
+  try {
+    const parsedTheme = JSON.parse(storedTheme);
+    return parsedTheme;
+  } catch (error) {
+  }
+  return window.matchMedia('(prefers-color-scheme: light)').matches
+            ? 'dark'
+            : 'light'
+}
   `;
   return (
     <html lang="en">

@@ -14,6 +14,11 @@ type Overlay = {
   hide: () => void;
 };
 
+type Theme = {
+  activeTheme: string;
+  setActiveTheme: any;
+};
+
 export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
   create<Animation>()(() => ({
     fast: 0.4,
@@ -25,13 +30,28 @@ export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
 
 export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
   persist<Overlay>(
-    (set, get) => ({
+    (set) => ({
       isHidden: true,
       hide: () => set(() => ({ isHidden: false })),
     }),
     {
       name: "overlay-storage",
       storage: createJSONStorage(() => sessionStorage),
+    },
+  ),
+);
+
+export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
+  persist<Theme>(
+    (set) => ({
+      activeTheme: "light",
+      setActiveTheme: (theme: string) => {
+        set({ activeTheme: theme });
+      },
+    }),
+    {
+      name: "theme",
+      storage: createJSONStorage(() => localStorage),
     },
   ),
 );
