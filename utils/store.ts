@@ -43,10 +43,10 @@ export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
 
 export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
   persist<Theme>(
-    (set) => ({
+    (set, get) => ({
       activeTheme: "light",
       setActiveTheme: (theme: string) => {
-        set({ activeTheme: theme });
+        set({ activeTheme: (get().activeTheme = theme) });
       },
     }),
     {
