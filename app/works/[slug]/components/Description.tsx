@@ -10,7 +10,7 @@ type HeaderProps = {
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
-    <div className="grid-work-description pt-medium flex flex-col gap-small w-full md:sticky md:h-fit md:top-1">
+    <div className="md:col-start-1 md:col-end-6 col-start-1 col-end-7 pt-medium flex flex-col gap-small w-full md:sticky md:h-fit md:top-1">
       <h1 className="heading-regular font-bold">{work.company}</h1>
       <RichText
         // @ts-ignore
@@ -22,9 +22,9 @@ const Description: FC<HeaderProps> = ({ work }) => {
       />
 
       <ul className="flex flex-col gap-smallest">
-        <li className="paragraph text-primary-light">Role: {work.role}</li>
-        <li className="paragraph text-primary-light">Date: {work.date}</li>
-        <li className="paragraph text-primary-light">Stack: {work.stack}</li>
+        <li className="text-primary-light">Role: {work.role}</li>
+        <li className="text-primary-light">Date: {work.date}</li>
+        <li className="text-primary-light">Stack: {work.stack}</li>
       </ul>
       <div className="flex flex-col gap-small pt-small">
         <a

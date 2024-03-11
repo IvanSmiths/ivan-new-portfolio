@@ -1,14 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React from "react";
+
+import { FC } from "react";
 import { useThemeStore } from "../../utils/store";
 
-function Header() {
+const Header: FC = () => {
   const { activeTheme } = useThemeStore();
 
   return (
     <div className="grid z-20 relative">
-      <div className="grid-home-name pt-small flex gap-4 flex-col">
+      <div className="col-start-1 col-end-13 pt-small flex gap-4 flex-col">
         <img
           className="w-full"
           src={
@@ -23,6 +24,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
