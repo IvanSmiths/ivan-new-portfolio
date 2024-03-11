@@ -24,11 +24,11 @@ const Work: FC<WorkProps> = ({ work, index }) => {
   return (
     <div
       key={index}
-      className="h-[100vh] w-[100vw] flex justify-center items-center"
+      className="h-[100vh] w-[100vw] px-5 sm:p-0 flex justify-center items-center"
     >
       <Link
         href={work.slugHome}
-        className="w-4/5 sm:w-2/3 h-2/3 relative p-small flex flex-col justify-between"
+        className="w-full sm:w-2/3 h-2/3 relative p-small flex flex-col justify-between"
       >
         <img
           src={work.homeImage.url}
@@ -50,7 +50,7 @@ const Work: FC<WorkProps> = ({ work, index }) => {
               {work.company} <br />
               {work.role}
             </h3>
-            <p className="pr-[50%] pt-small text-white">
+            <p className="md:pr-[50%] pt-small text-white">
               {work.homeDescription}
             </p>
           </div>
