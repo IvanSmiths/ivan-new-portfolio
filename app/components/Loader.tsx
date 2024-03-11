@@ -3,10 +3,10 @@
 import Header from "./Header";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useAnimationStore, useOverlayStore } from "../../utils/store";
 
-function Loader() {
+const Loader: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const faderRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
@@ -81,6 +81,6 @@ function Loader() {
       </div>
     </>
   );
-}
+};
 
 export default Loader;

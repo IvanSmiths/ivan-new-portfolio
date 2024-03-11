@@ -24,7 +24,7 @@ async function Home() {
     name: "IvanSmiths",
     url: "https://www.ivansmiths.com",
     image: "https://www.ivansmiths.com/main-texture.jpg",
-    description: "Frontend developer with 2 years of experience",
+    description: "Frontend developer with 3 years of experience",
     brand: {
       "@type": "Brand",
       logo: "https://www.ivansmiths.com/logo-icon-white.svg",
@@ -39,7 +39,7 @@ async function Home() {
     inLanguage: "en",
     copyrightYear: 2020,
     genre: "http://vocab.getty.edu/aat/300179434",
-    headline: "Speed, security & INNOVATION",
+    headline: "Seeking the limit.",
     keywords:
       "next.js, ui/ux developer, wiesbaden, react.js, frontend developer",
     locationCreated: "Wiesbaden",

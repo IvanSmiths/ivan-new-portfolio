@@ -46,11 +46,13 @@ function Works({ works }) {
     },
     { scope: triggerRef },
   );
+
   return (
     <div className="overflow-hidden pt-medium">
       <div ref={triggerRef}>
         <div ref={scrollRef} className="h-[100vh] flex w-[300vw]">
           {works.map((work: WorkType, index: Key | null | undefined) => (
+            // @ts-ignore
             <Work key={index} work={work} index={index} />
           ))}
         </div>

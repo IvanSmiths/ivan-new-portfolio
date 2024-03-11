@@ -1,18 +1,34 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React from "react";
+import { FC, Key } from "react";
 import Link from "next/link";
 import ButtonLink from "./ButtonLink";
 
-function Work({ work, index }) {
+type WorkProps = {
+  index: Key | null | undefined;
+  work: {
+    slugHome: string;
+    company: string;
+    role: string;
+    homeDescription: string;
+    homeImage: {
+      url: string;
+    };
+    homeLogo: {
+      url: string;
+    };
+  };
+};
+
+const Work: FC<WorkProps> = ({ work, index }) => {
   return (
     <div
       key={index}
-      className="h-[100vh] w-[100vw] flex justify-center items-center"
+      className="h-[100vh] w-[100vw] px-5 sm:p-0 flex justify-center items-center"
     >
       <Link
         href={work.slugHome}
-        className="w-4/5 sm:w-2/3 h-2/3 relative p-small flex flex-col justify-between"
+        className="w-full sm:w-2/3 h-2/3 relative p-small flex flex-col justify-between"
       >
         <img
           src={work.homeImage.url}
@@ -34,7 +50,7 @@ function Work({ work, index }) {
               {work.company} <br />
               {work.role}
             </h3>
-            <p className="pr-[50%] pt-small text-white">
+            <p className="md:pr-[50%] pt-small text-white">
               {work.homeDescription}
             </p>
           </div>
@@ -45,6 +61,6 @@ function Work({ work, index }) {
       </Link>
     </div>
   );
-}
+};
 
 export default Work;

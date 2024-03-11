@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { ThemeMode, useThemeStore } from "../../utils/store";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 
-const ThemeToggle = () => {
+const ThemeToggle: FC = () => {
   const { activeTheme, setActiveTheme } = useThemeStore();
 
   useEffect(() => {

@@ -1,10 +1,10 @@
-import React from "react";
+import { FC } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
-function Navbar() {
+const Navbar: FC = () => {
   return (
-    <nav className="sticky top-3 pr-small pl-small z-10 flex justify-between items-center">
+    <nav className="sm:sticky fixed sm:top-3 bottom-3 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-center">
       <ul className="flex gap-small items-center">
         <li>
           <Link href="/">Home</Link>
@@ -16,6 +16,6 @@ function Navbar() {
       <ThemeToggle />
     </nav>
   );
-}
+};
 
 export default Navbar;
