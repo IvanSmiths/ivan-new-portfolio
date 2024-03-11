@@ -2,6 +2,7 @@
 import { FC } from "react";
 import { WorkPage } from "../../../../utils/graphql";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import Arrow from "./Arrow";
 
 type HeaderProps = {
   work: WorkPage;
@@ -27,34 +28,22 @@ const Description: FC<HeaderProps> = ({ work }) => {
       </ul>
       <div className="flex flex-col gap-small pt-small">
         <a
-          className="flex gap-smallest"
+          className="flex gap-smallest items-center"
           rel="noopener noreferrer"
           target="_blank"
           href={work.linkedinLink}
         >
           LinkedIn
-          <img
-            src="/icons/arrow.svg"
-            width="20px"
-            height="20px"
-            loading="lazy"
-            alt="arrow"
-          />
+          <Arrow />
         </a>
         <a
-          className="flex gap-smallest"
+          className="flex gap-smallest items-center"
           rel="noopener noreferrer"
           target="_blank"
           href={work.websiteLink}
         >
           Website
-          <img
-            src="/icons/arrow.svg"
-            width="20px"
-            height="20px"
-            loading="lazy"
-            alt="arrow"
-          />
+          <Arrow />
         </a>
       </div>
     </div>
