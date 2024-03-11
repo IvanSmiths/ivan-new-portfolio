@@ -52,7 +52,7 @@ const Weather: FC = ({ data }: WeatherProps) => {
   return (
     <div
       ref={weatherScopeRef}
-      className="relative overflow-hidden w-[100px] h-[21px]"
+      className="relative overflow-hidden w-[100px] h-7"
     >
       <span
         ref={weatherRef}

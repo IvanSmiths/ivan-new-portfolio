@@ -67,7 +67,7 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
             <div className="overflow-hidden relative h-10 pointer-events-none">
               <h2
                 ref={roleRef}
-                className="paragraph absolute text-white -bottom-5 left-0 lowercase"
+                className="absolute text-white -bottom-5 left-0 lowercase"
               >
                 {role}
               </h2>

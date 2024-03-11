@@ -10,7 +10,7 @@ interface HeaderProps {
 const Images: FC<HeaderProps> = ({ work }) => {
   if (work.images) {
     return (
-      <div className="grid-work-images w-full pt-medium">
+      <div className="col-start-1 col-end-7 md:col-start-6 md:col-end-13 w-full pt-medium">
         <ul className="flex flex-col gap-small">
           <RichText
             // @ts-ignore

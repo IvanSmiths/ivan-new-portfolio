@@ -7,13 +7,12 @@ import { useEffect, useRef } from "react";
 import { useAnimationStore, useOverlayStore } from "../../utils/store";
 
 function Loader() {
-  const { hide } = useOverlayStore();
-
   const containerRef = useRef<HTMLDivElement | null>(null);
   const faderRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
 
   const { normal, slow } = useAnimationStore();
+  const { hide } = useOverlayStore();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -60,7 +59,7 @@ function Loader() {
         display: "none",
       });
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [hide, slow, normal] },
   );
 
   return (
