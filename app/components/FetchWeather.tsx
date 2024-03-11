@@ -15,10 +15,10 @@ async function getData() {
 
 async function FetchWeather() {
   const data = await getData();
-  return (
-    <>
-      <Weather data={data} />
-    </>
-  );
+  const { weather } = data;
+  const { temp } = data.main;
+
+  //@ts-ignore
+  return <Weather temp={temp} weather={weather[0].main} />;
 }
 export default FetchWeather;
