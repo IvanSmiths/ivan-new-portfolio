@@ -48,7 +48,7 @@ async function Home() {
   return (
     <>
       <Overlay />
-      <div className="min-h-[95vh]">
+      <div className="min-h-[93vh]">
         <Header />
         <Text />
       </div>
