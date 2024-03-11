@@ -14,9 +14,14 @@ type Overlay = {
   hide: () => void;
 };
 
+export enum ThemeMode {
+  LIGHT = "light",
+  DARK = "dark",
+}
+
 type Theme = {
-  activeTheme: string;
-  setActiveTheme: any;
+  activeTheme: ThemeMode;
+  setActiveTheme: (theme: ThemeMode) => void;
 };
 
 export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
@@ -44,8 +49,8 @@ export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
 export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
   persist<Theme>(
     (set, get) => ({
-      activeTheme: "light",
-      setActiveTheme: (theme: string) => {
+      activeTheme: ThemeMode.LIGHT,
+      setActiveTheme: (theme: ThemeMode) => {
         set({ activeTheme: (get().activeTheme = theme) });
       },
     }),
