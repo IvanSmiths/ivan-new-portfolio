@@ -1,10 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React from "react";
+import { FC } from "react";
 import Link from "next/link";
 import ButtonLink from "./ButtonLink";
 
-function Work({ work, index }) {
+type WorkProps = {
+  index: number;
+  work: {
+    slugHome: string;
+    company: string;
+    role: string;
+    homeDescription: string;
+    homeImage: {
+      url: string;
+    };
+    homeLogo: {
+      url: string;
+    };
+  };
+};
+
+const Work: FC<WorkProps> = ({ work, index }) => {
   return (
     <div
       key={index}
@@ -45,6 +61,6 @@ function Work({ work, index }) {
       </Link>
     </div>
   );
-}
+};
 
 export default Work;
