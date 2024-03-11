@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Time from "./Time";
-import FetchWeather from "./FetchWeather";
 import IconGithub from "../globalComponents/IconGithub";
 import IconLinkedin from "../globalComponents/IconLinkedin";
 import IconYoutube from "../globalComponents/IconYoutube";
+import FetchWeather from "./FetchWeather";
 
 const Text: FC = () => {
   return (

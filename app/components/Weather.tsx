@@ -5,16 +5,17 @@ import { useAnimationStore } from "../../utils/store";
 import { gsap } from "gsap";
 
 type WeatherProps = {
-  data: any;
+  temp: number;
+  weather: string;
 };
 
-const Weather: FC = ({ data }: WeatherProps) => {
+const Weather: FC = ({ temp, weather }: WeatherProps) => {
   const weatherScopeRef = useRef<HTMLDivElement | null>(null);
   const weatherRef = useRef<HTMLSpanElement | null>(null);
   const { normal } = useAnimationStore();
 
   useEffect((): void => {
-    if (data) {
+    if (weather) {
       const scope = gsap.context(() => {
         gsap
           .timeline()
@@ -41,13 +42,10 @@ const Weather: FC = ({ data }: WeatherProps) => {
         return () => scope.revert();
       }, weatherScopeRef);
     }
-  }, [normal, data]);
+  }, [normal, weather]);
 
-  if (!data) return;
-  // @ts-ignore
-  const temperature = Math.round(data.main.temp);
-  // @ts-ignore
-  let weather = data.weather[0].main;
+  if (!weather) return;
+  const temperature = Math.round(temp);
 
   return (
     <div
