@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { FC } from "react";
+import { FC, Key } from "react";
 import Link from "next/link";
 import ButtonLink from "./ButtonLink";
 
 type WorkProps = {
-  index: number;
+  index: Key | null | undefined;
   work: {
     slugHome: string;
     company: string;

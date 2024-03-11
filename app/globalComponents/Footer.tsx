@@ -1,12 +1,12 @@
-import React from "react";
+import { FC } from "react";
 import Header from "../components/Header";
 
-function Footer() {
+const Footer: FC = () => {
   return (
     <footer className="pb-small">
       <Header />
     </footer>
   );
-}
+};
 
 export default Footer;

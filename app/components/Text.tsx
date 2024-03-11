@@ -1,11 +1,11 @@
-import React from "react";
+import { FC } from "react";
 import Time from "./Time";
 import FetchWeather from "./FetchWeather";
 import IconGithub from "../globalComponents/IconGithub";
 import IconLinkedin from "../globalComponents/IconLinkedin";
 import IconYoutube from "../globalComponents/IconYoutube";
 
-function Text() {
+const Text: FC = () => {
   return (
     <div className="grid">
       <div className="col-start-1 col-end-7 md:col-start-2 md:col-end-6 lg:col-start-3 lg:col-end-7 md:pt-24 pt-12 flex flex-col gap-small">
@@ -44,6 +44,6 @@ function Text() {
       </div>
     </div>
   );
-}
+};
 
 export default Text;
