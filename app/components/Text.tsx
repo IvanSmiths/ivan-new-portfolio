@@ -19,27 +19,36 @@ const Text: FC = () => {
           <FetchWeather />
         </div>
         <ul className="flex gap-3 items-center sm:gap-8">
-          <a
-            href="https://github.com/IvanSmiths"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <IconGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ivan-fabbri/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <IconLinkedin />
-          </a>
-          <a
-            href="https://youtube.com/@ivansmiths"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <IconYoutube />
-          </a>
+          <li>
+            <a
+              href="https://github.com/IvanSmiths"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="github account"
+            >
+              <IconGithub />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ivan-fabbri/"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="linkedin account"
+            >
+              <IconLinkedin />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://youtube.com/@ivansmiths"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="youtube channel"
+            >
+              <IconYoutube />
+            </a>
+          </li>
         </ul>
       </div>
     </div>
