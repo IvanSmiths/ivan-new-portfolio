@@ -71,7 +71,7 @@ const InfiniteScroll: FC = () => {
     <div className="grid">
       <div className="fixed h-full w-full"></div>
       <div className="flex md:col-start-2 md:col-end-12 col-start-1 col-end-7">
-        <ul className="w-full flex flex-col gap-medium justify-center">
+        <ul className="w-full flex flex-col justify-center">
           {works.map((work, index) => (
             <Work
               key={index}

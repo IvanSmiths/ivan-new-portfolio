@@ -1,4 +1,4 @@
-import Navbar from "../globalComponents/Navbar";
+import Navbar, { NavbarClass } from "../globalComponents/Navbar";
 import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
 
@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 function Works() {
   return (
-    <div>
-      <Navbar />
+    <>
+      <Navbar navbarClass={NavbarClass.FIXED} />
       <ScrollSection />
-    </div>
+    </>
   );
 }
 

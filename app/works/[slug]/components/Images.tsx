@@ -21,7 +21,7 @@ const Images: FC<HeaderProps> = ({ work }) => {
                 <li>
                   <img
                     src={children.props.parent.src}
-                    className="pl-small"
+                    className="md:pl-small"
                     alt="project"
                     loading="lazy"
                     height={children.props.parent.height}

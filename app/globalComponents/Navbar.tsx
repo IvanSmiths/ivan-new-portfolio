@@ -2,9 +2,18 @@ import { FC } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
-const Navbar: FC = () => {
+export enum NavbarClass {
+  FIXED = "fixed",
+}
+type NavbarProps = {
+  navbarClass?: NavbarClass;
+};
+
+const Navbar: FC<NavbarProps> = ({ navbarClass }) => {
   return (
-    <nav className="sm:sticky fixed sm:top-3 bottom-3 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-center">
+    <nav
+      className={` ${navbarClass === NavbarClass.FIXED ? "fixed h-fit" : "sm:sticky"} fixed sm:top-3 bottom-3 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-center`}
+    >
       <ul className="flex gap-small items-center">
         <li>
           <Link href="/">Home</Link>
