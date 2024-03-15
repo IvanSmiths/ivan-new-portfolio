@@ -41,7 +41,7 @@ export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
 export const useIconDimensionStore: UseBoundStore<StoreApi<IconDimension>> =
   create<IconDimension>()(() => ({
     small: 20,
-    normal: 40,
+    normal: 30,
   }));
 
 export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
