@@ -3,6 +3,7 @@ import GoogleAnalytics from "../utils/GoogleAnalytics";
 import { GA_TRACKING_ID } from "../utils/gtag";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import React from "react";
 
 export default function RootLayout({
   children,
