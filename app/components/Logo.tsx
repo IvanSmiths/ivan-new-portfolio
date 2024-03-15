@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useThemeStore } from "../../utils/store";
 
-const IconGithub: FC = () => {
+const Logo: FC = () => {
   const { activeTheme } = useThemeStore();
   return (
     <svg
@@ -30,4 +30,4 @@ const IconGithub: FC = () => {
   );
 };
 
-export default IconGithub;
+export default Logo;
