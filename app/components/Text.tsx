@@ -14,7 +14,7 @@ const Text: FC = () => {
           limit. currently at TD Cowen.
         </h1>
         <div className="font-bold text-xl flex gap-3 sm:gap-small flex-wrap items-center w-full">
-          <span>Wiesbaden (DE)</span>
+          <span className="text-primary-light">Wiesbaden (DE)</span>
           <Time />
           <FetchWeather />
         </div>
