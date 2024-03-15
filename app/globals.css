@@ -41,8 +41,8 @@ body {
     }
 
     body[data-theme="dark"] {
-        --primary: #ffffff;
-        --primary-light: #9c9ca9;
+        --primary: #e7e7e7;
+        --primary-light: #a99999;
         --secondary: #09090B;
     }
 }
