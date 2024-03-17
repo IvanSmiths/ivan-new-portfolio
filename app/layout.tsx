@@ -1,37 +1,20 @@
 import "./globals.css";
-import React from "react";
 import GoogleAnalytics from "../utils/GoogleAnalytics";
 import { GA_TRACKING_ID } from "../utils/gtag";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import React from "react";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const setInitialTheme = `
-function getUserPreference() {
-  const storedTheme = localStorage.getItem('theme');
-  try {
-    const parsedTheme = JSON.parse(storedTheme);
-    return parsedTheme;
-  } catch (error) {
-  }
-  return window.matchMedia('(prefers-color-scheme: light)').matches
-            ? 'dark'
-            : 'light'
-}
-  `;
   return (
     <html lang="en">
       <GoogleAnalytics />
       <body suppressHydrationWarning={true}>
         {children}
-        <Script
-          id="ThemeToggle"
-          dangerouslySetInnerHTML={{ __html: setInitialTheme }}
-        />
         <Script
           strategy="afterInteractive"
           async

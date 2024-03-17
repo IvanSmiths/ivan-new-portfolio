@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Header from "./components/Header";
-import Text from "./components/Text";
+import HeroText from "./components/HeroText";
 import About from "./components/About";
 import Works from "./components/Works";
 import Navbar from "./globalComponents/Navbar";
@@ -50,7 +50,7 @@ async function Home() {
       <Overlay />
       <div className="min-h-[93vh]">
         <Header />
-        <Text />
+        <HeroText />
       </div>
       <LoaderWrapper />
       <Navbar />
