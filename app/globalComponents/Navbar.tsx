@@ -21,6 +21,9 @@ const Navbar: FC<NavbarProps> = ({ navbarClass }) => {
         <li>
           <Link href="/works">Works</Link>
         </li>
+        <li>
+          <Link href="/blog">Blog</Link>
+        </li>
       </ul>
       <ThemeToggle />
     </nav>

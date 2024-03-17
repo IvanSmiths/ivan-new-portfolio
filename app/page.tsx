@@ -9,6 +9,7 @@ import Footer from "./globalComponents/Footer";
 import LoaderWrapper from "./components/LoaderWrapper";
 import { getWorks, WorkType } from "../utils/graphql";
 import Overlay from "./components/Overlay";
+import Test from "../blogposts/test.mdx";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -52,6 +53,7 @@ async function Home() {
         <Header />
         <Text />
       </div>
+      <Test />
       <LoaderWrapper />
       <Navbar />
       <About />
