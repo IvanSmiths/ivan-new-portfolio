@@ -4,13 +4,7 @@ import { useThemeStore } from "../../utils/store";
 const Logo: FC = () => {
   const { activeTheme } = useThemeStore();
   return (
-    <svg
-      width="1400"
-      height="305"
-      viewBox="0 0 1400 305"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 1400 305" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect
         y="278"
         width="1400"
