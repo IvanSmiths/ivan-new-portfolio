@@ -1,8 +1,11 @@
+import { navigate, Pages } from "../helpers/nav.cy";
+import { wait } from "../helpers/wait.cy";
+
 describe("Navigation", () => {
   it("should navigate to the works page", () => {
     cy.visit("/");
-    cy.wait(5000);
-    cy.get('nav a[href*="works"]').click();
-    cy.url().should("include", "/works");
+    wait(5000);
+    navigate(Pages.WORKS);
+    navigate(Pages.HOME);
   });
 });
