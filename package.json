@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@graphcms/rich-text-react-renderer": "^0.6.1",
