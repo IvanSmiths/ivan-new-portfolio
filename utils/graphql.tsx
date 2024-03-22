@@ -35,7 +35,6 @@ export async function getWorks(): Promise<WorkType[]> {
         query Works() {
           works(orderBy: createdAt_ASC) {
             slugHome
-            createdAt
             company
             role
             homeDescription

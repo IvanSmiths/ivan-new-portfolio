@@ -35,12 +35,9 @@ const Work: FC<WorkProps> = ({ work, index }) => {
           className="h-full w-full object-cover rounded-sm"
           alt={`${work.company} work`}
         />
-        <div className="absolute top-1/2 -left-20 -translate-y-1/2 h-fit">
-          <h3 className="font-bold heading-regular">
-            {work.role}
-            <br />
-            {work.company}
-          </h3>
+        <div className="absolute top-1/2 -left-60 -translate-y-1/2 h-fit">
+          <h3 className="font-bold heading-large">{work.role}</h3>
+          <h4 className="heading-regular mt-small ml-1">{work.company}</h4>
         </div>
       </Link>
     </div>
