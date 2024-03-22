@@ -27,17 +27,19 @@ const Work: FC<WorkProps> = ({ work, index }) => {
     >
       <Link
         href={work.slugHome}
-        className="w-full sm:w-8/12 md:w-[35rem] md:h-[35rem] h-2/3 relative p-small"
+        className="w-full sm:w-8/12 md:w-[40rem] md:h-[30rem] h-2/3 relative flex justify-center lg:items-center flex-col p-small"
       >
         <img
           src={work.homeImage.url}
           loading="lazy"
-          className="h-full w-full object-cover rounded-sm"
+          className="h-full w-full lg:w-10/12 lg:h-10/12 object-cover rounded-sm"
           alt={`${work.company} work`}
         />
-        <div className="absolute top-1/2 -left-60 -translate-y-1/2 h-fit">
-          <h3 className="font-bold heading-large">{work.role}</h3>
-          <h4 className="heading-regular mt-small ml-1">{work.company}</h4>
+        <div className="lg:absolute lg:top-1/2 lg:-left-60 lg:-translate-y-1/2 static h-fit">
+          <h3 className="font-bold heading-large mt-5 lg:mt-0">{work.role}</h3>
+          <h4 className="heading-regular lg:mt-small mt-2 lg:ml-1">
+            {work.company}
+          </h4>
         </div>
       </Link>
     </div>

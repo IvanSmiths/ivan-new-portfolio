@@ -54,8 +54,8 @@ async function Home() {
       </div>
       <LoaderWrapper />
       <Navbar />
-      <About />
       <Works works={works} />
+      <About />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
