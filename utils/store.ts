@@ -24,6 +24,11 @@ export enum ThemeMode {
   DARK = "dark",
 }
 
+export enum ThemeColors {
+  LIGHT = "#09090B",
+  DARK = "#e7e7e7",
+}
+
 type Theme = {
   activeTheme: ThemeMode;
   setActiveTheme: (theme: ThemeMode) => void;
