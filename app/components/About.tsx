@@ -4,7 +4,7 @@ const About: FC = () => {
   return (
     <main className="mt-section">
       <div className="grid">
-        <h2 className="heading-large col-span-full">
+        <h2 className="md:text-6xl text-4xl col-span-full">
           Leveraging tech and design, I create websites prioritising aesthetics,
           functionality, speed and usability.
         </h2>
