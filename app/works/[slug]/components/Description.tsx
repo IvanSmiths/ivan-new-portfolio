@@ -20,7 +20,6 @@ const Description: FC<HeaderProps> = ({ work }) => {
           li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
       />
-
       <ul className="flex flex-col gap-smallest">
         <li className="text-primary-light">Role: {work.role}</li>
         <li className="text-primary-light">Date: {work.date}</li>

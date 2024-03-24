@@ -32,22 +32,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
   }).then((res) => res.json());
   return {
-    title: product.data.works[0].title,
-    description: product.data.works[0].metaDescription,
+    title: product.data.works.title,
+    description: product.data.works.metaDescription,
   };
 }
 
 export default async function Work({ params }) {
-  const works: WorkPage[] = await getWorksPage(params.slug);
+  const works: WorkPage = await getWorksPage(params.slug);
   return (
     <>
       <Navbar position={Position.FIXED} />
-      {works.map((work: WorkPage) => (
-        <div className="grid" key={work.id}>
-          <Description work={work} />
-          <Images work={work} />
-        </div>
-      ))}
+      <div className="grid" key={works.id}>
+        <Description work={works} />
+        <Images work={works} />
+      </div>
       <Footer />
     </>
   );
