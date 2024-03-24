@@ -5,6 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 export enum NavbarClass {
   FIXED = "fixed",
 }
+
 type NavbarProps = {
   navbarClass?: NavbarClass;
 };
