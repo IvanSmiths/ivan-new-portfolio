@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { ThemeMode, useThemeStore } from "../../utils/store";
 import { FC, useEffect } from "react";
 
