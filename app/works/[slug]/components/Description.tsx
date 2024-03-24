@@ -11,11 +11,20 @@ const Description: FC<HeaderProps> = ({ work }) => {
   return (
     <>
       <ul className="col-start-7 col-end-12 mt-section flex flex-col gap-smallest">
-        <li className="mono">Role: {work.role}</li>
-        <li className="mono">Date: {work.date}</li>
-        <li className="mono">Stack: {work.stack}</li>
-        <li className="flex gap-smallest items-center">
-          <span className="mono">Links:</span>
+        <li className="flex">
+          <span className="w-36 mono">Role:</span>
+          <span className="mono">{work.role}</span>
+        </li>
+        <li className="flex">
+          <span className="w-36 mono">Date:</span>
+          <span className="mono">{work.date}</span>
+        </li>
+        <li className="flex">
+          <span className="w-36 mono">Stack:</span>
+          <span className="mono">{work.stack}</span>
+        </li>
+        <li className="flex items-center">
+          <span className="mono w-36">Links:</span>
           <a
             className="mono"
             rel="noopener noreferrer"
@@ -25,7 +34,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
             LinkedIn
           </a>
           <a
-            className="mono"
+            className="mono ml-smallest"
             rel="noopener noreferrer"
             target="_blank"
             href={work.websiteLink}
@@ -39,7 +48,9 @@ const Description: FC<HeaderProps> = ({ work }) => {
         content={work.description.raw}
         renderers={{
           ul: ({ children }) => (
-            <ul className="col-start-7 col-end-12 pl-small">{children}</ul>
+            <ul className="col-start-7 col-end-12 pl-small mt-medium">
+              {children}
+            </ul>
           ),
           li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
