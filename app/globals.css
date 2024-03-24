@@ -22,13 +22,10 @@ body,
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Jost', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
 }
 
 body {
-    font-family: 'Jost', sans-serif;
-    background: var(--secondary);
-    color: var(--primary);
+    font-family: sans-serif,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
     transition: background 0.25s ease-in-out;
 }
 

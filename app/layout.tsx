@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${azeret_mono.variable}`}>
       <GoogleAnalytics />
-      <body suppressHydrationWarning={true}>
+      <body className="bg-secondary" suppressHydrationWarning={true}>
         {children}
         <Script
           strategy="afterInteractive"
