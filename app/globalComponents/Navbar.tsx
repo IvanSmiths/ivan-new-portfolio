@@ -2,12 +2,12 @@ import { FC } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
-export enum NavbarClass {
+export enum Position {
   FIXED = "fixed",
 }
 
 type NavbarProps = {
-  navbarClass?: NavbarClass;
+  position?: Position;
 };
 
 type Links = {
@@ -24,10 +24,10 @@ const links: Links[] = [
   },
 ];
 
-const Navbar: FC<NavbarProps> = ({ navbarClass }) => {
+const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
     <nav
-      className={` ${navbarClass === NavbarClass.FIXED ? "fixed h-fit" : "sm:sticky"} fixed sm:top-2 bottom-3 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
+      className={` ${position === Position.FIXED ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
     >
       <ul className="flex gap-small items-start">
         <li>
@@ -41,9 +41,12 @@ const Navbar: FC<NavbarProps> = ({ navbarClass }) => {
           </Link>
         </li>
       </ul>
-      <ul className="flex gap-[53px] items-start">
+      <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
         <li>
-          <a className="underline mono" href="mailto:info@ivansmiths.com">
+          <a
+            className="underline mono hidden sm:block"
+            href="mailto:info@ivansmiths.com"
+          >
             info@ivansmiths.com
           </a>
         </li>

@@ -128,10 +128,6 @@ li {
 }
 
 @media (max-width: 640px) {
-    :root {
-        --medium: 20px;
-    }
-
     .heading-regular {
         font-size: 19px;
     }
