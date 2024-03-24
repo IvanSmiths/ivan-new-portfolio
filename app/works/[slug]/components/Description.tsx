@@ -21,9 +21,9 @@ const Description: FC<HeaderProps> = ({ work }) => {
         </li>
         <li className="flex items-center max-sm:flex-col max-sm:items-start">
           <span className="w-36 mono">Stack:</span>
-          <span className="mono w-72">{work.stack}</span>
+          <span className="mono sm:w-72 w-52">{work.stack}</span>
         </li>
-        <li className="flex items-center max-sm:flex-col max-sm:items-start">
+        <li className="flex items-center max-sm:flex-col max-sm:gap-small max-sm:items-start">
           <span className="mono w-36">Links:</span>
           <a
             className="mono underline"

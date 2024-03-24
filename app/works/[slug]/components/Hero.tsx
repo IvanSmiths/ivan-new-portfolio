@@ -25,7 +25,7 @@ const Hero: FC<HeaderProps> = ({ work }) => {
   return (
     <>
       <h1
-        className={`${bebas_neue.className} mt-96 col-start-1 col-end-13 md:text-9xl text-6xl uppercase`}
+        className={`${bebas_neue.className} mt-96 col-start-1 col-end-13 md:text-9xl text-8xl uppercase`}
       >
         {work.company}
       </h1>

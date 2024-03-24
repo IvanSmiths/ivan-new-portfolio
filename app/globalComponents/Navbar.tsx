@@ -51,7 +51,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
           </a>
         </li>
         <li>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-2">
             {links.map((link, index) => (
               <a
                 key={index}
