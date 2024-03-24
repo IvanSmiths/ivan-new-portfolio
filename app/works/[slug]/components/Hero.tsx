@@ -25,12 +25,12 @@ const Hero: FC<HeaderProps> = ({ work }) => {
   return (
     <>
       <h1
-        className={`${bebas_neue.className} mt-96 col-span-full md:text-9xl text-5xl uppercase`}
+        className={`${bebas_neue.className} mt-96 col-start-1 col-end-13 md:text-9xl text-6xl uppercase`}
       >
         {work.company}
       </h1>
       <img
-        className="col-span-full w-full"
+        className="col-start-1 col-end-13 w-full"
         src={work.homeImage.url}
         height={work.homeImage.height}
         width={work.homeImage.width}

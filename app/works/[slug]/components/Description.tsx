@@ -10,7 +10,7 @@ type HeaderProps = {
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
     <>
-      <ul className="col-start-7 col-end-12 mt-section flex flex-col gap-smallest">
+      <ul className="md:col-start-7 md:col-end-12 col-start-1 col-end-13 mt-section flex flex-col gap-smallest">
         <li className="flex">
           <span className="w-36 mono">Role:</span>
           <span className="mono">{work.role}</span>
@@ -48,7 +48,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
         content={work.description.raw}
         renderers={{
           ul: ({ children }) => (
-            <ul className="col-start-7 col-end-12 pl-small mt-medium">
+            <ul className="md:col-start-7 md:col-end-12 col-start-1 col-end-13 pl-small mt-medium">
               {children}
             </ul>
           ),

@@ -5,6 +5,7 @@ import React from "react";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
 import Hero from "./components/Hero";
 import Description from "./components/Description";
+import Images from "./components/Images";
 
 type Props = {
   params: { slug: string };
@@ -45,6 +46,7 @@ export default async function Work({ params }) {
       <div className="grid">
         <Hero work={works} />
         <Description work={works} />
+        <Images work={works} />
       </div>
       <Footer />
     </>
