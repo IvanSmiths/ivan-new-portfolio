@@ -15,7 +15,6 @@ type Links = {
   url: string;
 };
 
-// Link information constant
 const links: Links[] = [
   { name: "github", url: "https://github.com/IvanSmiths" },
   { name: "linkedin", url: "https://www.linkedin.com/in/ivan-fabbri/" },
