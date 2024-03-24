@@ -21,7 +21,6 @@ type HeaderProps = {
 };
 
 const Hero: FC<HeaderProps> = ({ work }) => {
-  console.log(work);
   return (
     <>
       <h1
