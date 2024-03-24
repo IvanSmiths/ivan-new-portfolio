@@ -65,8 +65,8 @@ const Weather: FC = ({ temp, weather }: WeatherProps) => {
         ref={weatherRef}
         className="lowercase flex w-fit absolute mr-auto top-0 left-0 right-0"
       >
-        <span className="text-primary-light">{temperature}°</span>
-        <span className="text-primary-light">{weather}</span>
+        <span className="mono">{temperature}°</span>
+        <span className="mono">{weather}</span>
       </span>
     </div>
   );

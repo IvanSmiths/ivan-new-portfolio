@@ -87,6 +87,13 @@ li {
     font-weight: 400;
 }
 
+.mono {
+    font-family: var(--font-azeret-mono), monospace;
+    font-size: 13px;
+    color: var(--primary-light);
+    text-transform: uppercase;
+}
+
 .grid {
     transition: background 0.25s ease-in-out;
     display: grid;

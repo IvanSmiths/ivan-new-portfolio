@@ -17,10 +17,14 @@ const Navbar: FC<NavbarProps> = ({ navbarClass }) => {
     >
       <ul className="flex gap-small items-center">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className="mono">
+            Home
+          </Link>
         </li>
         <li>
-          <Link href="/works">Works</Link>
+          <Link href="/works" className="mono">
+            Works
+          </Link>
         </li>
       </ul>
       <ThemeToggle />

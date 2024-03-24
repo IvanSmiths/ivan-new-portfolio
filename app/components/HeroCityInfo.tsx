@@ -7,7 +7,7 @@ const HeroCityInfo: FC = () => {
     <div className="font-bold col-start-[-1] col-end-[-5] justify-end h-fit justify-items-end flex gap-3 sm:gap-small flex-wrap items-center">
       <Time />
       <FetchWeather />
-      <span className="text-primary-light">Wiesbaden (DE)</span>
+      <span className="mono">Wiesbaden (DE)</span>
     </div>
   );
 };
