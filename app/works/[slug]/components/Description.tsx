@@ -2,7 +2,6 @@
 import { FC } from "react";
 import { WorkPage } from "../../../../utils/graphql";
 import { RichText } from "@graphcms/rich-text-react-renderer";
-import Arrow from "./Arrow";
 
 type HeaderProps = {
   work: WorkPage;
@@ -10,42 +9,42 @@ type HeaderProps = {
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
-    <div className="md:col-start-1 md:col-end-6 col-start-1 col-end-7 pt-medium flex flex-col gap-small w-full md:sticky md:h-fit md:top-1">
-      <h1 className="text-3xl font-bold">{work.company}</h1>
+    <>
+      <ul className="col-start-7 col-end-12 mt-section flex flex-col gap-smallest">
+        <li className="mono">Role: {work.role}</li>
+        <li className="mono">Date: {work.date}</li>
+        <li className="mono">Stack: {work.stack}</li>
+        <li className="flex gap-smallest items-center">
+          <span className="mono">Links:</span>
+          <a
+            className="mono"
+            rel="noopener noreferrer"
+            target="_blank"
+            href={work.linkedinLink}
+          >
+            LinkedIn
+          </a>
+          <a
+            className="mono"
+            rel="noopener noreferrer"
+            target="_blank"
+            href={work.websiteLink}
+          >
+            Website
+          </a>
+        </li>
+      </ul>
       <RichText
         // @ts-ignore
         content={work.description.raw}
         renderers={{
-          ul: ({ children }) => <ul className="pl-small">{children}</ul>,
+          ul: ({ children }) => (
+            <ul className="col-start-7 col-end-12 pl-small">{children}</ul>
+          ),
           li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
       />
-      <ul className="flex flex-col gap-smallest">
-        <li className="text-primary-light">Role: {work.role}</li>
-        <li className="text-primary-light">Date: {work.date}</li>
-        <li className="text-primary-light">Stack: {work.stack}</li>
-      </ul>
-      <div className="flex flex-col gap-small pt-small">
-        <a
-          className="flex gap-smallest items-center"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={work.linkedinLink}
-        >
-          LinkedIn
-          <Arrow />
-        </a>
-        <a
-          className="flex gap-smallest items-center"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={work.websiteLink}
-        >
-          Website
-          <Arrow />
-        </a>
-      </div>
-    </div>
+    </>
   );
 };
 

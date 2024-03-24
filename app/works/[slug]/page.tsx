@@ -1,10 +1,10 @@
-import Description from "./components/Description";
-import Images from "./components/Images";
 import type { Metadata } from "next";
 import Navbar, { Position } from "../../globalComponents/Navbar";
 import Footer from "../../globalComponents/Footer";
 import React from "react";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
+import Hero from "./components/Hero";
+import Description from "./components/Description";
 
 type Props = {
   params: { slug: string };
@@ -42,9 +42,9 @@ export default async function Work({ params }) {
   return (
     <>
       <Navbar position={Position.FIXED} />
-      <div className="grid" key={works.id}>
+      <div className="grid">
+        <Hero work={works} />
         <Description work={works} />
-        <Images work={works} />
       </div>
       <Footer />
     </>
