@@ -38,7 +38,7 @@ body {
 
     body[data-theme="dark"] {
         --primary: #e7e7e7;
-        --primary-light: #a99999;
+        --primary-light: #a8a8a8;
         --secondary: #09090B;
     }
 }
