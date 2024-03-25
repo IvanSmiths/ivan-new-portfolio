@@ -17,7 +17,7 @@ const ThemeToggle: FC = () => {
   };
 
   return (
-    <span className="cursor-pointer mono block min-w-32" onClick={handleTheme}>
+    <span className="cursor-pointer mono block min-w-28" onClick={handleTheme}>
       -{activeTheme === "dark" ? "light" : "dark"} mode-
     </span>
   );
