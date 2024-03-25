@@ -1,10 +1,11 @@
-import Description from "./components/Description";
-import Images from "./components/Images";
 import type { Metadata } from "next";
-import Navbar from "../../globalComponents/Navbar";
+import Navbar, { Position } from "../../globalComponents/Navbar";
 import Footer from "../../globalComponents/Footer";
 import React from "react";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
+import Hero from "./components/Hero";
+import Description from "./components/Description";
+import Images from "./components/Images";
 
 type Props = {
   params: { slug: string };
@@ -32,22 +33,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
   }).then((res) => res.json());
   return {
-    title: product.data.works[0].title,
-    description: product.data.works[0].metaDescription,
+    title: product.data.works.title,
+    description: product.data.works.metaDescription,
   };
 }
 
 export default async function Work({ params }) {
-  const works: WorkPage[] = await getWorksPage(params.slug);
+  const works: WorkPage = await getWorksPage(params.slug);
   return (
     <>
-      <Navbar />
-      {works.map((work: WorkPage) => (
-        <div className="grid" key={work.id}>
-          <Description work={work} />
-          <Images work={work} />
-        </div>
-      ))}
+      <Navbar position={Position.Fixed} />
+      <div className="grid">
+        <Hero work={works} />
+        <Description work={works} />
+        <Images work={works} />
+      </div>
       <Footer />
     </>
   );

@@ -44,19 +44,29 @@ const Weather: FC = ({ temp, weather }: WeatherProps) => {
     }
   }, [normal, weather]);
 
+  useEffect(() => {
+    const weatherWidth = weatherRef.current?.offsetWidth;
+    const weatherHeight = weatherRef.current?.offsetHeight;
+    if (weatherWidth && weatherScopeRef.current) {
+      weatherScopeRef.current.style.width = `${weatherWidth}px`;
+      weatherScopeRef.current.style.height = `${weatherHeight}px`;
+    }
+  }, []);
+
   if (!weather) return;
   const temperature = Math.round(temp);
 
   return (
     <div
       ref={weatherScopeRef}
-      className="relative overflow-hidden w-[100px] h-7"
+      className="relative overflow-hidden flex justify-center items-center h-7"
     >
       <span
         ref={weatherRef}
-        className="lowercase text-primary-light w-fit absolute mr-auto top-0 left-0 right-0"
+        className="lowercase flex gap-1 w-fit absolute mr-auto top-0 left-0 right-0"
       >
-        {temperature}° {weather}
+        <span className="mono">{temperature}°</span>
+        <span className="mono">{weather}</span>
       </span>
     </div>
   );

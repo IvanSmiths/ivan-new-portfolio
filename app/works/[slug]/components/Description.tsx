@@ -2,7 +2,6 @@
 import { FC } from "react";
 import { WorkPage } from "../../../../utils/graphql";
 import { RichText } from "@graphcms/rich-text-react-renderer";
-import Arrow from "./Arrow";
 
 type HeaderProps = {
   work: WorkPage;
@@ -10,43 +9,53 @@ type HeaderProps = {
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
-    <div className="md:col-start-1 md:col-end-6 col-start-1 col-end-7 pt-medium flex flex-col gap-small w-full md:sticky md:h-fit md:top-1">
-      <h1 className="heading-regular font-bold">{work.company}</h1>
+    <>
+      <ul className="md:col-start-7 md:col-end-13 col-start-1 col-end-13 mt-medium flex flex-col sm:gap-smallest gap-small">
+        <li className="flex max-sm:flex-col max-sm:items-start">
+          <span className="w-36 mono">Role:</span>
+          <span className="mono">{work.role}</span>
+        </li>
+        <li className="flex max-sm:flex-col max-sm:items-start">
+          <span className="w-36 mono">Date:</span>
+          <span className="mono">{work.date}</span>
+        </li>
+        <li className="flex items-center max-sm:flex-col max-sm:items-start">
+          <span className="w-36 mono">Stack:</span>
+          <span className="mono sm:w-72 w-52">{work.stack}</span>
+        </li>
+        <li className="flex items-center max-sm:flex-col max-sm:gap-small max-sm:items-start">
+          <span className="mono w-36">Links:</span>
+          <a
+            className="mono underline"
+            rel="noopener noreferrer"
+            target="_blank"
+            href={work.linkedinLink}
+          >
+            LinkedIn
+          </a>
+          <a
+            className="mono sm:ml-smallest underline"
+            rel="noopener noreferrer"
+            target="_blank"
+            href={work.websiteLink}
+          >
+            Website
+          </a>
+        </li>
+      </ul>
       <RichText
         // @ts-ignore
         content={work.description.raw}
         renderers={{
-          ul: ({ children }) => <ul className="pl-small">{children}</ul>,
+          ul: ({ children }) => (
+            <ul className="md:col-start-7 md:col-end-12 col-start-1 col-end-13 pl-small mt-medium">
+              {children}
+            </ul>
+          ),
           li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
       />
-
-      <ul className="flex flex-col gap-smallest">
-        <li className="text-primary-light">Role: {work.role}</li>
-        <li className="text-primary-light">Date: {work.date}</li>
-        <li className="text-primary-light">Stack: {work.stack}</li>
-      </ul>
-      <div className="flex flex-col gap-small pt-small">
-        <a
-          className="flex gap-smallest items-center"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={work.linkedinLink}
-        >
-          LinkedIn
-          <Arrow />
-        </a>
-        <a
-          className="flex gap-smallest items-center"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={work.websiteLink}
-        >
-          Website
-          <Arrow />
-        </a>
-      </div>
-    </div>
+    </>
   );
 };
 
