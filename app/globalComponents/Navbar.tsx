@@ -3,11 +3,11 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
 export enum Position {
-  FIXED = "fixed",
+  Fixed = "fixed",
 }
 
 type NavbarProps = {
-  position: Position;
+  position?: Position;
 };
 
 enum LinkLabel {
@@ -52,7 +52,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
     <nav>
       <div
-        className={`${position === Position.FIXED ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
+        className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
       >
         <ul className="flex gap-small items-start">
           {internalLinks.map((link, index) => (
