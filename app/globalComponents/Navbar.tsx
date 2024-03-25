@@ -10,36 +10,57 @@ type NavbarProps = {
   position?: Position;
 };
 
+enum LinkLabel {
+  Home = "home",
+  Works = "works",
+  Github = "github",
+  Youtube = "youtube",
+  Linkedin = "linkedin",
+}
+
+enum LinkUrl {
+  Github = "https://github.com/IvanSmiths",
+  Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
+  Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
+  Home = "/",
+  Works = "/works",
+}
+
 type Links = {
-  name: string;
-  url: string;
+  label: LinkLabel;
+  url: LinkUrl;
 };
 
-const links: Links[] = [
-  { name: "github", url: "https://github.com/IvanSmiths" },
-  { name: "linkedin", url: "https://www.linkedin.com/in/ivan-fabbri/" },
+const socials: Links[] = [
+  { label: LinkLabel.Github, url: LinkUrl.Github },
   {
-    name: "youtube",
-    url: "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
+    label: LinkLabel.Linkedin,
+    url: LinkUrl.Linkedin,
   },
+  {
+    label: LinkLabel.Youtube,
+    url: LinkUrl.Youtube,
+  },
+];
+
+const internalLinks: Links[] = [
+  { label: LinkLabel.Home, url: LinkUrl.Home },
+  { label: LinkLabel.Works, url: LinkUrl.Works },
 ];
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
     <nav
-      className={` ${position === Position.FIXED ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
+      className={`${position === Position.FIXED ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
     >
       <ul className="flex gap-small items-start">
-        <li>
-          <Link href="/" className="mono">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href="/works" className="mono">
-            Works
-          </Link>
-        </li>
+        {internalLinks.map((link, index) => (
+          <li key={index}>
+            <Link href={link.url} className="mono">
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
       <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
         <li>
@@ -52,7 +73,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         </li>
         <li>
           <div className="flex flex-col gap-2">
-            {links.map((link, index) => (
+            {socials.map((link, index) => (
               <a
                 key={index}
                 className="mono underline"
@@ -60,7 +81,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
                 rel="noopener"
                 target="_blank"
               >
-                {link.name}
+                {link.label}
               </a>
             ))}
           </div>
