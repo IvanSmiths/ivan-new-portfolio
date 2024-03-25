@@ -16,8 +16,8 @@ module.exports = withBundleAnalyzer({
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com/v1/script.debug.js *.google.com *.google.it *.googleadservices.com *.googlesyndication.com *.googletagservices.com *.googletagmanager.com;
-  child-src *.google.com *.google.it *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com ;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com/v1/script.debug.js https://www.googletagmanager.com;
+  child-src 'self';
   style-src https://fonts.googleapis.com 'self';
   object-src 'none';
   base-uri 'self';
@@ -27,7 +27,7 @@ const ContentSecurityPolicy = `
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-  font-src 'self' https://fonts.gstatic.com;
+  font-src 'self';
 `;
 
 const securityHeaders = [
