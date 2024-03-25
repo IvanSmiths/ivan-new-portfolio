@@ -50,46 +50,48 @@ const internalLinks: Links[] = [
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
-    <nav
-      className={`${position === Position.FIXED ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
-    >
-      <ul className="flex gap-small items-start">
-        {internalLinks.map((link, index) => (
-          <li key={index}>
-            <Link href={link.url} className="mono">
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
-        <li>
-          <a
-            className="underline mono hidden sm:block"
-            href="mailto:info@ivansmiths.com"
-          >
-            info@ivansmiths.com
-          </a>
-        </li>
-        <li>
-          <div className="flex flex-col gap-2">
-            {socials.map((link, index) => (
-              <a
-                key={index}
-                className="mono underline"
-                href={link.url}
-                rel="noopener"
-                target="_blank"
-              >
+    <nav>
+      <div
+        className={`${position === Position.FIXED ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
+      >
+        <ul className="flex gap-small items-start">
+          {internalLinks.map((link, index) => (
+            <li key={index}>
+              <Link scroll={false} href={link.url} className="mono">
                 {link.label}
-              </a>
-            ))}
-          </div>
-        </li>
-        <li>
-          <ThemeToggle />
-        </li>
-      </ul>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
+          <li>
+            <a
+              className="underline mono hidden sm:block"
+              href="mailto:info@ivansmiths.com"
+            >
+              info@ivansmiths.com
+            </a>
+          </li>
+          <li>
+            <div className="flex flex-col gap-2">
+              {socials.map((link, index) => (
+                <a
+                  key={index}
+                  className="mono underline"
+                  href={link.url}
+                  rel="noopener"
+                  target="_blank"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </li>
+          <li>
+            <ThemeToggle />
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
