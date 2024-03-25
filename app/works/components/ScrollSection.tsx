@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { FC, MutableRefObject, useEffect, useRef } from "react";
 import { gsap } from "gsap";
