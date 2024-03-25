@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function Works() {
   return (
     <>
-      <Navbar position={Position.FIXED} />
+      <Navbar position={Position.Fixed} />
       <ScrollSection />
     </>
   );

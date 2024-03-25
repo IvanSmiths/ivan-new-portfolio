@@ -42,7 +42,7 @@ export default async function Work({ params }) {
   const works: WorkPage = await getWorksPage(params.slug);
   return (
     <>
-      <Navbar position={Position.FIXED} />
+      <Navbar position={Position.Fixed} />
       <div className="grid">
         <Hero work={works} />
         <Description work={works} />
