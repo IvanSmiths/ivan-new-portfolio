@@ -7,7 +7,7 @@ export enum Position {
 }
 
 type NavbarProps = {
-  position?: Position;
+  position: Position;
 };
 
 enum LinkLabel {
@@ -19,11 +19,11 @@ enum LinkLabel {
 }
 
 enum LinkUrl {
-  Github = "https://github.com/IvanSmiths",
-  Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
-  Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
   Home = "/",
   Works = "/works",
+  Github = "https://github.com/IvanSmiths",
+  Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
+  Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
 }
 
 type Links = {
