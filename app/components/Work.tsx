@@ -2,7 +2,6 @@
 
 import { FC, Key } from "react";
 import Link from "next/link";
-import ButtonLink from "./ButtonLink";
 
 type WorkProps = {
   index: Key | null | undefined;
@@ -13,6 +12,8 @@ type WorkProps = {
     homeDescription: string;
     homeImage: {
       url: string;
+      height: string;
+      width: string;
     };
     homeLogo: {
       url: string;
@@ -22,43 +23,29 @@ type WorkProps = {
 
 const Work: FC<WorkProps> = ({ work, index }) => {
   return (
-    <div
-      key={index}
-      className="h-[100vh] w-[100vw] px-5 sm:p-0 flex justify-center items-center"
-    >
-      <Link
-        href={work.slugHome}
-        className="w-full sm:w-2/3 h-2/3 relative p-small flex flex-col justify-between"
-      >
-        <img
-          src={work.homeImage.url}
-          className="absolute left-1/2 top-1/2 h-full object-cover -translate-x-1/2 -translate-y-1/2 w-full"
-          alt="image of work"
-        />
-        <div className="absolute left-1/2 top-1/2 h-full bg-[#00000066] -translate-x-1/2 -translate-y-1/2 w-full"></div>
-        <img
-          src={work.homeLogo.url}
-          alt="logo"
-          loading="lazy"
-          width="80"
-          height="80"
-          className="z-20 relative"
-        />
-        <div className="z-20 relative">
-          <div>
-            <h3 className="font-bold text-white heading-regular">
-              {work.company} <br />
-              {work.role}
-            </h3>
-            <p className="md:pr-[50%] pt-small text-white">
-              {work.homeDescription}
-            </p>
-          </div>
-          <div className="absolute right-0 bottom-0">
-            <ButtonLink />
-          </div>
+    <div key={index} className="h-[100vh] w-[100vw] flex items-center">
+      <div className="grid items-center w-full md:h-3/5 h-4/5">
+        <div className="md:col-start-4 md:col-end-6 col-start-1 col-end-7 text-left md:text-right md:justify-between justify-end md:items-end right-auto flex flex-col w-full h-full">
+          <Link href={work.slugHome}>
+            <h3 className="mono">{work.company}</h3>
+            <h4 className="font-bold text-4xl mt-1">{work.role}</h4>
+          </Link>
+          <h5 className="hidden sm:block">{work.homeDescription}</h5>
         </div>
-      </Link>
+        <Link
+          href={work.slugHome}
+          className="md:col-start-6 md:col-end-10 col-start-1 col-end-7 flex h-full w-full"
+        >
+          <img
+            src={work.homeImage.url}
+            height={work.homeImage.height}
+            width={work.homeImage.width}
+            loading="lazy"
+            className="h-full w-full object-cover rounded-md"
+            alt={`${work.company} work`}
+          />
+        </Link>
+      </div>
     </div>
   );
 };
