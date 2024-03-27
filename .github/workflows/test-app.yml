@@ -13,3 +13,5 @@ jobs:
         with:
           build: npm run build
           start: npm start
+        env:
+            CYPRESS_hygraph: ${{process.env.HYGRAPH_ENDPOINT}}
