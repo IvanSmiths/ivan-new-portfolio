@@ -1,26 +1,31 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "../../components/Works/Work";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
 
 // @ts-ignore
 const InfiniteScroll: FC = ({ works }) => {
   gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        start: 1,
-        end: "max",
-        onLeaveBack: (self) => self.scroll(ScrollTrigger.maxScroll(window) - 2),
-        onLeave: (self) => self.scroll(2),
-      }).scroll(2);
+  useGSAP(() => {
+    ScrollTrigger.create({
+      start: 0.1,
+      end: () => ScrollTrigger.maxScroll(window) - 1,
+      refreshPriority: -100, // always update last
+      onLeave: (self) => {
+        self.scroll(self.start + 1);
+        ScrollTrigger.update();
+      },
+      onLeaveBack: (self) => {
+        self.scroll(self.end - 1);
+        ScrollTrigger.update();
+      },
     });
-    return () => ctx.revert();
-  }, []);
+  });
 
   return (
     <div className="grid">
