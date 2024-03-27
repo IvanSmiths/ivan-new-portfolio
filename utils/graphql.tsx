@@ -104,11 +104,11 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
             websiteLink
             stack
             homeImage {
-      url
-      height
-      width
-      fileName
-    }
+            url
+            height
+            width
+            fileName
+          }
             images {
               raw
             }
