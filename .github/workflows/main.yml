@@ -5,14 +5,19 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    permissions:
+        contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
+
         with:
           build: npm run build
           start: npm start
+
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
           OPEN_WEATHER_API: ${{secrets.OPEN_WEATHER_API}}
