@@ -57,7 +57,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         <ul className="flex gap-small items-start">
           {internalLinks.map((link, index) => (
             <li key={index}>
-              <Link scroll={false} href={link.url} className="mono">
+              <Link href={link.url} className="mono">
                 {link.label}
               </Link>
             </li>
