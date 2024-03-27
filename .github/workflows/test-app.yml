@@ -15,3 +15,4 @@ jobs:
           start: npm start
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
+          OPEN_WEATHER_API: ${{secrets.OPEN_WEATHER_API}}

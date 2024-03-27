@@ -6,7 +6,4 @@ export default defineConfig({
     baseUrl: "http://localhost:3000",
     setupNodeEvents() {},
   },
-  env: {
-    hygraph: "",
-  },
 });
