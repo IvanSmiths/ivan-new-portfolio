@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ThemeColors, ThemeMode, useThemeStore } from "../../utils/store";
+import { ThemeColors, ThemeMode, useThemeStore } from "../../../utils/store";
 
 const Logo: FC = () => {
   const { activeTheme } = useThemeStore();

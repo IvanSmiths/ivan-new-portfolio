@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useRef } from "react";
-import Navbar from "../globalComponents/Navbar";
+import Navbar from "../../globalComponents/Navbar/Navbar";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
