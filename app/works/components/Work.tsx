@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 
-import Link from "next/link";
 import { FC, RefObject, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useAnimationStore } from "../../../utils/store";
@@ -80,14 +79,14 @@ const Work: FC<WorkProps> = ({ setWorksRef, title, img, link, role }) => {
             </h3>
           </div>
         </div>
-        <Link className="w-[100%] h-[70%] flex justify-center" href={link}>
+        <div className="w-[100%] h-[70%] flex justify-center">
           <img
             ref={triggerRef}
             src={img}
             alt={title}
             className=" grayscale-0 hover:grayscale-50 md:grayscale duration-500 rounded-lg  object-cover"
           />
-        </Link>
+        </div>
       </div>
     </li>
   );

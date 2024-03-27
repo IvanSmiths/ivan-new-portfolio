@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import TransitionLink from "../TransitionLink";
 
 export enum Position {
   Fixed = "fixed",
@@ -57,9 +57,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         <ul className="flex gap-small items-start">
           {internalLinks.map((link, index) => (
             <li key={index}>
-              <Link scroll={false} href={link.url} className="mono">
-                {link.label}
-              </Link>
+              <TransitionLink href={link.url} label={link.label} />
             </li>
           ))}
         </ul>
