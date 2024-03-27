@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
-    "cypress:open": "next build && (next dev & cypress open)"
+    "cypress:open": "cypress open --config-file=cypress.config.ts"
   },
   "dependencies": {
     "@graphcms/rich-text-react-renderer": "^0.6.1",
