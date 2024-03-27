@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar, { Position } from "../../globalComponents/Navbar";
+import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Footer from "../../globalComponents/Footer";
 import React from "react";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";

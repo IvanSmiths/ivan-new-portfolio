@@ -1,4 +1,4 @@
-import Navbar, { Position } from "../globalComponents/Navbar";
+import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
 

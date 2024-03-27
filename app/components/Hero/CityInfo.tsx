@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Time from "./Time";
-import FetchWeather from "./FetchWeather";
+import FetchWeather from "./Weather/FetchWeather";
 
-const HeroCityInfo: FC = () => {
+const CityInfo: FC = () => {
   return (
     <div className="md:col-start-[-1] md:col-end-[-6] col-start-1 col-end-6 sm:justify-end h-fit md:flex-row flex-row-reverse justify-end flex gap-3 sm:gap-small flex-wrap items-center">
       <Time />
@@ -12,4 +12,4 @@ const HeroCityInfo: FC = () => {
   );
 };
 
-export default HeroCityInfo;
+export default CityInfo;

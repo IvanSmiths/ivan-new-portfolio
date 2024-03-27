@@ -2,7 +2,7 @@ import { FC } from "react";
 
 const About: FC = () => {
   return (
-    <main className="mt-section">
+    <main className="my-section">
       <div className="grid">
         <h2 className="md:text-6xl text-4xl col-span-full">
           Leveraging tech and design, I create websites prioritising aesthetics,
