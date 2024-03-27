@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const HeroTitle: FC = () => {
+const Title: FC = () => {
   return (
     <div className="col-start-1 col-end-7 mb-medium md:mb-0">
       <h1 className="text-4xl">
@@ -11,4 +11,4 @@ const HeroTitle: FC = () => {
   );
 };
 
-export default HeroTitle;
+export default Title;

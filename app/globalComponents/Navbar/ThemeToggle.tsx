@@ -1,7 +1,7 @@
 "use client";
 
-import { ThemeMode, useThemeStore } from "../../utils/store";
 import { FC, useEffect } from "react";
+import { ThemeMode, useThemeStore } from "../../../utils/store";
 
 const ThemeToggle: FC = () => {
   const { activeTheme, setActiveTheme } = useThemeStore();

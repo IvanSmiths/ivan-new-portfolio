@@ -1,12 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
-import About from "./components/About";
-import Works from "./components/Works";
+import About from "./components/About/About";
+import Works from "./components/Works/Works";
 import Footer from "./globalComponents/Footer";
-import LoaderWrapper from "./components/LoaderWrapper";
+import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, WorkType } from "../utils/graphql";
-import Overlay from "./components/Overlay";
-import Hero from "./components/Hero";
+import Overlay from "./components/Loader/Overlay";
+import Hero from "./components/Hero/Hero";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
