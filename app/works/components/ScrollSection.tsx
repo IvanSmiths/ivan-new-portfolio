@@ -15,7 +15,7 @@ const InfiniteScroll: FC = ({ works }) => {
     ScrollTrigger.create({
       start: 0.1,
       end: () => ScrollTrigger.maxScroll(window) - 1,
-      refreshPriority: -100, // always update last
+      refreshPriority: -100,
       onLeave: (self) => {
         self.scroll(self.start + 1);
         ScrollTrigger.update();
