@@ -29,6 +29,7 @@ enum LinkUrl {
 type Links = {
   label: LinkLabel;
   url: LinkUrl;
+  dataCy?: LinkLabel;
 };
 
 const socials: Links[] = [
@@ -44,8 +45,8 @@ const socials: Links[] = [
 ];
 
 const internalLinks: Links[] = [
-  { label: LinkLabel.Home, url: LinkUrl.Home },
-  { label: LinkLabel.Works, url: LinkUrl.Works },
+  { label: LinkLabel.Home, url: LinkUrl.Home, dataCy: LinkLabel.Home },
+  { label: LinkLabel.Works, url: LinkUrl.Works, dataCy: LinkLabel.Works },
 ];
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
@@ -55,9 +56,9 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
       >
         <ul className="flex gap-small items-start">
-          {internalLinks.map((link, index) => (
+          {internalLinks.map((link: Links, index: number) => (
             <li key={index}>
-              <Link href={link.url} className="mono">
+              <Link data-cy={link.dataCy} href={link.url} className="mono">
                 {link.label}
               </Link>
             </li>
@@ -74,7 +75,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
           </li>
           <li>
             <div className="flex flex-col gap-2">
-              {socials.map((link, index) => (
+              {socials.map((link: Links, index: number) => (
                 <a
                   key={index}
                   className="mono underline"

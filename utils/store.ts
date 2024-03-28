@@ -20,13 +20,13 @@ type Overlay = {
 };
 
 export enum ThemeMode {
-  LIGHT = "light",
-  DARK = "dark",
+  Light = "light",
+  Dark = "dark",
 }
 
 export enum ThemeColors {
-  LIGHT = "#09090B",
-  DARK = "#e7e7e7",
+  Light = "#09090B",
+  Dark = "#e7e7e7",
 }
 
 type Theme = {
@@ -65,7 +65,7 @@ export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
 export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
   persist<Theme>(
     (set, get) => ({
-      activeTheme: ThemeMode.LIGHT,
+      activeTheme: ThemeMode.Light,
       setActiveTheme: (theme: ThemeMode) => {
         set({ activeTheme: (get().activeTheme = theme) });
       },
