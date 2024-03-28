@@ -51,7 +51,7 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
                 <h5 className="hidden sm:block">{works[0].homeDescription}</h5>
               </div>
               <Link
-                href={works[0].slugHome}
+                href={works[0].slug}
                 className="md:col-start-6 md:col-end-10 col-start-1 col-end-7 flex h-full w-full"
               >
                 <img
