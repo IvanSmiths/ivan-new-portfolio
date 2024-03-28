@@ -24,7 +24,7 @@ const Page: FC = () => {
     <div>
       {posts.map((post) => (
         <Link key={post.slug} href={post.slug}>
-          <div>{post.meta.title}</div>
+          <div className="w-5">{post.meta.title}</div>
         </Link>
       ))}
     </div>
