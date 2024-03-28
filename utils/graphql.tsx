@@ -1,4 +1,4 @@
-import { RichTextContent } from "@graphcms/rich-text-types";
+import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
 export type WorkType = {
   slug: string;
@@ -53,7 +53,7 @@ export type WorkPage = {
   slug: string;
   title: string;
   company: string;
-  description: RichTextContent;
+  description: { raw: RichTextContent };
   date: string;
   role: string;
   metaDescription: string;
@@ -66,7 +66,7 @@ export type WorkPage = {
   };
   websiteLink: string;
   stack: string;
-  images: RichTextContent;
+  images: { raw: { children: ElementNode[] } };
 };
 
 type ApiResponsePage = {

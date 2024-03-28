@@ -44,7 +44,6 @@ const Description: FC<HeaderProps> = ({ work }) => {
         </li>
       </ul>
       <RichText
-        // @ts-ignore
         content={work.description.raw}
         renderers={{
           ul: ({ children }) => (
