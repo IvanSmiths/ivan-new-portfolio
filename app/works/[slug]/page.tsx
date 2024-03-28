@@ -15,6 +15,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: work.title,
     description: work.metaDescription,
+    openGraph: {
+      images: [
+        {
+          url: work.homeImage.url,
+          width: work.homeImage.width,
+          height: work.homeImage.height,
+        },
+      ],
+    },
   };
 }
 
