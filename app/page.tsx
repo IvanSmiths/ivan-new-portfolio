@@ -6,6 +6,7 @@ import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, WorkType } from "../utils/graphql";
 import Overlay from "./components/Loader/Overlay";
 import Hero from "./components/Hero/Hero";
+import { homeSchema } from "../utils/Schemas";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -15,28 +16,6 @@ export const metadata: Metadata = {
 
 const Home = async () => {
   const works: WorkType[] = await getWorks();
-  const schemaData = {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    name: "IvanSmiths",
-    url: "https://www.ivansmiths.com",
-    image: "https://www.ivansmiths.com/main-texture.jpg",
-    description: "Frontend developer with 3 years of experience",
-    sameAs: "https://www.ivansmiths.com",
-    author: {
-      "@type": "Person",
-      name: "Ivan",
-      familyName: "Smiths",
-      url: "https://www.ivansmiths.com",
-    },
-    inLanguage: "en",
-    copyrightYear: 2020,
-    genre: "http://vocab.getty.edu/aat/300179434",
-    headline: "Seeking the limit.",
-    keywords:
-      "next.js, ui/ux developer, wiesbaden, react.js, frontend developer",
-    locationCreated: "Wiesbaden",
-  };
 
   return (
     <>
@@ -47,7 +26,7 @@ const Home = async () => {
       <Works works={works} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
       />
       <Footer />
     </>
