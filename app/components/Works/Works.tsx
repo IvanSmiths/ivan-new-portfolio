@@ -1,8 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
-import { Key, useRef } from "react";
+import { FC, Key, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "./Work";
@@ -10,7 +8,13 @@ import { useGSAP } from "@gsap/react";
 import { useAnimationStore } from "../../../utils/store";
 import { WorkType } from "../../../utils/graphql";
 
-function Works({ works }) {
+type WorksProps = {
+  works: {
+    map: Function;
+  };
+};
+
+const Works: FC<WorksProps> = ({ works }) => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -59,14 +63,13 @@ function Works({ works }) {
     <div className="overflow-hidden pt-medium">
       <div ref={triggerRef}>
         <div ref={scrollRef} className="h-[100vh] flex w-fit">
-          {works.map((work: WorkType, index: Key | null | undefined) => (
-            // @ts-ignore
+          {works.map((work: WorkType, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Works;

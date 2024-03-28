@@ -13,19 +13,17 @@ const Images: FC<HeaderProps> = ({ work }) => {
       <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-11 w-full pt-medium">
         <ul className="flex flex-col gap-small">
           <RichText
-            // @ts-ignore
             content={work.images.raw}
             renderers={{
-              // @ts-ignore
-              img: ({ children }) => (
+              img: ({ src, height, width }) => (
                 <li>
                   <img
-                    src={children.props.parent.src}
+                    src={src}
                     className="md:pl-small"
                     alt="project"
                     loading="lazy"
-                    height={children.props.parent.height}
-                    width={children.props.parent.width}
+                    height={height}
+                    width={width}
                   ></img>
                 </li>
               ),
