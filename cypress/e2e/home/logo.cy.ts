@@ -1,7 +1,7 @@
-import { wait } from "../helpers/wait.cy";
-import { toggleTheme } from "../helpers/themeToggle.cy";
-import { checkLogoColor } from "../helpers/logo.cy";
-import { ThemeColors, ThemeMode } from "../../utils/store";
+import { wait } from "../../lib/wait/wait.cy";
+import { toggleTheme } from "../../lib/navbar/themeToggle.cy";
+import { checkLogoColor } from "../../lib/logo/logo.cy";
+import { ThemeColors, ThemeMode } from "../../../utils/store";
 
 describe("Theme", (): void => {
   it(

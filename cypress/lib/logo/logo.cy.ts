@@ -1,4 +1,4 @@
-import { ThemeColors } from "../../utils/store";
+import { ThemeColors } from "../../../utils/store";
 
 type Theme = ThemeColors;
 
