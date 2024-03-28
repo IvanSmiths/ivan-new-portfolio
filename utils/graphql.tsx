@@ -1,57 +1,51 @@
 import { RichTextContent } from "@graphcms/rich-text-types";
 
 export type WorkType = {
-  slugHome: string;
-  title: string;
+  slug: string;
   company: string;
   role: string;
   homeDescription: string;
-  homeLogo: string;
-  homeImage: string;
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
 
-type QueryResult = {
-  works: WorkType[];
-};
-
-type Response = {
-  data: QueryResult;
+type ApiResponse = {
+  data: {
+    works: WorkType[];
+  };
 };
 
 export async function getWorks(): Promise<WorkType[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
-  const response: globalThis.Response = await fetch(
-    process.env.HYGRAPH_ENDPOINT,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        query: `
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
         query Works() {
           works(orderBy: createdAt_ASC) {
-            slugHome
+            slug
             company
             role
             homeDescription
-            homeLogo {
-              url
-            }
             homeImage {
               url
             }
             }
           }
         `,
-      }),
-    },
-  );
-  const { data }: Response = await response.json();
-  return data.works;
+    }),
+  });
+  const responseData: ApiResponse = await response.json();
+  return responseData.data.works;
 }
 
 export type WorkPage = {
