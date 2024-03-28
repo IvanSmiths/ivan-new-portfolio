@@ -6,19 +6,24 @@ import { ThemeMode, useThemeStore } from "../../../utils/store";
 const ThemeToggle: FC = () => {
   const { activeTheme, setActiveTheme } = useThemeStore();
 
+  const theme =
+    activeTheme === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light;
+
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
   }, [activeTheme]);
 
   const handleTheme = (): void => {
-    setActiveTheme(
-      activeTheme === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT,
-    );
+    setActiveTheme(theme);
   };
 
   return (
-    <span className="cursor-pointer mono block min-w-28" onClick={handleTheme}>
-      -{activeTheme === "dark" ? "light" : "dark"} mode-
+    <span
+      data-cy={theme}
+      className="cursor-pointer mono block min-w-28"
+      onClick={handleTheme}
+    >
+      -{theme} mode-
     </span>
   );
 };

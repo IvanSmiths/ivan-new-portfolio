@@ -1,13 +1,14 @@
 export enum Pages {
-  HOME = "/",
-  WORKS = "works",
+  Home = "home",
+  Works = "works",
 }
 
 type Page = Pages;
 
-export const navigate = (page: Page): void => {
+export const navigateAndCheckUrl = (page: Page): void => {
   const selector: string =
-    page === Pages.HOME ? `nav a[href="${page}"]` : `nav a[href*="${page}"]`;
+    page === Pages.Home ? `nav a[data-cy=${page}]` : `nav a[data-cy=${page}]`;
+  const url: string = page === Pages.Home ? `/` : `${page}`;
   cy.get(selector).click();
-  cy.url().should("include", page);
+  cy.url().should("include", url);
 };

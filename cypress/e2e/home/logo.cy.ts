@@ -10,10 +10,10 @@ describe("Theme", (): void => {
     (): void => {
       cy.visit("/");
       wait(5000);
-      toggleTheme(ThemeMode.DARK);
-      checkLogoColor(ThemeColors.DARK);
-      toggleTheme(ThemeMode.LIGHT);
-      checkLogoColor(ThemeColors.LIGHT);
+      toggleTheme(ThemeMode.Dark);
+      checkLogoColor(ThemeColors.Dark);
+      toggleTheme(ThemeMode.Light);
+      checkLogoColor(ThemeColors.Light);
     },
   );
 });
