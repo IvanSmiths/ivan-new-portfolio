@@ -81,7 +81,6 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
   }
   const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
-    cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
