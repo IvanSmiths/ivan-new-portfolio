@@ -1,7 +1,7 @@
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
-import { getWorks } from "../../utils/graphql";
+import { getWorks, WorkType } from "../../utils/graphql";
 import { FC } from "react";
 
 export const metadata: Metadata = {
@@ -11,11 +11,10 @@ export const metadata: Metadata = {
 };
 
 const Works: FC = async () => {
-  const works = await getWorks();
+  const works: WorkType[] = await getWorks();
   return (
     <>
       <Navbar position={Position.Fixed} />
-      {/* @ts-ignore */}
       <ScrollSection works={works} />
     </>
   );

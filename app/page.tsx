@@ -1,4 +1,3 @@
-import React from "react";
 import type { Metadata } from "next";
 import About from "./components/About/About";
 import Works from "./components/Works/Works";
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
     "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen",
 };
 
-async function Home() {
+const Home = async () => {
   const works: WorkType[] = await getWorks();
   const schemaData = {
     "@context": "http://schema.org",
@@ -57,6 +56,6 @@ async function Home() {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;
