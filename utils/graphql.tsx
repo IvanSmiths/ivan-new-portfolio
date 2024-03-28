@@ -35,7 +35,6 @@ export async function getWorks(): Promise<WorkType[]> {
         query Works() {
           works(orderBy: createdAt_ASC) {
             slugHome
-            createdAt
             company
             role
             homeDescription
@@ -64,6 +63,7 @@ export type WorkPage = {
   date: string;
   role: string;
   linkedinLink: string;
+  homeImage: { url: string; height: number; width: number; fileName: string };
   websiteLink: string;
   stack: string;
   images: RichTextContent;
@@ -77,7 +77,7 @@ type ResponsePage = {
   data: QueryResultPage;
 };
 
-export async function getWorksPage(slug: string): Promise<WorkPage[]> {
+export async function getWorksPage(slug: string): Promise<WorkPage> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
@@ -102,6 +102,12 @@ export async function getWorksPage(slug: string): Promise<WorkPage[]> {
             linkedinLink
             websiteLink
             stack
+            homeImage {
+            url
+            height
+            width
+            fileName
+          }
             images {
               raw
             }
@@ -115,5 +121,5 @@ export async function getWorksPage(slug: string): Promise<WorkPage[]> {
   });
   const { data }: ResponsePage = await response.json();
 
-  return data.works;
+  return data.works[0];
 }

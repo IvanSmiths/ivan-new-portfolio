@@ -3,7 +3,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useAnimationStore } from "../../utils/store";
+import { useAnimationStore } from "../../../utils/store";
 
 const Time: FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
@@ -57,10 +57,10 @@ const Time: FC = () => {
   return (
     <div
       ref={timeScopeRef}
-      className="relative overflow-hidden w-[70px] h-[21px]"
+      className="relative overflow-hidden h-[14px] w-[75px]"
     >
       <span
-        className="absolute mr-auto top-0 left-0 right-0 bottom-0 w-fit"
+        className="absolute mr-auto mono top-0 left-0 right-0 bottom-0 w-fit"
         ref={timeRef}
       >
         {currentTime}

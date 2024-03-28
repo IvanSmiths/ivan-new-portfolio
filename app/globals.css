@@ -8,7 +8,7 @@
     --smallest: 10px;
     --small: 20px;
     --medium: 60px;
-    --section: 160px;
+    --section: 260px;
 
     --body: 15px;
 }
@@ -16,21 +16,17 @@
 html,
 body,
 * {
-    scrollbar-width: thin;
+    scrollbar-width: none;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Jost', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
 }
 
 body {
-    font-family: 'Jost', sans-serif;
-    background: var(--secondary);
-    color: var(--primary);
+    font-family: sans-serif,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
     transition: background 0.25s ease-in-out;
-    -ms-overflow-style: none;
 }
 
 @layer base {
@@ -41,8 +37,8 @@ body {
     }
 
     body[data-theme="dark"] {
-        --primary: #ffffff;
-        --primary-light: #9c9ca9;
+        --primary: #e7e7e7;
+        --primary-light: #a8a8a8;
         --secondary: #09090B;
     }
 }
@@ -56,18 +52,8 @@ a {
     text-decoration: none;
 }
 
-.heading-large {
-    font-size: 70px;
-    line-height: 80px;
-}
-
 .heading-big {
     font-size: 48px;
-}
-
-.heading-regular {
-    font-size: 20px;
-    line-height: normal;
 }
 
 h1,
@@ -88,6 +74,13 @@ li {
     font-weight: 400;
 }
 
+.mono {
+    font-family: var(--font-azeret-mono), monospace;
+    font-size: 13px;
+    color: var(--primary-light);
+    text-transform: uppercase;
+}
+
 .grid {
     transition: background 0.25s ease-in-out;
     display: grid;
@@ -106,11 +99,6 @@ li {
 }
 
 @media (max-width: 768px) {
-    .heading-large {
-        font-size: 50px;
-        line-height: 60px;
-    }
-
     .grid {
         grid-template-columns: repeat(6, 1fr);
     }
@@ -118,18 +106,9 @@ li {
     .grid-debug {
         grid-template-columns: repeat(6, 1fr);
     }
-
 }
 
 @media (max-width: 640px) {
-    :root {
-        --medium: 20px;
-    }
-
-    .heading-regular {
-        font-size: 19px;
-    }
-
     .grid {
         grid-gap: 10px;
         padding: 0 20px;
@@ -138,12 +117,5 @@ li {
     .grid-debug {
         grid-gap: 10px;
         padding: 0 20px;
-    }
-}
-
-@media (max-width: 380px) {
-    .heading-large {
-        font-size: 28px;
-        line-height: 35px;
     }
 }

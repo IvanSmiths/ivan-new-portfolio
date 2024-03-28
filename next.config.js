@@ -8,7 +8,7 @@ module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
-        source: "/:path*",
+        source: "/(.*)",
         headers: securityHeaders,
       },
     ];
@@ -24,15 +24,18 @@ module.exports = withMDX(nextConfig);
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.google.com *.google.it *.googleadservices.com *.googlesyndication.com *.googletagservices.com *.googletagmanager.com;
-  child-src *.google.com *.google.it *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com ;
-  style-src https://fonts.googleapis.com 'self' 'unsafe-inline' *.googleapis.com *.stripe.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com/v1/script.debug.js https://www.googletagmanager.com;
+  child-src 'self';
+  style-src https://fonts.googleapis.com 'self';
   object-src 'none';
-  base-uri 'none';
-  img-src * blob: data:;
+  base-uri 'self';
+  img-src 'self' https://media.graphassets.com blob: data:;
   media-src 'self';
-  connect-src * blob:;
-  font-src 'self' https://fonts.gstatic.com;
+  connect-src 'self' https://region1.google-analytics.com;
+  form-action 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+  font-src 'self';
 `;
 
 const securityHeaders = [

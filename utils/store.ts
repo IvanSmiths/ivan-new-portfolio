@@ -20,8 +20,13 @@ type Overlay = {
 };
 
 export enum ThemeMode {
-  LIGHT = "light",
-  DARK = "dark",
+  Light = "light",
+  Dark = "dark",
+}
+
+export enum ThemeColors {
+  Light = "#09090B",
+  Dark = "#e7e7e7",
 }
 
 type Theme = {
@@ -41,7 +46,7 @@ export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
 export const useIconDimensionStore: UseBoundStore<StoreApi<IconDimension>> =
   create<IconDimension>()(() => ({
     small: 20,
-    normal: 40,
+    normal: 30,
   }));
 
 export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
@@ -60,7 +65,7 @@ export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
 export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
   persist<Theme>(
     (set, get) => ({
-      activeTheme: ThemeMode.LIGHT,
+      activeTheme: ThemeMode.Light,
       setActiveTheme: (theme: ThemeMode) => {
         set({ activeTheme: (get().activeTheme = theme) });
       },

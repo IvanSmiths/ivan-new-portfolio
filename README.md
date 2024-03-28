@@ -7,4 +7,4 @@ Built with:
 - Tailwind
 - Hygraph
 - Gsap
-- Jest (testing in progress)
+- Cypress

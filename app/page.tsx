@@ -1,15 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
-import Header from "./components/Header";
-import Text from "./components/Text";
-import About from "./components/About";
-import Works from "./components/Works";
-import Navbar from "./globalComponents/Navbar";
+import About from "./components/About/About";
+import Works from "./components/Works/Works";
 import Footer from "./globalComponents/Footer";
-import LoaderWrapper from "./components/LoaderWrapper";
+import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, WorkType } from "../utils/graphql";
-import Overlay from "./components/Overlay";
-import Test from "../blogposts/test.mdx";
+import Overlay from "./components/Loader/Overlay";
+import Hero from "./components/Hero/Hero";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -49,13 +46,8 @@ async function Home() {
   return (
     <>
       <Overlay />
-      <div className="min-h-[93vh]">
-        <Header />
-        <Text />
-      </div>
-      <Test />
+      <Hero />
       <LoaderWrapper />
-      <Navbar />
       <About />
       <Works works={works} />
       <script
