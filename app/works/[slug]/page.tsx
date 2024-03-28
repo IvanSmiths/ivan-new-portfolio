@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Footer from "../../globalComponents/Footer";
 import React from "react";
@@ -6,35 +5,16 @@ import { getWorksPage, WorkPage } from "../../../utils/graphql";
 import Hero from "./components/Hero";
 import Description from "./components/Description";
 import Images from "./components/Images";
+import { Metadata } from "next";
 
 type Props = {
   params: { slug: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // @ts-ignore
-  const product = await fetch(process.env.HYGRAPH_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: `
-      query Works() {
-      works(where: {slug: "${params.slug}"}) {
-      title
-      metaDescription
-    }
-  }
-  `,
-      variables: {
-        slug: params,
-      },
-    }),
-  }).then((res) => res.json());
+  const work: WorkPage = await getWorksPage(params.slug);
   return {
-    title: product.data.works.title,
-    description: product.data.works.metaDescription,
+    title: work.title,
+    description: work.metaDescription,
   };
 }
 

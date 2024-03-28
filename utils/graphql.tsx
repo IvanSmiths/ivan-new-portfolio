@@ -56,27 +56,32 @@ export type WorkPage = {
   description: RichTextContent;
   date: string;
   role: string;
+  metaDescription: string;
   linkedinLink: string;
-  homeImage: { url: string; height: number; width: number; fileName: string };
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+    fileName: string;
+  };
   websiteLink: string;
   stack: string;
   images: RichTextContent;
 };
 
-type QueryResultPage = {
-  works: WorkPage[];
-};
-
-type ResponsePage = {
-  data: QueryResultPage;
+type ApiResponsePage = {
+  data: {
+    works: WorkPage;
+  };
 };
 
 export async function getWorksPage(slug: string): Promise<WorkPage> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
-  const response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
+    cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -96,6 +101,8 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
             linkedinLink
             websiteLink
             stack
+            title
+            metaDescription
             homeImage {
             url
             height
@@ -113,7 +120,6 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
       },
     }),
   });
-  const { data }: ResponsePage = await response.json();
-
-  return data.works[0];
+  const responseDataPage: ApiResponsePage = await response.json();
+  return responseDataPage.data.works[0];
 }
