@@ -4,6 +4,25 @@ import type { Metadata } from "next";
 import { getWorks, WorkType } from "../../utils/graphql";
 import { FC } from "react";
 
+const schemaData = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Ivan Smiths, all the works",
+      item: "https://ivansmiths.com/works",
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Ivan Smiths, all the works",
   description:
@@ -16,6 +35,10 @@ const Works: FC = async () => {
     <>
       <Navbar position={Position.Fixed} />
       <ScrollSection works={works} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </>
   );
 };
