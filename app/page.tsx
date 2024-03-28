@@ -22,10 +22,6 @@ const Home = async () => {
     url: "https://www.ivansmiths.com",
     image: "https://www.ivansmiths.com/main-texture.jpg",
     description: "Frontend developer with 3 years of experience",
-    brand: {
-      "@type": "Brand",
-      logo: "https://www.ivansmiths.com/logo-icon-white.svg",
-    },
     sameAs: "https://www.ivansmiths.com",
     author: {
       "@type": "Person",

@@ -10,6 +10,7 @@ import { Metadata } from "next";
 type Props = {
   params: { slug: string };
 };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work: WorkPage = await getWorksPage(params.slug);
   return {
@@ -29,6 +30,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Work({ params }) {
   const works: WorkPage = await getWorksPage(params.slug);
+  const schemaData = {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+        item: "https://ivansmiths.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Ivan Smiths, all the works",
+        item: "https://ivansmiths.com/works",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: works.title,
+        item: `https://ivansmiths.com/works/${works.slug}`,
+      },
+    ],
+  };
   return (
     <>
       <Navbar position={Position.Fixed} />
@@ -38,6 +63,10 @@ export default async function Work({ params }) {
         <Images work={works} />
       </div>
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </>
   );
 }
