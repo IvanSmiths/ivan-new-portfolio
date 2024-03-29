@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import About from "./components/About/About";
 import Works from "./components/Works/Works";
-import Footer from "./globalComponents/Footer";
+import Footer from "./globalComponents/Footer/Footer";
 import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, WorkType } from "../utils/graphql";
 import Overlay from "./components/Loader/Overlay";
