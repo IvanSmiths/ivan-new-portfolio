@@ -5,8 +5,6 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-
-    // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -14,9 +12,8 @@ const config: Config = {
       colors: {
         brand: "var(--brand)",
         primary: "var(--primary)",
-        "primary-light": "var(--primary-light)",
+        primaryLight: "var(--primary-light)",
         secondary: "var(--secondary)",
-        white: "#ECECEC",
       },
       transitionProperty: {
         dimensions: "height, width",
@@ -26,9 +23,6 @@ const config: Config = {
         small: "var(--small)",
         medium: "var(--medium)",
         section: "var(--section)",
-      },
-      grayscale: {
-        50: "50%",
       },
     },
   },

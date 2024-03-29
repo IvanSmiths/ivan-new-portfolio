@@ -13,7 +13,7 @@ const About: FC = () => {
           who am i
         </span>
         <div className="w-full md:col-start-8 col-start-2 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-28">
-          <p className="text-primary-light">
+          <p className="text-primaryLight">
             <strong className="text-primary font-bold">
               Adept at translating creative ideas into user-centric and
               data-driven experiences.
