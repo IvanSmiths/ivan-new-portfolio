@@ -10,7 +10,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: "var(--brand)",
         primary: "var(--primary)",
         primaryLight: "var(--primary-light)",
         secondary: "var(--secondary)",
