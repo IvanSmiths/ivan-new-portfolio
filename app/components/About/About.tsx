@@ -2,7 +2,7 @@ import { FC } from "react";
 
 const About: FC = () => {
   return (
-    <main className="mt-section mb-medium">
+    <main className="mt-section md:mb-medium">
       <div className="grid">
         <div className="col-start-1 bg-primary w-2 h-2 rounded-full mt-2"></div>
         <h2 className="sm:text-5xl text-3xl md:col-start-4 md:col-end-12 col-end-7 col-start-2">
@@ -12,7 +12,7 @@ const About: FC = () => {
         <span className="md:col-start-4 col-start-1 mono sm:mt-medium mt-28">
           who am i
         </span>
-        <div className="w-full md:col-start-8 col-start-2 md:col-end-11 col-end-7 sm:mt-medium mt-28">
+        <div className="w-full md:col-start-8 col-start-2 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-28">
           <p className="text-primary-light">
             <strong className="text-primary font-bold">
               Adept at translating creative ideas into user-centric and

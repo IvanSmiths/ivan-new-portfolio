@@ -60,7 +60,7 @@ const Works: FC<WorksProps> = ({ works }) => {
   );
 
   return (
-    <div className="overflow-hidden pt-medium">
+    <div className="overflow-hidden md:pt-medium">
       <div ref={triggerRef}>
         <div ref={scrollRef} className="h-[100vh] flex w-fit">
           {works.map((work: WorkType, index: Key) => (
