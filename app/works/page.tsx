@@ -1,8 +1,9 @@
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
-import { getWorks } from "../../utils/graphql";
+import { getWorks, WorkType } from "../../utils/graphql";
 import { FC } from "react";
+import { worksSchema } from "../../utils/Schemas";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, all the works",
@@ -11,12 +12,15 @@ export const metadata: Metadata = {
 };
 
 const Works: FC = async () => {
-  const works = await getWorks();
+  const works: WorkType[] = await getWorks();
   return (
     <>
       <Navbar position={Position.Fixed} />
-      {/* @ts-ignore */}
       <ScrollSection works={works} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(worksSchema) }}
+      />
     </>
   );
 };

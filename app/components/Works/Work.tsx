@@ -2,23 +2,11 @@
 
 import { FC, Key } from "react";
 import Link from "next/link";
+import { WorkType } from "../../../utils/graphql";
 
 type WorkProps = {
-  index: Key | null | undefined;
-  work: {
-    slugHome: string;
-    company: string;
-    role: string;
-    homeDescription: string;
-    homeImage: {
-      url: string;
-      height: string;
-      width: string;
-    };
-    homeLogo: {
-      url: string;
-    };
-  };
+  work: WorkType;
+  index: Key;
 };
 
 const Work: FC<WorkProps> = ({ work, index }) => {
@@ -26,14 +14,14 @@ const Work: FC<WorkProps> = ({ work, index }) => {
     <div key={index} className="h-[100vh] w-[100vw] flex items-center">
       <div className="grid items-center w-full md:h-3/5 h-4/5">
         <div className="md:col-start-4 md:col-end-6 col-start-1 col-end-7 text-left md:text-right md:justify-between justify-end md:items-end right-auto flex flex-col w-full h-full">
-          <Link href={work.slugHome}>
+          <Link href={`works/${work.slug}`}>
             <h3 className="mono">{work.company}</h3>
             <h4 className="font-bold text-4xl mt-1">{work.role}</h4>
           </Link>
           <h5 className="hidden sm:block">{work.homeDescription}</h5>
         </div>
         <Link
-          href={work.slugHome}
+          href={`works/${work.slug}`}
           className="md:col-start-6 md:col-end-10 col-start-1 col-end-7 flex h-full w-full"
         >
           <img
