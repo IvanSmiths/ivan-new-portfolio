@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-    --brand: #d7f21d;
-
     --smallest: 10px;
     --small: 20px;
     --medium: 60px;
@@ -48,12 +46,7 @@ li::marker {
 }
 
 a {
-    cursor: pointer;
     text-decoration: none;
-}
-
-.heading-big {
-    font-size: 48px;
 }
 
 h1,
