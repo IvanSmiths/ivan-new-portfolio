@@ -1,5 +1,5 @@
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
-import Footer from "../../globalComponents/Footer";
+import Footer from "../../globalComponents/Footer/Footer";
 import React from "react";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
 import Hero from "./components/Hero";

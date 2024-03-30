@@ -15,7 +15,7 @@ type WorksProps = {
 };
 
 const Works: FC<WorksProps> = ({ works }) => {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -23,16 +23,17 @@ const Works: FC<WorksProps> = ({ works }) => {
   const { slowest, normal } = useAnimationStore();
 
   const getScrollAmount = (): number | undefined => {
-    let width = scrollRef.current?.offsetWidth;
-    if (width) {
-      return width - window.innerWidth;
+    let containerWidth = containerRef.current?.offsetWidth;
+    let clientWidth = window.innerWidth;
+    if (containerWidth) {
+      return containerWidth - clientWidth;
     }
   };
 
   useGSAP(
     () => {
       gsap.fromTo(
-        scrollRef.current,
+        containerRef.current,
         {
           translateX: 0,
         },
@@ -60,9 +61,9 @@ const Works: FC<WorksProps> = ({ works }) => {
   );
 
   return (
-    <div className="overflow-hidden pt-medium">
+    <div className="overflow-hidden md:pt-medium">
       <div ref={triggerRef}>
-        <div ref={scrollRef} className="h-[100vh] flex w-fit">
+        <div ref={containerRef} className="h-[100vh] flex w-fit">
           {works.map((work: WorkType, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
