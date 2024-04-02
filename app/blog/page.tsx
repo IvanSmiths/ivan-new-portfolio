@@ -1,34 +1,16 @@
-import { FC } from "react";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import getPosts from "../../utils/fetchPosts";
 import Link from "next/link";
 
-const Page: FC = () => {
-  const postsDirectory = path.join(process.cwd(), "blogposts");
-  const files = fs.readdirSync(postsDirectory);
-
-  const posts = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "");
-    const fileContent = fs.readFileSync(
-      path.join(postsDirectory, filename),
-      "utf-8",
-    );
-    const { data: frontMatter } = matter(fileContent);
-    return {
-      slug,
-      meta: frontMatter,
-    };
-  });
+export default async function Pag() {
+  const posts = await getPosts();
+  console.log(posts[0].body);
   return (
     <div>
       {posts.map((post) => (
-        <Link key={post.slug} href={post.slug}>
-          <div className="w-5">{post.meta.title}</div>
+        <Link key={post.slug} href={`blog/${post.slug}`}>
+          <div className="w-5">{post.title}</div>
         </Link>
       ))}
     </div>
   );
-};
-
-export default Page;
+}
