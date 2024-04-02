@@ -3,6 +3,7 @@ import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
 import { getWorks, WorkType } from "../../utils/graphql";
 import { FC } from "react";
+import { worksSchema } from "../../utils/Schemas";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, all the works",
@@ -16,6 +17,10 @@ const Works: FC = async () => {
     <>
       <Navbar position={Position.Fixed} />
       <ScrollSection works={works} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(worksSchema) }}
+      />
     </>
   );
 };
