@@ -3,7 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { MDXComponents } from "./components/MDXComponents";
 import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
-import Navbar from "../../globalComponents/Navbar/Navbar";
+import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 
 export async function generateStaticParams(): Promise<
   { slug: string | undefined }[]
@@ -27,8 +27,8 @@ export default async function Post({
 
   return (
     <>
-      <Navbar />
-      <article>
+      <Navbar position={Position.Fixed} />
+      <article className="mt-large">
         <Hero post={post} />
         <MDXRemote source={post!.body} components={{ ...MDXComponents }} />
       </article>

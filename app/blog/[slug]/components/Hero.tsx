@@ -28,7 +28,7 @@ const bebas_neue = Bebas_Neue({
 const Hero: FC<PostProps> = ({ post }) => {
   const tags: string[] = post.tags.split(" ");
   return (
-    <div className="w-full flex flex-col items-center mt-medium">
+    <div className="w-full flex flex-col items-center">
       <Blob />
       <div className="flex flex-col gap-small justify-center items-center sm:w-8/12 w-11/12">
         <span className="mono">{post.category}</span>
@@ -41,16 +41,16 @@ const Hero: FC<PostProps> = ({ post }) => {
           {post.excerpt}
         </h2>
         <div className="flex items-center flex-wrap gap-2">
-          <span>Published:</span>
-          <time dateTime={post.date}>
+          <span className="mono">Published:</span>
+          <time className="mono" dateTime={post.date}>
             {new Date(post.date).toLocaleDateString("en-us", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </time>
-          <Dot />
-          <span>{post.time} minutes read</span>
+          <Dot dimension="small" />
+          <span className="mono">{post.time} minutes read</span>
         </div>
         <ul className="flex justify-center items-center gap-smallest">
           {tags.map((tag: string, index: number) => (
@@ -58,9 +58,9 @@ const Hero: FC<PostProps> = ({ post }) => {
               className="flex justify-center items-center gap-smallest"
               key={index}
             >
-              <span>{tag}</span>
+              <span className="mono">{tag}</span>
               <div className={index === tags.length - 1 ? "hidden" : ""}>
-                <Dot />
+                <Dot dimension="small" />
               </div>
             </li>
           ))}
