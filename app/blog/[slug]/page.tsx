@@ -1,15 +1,19 @@
-import { getPost, getPosts } from "../../../utils/fetchPosts";
+import { getPost, getPosts, Posts } from "../../../utils/getPosts";
 import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
-export async function generateStaticParams() {
-  const posts = await getPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+export async function generateStaticParams(): Promise<
+  { slug: string | undefined }[]
+> {
+  const posts: Posts[] = await getPosts();
+  return posts?.map((post: Posts) => ({ slug: post?.slug }));
 }
 
+type H1 = { children: string };
+
 const components = {
-  h1: (props) => (
-    <h1 {...props} className="text-red-500">
+  h1: (props: H1) => (
+    <h1 {...props} className="text-red-500 text-5xl">
       {props.children}
     </h1>
   ),
@@ -21,7 +25,6 @@ export default async function Post({
     slug: string;
   };
 }) {
-  const post = await getPost(params.slug);
-  console.log(post);
-  return <MDXRemote source={post?.body} components={{ ...components }} />;
+  const post: Posts | undefined = await getPost(params.slug);
+  return <MDXRemote source={post!.body} components={{ ...components }} />;
 }

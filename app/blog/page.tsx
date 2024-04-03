@@ -1,13 +1,13 @@
-import getPosts from "../../utils/fetchPosts";
+import getPosts, { Post, Posts } from "../../utils/getPosts";
 import Link from "next/link";
 
 export default async function Pag() {
-  const posts = await getPosts();
+  const posts: Posts[] = await getPosts();
   return (
     <div>
-      {posts.map((post) => (
+      {posts?.map((post: Post) => (
         <Link key={post.slug} href={`blog/${post.slug}`}>
-          <div className="w-5">{post.title}</div>
+          <div>{post.title}</div>
         </Link>
       ))}
     </div>
