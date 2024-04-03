@@ -7,6 +7,9 @@ export type Post = {
   body: string;
   category: string;
   cover?: string;
+  coverAlt?: string;
+  coverWidth?: number;
+  coverHeight?: number;
   date: string;
   description: string;
   excerpt: string;

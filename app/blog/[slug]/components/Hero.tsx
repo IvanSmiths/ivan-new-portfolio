@@ -7,6 +7,9 @@ type PostProps = {
   post: {
     category: string;
     cover?: string;
+    coverAlt?: string;
+    coverWidth?: number;
+    coverHeight?: number;
     title: string;
     excerpt: string;
     date: string;
@@ -65,7 +68,13 @@ const Hero: FC<PostProps> = ({ post }) => {
       </div>
       {post.cover ? (
         <div className="w-11/12 mt-small">
-          <img className="w-full" src={post.cover} alt="" />
+          <img
+            className="w-full"
+            src={post.cover}
+            alt={post.coverAlt}
+            width={post.coverWidth}
+            height={post.coverHeight}
+          />
         </div>
       ) : null}
     </div>
