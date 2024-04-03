@@ -6,11 +6,12 @@ import { cache } from "react";
 export type Post = {
   body: string;
   category: string;
+  cover?: string;
   date: string;
   description: string;
   excerpt: string;
   slug: string | undefined;
-  tags: string[];
+  tags: string;
   title: string;
   time: number;
 };

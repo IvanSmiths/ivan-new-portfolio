@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import { FC } from "react";
 import { WorkPage } from "../../../../utils/graphql";
 import { RichText } from "@graphcms/rich-text-react-renderer";

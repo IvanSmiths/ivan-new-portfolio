@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { FC, Key } from "react";
 import { gsap } from "gsap";

@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import { FC, Key } from "react";
 import Link from "next/link";
 import { WorkType } from "../../../utils/graphql";

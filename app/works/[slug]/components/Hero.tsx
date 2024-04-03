@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
 import { Bebas_Neue } from "next/font/google";
 

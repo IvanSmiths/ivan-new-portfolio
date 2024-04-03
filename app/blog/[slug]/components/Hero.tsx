@@ -6,10 +6,12 @@ import Dot from "../../../globalComponents/Dot";
 type PostProps = {
   post: {
     category: string;
+    cover?: string;
     title: string;
     excerpt: string;
     date: string;
     time: number;
+    tags: string;
   };
 };
 
@@ -21,8 +23,9 @@ const bebas_neue = Bebas_Neue({
 });
 
 const Hero: FC<PostProps> = ({ post }) => {
+  const tags: string[] = post.tags.split(" ");
   return (
-    <div className="w-full flex justify-center mt-medium">
+    <div className="w-full flex flex-col items-center mt-medium">
       <Blob />
       <div className="flex flex-col gap-small justify-center items-center sm:w-8/12 w-11/12">
         <span className="mono">{post.category}</span>
@@ -46,7 +49,25 @@ const Hero: FC<PostProps> = ({ post }) => {
           <Dot />
           <span>{post.time} minutes read</span>
         </div>
+        <ul className="flex justify-center items-center gap-smallest">
+          {tags.map((tag: string, index: number) => (
+            <li
+              className="flex justify-center items-center gap-smallest"
+              key={index}
+            >
+              <span>{tag}</span>
+              <div className={index === tags.length - 1 ? "hidden" : ""}>
+                <Dot />
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
+      {post.cover ? (
+        <div className="w-11/12 mt-small">
+          <img className="w-full" src={post.cover} alt="" />
+        </div>
+      ) : null}
     </div>
   );
 };
