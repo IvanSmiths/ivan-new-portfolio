@@ -28,9 +28,11 @@ export default async function Post({
   return (
     <>
       <Navbar position={Position.Fixed} />
-      <article className="mt-large">
+      <article className="mt-large grid">
         <Hero post={post} />
-        <MDXRemote source={post!.body} components={{ ...MDXComponents }} />
+        <div className="col-start-3 col-end-11 mt-medium flex flex-col gap-small">
+          <MDXRemote source={post!.body} components={{ ...MDXComponents }} />
+        </div>
       </article>
     </>
   );

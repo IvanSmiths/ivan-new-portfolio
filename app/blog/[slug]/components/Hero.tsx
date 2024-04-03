@@ -30,59 +30,57 @@ const Hero: FC<PostProps> = ({ post }) => {
   return (
     <>
       <Blob />
-      <div className="grid">
-        <div className="md:col-start-3 md:col-end-11 col-span-full flex flex-col gap-small justify-center items-center">
-          <span className="mono">{post.category}</span>
-          <h1
-            className={`${bebas_neue.className} md:text-7xl xl:text-8xl text-3xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight font-semibold text-transparent h-full bg-clip-text`}
-          >
-            {post.title}
-          </h1>
-          <h2 className="text-center text-lg text-primary leading-[24px]">
-            {post.excerpt}
-          </h2>
-          <div className="flex max-sm:flex-col items-center flex-wrap gap-smallest">
-            <span className="mono">
-              Published:{" "}
-              <time className="mono" dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("en-us", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-            </span>
-            <div className="hidden sm:block">
-              <Dot dimension="small" />
-            </div>
-            <span className="mono">{post.time} minutes read</span>
+      <div className="md:col-start-3 md:col-end-11 col-span-full flex flex-col gap-small justify-center items-center">
+        <span className="mono">{post.category}</span>
+        <h1
+          className={`${bebas_neue.className} md:text-7xl xl:text-8xl text-3xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight font-semibold text-transparent h-full bg-clip-text`}
+        >
+          {post.title}
+        </h1>
+        <h2 className="text-center text-lg text-primary leading-[24px]">
+          {post.excerpt}
+        </h2>
+        <div className="flex max-sm:flex-col items-center flex-wrap gap-smallest">
+          <span className="mono">
+            Published:{" "}
+            <time className="mono" dateTime={post.date}>
+              {new Date(post.date).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </span>
+          <div className="hidden sm:block">
+            <Dot dimension="small" />
           </div>
-          <ul className="flex justify-center items-center gap-smallest">
-            {tags.map((tag: string, index: number) => (
-              <li
-                className="flex justify-center items-center gap-smallest"
-                key={index}
-              >
-                <span className="mono">{tag}</span>
-                <div className={index === tags.length - 1 ? "hidden" : ""}>
-                  <Dot dimension="small" />
-                </div>
-              </li>
-            ))}
-          </ul>
+          <span className="mono">{post.time} minutes read</span>
         </div>
-        {post.cover ? (
-          <div className="col-span-full mt-small">
-            <img
-              className="w-full"
-              src={post.cover}
-              alt={post.coverAlt}
-              width={post.coverWidth}
-              height={post.coverHeight}
-            />
-          </div>
-        ) : null}
+        <ul className="flex justify-center items-center gap-smallest">
+          {tags.map((tag: string, index: number) => (
+            <li
+              className="flex justify-center items-center gap-smallest"
+              key={index}
+            >
+              <span className="mono">{tag}</span>
+              <div className={index === tags.length - 1 ? "hidden" : ""}>
+                <Dot dimension="small" />
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
+      {post.cover ? (
+        <div className="col-start-2 col-end-12 mt-small">
+          <img
+            className="w-full"
+            src={post.cover}
+            alt={post.coverAlt}
+            width={post.coverWidth}
+            height={post.coverHeight}
+          />
+        </div>
+      ) : null}
     </>
   );
 };
