@@ -30,7 +30,7 @@ const Hero: FC<PostProps> = ({ post }) => {
   return (
     <>
       <Blob />
-      <div className="md:col-start-3 md:col-end-11 col-span-full flex flex-col gap-small justify-center items-center">
+      <section className="md:col-start-3 md:col-end-11 col-span-full flex flex-col gap-small justify-center items-center">
         <span className="mono">{post.category}</span>
         <h1
           className={`${bebas_neue.className} md:text-7xl xl:text-8xl text-3xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight font-semibold text-transparent h-full bg-clip-text`}
@@ -69,7 +69,7 @@ const Hero: FC<PostProps> = ({ post }) => {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
       {post.cover ? (
         <div className="col-start-2 col-end-12 mt-small">
           <img

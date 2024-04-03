@@ -5,11 +5,11 @@ import NavbarWrapper from "../Navbar/NavbarWrapper";
 
 const Hero: FC = () => {
   return (
-    <div className="min-h-[100vh] flex flex-col">
+    <section className="min-h-[100vh] flex flex-col">
       <Header />
       <NavbarWrapper />
       <Text />
-    </div>
+    </section>
   );
 };
 

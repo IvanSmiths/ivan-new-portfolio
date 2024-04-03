@@ -34,9 +34,9 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
   });
 
   return (
-    <div className="grid">
+    <section className="grid">
       <div className="flex md:col-start-3 md:col-end-11 col-start-1 col-end-7">
-        <ul className="w-full flex flex-col items-center justify-center">
+        <main className="w-full flex flex-col items-center justify-center">
           {works.map((work: WorkType, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
@@ -64,9 +64,9 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
               </Link>
             </div>
           </div>
-        </ul>
+        </main>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -8,7 +8,7 @@ type HeaderProps = {
 
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
-    <>
+    <main>
       <ul className="md:col-start-7 md:col-end-13 col-start-1 col-end-13 mt-medium flex flex-col sm:gap-smallest gap-small">
         <li className="flex max-sm:flex-col max-sm:items-start">
           <span className="w-36 mono">Role:</span>
@@ -53,7 +53,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
           li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
       />
-    </>
+    </main>
   );
 };
 

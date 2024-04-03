@@ -3,7 +3,7 @@ import Dot from "../../globalComponents/Dot";
 
 const About: FC = () => {
   return (
-    <main className="mt-section md:mb-medium">
+    <section className="mt-section md:mb-medium">
       <div className="grid">
         <Dot dimension="regular" />
         <h2 className="sm:text-5xl text-3xl md:col-start-4 md:col-end-12 col-end-7 col-start-2">
@@ -30,7 +30,7 @@ const About: FC = () => {
           </p>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 
