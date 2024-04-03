@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default async function Pag() {
   const posts = await getPosts();
-  console.log(posts[0].body);
   return (
     <div>
       {posts.map((post) => (
