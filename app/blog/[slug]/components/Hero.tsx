@@ -41,16 +41,20 @@ const Hero: FC<PostProps> = ({ post }) => {
           <h2 className="text-center text-lg text-primary leading-[24px]">
             {post.excerpt}
           </h2>
-          <div className="flex items-center flex-wrap gap-2">
-            <span className="mono">Published:</span>
-            <time className="mono" dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString("en-us", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-            <Dot dimension="small" />
+          <div className="flex max-sm:flex-col items-center flex-wrap gap-smallest">
+            <span className="mono">
+              Published:{" "}
+              <time className="mono" dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString("en-us", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            </span>
+            <div className="hidden sm:block">
+              <Dot dimension="small" />
+            </div>
             <span className="mono">{post.time} minutes read</span>
           </div>
           <ul className="flex justify-center items-center gap-smallest">
