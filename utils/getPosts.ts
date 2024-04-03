@@ -11,7 +11,6 @@ export type Post = {
   coverWidth?: number;
   coverHeight?: number;
   date: string;
-  description: string;
   excerpt: string;
   slug: string | undefined;
   tags: string;

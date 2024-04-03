@@ -4,6 +4,7 @@ import { MDXComponents } from "./components/MDXComponents";
 import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
+import { Metadata } from "next";
 
 export async function generateStaticParams(): Promise<
   { slug: string | undefined }[]
@@ -11,6 +12,25 @@ export async function generateStaticParams(): Promise<
   const posts: Posts[] = await getPosts();
   return posts?.map((post: Posts) => ({ slug: post?.slug }));
 }
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}): Promise<Metadata> => {
+  const post: Posts | undefined = (await getPosts()).find(
+    (p) => p?.slug === params.slug,
+  );
+  return {
+    title: post?.title,
+    description: post?.excerpt,
+    alternates: {
+      canonical: `https://ivansmiths.com/blog/${params.slug}`,
+    },
+  };
+};
 
 export default async function Post({
   params,
