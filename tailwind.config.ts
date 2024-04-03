@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         primary: "var(--primary)",
         primaryLight: "var(--primary-light)",
+        primaryAccent: "var(--primary-accent)",
         secondary: "var(--secondary)",
       },
       transitionProperty: {

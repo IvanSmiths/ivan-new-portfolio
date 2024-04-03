@@ -4,11 +4,15 @@ import fs from "fs/promises";
 import { cache } from "react";
 
 export type Post = {
-  title: string;
-  description: string;
-  slug: string | undefined;
-  date: string;
   body: string;
+  category: string;
+  date: string;
+  description: string;
+  excerpt: string;
+  slug: string | undefined;
+  tags: string[];
+  title: string;
+  time: number;
 };
 
 export type Posts = Post | null;
@@ -21,7 +25,7 @@ export const getPosts = cache(async () => {
       .filter(
         (file) => path.extname(file) === ".md" || path.extname(file) === ".mdx",
       )
-      .map(async (file) => {
+      .map(async (file): Promise<Post> => {
         const filePath = `./blogposts/${file}`;
         const postContent = await fs.readFile(filePath, "utf8");
         const { data, content } = matter(postContent);

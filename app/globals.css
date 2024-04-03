@@ -30,12 +30,14 @@ body {
 @layer base {
     body[data-theme="light"] {
         --primary: #09090B;
+        --primary-accent: #000000;
         --primary-light: #71717A;
         --secondary: #ffffff;
     }
 
     body[data-theme="dark"] {
         --primary: #e7e7e7;
+        --primary-accent: #ffffff;
         --primary-light: #a8a8a8;
         --secondary: #09090B;
     }
@@ -61,7 +63,8 @@ span,
 button,
 label,
 a,
-li {
+li,
+time {
     font-size: var(--body);
     color: var(--primary);
     font-weight: 400;
