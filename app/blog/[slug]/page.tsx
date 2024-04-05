@@ -6,6 +6,12 @@ import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { Metadata } from "next";
 
+type BlogProps = {
+  params: {
+    slug: string;
+  };
+};
+
 export async function generateStaticParams(): Promise<
   { slug: string | undefined }[]
 > {
@@ -32,13 +38,7 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function Post({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}) {
+export default async function Post({ params }: BlogProps) {
   const post: Posts | undefined = await getPost(params.slug);
 
   if (!post) {
