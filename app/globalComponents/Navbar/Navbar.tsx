@@ -77,7 +77,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
             </a>
           </li>
           <li>
-            <div className="flex flex-col gap-2">
+            <div className="hidden sm:flex flex-col gap-2">
               {socials.map((link: Links, index: number) => (
                 <a
                   key={index}
