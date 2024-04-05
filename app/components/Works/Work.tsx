@@ -1,9 +1,9 @@
 import { FC, Key } from "react";
 import Link from "next/link";
-import { WorkType } from "../../../utils/graphql";
+import { Works } from "../../../utils/graphql";
 
 type WorkProps = {
-  work: WorkType;
+  work: Works;
   index: Key;
 };
 

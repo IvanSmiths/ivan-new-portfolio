@@ -6,12 +6,10 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "../../components/Works/Work";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
-import { WorkType } from "../../../utils/graphql";
+import { Works } from "../../../utils/graphql";
 
 type WorksProps = {
-  works: {
-    map: Function;
-  };
+  works: Works[];
 };
 
 const InfiniteScroll: FC<WorksProps> = ({ works }) => {
@@ -20,6 +18,7 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
   useGSAP(() => {
     ScrollTrigger.create({
       start: 0.1,
+      // @ts-ignore
       end: () => ScrollTrigger.maxScroll(window) - 1,
       refreshPriority: -100,
       onLeave: (self) => {
@@ -34,10 +33,10 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
   });
 
   return (
-    <section className="grid">
+    <div className="grid">
       <div className="flex md:col-start-3 md:col-end-11 col-start-1 col-end-7">
-        <main className="w-full flex flex-col items-center justify-center">
-          {works.map((work: WorkType, index: Key) => (
+        <ul className="w-full flex flex-col items-center justify-center">
+          {works.map((work: Works, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
           <div className="h-[100vh] w-[100vw] flex items-center">
@@ -64,9 +63,9 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
               </Link>
             </div>
           </div>
-        </main>
+        </ul>
       </div>
-    </section>
+    </div>
   );
 };
 
