@@ -56,6 +56,7 @@ export type WorkPage = {
   description: { raw: RichTextContent };
   date: string;
   role: string;
+  homeDescription: string;
   metaDescription: string;
   linkedinLink: string;
   homeImage: {
@@ -71,7 +72,7 @@ export type WorkPage = {
 
 type ApiResponsePage = {
   data: {
-    works: WorkPage;
+    works: WorkPage[];
   };
 };
 
