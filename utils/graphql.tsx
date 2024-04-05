@@ -1,6 +1,6 @@
 import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
-export type WorkType = {
+export type Works = {
   slug: string;
   company: string;
   role: string;
@@ -14,11 +14,11 @@ export type WorkType = {
 
 type ApiResponse = {
   data: {
-    works: WorkType[];
+    works: Works[];
   };
 };
 
-export async function getWorks(): Promise<WorkType[]> {
+export async function getWorks(): Promise<Works[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
