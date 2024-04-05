@@ -9,7 +9,7 @@ type WeatherProps = {
   weather: string;
 };
 
-const Weather: FC = ({ temp, weather }: WeatherProps) => {
+const Weather: FC<WeatherProps> = ({ temp, weather }) => {
   const weatherScopeRef = useRef<HTMLDivElement | null>(null);
   const weatherRef = useRef<HTMLSpanElement | null>(null);
   const { normal } = useAnimationStore();
