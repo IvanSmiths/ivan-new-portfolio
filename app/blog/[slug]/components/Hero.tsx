@@ -71,7 +71,7 @@ const Hero: FC<PostProps> = ({ post }) => {
         </ul>
       </section>
       {post.cover ? (
-        <div className="col-start-2 col-end-12 mt-small">
+        <div className="md:col-start-2 md:col-end-12 col-span-full mt-small">
           <img
             className="w-full"
             src={post.cover}

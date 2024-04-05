@@ -50,7 +50,7 @@ export default async function Post({
       <Navbar position={Position.Fixed} />
       <article className="mt-large grid">
         <Hero post={post} />
-        <main className="col-start-3 col-end-11 mt-medium flex flex-col gap-small">
+        <main className="md:col-start-3 md:col-end-11 col-span-full mt-medium flex flex-col gap-small">
           <MDXRemote source={post!.body} components={{ ...MDXComponents }} />
         </main>
       </article>
