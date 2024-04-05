@@ -51,7 +51,7 @@ export default async function Post({
       <article className="mt-large grid">
         <Hero post={post} />
         <main className="md:col-start-3 md:col-end-11 col-span-full mt-medium flex flex-col gap-small">
-          <MDXRemote source={post!.body} components={{ ...MDXComponents }} />
+          <MDXRemote source={post!.body} components={{ MDXComponents }} />
         </main>
       </article>
     </>
