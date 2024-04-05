@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Work({ params }) {
+export default async function Work({ params }: Props) {
   const works: WorkPage = await getWorksPage(params.slug);
   return (
     <>
