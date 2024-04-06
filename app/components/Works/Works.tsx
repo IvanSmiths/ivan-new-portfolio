@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "./Work";
 import { useGSAP } from "@gsap/react";
 import { useAnimationStore } from "../../../utils/store";
-import { WorkType } from "../../../utils/graphql";
+import { Works } from "../../../utils/graphql";
 
 type WorksProps = {
   works: {
@@ -64,7 +64,7 @@ const Works: FC<WorksProps> = ({ works }) => {
     <div className="overflow-hidden md:pt-medium">
       <div ref={triggerRef}>
         <div ref={containerRef} className="h-[100vh] flex w-fit">
-          {works.map((work: WorkType, index: Key) => (
+          {works.map((work: Works, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
         </div>

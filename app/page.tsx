@@ -3,7 +3,7 @@ import About from "./components/About/About";
 import Works from "./components/Works/Works";
 import Footer from "./globalComponents/Footer/Footer";
 import LoaderWrapper from "./components/Loader/LoaderWrapper";
-import { getWorks, WorkType } from "../utils/graphql";
+import { getWorks } from "../utils/graphql";
 import Overlay from "./components/Loader/Overlay";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
-  const works: WorkType[] = await getWorks();
+  const works: Works[] = await getWorks();
 
   return (
     <>
