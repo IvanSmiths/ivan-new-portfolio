@@ -4,6 +4,7 @@ import { DetailedHTMLProps, HTMLAttributes } from "react";
 const bebas_neue = Bebas_Neue({
   subsets: ["latin"],
   weight: ["400"],
+  preload: true,
   variable: "--font-bebas_neue",
   display: "swap",
 });
@@ -32,12 +33,18 @@ type StrongProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
 export const MDXComponents = {
   h1: (props: HeadingProps) => (
-    <h1 {...props} className={`${bebas_neue.className} font-bold text-7xl`}>
+    <h1
+      {...props}
+      className={`${bebas_neue.className} font-bold md:text-7xl text-5xl`}
+    >
       {props.children}
     </h1>
   ),
   h2: (props: HeadingProps) => (
-    <h2 {...props} className={`${bebas_neue.className} font-bold text-6xl`}>
+    <h2
+      {...props}
+      className={`${bebas_neue.className} font-bold md:text-6xl text-5xl`}
+    >
       {props.children}
     </h2>
   ),
