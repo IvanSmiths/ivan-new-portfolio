@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Blob from "./Blob";
-import { Bebas_Neue } from "next/font/google";
 import Dot from "../../../globalComponents/Dot";
 
 type PostProps = {
@@ -18,13 +17,6 @@ type PostProps = {
   };
 };
 
-const bebas_neue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-bebas_neue",
-  display: "swap",
-});
-
 const Hero: FC<PostProps> = ({ post }) => {
   const tags: string[] = post.tags.split(" ");
   return (
@@ -32,9 +24,7 @@ const Hero: FC<PostProps> = ({ post }) => {
       <Blob />
       <section className="md:col-start-3 md:col-end-11 col-span-full flex flex-col gap-small justify-center items-center">
         <span className="mono">{post.category}</span>
-        <h1
-          className={`${bebas_neue.className} md:text-7xl xl:text-8xl text-5xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight font-semibold text-transparent h-full bg-clip-text`}
-        >
+        <h1 className="bebas md:text-7xl xl:text-8xl text-5xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight text-transparent h-full bg-clip-text">
           {post.title}
         </h1>
         <h2 className="text-center text-lg text-primary leading-[24px]">
