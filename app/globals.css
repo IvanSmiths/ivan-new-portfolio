@@ -74,6 +74,11 @@ li {
     text-transform: uppercase;
 }
 
+.bebas {
+    font-family: var(--font-bebas_neue), sans-serif;
+    text-transform: uppercase;
+}
+
 .grid {
     transition: background 0.25s ease-in-out;
     display: grid;
