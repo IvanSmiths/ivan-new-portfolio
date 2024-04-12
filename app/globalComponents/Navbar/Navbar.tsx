@@ -67,7 +67,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
           <li>
             <a
-              className="underline mono hidden sm:block"
+              className="underline underline-offset-4 mono hidden sm:block"
               href="mailto:info@ivansmiths.com"
             >
               info@ivansmiths.com
@@ -78,7 +78,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
               {socials.map((link: Links, index: number) => (
                 <a
                   key={index}
-                  className="mono underline"
+                  className="mono underline underline-offset-4"
                   href={link.url}
                   rel="noopener"
                   target="_blank"

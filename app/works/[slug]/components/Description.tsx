@@ -26,7 +26,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
         <li className="flex items-center max-sm:flex-col max-sm:gap-small max-sm:items-start">
           <span className="mono w-36">Links:</span>
           <a
-            className="mono underline"
+            className="mono underline underline-offset-4"
             rel="noopener noreferrer"
             target="_blank"
             href={work.linkedinLink}
@@ -34,7 +34,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
             LinkedIn
           </a>
           <a
-            className="mono sm:ml-smallest underline"
+            className="mono sm:ml-smallest underline underline-offset-4"
             rel="noopener noreferrer"
             target="_blank"
             href={work.websiteLink}
