@@ -13,7 +13,7 @@ const Work: FC<WorkProps> = ({ work, index }) => {
       <div className="grid items-center w-full md:h-3/5 h-4/5">
         <div className="lg:col-start-4 md:col-start-3 md:col-end-6 col-start-1 col-end-7 text-left md:text-right md:justify-between justify-end md:items-end right-auto flex flex-col w-full h-full">
           <Link href={`works/${work.slug}`}>
-            <h3 className="mono">{work.company}</h3>
+            <h3 className="lato">{work.company}</h3>
             <h4 className="font-bold text-4xl mt-1">{work.role}</h4>
           </Link>
           <h5 className="hidden sm:block">{work.homeDescription}</h5>
