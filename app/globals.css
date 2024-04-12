@@ -67,15 +67,15 @@ li {
     font-weight: 400;
 }
 
-.mono {
-    font-family: var(--font-azeret-mono), monospace;
+.lato {
+    font-family: var(--font-lato), latospace, Roboto, sans-serif;
     font-size: 12px;
     color: var(--primary-light);
     text-transform: uppercase;
 }
 
 .bebas {
-    font-family: var(--font-bebas_neue), sans-serif;
+    font-family: var(--font-bebas_neue),Impact, Roboto, sans-serif;
     text-transform: uppercase;
 }
 

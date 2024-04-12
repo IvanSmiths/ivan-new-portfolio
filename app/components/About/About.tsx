@@ -9,7 +9,7 @@ const About: FC = () => {
           Leveraging tech and design, I prioritise aesthetics, functionality,
           speed and usability.
         </h2>
-        <span className="md:col-start-4 col-start-1 mono sm:mt-medium mt-28">
+        <span className="md:col-start-4 col-start-1 lato sm:mt-medium mt-28">
           who am i
         </span>
         <div className="w-full md:col-start-8 col-start-2 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-28">

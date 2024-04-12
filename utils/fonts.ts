@@ -1,10 +1,10 @@
-import { Azeret_Mono, Bebas_Neue } from "next/font/google";
+import { Bebas_Neue, Lato } from "next/font/google";
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
-export const azeret_mono: NextFontWithVariable = Azeret_Mono({
+export const lato: NextFontWithVariable = Lato({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-azeret-mono",
+  weight: ["400", "700"],
+  variable: "--font-lato",
   display: "swap",
 });
 

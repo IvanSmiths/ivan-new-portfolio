@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { azeret_mono, bebas_neue } from "../utils/fonts";
+import { bebas_neue, lato } from "../utils/fonts";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -20,10 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${azeret_mono.variable} ${bebas_neue.variable}`}
-    >
+    <html lang="en" className={`${lato.variable} ${bebas_neue.variable}`}>
       <body className="bg-secondary" suppressHydrationWarning={true}>
         {children}
         <Analytics />
