@@ -2,14 +2,14 @@ import { FC } from "react";
 
 const About: FC = () => {
   return (
-    <main className="mt-section md:mb-medium">
+    <main className="my-medium md:mt-section">
       <div className="grid">
         <div className="col-start-1 bg-primary w-2 h-2 rounded-full mt-2"></div>
-        <h2 className="sm:text-5xl text-3xl md:col-start-4 md:col-end-12 col-end-7 col-start-2">
-          Leveraging tech and design, I create websites prioritising aesthetics,
-          functionality, speed and usability.
+        <h2 className="sm:text-4xl text-xl md:col-start-4 md:col-end-11 col-end-7 col-start-2">
+          Leveraging tech and design, I prioritise aesthetics, functionality,
+          speed and usability.
         </h2>
-        <span className="md:col-start-4 col-start-1 mono sm:mt-medium mt-28">
+        <span className="md:col-start-4 col-start-1 lato sm:mt-medium mt-28">
           who am i
         </span>
         <div className="w-full md:col-start-8 col-start-2 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-28">
