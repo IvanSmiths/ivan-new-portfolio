@@ -16,7 +16,7 @@ type HeaderProps = {
 const Hero: FC<HeaderProps> = ({ work }) => {
   return (
     <>
-      <h1 className="bebas mt-96 col-span-full md:text-9xl text-8xl uppercase">
+      <h1 className="bebas md:mt-72 sm:mt-36 mt-14 col-span-full md:text-9xl text-6xl uppercase">
         {work.company}
       </h1>
       <img
