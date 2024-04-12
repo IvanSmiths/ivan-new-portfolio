@@ -5,6 +5,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import React from "react";
 import { Azeret_Mono, Bebas_Neue } from "next/font/google";
+import type { Metadata } from "next";
 
 const azeret_mono = Azeret_Mono({
   subsets: ["latin"],
@@ -20,6 +21,16 @@ const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ivansmiths.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+    },
+  },
+};
 
 export default function RootLayout({
   children,
