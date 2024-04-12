@@ -3,24 +3,8 @@ import GoogleAnalytics from "../utils/GoogleAnalytics";
 import { GA_TRACKING_ID } from "../utils/gtag";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
-import React from "react";
-import { Azeret_Mono, Bebas_Neue } from "next/font/google";
 import type { Metadata } from "next";
-
-const azeret_mono = Azeret_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-azeret-mono",
-  display: "swap",
-});
-
-const bebas_neue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: ["400"],
-  preload: true,
-  variable: "--font-bebas_neue",
-  display: "swap",
-});
+import { azeret_mono, bebas_neue } from "../utils/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
