@@ -1,5 +1,4 @@
 import { getPost, getPosts, Posts } from "../../../utils/getPosts";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { MDXComponents } from "./components/MDXComponents";
 import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
@@ -51,7 +50,7 @@ export default async function Post({ params }: BlogProps) {
       <article className="mt-large grid">
         <Hero post={post} />
         <main className="md:col-start-3 md:col-end-11 col-span-full mt-medium flex flex-col gap-small">
-          <MDXRemote source={post!.body} components={{ ...MDXComponents }} />
+          <MDXComponents source={post!.body} />
         </main>
       </article>
     </>

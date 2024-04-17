@@ -1,5 +1,6 @@
 import { Bebas_Neue } from "next/font/google";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 
 const bebas_neue = Bebas_Neue({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ type ListProps = DetailedHTMLProps<
 
 type StrongProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-export const MDXComponents = {
+const components = {
   h1: (props: HeadingProps) => (
     <h1
       {...props}
@@ -94,3 +95,12 @@ export const MDXComponents = {
     </li>
   ),
 };
+
+export function MDXComponents(props: MDXRemoteProps) {
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
+}
