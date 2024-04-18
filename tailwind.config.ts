@@ -22,6 +22,7 @@ const config: Config = {
         smallest: "var(--smallest)",
         small: "var(--small)",
         medium: "var(--medium)",
+        regular: "var(--regular)",
         large: "var(--large)",
         section: "var(--section)",
       },

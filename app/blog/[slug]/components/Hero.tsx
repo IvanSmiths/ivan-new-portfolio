@@ -27,7 +27,7 @@ const Hero: FC<PostProps> = ({ post }) => {
         <h1 className="bebas md:text-7xl xl:text-8xl text-5xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight text-transparent h-full bg-clip-text">
           {post.title}
         </h1>
-        <h2 className="text-center text-lg text-primary leading-[24px]">
+        <h2 className="text-center text-lg text-primaryLight leading-[24px]">
           {post.excerpt}
         </h2>
         <div className="flex max-sm:flex-col items-center flex-wrap gap-smallest">

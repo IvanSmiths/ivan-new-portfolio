@@ -44,7 +44,7 @@ const components = {
   h1: (props: HeadingProps) => (
     <h1
       {...props}
-      className={`${bebas_neue.className} font-bold md:text-7xl text-5xl`}
+      className={`${bebas_neue.className} font-bold md:text-7xl text-5xl -mb-small mt-regular`}
     >
       {props.children}
     </h1>
@@ -52,28 +52,40 @@ const components = {
   h2: (props: HeadingProps) => (
     <h2
       {...props}
-      className={`${bebas_neue.className} font-bold md:text-6xl text-5xl`}
+      className={`${bebas_neue.className} font-bold md:text-6xl text-5xl -mb-small mt-regular`}
     >
       {props.children}
     </h2>
   ),
   h3: (props: HeadingProps) => (
-    <h3 {...props} className={`${bebas_neue.className} font-bold text-5xl`}>
+    <h3
+      {...props}
+      className={`${bebas_neue.className} font-bold text-5xl -mb-small mt-regular`}
+    >
       {props.children}
     </h3>
   ),
   h4: (props: HeadingProps) => (
-    <h4 {...props} className={`${bebas_neue.className} font-bold text-4xl`}>
+    <h4
+      {...props}
+      className={`${bebas_neue.className} font-bold text-4xl -mb-small mt-regular`}
+    >
       {props.children}
     </h4>
   ),
   h5: (props: HeadingProps) => (
-    <h5 {...props} className={`${bebas_neue.className} font-bold text-4xl`}>
+    <h5
+      {...props}
+      className={`${bebas_neue.className} font-bold text-4xl -mb-small mt-regular`}
+    >
       {props.children}
     </h5>
   ),
   h6: (props: HeadingProps) => (
-    <h6 {...props} className={`${bebas_neue.className} font-bold text-4xl`}>
+    <h6
+      {...props}
+      className={`${bebas_neue.className} font-bold text-4xl -mb-small mt-regular`}
+    >
       {props.children}
     </h6>
   ),
