@@ -32,8 +32,8 @@ body {
     body[data-theme="light"] {
         --primary: #09090B;
         --primary-accent: #000000;
-        --primary-light: #71717A;
-        --secondary: #ffffff;
+        --primary-light: #444450;
+        --secondary: #f9fbfd;
     }
 
     body[data-theme="dark"] {
