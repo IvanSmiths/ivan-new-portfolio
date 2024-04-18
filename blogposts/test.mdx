@@ -25,7 +25,7 @@ tags: Next.js Tailwind Gsap
 
 ## Heading h2
 
-``` js
+``` tsx
 export type Post = {
   body: string;
   category: string;
@@ -42,6 +42,14 @@ export type Post = {
 };
 ```
 
+<Note>
+    this is a note
+</Note>
+
+<Note >
+    this is an **important part** of the note
+</Note>
+
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
 
 - **Static Generation** is the pre-rendering method that generates the HTML at **build time**. The pre-rendered HTML is then _reused_ on each request.
@@ -50,5 +58,8 @@ Next.js has two forms of pre-rendering: **Static Generation** and **Server-side 
 <img alt="alt text" height="90" src="/blog/test/cover.png" width="78" className="w-full"/>
 
 Importantly, Next.js lets you **choose** which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
+
+<img alt="alt text" height="90" src="/blog/test/cover.png" width="78" className="w-full"/>
+
 
 export default ({children}) => <div className="prose">{children}</div>

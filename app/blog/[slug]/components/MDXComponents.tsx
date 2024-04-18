@@ -1,7 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { Code } from "bright";
 import { bebas_neue } from "../../../../utils/fonts";
+import Note from "./Note";
 
 type HeadingProps = DetailedHTMLProps<
   HTMLAttributes<HTMLHeadingElement>,
@@ -29,6 +30,15 @@ type PreProps = DetailedHTMLProps<
 >;
 
 type StrongProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
+
+type NoteProps = {
+  children: ReactNode;
+};
+
+Code.theme = {
+  dark: "dark-plus",
+  light: "material-default",
+};
 
 const components = {
   h1: (props: HeadingProps) => (
@@ -92,9 +102,8 @@ const components = {
       {props.children}
     </li>
   ),
-  pre: (props: PreProps) => {
-    return <Code {...props}>{props.children}</Code>;
-  },
+  pre: (props: PreProps) => <Code {...props}>{props.children}</Code>,
+  Note: (props: NoteProps) => <Note {...props}>{props.children}</Note>,
 };
 
 export function MDXComponents(props: MDXRemoteProps) {
