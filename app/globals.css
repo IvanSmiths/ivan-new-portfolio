@@ -39,8 +39,8 @@ body {
     body[data-theme="dark"] {
         --primary: #e7e7e7;
         --primary-accent: #ffffff;
-        --primary-light: #a8a8a8;
-        --secondary: #09090B;
+        --primary-light: #afb4bd;
+        --secondary: #0e0e13;
     }
 }
 

@@ -49,7 +49,7 @@ export default async function Post({ params }: BlogProps) {
       <Navbar position={Position.Fixed} />
       <article className="mt-large grid">
         <Hero post={post} />
-        <main className="md:col-start-3 md:col-end-11 col-span-full mt-medium flex flex-col gap-small">
+        <main className="md:col-start-4 md:col-end-10 col-span-full mt-medium flex flex-col gap-small">
           <MDXComponents source={post!.body} />
         </main>
       </article>

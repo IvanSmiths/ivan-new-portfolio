@@ -78,7 +78,7 @@ const components = {
     </h6>
   ),
   p: (props: ParagraphProps) => (
-    <p {...props} className="text-lg">
+    <p {...props} className="text-lg text-primaryLight">
       {props.children}
     </p>
   ),
@@ -98,7 +98,7 @@ const components = {
     </a>
   ),
   li: (props: ListProps) => (
-    <li {...props} className="text-lg list-disc">
+    <li {...props} className="text-lg text-primaryLight list-disc">
       {props.children}
     </li>
   ),
