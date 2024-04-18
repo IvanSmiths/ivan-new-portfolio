@@ -37,7 +37,7 @@ type NoteProps = {
 
 Code.theme = {
   dark: "dark-plus",
-  light: "material-default",
+  light: "github-light",
 };
 
 const components = {
