@@ -1,6 +1,7 @@
 import { Bebas_Neue } from "next/font/google";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import { Code } from "bright";
 
 const bebas_neue = Bebas_Neue({
   subsets: ["latin"],
@@ -28,6 +29,11 @@ type AnchorProps = DetailedHTMLProps<
 type ListProps = DetailedHTMLProps<
   HTMLAttributes<HTMLLIElement>,
   HTMLLIElement
+>;
+
+type PreProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLPreElement>,
+  HTMLPreElement
 >;
 
 type StrongProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
@@ -94,6 +100,9 @@ const components = {
       {props.children}
     </li>
   ),
+  pre: (props: PreProps) => {
+    return <Code {...props}>{props.children}</Code>;
+  },
 };
 
 export function MDXComponents(props: MDXRemoteProps) {
