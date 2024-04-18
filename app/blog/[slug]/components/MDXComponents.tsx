@@ -3,6 +3,7 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { Code } from "bright";
 import { lato } from "../../../../utils/fonts";
 import Note from "./Note";
+import Sections from "./Sections";
 
 type HeadingProps = DetailedHTMLProps<
   HTMLAttributes<HTMLHeadingElement>,
@@ -119,6 +120,7 @@ const components = {
   ),
   pre: (props: PreProps) => <Code {...props}>{props.children}</Code>,
   Note: (props: NoteProps) => <Note {...props}>{props.children}</Note>,
+  Sections: (props: any) => <Sections {...props}>{props.children}</Sections>,
 };
 
 export function MDXComponents(props: MDXRemoteProps) {
