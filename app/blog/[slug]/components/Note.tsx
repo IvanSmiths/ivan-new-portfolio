@@ -5,10 +5,7 @@ type NoteProps = {
 };
 const Note: FC<NoteProps> = ({ children, ...props }) => {
   return (
-    <div
-      {...props}
-      className="p-5 rounded-xl border-primaryLight bg-secondaryLight text-primary"
-    >
+    <div {...props} className="p-5 rounded-xl bg-secondaryLight text-primary">
       {children}
     </div>
   );
