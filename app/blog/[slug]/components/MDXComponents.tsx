@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { Code } from "bright";
-import { bebas_neue } from "../../../../utils/fonts";
+import { lato } from "../../../../utils/fonts";
 import Note from "./Note";
 
 type HeadingProps = DetailedHTMLProps<
@@ -44,7 +44,7 @@ const components = {
   h1: (props: HeadingProps) => (
     <h1
       {...props}
-      className={`${bebas_neue.className} font-bold md:text-7xl text-5xl -mb-small mt-regular`}
+      className={`${lato.className} font-bold md:text-5xl text-5xl -mb-small mt-regular`}
     >
       {props.children}
     </h1>
@@ -52,7 +52,7 @@ const components = {
   h2: (props: HeadingProps) => (
     <h2
       {...props}
-      className={`${bebas_neue.className} font-bold md:text-6xl text-5xl -mb-small mt-regular`}
+      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
     >
       {props.children}
     </h2>
@@ -60,7 +60,7 @@ const components = {
   h3: (props: HeadingProps) => (
     <h3
       {...props}
-      className={`${bebas_neue.className} font-bold text-5xl -mb-small mt-regular`}
+      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
     >
       {props.children}
     </h3>
@@ -68,7 +68,7 @@ const components = {
   h4: (props: HeadingProps) => (
     <h4
       {...props}
-      className={`${bebas_neue.className} font-bold text-4xl -mb-small mt-regular`}
+      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
     >
       {props.children}
     </h4>
@@ -76,7 +76,7 @@ const components = {
   h5: (props: HeadingProps) => (
     <h5
       {...props}
-      className={`${bebas_neue.className} font-bold text-4xl -mb-small mt-regular`}
+      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
     >
       {props.children}
     </h5>
@@ -84,13 +84,16 @@ const components = {
   h6: (props: HeadingProps) => (
     <h6
       {...props}
-      className={`${bebas_neue.className} font-bold text-4xl -mb-small mt-regular`}
+      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
     >
       {props.children}
     </h6>
   ),
   p: (props: ParagraphProps) => (
-    <p {...props} className="text-lg text-primaryLight">
+    <p
+      {...props}
+      className={`${lato.className} leading-8 text-lg text-primaryLight`}
+    >
       {props.children}
     </p>
   ),
@@ -110,7 +113,7 @@ const components = {
     </a>
   ),
   li: (props: ListProps) => (
-    <li {...props} className="text-lg text-primaryLight list-disc">
+    <li {...props} className="text-lg leading-8 text-primaryLight list-disc">
       {props.children}
     </li>
   ),
