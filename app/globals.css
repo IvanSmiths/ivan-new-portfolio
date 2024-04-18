@@ -35,6 +35,7 @@ body {
         --primary-accent: #000000;
         --primary-light: #444450;
         --secondary: #f9fbfd;
+        --secondary-light: #d6e0ea;
     }
 
     body[data-theme="dark"] {
@@ -42,6 +43,7 @@ body {
         --primary-accent: #ffffff;
         --primary-light: #afb4bd;
         --secondary: #0e0e13;
+        --secondary-light: #1d1d23;
     }
 }
 

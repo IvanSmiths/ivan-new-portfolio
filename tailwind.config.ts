@@ -14,6 +14,7 @@ const config: Config = {
         primaryLight: "var(--primary-light)",
         primaryAccent: "var(--primary-accent)",
         secondary: "var(--secondary)",
+        secondaryLight: "var(--secondary-light)",
       },
       transitionProperty: {
         dimensions: "height, width",
