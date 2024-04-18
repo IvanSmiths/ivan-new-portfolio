@@ -4,7 +4,6 @@ import Works from "./components/Works/Works";
 import Footer from "./globalComponents/Footer/Footer";
 import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks } from "../utils/graphql";
-import Overlay from "./components/Loader/Overlay";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 
@@ -19,7 +18,6 @@ const Home = async () => {
 
   return (
     <>
-      <Overlay />
       <Hero />
       <LoaderWrapper />
       <About />
