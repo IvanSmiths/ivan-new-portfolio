@@ -114,6 +114,11 @@ time {
     color: var(--primary);
 }
 
+article .grid {
+    margin: 0;
+    padding: 0;
+}
+
 #articleLinks li {
     margin-top: var(--small);
     list-style: none;
