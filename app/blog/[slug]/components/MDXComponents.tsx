@@ -4,6 +4,7 @@ import { Code } from "bright";
 import { lato } from "../../../../utils/fonts";
 import Note from "./Note";
 import Sections from "./Sections";
+import Link from "next/link";
 
 type HeadingProps = DetailedHTMLProps<
   HTMLAttributes<HTMLHeadingElement>,
@@ -40,6 +41,31 @@ Code.theme = {
   dark: "dark-plus",
   light: "github-light",
 };
+
+function CustomLink(props: any) {
+  let href = props.href;
+
+  if (href.startsWith("/")) {
+    return (
+      <Link className="text-lg underline font-bold" href={href} {...props}>
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith("#")) {
+    return <a className="text-lg underline font-bold" {...props} />;
+  }
+
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-lg underline font-bold"
+      {...props}
+    />
+  );
+}
 
 const components = {
   h1: (props: HeadingProps) => (
@@ -104,9 +130,7 @@ const components = {
     </strong>
   ),
   a: (props: AnchorProps) => (
-    <a {...props} className="text-lg underline font-bold">
-      {props.children}
-    </a>
+    <CustomLink {...props}>{props.children}</CustomLink>
   ),
   li: (props: ListProps) => (
     <li {...props} className="text-lg leading-8 text-primaryLight list-disc">
