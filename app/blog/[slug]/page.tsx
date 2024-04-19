@@ -39,12 +39,14 @@ export const generateMetadata = async ({
       title: post?.title,
       description: post?.excerpt,
       type: "article",
+      images: `https://www.ivansmiths.com${post?.cover}`,
       publishedTime: post?.date,
       url: `https://ivansmiths.com/blog/${params.slug}`,
     },
     twitter: {
       card: "summary_large_image",
       title: post?.title,
+      images: `https://www.ivansmiths.com${post?.cover}`,
       description: post?.excerpt,
     },
   };
@@ -52,7 +54,7 @@ export const generateMetadata = async ({
 
 export default async function Post({ params }: BlogProps) {
   const post: Posts | undefined = await getPost(params.slug);
-
+  console.log(post?.cover);
   if (!post) {
     return notFound();
   }
