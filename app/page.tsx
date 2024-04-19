@@ -6,6 +6,7 @@ import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
+import Blog from "./components/Blog/Blog";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -22,6 +23,7 @@ const Home = async () => {
       <LoaderWrapper />
       <About />
       <Works works={works} />
+      <Blog />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
