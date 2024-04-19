@@ -84,51 +84,7 @@ export const workSchema = (works: WorkProps) => {
 
 export const blogSchema = (post: BlogProps) => {
   const tags: string[] = post.tags.split(" ");
-  console.log(tags);
   return [
-    {
-      "@context": "http://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
-          item: "https://ivansmiths.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Ivan Smiths, all blog posts",
-          item: "https://ivansmiths.com/blog",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: post.title,
-          item: `https://ivansmiths.com/blog/${post.slug}`,
-        },
-      ],
-    },
-    {
-      "@type": "Blog",
-      "@id": "https://ivansmiths.com/blog/",
-      mainEntityOfPage: "https://ivansmiths.com/blog",
-      name: "Ivan Smiths's Blog",
-      description: "Blog about React, Next.js and other frontend technologies",
-      publisher: {
-        "@type": "Person",
-        "@id": "https://ivansmiths.com",
-        name: "Ivan Smiths",
-        logo: {
-          "@type": "ImageObject",
-          "@id": "https://ivansmiths.com/home.png",
-          url: "https://ivansmiths.com/home.png",
-          width: "2880",
-          height: "1558",
-        },
-      },
-    },
     {
       "@type": "BlogPosting",
       "@id": `https://ivansmiths.com/blog/${post.slug}/#BlogPosting`,
@@ -151,7 +107,7 @@ export const blogSchema = (post: BlogProps) => {
         width: post.coverWidth,
       },
       url: `https://ivansmiths.com/blog/${post.slug}`,
-      keywords: [`${tags.map((tag) => ({ tag }))}`],
+      keywords: tags,
     },
   ];
 };
