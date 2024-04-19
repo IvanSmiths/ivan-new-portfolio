@@ -110,6 +110,7 @@ export const blogSchema = (post: BlogProps) => {
       ],
     },
     {
+      "@context": "http://schema.org",
       "@type": "Blog",
       "@id": "https://ivansmiths.com/blog/",
       mainEntityOfPage: "https://ivansmiths.com/blog",
@@ -129,6 +130,7 @@ export const blogSchema = (post: BlogProps) => {
       },
     },
     {
+      "@context": "http://schema.org",
       "@type": "BlogPosting",
       "@id": `https://ivansmiths.com/blog/${post.slug}/#BlogPosting`,
       mainEntityOfPage: `https://ivansmiths.com/blog/${post.slug}`,
