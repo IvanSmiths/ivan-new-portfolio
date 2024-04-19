@@ -107,6 +107,11 @@ time {
 
 #articleLinks a {
     color: var(--primary-light);
+    transition: 0.3s;
+}
+
+#articleLinks a:hover {
+    color: var(--primary);
 }
 
 #articleLinks li {
