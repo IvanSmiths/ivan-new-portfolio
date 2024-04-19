@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { Metadata } from "next";
+import { blogSchema } from "../../../utils/Schemas";
 
 type BlogProps = {
   params: {
@@ -67,6 +68,12 @@ export default async function Post({ params }: BlogProps) {
           </div>
         </div>
       </article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogSchema(post)),
+        }}
+      />
     </>
   );
 }
