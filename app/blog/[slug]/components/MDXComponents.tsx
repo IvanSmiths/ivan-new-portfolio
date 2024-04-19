@@ -1,4 +1,10 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+import {
+  createElement,
+  DetailedHTMLProps,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from "react";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { Code } from "bright";
 import { lato } from "../../../../utils/fonts";
@@ -33,7 +39,7 @@ type PreProps = DetailedHTMLProps<
 
 type StrongProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-type NoteProps = {
+export type ChildrenAsProps = {
   children: ReactNode;
 };
 
@@ -67,55 +73,42 @@ function CustomLink(props: any) {
   );
 }
 
+function slugify(str: ReactNode) {
+  if (str == null) {
+    return "";
+  }
+  return str
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/&/g, "-and-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
+}
+
+function createHeading(level: number) {
+  // eslint-disable-next-line react/display-name
+  return ({ children }: HeadingProps): ReactElement => {
+    let slug: string = slugify(children);
+    return createElement(
+      `h${level}`,
+      {
+        id: slug,
+        className: `${lato.className} font-bold text-4xl -mb-small mt-regular`,
+      },
+      children,
+    );
+  };
+}
+
 const components = {
-  h1: (props: HeadingProps) => (
-    <h1
-      {...props}
-      className={`${lato.className} font-bold md:text-5xl text-5xl -mb-small mt-regular`}
-    >
-      {props.children}
-    </h1>
-  ),
-  h2: (props: HeadingProps) => (
-    <h2
-      {...props}
-      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
-    >
-      {props.children}
-    </h2>
-  ),
-  h3: (props: HeadingProps) => (
-    <h3
-      {...props}
-      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
-    >
-      {props.children}
-    </h3>
-  ),
-  h4: (props: HeadingProps) => (
-    <h4
-      {...props}
-      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
-    >
-      {props.children}
-    </h4>
-  ),
-  h5: (props: HeadingProps) => (
-    <h5
-      {...props}
-      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
-    >
-      {props.children}
-    </h5>
-  ),
-  h6: (props: HeadingProps) => (
-    <h6
-      {...props}
-      className={`${lato.className} font-bold text-4xl -mb-small mt-regular`}
-    >
-      {props.children}
-    </h6>
-  ),
+  h1: createHeading(1),
+  h2: createHeading(2),
+  h3: createHeading(3),
+  h4: createHeading(4),
+  h5: createHeading(5),
+  h6: createHeading(6),
   p: (props: ParagraphProps) => (
     <p
       {...props}
@@ -138,8 +131,10 @@ const components = {
     </li>
   ),
   pre: (props: PreProps) => <Code {...props}>{props.children}</Code>,
-  Note: (props: NoteProps) => <Note {...props}>{props.children}</Note>,
-  Sections: (props: any) => <Sections {...props}>{props.children}</Sections>,
+  Note: (props: ChildrenAsProps) => <Note {...props}>{props.children}</Note>,
+  Sections: (props: ChildrenAsProps) => (
+    <Sections {...props}>{props.children}</Sections>
+  ),
 };
 
 export function MDXComponents(props: MDXRemoteProps) {

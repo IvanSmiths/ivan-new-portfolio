@@ -1,9 +1,7 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
+import { ChildrenAsProps } from "./MDXComponents";
 
-type NoteProps = {
-  children: ReactNode;
-};
-const Note: FC<NoteProps> = ({ children, ...props }) => {
+const Note: FC<ChildrenAsProps> = ({ children, ...props }) => {
   return (
     <div {...props} className="p-5 rounded-xl bg-secondaryLight text-primary">
       {children}
