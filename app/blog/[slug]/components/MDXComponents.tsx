@@ -60,7 +60,7 @@ function CustomLink(props: any) {
   }
 
   if (href.startsWith("#")) {
-    return <a className="text-lg underline font-bold" {...props} />;
+    return <a className="text-base" {...props} />;
   }
 
   return (

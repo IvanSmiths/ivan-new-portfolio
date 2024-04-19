@@ -105,6 +105,16 @@ time {
     background-color: rgba(236, 111, 111, 0.21);
 }
 
+#articleLinks a {
+    color: var(--primary-light);
+}
+
+#articleLinks li {
+    margin-top: var(--small);
+    list-style: none;
+    line-height: normal;
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(6, 1fr);
