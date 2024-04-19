@@ -38,16 +38,21 @@ export const generateMetadata = async ({
     openGraph: {
       title: post?.title,
       description: post?.excerpt,
-      type: "article",
+      authors: ["Ivan Smiths"],
       images: `https://www.ivansmiths.com${post?.cover}`,
+      modifiedTime: post?.date,
       publishedTime: post?.date,
+      tags: post?.tags,
+      type: "article",
       url: `https://ivansmiths.com/blog/${params.slug}`,
     },
     twitter: {
-      card: "summary_large_image",
       title: post?.title,
-      images: `https://www.ivansmiths.com${post?.cover}`,
       description: post?.excerpt,
+      card: "summary_large_image",
+      creator: "@Ivansmiths",
+      creatorId: "1303746727594405894",
+      images: `https://www.ivansmiths.com${post?.cover}`,
     },
   };
 };
