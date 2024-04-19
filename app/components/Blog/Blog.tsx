@@ -23,7 +23,7 @@ const Blog: FC = async () => {
                   {post?.title}
                 </h3>
               </div>
-              <div className="sm:flex ml-regular flex-col gap-smallest min-w-fit hidden">
+              <div className="sm:flex ml-regular flex-col gap-smallest min-w-fit hidden text-right">
                 <time className="lato font-bold" dateTime={post?.date}>
                   {post?.date
                     ? new Date(post?.date).toLocaleDateString("en-us", {
