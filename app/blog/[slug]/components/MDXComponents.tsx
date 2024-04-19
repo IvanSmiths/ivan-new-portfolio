@@ -104,12 +104,7 @@ const components = {
     </strong>
   ),
   a: (props: AnchorProps) => (
-    <a
-      {...props}
-      target="_blank"
-      rel="noopener"
-      className="text-lg underline font-bold"
-    >
+    <a {...props} className="text-lg underline font-bold">
       {props.children}
     </a>
   ),
