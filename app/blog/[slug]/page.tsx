@@ -34,6 +34,18 @@ export const generateMetadata = async ({
     alternates: {
       canonical: `https://ivansmiths.com/blog/${params.slug}`,
     },
+    openGraph: {
+      title: post?.title,
+      description: post?.excerpt,
+      type: "article",
+      publishedTime: post?.date,
+      url: `https://ivansmiths.com/blog/${params.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post?.title,
+      description: post?.excerpt,
+    },
   };
 };
 
