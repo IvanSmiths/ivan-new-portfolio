@@ -112,6 +112,14 @@ strong {
 #articleLinks a {
     color: var(--primary-light);
     transition: 0.3s;
+    font-size: 14px;
+}
+
+#articleLinks span {
+    color: var(--primary);
+    font-size: 14px;
+    margin-bottom: var(--small);
+    font-weight: bold;
 }
 
 #articleLinks a:hover {
@@ -120,7 +128,7 @@ strong {
 
 #articleLinks li {
     list-style: none;
-    margin-top: var(--small);
+    margin-top: var(--smallest);
     line-height: normal;
 }
 

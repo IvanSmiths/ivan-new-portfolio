@@ -8,7 +8,10 @@ const Sections: FC<ChildrenAsProps> = ({ children, ...props }) => {
       id="articleLinks"
       className="absolute h-full top-medium mt-regular left-0 col-start-1 col-end-3"
     >
-      <div className="sticky top-1/4 flex flex-col">{children}</div>
+      <div className="sticky top-1/4 flex flex-col g">
+        <span>Table of contents</span>
+        {children}
+      </div>
     </div>
   );
 };
