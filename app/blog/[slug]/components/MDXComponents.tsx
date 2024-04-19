@@ -37,8 +37,6 @@ type PreProps = DetailedHTMLProps<
   HTMLPreElement
 >;
 
-type StrongProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
-
 export type ChildrenAsProps = {
   children: ReactNode;
 };
@@ -109,26 +107,8 @@ const components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  p: (props: ParagraphProps) => (
-    <p
-      {...props}
-      className={`${lato.className} leading-8 text-lg text-primaryLight`}
-    >
-      {props.children}
-    </p>
-  ),
-  strong: (props: StrongProps) => (
-    <strong {...props} className="text-lg font-bold">
-      {props.children}
-    </strong>
-  ),
   a: (props: AnchorProps) => (
     <CustomLink {...props}>{props.children}</CustomLink>
-  ),
-  li: (props: ListProps) => (
-    <li {...props} className="text-lg leading-8 text-primaryLight list-disc">
-      {props.children}
-    </li>
   ),
   pre: (props: PreProps) => <Code {...props}>{props.children}</Code>,
   Note: (props: ChildrenAsProps) => <Note {...props}>{props.children}</Note>,

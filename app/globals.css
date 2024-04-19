@@ -10,7 +10,7 @@
     --large: 150px;
     --section: 260px;
 
-    --body: 15px;
+    --body: 18px;
 }
 
 html,
@@ -48,10 +48,6 @@ body {
     }
 }
 
-li::marker {
-    font-size: 15px;
-}
-
 a {
     text-decoration: none;
 }
@@ -63,8 +59,6 @@ pre,
 h4,
 h5,
 h6,
-p,
-strong,
 span,
 button,
 label,
@@ -74,6 +68,16 @@ time {
     font-size: var(--body);
     color: var(--primary);
     font-weight: 400;
+}
+
+p {
+    color: var(--primary-light);
+    line-height: 1.7rem;
+    font-size: var(--body);
+}
+
+strong {
+    color: var(--primary);
 }
 
 .lato {
@@ -114,15 +118,19 @@ time {
     color: var(--primary);
 }
 
+#articleLinks li {
+    list-style: none;
+    margin-top: var(--small);
+    line-height: normal;
+}
+
 article .grid {
-    margin: 0;
     padding: 0;
 }
 
-#articleLinks li {
-    margin-top: var(--small);
-    list-style: none;
-    line-height: normal;
+article li {
+    color: var(--primary-light);
+    list-style: disc;
 }
 
 @media (max-width: 768px) {
