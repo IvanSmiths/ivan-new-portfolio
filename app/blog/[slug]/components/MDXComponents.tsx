@@ -17,19 +17,9 @@ type HeadingProps = DetailedHTMLProps<
   HTMLHeadingElement
 >;
 
-type ParagraphProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLParagraphElement>,
-  HTMLParagraphElement
->;
-
 type AnchorProps = DetailedHTMLProps<
   HTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
->;
-
-type ListProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLLIElement>,
-  HTMLLIElement
 >;
 
 type PreProps = DetailedHTMLProps<
