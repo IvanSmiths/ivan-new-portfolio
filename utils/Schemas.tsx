@@ -3,7 +3,7 @@ export const homeSchema = {
   "@type": "WebSite",
   name: "IvanSmiths",
   url: "https://www.ivansmiths.com",
-  image: "https://www.ivansmiths.com/main-texture.jpg",
+  image: "https://www.ivansmiths.com/home.png",
   description: "Frontend developer with 3 years of experience",
   sameAs: "https://www.ivansmiths.com",
   author: {
