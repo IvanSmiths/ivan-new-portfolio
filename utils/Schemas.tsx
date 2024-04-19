@@ -83,7 +83,6 @@ export const workSchema = (works: WorkProps) => {
 };
 
 export const blogSchema = (post: BlogProps) => {
-  const tags: string[] = post.tags.split(" ");
   return [
     {
       "@context": "http://schema.org",
@@ -120,13 +119,6 @@ export const blogSchema = (post: BlogProps) => {
         "@type": "Person",
         "@id": "https://ivansmiths.com",
         name: "Ivan Smiths",
-        logo: {
-          "@type": "ImageObject",
-          "@id": "https://ivansmiths.com/home.png",
-          url: "https://ivansmiths.com/home.png",
-          width: "2880",
-          height: "1558",
-        },
       },
     },
     {
@@ -152,7 +144,7 @@ export const blogSchema = (post: BlogProps) => {
         width: post.coverWidth,
       },
       url: `https://ivansmiths.com/blog/${post.slug}`,
-      keywords: tags,
+      keywords: post.tags,
     },
   ];
 };
