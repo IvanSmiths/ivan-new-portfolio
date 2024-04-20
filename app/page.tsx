@@ -9,10 +9,28 @@ import { homeSchema } from "../utils/Schemas";
 import Blog from "./components/Blog/Blog";
 import Overlay from "./components/Loader/Overlay";
 
+const title = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
+const description =
+  "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen";
 export const metadata: Metadata = {
-  title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
-  description:
-    "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen",
+  title: title,
+  description: description,
+  openGraph: {
+    title,
+    description,
+    images: `https://www.ivansmiths.com/home.png`,
+    type: "website",
+    siteName: "Ivan Smiths",
+    url: `https://ivansmiths.com`,
+  },
+  twitter: {
+    title,
+    description,
+    card: "summary_large_image",
+    creator: "@Ivansmiths",
+    creatorId: "1303746727594405894",
+    images: `https://www.ivansmiths.com/home.png`,
+  },
 };
 
 const Home = async () => {
@@ -26,11 +44,11 @@ const Home = async () => {
       <About />
       <Works works={works} />
       <Blog />
+      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
       />
-      <Footer />
     </>
   );
 };
