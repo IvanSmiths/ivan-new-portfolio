@@ -5,10 +5,10 @@ import Dot from "../../../globalComponents/Dot";
 type PostProps = {
   post: {
     category: string;
-    cover?: string;
-    coverAlt?: string;
-    coverWidth?: number;
-    coverHeight?: number;
+    cover: string;
+    coverAlt: string;
+    coverWidth: number;
+    coverHeight: number;
     title: string;
     excerpt: string;
     date: string;

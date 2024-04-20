@@ -6,10 +6,10 @@ import { cache } from "react";
 export type Post = {
   body: string;
   category: string;
-  cover?: string;
-  coverAlt?: string;
-  coverWidth?: number;
-  coverHeight?: number;
+  cover: string;
+  coverAlt: string;
+  coverWidth: number;
+  coverHeight: number;
   date: string;
   excerpt: string;
   slug: string | undefined;

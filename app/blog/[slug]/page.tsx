@@ -59,7 +59,6 @@ export const generateMetadata = async ({
 
 export default async function Post({ params }: BlogProps) {
   const post: Posts | undefined = await getPost(params.slug);
-  console.log(post?.cover);
   if (!post) {
     return notFound();
   }
