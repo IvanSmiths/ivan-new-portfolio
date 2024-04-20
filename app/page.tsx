@@ -9,9 +9,10 @@ import { homeSchema } from "../utils/Schemas";
 import Blog from "./components/Blog/Blog";
 import Overlay from "./components/Loader/Overlay";
 
-const title = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
-const description =
+const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
+const description: string =
   "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen";
+
 export const metadata: Metadata = {
   title: title,
   description: description,
