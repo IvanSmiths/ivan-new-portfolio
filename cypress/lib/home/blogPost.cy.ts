@@ -2,8 +2,8 @@ export const checkAllBlogPost = (): void => {
   cy.get("[data-cy=blogPost]").should("have.length.at.least", 1);
 };
 
-export const checkBlogPostLength = (lenght: number): void => {
-  cy.get("[data-cy=blogPost]").should("have.length.at.least", lenght);
+export const checkBlogPostLength = (length: number): void => {
+  cy.get("[data-cy=blogPost]").should("have.length.at.least", length);
 };
 
 export const checkBlogPostMetadata = (metadata: string): void => {
