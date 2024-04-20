@@ -13,6 +13,7 @@ const Blog: FC = async () => {
         {posts.map((post: Posts, index: number) => (
           <>
             <Link
+              data-cy="blogPost"
               className="flex justify-between items-center px-small hover:bg-primary min-h-32 transition group"
               key={post?.slug}
               href={`blog/${post?.slug}`}
@@ -21,7 +22,10 @@ const Blog: FC = async () => {
                 <span className="lato group-hover:text-secondaryLight transition">
                   0{index + 1}
                 </span>
-                <h3 className="font-semibold md:text-3xl text-xl text-left group-hover:text-secondary transition">
+                <h3
+                  data-cy="blogPostTitle"
+                  className="font-semibold md:text-3xl text-xl text-left group-hover:text-secondary transition"
+                >
                   {post?.title}
                 </h3>
               </div>
