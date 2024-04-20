@@ -32,10 +32,7 @@ const Hero: FC<PostProps> = ({ post }) => {
         >
           {post.title}
         </h1>
-        <h2
-          data-cy="blogPageExcerpt"
-          className="text-center leading-7 text-lg text-primaryLight"
-        >
+        <h2 data-cy="blogPageExcerpt" className="text-center leading-7 text-lg">
           {post.excerpt}
         </h2>
         <div className="flex max-sm:flex-col items-center flex-wrap gap-smallest">
