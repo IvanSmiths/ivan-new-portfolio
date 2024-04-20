@@ -61,7 +61,7 @@ const Works: FC<WorksProps> = ({ works }) => {
   );
 
   return (
-    <div className="overflow-hidden md:py-medium">
+    <div className="overflow-hidden py-medium">
       <div ref={triggerRef}>
         <div ref={containerRef} className="h-[100vh] flex w-fit">
           {works.map((work: Works, index: Key) => (

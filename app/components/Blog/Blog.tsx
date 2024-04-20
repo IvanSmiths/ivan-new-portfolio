@@ -5,7 +5,7 @@ import Link from "next/link";
 const Blog: FC = async () => {
   const posts: Posts[] = await getPosts();
   return (
-    <div className="grid md:m-0 mb-section">
+    <div className="grid md:m-0">
       <span className="md:col-start-1 max-sm:mb-small md:col-end-3 col-span-full lato">
         Latest blogposts
       </span>
@@ -14,14 +14,14 @@ const Blog: FC = async () => {
           <>
             <Link
               data-cy="blogPost"
-              className="flex justify-between items-center px-small hover:bg-primary min-h-32 transition group"
+              className="flex md:justify-between justify-center gap-small flex-col md:flex-row md:items-center items-start md:px-small hover:bg-primary min-h-32 transition group"
               key={post?.slug}
               href={`blog/${post?.slug}`}
             >
-              <div className="flex md:gap-medium gap-small items-center">
+              <div className="flex md:gap-medium gap-small flex-col md:flex-row items-start md:items-center">
                 <span
                   data-cy="blogPostIndex"
-                  className="lato group-hover:text-secondaryLight transition"
+                  className="lato group-hover:text-secondaryLight hidden md:block transition"
                 >
                   0{index + 1}
                 </span>
@@ -32,7 +32,7 @@ const Blog: FC = async () => {
                   {post?.title}
                 </h3>
               </div>
-              <div className="sm:flex ml-regular flex-col gap-smallest min-w-fit hidden text-right">
+              <div className="flex flex-row md:ml-regular md:flex-col gap-smallest min-w-fit md:text-right">
                 <span
                   data-cy="blogPostCategory"
                   className="lato group-hover:text-secondaryLight transition"
