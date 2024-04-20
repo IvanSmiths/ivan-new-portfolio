@@ -5,7 +5,7 @@ import {
   checkBlogPostMetadata,
 } from "../../lib/home/blogPost.cy";
 
-describe("Fetching Blog Posts", () => {
+describe("Blog Posts", () => {
   beforeEach(() => {
     cy.visit("/");
     wait(5000);
