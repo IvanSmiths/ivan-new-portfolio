@@ -11,11 +11,10 @@ const Blog: FC = async () => {
       </span>
       <div className="md:col-start-4 md:col-end-13 col-span-full flex flex-col">
         {posts.map((post: Posts, index: number) => (
-          <>
+          <div key={post?.slug}>
             <Link
               data-cy="blogPost"
               className="flex md:justify-between justify-center gap-small flex-col md:flex-row md:items-center items-start md:px-small hover:bg-primary min-h-32 transition group"
-              key={post?.slug}
               href={`blog/${post?.slug}`}
             >
               <div className="flex md:gap-medium gap-small flex-col md:flex-row items-start md:items-center">
@@ -61,7 +60,7 @@ const Blog: FC = async () => {
               </div>
             </Link>
             <div className="h-[1px] bg-primaryLight w-full"></div>
-          </>
+          </div>
         ))}
       </div>
     </div>
