@@ -7,6 +7,7 @@ import { getWorks } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 import Blog from "./components/Blog/Blog";
+import Overlay from "./components/Loader/Overlay";
 
 export const metadata: Metadata = {
   title: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
@@ -20,6 +21,7 @@ const Home = async () => {
   return (
     <>
       <Hero />
+      <Overlay />
       <LoaderWrapper />
       <About />
       <Works works={works} />
