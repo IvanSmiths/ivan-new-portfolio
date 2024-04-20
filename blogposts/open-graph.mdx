@@ -1,0 +1,40 @@
+---
+title: How to add Open Graph and Twitter card to Next.js with the app directory
+excerpt: Next.js with the app router makes Open Graph and Twitter card so easy to implement! Let' see how to use and test them in a development environment
+date: 2024-04-20
+slug: add-open-graph-twitter-nextjs-app-router
+category: Guide
+cover: /blog/open-graph/cover.png
+coverAlt: open graph and twitter card
+coverWidth: 926
+coverHeight: 606
+time: 4
+tags: Next.js, Open Graph, Twitter, App router
+---
+
+## What is Open Graph
+
+In a nutshell: Open Graph is an internet protocol developed by Meta that enable websites to have a nicer look when shared on social media.
+
+## Open Graph with the App router
+
+The app router differentiate massively from the pages router. One of the removed feature is the Head component,
+something that used to look like this:
+
+``` tsx
+import Head from 'next/head'
+
+function IndexPage() {
+  return (
+    <div>
+      <Head>
+        <title>My page title</title>
+      </Head>
+      <p>Hello world!</p>
+    </div>
+  )
+}
+
+export default IndexPage
+```
+
