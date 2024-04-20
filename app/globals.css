@@ -137,6 +137,10 @@ strong {
     color: var(--primary);
 }
 
+#articleNote code {
+    background: var(--secondary);
+}
+
 article .grid {
     padding: 0;
 }
