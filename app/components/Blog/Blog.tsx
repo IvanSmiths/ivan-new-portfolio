@@ -26,14 +26,17 @@ const Blog: FC = async () => {
                 </h3>
               </div>
               <div className="sm:flex ml-regular flex-col gap-smallest min-w-fit hidden text-right">
+                <span className="lato group-hover:text-secondaryLight transition">
+                  {post?.category}
+                </span>
                 <time
-                  className="lato font-bold group-hover:text-secondaryLight transition"
+                  className="lato group-hover:text-secondaryLight transition"
                   dateTime={post?.date}
                 >
                   {post?.date
                     ? new Date(post?.date).toLocaleDateString("en-us", {
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
                       })
                     : "Date not available"}
