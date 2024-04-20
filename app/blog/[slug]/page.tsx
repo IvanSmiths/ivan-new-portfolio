@@ -69,7 +69,10 @@ export default async function Post({ params }: BlogProps) {
       <article className="mt-large grid">
         <Hero post={post} />
         <div className="col-span-full grid relative">
-          <div className="md:col-start-4 md:col-end-10 col-span-full mt-medium flex flex-col gap-regular">
+          <div
+            data-cy="blogPageBody"
+            className="md:col-start-4 md:col-end-10 col-span-full mt-medium flex flex-col gap-regular"
+          >
             <MDXComponents source={post!.body} />
           </div>
         </div>
