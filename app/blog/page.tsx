@@ -1,17 +1,11 @@
-import getPosts, { Posts } from "../../utils/getPosts";
-import Link from "next/link";
+import Blog from "../components/Blog/Blog";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 
-export default async function Blog() {
-  const posts: Posts[] = await getPosts();
+export default async function BlogPage() {
   return (
     <div className="mt-large">
       <Navbar position={Position.Fixed} />
-      {posts.map((post: Posts) => (
-        <Link key={post?.slug} href={`blog/${post?.slug}`}>
-          <div>{post?.title}</div>
-        </Link>
-      ))}
+      <Blog />
     </div>
   );
 }
