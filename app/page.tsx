@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    images: `https://www.ivansmiths.com/home.png`,
     type: "website",
     siteName: "Ivan Smiths",
     url: `https://ivansmiths.com`,
@@ -30,7 +29,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@Ivansmiths",
     creatorId: "1303746727594405894",
-    images: `https://www.ivansmiths.com/home.png`,
   },
 };
 
