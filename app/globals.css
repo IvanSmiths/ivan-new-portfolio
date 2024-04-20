@@ -36,7 +36,7 @@ body {
         --primary-accent: #000000;
         --primary-light: #444450;
         --secondary: #f9fbfd;
-        --secondary-light: #d6e0ea;
+        --secondary-light: #e8e8e8;
     }
 
     body[data-theme="dark"] {
@@ -44,7 +44,7 @@ body {
         --primary-accent: #ffffff;
         --primary-light: #afb4bd;
         --secondary: #0e0e13;
-        --secondary-light: #1d1d23;
+        --secondary-light: #1E1E1E;
     }
 }
 
@@ -130,6 +130,10 @@ strong {
     list-style: none;
     margin-top: var(--smallest);
     line-height: normal;
+}
+
+#articleNote p {
+    color: var(--primary);
 }
 
 article .grid {

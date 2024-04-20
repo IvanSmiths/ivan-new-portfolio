@@ -100,6 +100,14 @@ const components = {
   a: (props: AnchorProps) => (
     <CustomLink {...props}>{props.children}</CustomLink>
   ),
+  code: (props: any) => (
+    <code
+      className="bg-secondaryLight py-1 px-2 rounded-lg text-primary font-bold"
+      {...props}
+    >
+      {props.children}
+    </code>
+  ),
   pre: (props: PreProps) => <Code {...props}>{props.children}</Code>,
   Note: (props: ChildrenAsProps) => <Note {...props}>{props.children}</Note>,
   Sections: (props: ChildrenAsProps) => (

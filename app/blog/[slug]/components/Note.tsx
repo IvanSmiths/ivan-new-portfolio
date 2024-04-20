@@ -3,7 +3,11 @@ import { ChildrenAsProps } from "./MDXComponents";
 
 const Note: FC<ChildrenAsProps> = ({ children, ...props }) => {
   return (
-    <div {...props} className="p-5 rounded-xl bg-secondaryLight text-primary">
+    <div
+      id="articleNote"
+      {...props}
+      className="p-5 rounded-xl bg-secondaryLight"
+    >
       {children}
     </div>
   );
