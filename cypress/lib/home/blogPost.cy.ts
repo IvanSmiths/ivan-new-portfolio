@@ -6,14 +6,15 @@ export const checkBlogPostLength = (lenght: number): void => {
   cy.get("[data-cy=blogPost]").should("have.length.at.least", lenght);
 };
 
-export const checkBlogPostTitle = (): void => {
+export const checkBlogPostMetadata = (metadata: string): void => {
   cy.get("[data-cy=blogPost]").each(($post) => {
     cy.wrap($post)
-      .find("[data-cy=blogPostTitle]")
+      .find(metadata)
       .invoke("text")
-      .then((title) => {
-        const expectedTitle = title.trim();
-        expect(expectedTitle).to.exist;
+      .then((metadata) => {
+        const expectedMetadata = metadata.trim();
+        expect(expectedMetadata).to.exist;
+        expect(expectedMetadata).not.to.be.empty;
       });
   });
 };

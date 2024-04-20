@@ -19,7 +19,10 @@ const Blog: FC = async () => {
               href={`blog/${post?.slug}`}
             >
               <div className="flex md:gap-medium gap-small items-center">
-                <span className="lato group-hover:text-secondaryLight transition">
+                <span
+                  data-cy="blogPostIndex"
+                  className="lato group-hover:text-secondaryLight transition"
+                >
                   0{index + 1}
                 </span>
                 <h3
@@ -30,10 +33,14 @@ const Blog: FC = async () => {
                 </h3>
               </div>
               <div className="sm:flex ml-regular flex-col gap-smallest min-w-fit hidden text-right">
-                <span className="lato group-hover:text-secondaryLight transition">
+                <span
+                  data-cy="blogPostCategory"
+                  className="lato group-hover:text-secondaryLight transition"
+                >
                   {post?.category}
                 </span>
                 <time
+                  data-cy="blogPostDate"
                   className="lato group-hover:text-secondaryLight transition"
                   dateTime={post?.date}
                 >
@@ -45,7 +52,10 @@ const Blog: FC = async () => {
                       })
                     : "Date not available"}
                 </time>
-                <span className="lato group-hover:text-secondaryLight transition">
+                <span
+                  data-cy="blogPostTime"
+                  className="lato group-hover:text-secondaryLight transition"
+                >
                   {post?.time} min to read
                 </span>
               </div>

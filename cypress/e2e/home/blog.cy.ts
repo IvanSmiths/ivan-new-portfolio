@@ -2,7 +2,7 @@ import { wait } from "../../lib/wait/wait.cy";
 import {
   checkAllBlogPost,
   checkBlogPostLength,
-  checkBlogPostTitle,
+  checkBlogPostMetadata,
 } from "../../lib/home/blogPost.cy";
 
 describe("Fetching Blog Posts", () => {
@@ -17,6 +17,10 @@ describe("Fetching Blog Posts", () => {
   });
 
   it("Correctly renders the metadata of each blog post", () => {
-    checkBlogPostTitle();
+    checkBlogPostMetadata("[data-cy=blogPostTitle]");
+    checkBlogPostMetadata("[data-cy=blogPostCategory]");
+    checkBlogPostMetadata("[data-cy=blogPostDate]");
+    checkBlogPostMetadata("[data-cy=blogPostTime]");
+    checkBlogPostMetadata("[data-cy=blogPostIndex]");
   });
 });
