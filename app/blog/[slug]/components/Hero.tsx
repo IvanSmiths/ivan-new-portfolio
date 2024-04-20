@@ -18,7 +18,7 @@ type PostProps = {
 };
 
 const Hero: FC<PostProps> = ({ post }) => {
-  const tags: string[] = post.tags.split(" ");
+  const tags: string[] = post.tags.split(",");
   return (
     <>
       <Blob />
