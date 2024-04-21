@@ -3,7 +3,7 @@ import getPosts, { Posts } from "../../../utils/getPosts";
 import Link from "next/link";
 
 const Blog: FC = async () => {
-  const posts: Posts[] = await getPosts();
+  const posts: Posts[] = await getPosts(1);
   return (
     <div className="grid md:m-0">
       <span className="md:col-start-1 max-sm:mb-small md:col-end-3 col-span-full lato">
