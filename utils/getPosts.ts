@@ -1,32 +1,26 @@
 import fs from "fs";
 import path from "path";
 
-export type Post = {
-  metadata: any;
-  body: string;
-  category: string;
-  cover: string;
-  coverAlt: string;
-  coverWidth: number;
-  coverHeight: number;
-  date: string;
-  excerpt: string;
-  slug: string | undefined;
-  tags: string;
-  title: string;
-  time: number;
+export type Posts = {
+  metadata: Metadata;
+  slug: string;
+  content: string;
 };
-
-export type Posts = Post | null;
 
 export type Metadata = {
   title: string;
   publishedAt: string;
-  summary: string;
   image: string;
   category: string;
   date: string;
   time: string;
+  description: string;
+  cover: string;
+  coverAlt: string;
+  coverWidth: string;
+  coverHeight: string;
+  excerpt: string;
+  tags: string;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -37,7 +31,7 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterLines: string[] = frontMatterBlock.trim().split("\n");
   let metadata: Partial<Metadata> = {};
 
-  frontMatterLines.forEach((line: string): void => {
+  frontMatterLines.forEach((line): void => {
     let [key, ...valueArr] = line.split(": ");
     metadata[key.trim() as keyof Metadata] = valueArr.join(": ").trim();
   });

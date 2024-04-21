@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { getBlogPosts } from "../../../utils/getPosts";
+import { getBlogPosts, Posts } from "../../../utils/getPosts";
 import { MDXComponents } from "./components/MDXComponents";
 import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { blogSchema } from "../../../utils/Schemas";
-import { Posts } from "../../components/Blog/Blog";
 
-type BlogProps = {
+type Params = {
   params: {
     slug: string;
   };
@@ -20,7 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: BlogProps): Promise<Metadata | undefined> {
+}: Params): Promise<Metadata | undefined> {
   let post: Posts | undefined = getBlogPosts().find(
     (post) => post.slug === params.slug,
   );
@@ -29,12 +28,7 @@ export async function generateMetadata({
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
+  let { title, publishedAt: publishedTime, description, image } = post.metadata;
   let ogImage = image
     ? `https://ivansmiths.com${image}`
     : `https://ivansmiths.com/og?title=${title}`;
@@ -63,7 +57,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: BlogProps) {
+export default async function Post({ params }: Params) {
   let post: Posts | undefined = getBlogPosts().find(
     (post) => post.slug === params.slug,
   );
@@ -76,7 +70,7 @@ export default async function Post({ params }: BlogProps) {
     <>
       <Navbar position={Position.Fixed} />
       <article className="mt-large grid">
-        <Hero post={post} />
+        <Hero post={post.metadata} />
         <div className="col-span-full grid relative">
           <div
             data-cy="blogPageBody"

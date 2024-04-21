@@ -1,12 +1,6 @@
 import { FC } from "react";
-import { getBlogPosts, Metadata } from "../../../utils/getPosts";
+import { getBlogPosts, Posts } from "../../../utils/getPosts";
 import Link from "next/link";
-
-export type Posts = {
-  metadata: Metadata;
-  slug: string;
-  content: string;
-};
 
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
