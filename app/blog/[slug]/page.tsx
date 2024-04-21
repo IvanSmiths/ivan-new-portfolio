@@ -5,6 +5,11 @@ import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { blogSchema } from "../../../utils/Schemas";
 
+export async function generateStaticParams() {
+  const posts: any = getBlogPosts();
+  return posts?.map((post: any) => ({ slug: post?.slug }));
+}
+
 export default async function Post({ params }: any) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 

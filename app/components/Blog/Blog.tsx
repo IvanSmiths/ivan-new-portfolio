@@ -13,7 +13,7 @@ const Blog: FC = () => {
       </span>
       <div className="md:col-start-4 md:col-end-13 col-span-full flex flex-col">
         {posts.map((post: Posts, index: number) => {
-          console.log("Mapping post:", post); // Log each post as it's being mapped
+          console.log("Mapping post:", post);
           return (
             <div key={index}>
               <Link
