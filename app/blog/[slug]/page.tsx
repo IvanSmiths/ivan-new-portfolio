@@ -28,18 +28,26 @@ export async function generateMetadata({
     return;
   }
 
-  let { title, publishedAt: publishedTime, description, image } = post.metadata;
+  let {
+    title,
+    publishedAt: publishedTime,
+    excerpt,
+    image,
+    tags,
+  } = post.metadata;
   let ogImage = image
     ? `https://ivansmiths.com${image}`
     : `https://ivansmiths.com/og?title=${title}`;
 
   return {
     title,
-    description,
+    description: excerpt,
     openGraph: {
       title,
-      description,
+      description: excerpt,
       type: "article",
+      authors: ["Ivan Smiths"],
+      tags: tags,
       publishedTime,
       url: `https://ivansmiths.com/blog/${post.slug}`,
       images: [
@@ -51,7 +59,9 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      description,
+      creator: "@Ivansmiths",
+      creatorId: "1303746727594405894",
+      description: excerpt,
       images: [ogImage],
     },
   };
