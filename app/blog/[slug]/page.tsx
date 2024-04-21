@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getBlogPosts } from "../../../utils/getPosts";
 import { MDXComponents } from "./components/MDXComponents";
 import { notFound } from "next/navigation";
@@ -8,6 +9,49 @@ import { blogSchema } from "../../../utils/Schemas";
 export async function generateStaticParams() {
   const posts: any = getBlogPosts();
   return posts?.map((post: any) => ({ slug: post?.slug }));
+}
+
+export async function generateMetadata({
+  //@ts-ignore
+  params,
+}): Promise<Metadata | undefined> {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  if (!post) {
+    return;
+  }
+
+  let {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
+  let ogImage = image
+    ? `https://ivansmiths.com${image}`
+    : `https://ivansmiths.com/og?title=${title}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      url: `https://ivansmiths.com/blog/${post.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function Post({ params }: any) {
