@@ -2,7 +2,7 @@ import { FC } from "react";
 import getPosts, { Posts } from "../../../utils/getPosts";
 import Link from "next/link";
 
-const Blog: FC = async () => {
+const BlogPost: FC = async () => {
   const posts: Posts[] = await getPosts();
   return (
     <div className="grid md:m-0">
@@ -20,4 +20,4 @@ const Blog: FC = async () => {
   );
 };
 
-export default Blog;
+export default BlogPost;

@@ -6,7 +6,7 @@ import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
-import Blog from "./components/Blog/Blog";
+import BlogPost from "./components/Blog/Blog";
 import Overlay from "./components/Loader/Overlay";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
@@ -42,7 +42,7 @@ const Home = async () => {
       <LoaderWrapper />
       <About />
       <Works works={works} />
-      <Blog />
+      <BlogPost />
       <Footer />
       <script
         type="application/ld+json"
