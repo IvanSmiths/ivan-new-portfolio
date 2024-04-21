@@ -5,17 +5,26 @@ import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { blogSchema } from "../../../utils/Schemas";
+import { Posts } from "../../components/Blog/Blog";
+
+type BlogProps = {
+  params: {
+    slug: string;
+  };
+};
 
 export async function generateStaticParams() {
-  const posts: any = getBlogPosts();
-  return posts?.map((post: any) => ({ slug: post?.slug }));
+  const posts: Posts[] = getBlogPosts();
+  return posts?.map((post: Posts) => ({ slug: post?.slug }));
 }
 
 export async function generateMetadata({
-  //@ts-ignore
   params,
-}): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+}: BlogProps): Promise<Metadata | undefined> {
+  let post: Posts | undefined = getBlogPosts().find(
+    (post) => post.slug === params.slug,
+  );
+
   if (!post) {
     return;
   }
@@ -54,8 +63,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: any) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Post({ params }: BlogProps) {
+  let post: Posts | undefined = getBlogPosts().find(
+    (post) => post.slug === params.slug,
+  );
 
   if (!post) {
     notFound();

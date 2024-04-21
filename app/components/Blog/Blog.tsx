@@ -2,7 +2,7 @@ import { FC } from "react";
 import { getBlogPosts, Metadata } from "../../../utils/getPosts";
 import Link from "next/link";
 
-type Posts = {
+export type Posts = {
   metadata: Metadata;
   slug: string;
   content: string;
