@@ -1,18 +1,11 @@
+import { Metadata } from "./getPosts";
+
 type WorkProps = {
   slug: string;
   title: string;
 };
 
-type BlogProps = {
-  slug: string | undefined;
-  title: string;
-  excerpt: string;
-  date: string;
-  cover?: string | undefined;
-  coverWidth?: number | undefined;
-  coverHeight?: number | undefined;
-  tags: string;
-};
+type BlogSchema = Metadata & { slug?: string };
 
 export const homeSchema = {
   "@context": "http://schema.org",
@@ -82,7 +75,7 @@ export const workSchema = (works: WorkProps) => {
   };
 };
 
-export const blogSchema = (post: BlogProps) => {
+export const blogSchema = (post: BlogSchema) => {
   return [
     {
       "@context": "http://schema.org",
