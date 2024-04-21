@@ -1,4 +1,5 @@
 import {
+  AnchorHTMLAttributes,
   createElement,
   DetailedHTMLProps,
   HTMLAttributes,
@@ -36,9 +37,15 @@ Code.theme = {
   light: "github-light",
 };
 
-function CustomLink(props: any) {
-  let href = props.href;
+interface CustomLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  href?: string | undefined;
+}
 
+function CustomLink(props: CustomLinkProps) {
+  let { href } = props;
+  if (!href) {
+    return;
+  }
   if (href.startsWith("/")) {
     return (
       <Link className="text-lg underline font-bold" href={href} {...props}>
