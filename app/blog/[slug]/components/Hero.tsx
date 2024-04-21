@@ -17,8 +17,7 @@ type PostProps = {
   };
 };
 
-const Hero: FC<PostProps> = ({ post }) => {
-  const tags: string[] = post.tags.split(",");
+const Hero: FC<any> = ({ post }) => {
   return (
     <>
       <Blob />
@@ -57,21 +56,6 @@ const Hero: FC<PostProps> = ({ post }) => {
             {post.time} minutes read
           </span>
         </div>
-        <ul className="flex justify-center items-center gap-smallest">
-          {tags.map((tag: string, index: number) => (
-            <li
-              className="flex justify-center items-center gap-smallest"
-              key={index}
-            >
-              <span data-cy="blogPageTag" className="lato font-bold">
-                {tag}
-              </span>
-              <div className={index === tags.length - 1 ? "hidden" : ""}>
-                <Dot dimension="small" />
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
       <div className="md:col-start-2 md:col-end-12 col-span-full mt-small">
         <img

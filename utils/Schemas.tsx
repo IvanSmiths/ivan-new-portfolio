@@ -82,7 +82,7 @@ export const workSchema = (works: WorkProps) => {
   };
 };
 
-export const blogSchema = (post: BlogProps) => {
+export const blogSchema = (post: any) => {
   return [
     {
       "@context": "http://schema.org",

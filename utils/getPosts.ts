@@ -1,9 +1,8 @@
-import matter from "gray-matter";
+import fs from "fs";
 import path from "path";
-import fs from "fs/promises";
-import { cache } from "react";
 
 export type Post = {
+  metadata: any;
   body: string;
   category: string;
   cover: string;
@@ -20,29 +19,54 @@ export type Post = {
 
 export type Posts = Post | null;
 
-export const getPosts = cache(async (limit?: number) => {
-  const posts: string[] = await fs.readdir("./blogposts/");
+type Metadata = {
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+};
 
-  let filteredPosts = posts.filter(
-    (file) => path.extname(file) === ".md" || path.extname(file) === ".mdx",
-  );
+function parseFrontmatter(fileContent: string) {
+  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  let match = frontmatterRegex.exec(fileContent);
+  let frontMatterBlock = match![1];
+  let content = fileContent.replace(frontmatterRegex, "").trim();
+  let frontMatterLines = frontMatterBlock.trim().split("\n");
+  let metadata: Partial<Metadata> = {};
 
-  if (limit !== undefined) {
-    filteredPosts = filteredPosts.slice(0, limit);
-  }
+  frontMatterLines.forEach((line) => {
+    let [key, ...valueArr] = line.split(": ");
+    let value = valueArr.join(": ").trim();
+    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
+    metadata[key.trim() as keyof Metadata] = value;
+  });
 
-  return Promise.all(
-    filteredPosts.map(async (file): Promise<Post> => {
-      const filePath = `./blogposts/${file}`;
-      const postContent = await fs.readFile(filePath, "utf8");
-      const { data, content } = matter(postContent);
-      return { ...data, body: content } as Post;
-    }),
-  );
-});
-export default getPosts;
+  return { metadata: metadata as Metadata, content };
+}
 
-export async function getPost(slug: string): Promise<Post | undefined> {
-  const posts: Post[] = await getPosts();
-  return posts.find((post: Post): boolean => post?.slug === slug);
+function getMDXFiles(dir: fs.PathLike) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+}
+
+function readMDXFile(filePath: fs.PathOrFileDescriptor) {
+  let rawContent = fs.readFileSync(filePath, "utf-8");
+  return parseFrontmatter(rawContent);
+}
+
+function getMDXData(dir: fs.PathLike) {
+  let mdxFiles = getMDXFiles(dir);
+  return mdxFiles.map((file) => {
+    // @ts-ignore
+    let { metadata, content } = readMDXFile(path.join(dir, file));
+    let slug = path.basename(file, path.extname(file));
+    return {
+      metadata,
+      slug,
+      content,
+    };
+  });
+}
+
+export function getBlogPosts() {
+  return getMDXData(path.join(process.cwd(), "blogposts"));
 }

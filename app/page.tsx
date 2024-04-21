@@ -7,6 +7,7 @@ import { getWorks } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 import Overlay from "./components/Loader/Overlay";
+import Blog from "./components/Blog/Blog";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
@@ -41,6 +42,7 @@ const Home = async () => {
       <LoaderWrapper />
       <About />
       <Works works={works} />
+      <Blog />
       <Footer />
       <script
         type="application/ld+json"
