@@ -1,12 +1,9 @@
-"use client";
-
 import { FC } from "react";
 import getPosts, { Posts } from "../../../utils/getPosts";
 import Link from "next/link";
 
-const Blog: FC = () => {
-  //@ts-ignore
-  const posts: Posts[] = getPosts(1);
+const Blog: FC = async () => {
+  const posts: Posts[] = await getPosts();
   return (
     <div className="grid md:m-0">
       <span className="md:col-start-1 max-sm:mb-small md:col-end-3 col-span-full lato">
