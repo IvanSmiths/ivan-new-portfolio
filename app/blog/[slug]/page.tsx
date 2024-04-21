@@ -28,16 +28,7 @@ export async function generateMetadata({
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    excerpt,
-    image,
-    tags,
-  } = post.metadata;
-  let ogImage = image
-    ? `https://ivansmiths.com${image}`
-    : `https://ivansmiths.com/og?title=${title}`;
+  let { title, publishedAt: publishedTime, excerpt, tags } = post.metadata;
 
   return {
     title,
@@ -52,7 +43,7 @@ export async function generateMetadata({
       url: `https://ivansmiths.com/blog/${post.slug}`,
       images: [
         {
-          url: ogImage,
+          url: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
         },
       ],
     },
@@ -62,7 +53,7 @@ export async function generateMetadata({
       creator: "@Ivansmiths",
       creatorId: "1303746727594405894",
       description: excerpt,
-      images: [ogImage],
+      images: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
     },
   };
 }

@@ -17,6 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: work.title,
     description: work.metaDescription,
     openGraph: {
+      title: work.title,
+      type: "website",
+      description: work.metaDescription,
       images: [
         {
           url: work.homeImage.url,
@@ -24,6 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           height: work.homeImage.height,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: work.title,
+      creator: "@Ivansmiths",
+      creatorId: "1303746727594405894",
+      description: work.metaDescription,
+      images: work.homeImage.url,
     },
   };
 }
