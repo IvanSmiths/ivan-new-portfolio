@@ -29,6 +29,14 @@ export async function generateMetadata({
   }
 
   let { title, publishedAt: publishedTime, excerpt, tags } = post.metadata;
+  const ogImage = [
+    {
+      url: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
+      height: post.metadata.coverHeight,
+      width: post.metadata.coverWidth,
+      alt: title,
+    },
+  ];
 
   return {
     title,
@@ -41,11 +49,7 @@ export async function generateMetadata({
       tags: tags,
       publishedTime,
       url: `https://ivansmiths.com/blog/${post.slug}`,
-      images: [
-        {
-          url: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
-        },
-      ],
+      images: ogImage,
     },
     twitter: {
       card: "summary_large_image",
@@ -53,7 +57,7 @@ export async function generateMetadata({
       creator: "@Ivansmiths",
       creatorId: "1303746727594405894",
       description: excerpt,
-      images: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
+      images: ogImage,
     },
   };
 }
