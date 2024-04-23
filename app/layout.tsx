@@ -6,12 +6,6 @@ import React from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-    },
-  },
 };
 
 export default function RootLayout({
