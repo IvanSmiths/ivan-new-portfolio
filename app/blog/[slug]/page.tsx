@@ -80,7 +80,7 @@ export default async function Post({ params }: Params) {
         <div className="col-span-full grid relative">
           <div
             data-cy="blogPageBody"
-            className="md:col-start-4 md:col-end-10 col-span-full mt-medium flex flex-col gap-regular"
+            className="md:col-start-4 lg:col-end-10 md:col-end-13 col-span-full mt-medium flex flex-col gap-regular"
           >
             <MDXComponents source={post!.content} />
           </div>

@@ -47,7 +47,7 @@ const Hero: FC<PostProps> = ({ post }) => {
             {post.time} minutes read
           </span>
         </div>
-        <ul className="flex justify-center items-center gap-smallest">
+        <ul className="flex flex-wrap justify-center items-center gap-smallest">
           {tags.map((tag: string, index: number) => (
             <li
               className="flex justify-center items-center gap-smallest"
