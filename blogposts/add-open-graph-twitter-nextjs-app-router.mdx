@@ -21,7 +21,8 @@ tags: Next.js, Open Graph, Twitter, App router
 
 ## What is Open Graph
 
-In a nutshell: Open Graph is an internet protocol developed by Meta that enable websites to have a nicer look when shared on social media.
+In a nutshell: Open Graph is an internet protocol developed by Meta that allows websites to provide additional information specifically for social
+media sharing. This information controls how your webpage is displayed in social media previews, including the title, description, and thumbnail image (can also have playable videos).
 When your website is shared on social media, it will make it look like this:
 
 <img alt="open graph example" height="932" src="/blog/add-open-graph-twitter-nextjs-app-router/open-graph-example.png" width="1280"/>
@@ -50,10 +51,13 @@ function IndexPage() {
 export default IndexPage
 ```
 
+There you would add manually every single metadata, from height and weight of images, to every other property.
+
 ### The new approach
 
 Now things are way easier! For example, if you want to add Open Graph and Twitter images on your homepage, you don't need to code anything.
-Instead, you just need to **put an image (.png, .jpeg or .gif) named `opengraph-image` and/or `twitter-image`** in the same directory of the page that you want the images to be (in the example i want the images in the home, so I placed them in the same level as the `layout.tsx`).
+Instead, you just need to **put an image (.png, .jpeg or .gif) named `opengraph-image` and/or `twitter-image`** in the same directory of the page that you want the images to be (in the example I want the images to show in the home page,
+so I placed them in the same level as the `layout.tsx`).
 
 <img alt="open graph image placement" height="680" src="/blog/add-open-graph-twitter-nextjs-app-router/open-graph-place-image.png" width="492" className="half"/>
 
