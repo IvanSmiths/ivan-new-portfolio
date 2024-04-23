@@ -1,0 +1,67 @@
+---
+title: The title of the blogpost
+excerpt: The excerpt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+date: 2023-03-14
+slug: component-testing
+category: Category
+time: 3
+cover: /blog/test/cover.png
+coverAlt: alt of image
+coverWidth: 926
+coverHeight: 606
+tags: Next.js, Tailwind, Gsap, App router
+---
+
+# Heading h1
+## Heading h2
+### Heading h3
+#### Heading h4
+##### Heading h5
+###### Heading h6
+
+- Unordered List item 1
+- Unordered List item 2
+- Unordered List item 3
+
+## Heading h2
+
+``` tsx
+export type Post = {
+  body: string;
+  category: string;
+  cover?: string;
+  coverAlt?: string;
+  coverWidth?: number;
+  coverHeight?: number;
+  date: string;
+  excerpt: string;
+  slug: string | undefined;
+  tags: string;
+  title: string;
+  time: number;
+};
+```
+
+<Sections>
+    - [Go to H2 Duis aute irure dolor in reprehenderit nostrud exercitation](#heading-h2)
+    - [Go to H3 Excepteur sint occaecat cupidatat](#heading-h3)
+    - [Go to last image](#last)
+</Sections>
+
+<Note>
+    this is a note **important part of the note** Lorem ipsum dolor [external link](https://www.ivansmiths.com/), [internal link](/works), [link to a part of the blog](#heading-h3) sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure `dolor in reprehenderit in`
+</Note>
+
+this is a `code #articleLinks li`  that will be styled like this
+
+## Heading h2
+
+Lorem ipsum dolor [external link](https://www.ivansmiths.com/), [internal link](/works), [link to a part of the blog](#heading-h3) sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure `dolor in reprehenderit in` voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<img alt="alt text" id="last" height="90" src="/blog/test/cover.png" width="78" className="w-full"/>
+open-graph-place-image

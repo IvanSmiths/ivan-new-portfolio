@@ -12,7 +12,9 @@ const config: Config = {
       colors: {
         primary: "var(--primary)",
         primaryLight: "var(--primary-light)",
+        primaryAccent: "var(--primary-accent)",
         secondary: "var(--secondary)",
+        secondaryLight: "var(--secondary-light)",
       },
       transitionProperty: {
         dimensions: "height, width",
@@ -21,6 +23,8 @@ const config: Config = {
         smallest: "var(--smallest)",
         small: "var(--small)",
         medium: "var(--medium)",
+        regular: "var(--regular)",
+        large: "var(--large)",
         section: "var(--section)",
       },
     },

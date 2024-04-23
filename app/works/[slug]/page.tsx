@@ -1,6 +1,5 @@
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Footer from "../../globalComponents/Footer/Footer";
-import React from "react";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
 import Hero from "./components/Hero";
 import Description from "./components/Description";
@@ -14,17 +13,30 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work: WorkPage = await getWorksPage(params.slug);
+  const ogImage = [
+    {
+      url: work.homeImage.url,
+      width: work.homeImage.width,
+      height: work.homeImage.height,
+      alt: work.company,
+    },
+  ];
   return {
     title: work.title,
     description: work.metaDescription,
     openGraph: {
-      images: [
-        {
-          url: work.homeImage.url,
-          width: work.homeImage.width,
-          height: work.homeImage.height,
-        },
-      ],
+      title: work.title,
+      type: "website",
+      description: work.metaDescription,
+      images: ogImage,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: work.title,
+      creator: "@Ivansmiths",
+      creatorId: "1303746727594405894",
+      description: work.metaDescription,
+      images: ogImage,
     },
   };
 }

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
 
 type HeaderProps = {
@@ -16,11 +15,11 @@ type HeaderProps = {
 const Hero: FC<HeaderProps> = ({ work }) => {
   return (
     <>
-      <h1 className="bebas mt-96 col-start-1 col-end-13 md:text-9xl text-8xl uppercase">
+      <h1 className="bebas md:mt-72 sm:mt-36 mt-14 col-span-full md:text-9xl text-6xl uppercase">
         {work.company}
       </h1>
       <img
-        className="col-start-1 col-end-13 w-full"
+        className="col-span-full w-full"
         src={work.homeImage.url}
         height={work.homeImage.height}
         width={work.homeImage.width}

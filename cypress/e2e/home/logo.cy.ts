@@ -1,6 +1,6 @@
 import { wait } from "../../lib/wait/wait.cy";
 import { toggleTheme } from "../../lib/navbar/themeToggle.cy";
-import { checkLogoColor } from "../../lib/logo/logo.cy";
+import { checkLogoColor } from "../../lib/home/logo.cy";
 import { ThemeColors, ThemeMode } from "../../../utils/store";
 
 describe("Theme", (): void => {

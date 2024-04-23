@@ -1,3 +1,5 @@
+const withMDX = require("@next/mdx")();
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -13,6 +15,12 @@ module.exports = withBundleAnalyzer({
   },
   reactStrictMode: true,
 });
+
+const nextConfig = {
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+};
+
+module.exports = withMDX(nextConfig);
 
 const ContentSecurityPolicy = `
   default-src 'self';

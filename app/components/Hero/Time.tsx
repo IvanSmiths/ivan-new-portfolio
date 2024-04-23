@@ -46,7 +46,7 @@ const Time: FC = () => {
         })
         .to(timeRef.current, {
           opacity: 1,
-          top: -3,
+          top: 0,
           duration: normal,
           ease: "circ.out",
         });
@@ -57,10 +57,10 @@ const Time: FC = () => {
   return (
     <div
       ref={timeScopeRef}
-      className="relative overflow-hidden h-[14px] w-[75px]"
+      className="relative overflow-hidden h-[18px] w-[55px]"
     >
       <span
-        className="absolute mr-auto mono top-0 left-0 right-0 bottom-0 w-fit"
+        className="absolute mr-auto lato top-0 left-0 right-0 bottom-0 w-fit font-normal"
         ref={timeRef}
       >
         {currentTime}

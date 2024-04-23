@@ -13,6 +13,7 @@ type NavbarProps = {
 enum LinkLabel {
   Home = "home",
   Works = "works",
+  Blog = "blog",
   Github = "github",
   Youtube = "youtube",
   Linkedin = "linkedin",
@@ -21,6 +22,7 @@ enum LinkLabel {
 enum LinkUrl {
   Home = "/",
   Works = "/works",
+  Blog = "/blog",
   Github = "https://github.com/IvanSmiths",
   Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
   Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
@@ -47,6 +49,7 @@ const socials: Links[] = [
 const internalLinks: Links[] = [
   { label: LinkLabel.Home, url: LinkUrl.Home, dataCy: LinkLabel.Home },
   { label: LinkLabel.Works, url: LinkUrl.Works, dataCy: LinkLabel.Works },
+  { label: LinkLabel.Blog, url: LinkUrl.Blog, dataCy: LinkLabel.Blog },
 ];
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
@@ -58,7 +61,11 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         <ul className="flex gap-small items-start">
           {internalLinks.map((link: Links, index: number) => (
             <li key={index}>
-              <Link data-cy={link.dataCy} href={link.url} className="mono">
+              <Link
+                data-cy={link.dataCy}
+                href={link.url}
+                className="lato font-bold"
+              >
                 {link.label}
               </Link>
             </li>
@@ -66,19 +73,11 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         </ul>
         <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
           <li>
-            <a
-              className="underline mono hidden sm:block"
-              href="mailto:info@ivansmiths.com"
-            >
-              info@ivansmiths.com
-            </a>
-          </li>
-          <li>
             <div className="hidden sm:flex flex-col gap-2">
               {socials.map((link: Links, index: number) => (
                 <a
                   key={index}
-                  className="mono underline"
+                  className="lato font-bold underline underline-offset-4"
                   href={link.url}
                   rel="noopener"
                   target="_blank"

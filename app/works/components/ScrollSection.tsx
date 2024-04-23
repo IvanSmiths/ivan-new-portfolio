@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { FC, Key } from "react";
 import { gsap } from "gsap";
@@ -19,6 +18,7 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
   useGSAP(() => {
     ScrollTrigger.create({
       start: 0.1,
+      // @ts-ignore
       end: () => ScrollTrigger.maxScroll(window) - 1,
       refreshPriority: -100,
       onLeave: (self) => {
@@ -43,7 +43,7 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
             <div className="grid items-center w-full md:h-3/5 h-4/5">
               <div className="md:col-start-4 md:col-end-6 col-start-1 col-end-7 text-left md:text-right md:justify-between justify-end md:items-end right-auto flex flex-col w-full h-full">
                 <Link href={works[0].slug}>
-                  <h3 className="mono">{works[0].company}</h3>
+                  <h3 className="lato">{works[0].company}</h3>
                   <h4 className="font-bold text-4xl mt-1">{works[0].role}</h4>
                 </Link>
                 <h5 className="hidden sm:block">{works[0].homeDescription}</h5>
