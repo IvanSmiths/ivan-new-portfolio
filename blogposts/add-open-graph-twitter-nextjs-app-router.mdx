@@ -12,13 +12,20 @@ time: 4
 tags: Next.js, Open Graph, Twitter, App router
 ---
 
+<Sections>
+    - [What is Open Graph](#what-is-open-graph)
+    - [Add Open Graph and Twitter images](#the-new-approach)
+</Sections>
+
 ## What is Open Graph
 
 In a nutshell: Open Graph is an internet protocol developed by Meta that enable websites to have a nicer look when shared on social media.
 
 ## Open Graph with the App router
 
-The app router differentiate massively from the pages router. One of the removed feature is the Head component,
+### The old approach
+
+The `app` router differentiate massively from the `pages` router. One of the removed feature is the `Head` component,
 something that used to look like this:
 
 ``` tsx
@@ -38,3 +45,78 @@ function IndexPage() {
 export default IndexPage
 ```
 
+### The new approach
+
+Now things are way easier! For example, if you want to add Open Graph and Twitter images on your homepage, you don't need to code anything.
+Instead, you just need to **put an image (.png, .jpeg or .gif) in the same directory of the `page.tsx`.**
+
+<img alt="open graph image placement" height="680" src="/blog/add-open-graph-twitter-nextjs-app-router/open-graph-place-image.png" width="492" className="half"/>
+
+But let's do things in order. As said previously, the `Head` component has been remove, instead we will use the **`metadata` object
+from Next.js**. You just need to create a `const` called `metadata` and export it. Eventually, you can also import the types.
+
+``` tsx
+export const metadata: Metadata = {
+  title: '...',
+}
+```
+
+<Note>
+ Take in mind that this approach is only available for Server Components and for **statically generated pages**, it won't work if the
+    page is dynamically generated. In that case you need to call the `generateMetadata` function, will explain later.
+</Note>
+
+Below there is the code that i use for my homepage, look so minimal and clean!
+
+``` tsx
+const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
+const description: string =
+"Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen";
+
+export const metadata: Metadata = {
+    title: title,
+    description: description,
+    openGraph: {
+        title,
+        description,
+        type: "website",
+        siteName: "Ivan Smiths",
+        url: `https://ivansmiths.com`,
+    },
+    twitter: {
+        title,
+        description,
+        card: "summary_large_image",
+        creator: "@Ivansmiths",
+        creatorId: "1303746727594405894",
+    },
+};
+```
+
+If you see the page source, you will see that this code rendered out a bunch of html tags:
+
+``` html
+<title>Ivan Smiths, Frontend UI/UX Developer from Wiesbaden</title>
+<meta name="description" content="Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen"/>
+<meta property="og:title" content="Ivan Smiths, Frontend UI/UX Developer from Wiesbaden"/>
+<meta property="og:description" content="Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen"/>
+<meta property="og:url" content="https://ivansmiths.com/"/>
+<meta property="og:site_name" content="Ivan Smiths"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="2880"/>
+<meta property="og:image:height" content="1558"/>
+<meta property="og:image" content="http://localhost:3000/opengraph-image.png?66d44f37b83759d8"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:creator" content="@Ivansmiths"/>
+<meta name="twitter:creator:id" content="1303746727594405894"/>
+<meta name="twitter:title" content="Ivan Smiths, Frontend UI/UX Developer from Wiesbaden"/>
+<meta name="twitter:description" content="Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen"/>
+<meta name="twitter:image:type" content="image/png"/>
+<meta name="twitter:image:width" content="2880"/>
+<meta name="twitter:image:height" content="1558"/>
+<meta name="twitter:image" content="http://localhost:3000/twitter-image.png?66d44f37b83759d8"/>
+```
+
+That's pretty convenient! As you can see, it also added `width` and `height`. If you also want to add an `alt` text to the images
+, you need to add a `.txt` file called respectively `opengraph-image.alt` and/or `twitter-image.alt` with the alternative text written inside.
