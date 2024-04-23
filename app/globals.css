@@ -145,6 +145,14 @@ article .grid {
     padding: 0;
 }
 
+article .half {
+    width: 50%;
+}
+
+article h3 {
+    font-size: 1.8rem !important;
+}
+
 article li {
     color: var(--primary-light);
     list-style: disc;
@@ -169,5 +177,9 @@ article li {
     .grid-debug {
         grid-gap: 10px;
         padding: 0 20px;
+    }
+
+    article .half {
+        width: 100%;
     }
 }
