@@ -114,6 +114,7 @@ strong {
     transition: 0.3s;
     font-size: 14px;
     line-height: normal;
+    font-weight: normal;
 }
 
 #articleLinks span {

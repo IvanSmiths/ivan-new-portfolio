@@ -55,7 +55,7 @@ function CustomLink(props: CustomLinkProps) {
   }
 
   if (href.startsWith("#")) {
-    return <a className="text-base" {...props} />;
+    return <a className="font-bold" {...props} />;
   }
 
   return (
