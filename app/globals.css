@@ -5,16 +5,19 @@
 :root {
     --smallest: 10px;
     --small: 20px;
+    --regular: 35px;
     --medium: 60px;
+    --large: 100px;
     --section: 260px;
 
-    --body: 15px;
+    --body: 18px;
 }
 
 html,
 body,
 * {
     scrollbar-width: none;
+    scroll-behavior: smooth;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -30,19 +33,19 @@ body {
 @layer base {
     body[data-theme="light"] {
         --primary: #09090B;
-        --primary-light: #71717A;
-        --secondary: #ffffff;
+        --primary-accent: #000000;
+        --primary-light: #444450;
+        --secondary: #f9fbfd;
+        --secondary-light: #e8e8e8;
     }
 
     body[data-theme="dark"] {
         --primary: #e7e7e7;
-        --primary-light: #a8a8a8;
-        --secondary: #09090B;
+        --primary-accent: #ffffff;
+        --primary-light: #afb4bd;
+        --secondary: #0e0e13;
+        --secondary-light: #1E1E1E;
     }
-}
-
-li::marker {
-    font-size: 15px;
 }
 
 a {
@@ -52,19 +55,29 @@ a {
 h1,
 h2,
 h3,
+pre,
 h4,
 h5,
 h6,
-p,
-strong,
 span,
 button,
 label,
 a,
-li {
+li,
+time {
     font-size: var(--body);
     color: var(--primary);
     font-weight: 400;
+}
+
+p {
+    color: var(--primary-light);
+    line-height: 1.7rem;
+    font-size: var(--body);
+}
+
+strong {
+    color: var(--primary);
 }
 
 .lato {
@@ -96,6 +109,55 @@ li {
     background-color: rgba(236, 111, 111, 0.21);
 }
 
+#articleLinks a {
+    color: var(--primary-light);
+    transition: 0.3s;
+    font-size: 14px;
+    line-height: normal;
+}
+
+#articleLinks span {
+    color: var(--primary);
+    font-size: 14px;
+    margin-bottom: var(--small);
+    font-weight: bold;
+}
+
+#articleLinks a:hover {
+    color: var(--primary);
+}
+
+#articleLinks li {
+    list-style: none;
+    margin-top: var(--smallest);
+    line-height: normal;
+}
+
+#articleNote p {
+    color: var(--primary);
+}
+
+#articleNote code {
+    background: var(--secondary);
+}
+
+article .grid {
+    padding: 0;
+}
+
+article .half {
+    width: 50%;
+}
+
+article h3 {
+    font-size: 1.8rem !important;
+}
+
+article li {
+    color: var(--primary-light);
+    list-style: disc;
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(6, 1fr);
@@ -115,5 +177,9 @@ li {
     .grid-debug {
         grid-gap: 10px;
         padding: 0 20px;
+    }
+
+    article .half {
+        width: 100%;
     }
 }

@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { FC, Key } from "react";
 import { gsap } from "gsap";
@@ -19,6 +18,7 @@ const InfiniteScroll: FC<WorksProps> = ({ works }) => {
   useGSAP(() => {
     ScrollTrigger.create({
       start: 0.1,
+      // @ts-ignore
       end: () => ScrollTrigger.maxScroll(window) - 1,
       refreshPriority: -100,
       onLeave: (self) => {
