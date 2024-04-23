@@ -73,14 +73,6 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         </ul>
         <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
           <li>
-            <a
-              className="underline underline-offset-4 lato font-bold hidden sm:block"
-              href="mailto:info@ivansmiths.com"
-            >
-              info@ivansmiths.com
-            </a>
-          </li>
-          <li>
             <div className="hidden sm:flex flex-col gap-2">
               {socials.map((link: Links, index: number) => (
                 <a
