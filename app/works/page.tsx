@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
-const Works: FC = async () => {
+const WorksPage: FC = async () => {
   const works: Works[] = await getWorks();
   return (
     <>
@@ -42,4 +42,4 @@ const Works: FC = async () => {
   );
 };
 
-export default Works;
+export default WorksPage;
