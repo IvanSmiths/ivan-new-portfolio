@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import About from "./components/About/About";
-import Works from "./components/Works/Works";
+import WorksSection from "./components/Works/Works";
 import Footer from "./globalComponents/Footer/Footer";
 import LoaderWrapper from "./components/Loader/LoaderWrapper";
-import { getWorks } from "../utils/graphql";
+import { getWorks, Works } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 import Overlay from "./components/Loader/Overlay";
@@ -41,7 +41,7 @@ const Home = async () => {
       <Overlay />
       <LoaderWrapper />
       <About />
-      <Works works={works} />
+      <WorksSection works={works} />
       <Blog />
       <Footer />
       <script
