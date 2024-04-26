@@ -14,7 +14,7 @@ type WorksProps = {
   };
 };
 
-const Works: FC<WorksProps> = ({ works }) => {
+const WorksSection: FC<WorksProps> = ({ works }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -73,4 +73,4 @@ const Works: FC<WorksProps> = ({ works }) => {
   );
 };
 
-export default Works;
+export default WorksSection;
