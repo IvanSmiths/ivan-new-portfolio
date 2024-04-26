@@ -1,8 +1,5 @@
-"use client";
-
 import { FC, Key } from "react";
 import Work from "../../components/Works/Work";
-import Link from "next/link";
 import { Works } from "../../../utils/graphql";
 
 type WorksProps = {
