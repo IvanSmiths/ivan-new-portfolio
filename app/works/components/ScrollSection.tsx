@@ -1,11 +1,8 @@
 "use client";
 
 import { FC, Key } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Work from "../../components/Works/Work";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
 import { Works } from "../../../utils/graphql";
 
 type WorksProps = {
@@ -13,25 +10,6 @@ type WorksProps = {
 };
 
 const InfiniteScroll: FC<WorksProps> = ({ works }) => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  useGSAP(() => {
-    ScrollTrigger.create({
-      start: 0.1,
-      // @ts-ignore
-      end: () => ScrollTrigger.maxScroll(window) - 1,
-      refreshPriority: -100,
-      onLeave: (self) => {
-        self.scroll(self.start + 1);
-        ScrollTrigger.update();
-      },
-      onLeaveBack: (self) => {
-        self.scroll(self.end - 1);
-        ScrollTrigger.update();
-      },
-    });
-  });
-
   return (
     <div className="grid">
       <div className="flex md:col-start-3 md:col-end-11 col-start-1 col-end-7">
