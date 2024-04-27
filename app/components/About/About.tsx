@@ -4,15 +4,15 @@ const About: FC = () => {
   return (
     <main className="md:mt-section mt-large">
       <div className="grid">
-        <div className="col-start-1 bg-primary w-2 h-2 rounded-full mt-2"></div>
-        <h2 className="sm:text-4xl text-xl md:col-start-4 md:col-end-11 col-end-7 col-start-2">
+        <div className="col-start-1 bg-primary w-2 h-2 rounded-full mt-2 hidden md:block"></div>
+        <h2 className="sm:text-5xl text-3xl md:col-start-4 md:col-end-11 col-end-7 col-start-1">
           Leveraging tech and design, I prioritise aesthetics, functionality,
           speed and usability.
         </h2>
-        <span className="md:col-start-4 col-start-1 lato sm:mt-medium mt-16">
+        <span className="md:col-start-4 col-start-1 lato sm:mt-medium mt-16 hidden md:block">
           who am i
         </span>
-        <div className="w-full md:col-start-8 col-start-2 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-16">
+        <div className="w-full md:col-start-8 col-start-1 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-16">
           <p className="text-primaryLight">
             <strong className="text-primary font-bold">
               Adept at translating creative ideas into user-centric and
