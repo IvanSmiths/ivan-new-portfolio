@@ -9,7 +9,7 @@ const Title: FC = () => {
         <a
           href="https://www.linkedin.com/company/td-cowen/"
           target="_blank"
-          className="underline underline-offset-4 sm:text-4xl text-xl"
+          className="underline underline-offset-4 sm:text-4xl text-2xl"
         >
           TD Cowen.
         </a>
