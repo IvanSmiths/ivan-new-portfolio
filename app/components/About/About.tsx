@@ -9,6 +9,7 @@ const About: FC = async () => {
     <main className="md:mt-section mt-large">
       {images.map((item) => (
         <img
+          key={item.url}
           src={item.url}
           alt={item.url}
           className="w-full h-full object-cover object-center rounded-lg"
