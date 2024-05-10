@@ -1,20 +1,9 @@
-import { FC } from "react";
-import { db } from "../../../utils/db/db";
-import { photos } from "../../../utils/db/schema";
+import { FC } from "react"
 
 const About: FC = async () => {
-  const images = await db.select({ url: photos.url }).from(photos).all();
-  console.log(images)
+
   return (
     <main className="md:mt-section mt-large">
-      {images.map((item) => (
-        <img
-          key={item.url}
-          src={item.url}
-          alt={item.url}
-          className="w-full h-full object-cover object-center rounded-lg"
-        />
-      ))}
       <div className="grid">
         <div className="col-start-1 bg-primary w-2 h-2 rounded-full mt-2 hidden md:block"></div>
         <h2 className="sm:text-5xl text-3xl md:col-start-4 md:col-end-11 col-end-7 col-start-1">
