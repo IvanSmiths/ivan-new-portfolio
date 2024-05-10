@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
+    "migrations:generate": "drizzle-kit generate --config=drizzle.config.ts",
+    "migrations:run": "drizzle-kit migrate --config=drizzle.config.ts",
     "cypress:open": "cypress open --config-file=cypress.config.ts"
   },
   "dependencies": {
@@ -19,7 +21,6 @@
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.2.2",
     "bright": "^0.8.5",
-    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.10",
     "gsap": "^3.12.5",
     "next": "^14.2.3",
