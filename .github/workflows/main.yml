@@ -21,3 +21,5 @@ jobs:
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
           OPEN_WEATHER_API: ${{secrets.OPEN_WEATHER_API}}
+          TURSO_AUTH_TOKEN: ${{secrets.TURSO_AUTH_TOKEN}}
+          TURSO_DATABASE_URL: ${{secrets.TURSO_DATABASE_URL}}
