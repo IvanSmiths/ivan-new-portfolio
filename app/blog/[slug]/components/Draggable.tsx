@@ -5,40 +5,20 @@ type DraggableProps = {
 }
 
 const Draggable: FC<DraggableProps> = ({ type }) => {
+    let classNames = 'w-8 h-8 bg-gray-100 p-4';
+
     if (type === 'div') {
-        return (
-            <div style={{
-                width: '200px',
-                height: '200px',
-                backgroundColor: '#ffffff',
-                margin: 'auto',
-                border: '1px solid #ccc',
-            }}>
-                <span>Centered</span>
-            </div>
-        )
+        classNames += ' div';
     } else if (type === 'span') {
-        return (
-            <span style={{
-                width: '900px',
-                height: '500px',
-                margin: 'auto',
-                border: '1px solid #ccc',
-            }}>
-                <span>Centered</span>
-            </span>
-        )
+        classNames += ' span';
     } else if (type === 'p') {
-        return (
-            <p style={{
-                width: '900px',
-                height: '500px',
-                margin: 'auto',
-                border: '1px solid #ccc',
-            }}>
-                <span>Centered</span>
-            </p>
-        )
+        classNames += ' p';
     }
+
+    return (
+        <div className={classNames}>
+            <span>Centered</span>
+        </div>
+    )
 }
 export default Draggable

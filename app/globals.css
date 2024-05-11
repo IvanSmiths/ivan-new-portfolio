@@ -26,7 +26,7 @@ body,
 }
 
 body {
-    font-family: sans-serif,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
+    font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
     transition: background 0.25s ease-in-out;
 }
 
@@ -88,7 +88,7 @@ strong {
 }
 
 .bebas {
-    font-family: var(--font-bebas_neue),Impact, Roboto, sans-serif;
+    font-family: var(--font-bebas_neue), Impact, Roboto, sans-serif;
     text-transform: uppercase;
 }
 
@@ -183,4 +183,12 @@ article li {
     article .half {
         width: 100%;
     }
+}
+
+.div {
+    background-color: rosybrown;
+}
+
+.span {
+    background-color: red;
 }
