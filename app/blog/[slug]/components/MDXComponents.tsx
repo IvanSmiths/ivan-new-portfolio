@@ -11,6 +11,7 @@ import { Code } from "bright";
 import { lato } from "../../../../utils/fonts";
 import Note from "./Note";
 import Sections from "./Sections";
+import Draggable from "./draggable";
 import Link from "next/link";
 
 type HeadingProps = DetailedHTMLProps<
@@ -116,6 +117,7 @@ const components = {
     </code>
   ),
   pre: (props: PreProps) => <Code {...props}>{props.children}</Code>,
+  Draggable,
   Note: (props: ChildrenAsProps) => <Note {...props}>{props.children}</Note>,
   Sections: (props: ChildrenAsProps) => (
     <Sections {...props}>{props.children}</Sections>
