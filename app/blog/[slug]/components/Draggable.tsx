@@ -7,12 +7,18 @@ type DraggableProps = {
 const Draggable: FC<DraggableProps> = ({ type }) => {
     let classNames = 'w-8 h-8 bg-gray-100 p-4';
 
-    if (type === 'div') {
-        classNames += ' div';
-    } else if (type === 'span') {
-        classNames += ' span';
-    } else if (type === 'p') {
-        classNames += ' p';
+    switch (type) {
+        case 'div':
+            classNames += ' div';
+            break;
+        case 'span':
+            classNames += ' span';
+            break;
+        case 'p':
+            classNames += ' p';
+            break;
+        default:
+            break;
     }
 
     return (
