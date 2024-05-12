@@ -13,7 +13,7 @@ describe("Blog Posts", (): void => {
 
   it("Check blog posts", () => {
     checkAllBlogPost();
-    checkBlogPostLength(1);
+    checkBlogPostLength(2);
   });
 
   it("Correctly renders the metadata of each blog post", () => {
