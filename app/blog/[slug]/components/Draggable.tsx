@@ -47,11 +47,11 @@ const Draggable: FC<DraggableProps> = ({ type }) => {
         };
     }, [width, height]);
 
-    let classNames = 'w-8 h-8 bg-gray-100 p-4';
+    let classNames = 'bg-primary rounded-md';
 
     switch (type) {
         case 'div':
-            classNames += ' div';
+            classNames += ' flex items-center justify-center';
             break;
         case 'span':
             classNames += ' span';
@@ -64,15 +64,13 @@ const Draggable: FC<DraggableProps> = ({ type }) => {
     }
 
     return (
-
         <div
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             style={{ width: `${width}px`, height: `${height}px`, cursor: 'ew-resize' }}
             className={classNames}>
-            <span>Centered</span>
+            <div className='py-4 px-6 text-primary rounded-md w-fit bg-secondary'>Centered</div>
         </div>
-
     )
 }
 
