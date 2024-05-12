@@ -1,11 +1,13 @@
 "use client";
+
 import { FC, useEffect, useRef, useState, MouseEventHandler } from 'react'
 
 type DraggableProps = {
-    type: 'div' | 'span' | 'p'
+    parent: 'flexbox' | 'p'
+    child?: 'margin-auto'
 }
 
-const Draggable: FC<DraggableProps> = ({ type }) => {
+const Draggable: FC<DraggableProps> = ({ parent, child }) => {
     const [width, setWidth] = useState<number>(200);
     const [height, setHeight] = useState<number>(100);
     const isResizing = useRef<boolean>(false);
@@ -47,19 +49,23 @@ const Draggable: FC<DraggableProps> = ({ type }) => {
         };
     }, [width, height]);
 
-    let classNames = 'bg-primary rounded-md';
+    let parentClassNames = 'bg-primary rounded-md';
+    let childText = '';
 
-    switch (type) {
-        case 'div':
-            classNames += ' flex items-center justify-center';
+    switch (parent) {
+        case 'flexbox':
+            parentClassNames += ' flex items-center justify-center';
+            childText = 'Centered';
             break;
-        case 'span':
-            classNames += ' span';
-            break;
-        case 'p':
-            classNames += ' p';
-            break;
-        default:
+    }
+
+
+    let childClassNames = `${child ? child : ''} py-4 px-6 text-primary rounded-md w-fit bg-secondary`;
+
+    switch (child) {
+        case 'margin-auto':
+            childClassNames += ' m-auto';
+            childText = 'Still centered';
             break;
     }
 
@@ -68,8 +74,8 @@ const Draggable: FC<DraggableProps> = ({ type }) => {
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             style={{ width: `${width}px`, height: `${height}px`, cursor: 'ew-resize' }}
-            className={classNames}>
-            <div className='py-4 px-6 text-primary rounded-md w-fit bg-secondary'>Centered</div>
+            className={parentClassNames}>
+            <div className={childClassNames}>{childText}</div>
         </div>
     )
 }
