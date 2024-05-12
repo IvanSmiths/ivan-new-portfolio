@@ -50,6 +50,7 @@ const Draggable: FC<DraggableProps> = ({ parent, child }) => {
     }, [width, height]);
 
     let parentClassNames = 'bg-primary rounded-md';
+    let childClassNames = `${child ? child : ''} py-4 px-6 text-primary rounded-md w-fit bg-secondary`;
     let childText = '';
 
     switch (parent) {
@@ -57,15 +58,16 @@ const Draggable: FC<DraggableProps> = ({ parent, child }) => {
             parentClassNames += ' flex items-center justify-center';
             childText = 'Centered';
             break;
+        default:
+            break;
     }
-
-
-    let childClassNames = `${child ? child : ''} py-4 px-6 text-primary rounded-md w-fit bg-secondary`;
 
     switch (child) {
         case 'margin-auto':
             childClassNames += ' m-auto';
             childText = 'Still centered';
+            break;
+        default:
             break;
     }
 
