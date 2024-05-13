@@ -49,7 +49,7 @@ const Draggable: FC<DraggableProps> = ({ parent, child }) => {
         };
     }, [width, height]);
 
-    let parentClassNames = 'bg-primary rounded-md';
+    let parentClassNames = 'bg-primary rounded-md relative';
     let childClassNames = `${child ? child : ''} py-4 px-6 text-primary rounded-md w-fit bg-secondary`;
     let childText = '';
 
@@ -73,10 +73,10 @@ const Draggable: FC<DraggableProps> = ({ parent, child }) => {
 
     return (
         <div
-            onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
-            style={{ width: `${width}px`, height: `${height}px`, cursor: 'ew-resize' }}
+            style={{ width: `${width}px`, height: `${height}px` }}
             className={parentClassNames}>
+            <div className="absolute bottom-0 right-0 w-6 h-6 cursor-nw-resize bg-red-700" onMouseDown={handleMouseDown}></div>
             <div className={childClassNames}>{childText}</div>
         </div>
     )
