@@ -12,20 +12,20 @@ const Hero: FC<PostProps> = ({ post }) => {
   return (
     <>
       <Blob />
-      <section className="md:col-start-3 md:col-end-11 col-span-full flex flex-col gap-small justify-center items-center">
+      <section className="col-span-full flex flex-col items-center justify-center gap-small md:col-start-3 md:col-end-11">
         <span data-cy="blogPageCategory" className="lato font-bold">
           {post.category}
         </span>
         <h1
           data-cy="blogPageTitle"
-          className="bebas md:text-7xl xl:text-8xl text-5xl text-center bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight text-transparent h-full bg-clip-text"
+          className="bebas h-full bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl"
         >
           {post.title}
         </h1>
-        <h2 data-cy="blogPageExcerpt" className="text-center leading-7 text-lg">
+        <h2 data-cy="blogPageExcerpt" className="text-center text-lg leading-7">
           {post.excerpt}
         </h2>
-        <div className="flex max-sm:flex-col items-center flex-wrap gap-smallest">
+        <div className="flex flex-wrap items-center gap-smallest max-sm:flex-col">
           <span className="lato font-bold">
             Published:{" "}
             <time
@@ -47,10 +47,10 @@ const Hero: FC<PostProps> = ({ post }) => {
             {post.time} minutes read
           </span>
         </div>
-        <ul className="flex flex-wrap justify-center items-center gap-smallest">
+        <ul className="flex flex-wrap items-center justify-center gap-smallest">
           {tags.map((tag: string, index: number) => (
             <li
-              className="flex justify-center items-center gap-smallest"
+              className="flex items-center justify-center gap-smallest"
               key={index}
             >
               <span data-cy="blogPageTag" className="lato font-bold">
@@ -63,7 +63,7 @@ const Hero: FC<PostProps> = ({ post }) => {
           ))}
         </ul>
       </section>
-      <div className="md:col-start-2 md:col-end-12 col-span-full mt-small">
+      <div className="col-span-full mt-small md:col-start-2 md:col-end-12">
         <img
           data-cy="blogPageCover"
           className="w-full"
