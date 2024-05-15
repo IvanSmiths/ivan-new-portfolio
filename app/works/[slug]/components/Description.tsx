@@ -10,7 +10,7 @@ type HeaderProps = {
 const Description: FC<HeaderProps> = ({ work }) => {
   return (
     <>
-      <ul className="md:col-start-7 md:col-end-13 col-span-full mt-medium flex flex-col gap-small">
+      <ul className="col-span-full mt-medium flex flex-col gap-small md:col-start-7 md:col-end-13">
         <li>Role: {work.role}</li>
         <li>Date: {work.date}</li>
         <li>Stack: {work.stack}</li>
@@ -25,7 +25,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
             LinkedIn
           </a>
           <a
-            className="sm:ml-smallest underline underline-offset-4"
+            className="underline underline-offset-4 sm:ml-smallest"
             rel="noopener noreferrer"
             target="_blank"
             href={work.websiteLink}
@@ -38,7 +38,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
         content={work.description.raw}
         renderers={{
           ul: ({ children }) => (
-            <ul className="md:col-start-7 md:col-end-12 col-span-full pl-small mt-medium">
+            <ul className="col-span-full mt-medium pl-small md:col-start-7 md:col-end-12">
               {children}
             </ul>
           ),
