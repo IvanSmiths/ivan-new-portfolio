@@ -77,10 +77,10 @@ export default async function Post({ params }: Params) {
       <Navbar position={Position.Fixed} />
       <article className="mt-large grid">
         <Hero post={post.metadata} />
-        <div className="col-span-full grid relative">
+        <div className="relative col-span-full grid">
           <div
             data-cy="blogPageBody"
-            className="md:col-start-4 lg:col-end-10 md:col-end-13 col-span-full mt-medium flex flex-col gap-regular"
+            className="col-span-full mt-medium flex flex-col gap-regular md:col-start-4 md:col-end-13 lg:col-end-10"
           >
             <MDXComponents source={post!.content} />
           </div>

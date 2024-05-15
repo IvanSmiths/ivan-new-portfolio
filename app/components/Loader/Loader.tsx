@@ -66,15 +66,15 @@ const Loader: FC = () => {
     <>
       <div
         ref={faderRef}
-        className="absolute w-full h-full bottom-0 left-0 bg-secondary z-10"
+        className="absolute bottom-0 left-0 z-10 h-full w-full bg-secondary"
       ></div>
       <div
         ref={containerRef}
-        className="fixed w-full h-full top-0 left-0 bg-secondary z-20"
+        className="fixed left-0 top-0 z-20 h-full w-full bg-secondary"
       >
         <div
           ref={imageRef}
-          className="w-full h-fit opacity-0 absolute mx-auto my-auto inset-0 z-20"
+          className="absolute inset-0 z-20 mx-auto my-auto h-fit w-full opacity-0"
         >
           <Header />
         </div>

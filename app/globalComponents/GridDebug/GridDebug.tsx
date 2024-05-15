@@ -2,7 +2,7 @@ import { FC } from "react";
 
 const GridDebug: FC = () => {
   return (
-    <div className="grid-debug h-full w-full top-0 left-0 fixed pl-5 pr-5 gap-5">
+    <div className="grid-debug fixed left-0 top-0 h-full w-full gap-5 pl-5 pr-5">
       <div className="grid-debug-item"></div>
       <div className="grid-debug-item"></div>
       <div className="grid-debug-item"></div>

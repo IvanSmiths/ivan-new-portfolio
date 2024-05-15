@@ -20,7 +20,7 @@ const ThemeToggle: FC = () => {
   return (
     <span
       data-cy={theme}
-      className="hidden sm:block cursor-pointer lato font-bold min-w-20 text-right"
+      className="lato hidden min-w-20 cursor-pointer text-right font-bold sm:block"
       onClick={handleTheme}
     >
       - {theme} mode -

@@ -3,19 +3,19 @@ import { FC } from "react"
 const About: FC = async () => {
 
   return (
-    <main className="md:mt-section mt-large">
+    <main className="mt-large md:mt-section">
       <div className="grid">
-        <div className="col-start-1 bg-primary w-2 h-2 rounded-full mt-2 hidden md:block"></div>
-        <h2 className="sm:text-5xl text-3xl md:col-start-4 md:col-end-11 col-end-7 col-start-1">
+        <div className="col-start-1 mt-2 hidden h-2 w-2 rounded-full bg-primary md:block"></div>
+        <h2 className="col-start-1 col-end-7 text-3xl sm:text-5xl md:col-start-4 md:col-end-11">
           Leveraging tech and design, I prioritise aesthetics, functionality,
           speed and usability.
         </h2>
-        <span className="md:col-start-4 col-start-1 lato sm:mt-medium mt-16 hidden md:block">
+        <span className="lato col-start-1 mt-16 hidden sm:mt-medium md:col-start-4 md:block">
           who am i
         </span>
-        <div className="w-full md:col-start-8 col-start-1 md:col-end-12 lg:col-end-11 col-end-7 sm:mt-medium mt-16">
+        <div className="col-start-1 col-end-7 mt-16 w-full sm:mt-medium md:col-start-8 md:col-end-12 lg:col-end-11">
           <p className="text-primaryLight">
-            <strong className="text-primary font-bold">
+            <strong className="font-bold text-primary">
               Adept at translating creative ideas into user-centric and
               data-driven experiences.
             </strong>
