@@ -12,13 +12,16 @@ time: 10
 tags: CSS, HTML, JavaScript
 ---
 
+With this article, we will explore various ways to center an element with CSS. We will start from the ways that make most sense,
+and we will end up with some of the most crazy, useless, and over-engineered ways that I`ve discovered (some really, really cursed code awaits.).
+
 ## The flexbox way
 
 - Target: Parent element
 - Properties: `display: flex; justify-content: center; align-items: center;`
 
-My favourite way to center a div is to set `display: flex` property to the parent element, together with the properties`align-items: center;`
-for centering vertically and `justify-content: center` for centering horizontally.
+My favourite way to center a div is to set `display: flex` property to the parent element, together with the properties `align-items: center;`
+for centering vertically and `justify-content: center` for centering horizontally. The axis aligned it will be inverse if you use `flex-direction` set to `column`.
 
 ``` html
 <div style="display: flex; justify-content: center; align-items: center;">
