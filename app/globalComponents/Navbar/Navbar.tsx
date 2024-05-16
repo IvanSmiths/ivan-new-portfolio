@@ -56,9 +56,9 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
     <nav>
       <div
-        className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 w-full flex-row-reverse sm:flex-row pr-small pl-small z-10 flex justify-between items-start`}
+        className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 z-10 flex w-full flex-row-reverse items-start justify-between pl-small pr-small sm:flex-row`}
       >
-        <ul className="flex gap-small items-start">
+        <ul className="flex items-start gap-small">
           {internalLinks.map((link: Links, index: number) => (
             <li key={index}>
               <Link
@@ -71,9 +71,9 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
             </li>
           ))}
         </ul>
-        <ul className="flex md:gap-medium gap-small items-start flex-row-reverse sm:flex-row">
+        <ul className="flex flex-row-reverse items-start gap-small sm:flex-row md:gap-medium">
           <li>
-            <div className="hidden sm:flex flex-col gap-2">
+            <div className="hidden flex-col gap-2 sm:flex">
               {socials.map((link: Links, index: number) => (
                 <a
                   key={index}

@@ -4,7 +4,7 @@ import FetchWeather from "./Weather/FetchWeather";
 
 const CityInfo: FC = () => {
   return (
-    <div className="md:col-start-[-1] md:col-end-[-6] col-start-1 col-end-6 sm:justify-end h-fit md:flex-row flex-row-reverse justify-end flex gap-3 md:mb-small mb-0 sm:gap-small flex-wrap items-center">
+    <div className="col-start-1 col-end-6 mb-0 flex h-fit flex-row-reverse flex-wrap items-center justify-end gap-3 sm:justify-end sm:gap-small md:col-start-[-1] md:col-end-[-6] md:mb-small md:flex-row">
       <Time />
       <FetchWeather />
       <span className="lato">Wiesbaden (DE)</span>

@@ -5,10 +5,11 @@ import { RichText } from "@graphcms/rich-text-react-renderer";
 interface HeaderProps {
   work: WorkPage;
 }
+
 const Images: FC<HeaderProps> = ({ work }) => {
   if (work.images) {
     return (
-      <div className="col-span-full md:col-start-3 md:col-end-11 w-full pt-medium">
+      <div className="col-span-full w-full pt-medium md:col-start-3 md:col-end-11">
         <ul className="flex flex-col gap-small">
           <RichText
             content={work.images.raw}

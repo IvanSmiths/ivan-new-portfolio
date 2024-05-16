@@ -9,8 +9,8 @@ type WorksProps = {
 const InfiniteScroll: FC<WorksProps> = ({ works }) => {
   return (
     <div className="grid">
-      <div className="flex md:col-start-3 md:col-end-11 col-start-1 col-end-7">
-        <ul className="w-full flex flex-col items-center justify-center">
+      <div className="col-start-1 col-end-7 flex md:col-start-3 md:col-end-11">
+        <ul className="flex w-full flex-col items-center justify-center">
           {works.map((work: Works, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
