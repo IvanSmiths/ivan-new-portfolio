@@ -4,7 +4,7 @@ import { FC, MouseEventHandler, useEffect, useRef, useState } from "react";
 import Resize from "./Resize";
 
 type DraggableProps = {
-  parent: "flexbox" | "css-grid";
+  parent?: "flexbox" | "css-grid";
   child?: "margin-auto";
 };
 
@@ -80,8 +80,8 @@ const Draggable: FC<DraggableProps> = ({ parent, child }) => {
       style={{ width: `${width}px`, height: `${height}px` }}
       className={parentClassNames}
     >
-      <Resize handleMouseDown={handleMouseDown} />
       <div className={childClassNames}>{childText}</div>
+      <Resize handleMouseDown={handleMouseDown} />
     </div>
   );
 };

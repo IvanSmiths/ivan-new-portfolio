@@ -1,4 +1,3 @@
-
 ---
 title: 100 ways to center a div
 excerpt: There are countless ways to center a div, from the most basic to the most uselessy complex. This article will explore some of the most common methods and provide examples of how to use them.
@@ -13,9 +12,28 @@ time: 10
 tags: CSS, HTML, JavaScript
 ---
 
-## My favorite way
+## The flexbox way
 
-The most common way to center a div is to use the `margin: auto` property. This will center the div horizontally and vertically.
+- Target: Parent element
+- Properties: `display: flex; justify-content: center; align-items: center;`
+
+My favourite way to center a div is to set `display: flex` property to the parent element, together with the properties`align-items: center;`
+for centering vertically and `justify-content: center` for centering horizontally.
+
+``` html
+<div style="display: flex; justify-content: center; align-items: center;">
+  <h1>Centered</h1>
+</div>
+```
+
+<Draggable parent="flexbox" />
+
+## The margin-auto way
+
+- Target: Child element
+- Property: `margin: auto`
+
+One of the most common ways to center a div, only horizontally is to use the `margin: auto` property to the child. This will center the div only horizontally.
 
 ``` html
 <div style="margin: auto;">
@@ -23,28 +41,7 @@ The most common way to center a div is to use the `margin: auto` property. This 
 </div>
 ```
 
-<Draggable parent="flexbox" />
 <Draggable child="margin-auto" />
-
-## The flexbox way
-
-Another way to center a div is to use the `display: flex` property and the `justify-content: center` property. This will center the div horizontally.
-
-``` html
-<div style="display: flex; justify-content: center;">
-  <h1>Centered</h1>  
-</div>
-```
-
-## The table way
-
-The `display: table` property is another way to center a div. This will center the div horizontally and vertically.
-
-``` html
-<div style="display: table; margin: auto;">
-  <h1>Centered</h1>
-</div>
-```
 
 ## The absolute way
 
