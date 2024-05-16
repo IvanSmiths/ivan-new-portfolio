@@ -11,7 +11,7 @@ import { Code } from "bright";
 import { lato } from "../../../../utils/fonts";
 import Note from "./Note";
 import Sections from "./Sections";
-import Draggable from "./Draggable";
+import Draggable from "./100-ways-to-center-a-div/Draggable";
 import Link from "next/link";
 
 type HeadingProps = DetailedHTMLProps<

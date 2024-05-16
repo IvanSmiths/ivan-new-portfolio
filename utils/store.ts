@@ -9,6 +9,10 @@ type Animation = {
   slowest: number;
 };
 
+type IconDimension = {
+  regular: number;
+};
+
 type Overlay = {
   isHidden: boolean;
   hide: () => void;
@@ -36,6 +40,11 @@ export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
     medium: 1,
     slow: 1.5,
     slowest: 2,
+  }));
+
+export const useIconDimensionStore: UseBoundStore<StoreApi<IconDimension>> =
+  create<IconDimension>()(() => ({
+    regular: 30,
   }));
 
 export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
