@@ -21,7 +21,7 @@ const Resize: FC<ResizeProps> = ({ handleMouseDown }) => {
   return (
     <div
       onMouseDown={handleMouseDown}
-      className="absolute bottom-0 p-2 right-0 cursor-nw-resize hover:scale-125 transition-all duration-200"
+      className="absolute bottom-0 right-0 cursor-nw-resize p-2 transition-all duration-200 hover:scale-125"
     >
       <svg
         className="rotate-45"
