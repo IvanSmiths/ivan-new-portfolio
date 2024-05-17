@@ -21,5 +21,3 @@ jobs:
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
           OPEN_WEATHER_API: ${{secrets.OPEN_WEATHER_API}}
-          DATABASE_URL: ${{secrets.DATABASE_URL}}
-          DIRECT_URL: ${{secrets.DIRECT_URL}}
