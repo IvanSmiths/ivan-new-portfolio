@@ -20,7 +20,7 @@ model Photos {
 model Renders {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
-  name       String
+  name       String?
   alt        String
   desktopUrl String
   mobileUrl  String
