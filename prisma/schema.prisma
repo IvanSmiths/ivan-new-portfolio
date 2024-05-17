@@ -16,3 +16,13 @@ model Photos {
   tabletUrl  String
   mobileUrl  String
 }
+
+model Renders {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  alt        String
+  desktopUrl String
+  mobileUrl  String
+  width      Int
+  height     Int
+}
