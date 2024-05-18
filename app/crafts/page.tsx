@@ -5,7 +5,12 @@ import { photos as photosTable } from "../../db/schema";
 
 const Crafts: FC = async () => {
   const photos = await db
-    .select({ desktopUrl: photosTable.desktopUrl, alt: photosTable.alt })
+    .select({
+      desktopUrl: photosTable.desktopUrl,
+      alt: photosTable.alt,
+      mobileUrl: photosTable.mobileUrl,
+      id: photosTable.id,
+    })
     .from(photosTable)
     .all();
 
