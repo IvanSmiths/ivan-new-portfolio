@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
-    "migrations:generate": "drizzle-kit generate --config=drizzle.config.ts",
-    "migrations:run": "drizzle-kit migrate --config=drizzle.config.ts",
-    "migrations:push": "drizzle-kit push --config=drizzle.config.ts",
+    "drizzle-studio": "npx drizzle-kit studio --port 9000",
+    "migration:generate": "drizzle-kit generate --config=drizzle.config.ts",
+    "migration:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
+    "migration:push": "drizzle-kit push --config=drizzle.config.ts",
+    "migration:drop": "drizzle-kit drop --config=drizzle.config.ts",
     "cypress:open": "cypress open --config-file=cypress.config.ts"
   },
   "dependencies": {
