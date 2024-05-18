@@ -14,6 +14,17 @@ const Crafts: FC = async () => {
   return (
     <div>
       <Navbar position={Position.Fixed} />
+      {photos.map((photo, index: number) => (
+        <img
+          key={index}
+          src={photo.desktopUrl}
+          loading="lazy"
+          height="1200"
+          width="1200"
+          alt={photo.alt}
+          className="h-full w-full rounded-lg object-cover object-center"
+        />
+      ))}
     </div>
   );
 };
