@@ -20,7 +20,7 @@ const Crafts: FC = async () => {
       <Navbar position={Position.Fixed} />
       <div className="mt-small grid">
         <div className="col-span-full">
-          <div className="col-span-full flex flex-wrap gap-small">
+          <main className="col-span-full flex flex-wrap gap-small">
             {photos.map((photo, index: number) => (
               <div key={index} className="w-full flex-auto md:w-3/12">
                 <img
@@ -36,7 +36,7 @@ const Crafts: FC = async () => {
                 />
               </div>
             ))}
-          </div>
+          </main>
         </div>
       </div>
       <Footer />
