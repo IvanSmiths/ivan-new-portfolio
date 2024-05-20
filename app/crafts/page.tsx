@@ -25,6 +25,8 @@ const Crafts: FC = async () => {
               <div key={index} className="w-full flex-auto md:w-1/12 lg:w-3/12">
                 <img
                   src={photo.desktopUrl}
+                  srcSet={`${photo.desktopUrl} 2000w, ${photo.mobileUrl} 1500w`}
+                  sizes="(min-width: 66em) 2000px, 1500px"
                   loading="lazy"
                   height="2000"
                   width="3000"
