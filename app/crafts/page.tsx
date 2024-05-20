@@ -27,7 +27,8 @@ const Crafts: FC = async () => {
                   src={photo.desktopUrl}
                   srcSet={`${photo.desktopUrl} 2000w, ${photo.mobileUrl} 1500w`}
                   sizes="(min-width: 66em) 2000px, 1500px"
-                  loading="lazy"
+                  fetchPriority={index < 4 ? "high" : "low"}
+                  loading={index > 4 ? "lazy" : "eager"}
                   height="2000"
                   width="3000"
                   alt={photo.alt}
