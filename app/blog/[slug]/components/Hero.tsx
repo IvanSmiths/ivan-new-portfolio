@@ -67,6 +67,7 @@ const Hero: FC<PostProps> = ({ post }) => {
         <img
           data-cy="blogPageCover"
           className="w-full"
+          fetchPriority="high"
           src={post.cover}
           alt={post.coverAlt}
           width={post.coverWidth}
