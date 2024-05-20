@@ -22,7 +22,7 @@ const Crafts: FC = async () => {
         <div className="col-span-full">
           <div className="col-span-full flex flex-wrap gap-small">
             {photos.map((photo, index: number) => (
-              <div key={index} className="w-full flex-auto md:w-1/12 lg:w-3/12">
+              <div key={index} className="w-full flex-auto md:w-3/12">
                 <img
                   src={photo.desktopUrl}
                   srcSet={`${photo.desktopUrl} 2000w, ${photo.mobileUrl} 1500w`}
