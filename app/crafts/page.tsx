@@ -14,6 +14,7 @@ const Crafts: FC = async () => {
       alt: photosTable.alt,
       mobileUrl: photosTable.mobileUrl,
       id: photosTable.id,
+      isHorizontal: photosTable.isHorizontal,
     })
     .from(photosTable)
     .all();
