@@ -9,6 +9,7 @@ export const photos = sqliteTable("photos", {
   desktopUrl: text("desktop_url").notNull(),
   mobileUrl: text("mobile_url").notNull(),
   alt: text("alt").notNull(),
+  isHorizontal: integer("is_horizontal", { mode: "boolean" }).default(false),
 });
 
 export const renders = sqliteTable("renders", {
