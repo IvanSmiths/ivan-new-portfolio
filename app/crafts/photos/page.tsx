@@ -1,14 +1,11 @@
 import { FC } from "react";
-import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
-import { db } from "../../db/db";
-import {
-  photos as photosTable,
-  renders as rendersTable,
-} from "../../db/schema";
-import Footer from "../globalComponents/Footer/Footer";
-import Filter from "./components/Filter";
+import { db } from "../../../db/db";
+import { photos as photosTable } from "../../../db/schema";
+import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
+import Footer from "../../globalComponents/Footer/Footer";
+import Filter from "../components/Filter";
 
-const Crafts: FC = async () => {
+const Photos: FC = async () => {
   const photos = await db
     .select({
       desktopUrl: photosTable.desktopUrl,
@@ -19,18 +16,6 @@ const Crafts: FC = async () => {
     })
     .from(photosTable)
     .all();
-  const renders = await db
-    .select({
-      desktopUrl: rendersTable.desktopUrl,
-      alt: rendersTable.alt,
-      mobileUrl: rendersTable.mobileUrl,
-      id: rendersTable.id,
-      isHorizontal: rendersTable.isHorizontal,
-    })
-    .from(rendersTable)
-    .all();
-
-  const images = [...photos, ...renders];
 
   return (
     <>
@@ -39,20 +24,20 @@ const Crafts: FC = async () => {
       <div className="mt-small grid">
         <div className="col-span-full">
           <main className="col-span-full flex flex-wrap gap-small">
-            {images.map((image, index: number) => (
+            {photos.map((photo, index: number) => (
               <div
                 key={index}
-                className={`w-full flex-auto md:w-3/12 ${image.isHorizontal ? " md:w-[58.8%]" : ""}`}
+                className={`w-full flex-auto md:w-3/12 ${photo.isHorizontal ? " md:w-[58.8%]" : ""}`}
               >
                 <img
-                  src={image.desktopUrl}
-                  srcSet={`${image.desktopUrl} 2000w, ${image.mobileUrl} 1500w`}
+                  src={photo.desktopUrl}
+                  srcSet={`${photo.desktopUrl} 2000w, ${photo.mobileUrl} 1500w`}
                   sizes="(min-width: 66em) 2000px, 1500px"
                   fetchPriority={index < 4 ? "high" : "low"}
                   loading={index > 4 ? "lazy" : "eager"}
                   height="2000"
                   width="3000"
-                  alt={image.alt}
+                  alt={photo.alt}
                   className="h-full w-full rounded-lg object-cover object-center"
                 />
               </div>
@@ -65,4 +50,4 @@ const Crafts: FC = async () => {
   );
 };
 
-export default Crafts;
+export default Photos;
