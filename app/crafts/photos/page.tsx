@@ -3,7 +3,7 @@ import { db } from "../../../db/db";
 import { photos as photosTable } from "../../../db/schema";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Footer from "../../globalComponents/Footer/Footer";
-import Filter from "../components/Filter";
+import Filter, { Pages } from "../components/Filter";
 
 const Photos: FC = async () => {
   const photos = await db
@@ -19,7 +19,7 @@ const Photos: FC = async () => {
 
   return (
     <>
-      <Filter />
+      <Filter currentPage={Pages.Photos} />
       <Navbar position={Position.Fixed} />
       <div className="mt-small grid">
         <div className="col-span-full">

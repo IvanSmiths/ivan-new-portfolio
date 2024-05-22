@@ -3,7 +3,7 @@ import { db } from "../../../db/db";
 import { renders as rendersTable } from "../../../db/schema";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Footer from "../../globalComponents/Footer/Footer";
-import Filter from "../components/Filter";
+import Filter, { Pages } from "../components/Filter";
 
 const Renders: FC = async () => {
   const renders = await db
@@ -19,7 +19,7 @@ const Renders: FC = async () => {
 
   return (
     <>
-      <Filter />
+      <Filter currentPage={Pages.Renders} />
       <Navbar position={Position.Fixed} />
       <div className="mt-small grid">
         <div className="col-span-full">

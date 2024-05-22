@@ -37,6 +37,7 @@ body {
         --primary-light: #444450;
         --secondary: #f9fbfd;
         --secondary-light: #e8e8e8;
+        --secondary-lighter: #CBCBCB;
     }
 
     body[data-theme="dark"] {
@@ -45,6 +46,7 @@ body {
         --primary-light: #afb4bd;
         --secondary: #0e0e13;
         --secondary-light: #1E1E1E;
+        --secondary-lighter: #4D4D4D;
     }
 }
 

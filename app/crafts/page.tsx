@@ -6,7 +6,7 @@ import {
   renders as rendersTable,
 } from "../../db/schema";
 import Footer from "../globalComponents/Footer/Footer";
-import Filter from "./components/Filter";
+import Filter, { Pages } from "./components/Filter";
 
 const Crafts: FC = async () => {
   const photos = await db
@@ -34,7 +34,7 @@ const Crafts: FC = async () => {
 
   return (
     <>
-      <Filter />
+      <Filter currentPage={Pages.All} />
       <Navbar position={Position.Fixed} />
       <div className="mt-small grid">
         <div className="col-span-full">
