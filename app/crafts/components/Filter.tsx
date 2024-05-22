@@ -11,6 +11,7 @@ export enum Pages {
 type FilterProps = {
   currentPage: Pages;
 };
+
 const filters = [
   { page: Pages.All, url: Pages.Crafts },
   { page: Pages.Photos, url: Pages.Photos },
