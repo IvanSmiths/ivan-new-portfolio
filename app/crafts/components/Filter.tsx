@@ -19,7 +19,7 @@ const filters = [
 
 const Filter: FC<FilterProps> = ({ currentPage }) => {
   return (
-    <section className="fixed bottom-4 flex w-full items-center justify-center gap-small">
+    <section className="fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-small gap-y-2">
       {filters.map((filter, index: number) => (
         <Link
           key={index}
