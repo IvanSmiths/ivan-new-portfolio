@@ -2,7 +2,7 @@ import { wait } from "../../lib/actions/wait.cy";
 import { scrollToFooter } from "../../lib/actions/scroll.cy";
 
 describe("Crafts Page", (): void => {
-  beforeEach(() => {
+  beforeEach((): void => {
     cy.visit("/crafts");
     scrollToFooter();
     wait(10000);
