@@ -1,23 +1,39 @@
-import { wait } from "../../lib/actions/wait.cy";
-import { scrollToFooter } from "../../lib/actions/scroll.cy";
+import { checkImages } from "../../lib/crafts/checkDBImages.cy";
+import { visitPageAndScrollToFooter } from "../../lib/crafts/visitPage.cy";
+
+export enum PageUrls {
+  Crafts = "/crafts",
+  Photos = "/crafts/photos",
+  Renders = "/crafts/renders",
+}
+
+export enum PageNames {
+  Crafts = "Crafts",
+  Photos = "Photos",
+  Renders = "Renders",
+}
+
+export type PageConfig = {
+  name: PageNames;
+  url: PageUrls;
+  timeout: number;
+};
 
 describe("Crafts Page", (): void => {
-  beforeEach((): void => {
-    cy.visit("/crafts");
-    scrollToFooter();
-    wait(10000);
-  });
+  const pages: PageConfig[] = [
+    { name: PageNames.Crafts, url: PageUrls.Crafts, timeout: 3000 },
+    { name: PageNames.Photos, url: PageUrls.Photos, timeout: 2000 },
+    { name: PageNames.Renders, url: PageUrls.Renders, timeout: 2000 },
+  ];
 
-  it("Should have a valid src attribute for each image", (): void => {
-    cy.get("[data-cy=DBImage]").each((image): void => {
-      cy.wrap(image)
-        .should("be.visible")
-        .should("exist")
-        .then((img): void => {
-          const imgElement = img[0] as HTMLImageElement;
-          expect(imgElement.naturalWidth).to.be.greaterThan(0);
-          expect(imgElement.naturalHeight).to.be.greaterThan(0);
-        });
+  pages.forEach(({ name, url, timeout }: PageConfig): void => {
+    describe(`Checking images on ${name} page`, (): void => {
+      beforeEach((): void => {
+        visitPageAndScrollToFooter(url, timeout);
+      });
+      it("Should have a valid src attribute for each image", (): void => {
+        checkImages();
+      });
     });
   });
 });

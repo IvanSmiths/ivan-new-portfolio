@@ -1,3 +1,3 @@
-export const wait = (wait: number): void => {
-  cy.wait(wait);
+export const wait = (timeout: number): void => {
+  cy.wait(timeout);
 };
