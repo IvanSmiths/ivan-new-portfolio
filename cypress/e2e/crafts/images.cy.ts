@@ -5,7 +5,7 @@ describe("Crafts Page", (): void => {
   beforeEach(() => {
     cy.visit("/crafts");
     scrollToFooter();
-    wait(3000);
+    wait(10000);
   });
 
   it("Should have a valid src attribute for each image", (): void => {
