@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 type Image = {
   desktopUrl: string;
@@ -23,6 +23,7 @@ const Images: FC<ImagesProps> = ({ images }) => {
               className={`w-full flex-auto md:w-3/12 ${image.isHorizontal ? " md:w-[58.8%]" : ""}`}
             >
               <img
+                data-cy="DBImage"
                 src={image.desktopUrl}
                 srcSet={`${image.desktopUrl} 2000w, ${image.mobileUrl} 1500w`}
                 sizes="(min-width: 66em) 2000px, 1500px"
@@ -31,7 +32,7 @@ const Images: FC<ImagesProps> = ({ images }) => {
                 height="2000"
                 width="3000"
                 alt={image.alt}
-                className="animate-fade-in h-full w-full rounded-lg object-cover object-center"
+                className="h-full w-full animate-fade-in rounded-lg object-cover object-center"
               />
             </div>
           ))}
