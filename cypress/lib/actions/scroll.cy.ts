@@ -1,3 +1,3 @@
-export const scroll = (scroll: number): void => {
-  cy.scrollTo(scroll, 0);
+export const scrollToFooter = (): void => {
+  cy.get("[data-cy=footer]").scrollIntoView();
 };
