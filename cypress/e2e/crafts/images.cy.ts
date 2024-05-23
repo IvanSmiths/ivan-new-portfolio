@@ -1,35 +1,34 @@
 import { checkImages } from "../../lib/crafts/checkDBImages.cy";
-import { visitPageAndScrollToFooter } from "../../lib/crafts/visitPage.cy";
+import { visitCraftsPages } from "../../lib/crafts/visitPage.cy";
 
-export enum PageUrls {
+export enum CraftsPagesUrls {
   Crafts = "/crafts",
   Photos = "/crafts/photos",
   Renders = "/crafts/renders",
 }
 
-export enum PageNames {
+export enum CraftsPagesNames {
   Crafts = "Crafts",
   Photos = "Photos",
   Renders = "Renders",
 }
 
-export type PageConfig = {
-  name: PageNames;
-  url: PageUrls;
-  timeout: number;
+export type CraftsPagesConfig = {
+  name: CraftsPagesNames;
+  url: CraftsPagesUrls;
 };
 
 describe("Crafts Page", (): void => {
-  const pages: PageConfig[] = [
-    { name: PageNames.Crafts, url: PageUrls.Crafts, timeout: 8000 },
-    { name: PageNames.Photos, url: PageUrls.Photos, timeout: 4000 },
-    { name: PageNames.Renders, url: PageUrls.Renders, timeout: 4000 },
+  const pages: CraftsPagesConfig[] = [
+    { name: CraftsPagesNames.Crafts, url: CraftsPagesUrls.Crafts },
+    { name: CraftsPagesNames.Photos, url: CraftsPagesUrls.Photos },
+    { name: CraftsPagesNames.Renders, url: CraftsPagesUrls.Renders },
   ];
 
-  pages.forEach(({ name, url, timeout }: PageConfig): void => {
+  pages.forEach(({ name, url }: CraftsPagesConfig): void => {
     describe(`Checking images on ${name} page`, (): void => {
       beforeEach((): void => {
-        visitPageAndScrollToFooter(url, timeout);
+        visitCraftsPages(url);
       });
       it("Should have a valid src attribute for each image", (): void => {
         checkImages();

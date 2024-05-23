@@ -1,12 +1,12 @@
 export const checkImages = (): void => {
-  cy.get("[data-cy=DBImage]").each((image): void => {
-    cy.wrap(image)
+  cy.get("[data-cy=DBImage]").each(($img): void => {
+    cy.wrap($img)
+      .scrollIntoView()
       .should("be.visible")
-      .should("exist")
-      .then((img): void => {
-        const imgElement = img[0] as HTMLImageElement;
-        expect(imgElement.naturalWidth).to.be.greaterThan(0);
-        expect(imgElement.naturalHeight).to.be.greaterThan(0);
+      .and(($img): void => {
+        const img = $img[0] as HTMLImageElement;
+        expect(img.naturalWidth).to.be.greaterThan(0);
+        expect(img.naturalHeight).to.be.greaterThan(0);
       });
   });
 };
