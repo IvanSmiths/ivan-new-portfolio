@@ -3,47 +3,20 @@ name: Cypress Tests
 on: [push]
 
 jobs:
-  install:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v6
-        with:
-          runTests: false
-          build: npm run build
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
-
   cypress-run:
-    runs-on: ubuntu-22.04
-    needs: install
+    runs-on: ubuntu-latest
     permissions:
         contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-
-      - name: Download build folder
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: build
-
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
+
         with:
           build: npm run build
           start: npm start
-          browser: chrome
 
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
