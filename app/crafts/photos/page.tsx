@@ -20,8 +20,8 @@ const Photos: FC = async () => {
 
   return (
     <>
-      <Filter currentPage={Pages.Photos} />
       <Navbar position={Position.Fixed} />
+      <Filter currentPage={Pages.Photos} />
       <Images images={images} />
       <Footer />
     </>

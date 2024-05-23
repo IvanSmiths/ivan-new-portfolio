@@ -35,8 +35,8 @@ const Crafts: FC = async () => {
 
   return (
     <>
-      <Filter currentPage={Pages.All} />
       <Navbar position={Position.Fixed} />
+      <Filter currentPage={Pages.All} />
       <Images images={images} />
       <Footer />
     </>
