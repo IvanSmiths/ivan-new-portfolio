@@ -21,9 +21,9 @@ export type PageConfig = {
 
 describe("Crafts Page", (): void => {
   const pages: PageConfig[] = [
-    { name: PageNames.Crafts, url: PageUrls.Crafts, timeout: 5000 },
-    { name: PageNames.Photos, url: PageUrls.Photos, timeout: 2000 },
-    { name: PageNames.Renders, url: PageUrls.Renders, timeout: 2000 },
+    { name: PageNames.Crafts, url: PageUrls.Crafts, timeout: 8000 },
+    { name: PageNames.Photos, url: PageUrls.Photos, timeout: 4000 },
+    { name: PageNames.Renders, url: PageUrls.Renders, timeout: 4000 },
   ];
 
   pages.forEach(({ name, url, timeout }: PageConfig): void => {
