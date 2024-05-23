@@ -5,18 +5,23 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [ 1 ]
     permissions:
         contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+      - run: sqlite3 portfolio.db ".read portfolio.sql"
 
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
 
         with:
           build: npm run build
-          start: npm start
+          start: npm tests:dev
 
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}

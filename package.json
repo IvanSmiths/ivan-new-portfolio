@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "tests:dev": "TURSO_CONNECTION_URL=file:portfolio.db TURSO_TOKEN=none next dev",
     "analyze": "cross-env ANALYZE=true next build",
     "drizzle-studio": "npx drizzle-kit studio --port 9000",
     "migration:generate": "drizzle-kit generate --config=drizzle.config.ts",
