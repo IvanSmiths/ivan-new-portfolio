@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description,
     type: "website",
     siteName: "Ivan Smiths",
-    url: `https://ivansmiths.com/works`,
+    url: "https://ivansmiths.com/crafts",
   },
   twitter: {
     title,
