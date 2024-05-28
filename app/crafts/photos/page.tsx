@@ -6,6 +6,7 @@ import Footer from "../../globalComponents/Footer/Footer";
 import Filter, { Pages } from "../components/Filter";
 import Images from "../components/Images";
 import type { Metadata } from "next";
+import Header from "../components/Header";
 
 const title: string = "Ivan Smiths, photos";
 const description: string =
@@ -42,8 +43,20 @@ const Photos: FC = async () => {
     .from(photosTable)
     .all();
 
+  const headerProps = {
+    h1: "Photos",
+    h2: "Trough a lens.",
+    paragraph:
+      "All the photos are taken with my Sony A7II across Italy, Germany, Luxembourg, and the United States.",
+  };
+
   return (
     <>
+      <Header
+        h1={headerProps.h1}
+        h2={headerProps.h2}
+        paragraph={headerProps.paragraph}
+      />
       <Navbar position={Position.Fixed} />
       <Filter currentPage={Pages.Photos} />
       <Images images={images} />

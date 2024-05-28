@@ -6,6 +6,7 @@ import Footer from "../../globalComponents/Footer/Footer";
 import Filter, { Pages } from "../components/Filter";
 import Images from "../components/Images";
 import type { Metadata } from "next";
+import Header from "../components/Header";
 
 const title: string = "Ivan Smiths, renders";
 const description: string =
@@ -42,8 +43,20 @@ const Renders: FC = async () => {
     .from(rendersTable)
     .all();
 
+  const headerProps = {
+    h1: "Renders",
+    h2: "The beginning.",
+    paragraph:
+      "The renders are done with Blender and Zbrush, and are a mix of my hard surface modeling and sculpting.",
+  };
+
   return (
     <>
+      <Header
+        h1={headerProps.h1}
+        h2={headerProps.h2}
+        paragraph={headerProps.paragraph}
+      />
       <Navbar position={Position.Fixed} />
       <Filter currentPage={Pages.Renders} />
       <Images images={images} />

@@ -9,6 +9,7 @@ import Footer from "../globalComponents/Footer/Footer";
 import Filter, { Pages } from "./components/Filter";
 import Images from "./components/Images";
 import type { Metadata } from "next";
+import Header from "./components/Header";
 
 const title: string = "Ivan Smiths, images";
 const description: string =
@@ -57,8 +58,20 @@ const Crafts: FC = async () => {
 
   const images = [...photos, ...renders];
 
+  const headerProps = {
+    h1: "Crafts",
+    h2: "My passions outside the code",
+    paragraph:
+      "Here i share some of my creations, including photos using my Sony A7II, and renders, where the hard surface one are done with Blender and the sculpting ones with Zbrush.",
+  };
+
   return (
     <>
+      <Header
+        h1={headerProps.h1}
+        h2={headerProps.h2}
+        paragraph={headerProps.paragraph}
+      />
       <Navbar position={Position.Fixed} />
       <Filter currentPage={Pages.All} />
       <Images images={images} />
