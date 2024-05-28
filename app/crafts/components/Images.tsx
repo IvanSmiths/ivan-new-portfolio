@@ -27,8 +27,8 @@ const Images: FC<ImagesProps> = ({ images }) => {
                 src={image.desktopUrl}
                 srcSet={`${image.desktopUrl} 2000w, ${image.mobileUrl} 1500w`}
                 sizes="(min-width: 66em) 2000px, 1500px"
-                fetchPriority={index < 4 ? "high" : "low"}
-                loading={index > 4 ? "lazy" : "eager"}
+                fetchPriority={index < 2 ? "high" : "low"}
+                loading={index > 2 ? "lazy" : "eager"}
                 height="2000"
                 width="3000"
                 alt={image.alt}
