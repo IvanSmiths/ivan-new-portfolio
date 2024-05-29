@@ -5,12 +5,12 @@ import {
 } from "../../lib/blogpage/blogPage";
 
 describe("Blog Page", (): void => {
-  beforeEach(() => {
+  beforeEach((): void => {
     cy.visit("/blog");
   });
 
-  it("Should have correct URL and title for each blog page", () => {
-    cy.get("[data-cy=blogPost]").each((post) => {
+  it("Should have correct URL and title for each blog page", (): void => {
+    cy.get("[data-cy=blogPost]").each((post): void => {
       const url: string | undefined = post.attr("href");
       const title: string = post.find("[data-cy=blogPostTitle]").text();
       if (typeof url === "string") {

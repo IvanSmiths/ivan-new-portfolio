@@ -1,4 +1,4 @@
-import { wait } from "../../lib/wait/wait.cy";
+import { wait } from "../../lib/actions/wait.cy";
 import {
   checkAllBlogPost,
   checkBlogPostLength,
@@ -11,12 +11,12 @@ describe("Blog Posts", (): void => {
     wait(5000);
   });
 
-  it("Check blog posts", () => {
+  it("Check blog posts", (): void => {
     checkAllBlogPost();
     checkBlogPostLength(1);
   });
 
-  it("Correctly renders the metadata of each blog post", () => {
+  it("Correctly renders the metadata of each blog post", (): void => {
     checkBlogPostMetadata("[data-cy=blogPostTitle]");
     checkBlogPostMetadata("[data-cy=blogPostCategory]");
     checkBlogPostMetadata("[data-cy=blogPostDate]");

@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { FC } from "react"
 
-const About: FC = () => {
+const About: FC = async () => {
+
   return (
     <main className="mt-large md:mt-section">
       <div className="grid">

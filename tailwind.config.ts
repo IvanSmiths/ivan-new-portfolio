@@ -15,6 +15,7 @@ const config: Config = {
         primaryAccent: "var(--primary-accent)",
         secondary: "var(--secondary)",
         secondaryLight: "var(--secondary-light)",
+        secondaryLighter: "var(--secondary-lighter)",
       },
       transitionProperty: {
         dimensions: "height, width",
@@ -26,6 +27,15 @@ const config: Config = {
         regular: "var(--regular)",
         large: "var(--large)",
         section: "var(--section)",
+      },
+      animation: {
+        "fade-in": "fadeIn 400ms ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
     },
   },
