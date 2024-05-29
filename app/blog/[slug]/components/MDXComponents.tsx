@@ -48,7 +48,7 @@ function CustomLink(props: CustomLinkProps) {
   }
   if (href.startsWith("/")) {
     return (
-      <Link className="text-lg underline font-bold" href={href} {...props}>
+      <Link className="text-lg font-bold underline" href={href} {...props}>
         {props.children}
       </Link>
     );
@@ -62,7 +62,7 @@ function CustomLink(props: CustomLinkProps) {
     <a
       target="_blank"
       rel="noopener noreferrer"
-      className="text-lg underline font-bold"
+      className="text-lg font-bold underline"
       {...props}
     />
   );
@@ -83,7 +83,7 @@ function slugify(str: ReactNode) {
 }
 
 function createHeading(level: number) {
-  // eslint-disable-next-line react/display-name
+    // eslint-disable-next-line react/display-name
   return ({ children }: HeadingProps): ReactElement => {
     let slug: string = slugify(children);
     return createElement(
@@ -109,7 +109,7 @@ const components = {
   ),
   code: (props: any) => (
     <code
-      className="bg-secondaryLight py-1 px-2 rounded-lg text-primary font-bold"
+      className="rounded-lg bg-secondaryLight px-2 py-1 font-bold text-primary"
       {...props}
     >
       {props.children}

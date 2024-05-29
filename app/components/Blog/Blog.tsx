@@ -6,41 +6,41 @@ const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
     <div className="grid md:m-0">
-      <span className="md:col-start-1 max-sm:mb-small md:col-end-3 col-span-full lato">
+      <span className="lato col-span-full max-sm:mb-small md:col-start-1 md:col-end-3">
         Latest blogposts
       </span>
-      <div className="md:col-start-4 md:col-end-13 col-span-full flex flex-col">
+      <div className="col-span-full flex flex-col md:col-start-4 md:col-end-13">
         {posts.map((post: Posts, index: number) => (
           <div key={index}>
             <Link
               data-cy="blogPost"
-              className="flex md:justify-between justify-center gap-small flex-col md:flex-row md:items-center items-start md:px-small hover:bg-primary min-h-32 transition group"
+              className="group flex min-h-32 flex-col items-start justify-center gap-small transition hover:bg-primary md:flex-row md:items-center md:justify-between md:px-small"
               href={`blog/${post?.slug}`}
             >
-              <div className="flex md:gap-medium gap-small flex-col md:flex-row items-start md:items-center">
+              <div className="flex flex-col items-start gap-small md:flex-row md:items-center md:gap-medium">
                 <span
                   data-cy="blogPostIndex"
-                  className="lato group-hover:text-secondaryLight hidden md:block transition"
+                  className="lato hidden transition group-hover:text-secondaryLight md:block"
                 >
                   0{index + 1}
                 </span>
                 <h3
                   data-cy="blogPostTitle"
-                  className="font-semibold md:text-3xl text-xl text-left group-hover:text-secondary transition"
+                  className="text-left text-xl font-semibold transition group-hover:text-secondary md:text-3xl"
                 >
                   {post?.metadata.title}
                 </h3>
               </div>
-              <div className="flex flex-row md:ml-regular md:flex-col gap-smallest min-w-fit md:text-right">
+              <div className="flex min-w-fit flex-row gap-smallest md:ml-regular md:flex-col md:text-right">
                 <span
                   data-cy="blogPostCategory"
-                  className="lato group-hover:text-secondaryLight transition"
+                  className="lato transition group-hover:text-secondaryLight"
                 >
                   {post?.metadata.category}
                 </span>
                 <time
                   data-cy="blogPostDate"
-                  className="lato group-hover:text-secondaryLight transition"
+                  className="lato transition group-hover:text-secondaryLight"
                   dateTime={post?.metadata.date}
                 >
                   {post?.metadata.date
@@ -56,13 +56,13 @@ const Blog: FC = () => {
                 </time>
                 <span
                   data-cy="blogPostTime"
-                  className="lato group-hover:text-secondaryLight transition"
+                  className="lato transition group-hover:text-secondaryLight"
                 >
                   {post?.metadata.time} min to read
                 </span>
               </div>
             </Link>
-            <div className="h-[1px] bg-primaryLight w-full"></div>
+            <div className="h-[1px] w-full bg-primaryLight"></div>
           </div>
         ))}
       </div>

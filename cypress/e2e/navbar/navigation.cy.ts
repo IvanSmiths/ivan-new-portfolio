@@ -1,5 +1,5 @@
 import { navigateAndCheckUrl, Pages } from "../../lib/navbar/navbar.cy";
-import { wait } from "../../lib/wait/wait.cy";
+import { wait } from "../../lib/actions/wait.cy";
 
 describe("Navigation", (): void => {
   beforeEach(() => {

@@ -6,7 +6,7 @@ const Sections: FC<ChildrenAsProps> = ({ children, ...props }) => {
     <div
       {...props}
       id="articleLinks"
-      className="hidden md:block absolute h-full top-medium mt-regular left-0 col-start-1 lg:col-end-3 col-end-4"
+      className="absolute left-0 top-medium col-start-1 col-end-4 mt-regular hidden h-full md:block lg:col-end-3"
     >
       <div className="sticky top-1/4 flex flex-col">
         <span>Table of contents</span>

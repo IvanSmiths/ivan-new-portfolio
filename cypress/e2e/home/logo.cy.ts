@@ -1,4 +1,4 @@
-import { wait } from "../../lib/wait/wait.cy";
+import { wait } from "../../lib/actions/wait.cy";
 import { toggleTheme } from "../../lib/navbar/themeToggle.cy";
 import { checkLogoColor } from "../../lib/home/logo.cy";
 import { ThemeColors, ThemeMode } from "../../../utils/store";
