@@ -47,7 +47,7 @@ const Renders: FC = async () => {
     h1: "Renders",
     h2: "The beginning.",
     paragraph:
-      "The renders are done with Blender and Zbrush, and are a mix of my hard surface modeling and sculpting.",
+      "The renders are done with Blender and ZBrush, and are a mix of my hard surface modeling and sculpting.",
   };
 
   return (

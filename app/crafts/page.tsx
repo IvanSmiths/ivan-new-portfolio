@@ -62,7 +62,7 @@ const Crafts: FC = async () => {
     h1: "Crafts",
     h2: "My passions outside the code",
     paragraph:
-      "Here i share some of my creations, including photos using my Sony A7II, and renders, where the hard surface one are done with Blender and the sculpting ones with Zbrush.",
+      "Here I share some of my creations, from photos done with my Sony A7II, to renders, where the hard surface one are done with Blender and the sculpting ones with ZBrush.",
   };
 
   return (
