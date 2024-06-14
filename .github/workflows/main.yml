@@ -21,7 +21,7 @@ jobs:
 
         with:
           build: npm run build
-          start: npm run tests:dev
+          start: npm run dev
 
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
