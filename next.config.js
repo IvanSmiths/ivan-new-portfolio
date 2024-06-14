@@ -10,7 +10,7 @@ module.exports = withBundleAnalyzer({
       {
         source: "/(.*)",
         headers: securityHeaders,
-        staticPageGenerationTimeout: 1000,
+        staticPageGenerationTimeout: 20000,
       },
     ];
   },
