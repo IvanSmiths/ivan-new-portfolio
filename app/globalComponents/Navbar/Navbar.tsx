@@ -14,7 +14,6 @@ enum LinkLabel {
   Home = "home",
   Works = "works",
   Blog = "blog",
-  Crafts = "crafts",
   Github = "github",
   Youtube = "youtube",
   Linkedin = "linkedin",
@@ -24,7 +23,6 @@ enum LinkUrl {
   Home = "/",
   Works = "/works",
   Blog = "/blog",
-  Crafts = "/crafts",
   Github = "https://github.com/IvanSmiths",
   Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
   Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
@@ -52,7 +50,6 @@ const internalLinks: Links[] = [
   { label: LinkLabel.Home, url: LinkUrl.Home, dataCy: LinkLabel.Home },
   { label: LinkLabel.Works, url: LinkUrl.Works, dataCy: LinkLabel.Works },
   { label: LinkLabel.Blog, url: LinkUrl.Blog, dataCy: LinkLabel.Blog },
-  { label: LinkLabel.Crafts, url: LinkUrl.Crafts, dataCy: LinkLabel.Crafts },
 ];
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
