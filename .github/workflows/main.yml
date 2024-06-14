@@ -17,11 +17,11 @@ jobs:
       - run: sqlite3 portfolio.db ".read portfolio.sql"
 
       - name: Cypress run
-        uses: cypress-io/github-action@v6.6.1
+        uses: cypress-io/github-action@v6.7.0
 
         with:
           build: npm run build
-          start: npm run dev
+          start: npm run tests:dev
 
         env:
           HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
