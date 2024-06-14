@@ -8,6 +8,10 @@ module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
+        experimental: {
+          workerThreads: false,
+          cpus: 1,
+        },
         source: "/(.*)",
         headers: securityHeaders,
       },
