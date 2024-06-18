@@ -44,6 +44,7 @@ const Loader: FC = () => {
       });
       tl.to(imageRef.current, {
         margin: 0,
+        delay: 100000,
         top: 0,
         duration: slow,
         ease: "expo.inOut",
@@ -77,7 +78,6 @@ const Loader: FC = () => {
           className="absolute inset-0 z-20 mx-auto my-auto h-fit w-full opacity-0"
         >
           <Header />
-          <span>testtt 2</span>
         </div>
       </div>
     </>
