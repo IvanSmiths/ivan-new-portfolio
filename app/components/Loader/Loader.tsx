@@ -44,7 +44,9 @@ const Loader: FC = () => {
       });
       tl.to(imageRef.current, {
         margin: 0,
+        /*
         delay: 100000,
+        */
         top: 0,
         duration: slow,
         ease: "expo.inOut",
