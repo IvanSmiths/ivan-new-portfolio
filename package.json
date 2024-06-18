@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.2.3",
+    "@playwright/test": "^1.44.1",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.79",
     "autoprefixer": "^10.4.19",
