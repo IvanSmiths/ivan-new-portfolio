@@ -1,4 +1,4 @@
-import { expect, Locator, test } from "@playwright/test";
+import { expect, Locator, Page, test } from "@playwright/test";
 
 test.beforeEach(async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000");
@@ -9,34 +9,39 @@ test.beforeEach(async ({ page }): Promise<void> => {
     );
 });
 
+type SnapshotOptions = {
+  maxDiffPixelRatio?: number;
+};
+
+const takeSnapshot = async (
+  page: Page,
+  testId: string,
+  screenshotName: string,
+  options: SnapshotOptions = {},
+): Promise<void> => {
+  const locator: Locator = page.getByTestId(testId);
+  await locator.click();
+  await expect(page).toHaveScreenshot(screenshotName, options);
+};
+
 test("snapshot home hero section", async ({ page }): Promise<void> => {
-  const heroLocator: Locator = page.getByTestId("homeHero");
-  await heroLocator.click();
-  await expect(page).toHaveScreenshot("home-hero.png", {
+  await takeSnapshot(page, "homeHero", "home-hero.png", {
     maxDiffPixelRatio: 0.2,
   });
 });
 
 test("snapshot home about section", async ({ page }): Promise<void> => {
-  const aboutLocator: Locator = page.getByTestId("homeAbout");
-  await aboutLocator.click();
-  await expect(page).toHaveScreenshot("home-about.png");
+  await takeSnapshot(page, "homeAbout", "home-about.png");
 });
 
 test("snapshot home first work", async ({ page }): Promise<void> => {
-  const aboutLocator: Locator = page.getByTestId("homeWork0");
-  await aboutLocator.click();
-  await expect(page).toHaveScreenshot("home-first-work.png");
+  await takeSnapshot(page, "homeWork0", "home-first-work.png");
 });
 
 test("snapshot home second work", async ({ page }): Promise<void> => {
-  const aboutLocator: Locator = page.getByTestId("homeWork1");
-  await aboutLocator.click();
-  await expect(page).toHaveScreenshot("home-second-work.png");
+  await takeSnapshot(page, "homeWork1", "home-second-work.png");
 });
 
 test("snapshot home third work", async ({ page }): Promise<void> => {
-  const aboutLocator: Locator = page.getByTestId("homeWork2");
-  await aboutLocator.click();
-  await expect(page).toHaveScreenshot("home-third-work.png");
+  await takeSnapshot(page, "homeWork2", "home-third-work.png");
 });
