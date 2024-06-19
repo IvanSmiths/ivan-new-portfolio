@@ -7,14 +7,15 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
+  // @ts-ignore
   webServer: {
     command: "npm run dev",
     url: "http://127.0.0.1:3000",
     env: {
-      HYGRAPH_ENDPOINT: "HYGRAPH_ENDPOINT",
-      OPEN_WEATHER_API: "OPEN_WEATHER_API",
-      TURSO_TOKEN: "TURSO_TOKEN",
-      TURSO_CONNECTION_URL: "TURSO_CONNECTION_URL",
+      HYGRAPH_ENDPOINT: process.env.HYGRAPH_ENDPOINT,
+      OPEN_WEATHER_API: process.env.OPEN_WEATHER_API,
+      TURSO_TOKEN: process.env.TURSO_TOKEN,
+      TURSO_CONNECTION_URL: process.env.TURSO_CONNECTION_URL,
     },
     reuseExistingServer: !process.env.CI,
   },
