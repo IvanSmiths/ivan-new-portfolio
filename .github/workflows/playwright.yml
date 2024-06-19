@@ -22,3 +22,9 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       if: always()
+
+      env:
+        HYGRAPH_ENDPOINT: ${{secrets.HYGRAPH_ENDPOINT}}
+        OPEN_WEATHER_API: ${{secrets.OPEN_WEATHER_API}}
+        TURSO_TOKEN: ${{secrets.TURSO_TOKEN}}
+        TURSO_CONNECTION_URL: ${{secrets.TURSO_CONNECTION_URL}}
