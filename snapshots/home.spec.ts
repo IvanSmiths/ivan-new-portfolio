@@ -22,3 +22,21 @@ test("snapshot home about section", async ({ page }): Promise<void> => {
   await aboutLocator.click();
   await expect(page).toHaveScreenshot("home-about.png");
 });
+
+test("snapshot home first work", async ({ page }): Promise<void> => {
+  const aboutLocator: Locator = page.getByTestId("homeWork0");
+  await aboutLocator.click();
+  await expect(page).toHaveScreenshot("home-first-work.png");
+});
+
+test("snapshot home second work", async ({ page }): Promise<void> => {
+  const aboutLocator: Locator = page.getByTestId("homeWork1");
+  await aboutLocator.click();
+  await expect(page).toHaveScreenshot("home-second-work.png");
+});
+
+test("snapshot home third work", async ({ page }): Promise<void> => {
+  const aboutLocator: Locator = page.getByTestId("homeWork2");
+  await aboutLocator.click();
+  await expect(page).toHaveScreenshot("home-third-work.png");
+});
