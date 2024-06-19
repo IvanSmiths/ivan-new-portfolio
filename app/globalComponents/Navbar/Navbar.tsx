@@ -57,7 +57,7 @@ const internalLinks: Links[] = [
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
-    <nav>
+    <nav data-testid="navbar">
       <div
         className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 z-10 flex w-full flex-row-reverse items-start justify-between pl-small pr-small sm:flex-row`}
       >
