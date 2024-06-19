@@ -21,7 +21,3 @@ jobs:
     - name: Run Playwright snapshot tests
       run: npm snapshots:run
       if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
