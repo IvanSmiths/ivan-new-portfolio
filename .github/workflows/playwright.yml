@@ -17,16 +17,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Start dev server
-      run: npm run dev &
-      env:
-        CI: true
-
-    - name: Wait for dev server to be ready
-      run: npx wait-on http://localhost:3000
-
     - name: Run Playwright tests
-      run: npm run snapshots:run
+      run: |
+            npm run dev
+            npm run snapshots:run  
 
     - uses: actions/upload-artifact@v4
       if: always()
