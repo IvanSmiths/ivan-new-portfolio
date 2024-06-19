@@ -34,14 +34,14 @@ test("snapshot home about section", async ({ page }): Promise<void> => {
   await takeSnapshot(page, "homeAbout", "home-about.png");
 });
 
-test("snapshot home first work", async ({ page }): Promise<void> => {
-  await takeSnapshot(page, "homeWork0", "home-first-work.png");
+test("snapshot home work first", async ({ page }): Promise<void> => {
+  await takeSnapshot(page, "homeWork0", "home-work-first.png");
 });
 
-test("snapshot home second work", async ({ page }): Promise<void> => {
-  await takeSnapshot(page, "homeWork1", "home-second-work.png");
+test("snapshot home work second", async ({ page }): Promise<void> => {
+  await takeSnapshot(page, "homeWork1", "home-work-second.png");
 });
 
-test("snapshot home third work", async ({ page }): Promise<void> => {
-  await takeSnapshot(page, "homeWork2", "home-third-work.png");
+test("snapshot home work third", async ({ page }): Promise<void> => {
+  await takeSnapshot(page, "homeWork2", "home-work-third.png");
 });
