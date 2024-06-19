@@ -10,6 +10,12 @@ export default defineConfig({
   webServer: {
     command: "npm run dev",
     url: "http://127.0.0.1:3000",
+    env: {
+      HYGRAPH_ENDPOINT: "process.env.HYGRAPH_ENDPOINT",
+      OPEN_WEATHER_API: "process.env.OPEN_WEATHER_API",
+      TURSO_TOKEN: "process.env.TURSO_TOKEN",
+      TURSO_CONNECTION_URL: "process.env.TURSO_CONNECTION_URL",
+    },
     reuseExistingServer: !process.env.CI,
   },
   use: {
