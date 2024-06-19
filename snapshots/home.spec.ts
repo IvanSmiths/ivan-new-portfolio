@@ -20,8 +20,8 @@ const takeSnapshot = async (
   options: SnapshotOptions = {},
 ): Promise<void> => {
   const locator: Locator = page.getByTestId(testId);
-  await locator.click();
-  await expect(page).toHaveScreenshot(screenshotName, options);
+  await locator.click({ button: "middle" });
+  await expect(locator).toHaveScreenshot(screenshotName, options);
 };
 
 test("snapshot home hero section", async ({ page }): Promise<void> => {
