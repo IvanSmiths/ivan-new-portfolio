@@ -25,13 +25,13 @@ const takeSnapshot = async (
 };
 
 test("snapshot home hero section", async ({ page }): Promise<void> => {
-  await takeSnapshot(page, "homeHero", "home-hero.png", {
+  await takeSnapshot(page, "homeHeroSection", "home-hero-section.png", {
     maxDiffPixelRatio: 0.2,
   });
 });
 
 test("snapshot home about section", async ({ page }): Promise<void> => {
-  await takeSnapshot(page, "homeAbout", "home-about.png");
+  await takeSnapshot(page, "homeAboutSection", "home-about-section.png");
 });
 
 test("snapshot home work first", async ({ page }): Promise<void> => {
