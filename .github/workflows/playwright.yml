@@ -1,6 +1,8 @@
 name: Playwright Tests
 
-on: [push]
+on:
+  push:
+    branches: [ test ]
 
 jobs:
   test:
