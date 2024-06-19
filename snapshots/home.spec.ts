@@ -1,4 +1,5 @@
-import { expect, Locator, Page, test } from "@playwright/test";
+import { test } from "@playwright/test";
+import { takeSnapshot } from "./helpers";
 
 test.beforeEach(async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000");
@@ -8,21 +9,6 @@ test.beforeEach(async ({ page }): Promise<void> => {
       (element: HTMLElement): string => (element.style.display = "none"),
     );
 });
-
-type SnapshotOptions = {
-  maxDiffPixelRatio?: number;
-};
-
-const takeSnapshot = async (
-  page: Page,
-  testId: string,
-  screenshotName: string,
-  options: SnapshotOptions = {},
-): Promise<void> => {
-  const locator: Locator = page.getByTestId(testId);
-  await locator.click({ button: "middle" });
-  await expect(locator).toHaveScreenshot(screenshotName, options);
-};
 
 test("snapshot home hero section", async ({ page }): Promise<void> => {
   await takeSnapshot(page, "homeHeroSection", "home-hero-section.png", {
