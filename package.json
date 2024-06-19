@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "tests:dev": "TURSO_CONNECTION_URL=file:portfolio.db TURSO_TOKEN=none next dev",
-    "snapshots:run": "npx playwright test",
+    "snapshots:run": "npx playwright test next dev",
     "snapshots:ui": "npx playwright test --ui",
     "snapshots:update": "npx playwright test --update-snapshots",
     "analyze": "cross-env ANALYZE=true next build",
