@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import { takeSnapshot } from "./helpers";
+import { takeSnapshot } from "./helpers/screenshot";
 
 test.beforeEach(async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000");
