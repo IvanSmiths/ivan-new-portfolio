@@ -13,6 +13,7 @@ const Blog: FC = () => {
         {posts.map((post: Posts, index: number) => (
           <div key={index}>
             <Link
+              data-testid={`blogPostLink${index}`}
               data-cy="blogPost"
               className="group flex min-h-32 flex-col items-start justify-center gap-small transition hover:bg-primary md:flex-row md:items-center md:justify-between md:px-small"
               href={`blog/${post?.slug}`}

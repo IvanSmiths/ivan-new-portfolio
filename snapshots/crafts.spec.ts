@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import { takeSnapshot } from "./helpers/screenshot";
+import { snapshotElement } from "./helpers/screenshot";
 
 test.beforeEach(async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000/crafts");
@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }): Promise<void> => {
 });
 
 test("snapshot crafts main page", async ({ page }): Promise<void> => {
-  await takeSnapshot(
+  await snapshotElement(
     page,
     "craftsCraftsTitleSection",
     "crafts-crafts-title-section.png",
@@ -20,7 +20,7 @@ test("snapshot crafts main page", async ({ page }): Promise<void> => {
 
 test("snapshot crafts photos page", async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000/crafts/photos");
-  await takeSnapshot(
+  await snapshotElement(
     page,
     "craftsPhotosTitleSection",
     "crafts-photos-title-section.png",
@@ -29,7 +29,7 @@ test("snapshot crafts photos page", async ({ page }): Promise<void> => {
 
 test("snapshot crafts renders page", async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000/crafts/renders");
-  await takeSnapshot(
+  await snapshotElement(
     page,
     "craftsRendersTitleSection",
     "crafts-renders-title-section.png",
