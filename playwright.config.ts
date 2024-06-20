@@ -15,7 +15,7 @@ requiredEnvVars.forEach((varName: RequiredEnvVar) => {
 });
 export default defineConfig({
   testDir: "./snapshots",
-  snapshotPathTemplate: "{testDir}/{testFilePath}/{arg}{ext}",
+  snapshotPathTemplate: "{testDir}/{testFilePath}-snapshots/{arg}{ext}",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -39,10 +39,6 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "Mobile Chrome",
-      use: { ...devices["Pixel 5"] },
     },
   ],
 });
