@@ -1,9 +1,8 @@
-import { FC } from "react"
+import { FC } from "react";
 
 const About: FC = async () => {
-
   return (
-    <main className="mt-large md:mt-section">
+    <main data-testid="homeAboutSection" className="mt-large md:mt-section">
       <div className="grid">
         <div className="col-start-1 mt-2 hidden h-2 w-2 rounded-full bg-primary md:block"></div>
         <h2 className="col-start-1 col-end-7 text-3xl sm:text-5xl md:col-start-4 md:col-end-11">

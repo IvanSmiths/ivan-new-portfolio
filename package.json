@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "tests:dev": "TURSO_CONNECTION_URL=file:portfolio.db TURSO_TOKEN=none next dev",
+    "snapshots:run": "npx playwright test",
+    "snapshots:ui": "npx playwright test --ui",
+    "snapshots:update": "npx playwright test --update-snapshots",
     "analyze": "cross-env ANALYZE=true next build",
     "drizzle-studio": "npx drizzle-kit studio --port 9000",
     "migration:generate": "drizzle-kit generate --config=drizzle.config.ts",
@@ -35,6 +38,10 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.3",
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
     "@next/bundle-analyzer": "^14.2.4",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
