@@ -12,7 +12,10 @@ const Hero: FC<PostProps> = ({ post }) => {
   return (
     <>
       <Blob />
-      <section className="col-span-full flex flex-col items-center justify-center gap-small md:col-start-3 md:col-end-11">
+      <section
+        data-testid="blogPostHeroSection"
+        className="col-span-full flex flex-col items-center justify-center gap-small md:col-start-3 md:col-end-11"
+      >
         <span data-cy="blogPageCategory" className="lato font-bold">
           {post.category}
         </span>

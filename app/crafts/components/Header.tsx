@@ -8,7 +8,10 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ h1, h2, paragraph }) => {
   return (
-    <section className="mx-small mt-section">
+    <section
+      data-testid={`crafts${h1}TitleSection`}
+      className="mx-small mt-section"
+    >
       <h1 className="text-5xl font-bold uppercase md:text-8xl">{h1}</h1>
       <div className="mt-medium grid !p-0">
         <h2 className="lato col-start-1 col-end-3">{h2}</h2>
