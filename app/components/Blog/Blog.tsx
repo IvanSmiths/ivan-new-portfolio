@@ -5,7 +5,7 @@ import Link from "next/link";
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
-    <div className="grid md:m-0">
+    <div data-testid="homeBlogSection" className="grid md:m-0">
       <span className="lato col-span-full max-sm:mb-small md:col-start-1 md:col-end-3">
         Latest blogposts
       </span>
@@ -13,6 +13,7 @@ const Blog: FC = () => {
         {posts.map((post: Posts, index: number) => (
           <div key={index}>
             <Link
+              data-testid={`blogPostLink${index}`}
               data-cy="blogPost"
               className="group flex min-h-32 flex-col items-start justify-center gap-small transition hover:bg-primary md:flex-row md:items-center md:justify-between md:px-small"
               href={`blog/${post?.slug}`}
