@@ -15,6 +15,7 @@ requiredEnvVars.forEach((varName: RequiredEnvVar) => {
 });
 export default defineConfig({
   testDir: "./snapshots",
+  snapshotPathTemplate: "{testDir}/{testFilePath}/{arg}{ext}",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
