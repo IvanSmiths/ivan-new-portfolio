@@ -26,6 +26,7 @@
     "@gsap/react": "^2.1.1",
     "@libsql/client": "^0.6.0",
     "@next/mdx": "^14.2.3",
+    "@react-three/fiber": "^8.16.8",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.2.2",
     "bright": "^0.8.5",
