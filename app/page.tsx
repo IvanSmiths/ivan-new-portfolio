@@ -8,6 +8,7 @@ import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 import Overlay from "./components/Loader/Overlay";
 import Blog from "./components/Blog/Blog";
+import Three from "./components/Hero/Three";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
@@ -38,6 +39,7 @@ const Home = async () => {
   return (
     <>
       <Hero />
+      <Three />
       <Overlay />
       <LoaderWrapper />
       <About />
