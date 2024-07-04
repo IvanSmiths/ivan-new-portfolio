@@ -1,68 +1,48 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import * as THREE from "three";
+// src/PlaneWithCubes.js
+import React from "react";
+import { Canvas } from "@react-three/fiber";
+import { Box } from "@react-three/drei";
 
-const Three = () => {
-  const mountRef = useRef(null);
+const PlaneWithCubes = () => {
+  // Calculate positions for cubes
+  const cubeSize = 1;
+  const gap = 0.2;
+  const cubes = [];
+  const rows = 4;
+  const cols = 20;
+  const planeWidth = window.innerWidth / 100;
+  const planeHeight = (cubeSize + gap) * rows;
+  const startX = -planeWidth / 2 + cubeSize / 2;
+  const startY = planeHeight / 2 - cubeSize / 2;
 
-  useEffect(() => {
-    // Set up scene
-    const scene = new THREE.Scene();
-    const width = mountRef.current.clientWidth;
-    const height = mountRef.current.clientHeight;
-
-    // Set up camera
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 5;
-
-    // Set up renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(width, height);
-    mountRef.current.appendChild(renderer.domElement);
-
-    // Create an array of 20 cubes
-    const cubes = [];
-    const cubeSize = 0.5;
-    const gap = 0.1;
-    const totalCubes = 20;
-    const rows = 4;
-    const cols = Math.ceil(totalCubes / rows);
-
-    // Calculate the starting x and y positions
-    const startX = -((cols - 1) * (cubeSize + gap)) / 2;
-    const startY = ((rows - 1) * (cubeSize + gap)) / 2;
-
-    // Create and position cubes
-    for (let i = 0; i < totalCubes; i++) {
-      const geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
-      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-      const cube = new THREE.Mesh(geometry, material);
-      const row = Math.floor(i / cols);
-      const col = i % cols;
-
-      cube.position.x = startX + col * (cubeSize + gap);
-      cube.position.y = startY - row * (cubeSize + gap);
-      scene.add(cube);
-      cubes.push(cube);
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      cubes.push({
+        position: [
+          startX + col * (cubeSize + gap),
+          startY - row * (cubeSize + gap),
+          0,
+        ],
+      });
     }
+  }
 
-    renderer.render(scene, camera);
-
-    // Clean up on component unmount
-    return () => {
-      mountRef.current.removeChild(renderer.domElement);
-      scene.clear();
-    };
-  }, []);
   return (
-    <div>
-      <div
-        ref={mountRef}
-        style={{ width: "100vw", height: "100vh", display: "flex" }}
-      />
-    </div>
+    <Canvas
+      camera={{ position: [0, 0, 10], fov: 75 }}
+      style={{ width: "100vw", height: "100vh", background: "red" }}
+    >
+      <ambientLight intensity={0.1} color="red" />
+      {cubes.map((cube, index) => (
+        <mesh key={index} position={cube.position}>
+          <Box args={[cubeSize, cubeSize, cubeSize]} />
+          <meshStandardMaterial color="orange" />
+        </mesh>
+      ))}
+    </Canvas>
   );
 };
 
-export default Three;
+export default PlaneWithCubes;
