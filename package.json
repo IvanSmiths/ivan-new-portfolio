@@ -26,6 +26,7 @@
     "@gsap/react": "^2.1.1",
     "@libsql/client": "^0.6.0",
     "@next/mdx": "^14.2.3",
+    "@react-three/drei": "^9.108.1",
     "@react-three/fiber": "^8.16.8",
     "@types/mdx": "^2.0.13",
     "@types/three": "^0.166.0",
