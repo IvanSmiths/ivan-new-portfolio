@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 :root {
+    --black-primary: #09090B;
+    --red: #FF4D4D;
+    --blue: #C9C8FB;
+    --pink: #FBC8CB;
+    --green: #BFF6C4;
+    --yellow: #FBF9C8;
+
     --smallest: 10px;
     --small: 20px;
     --regular: 35px;

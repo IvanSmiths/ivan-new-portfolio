@@ -14,6 +14,20 @@ type Overlay = {
   hide: () => void;
 };
 
+enum BrandColors {
+  red = "#FF4D4D",
+  blue = "#C9C8FB",
+  pink = "#FBC8CB",
+  green = "#BFF6C4",
+  yellow = "#FBF9C8",
+}
+
+type Colors = {
+  colors: BrandColors[];
+  backgroundColor: string;
+  setBackgroundColor: () => void;
+};
+
 export enum ThemeMode {
   Light = "light",
   Dark = "dark",
@@ -65,3 +79,20 @@ export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
     },
   ),
 );
+
+export const useColorStore: UseBoundStore<StoreApi<Colors>> = create((set) => ({
+  colors: [
+    BrandColors.red,
+    BrandColors.blue,
+    BrandColors.pink,
+    BrandColors.green,
+    BrandColors.yellow,
+  ],
+  backgroundColor: "",
+  setBackgroundColor: () =>
+    set((state: Colors) => {
+      const randomColor =
+        state.colors[Math.floor(Math.random() * state.colors.length)];
+      return { backgroundColor: randomColor };
+    }),
+}));

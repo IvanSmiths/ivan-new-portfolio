@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  important: true,
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,6 +11,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        red: "var(--red)",
+        blue: "var(--blue)",
+        green: "var(--green)",
+        yellow: "var(--yellow)",
+        pink: "var(--pink)",
+        blackPrimary: "var(--black-primary)",
         primary: "var(--primary)",
         primaryLight: "var(--primary-light)",
         primaryAccent: "var(--primary-accent)",

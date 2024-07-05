@@ -5,7 +5,7 @@ import NavbarWrapper from "../Navbar/NavbarWrapper";
 
 const Hero: FC = () => {
   return (
-    <div data-testid="homeHeroSection" className="flex min-h-[100vh] flex-col">
+    <div data-testid="homeHeroSection" className="flex min-h-[97vh] flex-col">
       <Header />
       <NavbarWrapper />
       <Text />
