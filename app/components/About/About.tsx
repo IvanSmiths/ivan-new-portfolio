@@ -1,7 +1,10 @@
 import { FC, ReactNode } from "react";
 
 const About: FC = async () => {
-  const textStyle = "bebas text-[14rem] leading-[13rem]";
+  const textStyle =
+    "bebas lg:text-[11vw] lg:leading-[10vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw]";
+
+  const symbolStyle = "bebas lg:text-[11vw] lg:leading-[10vw] lg:block hidden";
 
   type SectionProps = {
     children: ReactNode;
@@ -16,7 +19,7 @@ const About: FC = async () => {
 
   const Wrapper: FC<SectionProps> = ({ children, bgClass = "" }) => (
     <div
-      className={`flex flex-row flex-wrap items-center justify-between gap-small pt-5 ${bgClass}`}
+      className={`flex flex-row flex-wrap items-center justify-between gap-small px-3 pt-5 ${bgClass}`}
     >
       {children}
     </div>
@@ -36,7 +39,7 @@ const About: FC = async () => {
       <section className="col-span-full uppercase">
         <Wrapper>
           <Content>I expertly blend</Content>
-          <Content style={textStyle}>&#x265B;</Content>
+          <Content style={symbolStyle}>&#x265B;</Content>
           <Content style={textStyle}>my</Content>
         </Wrapper>
         <Wrapper bgClass="bg-primary">
