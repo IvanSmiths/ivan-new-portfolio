@@ -1,44 +1,68 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 const About: FC = async () => {
+  const titleStyles = "bebas text-[13rem] leading-[13rem]";
+  const subtitleStyles = "bebas text-[13rem] leading-10";
+
+  type SectionProps = {
+    children: ReactNode;
+    bgClass?: string;
+  };
+
+  type TextProps = {
+    children: ReactNode;
+    style?: string;
+    textColor?: string;
+  };
+
+  const Wrapper: FC<SectionProps> = ({ children, bgClass = "" }) => (
+    <div
+      className={`flex flex-row flex-wrap items-center justify-between gap-small pt-5 ${bgClass}`}
+    >
+      {children}
+    </div>
+  );
+
+  const Content: FC<TextProps> = ({
+    children,
+    style = titleStyles,
+    textColor = "",
+  }) => <span className={`${style} ${textColor}`}>{children}</span>;
+
   return (
     <main
       data-testid="homeAboutSection"
       className="mt-large grid min-h-[100vh] md:mt-section"
     >
-      <div className="col-span-full uppercase">
-        <div className="flex flex-row flex-wrap items-center justify-between gap-small pt-5">
-          <h2 className="bebas text-[13rem] leading-[13rem]">
-            I expertly blend
-          </h2>
-          <h2 className="bebas text-[13rem] leading-10">&#x265B;</h2>
-          <h2 className="bebas text-[13rem] leading-10">my</h2>
-        </div>
-        <div className="flex flex-row flex-wrap items-center justify-between gap-small bg-primary pt-5">
-          <h2 className="bebas text-[13rem] leading-10 text-secondary">
+      <section className="col-span-full uppercase">
+        <Wrapper>
+          <Content>I expertly blend</Content>
+          <Content style={subtitleStyles}>&#x265B;</Content>
+          <Content style={subtitleStyles}>my</Content>
+        </Wrapper>
+        <Wrapper bgClass="bg-primary">
+          <Content style={subtitleStyles} textColor="text-secondary">
             Design
-          </h2>
-          <div className="h-3 flex-1 rounded bg-secondary"></div>
-          <h2 className="bebas text-[13rem] leading-[13rem] text-secondary">
-            Background
-          </h2>
-        </div>
-        <div className="flex flex-row flex-wrap items-center justify-between gap-small pt-5">
-          <h2 className="bebas text-[13rem] leading-[13rem]">With</h2>
-          <h2 className="bebas text-[13rem] leading-[13rem]">~</h2>
+          </Content>
+          <span className="h-3 flex-1 rounded bg-secondary"></span>
+          <Content textColor="text-secondary">Background</Content>
+        </Wrapper>
+        <Wrapper>
+          <Content>With</Content>
+          <Content>~</Content>
           <img
             className="-mt-4 h-40 flex-1 object-cover"
             src="/photo-of-me-about.png"
             alt="photo of me"
           />
-          <h2 className="bebas text-[13rem] leading-[13rem]">My</h2>
-        </div>
-        <div className="bg-brand flex flex-row flex-wrap items-center justify-between gap-small pt-5">
-          <h2 className="bebas text-[13rem] leading-[13rem]">Development</h2>
-          <h2 className="bebas text-[13rem] leading-10">&#x2731;</h2>
-          <h2 className="bebas text-[13rem] leading-10">Mastery</h2>
-        </div>
-      </div>
+          <Content>My</Content>
+        </Wrapper>
+        <Wrapper bgClass="bg-brand">
+          <Content>Development</Content>
+          <Content style={subtitleStyles}>&#x2731;</Content>
+          <Content style={subtitleStyles}>Mastery</Content>
+        </Wrapper>
+      </section>
     </main>
   );
 };
