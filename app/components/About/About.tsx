@@ -58,7 +58,7 @@ const About: FC = async () => {
           <Content>With</Content>
           <Content>~</Content>
           <img
-            className="-mt-4 h-40 w-2/4 flex-1 object-cover"
+            className="-mt-4 h-20 w-2/4 flex-1 object-cover md:h-40"
             src="/photo-of-me-about.png"
             alt="photo of me"
             width="978"
@@ -70,7 +70,7 @@ const About: FC = async () => {
         <Wrapper bgClass="bg-brand">
           <Content>Development</Content>
           <Content>&#x2605;</Content>
-          <Content>Mastery</Content>
+          <Content>Mastery.</Content>
         </Wrapper>
       </section>
     </main>
