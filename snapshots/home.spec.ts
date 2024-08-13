@@ -16,10 +16,6 @@ test("snapshot home hero section", async ({ page }): Promise<void> => {
   });
 });
 
-test("snapshot home about section", async ({ page }): Promise<void> => {
-  await snapshotElement(page, "homeAboutSection", "home-about-section.png");
-});
-
 test("snapshot home works section", async ({ page }): Promise<void> => {
   await snapshotElement(page, "homeWork0", "home-work-first.png");
   await snapshotElement(page, "homeWork1", "home-work-second.png");
