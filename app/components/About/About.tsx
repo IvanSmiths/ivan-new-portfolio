@@ -1,8 +1,7 @@
 import { FC, ReactNode } from "react";
 
 const About: FC = async () => {
-  const titleStyles = "bebas text-[13rem] leading-[13rem]";
-  const subtitleStyles = "bebas text-[13rem] leading-10";
+  const textStyle = "bebas text-[14rem] leading-[13rem]";
 
   type SectionProps = {
     children: ReactNode;
@@ -25,7 +24,7 @@ const About: FC = async () => {
 
   const Content: FC<TextProps> = ({
     children,
-    style = titleStyles,
+    style = textStyle,
     textColor = "",
   }) => <span className={`${style} ${textColor}`}>{children}</span>;
 
@@ -37,14 +36,14 @@ const About: FC = async () => {
       <section className="col-span-full uppercase">
         <Wrapper>
           <Content>I expertly blend</Content>
-          <Content style={subtitleStyles}>&#x265B;</Content>
-          <Content style={subtitleStyles}>my</Content>
+          <Content style={textStyle}>&#x265B;</Content>
+          <Content style={textStyle}>my</Content>
         </Wrapper>
         <Wrapper bgClass="bg-primary">
-          <Content style={subtitleStyles} textColor="text-secondary">
+          <Content style={textStyle} textColor="text-secondary">
             Design
           </Content>
-          <span className="h-3 flex-1 rounded bg-secondary"></span>
+          <span className="h-3 flex-1 rounded-full bg-secondary"></span>
           <Content textColor="text-secondary">Background</Content>
         </Wrapper>
         <Wrapper>
@@ -59,8 +58,8 @@ const About: FC = async () => {
         </Wrapper>
         <Wrapper bgClass="bg-brand">
           <Content>Development</Content>
-          <Content style={subtitleStyles}>&#x2731;</Content>
-          <Content style={subtitleStyles}>Mastery</Content>
+          <Content style={textStyle}>&#x2731;</Content>
+          <Content style={textStyle}>Mastery</Content>
         </Wrapper>
       </section>
     </main>
