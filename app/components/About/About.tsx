@@ -1,34 +1,78 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 const About: FC = async () => {
+  const textStyle =
+    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw]";
+
+  type WrapperProps = {
+    children: ReactNode;
+    bgClass?: string;
+  };
+
+  type ContentProps = {
+    children: ReactNode;
+    style?: string;
+    textColor?: string;
+    isMobileHidden?: boolean;
+  };
+
+  const Wrapper: FC<WrapperProps> = ({ children, bgClass = "" }) => (
+    <div
+      className={`flex flex-row flex-wrap items-center justify-between gap-small px-3 pt-5 ${bgClass}`}
+    >
+      {children}
+    </div>
+  );
+
+  const Content: FC<ContentProps> = ({
+    children,
+    style = textStyle,
+    textColor = "",
+    isMobileHidden = "",
+  }) => (
+    <span
+      className={`${style} ${textColor} ${isMobileHidden ? "hidden lg:block" : ""}`}
+    >
+      {children}
+    </span>
+  );
+
   return (
-    <main data-testid="homeAboutSection" className="mt-large md:mt-section">
-      <div className="grid">
-        <div className="col-start-1 mt-2 hidden h-2 w-2 rounded-full bg-primary md:block"></div>
-        <h2 className="col-start-1 col-end-7 text-3xl sm:text-5xl md:col-start-4 md:col-end-11">
-          Leveraging tech and design, I prioritise aesthetics, functionality,
-          speed and usability.
-        </h2>
-        <span className="lato col-start-1 mt-16 hidden sm:mt-medium md:col-start-4 md:block">
-          who am i
-        </span>
-        <div className="col-start-1 col-end-7 mt-16 w-full sm:mt-medium md:col-start-8 md:col-end-12 lg:col-end-11">
-          <p className="text-primaryLight">
-            <strong className="font-bold text-primary">
-              Adept at translating creative ideas into user-centric and
-              data-driven experiences.
-            </strong>
-            <br />
-            <br />
-            Having begun my career as a UI/UX Designer, I spent two years in
-            creating captivating digital experiences. Upon relocating to
-            Germany, I transitioned into the role of a Frontend Developer, where
-            I further expanded my expertise in crafting innovative web
-            solutions. Now, in my current role as a UI/UX Developer, I
-            seamlessly blend my design background with my development skills.
-          </p>
-        </div>
-      </div>
+    <main
+      data-testid="homeAboutSection"
+      className="mt-large grid md:mt-section"
+    >
+      <section className="col-span-full uppercase">
+        <Wrapper>
+          <Content>I expertly blend</Content>
+          <Content isMobileHidden={true}>&#x262F;</Content>
+          <Content isMobileHidden={true}>+</Content>
+          <Content>my</Content>
+        </Wrapper>
+        <Wrapper bgClass="bg-primary">
+          <Content textColor="text-secondary">Design</Content>
+          <span className="h-3 flex-1 rounded-full bg-secondary"></span>
+          <Content textColor="text-secondary">Background</Content>
+        </Wrapper>
+        <Wrapper>
+          <Content>With</Content>
+          <Content>~</Content>
+          <img
+            className="-mt-4 h-20 w-2/4 flex-1 object-cover md:h-40"
+            src="/photo-of-me-about.png"
+            alt="photo of me"
+            width="978"
+            height="293"
+            loading="lazy"
+          />
+          <Content>My</Content>
+        </Wrapper>
+        <Wrapper bgClass="bg-brand">
+          <Content>Development</Content>
+          <Content>&#x2605;</Content>
+          <Content>Mastery.</Content>
+        </Wrapper>
+      </section>
     </main>
   );
 };
