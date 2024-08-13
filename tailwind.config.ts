@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: "var(--primary)",
+        brand: "var(--brand)",
         primaryLight: "var(--primary-light)",
         primaryAccent: "var(--primary-accent)",
         secondary: "var(--secondary)",

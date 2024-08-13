@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+    --brand: #FF4D4D;
+
     --smallest: 10px;
     --small: 20px;
     --regular: 35px;
