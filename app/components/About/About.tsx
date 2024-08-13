@@ -45,7 +45,7 @@ const About: FC = async () => {
       <section className="col-span-full uppercase">
         <Wrapper>
           <Content>I expertly blend</Content>
-          <Content isMobileHidden={true}>&#x260C;</Content>{" "}
+          <Content isMobileHidden={true}>&#x262F;</Content>
           <Content isMobileHidden={true}>+</Content>
           <Content>my</Content>
         </Wrapper>
