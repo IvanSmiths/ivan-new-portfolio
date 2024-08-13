@@ -31,7 +31,7 @@ const About: FC = async () => {
   return (
     <main
       data-testid="homeAboutSection"
-      className="mt-large grid min-h-[100vh] md:mt-section"
+      className="mt-large grid md:mt-section"
     >
       <section className="col-span-full uppercase">
         <Wrapper>
