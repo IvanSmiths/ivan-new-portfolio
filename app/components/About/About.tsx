@@ -18,7 +18,7 @@ const About: FC = async () => {
 
   const Wrapper: FC<WrapperProps> = ({ children, bgClass = "" }) => (
     <div
-      className={`flex flex-row flex-wrap items-center justify-center gap-small px-3 pt-5 lg:justify-between ${bgClass}`}
+      className={`flex flex-row flex-wrap items-center justify-center gap-small px-3 pt-2 lg:justify-between lg:pt-5 ${bgClass}`}
     >
       {children}
     </div>
@@ -69,7 +69,7 @@ const About: FC = async () => {
         </Wrapper>
         <div className="visible pb-small lg:hidden">
           <img
-            className=" h-20 w-full flex-1 object-cover md:h-40"
+            className="h-20 w-full flex-1 object-cover md:h-40"
             src="/photo-of-me-about.png"
             alt="photo of me"
             width="978"
