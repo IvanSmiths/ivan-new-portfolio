@@ -67,6 +67,16 @@ const About: FC = async () => {
           />
           <Content>My</Content>
         </Wrapper>
+        <div className="visible pb-small lg:hidden">
+          <img
+            className=" h-20 w-full flex-1 object-cover md:h-40"
+            src="/photo-of-me-about.png"
+            alt="photo of me"
+            width="978"
+            height="293"
+            loading="lazy"
+          />
+        </div>
         <Wrapper bgClass="bg-brand">
           <Content>Development</Content>
           <Content isMobileHidden={true}>&#x2605;</Content>
