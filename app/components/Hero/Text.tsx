@@ -4,9 +4,9 @@ import CityInfo from "./CityInfo";
 
 const Text: FC = () => {
   return (
-    <div className="mt-auto grid items-end">
-      <Title />
+    <div className="mt-auto">
       <CityInfo />
+      <Title />
     </div>
   );
 };
