@@ -4,7 +4,7 @@ import CityInfo from "./CityInfo";
 
 const Text: FC = () => {
   return (
-    <div className="ml-small">
+    <div className="absolute bottom-small left-small">
       <CityInfo />
       <Title />
     </div>

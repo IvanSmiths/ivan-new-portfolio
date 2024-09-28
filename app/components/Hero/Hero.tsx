@@ -9,10 +9,8 @@ const Hero: FC = () => {
     <div data-testid="homeHeroSection" className="flex min-h-[100vh] flex-col">
       <Header />
       <NavbarWrapper />
-      <div className="mt-auto flex items-end justify-between">
-        <Text />
-        <Showreel />
-      </div>
+      <Text />
+      <Showreel />
     </div>
   );
 };

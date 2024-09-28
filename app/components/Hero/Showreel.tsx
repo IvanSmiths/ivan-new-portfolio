@@ -33,9 +33,9 @@ const Showreel = () => {
   );
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="ml-auto">
       <video
-        className="absolute bottom-0 right-0"
+        className=""
         ref={triggerRef}
         src="/videos/showreel-short.mp4"
         autoPlay
