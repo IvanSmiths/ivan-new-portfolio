@@ -38,9 +38,11 @@ const Showreel = () => {
 
   return (
     <div>
-      <div ref={containerRef} className="relative h-full w-full">
-        <div ref={triggerRef} className="absolute origin-center">
-          <video src="/videos/showreel-short.mp4" autoPlay loop muted />
+      <div className="relative h-[100rem] w-full">
+        <div ref={containerRef} className="h-fit">
+          <div ref={triggerRef} className="absolute origin-center">
+            <video src="/videos/showreel-short.mp4" autoPlay loop muted />
+          </div>
         </div>
       </div>
     </div>
