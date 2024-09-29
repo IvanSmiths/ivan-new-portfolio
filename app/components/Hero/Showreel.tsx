@@ -12,18 +12,22 @@ const Showreel = () => {
     () => {
       gsap.fromTo(
         triggerRef.current,
-        {},
+        {
+          bottom: "20px",
+          right: "20px",
+          transform: "translate(0, 0)",
+        },
         {
           ease: "none",
           bottom: "50%",
           right: "50%",
+          transform: "translate(50%, -50%)",
           scrollTrigger: {
             markers: true,
             trigger: containerRef.current,
             start: "bottom bottom",
             end: "1000px",
             scrub: 0.6,
-            invalidateOnRefresh: true,
             pin: true,
           },
         },
@@ -34,18 +38,9 @@ const Showreel = () => {
 
   return (
     <div>
-      <div ref={containerRef}>
-        <div
-          ref={triggerRef}
-          className="absolute bottom-small right-small origin-center"
-        >
-          <video
-            className=""
-            src="/videos/showreel-short.mp4"
-            autoPlay
-            loop
-            muted
-          />
+      <div ref={containerRef} className="relative h-full w-full">
+        <div ref={triggerRef} className="absolute origin-center">
+          <video src="/videos/showreel-short.mp4" autoPlay loop muted />
         </div>
       </div>
     </div>
