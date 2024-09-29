@@ -10,20 +10,24 @@ const Showreel = () => {
 
   useGSAP(
     () => {
-      gsap.to(triggerRef.current, {
-        ease: "none",
-        bottom: "50%",
-        right: "50%",
-        scrollTrigger: {
-          markers: true,
-          trigger: containerRef.current,
-          start: "bottom bottom",
-          end: "1000px",
-          scrub: 0.6,
-          invalidateOnRefresh: true,
-          pin: true,
+      gsap.fromTo(
+        triggerRef.current,
+        {},
+        {
+          ease: "none",
+          bottom: "50%",
+          right: "50%",
+          scrollTrigger: {
+            markers: true,
+            trigger: containerRef.current,
+            start: "bottom bottom",
+            end: "1000px",
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+            pin: true,
+          },
         },
-      });
+      );
     },
     { scope: containerRef },
   );
@@ -31,7 +35,10 @@ const Showreel = () => {
   return (
     <div>
       <div ref={containerRef}>
-        <div ref={triggerRef} className="absolute bottom-small right-small">
+        <div
+          ref={triggerRef}
+          className="absolute bottom-small right-small origin-center"
+        >
           <video
             className=""
             src="/videos/showreel-short.mp4"
