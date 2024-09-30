@@ -22,7 +22,8 @@ const Showreel = () => {
           bottom: "50%",
           right: "50%",
           paddingBottom: 0,
-          transform: "translate(50%, -50%)",
+          transform: "translate(50%, -90%)",
+          scale: 1.7,
           scrollTrigger: {
             markers: true,
             trigger: containerRef.current,
@@ -41,7 +42,10 @@ const Showreel = () => {
     <div>
       <div className="relative h-[100rem] w-full">
         <div ref={containerRef} className="h-fit">
-          <div ref={triggerRef} className="absolute origin-center pb-small">
+          <div
+            ref={triggerRef}
+            className="absolute w-[30%] origin-center pb-small"
+          >
             <video src="/videos/showreel-short.mp4" autoPlay loop muted />
           </div>
         </div>
