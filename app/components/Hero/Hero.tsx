@@ -6,12 +6,17 @@ import Showreel from "./Showreel";
 
 const Hero: FC = () => {
   return (
-    <div data-testid="homeHeroSection" className="flex min-h-[100vh] flex-col">
-      <Header />
-      <NavbarWrapper />
-      <Text />
+    <>
+      <div
+        data-testid="homeHeroSection"
+        className="flex min-h-[100vh] flex-col"
+      >
+        <Header />
+        <NavbarWrapper />
+        <Text />
+      </div>
       <Showreel />
-    </div>
+    </>
   );
 };
 
