@@ -2,8 +2,8 @@ import { FC } from "react";
 
 const Title: FC = () => {
   return (
-    <div>
-      <h1 className="text-2xl sm:text-4xl">
+    <div className="col-start-1 col-end-5">
+      <h1 className="lato text-2xl font-semibold leading-[3.5rem] sm:text-[3rem]">
         UI/UX Developer with 3 years of experience. <br /> Seeking the limit.
       </h1>
     </div>

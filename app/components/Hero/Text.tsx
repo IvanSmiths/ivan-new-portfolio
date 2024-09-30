@@ -4,9 +4,9 @@ import CityInfo from "./CityInfo";
 
 const Text: FC = () => {
   return (
-    <div className="mb-small ml-small mt-auto">
-      <CityInfo />
+    <div className="mt-auto grid">
       <Title />
+      <CityInfo />
     </div>
   );
 };
