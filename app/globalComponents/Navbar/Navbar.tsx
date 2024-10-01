@@ -10,14 +10,11 @@ type NavbarProps = {
   position?: Position;
 };
 
-enum LinkLabel {
-  Home = "home",
-  Works = "works",
-  Blog = "blog",
-  Crafts = "crafts",
-  Github = "github",
-  Youtube = "youtube",
-  Linkedin = "linkedin",
+enum LinkItem {
+  Home = "Home",
+  Works = "Works",
+  Blog = "Blog",
+  Crafts = "Crafts",
 }
 
 enum LinkUrl {
@@ -25,34 +22,19 @@ enum LinkUrl {
   Works = "/works",
   Blog = "/blog",
   Crafts = "/crafts",
-  Github = "https://github.com/IvanSmiths",
-  Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
-  Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
 }
 
 type Links = {
-  label: LinkLabel;
+  label: LinkItem;
   url: LinkUrl;
-  dataCy?: LinkLabel;
+  dataCy?: Lowercase<LinkItem>;
 };
 
-const socials: Links[] = [
-  { label: LinkLabel.Github, url: LinkUrl.Github },
-  {
-    label: LinkLabel.Linkedin,
-    url: LinkUrl.Linkedin,
-  },
-  {
-    label: LinkLabel.Youtube,
-    url: LinkUrl.Youtube,
-  },
-];
-
 const internalLinks: Links[] = [
-  { label: LinkLabel.Home, url: LinkUrl.Home, dataCy: LinkLabel.Home },
-  { label: LinkLabel.Works, url: LinkUrl.Works, dataCy: LinkLabel.Works },
-  { label: LinkLabel.Blog, url: LinkUrl.Blog, dataCy: LinkLabel.Blog },
-  { label: LinkLabel.Crafts, url: LinkUrl.Crafts, dataCy: LinkLabel.Crafts },
+  { label: LinkItem.Home, url: LinkUrl.Home, dataCy: "home" },
+  { label: LinkItem.Works, url: LinkUrl.Works, dataCy: "works" },
+  { label: LinkItem.Blog, url: LinkUrl.Blog, dataCy: "blog" },
+  { label: LinkItem.Crafts, url: LinkUrl.Crafts, dataCy: "crafts" },
 ];
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
@@ -67,7 +49,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
               <Link
                 data-cy={link.dataCy}
                 href={link.url}
-                className="lato font-bold"
+                className="lato text-md font-semibold sm:text-xl"
               >
                 {link.label}
               </Link>
@@ -75,21 +57,6 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
           ))}
         </ul>
         <ul className="flex flex-row-reverse items-start gap-small sm:flex-row md:gap-medium">
-          <li>
-            <div className="hidden flex-col gap-2 sm:flex">
-              {socials.map((link: Links, index: number) => (
-                <a
-                  key={index}
-                  className="lato font-bold underline underline-offset-4"
-                  href={link.url}
-                  rel="noopener"
-                  target="_blank"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </li>
           <li>
             <ThemeToggle />
           </li>
