@@ -10,30 +10,45 @@ const Showreel = () => {
 
   useGSAP(
     () => {
-      gsap.fromTo(
-        triggerRef.current,
-        {
-          bottom: "20px",
-          right: "20px",
-          transform: "translate(0, 0)",
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "bottom bottom",
+          end: "1000px",
+          scrub: 0.6,
+          pin: true,
+          markers: true,
         },
-        {
-          ease: "none",
-          bottom: "50%",
-          right: "50%",
-          paddingBottom: 0,
-          transform: "translate(50%, -90%)",
-          scale: 1.7,
-          scrollTrigger: {
-            markers: true,
-            trigger: containerRef.current,
-            start: "bottom bottom",
-            end: "1000px",
-            scrub: 0.6,
-            pin: true,
+      });
+
+      timeline
+        .fromTo(
+          triggerRef.current,
+          {
+            bottom: "20px",
+            right: "20px",
+            transform: "translate(0, 0)",
           },
-        },
-      );
+          {
+            bottom: "50%",
+            right: "50%",
+            transform: "translate(50%, -90%)",
+            ease: "none",
+            duration: 1,
+          },
+        )
+        .fromTo(
+          triggerRef.current,
+          {
+            scale: 1,
+          },
+          {
+            scale: 1.7,
+            ease: "none",
+            duration: 1,
+          },
+          "-=0.5", // Starts scale animation when translate is 50% complete
+        );
     },
     { scope: containerRef },
   );
