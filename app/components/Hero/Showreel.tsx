@@ -52,10 +52,10 @@ const Showreel = () => {
         .fromTo(
           headingRef.current,
           {
-            y: 10,
+            y: 20,
           },
           {
-            y: -20,
+            y: -5,
             ease: "power1.inOut",
             duration: 1,
           },
@@ -72,12 +72,31 @@ const Showreel = () => {
             ref={triggerRef}
             className="absolute w-[30%] origin-center pb-small"
           >
-            <h3
+            <div
               ref={headingRef}
-              className="lato absolute z-10 text-sm font-semibold"
+              className="flex w-full items-center justify-between"
             >
-              Showreel works (2020 - 2024)
-            </h3>
+              <h3 className="lato text-sm font-semibold">
+                Showreel works (2020 - 2024)
+              </h3>
+              <a href="" className="lato text-sm font-semibold">
+                View on YouTube
+              </a>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="absolute h-full w-full"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5.25 5.25v13.5l13.5-6.75-13.5-6.75z"
+              />
+            </svg>
             <video
               src="/videos/showreel-short.mp4"
               className="relative z-20"
