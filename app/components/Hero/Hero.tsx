@@ -3,6 +3,7 @@ import Header from "./Header";
 import Text from "./Text";
 import NavbarWrapper from "../Navbar/NavbarWrapper";
 import Showreel from "./Showreel";
+import ShowreelMobile from "./ShowreelMobile";
 
 const Hero: FC = () => {
   return (
@@ -13,9 +14,14 @@ const Hero: FC = () => {
       >
         <Header />
         <NavbarWrapper />
+        <div className="block lg:hidden">
+          <ShowreelMobile />
+        </div>
         <Text />
       </div>
-      <Showreel />
+      <div className="hidden lg:block">
+        <Showreel />
+      </div>
     </>
   );
 };
