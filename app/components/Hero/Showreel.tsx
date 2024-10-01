@@ -66,7 +66,7 @@ const Showreel = () => {
 
   return (
     <div>
-      <div className="relative h-[100rem] w-full">
+      <div className="relative h-full w-full">
         <div ref={containerRef} className="h-fit">
           <div
             ref={triggerRef}
