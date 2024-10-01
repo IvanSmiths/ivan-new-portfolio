@@ -8,13 +8,10 @@ import ShowreelMobile from "./ShowreelMobile";
 const Hero: FC = () => {
   return (
     <>
-      <div
-        data-testid="homeHeroSection"
-        className="flex min-h-[100vh] flex-col"
-      >
+      <div data-testid="homeHeroSection" className="flex h-[100vh] flex-col">
         <Header />
         <NavbarWrapper />
-        <div className="block lg:hidden">
+        <div className="flex-grow lg:hidden">
           <ShowreelMobile />
         </div>
         <Text />

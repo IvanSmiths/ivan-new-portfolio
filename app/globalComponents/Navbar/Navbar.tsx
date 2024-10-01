@@ -76,21 +76,6 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         </ul>
         <ul className="flex flex-row-reverse items-start gap-small sm:flex-row md:gap-medium">
           <li>
-            <div className="hidden flex-col gap-2 sm:flex">
-              {socials.map((link: Links, index: number) => (
-                <a
-                  key={index}
-                  className="lato font-bold underline underline-offset-4"
-                  href={link.url}
-                  rel="noopener"
-                  target="_blank"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </li>
-          <li>
             <ThemeToggle />
           </li>
         </ul>
