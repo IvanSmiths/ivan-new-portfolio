@@ -33,7 +33,7 @@ const Showreel = () => {
           {
             bottom: "50%",
             right: "50%",
-            transform: "translate(50%, -80%)",
+            transform: "translate(50%, -75%)",
             ease: "none",
             duration: 1,
           },
@@ -44,7 +44,7 @@ const Showreel = () => {
             scale: 1,
           },
           {
-            scale: 1.7,
+            scale: 1.8,
             ease: "none",
             duration: 1,
           },
@@ -56,8 +56,7 @@ const Showreel = () => {
             y: 0,
           },
           {
-            y: -30,
-            ease: "power1.inOut",
+            y: 20,
             duration: 1,
           },
         );
@@ -73,10 +72,11 @@ const Showreel = () => {
             ref={triggerRef}
             className="absolute w-[30%] origin-center pb-small"
           >
-            <h3
+            <div
               ref={headingRef}
-              className="lato text-md absolute z-10 text-center font-semibold"
-            >
+              className="absolute z-10 h-5 w-80 bg-secondary transition"
+            ></div>
+            <h3 className="lato text-sm font-semibold">
               Showreel works (2020 - 2024)
             </h3>
             <video
