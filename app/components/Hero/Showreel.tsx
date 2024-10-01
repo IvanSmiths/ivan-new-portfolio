@@ -9,6 +9,8 @@ const Showreel = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
 
+  gsap.registerPlugin(useGSAP);
+
   useGSAP(
     () => {
       const timeline = gsap.timeline({
@@ -88,20 +90,6 @@ const Showreel = () => {
                 View on YouTube
               </a>
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="white"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="absolute h-full w-full"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5.25 5.25v13.5l13.5-6.75-13.5-6.75z"
-              />
-            </svg>
             <video
               src="/videos/showreel-short.mp4"
               className="relative z-20"
