@@ -34,19 +34,19 @@ body {
 
 @layer base {
     body[data-theme="light"] {
-        --primary: #011722;
+        --primary: #09090B;
         --primary-accent: #000000;
         --primary-light: #444450;
-        --secondary: #E6E8E0;
+        --secondary: #f9fbfd;
         --secondary-light: #e8e8e8;
         --secondary-lighter: #CBCBCB;
     }
 
     body[data-theme="dark"] {
-        --primary: #E6E8E0;
+        --primary: #e7e7e7;
         --primary-accent: #ffffff;
         --primary-light: #afb4bd;
-        --secondary: #011722;
+        --secondary: #0e0e13;
         --secondary-light: #1E1E1E;
         --secondary-lighter: #4D4D4D;
     }
