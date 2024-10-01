@@ -18,7 +18,6 @@ const Showreel = () => {
           end: "1000px",
           scrub: 0.6,
           pin: true,
-          markers: true,
         },
       });
 
