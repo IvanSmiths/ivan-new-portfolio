@@ -47,7 +47,7 @@ const Showreel = () => {
             ease: "none",
             duration: 1,
           },
-          "-=0.5", // Starts scale animation when translate is 50% complete
+          "-=0.5",
         );
     },
     { scope: containerRef },
