@@ -7,6 +7,7 @@ import { useRef } from "react";
 const Showreel = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
 
   useGSAP(
     () => {
@@ -32,7 +33,7 @@ const Showreel = () => {
           {
             bottom: "50%",
             right: "50%",
-            transform: "translate(50%, -90%)",
+            transform: "translate(50%, -80%)",
             ease: "none",
             duration: 1,
           },
@@ -48,6 +49,17 @@ const Showreel = () => {
             duration: 1,
           },
           "-=0.5",
+        )
+        .fromTo(
+          headingRef.current,
+          {
+            y: 0,
+          },
+          {
+            y: -30,
+            ease: "power1.inOut",
+            duration: 1,
+          },
         );
     },
     { scope: containerRef },
@@ -61,7 +73,19 @@ const Showreel = () => {
             ref={triggerRef}
             className="absolute w-[30%] origin-center pb-small"
           >
-            <video src="/videos/showreel-short.mp4" autoPlay loop muted />
+            <h3
+              ref={headingRef}
+              className="lato text-md absolute z-10 text-center font-semibold"
+            >
+              Showreel works (2020 - 2024)
+            </h3>
+            <video
+              src="/videos/showreel-short.mp4"
+              className="relative z-20"
+              autoPlay
+              loop
+              muted
+            />
           </div>
         </div>
       </div>
