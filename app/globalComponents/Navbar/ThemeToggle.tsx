@@ -23,7 +23,7 @@ const ThemeToggle: FC = () => {
       className="lato hidden min-w-20 cursor-pointer text-right text-xl font-semibold sm:block"
       onClick={handleTheme}
     >
-      - {theme} Mode -
+      {theme} Mode
     </span>
   );
 };
