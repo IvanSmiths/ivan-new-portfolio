@@ -10,7 +10,7 @@ type NavbarProps = {
   position?: Position;
 };
 
-enum LinkLabel {
+enum LinkItem {
   Home = "Home",
   Works = "Works",
   Blog = "Blog",
@@ -25,16 +25,16 @@ enum LinkUrl {
 }
 
 type Links = {
-  label: LinkLabel;
+  label: LinkItem;
   url: LinkUrl;
-  dataCy?: LinkLabel;
+  dataCy?: Lowercase<LinkItem>;
 };
 
 const internalLinks: Links[] = [
-  { label: LinkLabel.Home, url: LinkUrl.Home, dataCy: LinkLabel.Home },
-  { label: LinkLabel.Works, url: LinkUrl.Works, dataCy: LinkLabel.Works },
-  { label: LinkLabel.Blog, url: LinkUrl.Blog, dataCy: LinkLabel.Blog },
-  { label: LinkLabel.Crafts, url: LinkUrl.Crafts, dataCy: LinkLabel.Crafts },
+  { label: LinkItem.Home, url: LinkUrl.Home, dataCy: "home" },
+  { label: LinkItem.Works, url: LinkUrl.Works, dataCy: "works" },
+  { label: LinkItem.Blog, url: LinkUrl.Blog, dataCy: "blog" },
+  { label: LinkItem.Crafts, url: LinkUrl.Crafts, dataCy: "crafts" },
 ];
 
 const Navbar: FC<NavbarProps> = ({ position }) => {
