@@ -79,7 +79,12 @@ const Showreel = () => {
               <h3 className="lato text-sm font-semibold">
                 Showreel works (2020 - 2024)
               </h3>
-              <a href="" className="lato text-sm font-semibold">
+              <a
+                href="https://youtu.be/osf7rWGB9qw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lato text-sm font-semibold"
+              >
                 View on YouTube
               </a>
             </div>
