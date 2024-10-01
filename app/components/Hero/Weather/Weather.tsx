@@ -65,8 +65,8 @@ const Weather: FC<WeatherProps> = ({ temp, weather }) => {
         ref={weatherRef}
         className="absolute left-0 right-0 top-0 mr-auto flex w-fit gap-1 lowercase"
       >
-        <span className="lato">{temperature}°</span>
-        <span className="lato">{weather}</span>
+        <span className="lato text-xl">{temperature}°</span>
+        <span className="lato text-xl">{weather}</span>
       </span>
     </div>
   );
