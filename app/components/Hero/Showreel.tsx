@@ -44,7 +44,7 @@ const Showreel = () => {
             scale: 1,
           },
           {
-            scale: 1.8,
+            scale: 1.9,
             ease: "none",
             duration: 1,
           },
@@ -53,10 +53,10 @@ const Showreel = () => {
         .fromTo(
           headingRef.current,
           {
-            y: 0,
+            y: 10,
           },
           {
-            y: -30,
+            y: -20,
             ease: "power1.inOut",
             duration: 1,
           },
@@ -75,7 +75,7 @@ const Showreel = () => {
           >
             <h3
               ref={headingRef}
-              className="lato text-md absolute z-10 text-center font-semibold"
+              className="lato absolute z-10 text-sm font-semibold"
             >
               Showreel works (2020 - 2024)
             </h3>
