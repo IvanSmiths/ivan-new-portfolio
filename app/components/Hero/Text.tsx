@@ -4,7 +4,7 @@ import CityInfo from "./CityInfo";
 
 const Text: FC = () => {
   return (
-    <div className="mt-auto">
+    <div className="mt-auto w-full">
       <Title />
       <CityInfo />
     </div>

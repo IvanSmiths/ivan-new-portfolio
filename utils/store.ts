@@ -15,8 +15,8 @@ type Overlay = {
 };
 
 export enum ThemeMode {
-  Light = "light",
-  Dark = "dark",
+  Light = "Light",
+  Dark = "Dark",
 }
 
 export enum ThemeColors {

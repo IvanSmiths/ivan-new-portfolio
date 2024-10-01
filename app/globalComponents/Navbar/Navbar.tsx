@@ -11,13 +11,10 @@ type NavbarProps = {
 };
 
 enum LinkLabel {
-  Home = "home",
-  Works = "works",
-  Blog = "blog",
-  Crafts = "crafts",
-  Github = "github",
-  Youtube = "youtube",
-  Linkedin = "linkedin",
+  Home = "Home",
+  Works = "Works",
+  Blog = "Blog",
+  Crafts = "Crafts",
 }
 
 enum LinkUrl {
@@ -25,9 +22,6 @@ enum LinkUrl {
   Works = "/works",
   Blog = "/blog",
   Crafts = "/crafts",
-  Github = "https://github.com/IvanSmiths",
-  Youtube = "https://www.youtube.com/channel/UCFX9mqUBAN-Qot0owXZhELA",
-  Linkedin = "https://www.linkedin.com/in/ivan-fabbri/",
 }
 
 type Links = {
@@ -35,18 +29,6 @@ type Links = {
   url: LinkUrl;
   dataCy?: LinkLabel;
 };
-
-const socials: Links[] = [
-  { label: LinkLabel.Github, url: LinkUrl.Github },
-  {
-    label: LinkLabel.Linkedin,
-    url: LinkUrl.Linkedin,
-  },
-  {
-    label: LinkLabel.Youtube,
-    url: LinkUrl.Youtube,
-  },
-];
 
 const internalLinks: Links[] = [
   { label: LinkLabel.Home, url: LinkUrl.Home, dataCy: LinkLabel.Home },
@@ -67,7 +49,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
               <Link
                 data-cy={link.dataCy}
                 href={link.url}
-                className="lato font-bold"
+                className="lato text-xl font-semibold"
               >
                 {link.label}
               </Link>

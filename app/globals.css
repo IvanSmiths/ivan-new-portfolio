@@ -33,7 +33,7 @@ body {
 }
 
 @layer base {
-    body[data-theme="light"] {
+    body[data-theme="Light"] {
         --primary: #09090B;
         --primary-accent: #000000;
         --primary-light: #444450;
@@ -42,7 +42,7 @@ body {
         --secondary-lighter: #CBCBCB;
     }
 
-    body[data-theme="dark"] {
+    body[data-theme="Dark"] {
         --primary: #e7e7e7;
         --primary-accent: #ffffff;
         --primary-light: #afb4bd;
