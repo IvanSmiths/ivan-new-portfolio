@@ -10,7 +10,7 @@ const Footer: FC = () => {
       className="flex min-h-[60vh] flex-col justify-end gap-2 px-small pb-small md:min-h-[80vh] xl:min-h-[100vh]"
     >
       <div className="flex justify-between">
-        <span className="lato">UI/UX Developer</span>
+        <span className="lato">Fullstack Developer</span>
         <span className="lato text-right">Ivan Smiths© 2024</span>
       </div>
       <Lines />
