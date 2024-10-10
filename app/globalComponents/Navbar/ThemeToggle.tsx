@@ -16,7 +16,11 @@ const ThemeToggle = () => {
   }
 
   return (
-    <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+    <select
+      value={theme}
+      className="bg-light dark:bg-dark border-none"
+      onChange={(e) => setTheme(e.target.value)}
+    >
       <option value="dark">Dark</option>
       <option value="light">Light</option>
     </select>
