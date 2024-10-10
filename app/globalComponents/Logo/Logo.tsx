@@ -3,11 +3,16 @@
 import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
+enum ThemeColor {
+  Light = "#1e1e1e",
+  Dark = "#E6E8E0",
+}
+
 const Logo: FC = () => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
+  useEffect((): void => {
     setMounted(true);
   }, []);
 
@@ -15,7 +20,7 @@ const Logo: FC = () => {
     return null;
   }
 
-  const fillColor = theme === "dark" ? "#E6E8E0" : "#1e1e1e";
+  const fillColor = theme === "dark" ? ThemeColor.Dark : ThemeColor.Light;
 
   return (
     <svg
