@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { bebas_neue, lato } from "../utils/fonts";
+import { lato } from "../utils/fonts";
 import React from "react";
 import { ThemeProvider } from "next-themes";
 
@@ -15,11 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      suppressHydrationWarning
-      lang="en"
-      className={`${lato.variable} ${bebas_neue.variable}`}
-    >
+    <html suppressHydrationWarning lang="en" className={`${lato.className}`}>
       <body
         suppressHydrationWarning
         className="bg-light dark:bg-dark text-dark dark:text-light"

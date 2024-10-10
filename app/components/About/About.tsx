@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
+import { bebas_neue } from "../../../utils/fonts";
 
 const About: FC = async () => {
-  const textStyle =
-    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left";
+  const textStyle = `${bebas_neue.className} lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left`;
 
   type WrapperProps = {
     children: ReactNode;
