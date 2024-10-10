@@ -78,14 +78,14 @@ const Showreel = () => {
               ref={headingRef}
               className="flex w-full items-center justify-between"
             >
-              <h3 className="lato text-sm font-semibold">
+              <h3 className="text-sm font-semibold">
                 Showreel works (2020 - 2024)
               </h3>
               <a
                 href="https://youtu.be/osf7rWGB9qw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="lato text-sm font-semibold"
+                className="text-sm font-semibold"
               >
                 View on YouTube
               </a>

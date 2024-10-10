@@ -64,10 +64,6 @@ strong {
     color: var(--primary);
 }
 
-.lato {
-    font-family: var(--font-lato), latospace, Roboto, sans-serif;
-}
-
 .bebas {
     font-family: var(--font-bebas_neue),Impact, Roboto, sans-serif;
     text-transform: uppercase;

@@ -49,7 +49,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
               <Link
                 data-cy={link.dataCy}
                 href={link.url}
-                className="lato text-md font-semibold sm:text-xl"
+                className="text-md font-semibold sm:text-xl"
               >
                 {link.label}
               </Link>

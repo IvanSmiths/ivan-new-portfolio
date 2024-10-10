@@ -16,7 +16,7 @@ const Hero: FC<PostProps> = ({ post }) => {
         data-testid="blogPostHeroSection"
         className="col-span-full flex flex-col items-center justify-center gap-small md:col-start-3 md:col-end-11"
       >
-        <span data-cy="blogPageCategory" className="lato font-bold">
+        <span data-cy="blogPageCategory" className="font-bold">
           {post.category}
         </span>
         <h1
@@ -29,11 +29,11 @@ const Hero: FC<PostProps> = ({ post }) => {
           {post.excerpt}
         </h2>
         <div className="flex flex-wrap items-center gap-smallest max-sm:flex-col">
-          <span className="lato font-bold">
+          <span className="font-bold">
             Published:{" "}
             <time
               data-cy="blogPageDate"
-              className="lato font-bold"
+              className="font-bold"
               dateTime={post.date}
             >
               {new Date(post.date).toLocaleDateString("en-us", {
@@ -46,7 +46,7 @@ const Hero: FC<PostProps> = ({ post }) => {
           <div className="hidden sm:block">
             <Dot dimension="small" />
           </div>
-          <span data-cy="blogPageTime" className="lato font-bold">
+          <span data-cy="blogPageTime" className="font-bold">
             {post.time} minutes read
           </span>
         </div>
@@ -56,7 +56,7 @@ const Hero: FC<PostProps> = ({ post }) => {
               className="flex items-center justify-center gap-smallest"
               key={index}
             >
-              <span data-cy="blogPageTag" className="lato font-bold">
+              <span data-cy="blogPageTag" className="font-bold">
                 {tag}
               </span>
               <div className={index === tags.length - 1 ? "hidden" : ""}>

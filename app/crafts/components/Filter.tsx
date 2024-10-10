@@ -26,7 +26,7 @@ const Filter: FC<FilterProps> = ({ currentPage }) => {
           data-cy={`link-${filter.page}`}
           key={index}
           href={`/crafts/${filter.url}`}
-          className={`lato rounded-full p-4 py-3 font-bold text-primary ${
+          className={`rounded-full p-4 py-3 font-bold text-primary ${
             currentPage === filter.page ? "bg-secondary" : "bg-secondaryLighter"
           }`}
         >
