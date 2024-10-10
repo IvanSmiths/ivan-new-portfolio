@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-const ThemeToggle = () => {
-  const [mounted, setMounted] = useState(false);
+const ThemeToggle: FC = () => {
+  const [mounted, setMounted] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
+  useEffect((): void => {
     setMounted(true);
   }, []);
 
@@ -15,15 +15,14 @@ const ThemeToggle = () => {
     return null;
   }
 
+  const toggleTheme = (): void => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <select
-      value={theme}
-      className="bg-light dark:bg-dark border-none"
-      onChange={(e) => setTheme(e.target.value)}
-    >
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-    </select>
+    <span className="cursor-pointer text-lg font-bold" onClick={toggleTheme}>
+      {theme === "light" ? "Dark" : "Light"} Mode
+    </span>
   );
 };
 

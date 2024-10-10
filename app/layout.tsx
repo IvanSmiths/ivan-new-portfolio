@@ -18,9 +18,11 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en" className={`${lato.className}`}>
       <body
         suppressHydrationWarning
-        className="bg-light dark:bg-dark text-dark dark:text-light"
+        className="text-dark dark:text-light bg-light dark:bg-dark"
       >
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
+        <ThemeProvider enableSystem={true} attribute="class">
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
