@@ -20,7 +20,8 @@ const Logo: FC = () => {
     return null;
   }
 
-  const fillColor = theme === "dark" ? ThemeColor.Dark : ThemeColor.Light;
+  const fillColor: ThemeColor =
+    theme === "dark" ? ThemeColor.Dark : ThemeColor.Light;
 
   return (
     <svg
