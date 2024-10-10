@@ -1,28 +1,6 @@
-"use client";
+import { FC } from "react";
 
-import React, { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-
-enum ThemeColor {
-  Light = "#1e1e1e",
-  Dark = "#E6E8E0",
-}
-
-const Arrow = () => {
-  const [mounted, setMounted] = useState<boolean>(false);
-  const { theme, setTheme } = useTheme();
-
-  useEffect((): void => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
-  const fillColor: ThemeColor =
-    theme === "dark" ? ThemeColor.Dark : ThemeColor.Light;
-
+const Arrow: FC = () => {
   return (
     <svg
       width="57"
