@@ -1,30 +1,26 @@
 "use client";
 
-import { FC, useEffect } from "react";
-import { ThemeMode, useThemeStore } from "../../../utils/store";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
-const ThemeToggle: FC = () => {
-  const { activeTheme, setActiveTheme } = useThemeStore();
-
-  const theme =
-    activeTheme === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light;
+const ThemeToggle = () => {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    document.body.dataset.theme = activeTheme;
-  }, [activeTheme]);
+    setMounted(true);
+  }, []);
 
-  const handleTheme = (): void => {
-    setActiveTheme(theme);
-  };
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <span
-      data-cy={theme}
-      className="lato text-md min-w-20 cursor-pointer text-right font-semibold sm:text-xl"
-      onClick={handleTheme}
-    >
-      {theme} Mode
-    </span>
+    <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+      <option value="system">System</option>
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+    </select>
   );
 };
 

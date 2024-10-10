@@ -28,28 +28,8 @@ body,
 }
 
 body {
-    font-family: sans-serif,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
+    font-family: var(--font-lato),latospace, Roboto, sans-serif,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
     transition: background 0.25s ease-in-out;
-}
-
-@layer base {
-    body[data-theme="Light"] {
-        --primary: #09090B;
-        --primary-accent: #000000;
-        --primary-light: #444450;
-        --secondary: #f9fbfd;
-        --secondary-light: #e8e8e8;
-        --secondary-lighter: #CBCBCB;
-    }
-
-    body[data-theme="Dark"] {
-        --primary: #e7e7e7;
-        --primary-accent: #ffffff;
-        --primary-light: #afb4bd;
-        --secondary: #0e0e13;
-        --secondary-light: #1E1E1E;
-        --secondary-lighter: #4D4D4D;
-    }
 }
 
 a {
