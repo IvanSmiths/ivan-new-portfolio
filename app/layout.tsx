@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { bebas_neue, lato } from "../utils/fonts";
 import React from "react";
 import { ThemeProvider } from "next-themes";
-import Footer from "./globalComponents/Footer/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
@@ -21,10 +20,12 @@ export default function RootLayout({
       lang="en"
       className={`${lato.variable} ${bebas_neue.variable}`}
     >
-      <body suppressHydrationWarning className="bg-light dark:bg-dark">
+      <body
+        suppressHydrationWarning
+        className="bg-light dark:bg-dark text-dark dark:text-light"
+      >
         <ThemeProvider attribute="class">{children}</ThemeProvider>
         <Analytics />
-        <Footer />
       </body>
     </html>
   );

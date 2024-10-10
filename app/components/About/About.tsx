@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 const About: FC = async () => {
   const textStyle =
-    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left text-dark dark:text-light";
+    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left";
 
   type WrapperProps = {
     children: ReactNode;

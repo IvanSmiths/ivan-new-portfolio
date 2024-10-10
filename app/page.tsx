@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import About from "./components/About/About";
 import WorksSection from "./components/Works/Works";
-import Footer from "./globalComponents/Footer/Footer";
 import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, Works } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 import Blog from "./components/Blog/Blog";
 import Overlay from "./components/Loader/Overlay";
+import Footer from "./globalComponents/Footer/Footer";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =

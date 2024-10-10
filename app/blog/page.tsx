@@ -1,6 +1,7 @@
 import Blog from "../components/Blog/Blog";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import type { Metadata } from "next";
+import Footer from "../globalComponents/Footer/Footer";
 
 const title: string = "Ivan Smiths, all blog posts";
 const description: string =
@@ -30,6 +31,7 @@ export default async function BlogPage() {
     <div className="mt-large">
       <Navbar position={Position.Fixed} />
       <Blog />
+      <Footer />
     </div>
   );
 }

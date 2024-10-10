@@ -109,7 +109,7 @@ const components = {
   ),
   code: (props: any) => (
     <code
-      className="bg-lighter dark:bg-darker text-dark dark:text-light rounded-lg px-2 py-1 font-bold"
+      className="bg-lighter dark:bg-darker rounded-lg px-2 py-1 font-bold"
       {...props}
     >
       {props.children}
