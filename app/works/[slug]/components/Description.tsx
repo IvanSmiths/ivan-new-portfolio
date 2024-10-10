@@ -42,9 +42,7 @@ const Description: FC<HeaderProps> = ({ work }) => {
               {children}
             </ul>
           ),
-          li: ({ children }) => (
-            <li className="list-disc text-primaryLight">{children}</li>
-          ),
+          li: ({ children }) => <li className="list-disc">{children}</li>,
         }}
       />
     </>
