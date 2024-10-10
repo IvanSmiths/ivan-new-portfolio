@@ -66,7 +66,7 @@ const Weather: FC<WeatherProps> = ({ temp, weather }) => {
         className="absolute left-0 right-0 top-0 mr-auto flex w-fit gap-1 lowercase"
       >
         <span className="text-md sm:text-xl">{temperature}°</span>
-        <span className="text-md sm:text-xl">{weather}</span>
+        <span className="text-md capitalize sm:text-xl">{weather}</span>
       </span>
     </div>
   );
