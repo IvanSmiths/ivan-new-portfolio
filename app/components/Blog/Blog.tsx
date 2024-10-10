@@ -5,7 +5,7 @@ import Link from "next/link";
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
-    <div data-testid="homeBlogSection" className="grid md:m-0">
+    <div data-testid="homeBlogSection" className="mb-section grid">
       <span className="col-span-full max-sm:mb-small md:col-start-1 md:col-end-3">
         Latest blogposts
       </span>

@@ -7,7 +7,7 @@ const Footer: FC = () => {
     <footer
       data-testid="footer"
       data-cy="footer"
-      className="flex min-h-[70vh] flex-col justify-end gap-2 px-small pb-small md:min-h-[80vh] lg:min-h-[100vh]"
+      className="flex min-h-[70vh] flex-col justify-end gap-2 px-small pb-small md:min-h-[80vh]"
     >
       <div className="mb-medium flex flex-wrap gap-small gap-y-10">
         <Social text="Github" link="https://github.com/Ivan-Smith" />
@@ -20,6 +20,10 @@ const Footer: FC = () => {
           text="info@ivansmiths.com"
           link="https://twitter.com/Ivansmiths"
         />
+      </div>
+      <div className="flex justify-between">
+        <span>©2024 Ivan Smiths</span>
+        <span>Rocking Since 2020</span>
       </div>
       <Logo />
     </footer>
