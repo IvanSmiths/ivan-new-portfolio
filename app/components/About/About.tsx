@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 const About: FC = async () => {
   const textStyle =
-    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left";
+    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left text-dark dark:text-light";
 
   type WrapperProps = {
     children: ReactNode;
@@ -49,10 +49,10 @@ const About: FC = async () => {
           <Content isMobileHidden={true}>+</Content>
           <Content>my</Content>
         </Wrapper>
-        <Wrapper bgClass="bg-primary">
-          <Content textColor="text-secondary">Design</Content>
-          <span className="hidden h-3 flex-1 rounded-full bg-secondary lg:block"></span>
-          <Content textColor="text-secondary">Background</Content>
+        <Wrapper bgClass="bg-dark dark:bg-light">
+          <Content textColor="text-light dark:text-dark">Design</Content>
+          <span className="bg-light dark:bg-dark hidden h-3 flex-1 rounded-full lg:block"></span>
+          <Content textColor="text-light dark:text-dark">Background</Content>
         </Wrapper>
         <Wrapper>
           <Content>With</Content>
