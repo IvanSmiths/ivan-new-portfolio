@@ -11,7 +11,7 @@ const Social: FC<ButtonProps> = ({ text, link }) => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="group-hover:text-dark text-4xl md:text-6xl lg:text-8xl"
+        className="group-hover:text-dark text-3xl md:text-6xl lg:text-8xl"
         href={link}
       >
         {text}
