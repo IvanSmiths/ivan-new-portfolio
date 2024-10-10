@@ -1,21 +1,26 @@
 import { FC } from "react";
 import Link from "next/link";
 
-export enum Pages {
+export enum Label {
   All = "All",
-  Crafts = "",
   Photos = "Photos",
   Renders = "Renders",
 }
 
+enum Url {
+  Crafts = "",
+  Photos = "photos",
+  Renders = "renders",
+}
+
 type FilterProps = {
-  currentPage: Pages;
+  currentPage: Label;
 };
 
 const filters = [
-  { page: Pages.All, url: Pages.Crafts },
-  { page: Pages.Photos, url: Pages.Photos },
-  { page: Pages.Renders, url: Pages.Renders },
+  { page: Label.All, url: Url.Crafts },
+  { page: Label.Photos, url: Url.Photos },
+  { page: Label.Renders, url: Url.Renders },
 ];
 
 const Filter: FC<FilterProps> = ({ currentPage }) => {
