@@ -15,7 +15,7 @@ const Logo: FC = () => {
     return null;
   }
 
-  const fillColor = theme === "dark" ? "#E6E8E0" : "#011722";
+  const fillColor = theme === "dark" ? "#E6E8E0" : "#191e27";
 
   return (
     <svg
