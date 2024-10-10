@@ -21,19 +21,22 @@ const Hero: FC<PostProps> = ({ post }) => {
         </span>
         <h1
           data-cy="blogPageTitle"
-          className="bebas h-full bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl"
+          className="bebas from-darker via-darker to-dark dark:from-light dark:via-lighter dark:to-lighter h-full bg-gradient-to-r bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl"
         >
           {post.title}
         </h1>
-        <h2 data-cy="blogPageExcerpt" className="text-center text-lg leading-7">
+        <h2
+          data-cy="blogPageExcerpt"
+          className="text-dark dark:text-light text-center text-lg leading-7"
+        >
           {post.excerpt}
         </h2>
-        <div className="flex flex-wrap items-center gap-smallest max-sm:flex-col">
+        <div className="text-dark dark:text-light flex flex-wrap items-center gap-smallest max-sm:flex-col">
           <span className="font-bold">
             Published:{" "}
             <time
               data-cy="blogPageDate"
-              className="font-bold"
+              className="text-dark dark:text-light font-bold"
               dateTime={post.date}
             >
               {new Date(post.date).toLocaleDateString("en-us", {
@@ -46,7 +49,10 @@ const Hero: FC<PostProps> = ({ post }) => {
           <div className="hidden sm:block">
             <Dot dimension="small" />
           </div>
-          <span data-cy="blogPageTime" className="font-bold">
+          <span
+            data-cy="blogPageTime"
+            className="text-dark dark:text-light font-bold"
+          >
             {post.time} minutes read
           </span>
         </div>
@@ -56,7 +62,7 @@ const Hero: FC<PostProps> = ({ post }) => {
               className="flex items-center justify-center gap-smallest"
               key={index}
             >
-              <span data-cy="blogPageTag" className="font-bold">
+              <span data-cy="blogPageTag" className="text-dark dark:text-light">
                 {tag}
               </span>
               <div className={index === tags.length - 1 ? "hidden" : ""}>

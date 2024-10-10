@@ -50,18 +50,12 @@ a,
 li,
 time {
     font-size: var(--body);
-    color: var(--primary);
     font-weight: 400;
 }
 
 p {
-    color: var(--primary-light);
     line-height: 1.7rem;
     font-size: var(--body);
-}
-
-strong {
-    color: var(--primary);
 }
 
 .bebas {

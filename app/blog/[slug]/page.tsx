@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { blogSchema } from "../../../utils/Schemas";
-import Footer from "../../globalComponents/Footer/Footer";
 
 type Params = {
   params: {
@@ -86,7 +85,6 @@ export default async function Post({ params }: Params) {
           </div>
         </div>
       </article>
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

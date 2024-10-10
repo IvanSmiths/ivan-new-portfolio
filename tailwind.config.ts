@@ -13,7 +13,9 @@ const config: Config = {
       colors: {
         primary: "",
         light: "#E6E8E0",
+        lighter: "#ffffff",
         dark: "#011722",
+        darker: "#000000",
         brand: "#FF4D4D",
         primaryLight: "var(--primary-light)",
         primaryAccent: "var(--primary-accent)",

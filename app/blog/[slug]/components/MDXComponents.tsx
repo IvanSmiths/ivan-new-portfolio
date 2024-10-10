@@ -83,7 +83,7 @@ function slugify(str: ReactNode) {
 }
 
 function createHeading(level: number) {
-    // eslint-disable-next-line react/display-name
+  // eslint-disable-next-line react/display-name
   return ({ children }: HeadingProps): ReactElement => {
     let slug: string = slugify(children);
     return createElement(
@@ -109,7 +109,7 @@ const components = {
   ),
   code: (props: any) => (
     <code
-      className="rounded-lg bg-secondaryLight px-2 py-1 font-bold text-primary"
+      className="bg-lighter dark:bg-darker text-dark dark:text-light rounded-lg px-2 py-1 font-bold"
       {...props}
     >
       {props.children}
