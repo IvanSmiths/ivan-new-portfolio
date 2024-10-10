@@ -80,54 +80,12 @@ p {
     background-color: rgba(236, 111, 111, 0.21);
 }
 
-#articleLinks a {
-    color: var(--primary-light);
-    transition: 0.3s;
-    font-size: 14px;
-    line-height: normal;
-    font-weight: normal;
-}
-
-#articleLinks span {
-    color: var(--primary);
-    font-size: 14px;
-    margin-bottom: var(--small);
-    font-weight: bold;
-}
-
-#articleLinks a:hover {
-    color: var(--primary);
-}
-
-#articleLinks li {
-    list-style: none;
-    margin-top: var(--smallest);
-    line-height: normal;
-}
-
-#articleNote p {
-    color: var(--primary);
-}
-
-#articleNote code {
-    background: var(--secondary);
-}
-
 article .grid {
     padding: 0;
 }
 
 article .half {
     width: 50%;
-}
-
-article h3 {
-    font-size: 1.8rem !important;
-}
-
-article li {
-    color: var(--primary-light);
-    list-style: disc;
 }
 
 @media (max-width: 768px) {

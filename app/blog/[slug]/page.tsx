@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Hero from "./components/Hero";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import { blogSchema } from "../../../utils/Schemas";
+import Footer from "../../globalComponents/Footer/Footer";
 
 type Params = {
   params: {
@@ -91,6 +92,7 @@ export default async function Post({ params }: Params) {
           __html: JSON.stringify(blogSchema(post.metadata)),
         }}
       />
+      <Footer />
     </>
   );
 }
