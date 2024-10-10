@@ -14,7 +14,7 @@ const config: Config = {
         primary: "",
         light: "#E6E8E0",
         lighter: "#ffffff",
-        dark: "#191e27",
+        dark: "#1e1e1e",
         darker: "#000000",
         brand: "#FF4D4D",
         primaryLight: "var(--primary-light)",

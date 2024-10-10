@@ -2,10 +2,10 @@ import { FC } from "react";
 import Link from "next/link";
 
 export enum Pages {
-  All = "all",
+  All = "All",
   Crafts = "",
-  Photos = "photos",
-  Renders = "renders",
+  Photos = "Photos",
+  Renders = "Renders",
 }
 
 type FilterProps = {
@@ -27,7 +27,9 @@ const Filter: FC<FilterProps> = ({ currentPage }) => {
           key={index}
           href={`/crafts/${filter.url}`}
           className={`rounded-full p-4 py-3 font-bold text-primary ${
-            currentPage === filter.page ? "bg-secondary" : "bg-secondaryLighter"
+            currentPage === filter.page
+              ? "bg-lighter dark:bg-darker"
+              : "bg-light dark:bg-dark"
           }`}
         >
           {filter.page}
