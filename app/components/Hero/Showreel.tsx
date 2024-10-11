@@ -35,7 +35,7 @@ const Showreel = () => {
         >
           <video
             src="/videos/showreel-short.mp4"
-            className="max-h-[100%] w-full rounded-xl object-cover"
+            className="max-h-[100%] w-full rounded-xl border border-light object-cover dark:border-dark"
             autoPlay
             loop
             muted
