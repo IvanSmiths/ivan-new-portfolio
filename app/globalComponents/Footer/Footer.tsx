@@ -21,7 +21,7 @@ const Footer: FC = () => {
       data-cy="footer"
       className="mt-section flex min-h-[70vh] flex-col justify-end gap-2 px-small pb-small md:min-h-[80vh]"
     >
-      <div className="mb-medium flex flex-wrap gap-small gap-y-10">
+      <div className="mb-medium flex flex-wrap gap-small gap-y-5 md:gap-y-10">
         {socialLinks.map(({ label, link }) => (
           <Social key={label} label={label} link={link} />
         ))}
