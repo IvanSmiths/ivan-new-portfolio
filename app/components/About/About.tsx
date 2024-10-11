@@ -41,7 +41,7 @@ const About = () => {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "2000px",
+          end: "2500px",
           scrub: true,
           pin: true,
         },
@@ -60,7 +60,7 @@ const About = () => {
       ];
 
       elementIDs.forEach((id: string): void => {
-        timeline.to(id, { display: "block" });
+        timeline.to(id, { display: "block", opacity: 1, filter: "blur(0px)" });
       });
 
       timeline.to(["#Development", "#Skills"], { color: "#FF4D4D" });
@@ -77,7 +77,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden"} text-7xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl  md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -88,7 +88,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -99,7 +99,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
