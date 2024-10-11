@@ -34,12 +34,23 @@ const Showreel = () => {
           className="absolute bottom-small right-small flex h-[800px] w-[30%] origin-bottom-right items-end pl-[40px]"
         >
           <video
-            src="/videos/showreel-short.mp4"
             className="max-h-[100%] w-full rounded-xl border border-light object-cover dark:border-dark"
             autoPlay
             loop
             muted
-          />
+          >
+            <source
+              src="/videos/showreel-short.mp4"
+              media="(min-width: 768px)"
+              type="video/mp4"
+            />
+            <source
+              src="/videos/showreel-short-mobile.mp4"
+              media="(max-width: 767px)"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
