@@ -57,10 +57,10 @@ const Time: FC = () => {
   return (
     <div
       ref={timeScopeRef}
-      className="relative block h-[27px] w-[93px] overflow-hidden"
+      className="relative block h-[20px] w-[93px] overflow-hidden sm:h-[27px]"
     >
       <span
-        className="text-md absolute bottom-0 left-0 right-0 top-0 mr-auto w-fit font-normal sm:text-xl"
+        className="absolute bottom-0 left-0 right-0 top-0 mr-auto w-fit text-sm font-normal sm:text-lg"
         ref={timeRef}
       >
         {currentTime}
