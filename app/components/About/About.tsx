@@ -1,89 +1,42 @@
-import { FC, ReactNode } from "react";
+import React from "react";
 import { bebas_neue } from "../../../utils/fonts";
 
-const About: FC = async () => {
-  const textStyle = `${bebas_neue.className} lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left`;
-
-  type WrapperProps = {
-    children: ReactNode;
-    bgClass?: string;
-  };
-
-  type ContentProps = {
-    children: ReactNode;
-    style?: string;
-    textColor?: string;
-    isMobileHidden?: boolean;
-  };
-
-  const Wrapper: FC<WrapperProps> = ({ children, bgClass = "" }) => (
-    <div
-      className={`flex flex-row flex-wrap items-center justify-center gap-small px-3 pt-2 lg:justify-between lg:pt-5 ${bgClass}`}
-    >
-      {children}
-    </div>
-  );
-
-  const Content: FC<ContentProps> = ({
-    children,
-    style = textStyle,
-    textColor = "",
-    isMobileHidden = "",
-  }) => (
-    <span
-      className={`${style} ${textColor} ${isMobileHidden ? "hidden lg:block" : ""}`}
-    >
-      {children}
-    </span>
-  );
-
+const About = () => {
   return (
-    <main
-      data-testid="homeAboutSection"
-      className="mt-large grid md:mt-section"
-    >
-      <section className="col-span-full uppercase">
-        <Wrapper>
-          <Content>I expertly blend</Content>
-          <Content isMobileHidden={true}>&#x262F;</Content>
-          <Content isMobileHidden={true}>+</Content>
-          <Content>my</Content>
-        </Wrapper>
-        <Wrapper bgClass="bg-dark dark:bg-light">
-          <Content textColor="text-light dark:text-dark">Design</Content>
-          <span className="bg-light dark:bg-dark hidden h-3 flex-1 rounded-full lg:block"></span>
-          <Content textColor="text-light dark:text-dark">Background</Content>
-        </Wrapper>
-        <Wrapper>
-          <Content>With</Content>
-          <Content isMobileHidden={true}>~</Content>
-          <img
-            className="-mt-4 hidden h-20 w-2/4 flex-1 object-cover md:h-40 lg:block"
-            src="/photo-of-me-about.png"
-            alt="photo of me"
-            width="978"
-            height="293"
-            loading="lazy"
-          />
-          <Content>My</Content>
-        </Wrapper>
-        <div className="visible pb-small lg:hidden">
-          <img
-            className="h-20 w-full flex-1 object-cover md:h-40"
-            src="/photo-of-me-about.png"
-            alt="photo of me"
-            width="978"
-            height="293"
-            loading="lazy"
-          />
+    <div className="grid h-screen w-full bg-brand">
+      <div className="col-start-2 col-end-12 flex flex-col items-center justify-center gap-x-small gap-y-0 bg-red-900">
+        <div className="flex flex-wrap items-center gap-small">
+          <span className={`${bebas_neue.className} text-9xl`}>I</span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            Expertly
+          </span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            Blend
+          </span>
         </div>
-        <Wrapper bgClass="bg-brand">
-          <Content>Development</Content>
-          <Content isMobileHidden={true}>&#x2605;</Content>
-          <Content>Mastery.</Content>
-        </Wrapper>
-      </section>
-    </main>
+        <div className="flex flex-wrap items-center gap-small">
+          <span className={`${bebas_neue.className} hidden text-9xl`}>My</span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            Design
+          </span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            Background
+          </span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            With
+          </span>
+        </div>
+        <div className="flex flex-wrap items-center gap-small">
+          <span className={`${bebas_neue.className} hidden text-9xl`}>My</span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            Development
+          </span>
+          <span className={`${bebas_neue.className} hidden text-9xl`}>
+            Skills.
+          </span>
+        </div>
+      </div>
+    </div>
   );
 };
 
