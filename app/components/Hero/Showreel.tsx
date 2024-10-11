@@ -31,7 +31,7 @@ const Showreel = () => {
       <div ref={containerRef} className="relative h-full w-full">
         <div
           ref={triggerRef}
-          className="absolute bottom-small right-small flex h-[700px] w-[30%] origin-bottom-right items-end pl-[40px]"
+          className="absolute bottom-small right-small flex h-[800px] w-[30%] origin-bottom-right items-end pl-[40px]"
         >
           <video
             src="/videos/showreel-short.mp4"
