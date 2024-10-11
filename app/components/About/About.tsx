@@ -60,10 +60,17 @@ const About = () => {
       ];
 
       elementIDs.forEach((id: string): void => {
-        timeline.to(id, { display: "block", opacity: 1, filter: "blur(0px)" });
+        timeline.to(id, {
+          display: "block",
+          opacity: 1,
+          filter: "blur(0px)",
+        });
       });
 
-      timeline.to(["#Development", "#Skills"], { color: "#FF4D4D" });
+      timeline.to(["#Development", "#Skills"], {
+        color: "#FF4D4D",
+        textShadow: "0px 0px 10px #FF4D4D",
+      });
     },
     { scope: containerRef },
   );
