@@ -59,37 +59,25 @@ const About = () => {
         "#Skills",
       ];
 
-      timeline.add("start");
-
       elementIDs.forEach((id: string): void => {
         timeline.to(id, { display: "block", opacity: 1, filter: "blur(0px)" });
       });
 
-      timeline.to(["#Development", "#Skills"], { color: "#199B93" });
-      timeline.to(
-        "#widthDiv",
-
-        { width: "100%", duration: 5 },
-        "start",
-      );
+      timeline.to(["#Development", "#Skills"], { color: "#FF4D4D" });
     },
     { scope: containerRef },
   );
 
   return (
     <div ref={containerRef}>
-      <div ref={triggerRef} className="relative grid h-screen w-full">
-        <div
-          id="widthDiv"
-          className="absolute bottom-0 left-0 h-full w-0 bg-dark dark:bg-light"
-        ></div>
+      <div ref={triggerRef} className="grid h-screen w-full">
         <div className="col-start-1 col-end-7 flex flex-col items-center justify-center gap-x-small gap-y-0 md:col-start-2 md:col-end-12">
           <div className="flex flex-wrap items-center justify-center gap-x-small">
             {firstRow.map(({ label, id }: RowElement, index: number) => (
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl mix-blend-difference  md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -100,7 +88,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl opacity-0 mix-blend-difference blur-2xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -111,7 +99,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl opacity-0 mix-blend-difference blur-2xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
