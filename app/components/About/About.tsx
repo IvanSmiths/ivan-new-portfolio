@@ -9,6 +9,23 @@ const About = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
+  const firstRow = [
+    { label: "I", id: "I" },
+    { label: "Expertly", id: "Expertly" },
+    { label: "Blend", id: "Blend" },
+  ];
+  const secondRow = [
+    { label: "My", id: "4" },
+    { label: "Design", id: "5" },
+    { label: "Background", id: "6" },
+    { label: "With", id: "7" },
+  ];
+  const thirdRow = [
+    { label: "My", id: "8" },
+    { label: "Development", id: "9" },
+    { label: "Skills.", id: "10" },
+  ];
+
   gsap.registerPlugin(useGSAP);
 
   useGSAP(
@@ -23,10 +40,10 @@ const About = () => {
         },
       });
 
-      timeline.to("#experctly", {
+      timeline.to("#Expertly", {
         display: "block",
       });
-      timeline.to("#blend", {
+      timeline.to("#Blend", {
         display: "block",
       });
     },
@@ -38,44 +55,37 @@ const About = () => {
       <div ref={triggerRef} className="grid h-screen w-full bg-brand">
         <div className="col-start-2 col-end-12 flex flex-col items-center justify-center gap-x-small gap-y-0 bg-red-900">
           <div className="flex flex-wrap items-center gap-small">
-            <span className={`${bebas_neue.className} text-9xl`}>I</span>
-            <span
-              id="experctly"
-              className={`${bebas_neue.className} hidden text-9xl`}
-            >
-              Expertly
-            </span>
-            <span
-              id="blend"
-              className={`${bebas_neue.className} hidden text-9xl`}
-            >
-              Blend
-            </span>
+            {firstRow.map(({ label, id }, index) => (
+              <span
+                key={index}
+                id={id}
+                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden"} text-9xl`}
+              >
+                {label}
+              </span>
+            ))}
           </div>
           <div className="flex flex-wrap items-center gap-small">
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              My
-            </span>
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              Design
-            </span>
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              Background
-            </span>
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              With
-            </span>
+            {secondRow.map(({ label, id }, index) => (
+              <span
+                key={index}
+                id={id}
+                className={`${bebas_neue.className} hidden text-9xl`}
+              >
+                {label}
+              </span>
+            ))}
           </div>
           <div className="flex flex-wrap items-center gap-small">
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              My
-            </span>
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              Development
-            </span>
-            <span className={`${bebas_neue.className} hidden text-9xl`}>
-              Skills.
-            </span>
+            {thirdRow.map(({ label, id }, index) => (
+              <span
+                key={index}
+                id={id}
+                className={`${bebas_neue.className} hidden text-9xl`}
+              >
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </div>
