@@ -77,7 +77,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden"} text-7xl md:text-8xl lg:text-9xl`}
+                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden"} text-7xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -88,7 +88,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl md:text-8xl lg:text-9xl`}
+                className={`${bebas_neue.className} hidden text-7xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -99,7 +99,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl md:text-8xl lg:text-9xl`}
+                className={`${bebas_neue.className} hidden text-7xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
