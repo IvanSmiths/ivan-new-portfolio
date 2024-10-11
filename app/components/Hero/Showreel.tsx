@@ -11,7 +11,7 @@ const Showreel = () => {
   useGSAP(
     () => {
       gsap.to(triggerRef.current, {
-        width: "98%",
+        width: "100%",
         ease: "sine.out",
         duration: 1,
         scrollTrigger: {
@@ -28,14 +28,14 @@ const Showreel = () => {
 
   return (
     <div>
-      <div ref={containerRef} className="h-full w-full">
+      <div ref={containerRef} className="relative h-full w-full">
         <div
           ref={triggerRef}
-          className="absolute bottom-small right-small w-[30%] origin-bottom-right"
+          className="absolute bottom-small right-small flex h-[700px] w-[30%] origin-bottom-right items-end pl-[40px]"
         >
           <video
             src="/videos/showreel-short.mp4"
-            className="relative z-20 w-full rounded-xl"
+            className="max-h-[100%] w-full rounded-xl object-cover"
             autoPlay
             loop
             muted
