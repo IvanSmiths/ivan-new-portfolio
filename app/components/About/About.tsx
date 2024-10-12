@@ -71,7 +71,7 @@ const About = () => {
   );
 
   return (
-    <div ref={containerRef}>
+    <div data-testid="homeAboutSection" ref={containerRef}>
       <div ref={triggerRef} className="grid h-screen w-full">
         <div className="col-start-1 col-end-7 flex flex-col items-center justify-center gap-x-small gap-y-0 md:col-start-2 md:col-end-12">
           <div className="flex flex-wrap items-center justify-center gap-x-small">
