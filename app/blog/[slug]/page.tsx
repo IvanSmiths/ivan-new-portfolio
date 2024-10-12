@@ -86,13 +86,13 @@ export default async function Post({ params }: Params) {
           </div>
         </div>
       </article>
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blogSchema(post.metadata)),
         }}
       />
+      <Footer />
     </>
   );
 }

@@ -66,11 +66,11 @@ const Loader: FC = () => {
     <>
       <div
         ref={faderRef}
-        className="absolute bottom-0 left-0 z-10 h-full w-full bg-secondary"
+        className="bg-light dark:bg-dark absolute bottom-0 left-0 z-10 h-full w-full"
       ></div>
       <div
         ref={containerRef}
-        className="fixed left-0 top-0 z-20 h-full w-full bg-secondary"
+        className="bg-light dark:bg-dark fixed left-0 top-0 z-20 h-full w-full"
       >
         <div
           ref={imageRef}

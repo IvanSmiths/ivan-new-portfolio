@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getWorks, Works } from "../../utils/graphql";
 import { FC } from "react";
 import { worksSchema } from "../../utils/Schemas";
+import Footer from "../globalComponents/Footer/Footer";
 
 const title: string = "Ivan Smiths, all the works";
 const description: string =
@@ -34,6 +35,7 @@ const WorksPage: FC = async () => {
     <>
       <Navbar position={Position.Fixed} />
       <ScrollSection works={works} />
+      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(worksSchema) }}

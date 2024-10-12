@@ -7,97 +7,58 @@ import { useRef } from "react";
 const Showreel = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
-
-  gsap.registerPlugin(useGSAP);
 
   useGSAP(
     () => {
-      const timeline = gsap.timeline({
+      gsap.to(triggerRef.current, {
+        width: "100%",
+        ease: "sine.out",
+        duration: 1,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "bottom bottom",
-          end: "1000px",
-          scrub: 0.6,
+          end: "500px",
+          scrub: 1,
           pin: true,
         },
       });
-
-      timeline
-        .fromTo(
-          triggerRef.current,
-          {
-            bottom: "20px",
-            right: "20px",
-            transform: "translate(0, 0)",
-          },
-          {
-            bottom: "50%",
-            right: "50%",
-            transform: "translate(50%, -75%)",
-            ease: "none",
-            duration: 1,
-          },
-        )
-        .fromTo(
-          triggerRef.current,
-          {
-            scale: 1,
-          },
-          {
-            scale: 1.9,
-            ease: "none",
-            duration: 1,
-          },
-          "-=0.5",
-        )
-        .fromTo(
-          headingRef.current,
-          {
-            y: 20,
-          },
-          {
-            y: -5,
-            ease: "power1.inOut",
-            duration: 1,
-          },
-        );
     },
     { scope: containerRef },
   );
 
   return (
     <div>
-      <div className="relative h-full w-full">
-        <div ref={containerRef} className="h-fit">
-          <div
-            ref={triggerRef}
-            className="absolute w-[30%] origin-center pb-small"
+      <div ref={containerRef} className="relative h-full w-full">
+        <div
+          ref={triggerRef}
+          className="absolute bottom-small right-small flex h-[800px] w-[30%] origin-bottom-right items-end pl-[40px]"
+        >
+          <video
+            className="max-h-[100%] w-full rounded-xl border border-light object-cover dark:border-dark"
+            autoPlay
+            loop
+            muted
           >
-            <div
-              ref={headingRef}
-              className="flex w-full items-center justify-between"
-            >
-              <h3 className="lato text-sm font-semibold">
-                Showreel works (2020 - 2024)
-              </h3>
-              <a
-                href="https://youtu.be/osf7rWGB9qw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lato text-sm font-semibold"
-              >
-                View on YouTube
-              </a>
-            </div>
-            <video
+            <source
               src="/videos/showreel-short.mp4"
-              className="relative z-20"
-              autoPlay
-              loop
-              muted
+              media="(min-width: 768px)"
+              type="video/mp4"
             />
-          </div>
+            <source
+              src="/videos/showreel-short-mobile.mp4"
+              media="(max-width: 767px)"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          <a
+            href="https://youtu.be/osf7rWGB9qw"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="absolute bottom-3 right-3 cursor-pointer rounded-full bg-dark px-4 py-2 text-xs font-semibold text-white transition hover:bg-light hover:text-dark"
+          >
+            Watch on YouTube
+          </a>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { FC } from "react";
 import Blob from "./Blob";
 import Dot from "../../../globalComponents/Dot";
 import { Metadata } from "../../../../utils/getPosts";
+import { bebas_neue } from "../../../../utils/fonts";
 
 type PostProps = {
   post: Metadata;
@@ -16,12 +17,12 @@ const Hero: FC<PostProps> = ({ post }) => {
         data-testid="blogPostHeroSection"
         className="col-span-full flex flex-col items-center justify-center gap-small md:col-start-3 md:col-end-11"
       >
-        <span data-cy="blogPageCategory" className="lato font-bold">
+        <span data-cy="blogPageCategory" className="font-bold">
           {post.category}
         </span>
         <h1
           data-cy="blogPageTitle"
-          className="bebas h-full bg-gradient-to-r from-primaryAccent via-primaryAccent to-primaryLight bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl"
+          className={`${bebas_neue.className} from-darker via-darker to-dark dark:from-light dark:via-lighter dark:to-lighter h-full bg-gradient-to-r bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl`}
         >
           {post.title}
         </h1>
@@ -29,11 +30,11 @@ const Hero: FC<PostProps> = ({ post }) => {
           {post.excerpt}
         </h2>
         <div className="flex flex-wrap items-center gap-smallest max-sm:flex-col">
-          <span className="lato font-bold">
+          <span className="font-bold">
             Published:{" "}
             <time
               data-cy="blogPageDate"
-              className="lato font-bold"
+              className="font-bold"
               dateTime={post.date}
             >
               {new Date(post.date).toLocaleDateString("en-us", {
@@ -46,7 +47,7 @@ const Hero: FC<PostProps> = ({ post }) => {
           <div className="hidden sm:block">
             <Dot dimension="small" />
           </div>
-          <span data-cy="blogPageTime" className="lato font-bold">
+          <span data-cy="blogPageTime" className="font-bold">
             {post.time} minutes read
           </span>
         </div>
@@ -56,9 +57,7 @@ const Hero: FC<PostProps> = ({ post }) => {
               className="flex items-center justify-center gap-smallest"
               key={index}
             >
-              <span data-cy="blogPageTag" className="lato font-bold">
-                {tag}
-              </span>
+              <span data-cy="blogPageTag">{tag}</span>
               <div className={index === tags.length - 1 ? "hidden" : ""}>
                 <Dot dimension="small" />
               </div>

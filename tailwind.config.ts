@@ -7,11 +7,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: "var(--primary)",
-        brand: "var(--brand)",
+        primary: "",
+        light: "#E6E8E0",
+        lighter: "#ffffff",
+        dark: "#1e1e1e",
+        darker: "#000000",
+        brand: "#FF4D4D",
         primaryLight: "var(--primary-light)",
         primaryAccent: "var(--primary-accent)",
         secondary: "var(--secondary)",

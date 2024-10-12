@@ -7,7 +7,7 @@ const Overlay: FC = () => {
   const { isHidden } = useOverlayStore();
   return (
     <div
-      className={`z-50 bg-gray-50 ${isHidden ? "" : "hidden"} fixed left-0 top-0 h-full w-full`}
+      className={`bg-light dark:bg-dark z-50 ${isHidden ? "" : "hidden"} fixed left-0 top-0 h-full w-full`}
     ></div>
   );
 };

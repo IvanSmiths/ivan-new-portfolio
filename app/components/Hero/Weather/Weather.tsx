@@ -59,14 +59,14 @@ const Weather: FC<WeatherProps> = ({ temp, weather }) => {
   return (
     <div
       ref={weatherScopeRef}
-      className="relative flex h-[18px] items-center justify-center overflow-hidden"
+      className="relative flex h-[12px] items-center justify-center overflow-hidden sm:h-[18px]"
     >
       <span
         ref={weatherRef}
         className="absolute left-0 right-0 top-0 mr-auto flex w-fit gap-1 lowercase"
       >
-        <span className="lato text-md sm:text-xl">{temperature}°</span>
-        <span className="lato text-md sm:text-xl">{weather}</span>
+        <span className="text-sm sm:text-lg">{temperature}°</span>
+        <span className="text-sm capitalize sm:text-lg">{weather}</span>
       </span>
     </div>
   );
