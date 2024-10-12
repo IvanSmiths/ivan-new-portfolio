@@ -23,7 +23,7 @@ const NavbarWrapper: FC = () => {
     { scope: triggerRef },
   );
   return (
-    <div className="z-20 pt-2" ref={triggerRef}>
+    <div data-testid="navbarWrapper" className="z-20 pt-2" ref={triggerRef}>
       <Navbar />
     </div>
   );
