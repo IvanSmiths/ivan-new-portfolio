@@ -28,10 +28,10 @@ const Filter: FC<FilterProps> = ({ currentPage }) => {
     <section className="fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-small gap-y-2">
       {filters.map((filter, index: number) => (
         <Link
-          data-cy={`link-${filter.page}`}
+          data-cy={`link-${filter.url}`}
           key={index}
           href={`/crafts/${filter.url}`}
-          className={`rounded-full p-4 py-3 font-bold text-primary ${
+          className={`rounded-full p-3 py-1 font-bold text-primary ${
             currentPage === filter.page
               ? "bg-lighter dark:bg-darker"
               : "bg-light dark:bg-dark"
