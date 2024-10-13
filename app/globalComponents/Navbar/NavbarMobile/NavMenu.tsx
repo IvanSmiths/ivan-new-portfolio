@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import NavLinks from "./NavLinks";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../ThemeToggle";
 
 interface NavMenuProps {
   isOpen: boolean;
