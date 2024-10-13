@@ -19,22 +19,22 @@ const navLinks: NavLink[] = [
 ];
 
 export default function NavbarMobile() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLLIElement | null)[]>([]);
   const themeToggleRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => {
+  const toggleMenu = (): void => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     if (!navRef.current) return;
 
-    const navElement = navRef.current;
-    const linkElements = linksRef.current.filter(
-      (el): el is HTMLLIElement => el !== null,
+    const navElement: HTMLDivElement | null = navRef.current;
+    const linkElements: HTMLLIElement[] = linksRef.current.filter(
+      (el: HTMLLIElement | null): el is HTMLLIElement => el !== null,
     );
 
     if (isOpen) {
@@ -54,7 +54,7 @@ export default function NavbarMobile() {
       gsap.to(themeToggleRef.current, {
         opacity: 1,
         y: 0,
-        delay: 0.5,
+        delay: 0.4,
         duration: 0.3,
         ease: "power2.in",
       });
@@ -109,10 +109,12 @@ export default function NavbarMobile() {
         style={{ opacity: 0 }}
       >
         <ul className="flex w-full flex-col gap-small text-2xl">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link: NavLink, index: number) => (
             <li
               key={link.href}
-              ref={(el: any) => (linksRef.current[index] = el)}
+              ref={(el: HTMLLIElement | null): void => {
+                linksRef.current[index] = el;
+              }}
               style={{ opacity: 0 }}
               className="flex w-full flex-col items-end gap-small"
             >
