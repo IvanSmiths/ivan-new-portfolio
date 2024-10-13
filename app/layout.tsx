@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { lato } from "../utils/fonts";
 import React from "react";
 import { ThemeProvider } from "next-themes";
+import NavbarMobile from "./globalComponents/Navbar/NavbarMobile";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
@@ -18,9 +19,10 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en" className={`${lato.className}`}>
       <body
         suppressHydrationWarning
-        className="text-dark dark:text-light bg-light dark:bg-dark"
+        className="bg-light text-dark dark:bg-dark dark:text-light"
       >
         <ThemeProvider enableSystem={true} attribute="class">
+          <NavbarMobile />
           {children}
         </ThemeProvider>
         <Analytics />
