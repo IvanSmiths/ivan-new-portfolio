@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import { MutableRefObject } from "react";
 
 type NavLink = {
   href: string;
@@ -16,7 +16,7 @@ const navLinks: NavLink[] = [
 interface NavLinksProps {
   pathname: string;
   toggleMenu: () => void;
-  linksRef: React.MutableRefObject<(HTMLLIElement | null)[]>;
+  linksRef: MutableRefObject<(HTMLLIElement | null)[]>;
 }
 
 export default function NavLinks({

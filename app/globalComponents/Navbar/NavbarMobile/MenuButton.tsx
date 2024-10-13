@@ -1,5 +1,3 @@
-import React from "react";
-
 interface MenuButtonProps {
   isOpen: boolean;
   toggleMenu: () => void;

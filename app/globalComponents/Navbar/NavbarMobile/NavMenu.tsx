@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import NavLinks from "./NavLinks";
 import ThemeToggle from "../ThemeToggle";
