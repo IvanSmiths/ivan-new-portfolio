@@ -11,19 +11,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "",
-        lightSecondary: "#6f716e",
         light: "#E6E8E0",
         lighter: "#ffffff",
-        darkSecondary: "#575656",
+        lightSecondary: "#6f716e",
         dark: "#1e1e1e",
         darker: "#000000",
+        darkSecondary: "#575656",
         brand: "#FF4D4D",
-        primaryLight: "var(--primary-light)",
-        primaryAccent: "var(--primary-accent)",
-        secondary: "var(--secondary)",
-        secondaryLight: "var(--secondary-light)",
-        secondaryLighter: "var(--secondary-lighter)",
       },
       transitionProperty: {
         dimensions: "height, width",
