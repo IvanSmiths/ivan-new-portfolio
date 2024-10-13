@@ -3,11 +3,6 @@ import { snapshotElement } from "./helpers/screenshot";
 
 test.beforeEach(async ({ page }): Promise<void> => {
   await page.goto("http://localhost:3000");
-  await page
-    .getByTestId("navbar")
-    .evaluate(
-      (element: HTMLElement): string => (element.style.display = "none"),
-    );
 });
 
 test("snapshot home hero section", async ({ page }): Promise<void> => {

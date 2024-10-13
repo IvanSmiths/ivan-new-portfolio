@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { bebas_neue } from "../../../../utils/fonts";
 
 type HeaderProps = {
   work: {
@@ -15,7 +16,9 @@ type HeaderProps = {
 const Hero: FC<HeaderProps> = ({ work }) => {
   return (
     <>
-      <h1 className="bebas col-span-full mt-14 text-6xl uppercase sm:mt-36 md:mt-72 md:text-9xl">
+      <h1
+        className={`${bebas_neue.className} col-span-full mt-14 text-6xl uppercase sm:mt-36 md:mt-72 md:text-9xl`}
+      >
         {work.company}
       </h1>
       <img

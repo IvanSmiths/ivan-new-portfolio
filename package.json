@@ -33,6 +33,7 @@
     "gsap": "^3.12.5",
     "next": "^14.2.13",
     "next-mdx-remote": "^4.4.1",
+    "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zustand": "^4.5.5"

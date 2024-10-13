@@ -16,7 +16,7 @@ const Hero: FC = () => {
         </div>
         <Text />
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden w-full lg:block">
         <Showreel />
       </div>
     </>

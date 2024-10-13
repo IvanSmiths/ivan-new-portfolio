@@ -6,7 +6,7 @@ import {
   renders as rendersTable,
 } from "../../db/schema";
 import Footer from "../globalComponents/Footer/Footer";
-import Filter, { Pages } from "./components/Filter";
+import Filter, { Label } from "./components/Filter";
 import Images from "./components/Images";
 import type { Metadata } from "next";
 import Header from "./components/Header";
@@ -73,7 +73,7 @@ const Crafts: FC = async () => {
         paragraph={headerProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
-      <Filter currentPage={Pages.All} />
+      <Filter currentPage={Label.All} />
       <Images images={images} />
       <Footer />
     </>

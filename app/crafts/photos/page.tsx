@@ -3,7 +3,7 @@ import { db } from "../../../db/db";
 import { photos as photosTable } from "../../../db/schema";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Footer from "../../globalComponents/Footer/Footer";
-import Filter, { Pages } from "../components/Filter";
+import Filter, { Label } from "../components/Filter";
 import Images from "../components/Images";
 import type { Metadata } from "next";
 import Header from "../components/Header";
@@ -58,7 +58,7 @@ const Photos: FC = async () => {
         paragraph={headerProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
-      <Filter currentPage={Pages.Photos} />
+      <Filter currentPage={Label.Photos} />
       <Images images={images} />
       <Footer />
     </>

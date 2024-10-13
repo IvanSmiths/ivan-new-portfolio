@@ -41,7 +41,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
   return (
     <nav data-testid="navbar">
       <div
-        className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 z-10 flex w-full flex-row-reverse items-start justify-between pl-small pr-small sm:flex-row`}
+        className={`${position === Position.Fixed ? "fixed h-fit" : "sm:sticky"} top-2 z-10 hidden w-full flex-row-reverse items-start justify-between pl-small pr-small sm:flex-row md:flex`}
       >
         <ul className="flex items-start gap-small">
           {internalLinks.map((link: Links, index: number) => (
@@ -49,7 +49,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
               <Link
                 data-cy={link.dataCy}
                 href={link.url}
-                className="lato text-md font-semibold sm:text-xl"
+                className="text-md font-semibold sm:text-xl"
               >
                 {link.label}
               </Link>

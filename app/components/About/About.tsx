@@ -1,89 +1,115 @@
-import { FC, ReactNode } from "react";
+"use client";
 
-const About: FC = async () => {
-  const textStyle =
-    "bebas lg:text-[11vw] lg:leading-[11vw] md:text-[20vw] md:leading-[19vw] text-[18vw] leading-[17vw] text-center lg:text-left";
+import React, { useRef } from "react";
+import { bebas_neue } from "../../../utils/fonts";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
-  type WrapperProps = {
-    children: ReactNode;
-    bgClass?: string;
-  };
+type RowElement = {
+  label: string;
+  id: string;
+};
 
-  type ContentProps = {
-    children: ReactNode;
-    style?: string;
-    textColor?: string;
-    isMobileHidden?: boolean;
-  };
+const About = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<HTMLDivElement | null>(null);
 
-  const Wrapper: FC<WrapperProps> = ({ children, bgClass = "" }) => (
-    <div
-      className={`flex flex-row flex-wrap items-center justify-center gap-small px-3 pt-2 lg:justify-between lg:pt-5 ${bgClass}`}
-    >
-      {children}
-    </div>
-  );
+  const firstRow: RowElement[] = [
+    { label: "I", id: "I" },
+    { label: "Expertly", id: "Expertly" },
+    { label: "Blend", id: "Blend" },
+  ];
 
-  const Content: FC<ContentProps> = ({
-    children,
-    style = textStyle,
-    textColor = "",
-    isMobileHidden = "",
-  }) => (
-    <span
-      className={`${style} ${textColor} ${isMobileHidden ? "hidden lg:block" : ""}`}
-    >
-      {children}
-    </span>
+  const secondRow: RowElement[] = [
+    { label: "My", id: "My" },
+    { label: "Design", id: "Design" },
+    { label: "Background", id: "Background" },
+    { label: "With", id: "With" },
+  ];
+
+  const thirdRow: RowElement[] = [
+    { label: "My", id: "My-2" },
+    { label: "Development", id: "Development" },
+    { label: "Skills.", id: "Skills" },
+  ];
+
+  gsap.registerPlugin(useGSAP);
+
+  useGSAP(
+    (): void => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top top",
+          end: "2500px",
+          scrub: true,
+          pin: true,
+        },
+      });
+
+      const elementIDs: string[] = [
+        "#Expertly",
+        "#Blend",
+        "#My",
+        "#Design",
+        "#Background",
+        "#With",
+        "#My-2",
+        "#Development",
+        "#Skills",
+      ];
+
+      elementIDs.forEach((id: string): void => {
+        timeline.to(id, {
+          display: "block",
+          opacity: 1,
+          filter: "blur(0px)",
+        });
+      });
+    },
+    { scope: containerRef },
   );
 
   return (
-    <main
-      data-testid="homeAboutSection"
-      className="mt-large grid md:mt-section"
-    >
-      <section className="col-span-full uppercase">
-        <Wrapper>
-          <Content>I expertly blend</Content>
-          <Content isMobileHidden={true}>&#x262F;</Content>
-          <Content isMobileHidden={true}>+</Content>
-          <Content>my</Content>
-        </Wrapper>
-        <Wrapper bgClass="bg-primary">
-          <Content textColor="text-secondary">Design</Content>
-          <span className="hidden h-3 flex-1 rounded-full bg-secondary lg:block"></span>
-          <Content textColor="text-secondary">Background</Content>
-        </Wrapper>
-        <Wrapper>
-          <Content>With</Content>
-          <Content isMobileHidden={true}>~</Content>
-          <img
-            className="-mt-4 hidden h-20 w-2/4 flex-1 object-cover md:h-40 lg:block"
-            src="/photo-of-me-about.png"
-            alt="photo of me"
-            width="978"
-            height="293"
-            loading="lazy"
-          />
-          <Content>My</Content>
-        </Wrapper>
-        <div className="visible pb-small lg:hidden">
-          <img
-            className="h-20 w-full flex-1 object-cover md:h-40"
-            src="/photo-of-me-about.png"
-            alt="photo of me"
-            width="978"
-            height="293"
-            loading="lazy"
-          />
+    <div data-testid="homeAboutSection" ref={containerRef}>
+      <div ref={triggerRef} className="grid h-screen w-full">
+        <div className="col-start-1 col-end-7 flex flex-col items-center justify-center gap-x-small gap-y-0 md:col-start-2 md:col-end-12">
+          <div className="flex flex-wrap items-center justify-center gap-x-small">
+            {firstRow.map(({ label, id }: RowElement, index: number) => (
+              <span
+                key={index}
+                id={id}
+                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl md:text-8xl lg:text-[9rem]`}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-small">
+            {secondRow.map(({ label, id }: RowElement, index: number) => (
+              <span
+                key={index}
+                id={id}
+                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-small">
+            {thirdRow.map(({ label, id }: RowElement, index: number) => (
+              <span
+                key={index}
+                id={id}
+                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
-        <Wrapper bgClass="bg-brand">
-          <Content>Development</Content>
-          <Content isMobileHidden={true}>&#x2605;</Content>
-          <Content>Mastery.</Content>
-        </Wrapper>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 

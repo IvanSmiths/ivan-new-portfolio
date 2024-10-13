@@ -1,8 +1,10 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { bebas_neue, lato } from "../utils/fonts";
+import { lato } from "../utils/fonts";
 import React from "react";
+import { ThemeProvider } from "next-themes";
+import NavbarMobile from "./globalComponents/Navbar/NavbarMobile/NavbarMobile";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
@@ -14,9 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${lato.variable} ${bebas_neue.variable}`}>
-      <body className="bg-secondary" suppressHydrationWarning={true}>
-        {children}
+    <html suppressHydrationWarning lang="en" className={`${lato.className}`}>
+      <body
+        suppressHydrationWarning
+        className="bg-light text-dark dark:bg-dark dark:text-light"
+      >
+        <ThemeProvider enableSystem={true} attribute="class">
+          <NavbarMobile />
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
