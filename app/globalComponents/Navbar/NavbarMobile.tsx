@@ -100,7 +100,7 @@ export default function NavbarMobile() {
               style={{ opacity: 0 }}
               className="flex w-full flex-col items-end gap-small"
             >
-              <span className="w-full bg-dark p-[1px] dark:bg-light"></span>
+              <span className="bg-darkSecondary dark:bg-lightSecondary w-full p-[1px]"></span>
               <Link
                 href={link.href}
                 onClick={toggleMenu}
@@ -113,7 +113,7 @@ export default function NavbarMobile() {
                 {link.label}
               </Link>
               {index === 3 && (
-                <span className="w-full bg-dark p-[1px] dark:bg-light"></span>
+                <span className="bg-darkSecondary dark:bg-lightSecondary w-full p-[1px]"></span>
               )}
             </li>
           ))}
