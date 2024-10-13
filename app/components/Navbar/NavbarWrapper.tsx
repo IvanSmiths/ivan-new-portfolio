@@ -25,7 +25,7 @@ const NavbarWrapper: FC = () => {
   return (
     <div
       data-testid="navbarWrapper"
-      className="z-20 hidden pt-2 lg:block"
+      className="z-20 hidden pt-2 md:block"
       ref={triggerRef}
     >
       <Navbar />

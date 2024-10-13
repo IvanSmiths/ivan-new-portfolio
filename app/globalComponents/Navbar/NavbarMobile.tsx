@@ -70,7 +70,7 @@ export default function NavbarMobile() {
     <>
       <button
         onClick={toggleMenu}
-        className="visible fixed bottom-small right-small z-50 flex h-14 w-14 flex-col items-center justify-center gap-1 rounded-full bg-dark p-3.5 dark:bg-light lg:hidden"
+        className="visible fixed bottom-small right-small z-50 flex h-14 w-14 flex-col items-center justify-center gap-1 rounded-full bg-dark p-3.5 dark:bg-light md:hidden"
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         {isOpen ? (
@@ -85,30 +85,36 @@ export default function NavbarMobile() {
           </>
         )}
       </button>
-
       <nav
         ref={navRef}
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-gray-900 text-white ${
+        className={`fixed inset-0 z-40 flex flex-col items-end justify-center bg-light dark:bg-dark ${
           isOpen ? "" : "pointer-events-none"
         }`}
         style={{ opacity: 0 }}
       >
-        <ul className="space-y-8 text-2xl">
+        <ul className="flex w-full flex-col gap-small text-2xl">
           {navLinks.map((link, index) => (
             <li
               key={link.href}
               ref={(el: any) => (linksRef.current[index] = el)}
               style={{ opacity: 0 }}
+              className="flex w-full flex-col items-end gap-small"
             >
+              <span className="w-full bg-dark p-[1px] dark:bg-light"></span>
               <Link
                 href={link.href}
                 onClick={toggleMenu}
-                className={`transition-colors hover:text-gray-300 ${
-                  pathname === link.href ? "text-gray-500" : ""
+                className={`pr-small text-7xl ${
+                  pathname === link.href
+                    ? "text-darkSecondary dark:text-lightSecondary"
+                    : "text-dark dark:text-light"
                 }`}
               >
                 {link.label}
               </Link>
+              {index === 3 && (
+                <span className="w-full bg-dark p-[1px] dark:bg-light"></span>
+              )}
             </li>
           ))}
         </ul>
