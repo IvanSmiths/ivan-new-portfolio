@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import gsap from "gsap";
+import ThemeToggle from "./ThemeToggle";
 
 type NavLink = {
   href: string;
@@ -22,6 +23,7 @@ export default function NavbarMobile() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLLIElement | null)[]>([]);
+  const themeToggleRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -43,12 +45,19 @@ export default function NavbarMobile() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
+          duration: 0.3,
           stagger: 0.1,
           ease: "power2.out",
           delay: 0.2,
         },
       );
+      gsap.to(themeToggleRef.current, {
+        opacity: 1,
+        y: 0,
+        delay: 0.5,
+        duration: 0.3,
+        ease: "power2.in",
+      });
     } else {
       gsap.to(linkElements, {
         opacity: 0,
@@ -57,11 +66,18 @@ export default function NavbarMobile() {
         stagger: 0.05,
         ease: "power2.in",
       });
+      gsap.to(themeToggleRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        delay: 0.2,
+        ease: "power2.in",
+      });
       gsap.to(navElement, {
         opacity: 0,
         duration: 0.3,
         ease: "power2.inOut",
-        delay: 0.2,
+        delay: 0.6,
       });
     }
   }, [isOpen]);
@@ -118,6 +134,9 @@ export default function NavbarMobile() {
             </li>
           ))}
         </ul>
+        <div ref={themeToggleRef} className="mt-small pr-small opacity-0">
+          <ThemeToggle />
+        </div>
       </nav>
     </>
   );
