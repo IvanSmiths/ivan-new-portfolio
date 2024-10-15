@@ -48,7 +48,6 @@ const About = () => {
       });
 
       const elementIDs: string[] = [
-        "#Expertly",
         "#Blend",
         "#My",
         "#Design",
@@ -79,7 +78,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} ${index === 0 || index === 1 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
