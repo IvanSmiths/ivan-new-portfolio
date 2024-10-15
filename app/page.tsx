@@ -5,13 +5,12 @@ import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, Works } from "../utils/graphql";
 import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
-import Blog from "./components/Blog/Blog";
 import Overlay from "./components/Loader/Overlay";
 import Footer from "./globalComponents/Footer/Footer";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
-  "Ivan Smiths - Frontend UI/UX Developer - 3 years of experience. Seeking the limit. Currently at TD Cowen";
+  "Ivan Smiths - Fullstack Developer - 3 years of experience. Seeking the limit.";
 
 export const metadata: Metadata = {
   title: title,
@@ -42,7 +41,6 @@ const Home = async () => {
       <LoaderWrapper />
       <About />
       <WorksSection works={works} />
-      <Blog />
       <Footer />
       <script
         type="application/ld+json"
