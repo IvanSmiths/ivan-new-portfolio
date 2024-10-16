@@ -50,6 +50,17 @@ const Expertise = () => {
         >
           <AnimatedAccordion
             title="Frontend"
+            rotation={10}
+            left={100}
+            top={100}
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            openDirection="down"
+          />{" "}
+          <AnimatedAccordion
+            title="Frontend"
+            rotation={-6}
+            left={300}
+            top={200}
             content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
             openDirection="down"
           />
