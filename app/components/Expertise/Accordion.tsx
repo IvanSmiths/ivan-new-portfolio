@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 interface AnimatedAccordionProps {
@@ -23,32 +23,31 @@ export default function AnimatedAccordion({
   const [isOpen, setIsOpen] = useState(false);
   const accordionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const accordionTimeline = useRef<GSAPTimeline | null>(null); // useRef for the timeline
+
+  useEffect(() => {
+    if (accordionRef.current && contentRef.current) {
+      accordionTimeline.current = gsap.timeline({ paused: true });
+      accordionTimeline.current
+        .to(accordionRef.current, { rotationZ: 0, duration: 0.5 })
+        .to(accordionRef.current, { width: "400px", duration: 0.5 }, "-=0.25")
+        .to(
+          contentRef.current,
+          {
+            height: "auto",
+            duration: 0.5,
+          },
+          "-=0.25",
+        );
+    }
+  }, []);
 
   const toggleAccordion = () => {
-    if (accordionRef.current && contentRef.current) {
-      const timeline = gsap.timeline();
-
-      if (!isOpen) {
-        timeline
-          .to(accordionRef.current, { rotationZ: 0, duration: 0.5 })
-          .to(accordionRef.current, { width: "400px", duration: 0.5 }, "-=0.25")
-          .to(
-            contentRef.current,
-            {
-              height: "auto",
-              duration: 0.5,
-            },
-            "-=0.25",
-          );
-      } else {
-        timeline
-          .to(contentRef.current, {
-            height: 0,
-            duration: 0.5,
-          })
-          .to(accordionRef.current, { width: "300px", duration: 0.5 }, "-=0.25")
-          .to(accordionRef.current, { rotationZ: 7, duration: 0.5 }, "-=0.25");
-      }
+    if (!accordionTimeline.current) return;
+    if (isOpen) {
+      accordionTimeline.current.reverse();
+    } else {
+      accordionTimeline.current.play();
     }
     setIsOpen(!isOpen);
   };
