@@ -25,7 +25,7 @@ export default function AnimatedAccordion({
   const contentRef = useRef<HTMLDivElement>(null);
   const accordionTimeline = useRef<GSAPTimeline | null>(null); // useRef for the timeline
 
-  useEffect(() => {
+  useEffect((): void => {
     if (accordionRef.current && contentRef.current) {
       accordionTimeline.current = gsap.timeline({ paused: true });
       accordionTimeline.current
