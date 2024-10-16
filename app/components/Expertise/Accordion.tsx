@@ -20,7 +20,7 @@ export default function AnimatedAccordion({
   rotation,
   openDirection = "down",
 }: AnimatedAccordionProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const accordionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const accordionTimeline = useRef<GSAPTimeline | null>(null); // useRef for the timeline
