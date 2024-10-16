@@ -42,7 +42,7 @@ export default function AnimatedAccordion({
     }
   }, []);
 
-  const toggleAccordion = () => {
+  const toggleAccordion = (): void => {
     if (!accordionTimeline.current) return;
     if (isOpen) {
       accordionTimeline.current.reverse();
