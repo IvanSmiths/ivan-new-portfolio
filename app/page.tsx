@@ -7,6 +7,7 @@ import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
 import Overlay from "./components/Loader/Overlay";
 import Footer from "./globalComponents/Footer/Footer";
+import Expertise from "./components/Expertise/Expertise";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
@@ -41,6 +42,7 @@ const Home = async () => {
       <LoaderWrapper />
       <About />
       <WorksSection works={works} />
+      <Expertise />
       <Footer />
       <script
         type="application/ld+json"
