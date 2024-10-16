@@ -45,7 +45,7 @@ const Expertise = () => {
       <div ref={triggerRef} className="h-screen w-full overflow-hidden">
         <div ref={containerRef} className="flex h-full w-fit items-center">
           <h2
-            className={`${bebas_neue.className} cursor-default pt-14 text-[60rem] leading-[43rem]`}
+            className={`${bebas_neue.className} cursor-default pt-14 text-[60rem] leading-[43rem] md:pt-32`}
           >
             Expertises
           </h2>
