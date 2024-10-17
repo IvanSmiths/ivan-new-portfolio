@@ -52,14 +52,14 @@ export default function AnimatedAccordion({
     <div
       style={{
         transform: `rotate(${rotation}deg)`,
-        left: `${left}px`,
-        top: `${top}px`,
+        left: `${left}%`,
+        top: `${top}%`,
       }}
       ref={accordionRef}
-      className={`${openDirection === "up" ? "flex-col-reverse" : "flex-col"} absolute flex w-[200px] rounded-lg bg-gray-800 p-4 text-white shadow-lg`}
+      className={`${openDirection === "up" ? "flex-col-reverse" : "flex-col"} absolute flex w-[200px] origin-top rounded-lg border border-dark bg-light p-4 shadow-lg dark:border-light dark:bg-dark`}
     >
       <div
-        className="flex cursor-pointer items-center justify-between"
+        className="flex origin-top cursor-pointer items-center justify-between"
         onClick={toggleAccordion}
       >
         <h2 className="text-xl font-bold">{title}</h2>

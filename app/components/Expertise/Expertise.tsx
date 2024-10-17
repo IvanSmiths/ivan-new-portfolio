@@ -51,17 +51,41 @@ const Expertise = () => {
           <AnimatedAccordion
             title="Frontend"
             rotation={10}
-            left={100}
-            top={100}
+            left={10}
+            top={20}
             content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book."
             openDirection="down"
           />
           <AnimatedAccordion
-            title="Frontend"
+            title="Backend"
             rotation={-6}
-            left={600}
-            top={600}
-            content="Lorem Ipsum is simply dummy text of the printing and typesetting."
+            left={20}
+            top={70}
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting."
+            openDirection="up"
+          />
+          <AnimatedAccordion
+            title="Design"
+            rotation={8}
+            left={40}
+            top={20}
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting.Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy"
+            openDirection="down"
+          />
+          <AnimatedAccordion
+            title="Testing"
+            rotation={8}
+            left={60}
+            top={30}
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting.Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy"
+            openDirection="down"
+          />
+          <AnimatedAccordion
+            title="3D Modeling"
+            rotation={8}
+            left={80}
+            top={80}
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting.Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy"
             openDirection="up"
           />
           <h2
