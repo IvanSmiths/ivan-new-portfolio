@@ -31,14 +31,10 @@ export default function AnimatedAccordion({
       accordionTimeline.current
         .to(accordionRef.current, { rotationZ: 0, duration: 0.5 })
         .to(accordionRef.current, { width: "400px", duration: 0.5 }, "-=0.25")
-        .to(
-          contentRef.current,
-          {
-            height: "auto",
-            duration: 0.5,
-          },
-          "-=0.25",
-        );
+        .to(contentRef.current, {
+          height: "auto",
+          duration: 0.5,
+        });
     }
   }, []);
 
