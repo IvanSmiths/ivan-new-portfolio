@@ -66,21 +66,21 @@ const Expertise = () => {
             title="Design"
             rotation={8}
             left={45}
-            top={40}
+            top={35}
             content="Lorem Ipsum is simply dummy text of the printing and typesetting.Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy"
           />
           <AnimatedAccordion
             title="Testing"
-            rotation={8}
+            rotation={-8}
             left={60}
-            top={40}
+            top={60}
             content="Lorem Ipsum is simply dummy text of the printing and typesetting.Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy"
           />
           <AnimatedAccordion
             title="3D Modeling"
-            rotation={8}
+            rotation={5}
             left={80}
-            top={20}
+            top={30}
             content="Lorem Ipsum is simply dummy text of the printing and typesetting.Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy"
           />
           <h2
