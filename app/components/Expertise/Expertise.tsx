@@ -1,46 +1,16 @@
 "use client";
 
 import { bebas_neue } from "../../../utils/fonts";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import { useRef } from "react";
 import AnimatedAccordion from "./Accordion";
 import { AccordionItem, accordionItems } from "./AccordionItems";
+import useHorizontalScroll from "../../../utils/hooks/useHorizontalScroll";
 
 const Expertise = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
-  const getScrollAmount = (): number | undefined => {
-    let containerWidth = containerRef.current?.offsetWidth;
-    let clientWidth = window.innerWidth;
-    if (containerWidth) {
-      return containerWidth - clientWidth;
-    }
-  };
-
-  useGSAP(
-    (): void => {
-      gsap.fromTo(
-        containerRef.current,
-        {
-          translateX: 0,
-        },
-        {
-          ease: "none",
-          translateX: () => `-${getScrollAmount()}px`,
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: "top top",
-            scrub: 0.6,
-            invalidateOnRefresh: true,
-            pin: true,
-          },
-        },
-      );
-    },
-    { scope: triggerRef },
-  );
+  useHorizontalScroll(containerRef, triggerRef);
 
   return (
     <div>
