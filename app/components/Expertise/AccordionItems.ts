@@ -19,7 +19,7 @@ export const accordionItems: AccordionItem[] = [
     title: "Backend",
     rotation: -6,
     left: 30,
-    top: 60,
+    top: 40,
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
@@ -35,7 +35,7 @@ export const accordionItems: AccordionItem[] = [
     title: "Testing",
     rotation: -8,
     left: 60,
-    top: 60,
+    top: 50,
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
