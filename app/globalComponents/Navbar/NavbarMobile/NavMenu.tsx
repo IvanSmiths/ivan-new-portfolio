@@ -74,7 +74,7 @@ export default function NavMenu({
   return (
     <nav
       ref={navRef}
-      className={`fixed inset-0 z-40 flex flex-col items-end justify-center bg-light transition dark:bg-dark ${
+      className={`fixed inset-0 z-20 flex flex-col items-end justify-center bg-light transition dark:bg-dark ${
         isOpen ? "" : "pointer-events-none"
       }`}
       style={{ opacity: 0 }}
