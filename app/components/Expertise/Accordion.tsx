@@ -9,7 +9,6 @@ interface AnimatedAccordionProps {
   rotation: number;
   left: number;
   top: number;
-  openDirection: "up" | "down";
 }
 
 export default function AnimatedAccordion({
@@ -18,7 +17,6 @@ export default function AnimatedAccordion({
   top,
   left,
   rotation,
-  openDirection = "down",
 }: AnimatedAccordionProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const accordionRef = useRef<HTMLDivElement>(null);
@@ -56,7 +54,7 @@ export default function AnimatedAccordion({
         top: `${top}%`,
       }}
       ref={accordionRef}
-      className={`${openDirection === "up" ? "flex-col-reverse" : "flex-col"} absolute flex w-[200px] origin-top rounded-lg border border-dark bg-light p-4 shadow-lg dark:border-light dark:bg-dark`}
+      className="absolute flex w-[200px] origin-top flex-col rounded-lg border border-dark bg-light p-4 shadow-lg dark:border-light dark:bg-dark"
     >
       <div
         className="flex origin-top cursor-pointer items-center justify-between"
