@@ -55,14 +55,20 @@ export default function AnimatedAccordion({
       }}
       onClick={toggleAccordion}
       ref={accordionRef}
-      className="absolute flex w-[200px] origin-top cursor-pointer flex-col rounded-lg border border-dark bg-light p-4 shadow-lg dark:border-light dark:bg-dark"
+      className="group absolute flex w-[200px] origin-top cursor-pointer flex-col rounded-lg border border-dark bg-light p-4 shadow-lg transition hover:border-light hover:bg-dark dark:border-light dark:bg-dark dark:hover:border-dark dark:hover:bg-light"
     >
       <div className="flex origin-top items-center justify-between">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <span className="text-2xl">{isOpen ? "-" : "+"}</span>
+        <h2 className="text-xl font-bold transition group-hover:text-light dark:group-hover:text-dark">
+          {title}
+        </h2>
+        <span className="text-2xl transition group-hover:text-light dark:group-hover:text-dark">
+          {isOpen ? "-" : "+"}
+        </span>
       </div>
       <div className="h-0 overflow-hidden" ref={contentRef}>
-        <p>{content}</p>
+        <p className="transition group-hover:text-light dark:group-hover:text-dark">
+          {content}
+        </p>
       </div>
     </div>
   );
