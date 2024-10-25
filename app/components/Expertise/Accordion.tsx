@@ -53,13 +53,11 @@ export default function AnimatedAccordion({
         left: `${left}%`,
         top: `${top}%`,
       }}
+      onClick={toggleAccordion}
       ref={accordionRef}
-      className="absolute flex w-[200px] origin-top flex-col rounded-lg border border-dark bg-light p-4 shadow-lg dark:border-light dark:bg-dark"
+      className="absolute flex w-[200px] origin-top cursor-pointer flex-col rounded-lg border border-dark bg-light p-4 shadow-lg dark:border-light dark:bg-dark"
     >
-      <div
-        className="flex origin-top cursor-pointer items-center justify-between"
-        onClick={toggleAccordion}
-      >
+      <div className="flex origin-top items-center justify-between">
         <h2 className="text-xl font-bold">{title}</h2>
         <span className="text-2xl">{isOpen ? "-" : "+"}</span>
       </div>
