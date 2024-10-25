@@ -13,7 +13,7 @@ export const accordionItems: AccordionItem[] = [
     left: 10,
     top: 20,
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Mission type safety. I’ve crafted 20+ data-driven features using Angular, RxJS, and TypeScript, for one of the biggest banks in the world. Mentored colleagues on Next.js helped cut development time by 30%. I’m all about creating dynamic, fast, and user-centric experiences.",
   },
   {
     title: "Backend",
@@ -21,7 +21,7 @@ export const accordionItems: AccordionItem[] = [
     left: 30,
     top: 40,
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Using PostgreSQL, Prisma, and Nest.js, I build solid backend systems that deliver. My work ensures data reliability, scalability, and the backend power to drive front-end engagement.",
   },
   {
     title: "Design",
@@ -29,7 +29,7 @@ export const accordionItems: AccordionItem[] = [
     left: 45,
     top: 35,
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Armed with Figma and a knack for UX, I’ve designed 20+ websites that slaps. Interviewing users, my insights led to a checkout flow overhaul, slashing cart abandonment by 15%. Plus, I secured major contracts with innovative, user-centered designs that deliver both style and substance.",
   },
   {
     title: "Testing",
@@ -37,14 +37,6 @@ export const accordionItems: AccordionItem[] = [
     left: 60,
     top: 50,
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    title: "3D Modeling",
-    rotation: 5,
-    left: 80,
-    top: 30,
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Fear no more deploying on a friday. With Cypress, Playwright, and solid GitHub CI/CD setup knowledge, I ensure flawless and stable releases. My 40+ automated tests across the stack for TD Cowen cut post-launch issues by 30%, making every deployment solid, reliable, and user-ready.",
   },
 ];
