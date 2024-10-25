@@ -8,7 +8,7 @@ type ButtonProps = {
 
 const Social: FC<ButtonProps> = ({ label, link }) => {
   return (
-    <div className="group flex cursor-pointer items-center justify-center gap-8 rounded-full border-2 border-dark px-8 py-3 transition hover:bg-dark dark:border-light dark:hover:bg-light">
+    <div className="group flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition hover:bg-dark dark:border-light dark:hover:bg-light">
       <a
         target="_blank"
         rel="noopener noreferrer"
