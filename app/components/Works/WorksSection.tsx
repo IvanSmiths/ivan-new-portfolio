@@ -11,7 +11,6 @@ type WorkProps = {
 };
 
 const WorksSection: FC<WorkProps> = ({ works }) => {
-  console.log(works);
   const perspectiveRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
