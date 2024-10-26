@@ -82,7 +82,7 @@ function Perspective() {
       <div className="spacer"></div>
       <div ref={triggerRef} className="perspective">
         <div ref={perspectiveRef} className="perspective-inner">
-          {data.map((project, index) => (
+          {data.map((project: Project, index: number) => (
             <div key={index} id={project.id} className={project.class}>
               <img src={project.image} alt={project.text} />
               <div className="perspective-desc">
