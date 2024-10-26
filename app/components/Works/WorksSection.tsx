@@ -83,11 +83,11 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
               key={index}
             >
               <img
-                className="inline w-full"
+                className="inline w-full rounded-md"
                 src={work.homeImage.url}
                 width={work.homeImage.width}
                 height={work.homeImage.height}
-                alt={work.homeDescription}
+                alt={work.company}
               />
               <div className="perspective-desc">
                 <h2 className="text-xl">{work.company}</h2>
