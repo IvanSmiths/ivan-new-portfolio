@@ -50,7 +50,7 @@ function Perspective() {
   );
 
   return (
-    <div>
+    <div className="my-section">
       <div
         ref={triggerRef}
         style={{ perspective: "25rem" }}
