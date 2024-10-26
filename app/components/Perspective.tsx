@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -18,19 +17,21 @@ export const data: Project[] = [
     id: "first",
     text: "Lorem ipsum dolor sit amet",
     image: "project-1.jpg",
-    class: "perspective-left",
+    class:
+      "absolute w-1/5 -translate-y-1/2 transition duration-100 top-1/2 left-[30%]",
   },
   {
     id: "second",
     text: "Lorem ipsum dolor sit amet",
     image: "project-2.jpg",
-    class: "perspective-right",
+    class: "absolute w-1/5 top-1/2 perspective-right duration-100 right-[30%]",
   },
   {
     id: "third",
     text: "Lorem ipsum dolor sit amet",
     image: "project-3.jpg",
-    class: "perspective-left third",
+    class:
+      "absolute w-1/5 -translate-y-1/2 transition duration-100 top-1/2 left-[30%] third",
   },
 ];
 
@@ -79,23 +80,30 @@ function Perspective() {
 
   return (
     <div>
-      <div className="spacer"></div>
-      <div ref={triggerRef} className="perspective">
-        <div ref={perspectiveRef} className="perspective-inner">
+      <div
+        ref={triggerRef}
+        style={{ perspective: "25rem" }}
+        className="perspective relative h-screen w-full overflow-hidden"
+      >
+        <div
+          ref={perspectiveRef}
+          className="relative h-full"
+          style={{ transformStyle: "preserve-3d" }}
+        >
           {data.map((project: Project, index: number) => (
             <div key={index} id={project.id} className={project.class}>
-              <img src={project.image} alt={project.text} />
+              <img
+                className="inline w-full"
+                src={project.image}
+                alt={project.text}
+              />
               <div className="perspective-desc">
-                <h2>{project.text}</h2>
-                <Link href="/">
-                  <span>Discover it</span>
-                </Link>
+                <h2 className="text-xl">{project.text}</h2>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="spacer"></div>
     </div>
   );
 }

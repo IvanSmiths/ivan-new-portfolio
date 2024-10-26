@@ -108,63 +108,11 @@ article .half {
     }
 }
 
-.perspective {
-    overflow: hidden;
-    height: 100vh;
-    width: 100%;
-    perspective: 25rem;
-    position: relative;
-}
-
-.perspective-inner {
-    transform-style: preserve-3d;
-    position: relative;
-    height: 100%;
-}
-
-
-.perspective-left {
-    position: absolute;
-    width: 20%;
-    transform: translateY(-50%);
-    transition: 0.1s;
-    top: 50%;
-    left: 30%;
-}
-
 .perspective-right {
-    position: absolute;
-    width: 20%;
-    top: 50%;
     transform: translate3d(0px, 0px, -10rem) translateY(-50%);
     transition: 0.1s;
-    right: 30%;
-}
-
-.perspective-inner img {
-    display: inline;
-    width: 100%;
-}
-
-.perspective-inner h2 {
-    font-size: 0.5rem;
-    font-weight: 400;
-    color: var(--white);
-}
-
-.perspective-inner span {
-    font-size: 0.5rem;
-    background-color: var(--white);
-    color: var(--black);
-    padding: 0.2rem;
-    border-radius: 0.1rem;
 }
 
 .third {
     transform: translate3d(0px, 0px, -20rem) translateY(-50%);
-}
-
-.spacer {
-    height: 60vh;
-    background-color: #ffffff;
 }
