@@ -55,7 +55,7 @@ const Showreel = () => {
             href="https://youtu.be/osf7rWGB9qw"
             target="_blank"
             rel="noreferrer noopener"
-            className="absolute bottom-3 right-3 cursor-pointer rounded-full bg-dark px-4 py-2 text-xs font-semibold text-white transition hover:bg-light hover:text-dark"
+            className="absolute bottom-3 right-3 cursor-pointer rounded-sm bg-dark px-3 py-2 text-xs font-semibold text-white transition hover:bg-light hover:text-dark"
           >
             Watch on YouTube
           </a>
