@@ -107,12 +107,3 @@ article .half {
         width: 100%;
     }
 }
-
-.perspective-right {
-    transform: translate3d(0px, 0px, -10rem) translateY(-50%);
-    transition: 0.1s;
-}
-
-.third {
-    transform: translate3d(0px, 0px, -20rem) translateY(-50%);
-}

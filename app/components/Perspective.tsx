@@ -17,21 +17,19 @@ export const data: Project[] = [
     id: "first",
     text: "Lorem ipsum dolor sit amet",
     image: "project-1.jpg",
-    class:
-      "absolute w-1/5 -translate-y-1/2 transition duration-100 top-1/2 left-[30%]",
+    class: "absolute w-1/5 top-1/2 transition duration-100 left-[30%]",
   },
   {
     id: "second",
     text: "Lorem ipsum dolor sit amet",
     image: "project-2.jpg",
-    class: "absolute w-1/5 top-1/2 perspective-right duration-100 right-[30%]",
+    class: "absolute w-1/5 top-1/2 transition duration-100 right-[30%]",
   },
   {
     id: "third",
     text: "Lorem ipsum dolor sit amet",
     image: "project-3.jpg",
-    class:
-      "absolute w-1/5 -translate-y-1/2 transition duration-100 top-1/2 left-[30%] third",
+    class: "absolute w-1/5 top-1/2 transition duration-100 left-[30%]",
   },
 ];
 
@@ -91,7 +89,19 @@ function Perspective() {
           style={{ transformStyle: "preserve-3d" }}
         >
           {data.map((project: Project, index: number) => (
-            <div key={index} id={project.id} className={project.class}>
+            <div
+              id={project.id}
+              className={project.class}
+              style={{
+                transform:
+                  index === 1
+                    ? "translate3d(0px, 0px, -10rem) translateY(-50%)"
+                    : index === 2
+                      ? "translate3d(0px, 0px, -20rem) translateY(-50%)"
+                      : "translateY(-50%)",
+              }}
+              key={index}
+            >
               <img
                 className="inline w-full"
                 src={project.image}
