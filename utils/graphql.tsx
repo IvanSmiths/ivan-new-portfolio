@@ -1,8 +1,10 @@
 import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
 export type Works = {
+  id: string;
   slug: string;
   company: string;
+  class: string;
   role: string;
   homeDescription: string;
   homeImage: {
@@ -33,8 +35,10 @@ export async function getWorks(): Promise<Works[]> {
       query: `
         query Works() {
           works(orderBy: createdAt_ASC) {
+            id
             slug
             company
+            class
             role
             homeDescription
             homeImage {

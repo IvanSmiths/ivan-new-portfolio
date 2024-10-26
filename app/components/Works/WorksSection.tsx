@@ -1,12 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import { FC, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Works, works } from "./WorkData";
+import { Works } from "../../../utils/graphql";
 
-function WorksSection() {
+type WorkProps = {
+  works: Works;
+};
+
+const WorksSection: FC<WorkProps> = ({ works }) => {
+  console.log(works);
   const perspectiveRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -32,14 +37,14 @@ function WorksSection() {
           transform: "translate3d(0px, 0px, 35rem)",
         })
         .set(
-          "#first",
+          "#clsj5j1c7siwu0alfg7gm8kjk",
           {
             opacity: 0,
           },
           0.25,
         )
         .set(
-          "#second",
+          "#clsj5jsg5sh530ak4qcqekxm4",
           {
             opacity: 0,
           },
@@ -78,9 +83,13 @@ function WorksSection() {
               }}
               key={index}
             >
-              <img className="inline w-full" src={work.image} alt={work.text} />
+              <img
+                className="inline w-full"
+                src={work.homeImage.url}
+                alt={work.homeDescription}
+              />
               <div className="perspective-desc">
-                <h2 className="text-xl">{work.text}</h2>
+                <h2 className="text-xl">{work.company}</h2>
               </div>
             </div>
           ))}
@@ -88,6 +97,6 @@ function WorksSection() {
       </div>
     </div>
   );
-}
+};
 
 export default WorksSection;
