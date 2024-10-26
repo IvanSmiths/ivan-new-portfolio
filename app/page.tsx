@@ -41,8 +41,8 @@ const Home = async () => {
       <Hero />
       <Overlay />
       <LoaderWrapper />
-      <About />
       <Perspective />
+      <About />
       <WorksSection works={works} />
       <Expertise />
       <Footer />

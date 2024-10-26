@@ -51,7 +51,7 @@ function Perspective() {
             trigger: triggerRef.current,
             start: "top top",
             end: "2000 bottom",
-            scrub: 1,
+            scrub: 0.6,
             pin: true,
             snap: 1 / 3,
           },
