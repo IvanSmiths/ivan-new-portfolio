@@ -1,13 +1,13 @@
 "use client";
 
-import { FC, useRef } from "react";
+import { FC, Key, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Works } from "../../../utils/graphql";
 
 type WorkProps = {
-  works: Works;
+  works: Works[];
 };
 
 const WorksSection: FC<WorkProps> = ({ works }) => {
@@ -69,7 +69,7 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
           className="relative h-full"
           style={{ transformStyle: "preserve-3d" }}
         >
-          {works.map((work: Works, index: number) => (
+          {works.map((work: Works, index: Key) => (
             <div
               id={work.id}
               className={work.class}
@@ -86,6 +86,8 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
               <img
                 className="inline w-full"
                 src={work.homeImage.url}
+                width={work.homeImage.width}
+                height={work.homeImage.height}
                 alt={work.homeDescription}
               />
               <div className="perspective-desc">

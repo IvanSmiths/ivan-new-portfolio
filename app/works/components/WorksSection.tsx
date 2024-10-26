@@ -9,9 +9,7 @@ import { useAnimationStore } from "../../../utils/store";
 import { Works } from "../../../utils/graphql";
 
 type WorksProps = {
-  works: {
-    map: Function;
-  };
+  works: Works[];
 };
 
 const WorksSection: FC<WorksProps> = ({ works }) => {
@@ -31,7 +29,7 @@ const WorksSection: FC<WorksProps> = ({ works }) => {
   };
 
   useGSAP(
-    () => {
+    (): void => {
       gsap.fromTo(
         containerRef.current,
         {
@@ -40,7 +38,7 @@ const WorksSection: FC<WorksProps> = ({ works }) => {
         {
           ease: "none",
           duration: slowest,
-          translateX: () => `-${getScrollAmount()}px`,
+          translateX: (): string => `-${getScrollAmount()}px`,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
