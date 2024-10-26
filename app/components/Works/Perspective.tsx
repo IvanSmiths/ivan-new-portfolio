@@ -56,6 +56,9 @@ function Perspective() {
         style={{ perspective: "25rem" }}
         className="perspective relative h-screen w-full overflow-hidden"
       >
+        <h2 className="absolute left-1/2 top-small block origin-center -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
+          All My Works
+        </h2>
         <div
           ref={perspectiveRef}
           className="relative h-full"
