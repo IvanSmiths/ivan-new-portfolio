@@ -9,7 +9,7 @@ const Showreel = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
-    () => {
+    (): void => {
       gsap.to(triggerRef.current, {
         width: "100%",
         ease: "sine.out",
