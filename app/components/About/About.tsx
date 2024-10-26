@@ -48,6 +48,7 @@ const About = () => {
       });
 
       const elementIDs: string[] = [
+        "#Expertly",
         "#Blend",
         "#My",
         "#Design",
