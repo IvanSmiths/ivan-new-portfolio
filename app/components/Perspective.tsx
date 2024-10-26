@@ -53,7 +53,7 @@ function Perspective() {
             end: "2000 bottom",
             scrub: 0.6,
             pin: true,
-            snap: 1 / 3,
+            snap: 1 / data.length,
           },
         })
         .to(perspectiveRef.current, {
