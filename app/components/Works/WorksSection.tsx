@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Works, works } from "./WorkData";
 
-function Perspective() {
+function WorksSection() {
   const perspectiveRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -90,4 +90,4 @@ function Perspective() {
   );
 }
 
-export default Perspective;
+export default WorksSection;

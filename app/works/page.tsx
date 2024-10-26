@@ -1,10 +1,11 @@
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
-import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
 import { getWorks, Works } from "../../utils/graphql";
 import { FC } from "react";
 import { worksSchema } from "../../utils/Schemas";
 import Footer from "../globalComponents/Footer/Footer";
+import Header from "../crafts/components/Header";
+import WorksSection from "./components/WorksSection";
 
 const title: string = "Ivan Smiths, all the works";
 const description: string =
@@ -29,12 +30,24 @@ export const metadata: Metadata = {
   },
 };
 
+const headerProps = {
+  h1: "Works",
+  h2: "All my works",
+  paragraph:
+    "I'm a UI/UX Developer, and I love to create beautiful and functional designs. Here, you'll find a collection of my works, showcasing my skills and creativity.",
+};
+
 const WorksPage: FC = async () => {
   const works: Works[] = await getWorks();
   return (
     <>
+      <Header
+        h1={headerProps.h1}
+        h2={headerProps.h2}
+        paragraph={headerProps.paragraph}
+      />
       <Navbar position={Position.Fixed} />
-      <ScrollSection works={works} />
+      <WorksSection works={works} />
       <Footer />
       <script
         type="application/ld+json"

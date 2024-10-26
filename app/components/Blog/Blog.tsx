@@ -5,10 +5,7 @@ import Link from "next/link";
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
-    <div data-testid="homeBlogSection" className="grid">
-      <span className="col-span-full max-sm:mb-small md:col-start-1 md:col-end-3">
-        Latest blogposts
-      </span>
+    <div data-testid="homeBlogSection" className="mt-medium grid">
       <div className="col-span-full flex flex-col md:col-start-4 md:col-end-13">
         {posts.map((post: Posts, index: number) => (
           <div key={index}>
