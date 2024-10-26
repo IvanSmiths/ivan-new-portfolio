@@ -4,34 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-export interface Project {
-  text: string;
-  image: string;
-  id: string;
-  class: string;
-}
-
-export const data: Project[] = [
-  {
-    id: "first",
-    text: "Lorem ipsum dolor sit amet",
-    image: "project-1.jpg",
-    class: "absolute w-1/5 top-1/2 transition duration-100 left-[30%]",
-  },
-  {
-    id: "second",
-    text: "Lorem ipsum dolor sit amet",
-    image: "project-2.jpg",
-    class: "absolute w-1/5 top-1/2 transition duration-100 right-[30%]",
-  },
-  {
-    id: "third",
-    text: "Lorem ipsum dolor sit amet",
-    image: "project-3.jpg",
-    class: "absolute w-1/5 top-1/2 transition duration-100 left-[30%]",
-  },
-];
+import { Works, works } from "./WorkData";
 
 function Perspective() {
   const perspectiveRef = useRef<HTMLDivElement>(null);
@@ -52,7 +25,7 @@ function Perspective() {
             end: "2000 bottom",
             scrub: 0.6,
             pin: true,
-            snap: 1 / data.length,
+            snap: 1 / works.length,
           },
         })
         .to(perspectiveRef.current, {
@@ -88,10 +61,10 @@ function Perspective() {
           className="relative h-full"
           style={{ transformStyle: "preserve-3d" }}
         >
-          {data.map((project: Project, index: number) => (
+          {works.map((work: Works, index: number) => (
             <div
-              id={project.id}
-              className={project.class}
+              id={work.id}
+              className={work.class}
               style={{
                 transform:
                   index === 1
@@ -102,13 +75,9 @@ function Perspective() {
               }}
               key={index}
             >
-              <img
-                className="inline w-full"
-                src={project.image}
-                alt={project.text}
-              />
+              <img className="inline w-full" src={work.image} alt={work.text} />
               <div className="perspective-desc">
-                <h2 className="text-xl">{project.text}</h2>
+                <h2 className="text-xl">{work.text}</h2>
               </div>
             </div>
           ))}

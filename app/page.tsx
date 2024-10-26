@@ -8,7 +8,7 @@ import { homeSchema } from "../utils/Schemas";
 import Overlay from "./components/Loader/Overlay";
 import Footer from "./globalComponents/Footer/Footer";
 import Expertise from "./components/Expertise/Expertise";
-import Perspective from "./components/Perspective";
+import Perspective from "./components/Works/Perspective";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
