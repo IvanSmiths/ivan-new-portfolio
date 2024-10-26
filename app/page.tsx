@@ -8,6 +8,7 @@ import { homeSchema } from "../utils/Schemas";
 import Overlay from "./components/Loader/Overlay";
 import Footer from "./globalComponents/Footer/Footer";
 import Expertise from "./components/Expertise/Expertise";
+import Perspective from "./components/Perspective";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
@@ -41,6 +42,7 @@ const Home = async () => {
       <Overlay />
       <LoaderWrapper />
       <About />
+      <Perspective />
       <WorksSection works={works} />
       <Expertise />
       <Footer />
