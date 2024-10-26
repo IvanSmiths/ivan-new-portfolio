@@ -1,18 +1,7 @@
 import { FC } from "react";
 import Logo from "../../globalComponents/Logo/Logo";
 import Social from "./Social";
-
-type SocialLink = {
-  label: string;
-  link: string;
-};
-
-const socialLinks: SocialLink[] = [
-  { label: "Github", link: "https://github.com/IvanSmiths" },
-  { label: "LinkedIn", link: "https://www.linkedin.com/in/ivan-fabbri" },
-  { label: "YouTube", link: "https://youtube.com/@ivansmiths" },
-  { label: "info@ivansmiths.com", link: "mailto:info@ivansmiths.com" },
-];
+import { SocialLink, socialLinks } from "./FooterData";
 
 const Footer: FC = () => {
   return (
@@ -22,7 +11,7 @@ const Footer: FC = () => {
       className="mt-section flex min-h-[70vh] flex-col justify-end gap-2 px-small pb-small md:min-h-[80vh]"
     >
       <div className="mb-medium flex flex-wrap gap-small gap-y-5 md:gap-y-10">
-        {socialLinks.map(({ label, link }) => (
+        {socialLinks.map(({ label, link }: SocialLink) => (
           <Social key={label} label={label} link={link} />
         ))}
       </div>

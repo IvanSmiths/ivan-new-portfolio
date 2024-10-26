@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import Arrow from "./Arrow";
 
-type ButtonProps = {
+type SocialProps = {
   label: string;
   link: string;
 };
 
-const Social: FC<ButtonProps> = ({ label, link }) => {
+const Social: FC<SocialProps> = ({ label, link }: SocialProps) => {
   return (
     <div className="group flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition hover:bg-dark dark:border-light dark:hover:bg-light">
       <a
