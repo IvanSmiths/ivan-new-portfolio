@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Works } from "../../../utils/graphql";
+import Link from "next/link";
 
 type WorkProps = {
   works: Works[];
@@ -72,6 +73,7 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
             <div
               id={work.id}
               className={work.class}
+              key={index}
               style={{
                 transform:
                   index === 1
@@ -80,18 +82,19 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
                       ? "translate3d(0px, 0px, -20rem) translateY(-50%)"
                       : "translateY(-50%)",
               }}
-              key={index}
             >
-              <img
-                className="inline w-full rounded-md"
-                src={work.homeImage.url}
-                width={work.homeImage.width}
-                height={work.homeImage.height}
-                alt={work.company}
-              />
-              <div className="perspective-desc">
-                <h2 className="text-xl">{work.company}</h2>
-              </div>
+              <Link href={`works/${work.slug}`}>
+                <h2 className="absolute bottom-small right-small rounded-sm bg-dark px-4 py-2 text-xs font-semibold text-white transition hover:bg-light hover:text-dark">
+                  {work.company}
+                </h2>
+                <img
+                  className="inline w-full rounded-md"
+                  src={work.homeImage.url}
+                  width={work.homeImage.width}
+                  height={work.homeImage.height}
+                  alt={work.company}
+                />
+              </Link>
             </div>
           ))}
         </div>
