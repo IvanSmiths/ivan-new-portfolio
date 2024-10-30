@@ -5,7 +5,11 @@ import { FC } from "react";
 import { worksSchema } from "../../utils/Schemas";
 import Footer from "../globalComponents/Footer/Footer";
 import Header from "../crafts/components/Header";
-import WorksSection from "./components/WorksSection";
+import dynamic from "next/dynamic";
+
+const WorksSection = dynamic(() => import("./components/WorksSection"), {
+  ssr: false,
+});
 
 const title: string = "Ivan Smiths, all the works";
 const description: string =
