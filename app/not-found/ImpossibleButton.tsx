@@ -2,6 +2,7 @@
 
 import { Position, useButtonStore } from "../../utils/store";
 import { useEffect } from "react";
+import { getButtonMessage } from "./ButtonData";
 
 const ImpossibleButton = () => {
   const {
@@ -66,19 +67,6 @@ const ImpossibleButton = () => {
     setTimeout((): void => {
       setTransitioning(false);
     }, 300);
-  };
-
-  const getButtonMessage = (attempts: number): string => {
-    const messages = [
-      "Go home",
-      "Nice try!",
-      "Almost got it!",
-      "Keep trying...",
-      "One more time!",
-      "You tried enough times 😅"
-    ];
-    
-    return attempts >= messages.length ? messages[messages.length - 1] : messages[attempts];
   };
 
   return (
