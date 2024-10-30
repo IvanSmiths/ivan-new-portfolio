@@ -67,7 +67,7 @@ const ImpossibleButton = () => {
   return (
     <div className="relative h-screen w-full">
       <div
-        className="absolute cursor-pointer p-8"
+        className="absolute z-50 cursor-pointer p-8"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
