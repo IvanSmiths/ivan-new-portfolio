@@ -79,9 +79,7 @@ const ImpossibleButton = () => {
         }}
         onMouseEnter={handleMouseNear}
       >
-        <button>
-          {attempts >= 5 ? "You tried enough times" : "Try to click me!"}
-        </button>
+        <button>{attempts >= 5 ? "You tried enough times" : "Go home"}</button>
       </div>
     </div>
   );

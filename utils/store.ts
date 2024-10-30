@@ -79,14 +79,14 @@ interface ButtonStore {
   setPosition: (position: Position) => void;
   setTransitioning: (transitioning: boolean) => void;
   resetPosition: () => void;
-  resetAttempts: () => void;
+  resetAll: () => void;
 }
 
 export const useButtonStore = create<ButtonStore>()(
   persist(
     (set) => {
-      const getCenterX = (): number => window.innerWidth / 2 - 75;
-      const getCenterY = (): number => window.innerHeight / 2 - 25;
+      const getCenterX = (): number => window.innerWidth / 2 - 85;
+      const getCenterY = (): number => window.innerHeight / 2 + 40;
 
       return {
         position: { x: getCenterX(), y: getCenterY() },
@@ -100,7 +100,8 @@ export const useButtonStore = create<ButtonStore>()(
         resetPosition: (): void => {
           set({ position: { x: getCenterX(), y: getCenterY() } });
         },
-        resetAttempts: () => set({ attempts: 0 }),
+        resetAll: () =>
+          set({ attempts: 0, position: { x: getCenterX(), y: getCenterY() } }),
       };
     },
     {
