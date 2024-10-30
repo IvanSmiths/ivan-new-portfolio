@@ -68,6 +68,19 @@ const ImpossibleButton = () => {
     }, 300);
   };
 
+  const getButtonMessage = (attempts: number): string => {
+    const messages = [
+      "Go home",
+      "Nice try!",
+      "Almost got it!",
+      "Keep trying...",
+      "One more time!",
+      "You tried enough times 😅"
+    ];
+    
+    return attempts >= messages.length ? messages[messages.length - 1] : messages[attempts];
+  };
+
   return (
     <div className="relative h-screen w-full">
       <div
@@ -79,7 +92,7 @@ const ImpossibleButton = () => {
         }}
         onMouseEnter={handleMouseNear}
       >
-        <button>{attempts >= 5 ? "You tried enough times" : "Go home"}</button>
+       <button>{getButtonMessage(attempts)}</button>
       </div>
     </div>
   );
