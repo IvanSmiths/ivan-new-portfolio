@@ -14,21 +14,6 @@ type Overlay = {
   hide: () => void;
 };
 
-export enum ThemeMode {
-  Light = "Light",
-  Dark = "Dark",
-}
-
-export enum ThemeColors {
-  Light = "#09090B",
-  Dark = "#e7e7e7",
-}
-
-type Theme = {
-  activeTheme: ThemeMode;
-  setActiveTheme: (theme: ThemeMode) => void;
-};
-
 export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
   create<Animation>()(() => ({
     fast: 0.4,
@@ -47,21 +32,6 @@ export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
     {
       name: "overlay-storage",
       storage: createJSONStorage(() => sessionStorage),
-    },
-  ),
-);
-
-export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
-  persist<Theme>(
-    (set, get) => ({
-      activeTheme: ThemeMode.Light,
-      setActiveTheme: (theme: ThemeMode) => {
-        set({ activeTheme: (get().activeTheme = theme) });
-      },
-    }),
-    {
-      name: "theme",
-      storage: createJSONStorage(() => localStorage),
     },
   ),
 );
@@ -85,7 +55,7 @@ interface ButtonStore {
 export const useButtonStore = create<ButtonStore>()(
   persist(
     (set) => {
-      const getCenterX = (): number => window.innerWidth / 2 - 85;
+      const getCenterX = (): number => window.innerWidth / 2 - 100;
       const getCenterY = (): number => window.innerHeight / 2 + 40;
 
       return {
