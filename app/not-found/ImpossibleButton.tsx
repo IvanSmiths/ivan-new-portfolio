@@ -72,15 +72,19 @@ const ImpossibleButton = () => {
   return (
     <div className="relative h-screen w-full">
       <div
-        className="absolute z-50 cursor-pointer p-8"
+        onMouseEnter={handleMouseNear}
+        className="absolute z-30 p-10"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
           transition: isTransitioning ? "all 0.3s ease-in-out" : "none",
         }}
-        onMouseEnter={handleMouseNear}
       >
-       <button>{getButtonMessage(attempts)}</button>
+        <div className="flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition dark:border-light">
+          <button className="text-1xl transition">
+            {getButtonMessage(attempts)}
+          </button>
+        </div>
       </div>
     </div>
   );
