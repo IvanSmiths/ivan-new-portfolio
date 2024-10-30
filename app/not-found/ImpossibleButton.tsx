@@ -49,7 +49,11 @@ const ImpossibleButton = () => {
   };
 
   useEffect(() => {
+    const handleResize = () => resetPosition();
+    window.addEventListener("resize", handleResize);
     resetPosition();
+
+    return () => window.removeEventListener("resize", handleResize);
   }, [resetPosition]);
 
   const handleMouseNear = (): void => {
