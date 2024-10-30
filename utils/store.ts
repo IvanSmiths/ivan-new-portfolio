@@ -65,3 +65,37 @@ export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
     },
   ),
 );
+
+export interface Position {
+  x: number;
+  y: number;
+}
+
+interface ButtonStore {
+  position: Position;
+  attempts: number;
+  isTransitioning: boolean;
+  incrementAttempts: () => void;
+  setPosition: (position: Position) => void;
+  setTransitioning: (transitioning: boolean) => void;
+  reset: () => void;
+}
+
+export const useButtonStore = create<ButtonStore>()(
+  persist(
+    (set) => ({
+      position: { x: 50, y: 50 },
+      attempts: 0,
+      isTransitioning: false,
+      incrementAttempts: () =>
+        set((state) => ({ attempts: state.attempts + 1 })),
+      setPosition: (position) => set({ position }),
+      setTransitioning: (transitioning) =>
+        set({ isTransitioning: transitioning }),
+      reset: () => set({ attempts: 0 }),
+    }),
+    {
+      name: "button-storage", // key for localStorage
+    },
+  ),
+);
