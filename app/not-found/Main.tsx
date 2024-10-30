@@ -3,6 +3,7 @@
 import { FC } from "react";
 import { useButtonStore } from "../../utils/store";
 import Link from "next/link";
+import Button from "../globalComponents/Button";
 
 const Main: FC = () => {
   const { attempts } = useButtonStore();
@@ -12,12 +13,9 @@ const Main: FC = () => {
         How did you get here?
       </h1>
       {attempts >= 5 && (
-        <Link
-          href="/"
-          className="fade-in absolute left-1/2 top-[60%] z-30 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer font-bold"
-        >
-          Easy home button
-        </Link>
+        <div className="fade-in absolute left-1/2 top-[60%] z-30 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer">
+          <Button label="Easy home button" link="/" />
+        </div>
       )}
     </>
   );
