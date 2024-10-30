@@ -11,34 +11,38 @@ const ImpossibleButton = () => {
     const saved = localStorage.getItem("buttonAttempts");
     return saved ? parseInt(saved, 0) : 0;
   });
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
-  useEffect(() => {
+  useEffect((): void => {
     localStorage.setItem("buttonAttempts", attempts.toString());
   }, [attempts]);
 
   const getRandomPosition = (): Position => {
-    const buttonWidth = 150;
-    const buttonHeight = 50;
-    const padding = 16;
+    const buttonWidth: number = 150;
+    const buttonHeight: number = 50;
+    const padding: number = 16;
 
-    const maxX = Math.max(0, window.innerWidth - buttonWidth - padding * 2);
-    const maxY = Math.max(0, window.innerHeight - buttonHeight - padding * 2);
+    const maxX: number = Math.max(
+      0,
+      window.innerWidth - buttonWidth - padding * 2,
+    );
+    const maxY: number = Math.max(
+      0,
+      window.innerHeight - buttonHeight - padding * 2,
+    );
 
-    // Calculate minimum distance the button should move (1/4 of the screen)
-    const minDistance = Math.min(window.innerWidth, window.innerHeight) / 4;
+    const minDistance: number =
+      Math.min(window.innerWidth, window.innerHeight) / 4;
 
     let newPos: Position;
-    let distance = 0;
+    let distance: number = 0;
 
-    // Keep generating positions until we find one that's far enough
     do {
       newPos = {
         x: Math.random() * maxX,
         y: Math.random() * maxY,
       };
 
-      // Calculate distance from current position
       distance = Math.sqrt(
         Math.pow(newPos.x - position.x, 2) + Math.pow(newPos.y - position.y, 2),
       );
@@ -47,28 +51,23 @@ const ImpossibleButton = () => {
     return newPos;
   };
 
-  const handleMouseNear = () => {
-    setAttempts((prev) => prev + 1);
+  const handleMouseNear = (): void => {
+    setAttempts((prev: number) => prev + 1);
     setIsTransitioning(true);
 
-    // Move button to random position
-    const newPos = getRandomPosition();
+    const newPos: Position = getRandomPosition();
     setPosition(newPos);
 
-    // Reset transition state after animation
-    setTimeout(() => {
+    setTimeout((): void => {
       setIsTransitioning(false);
     }, 300);
   };
 
   return (
     <div className="relative h-screen w-full bg-gray-100">
-      {/* Attempts counter */}
       <div className="absolute right-4 top-4 rounded-lg bg-white px-4 py-2 shadow">
         Attempts: {attempts}
       </div>
-
-      {/* Button wrapper with hover detection area */}
       <div
         className="absolute cursor-pointer p-8"
         style={{
