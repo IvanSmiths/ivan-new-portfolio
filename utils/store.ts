@@ -97,7 +97,7 @@ export const useButtonStore = create<ButtonStore>()(
       resetAttempts: () => set({ attempts: 0 }),
     }),
     {
-      name: "button-storage", // key for localStorage
+      name: "button-storage",
     },
   ),
 );
