@@ -1,6 +1,7 @@
 "use client";
 
 import { Position, useButtonStore } from "../../utils/store";
+import { useEffect } from "react";
 
 const ImpossibleButton = () => {
   const {
@@ -9,8 +10,8 @@ const ImpossibleButton = () => {
     isTransitioning,
     incrementAttempts,
     setPosition,
+    resetPosition,
     setTransitioning,
-    reset,
   } = useButtonStore();
 
   const getRandomPosition = (): Position => {
@@ -47,6 +48,10 @@ const ImpossibleButton = () => {
     return newPos;
   };
 
+  useEffect(() => {
+    resetPosition();
+  }, [resetPosition]);
+
   const handleMouseNear = (): void => {
     incrementAttempts();
     setTransitioning(true);
@@ -60,16 +65,7 @@ const ImpossibleButton = () => {
   };
 
   return (
-    <div className="relative h-screen w-full bg-gray-100">
-      <div className="absolute right-4 top-4 rounded-lg bg-white px-4 py-2 shadow">
-        Attempts: {attempts}
-        <button
-          className="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white shadow-lg hover:bg-blue-600 focus:outline-none"
-          onClick={reset}
-        >
-          Reset
-        </button>
-      </div>
+    <div className="relative h-screen w-full">
       <div
         className="absolute cursor-pointer p-8"
         style={{

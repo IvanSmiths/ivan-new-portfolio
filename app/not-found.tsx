@@ -1,14 +1,12 @@
-import Link from "next/link";
 import { NextPage } from "next";
-import ImpossibleButton from "./globalComponents/ImpossibleButton";
+import ImpossibleButton from "./not-found/ImpossibleButton";
+import Counter from "./not-found/Counter";
 
 const NotFound: NextPage = () => {
   return (
     <div>
-      <h2>Not Found</h2>
+      <Counter />
       <ImpossibleButton />
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
     </div>
   );
 };

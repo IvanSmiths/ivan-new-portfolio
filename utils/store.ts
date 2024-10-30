@@ -78,7 +78,8 @@ interface ButtonStore {
   incrementAttempts: () => void;
   setPosition: (position: Position) => void;
   setTransitioning: (transitioning: boolean) => void;
-  reset: () => void;
+  resetPosition: () => void;
+  resetAttempts: () => void;
 }
 
 export const useButtonStore = create<ButtonStore>()(
@@ -92,7 +93,8 @@ export const useButtonStore = create<ButtonStore>()(
       setPosition: (position) => set({ position }),
       setTransitioning: (transitioning) =>
         set({ isTransitioning: transitioning }),
-      reset: () => set({ attempts: 0 }),
+      resetPosition: () => set({ position: { x: 50, y: 50 } }),
+      resetAttempts: () => set({ attempts: 0 }),
     }),
     {
       name: "button-storage", // key for localStorage
