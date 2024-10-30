@@ -79,18 +79,7 @@ const ImpossibleButton = () => {
         }}
         onMouseEnter={handleMouseNear}
       >
-        <button
-          className={`
-            whitespace-nowrap rounded-lg 
-            bg-blue-500 
-            px-6 
-            py-3 
-            text-white 
-            shadow-lg 
-            hover:bg-blue-600
-            focus:outline-none
-          `}
-        >
+        <button>
           {attempts >= 5 ? "You tried enough times" : "Try to click me!"}
         </button>
       </div>

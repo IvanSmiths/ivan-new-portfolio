@@ -84,25 +84,25 @@ interface ButtonStore {
 
 export const useButtonStore = create<ButtonStore>()(
   persist(
-    (set) => ({
-      position: {
-        x: window.innerWidth / 2 - 75,
-        y: window.innerWidth / 2 - 75,
-      },
-      attempts: 0,
-      isTransitioning: false,
-      incrementAttempts: () =>
-        set((state) => ({ attempts: state.attempts + 1 })),
-      setPosition: (position) => set({ position }),
-      setTransitioning: (transitioning) =>
-        set({ isTransitioning: transitioning }),
-      resetPosition: (): void => {
-        const centerX: number = window.innerWidth / 2 - 75;
-        const centerY: number = window.innerHeight / 2 - 25;
-        set({ position: { x: centerX, y: centerY } });
-      },
-      resetAttempts: () => set({ attempts: 0 }),
-    }),
+    (set) => {
+      const getCenterX = (): number => window.innerWidth / 2 - 75;
+      const getCenterY = (): number => window.innerHeight / 2 - 25;
+
+      return {
+        position: { x: getCenterX(), y: getCenterY() },
+        attempts: 0,
+        isTransitioning: false,
+        incrementAttempts: () =>
+          set((state) => ({ attempts: state.attempts + 1 })),
+        setPosition: (position) => set({ position }),
+        setTransitioning: (transitioning) =>
+          set({ isTransitioning: transitioning }),
+        resetPosition: (): void => {
+          set({ position: { x: getCenterX(), y: getCenterY() } });
+        },
+        resetAttempts: () => set({ attempts: 0 }),
+      };
+    },
     {
       name: "button-storage",
     },
