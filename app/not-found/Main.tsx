@@ -2,7 +2,6 @@
 
 import { FC } from "react";
 import { useButtonStore } from "../../utils/store";
-import Link from "next/link";
 import Button from "../globalComponents/Button";
 
 const Main: FC = () => {
