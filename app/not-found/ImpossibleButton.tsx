@@ -3,6 +3,7 @@
 import { Position, useButtonStore } from "../../utils/store";
 import { useEffect } from "react";
 import { getButtonMessage } from "./ButtonData";
+import Link from "next/link";
 
 const ImpossibleButton = () => {
   const {
@@ -81,9 +82,9 @@ const ImpossibleButton = () => {
         }}
       >
         <div className="flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition dark:border-light">
-          <button className="text-1xl transition">
+          <Link href="/" className="text-1xl transition">
             {getButtonMessage(attempts)}
-          </button>
+          </Link>
         </div>
       </div>
     </div>
