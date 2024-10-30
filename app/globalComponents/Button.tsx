@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Link from "next/link";
-import Arrow from "./Footer/Arrow";
 
 type ButtonProps = {
   label: string;
