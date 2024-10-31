@@ -55,8 +55,10 @@ interface ButtonStore {
 export const useButtonStore = create<ButtonStore>()(
   persist(
     (set) => {
-      const getCenterX = (): number => window.innerWidth / 2 - 100;
-      const getCenterY = (): number => window.innerHeight / 2 + 40;
+      const getCenterX = (): number =>
+        typeof window !== "undefined" ? window.innerWidth / 2 - 100 : 0;
+      const getCenterY = (): number =>
+        typeof window !== "undefined" ? window.innerHeight / 2 + 40 : 0;
 
       return {
         position: { x: getCenterX(), y: getCenterY() },
