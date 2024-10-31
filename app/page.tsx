@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import About from "./components/About/About";
-import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import { getWorks, Works } from "../utils/graphql";
-import Hero from "./components/Hero/Hero";
 import { homeSchema } from "../utils/Schemas";
-import Overlay from "./components/Loader/Overlay";
-import Footer from "./globalComponents/Footer/Footer";
+import About from "./components/About/About";
 import Expertise from "./components/Expertise/Expertise";
+import Hero from "./components/Hero/Hero";
+import LoaderWrapper from "./components/Loader/LoaderWrapper";
+import Overlay from "./components/Loader/Overlay";
 import WorksSection from "./components/Works/WorksSection";
+import Footer from "./globalComponents/Footer/Footer";
 
 const title: string = "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden";
 const description: string =
@@ -40,8 +40,8 @@ const Home = async () => {
       <Hero />
       <Overlay />
       <LoaderWrapper />
-      <About />
       <WorksSection works={works} />
+      <About />
       <Expertise />
       <Footer />
       <script
