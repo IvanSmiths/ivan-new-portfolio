@@ -61,7 +61,7 @@ const About = () => {
         dotRef.current,
         {
           scale: 0,
-          translateY: 30,
+          translateY: -30,
         },
         {
           scale: 350,
@@ -90,6 +90,7 @@ const About = () => {
           filter: "blur(0px)",
         });
       });
+
       timeline.to(["#Development", "#Skills"], {
         color: "#FF4D4D",
         textShadow: "0px 0px 10px #FF4D4D",
