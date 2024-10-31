@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
-import { bebas_neue } from "../../../utils/fonts";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import { useRef } from "react";
+import { bebas_neue } from "../../../utils/fonts";
 
 type RowElement = {
   label: string;
@@ -37,6 +37,15 @@ const About = () => {
 
   useGSAP(
     (): void => {
+      const secondTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top bottom",
+          end: "2500px",
+          scrub: true,
+        },
+      });
+
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: triggerRef.current,
@@ -48,6 +57,7 @@ const About = () => {
       });
 
       const elementIDs: string[] = [
+        "#I",
         "#Expertly",
         "#Blend",
         "#My",
@@ -58,6 +68,19 @@ const About = () => {
         "#Development",
         "#Skills",
       ];
+
+      secondTimeline.fromTo(
+        ".dot",
+        {
+          scale: 0,
+          translateY: 30,
+        },
+        {
+          scale: 350,
+          duration: 1,
+          translateY: 800,
+        },
+      );
 
       elementIDs.forEach((id: string): void => {
         timeline.to(id, {
@@ -71,15 +94,20 @@ const About = () => {
   );
 
   return (
-    <div data-testid="homeAboutSection" ref={containerRef}>
-      <div ref={triggerRef} className="grid h-screen w-full">
+    <div
+      data-testid="homeAboutSection"
+      className="overflow-hidden pt-section"
+      ref={containerRef}
+    >
+      <div ref={triggerRef} className="relative grid h-screen w-full">
+        <div className="dot absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark dark:bg-light"></div>
         <div className="col-start-1 col-end-7 flex flex-col items-center justify-center gap-x-small gap-y-0 md:col-start-2 md:col-end-12">
           <div className="flex flex-wrap items-center justify-center gap-x-small">
             {firstRow.map(({ label, id }: RowElement, index: number) => (
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} ${index === 0 || index === 1 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl text-light opacity-0 blur-2xl dark:text-dark md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -90,7 +118,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl text-light opacity-0 blur-2xl dark:text-dark md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -101,7 +129,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl text-light opacity-0 blur-2xl dark:text-dark md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
