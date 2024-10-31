@@ -13,6 +13,7 @@ type RowElement = {
 const About = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
+  const dotRef = useRef<HTMLDivElement | null>(null);
 
   const firstRow: RowElement[] = [
     { label: "I", id: "I" },
@@ -70,7 +71,7 @@ const About = () => {
       ];
 
       secondTimeline.fromTo(
-        ".dot",
+        dotRef.current,
         {
           scale: 0,
           translateY: 30,
@@ -100,7 +101,10 @@ const About = () => {
       ref={containerRef}
     >
       <div ref={triggerRef} className="relative grid h-screen w-full">
-        <div className="dot absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark dark:bg-light"></div>
+        <div
+          ref={dotRef}
+          className="absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark dark:bg-light"
+        ></div>
         <div className="col-start-1 col-end-7 flex flex-col items-center justify-center gap-x-small gap-y-0 md:col-start-2 md:col-end-12">
           <div className="flex flex-wrap items-center justify-center gap-x-small">
             {firstRow.map(({ label, id }: RowElement, index: number) => (
