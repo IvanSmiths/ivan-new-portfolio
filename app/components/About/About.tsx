@@ -57,19 +57,6 @@ const About = () => {
         },
       });
 
-      const elementIDs: string[] = [
-        "#I",
-        "#Expertly",
-        "#Blend",
-        "#My",
-        "#Design",
-        "#Background",
-        "#With",
-        "#My-2",
-        "#Development",
-        "#Skills",
-      ];
-
       secondTimeline.fromTo(
         dotRef.current,
         {
@@ -82,6 +69,19 @@ const About = () => {
           translateY: 800,
         },
       );
+
+      const elementIDs: string[] = [
+        "#I",
+        "#Expertly",
+        "#Blend",
+        "#My",
+        "#Design",
+        "#Background",
+        "#With",
+        "#My-2",
+        "#Development",
+        "#Skills",
+      ];
 
       elementIDs.forEach((id: string): void => {
         timeline.to(id, {
