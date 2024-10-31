@@ -90,6 +90,10 @@ const About = () => {
           filter: "blur(0px)",
         });
       });
+      timeline.to(["#Development", "#Skills"], {
+        color: "#FF4D4D",
+        textShadow: "0px 0px 10px #FF4D4D",
+      });
     },
     { scope: containerRef },
   );
