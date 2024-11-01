@@ -1,10 +1,10 @@
 "use client";
 
-import { bebas_neue } from "../../../utils/fonts";
 import { useRef } from "react";
+import { bebas_neue } from "../../../utils/fonts";
+import useHorizontalScroll from "../../../utils/hooks/useHorizontalScroll";
 import AnimatedAccordion from "./Accordion";
 import { AccordionItem, accordionItems } from "./AccordionItems";
-import useHorizontalScroll from "../../../utils/hooks/useHorizontalScroll";
 
 const Expertise = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -24,7 +24,7 @@ const Expertise = () => {
           ))}
           <h2
             aria-label="Expertises section"
-            className={`${bebas_neue.className} cursor-default pt-14 text-[60rem] leading-[43rem] md:pt-32`}
+            className={`${bebas_neue.className} cursor-default pt-14 text-[40rem] leading-[28rem] md:pt-32 md:text-[60rem] md:leading-[43rem]`}
           >
             Expertises
           </h2>

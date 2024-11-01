@@ -1,10 +1,10 @@
 "use client";
 
-import Header from "../../components/Hero/Header";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { FC, useEffect, useRef } from "react";
 import { useAnimationStore, useOverlayStore } from "../../../utils/store";
+import Header from "../../components/Hero/Header";
 
 const Loader: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -66,15 +66,15 @@ const Loader: FC = () => {
     <>
       <div
         ref={faderRef}
-        className="bg-light dark:bg-dark absolute bottom-0 left-0 z-10 h-full w-full"
+        className="absolute bottom-0 left-0 z-50 h-full w-full bg-light dark:bg-dark"
       ></div>
       <div
         ref={containerRef}
-        className="bg-light dark:bg-dark fixed left-0 top-0 z-20 h-full w-full"
+        className="fixed left-0 top-0 z-50 h-full w-full bg-light dark:bg-dark"
       >
         <div
           ref={imageRef}
-          className="absolute inset-0 z-20 mx-auto my-auto h-fit w-full opacity-0"
+          className="absolute inset-0 z-50 mx-auto my-auto h-fit w-full opacity-0"
         >
           <Header />
         </div>
