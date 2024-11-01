@@ -1,8 +1,8 @@
-import Blog from "../components/Blog/Blog";
-import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import type { Metadata } from "next";
-import Footer from "../globalComponents/Footer/Footer";
+import Blog from "../components/Blog/Blog";
 import Header from "../crafts/components/Header";
+import Footer from "../globalComponents/Footer/Footer";
+import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 
 const title: string = "Ivan Smiths, all blog posts";
 const description: string =
@@ -36,7 +36,7 @@ const headerProps = {
 
 export default async function BlogPage() {
   return (
-    <div className="mt-large">
+    <div className="md:mt-large">
       <Header
         h1={headerProps.h1}
         h2={headerProps.h2}
