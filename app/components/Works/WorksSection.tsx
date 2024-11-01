@@ -17,36 +17,6 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const handlePanelClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-
-    const panel = e.currentTarget;
-    const img = panel.querySelector("img");
-    const overlay = document.querySelector(".overlay");
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        window.location.href = panel.href;
-      },
-    });
-
-    tl.to(overlay, {
-      height: "100%",
-      duration: 1,
-      ease: "power4.out",
-    });
-
-    tl.to(img, {
-      position: "fixed",
-      top: "50%",
-      left: "50%",
-      xPercent: -50,
-      yPercent: -50,
-      duration: 200000,
-      ease: "power2.inOut",
-    });
-  };
-
   useGSAP(
     (): void => {
       let panels = gsap.utils.toArray<HTMLElement>(".panel");
@@ -79,7 +49,6 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
 
   return (
     <div ref={triggerRef} className="my-section h-fit w-full">
-      <div className="overlay fixed left-0 top-0 z-10 h-0 w-full bg-light dark:bg-dark"></div>
       {works.map((work: Works) => (
         <Link
           key={work.id}
