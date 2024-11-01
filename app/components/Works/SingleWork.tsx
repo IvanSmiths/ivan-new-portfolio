@@ -22,15 +22,15 @@ const SingleWork = forwardRef<HTMLAnchorElement, WorkPanelProps>(
         </h3>
         <div
           id="description"
-          className="relative z-20 col-span-full opacity-0 md:col-start-5 md:col-end-9"
+          className="relative z-20 col-span-full opacity-0 blur-2xl md:col-start-5 md:col-end-9"
         >
-          <div className="absolute inset-0 z-10 bg-black/50"></div>
+          <div className="absolute inset-0 z-10 rounded-xl bg-black/50"></div>
           <div className="absolute bottom-small left-small z-20 pr-small text-light">
             <h4 className="pb-smallest text-xl font-bold">{work.role}</h4>
             <p className="text-lg">{work.homeDescription}</p>
           </div>
           <img
-            className="relative h-[40rem] object-cover"
+            className="relative h-[40rem] rounded-xl object-cover"
             src={work.homeImage.url}
             alt={work.company}
             width={work.homeImage.width}

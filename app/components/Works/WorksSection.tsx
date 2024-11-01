@@ -33,6 +33,7 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
             const tl = gsap.timeline();
             tl.to(panel.querySelector("#description"), {
               opacity: 1,
+              filter: "blur(0px)",
               duration: 0.5,
             });
           },
