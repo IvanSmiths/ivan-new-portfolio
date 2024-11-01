@@ -17,6 +17,37 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  const handlePanelClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    const panel = e.currentTarget;
+    const img = panel.querySelector("img");
+    const overlay = panel.querySelector(".overlay");
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        window.location.href = panel.href;
+      },
+    });
+
+    tl.to(overlay, {
+      height: "100%",
+      duration: 0.5,
+      ease: "power2.inOut",
+    });
+
+    tl.to(img, {
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+      xPercent: -50,
+      yPercent: -50,
+      zIndex: 50,
+      duration: 0.5,
+      ease: "power2.inOut",
+    });
+  };
+
   useGSAP(
     (): void => {
       let panels = gsap.utils.toArray<HTMLElement>(".panel");
@@ -63,7 +94,9 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
             key={work.id}
             className="panel relative grid h-screen  w-full items-center justify-center bg-white dark:bg-dark"
             href={`works/${work.slug}`}
+            onClick={handlePanelClick}
           >
+            <div className="overlay fixed bottom-0 z-20 h-0 w-full bg-red-500"></div>
             <h3
               className={`${bebas_neue.className} absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-[19rem] font-bold leading-[15rem]`}
             >
@@ -71,7 +104,7 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
             </h3>
             <div className="z-20 col-start-5 col-end-9">
               <img
-                className="h-[40rem] object-cover opacity-0"
+                className="z-30 h-[40rem] object-cover opacity-0"
                 src={work.homeImage.url}
                 alt={work.company}
                 width={work.homeImage.width}
