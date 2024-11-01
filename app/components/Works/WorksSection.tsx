@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
-import { FC, useRef } from "react";
+import { createRef, FC, RefObject, useRef } from "react";
 import { bebas_neue } from "../../../utils/fonts";
 import { Works } from "../../../utils/graphql";
 
@@ -13,19 +13,21 @@ type WorkProps = {
 };
 
 const WorksSection: FC<WorkProps> = ({ works }) => {
-  const triggerRef = useRef<HTMLDivElement>(null);
-
-  gsap.registerPlugin(ScrollTrigger);
+  const scopeRef = useRef<HTMLDivElement>(null);
+  const panelRefs = useRef<RefObject<HTMLAnchorElement>[]>(
+    works.map(() => createRef<HTMLAnchorElement>()),
+  );
 
   useGSAP(
     (): void => {
-      let panels = gsap.utils.toArray<HTMLElement>(".panel");
+      panelRefs.current.forEach((panelRef, i) => {
+        const panel = panelRef.current;
+        if (!panel) return;
 
-      panels.forEach((panel, i) => {
         ScrollTrigger.create({
           trigger: panel,
           start: "top top",
-          pin: i === panels.length - 1 ? false : true,
+          pin: i === panelRefs.current.length - 1 ? false : true,
           end: "bottom 100",
           pinSpacing: false,
           onEnter: () => {
@@ -44,13 +46,14 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
         });
       });
     },
-    { scope: triggerRef },
+    { scope: scopeRef },
   );
 
   return (
-    <div ref={triggerRef} className="my-section h-fit w-full">
-      {works.map((work: Works) => (
+    <div ref={scopeRef} className="my-section h-fit w-full">
+      {works.map((work: Works, index: number) => (
         <Link
+          ref={panelRefs.current[index]}
           key={work.id}
           className="panel relative grid h-screen w-full items-center justify-center bg-light dark:bg-dark"
           href={`works/${work.slug}`}
