@@ -40,6 +40,7 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
           onLeaveBack: () => {
             gsap.to(panel.querySelector("#description"), {
               opacity: 0,
+              filter: "blur(40px)",
               duration: 0.5,
             });
           },
