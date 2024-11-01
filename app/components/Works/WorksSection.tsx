@@ -27,7 +27,8 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
           trigger: panel,
           start: "top top",
           pin: i === panelRefs.current.length - 1 ? false : true,
-          end: "bottom 100",
+          end: "bottom -600",
+          markers: true,
           pinSpacing: false,
           onEnter: () => {
             const tl = gsap.timeline();
