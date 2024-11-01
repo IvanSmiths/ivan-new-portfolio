@@ -87,13 +87,13 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
           href={`works/${work.slug}`}
         >
           <h3
-            className={`${bebas_neue.className} absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-[19rem] font-bold leading-[15rem]`}
+            className={`${bebas_neue.className} absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-9xl font-bold md:text-[19rem] md:leading-[15rem]`}
           >
             {work.company}
           </h3>
           <div
             id="description"
-            className="relative z-20 col-start-5 col-end-9 opacity-0"
+            className="relative z-20 col-span-full opacity-0 md:col-start-5 md:col-end-9"
           >
             <div className="absolute inset-0 z-10 bg-black/50"></div>
             <div className="absolute bottom-small left-small z-20 pr-small text-light">
