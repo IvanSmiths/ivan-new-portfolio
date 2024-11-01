@@ -28,6 +28,18 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
           pin: i === panels.length - 1 ? false : true,
           end: "bottom 100",
           pinSpacing: false,
+          onEnter: () => {
+            gsap.to(panel.querySelector("img"), {
+              opacity: 1,
+              duration: 0.5,
+            });
+          },
+          onLeaveBack: () => {
+            gsap.to(panel.querySelector("img"), {
+              opacity: 0,
+              duration: 0.5,
+            });
+          },
         });
       });
     },
@@ -51,7 +63,7 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
               </h3>
             </Link>
             <img
-              className="col-start-5 col-end-9"
+              className="col-start-5 col-end-9 opacity-0"
               src={work.homeImage.url}
               alt={work.company}
               width={work.homeImage.width}
