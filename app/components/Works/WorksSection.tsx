@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { createRef, FC, RefObject, useRef } from "react";
 import { Works } from "../../../utils/graphql";
-import Header from "../../crafts/components/Header";
 import SingleWork from "./SingleWork";
 
 type WorkProps = {
@@ -53,11 +52,6 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
 
   return (
     <div ref={scopeRef} className="my-section h-fit w-full">
-      <Header
-        h1="Works"
-        h2="All my works"
-        paragraph="I'm a UI/UX Developer, and I love to create beautiful and functional designs. Here, you'll find a collection of my works, showcasing my skills and creativity."
-      />
       {works.map((work: Works, index: number) => (
         <SingleWork key={work.id} work={work} ref={panelRefs.current[index]} />
       ))}
