@@ -4,7 +4,6 @@ export type Works = {
   id: string;
   slug: string;
   company: string;
-  class: string;
   role: string;
   homeDescription: string;
   homeImage: {
@@ -38,11 +37,12 @@ export async function getWorks(): Promise<Works[]> {
             id
             slug
             company
-            class
             role
             homeDescription
             homeImage {
               url
+              height
+              width
             }
             }
           }
