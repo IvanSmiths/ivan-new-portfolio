@@ -1,15 +1,11 @@
-import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import type { Metadata } from "next";
-import { getWorks, Works } from "../../utils/graphql";
 import { FC } from "react";
+import { getWorks, Works } from "../../utils/graphql";
 import { worksSchema } from "../../utils/Schemas";
-import Footer from "../globalComponents/Footer/Footer";
 import Header from "../crafts/components/Header";
-import dynamic from "next/dynamic";
-
-const WorksSection = dynamic(() => import("./components/WorksSection"), {
-  ssr: false,
-});
+import Footer from "../globalComponents/Footer/Footer";
+import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
+import WorksSection from "./components/WorksSection";
 
 const title: string = "Ivan Smiths, all the works";
 const description: string =
