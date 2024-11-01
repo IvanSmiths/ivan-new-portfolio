@@ -24,6 +24,13 @@ const SingleWork = forwardRef<HTMLAnchorElement, WorkPanelProps>(
           id="description"
           className="relative z-20 col-span-full opacity-0 blur-2xl md:col-start-5 md:col-end-9"
         >
+          <img
+            className="absolute left-small top-small z-20 h-fit w-20 object-cover"
+            src={work.homeLogo.url}
+            alt={work.company}
+            width={work.homeLogo.width}
+            height={work.homeLogo.height}
+          />
           <div className="absolute inset-0 z-10 rounded-xl bg-black/50"></div>
           <div className="absolute bottom-small left-small z-20 pr-small text-light">
             <h4 className="pb-smallest text-xl font-bold">{work.role}</h4>

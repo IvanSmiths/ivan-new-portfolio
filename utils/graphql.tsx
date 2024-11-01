@@ -6,6 +6,11 @@ export type Works = {
   company: string;
   role: string;
   homeDescription: string;
+  homeLogo: {
+    url: string;
+    height: number;
+    width: number;
+  };
   homeImage: {
     url: string;
     height: number;
@@ -38,13 +43,18 @@ export async function getWorks(): Promise<Works[]> {
             slug
             company
             role
+            homeLogo {
+              url
+              height
+              width
+            }
             homeDescription
             homeImage {
               url
               height
               width
             }
-            }
+           }
           }
         `,
     }),
