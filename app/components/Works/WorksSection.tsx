@@ -29,11 +29,12 @@ const WorksSection: FC<WorkProps> = ({ works }) => {
           end: "bottom 100",
           pinSpacing: false,
           onEnter: () => {
-            gsap.to(panel.querySelector("img"), {
+            const tl = gsap.timeline();
+            tl.to(panel.querySelector("img"), {
               opacity: 1,
               duration: 0.5,
             });
-            gsap.to(panel.querySelector(".description"), {
+            tl.to(panel.querySelector(".description"), {
               opacity: 1,
               duration: 0.5,
             });
