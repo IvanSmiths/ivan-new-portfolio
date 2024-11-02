@@ -1,15 +1,16 @@
-import React from "react";
-
 const ShowreelMobile = () => {
   return (
     <div className="relative h-full w-full flex-grow-0 p-small">
       <video
-        src="/videos/showreel-short.mp4"
         className="h-full w-full rounded-md object-cover object-left"
+        poster="/videos/showreel-short-poster.png"
         muted
+        playsInline
         autoPlay
         loop
-      />
+      >
+        <source src="/videos/showreel-short.mp4" type="video/mp4" />
+      </video>
       <a
         href="https://youtu.be/osf7rWGB9qw"
         target="_blank"

@@ -1,11 +1,11 @@
+import Link from "next/link";
 import { FC } from "react";
 import { getBlogPosts, Posts } from "../../../utils/getPosts";
-import Link from "next/link";
 
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
-    <div data-testid="homeBlogSection" className="mt-medium grid">
+    <div data-testid="homeBlogSection" className="my-medium grid">
       <div className="col-span-full flex flex-col md:col-start-4 md:col-end-13">
         {posts.map((post: Posts, index: number) => (
           <div key={index}>

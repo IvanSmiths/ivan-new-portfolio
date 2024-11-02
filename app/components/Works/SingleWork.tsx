@@ -17,7 +17,7 @@ const SingleWork = forwardRef<HTMLAnchorElement, WorkPanelProps>(
           href={`works/${work.slug}`}
         >
           <h3
-            className={`${bebas_neue.className} absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-9xl font-bold md:text-[19rem] md:leading-[15rem]`}
+            className={`${bebas_neue.className} absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-8xl font-bold md:text-[19rem] md:leading-[15rem]`}
           >
             {work.company}
           </h3>
