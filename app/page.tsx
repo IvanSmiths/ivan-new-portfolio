@@ -40,7 +40,7 @@ const Home = async () => {
       <Hero />
       <Overlay />
       <LoaderWrapper />
-      <WorksSection works={works} />
+      <WorksSection />
       <About />
       <Expertise />
       <Footer />
