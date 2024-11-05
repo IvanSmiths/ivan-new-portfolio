@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { FC, useRef } from "react";
 import { Works } from "../../../utils/graphql";
+import Work from "../../works/components/Work";
 import WorkText from "./WorkText";
 
 type WorksSectionProps = {
@@ -50,16 +51,8 @@ const WorksSection: FC<WorksSectionProps> = ({ works }) => {
         <WorkText />
       </div>
       <div className="flex h-full w-full flex-wrap gap-small">
-        {works.map((work) => (
-          <div className="z-10 w-[calc(50%-10px)]" key={work.id}>
-            <img
-              className="h-full w-full object-cover"
-              src={work.homeImage.url}
-              height={work.homeImage.height}
-              width={work.homeImage.width}
-              alt={work.company}
-            />
-          </div>
+        {works.map((work, index) => (
+          <Work work={work} key={work.id} index={index} isInHome />
         ))}
       </div>
     </section>
