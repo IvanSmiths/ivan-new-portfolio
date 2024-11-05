@@ -7,6 +7,7 @@ const WorkText: FC = () => {
       height="389"
       viewBox="0 0 1866 389"
       fill="none"
+      className="w-full"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

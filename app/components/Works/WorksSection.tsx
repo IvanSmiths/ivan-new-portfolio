@@ -8,12 +8,12 @@ type WorksSectionProps = {
 
 const WorksSection: FC<WorksSectionProps> = ({ works }) => {
   return (
-    <section className="relative flex h-screen flex-col items-center justify-center px-small">
+    <section className="relative flex h-full flex-col items-center justify-center px-small">
       <WorkText />
-      <div className="flex h-full w-full flex-wrap gap-small">
+      <div className="flex h-full w-full flex-col flex-wrap gap-small">
         {works.map((work) => (
-          <div className="relative h-2/6 w-full" key={work.id}>
-            <div className="absolute inset-0">
+          <div className="relative h-[600px] w-full" key={work.id}>
+            <div className="absolute left-0 top-0">
               <img
                 className="h-full w-full object-cover"
                 src={work.homeImage.url}
