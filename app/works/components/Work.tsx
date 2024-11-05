@@ -26,7 +26,7 @@ const Work: FC<WorkProps> = ({ work, index }) => {
           width={work.homeLogo.width}
           height={work.homeLogo.height}
         />
-        <div className="absolute inset-0 z-10 rounded-xl bg-black/50"></div>
+        <div className="absolute inset-0 z-10 rounded-xl bg-black/30"></div>
         <div className="absolute bottom-small left-small z-20 pr-small text-light">
           <h2 className="pb-smallest text-3xl font-bold">{work.role}</h2>
           <h3 className="text-xl">{work.company}</h3>
