@@ -15,7 +15,9 @@ const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
       key={index}
       data-testid={`homeWork${index}`}
       className={`flex items-center justify-center ${
-        isInHome ? "z-10 w-[calc(50%-10px)]" : "h-screen w-screen p-small"
+        isInHome
+          ? "z-10 w-full md:w-[calc(50%-10px)]"
+          : "h-screen w-screen p-small"
       }`}
     >
       <div
