@@ -28,7 +28,6 @@ const WorksSection: FC<WorksSectionProps> = ({ works }) => {
         end: () => `${scrollRef.current?.offsetHeight}px bottom`,
         pin: true,
         invalidateOnRefresh: true,
-        markers: true,
         scrub: true,
       });
       // @ts-ignore
@@ -42,7 +41,7 @@ const WorksSection: FC<WorksSectionProps> = ({ works }) => {
   return (
     <section
       ref={scrollRef}
-      className="relative flex h-full flex-col items-center justify-center px-small"
+      className="relative flex h-full flex-col items-center justify-center px-small pb-medium"
     >
       <div
         ref={containerRef}
