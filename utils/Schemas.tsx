@@ -3,7 +3,7 @@ import { description, keywords } from "./metadata/homeMetadata";
 
 type WorkProps = {
   slug: string;
-  title: string;
+  company: string;
 };
 
 type BlogSchema = Metadata & { slug?: string };
@@ -37,13 +37,13 @@ export const worksSchema = {
     {
       "@type": "ListItem",
       position: 1,
-      name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+      name: "Home",
       item: "https://ivansmiths.com",
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: "Ivan Smiths, all the works",
+      name: "Works",
       item: "https://ivansmiths.com/works",
     },
   ],
@@ -57,19 +57,19 @@ export const workSchema = (works: WorkProps) => {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+        name: "Home",
         item: "https://ivansmiths.com",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Ivan Smiths, all the works",
+        name: "Works",
         item: "https://ivansmiths.com/works",
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: works.title,
+        name: works.company,
         item: `https://ivansmiths.com/works/${works.slug}`,
       },
     ],
@@ -85,13 +85,13 @@ export const blogSchema = (post: BlogSchema) => {
         {
           "@type": "ListItem",
           position: 1,
-          name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+          name: "Home",
           item: "https://ivansmiths.com",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "Ivan Smiths, all blog posts",
+          name: "Blog",
           item: "https://ivansmiths.com/blog",
         },
         {
