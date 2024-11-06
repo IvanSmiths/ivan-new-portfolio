@@ -42,7 +42,7 @@ const About = () => {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top bottom",
-          end: "2500px",
+          end: "3500px",
           scrub: true,
         },
       });
