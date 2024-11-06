@@ -28,25 +28,18 @@ const Loader: FC = () => {
   useGSAP(
     () => {
       const tl = gsap.timeline();
-      tl.set(imageRef.current, {
-        scale: 0.3,
-        // @ts-ignore
-        onStart: hide(),
-      });
       tl.to(imageRef.current, {
         opacity: 1,
-        duration: normal,
-      });
-      tl.to(imageRef.current, {
-        scale: 1,
-        ease: "back.inOut(1.3)",
+        filter: "blur(0px)",
         duration: slow,
+        // @ts-ignore
+        onStart: hide(),
       });
       tl.to(imageRef.current, {
         margin: 0,
         top: 0,
         duration: slow,
-        ease: "expo.inOut",
+        ease: "power4.inOut",
       });
       tl.to(containerRef.current, {
         display: "none",
@@ -66,15 +59,15 @@ const Loader: FC = () => {
     <>
       <div
         ref={faderRef}
-        className="absolute bottom-0 left-0 z-50 h-full w-full bg-light dark:bg-dark"
+        className="absolute bottom-0 left-0 z-10 h-full w-full bg-light dark:bg-dark"
       ></div>
       <div
         ref={containerRef}
-        className="fixed left-0 top-0 z-50 h-full w-full bg-light dark:bg-dark"
+        className="fixed left-0 top-0 z-20 h-full w-full bg-light dark:bg-dark"
       >
         <div
           ref={imageRef}
-          className="absolute inset-0 z-50 mx-auto my-auto h-fit w-full opacity-0"
+          className="absolute inset-0 z-20 mx-auto my-auto h-fit w-full opacity-0 blur-2xl"
         >
           <Header />
         </div>
