@@ -1,31 +1,22 @@
+import { RichText } from "@graphcms/rich-text-react-renderer";
 import { FC } from "react";
+import { WorkPage } from "../../../../utils/graphql";
 import Social from "../../../globalComponents/Footer/Social";
 
 type HeaderProps = {
-  work: {
-    company: string;
-    date: string;
-    websiteLink: string;
-    linkedinLink: string;
-    homeImage: {
-      url: string;
-      height: number;
-      width: number;
-      fileName: string;
-    };
-  };
+  work: WorkPage;
 };
 
 const Hero: FC<HeaderProps> = ({ work }) => {
   return (
-    <header className="mt-section flex flex-col items-center justify-center px-small">
-      <h1 className="text-center text-9xl font-thin uppercase">
+    <header className="mt-small flex flex-col items-center justify-center px-small md:mt-section">
+      <h1 className="text-center text-6xl font-thin uppercase md:text-9xl">
         {work.company}
       </h1>
       <h2 className="mt-small text-center text-xl font-thin italic">
-        ({work.date})
+        {work.role} - ({work.date})
       </h2>
-      <div className="mt-medium h-[60rem] w-full">
+      <div className="mt-small w-full md:mt-medium md:h-[60rem]">
         <img
           className="h-full w-full object-cover"
           src={work.homeImage.url}
@@ -34,10 +25,18 @@ const Hero: FC<HeaderProps> = ({ work }) => {
           alt={work.homeImage.fileName}
         />
       </div>
-      <div className="mt-medium flex w-full gap-small transition-all duration-500">
+      <div className="mt-small flex w-full flex-col gap-small transition-all duration-500 md:flex-row">
         <Social label="Website" isInWorkPage link={work.websiteLink} />
         <Social label="LinkedIn" isInWorkPage link={work.linkedinLink} />
       </div>
+      <RichText
+        content={work.description.raw}
+        renderers={{
+          p: ({ children }) => (
+            <p className="mt-small text-left text-xl md:text-3xl">{children}</p>
+          ),
+        }}
+      />
     </header>
   );
 };

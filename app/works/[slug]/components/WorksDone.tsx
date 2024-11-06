@@ -59,7 +59,7 @@ const WorksDone: FC<WorksDoneProps> = ({ works }) => {
         <div className="relative h-5 w-1/2">
           <span
             ref={worksRef}
-            className="absolute right-0 top-1/2 origin-right -translate-y-1/2 text-9xl"
+            className="absolute right-0 top-1/2 origin-right -translate-y-1/2 text-4xl md:text-9xl"
           >
             Works
           </span>
@@ -67,20 +67,20 @@ const WorksDone: FC<WorksDoneProps> = ({ works }) => {
         <div className="relative h-5 w-1/2">
           <span
             ref={doneRef}
-            className="absolute left-0 top-1/2 origin-left -translate-y-1/2 text-right text-9xl"
+            className="absolute left-0 top-1/2 origin-left -translate-y-1/2 text-right text-4xl md:text-9xl"
           >
             Done
           </span>
         </div>
       </div>
-      <div className="flex w-full flex-col flex-wrap items-center justify-center gap-small px-small pb-[40rem] pt-[60rem]">
+      <div className="flex w-full flex-col flex-wrap items-center justify-center gap-[30px] px-small pb-[40rem] pt-[60rem] md:gap-small">
         {works.map((work) => (
           <a
             href={work.link}
             key={work.label}
             target="_blank"
             rel="noopener noreferrer"
-            className="z-10 cursor-pointer text-8xl"
+            className="z-10 cursor-pointer text-center text-3xl md:text-8xl"
           >
             {work.label}
           </a>
