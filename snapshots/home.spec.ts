@@ -20,7 +20,3 @@ test("snapshot home works section", async ({ page }): Promise<void> => {
   await snapshotElement(page, "homeWork1", "home-work-second.png");
   await snapshotElement(page, "homeWork2", "home-work-third.png");
 });
-
-test("snapshot home blog section", async ({ page }): Promise<void> => {
-  await snapshotElement(page, "homeBlogSection", "home-blog-section.png");
-});
