@@ -10,6 +10,7 @@ const ShowreelMobile = () => {
         loop
       >
         <source src="/videos/showreel-short.mp4" type="video/mp4" />
+        <track src="/videos/caption.vtt" kind="captions" />
       </video>
       <a
         href="https://youtu.be/osf7rWGB9qw"
