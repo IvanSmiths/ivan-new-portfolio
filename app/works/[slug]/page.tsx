@@ -18,11 +18,9 @@ export default async function Work({ params }: Props) {
   return (
     <>
       <Navbar position={Position.Fixed} />
-      <div className="grid">
-        <Hero work={works} />
-        <Description work={works} />
-        <Images work={works} />
-      </div>
+      <Hero work={works} />
+      <Description work={works} />
+      <Images work={works} />
       <Footer />
       <script
         type="application/ld+json"

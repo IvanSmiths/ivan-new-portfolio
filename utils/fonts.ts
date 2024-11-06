@@ -1,9 +1,9 @@
-import { Bebas_Neue, Lato } from "next/font/google";
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import { Bebas_Neue, Lato } from "next/font/google";
 
 export const lato: NextFontWithVariable = Lato({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "700"],
   variable: "--font-lato",
   display: "swap",
 });
