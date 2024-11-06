@@ -7,25 +7,19 @@ import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Filter, { Label } from "../components/Filter";
 import Header from "../components/Header";
 import Images from "../components/Images";
+import { rendersHeaderProps } from "../components/headerProps";
 
 export const metadata: Metadata = rendersMetadata;
 
 const Renders: FC = async () => {
   const images = await getRenders();
 
-  const headerProps = {
-    h1: "Renders",
-    h2: "The beginning.",
-    paragraph:
-      "Explore my 3D renders, featuring detailed hard surface modeling and sculpting projects. This showcase my creativity and technical skills in 3D design, bringing intricate virtual models to life.",
-  };
-
   return (
     <>
       <Header
-        h1={headerProps.h1}
-        h2={headerProps.h2}
-        paragraph={headerProps.paragraph}
+        h1={rendersHeaderProps.h1}
+        h2={rendersHeaderProps.h2}
+        paragraph={rendersHeaderProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
       <Filter currentPage={Label.Renders} />

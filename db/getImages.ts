@@ -28,17 +28,31 @@ export const getImages = async () => {
 };
 
 export const getRenders = async () => {
-    const images = await db
-      .select({
-        desktopUrl: rendersTable.desktopUrl,
-        alt: rendersTable.alt,
-        mobileUrl: rendersTable.mobileUrl,
-        id: rendersTable.id,
-        isHorizontal: rendersTable.isHorizontal,
-      })
-      .from(rendersTable)
-      .all();
-  
-    return images;
-  };
-  
+  const images = await db
+    .select({
+      desktopUrl: rendersTable.desktopUrl,
+      alt: rendersTable.alt,
+      mobileUrl: rendersTable.mobileUrl,
+      id: rendersTable.id,
+      isHorizontal: rendersTable.isHorizontal,
+    })
+    .from(rendersTable)
+    .all();
+
+  return images;
+};
+
+export const getPhotos = async () => {
+  const images = await db
+    .select({
+      desktopUrl: photosTable.desktopUrl,
+      alt: photosTable.alt,
+      mobileUrl: photosTable.mobileUrl,
+      id: photosTable.id,
+      isHorizontal: photosTable.isHorizontal,
+    })
+    .from(photosTable)
+    .all();
+
+  return images;
+};

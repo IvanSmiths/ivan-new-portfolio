@@ -46,3 +46,27 @@ export const rendersMetadata: Metadata = {
     creatorId: "1303746727594405894",
   },
 };
+
+const photosTitle: string =
+  "Ivan Smiths - Photographies: Capturing Moments & Inspirations";
+const photosDescription: string =
+  "Discover my photographies, featuring images that capture personal passions and inspirations. Each photo reflects a unique perspective through the lens of a Sony full-frame mirrorless camera.";
+
+export const photosMetadata: Metadata = {
+  title: photosTitle,
+  description: photosDescription,
+  openGraph: {
+    title: photosTitle,
+    description: photosDescription,
+    type: "website",
+    siteName: "Ivan Smiths",
+    url: "https://ivansmiths.com/crafts/photos",
+  },
+  twitter: {
+    title: photosTitle,
+    description: photosDescription,
+    card: "summary_large_image",
+    creator: "@Ivansmiths",
+    creatorId: "1303746727594405894",
+  },
+};

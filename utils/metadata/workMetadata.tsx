@@ -1,9 +1,8 @@
 import { Metadata } from "next";
-import { getWorksPage, WorkPage } from "../graphql";
 import { Props } from "../../app/works/[slug]/page";
+import { getWorksPage, WorkPage } from "../graphql";
 
-
-export async function generateWorkMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work: WorkPage = await getWorksPage(params.slug);
   const ogImage = [
     {

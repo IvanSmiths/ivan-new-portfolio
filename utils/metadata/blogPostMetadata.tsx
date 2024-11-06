@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Params } from "../../app/blog/[slug]/page";
 import { getBlogPosts, Posts } from "../getPosts";
 
-export async function generateBlogPostMetadata({
+export async function generateMetadata({
   params,
 }: Params): Promise<Metadata | undefined> {
   let post: Posts | undefined = getBlogPosts().find(

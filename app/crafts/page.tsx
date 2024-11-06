@@ -7,25 +7,19 @@ import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import Filter, { Label } from "./components/Filter";
 import Header from "./components/Header";
 import Images from "./components/Images";
+import { craftsHeaderProps } from "./components/headerProps";
 
 export const metadata: Metadata = craftsMetadata;
 
 const Crafts: FC = async () => {
   const images = await getImages();
 
-  const headerProps = {
-    h1: "Crafts",
-    h2: "My passions outside the code",
-    paragraph:
-      "Step into my visual world, where moments come alive through a Sony full-frame mirrorless lens. This collection captures diverse scenes and creative renderings, showcasing my passion for photography and 3d modeling.",
-  };
-
   return (
     <>
       <Header
-        h1={headerProps.h1}
-        h2={headerProps.h2}
-        paragraph={headerProps.paragraph}
+        h1={craftsHeaderProps.h1}
+        h2={craftsHeaderProps.h2}
+        paragraph={craftsHeaderProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
       <Filter currentPage={Label.All} />

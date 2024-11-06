@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getBlogPosts, Posts } from "../../../utils/getPosts";
-import { generateBlogPostMetadata } from "../../../utils/metadata/blogPostMetadata";
+import { generateMetadata } from "../../../utils/metadata/blogPostMetadata";
 import { blogSchema } from "../../../utils/Schemas";
 import Footer from "../../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
   return posts?.map((post: Posts) => ({ slug: post?.slug }));
 }
 
-export { generateBlogPostMetadata };
+export { generateMetadata };
 
 export default async function Post({ params }: Params) {
   let post: Posts | undefined = getBlogPosts().find(

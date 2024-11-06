@@ -1,6 +1,6 @@
 import { workSchema } from "../../../utils/Schemas";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
-import { generateWorkMetadata } from "../../../utils/metadata/workMetadata";
+import { generateMetadata } from "../../../utils/metadata/workMetadata";
 import Footer from "../../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Description from "./components/Description";
@@ -11,7 +11,7 @@ export type Props = {
   params: { slug: string };
 };
 
-export { generateWorkMetadata };
+export { generateMetadata };
 
 export default async function Work({ params }: Props) {
   const works: WorkPage = await getWorksPage(params.slug);
