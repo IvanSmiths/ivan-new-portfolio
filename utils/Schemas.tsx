@@ -126,7 +126,8 @@ export const blogSchema = (post: BlogSchema) => {
       dateModified: post.date,
       author: {
         "@type": "Person",
-        "@id": "https://ivansmiths.com/#Person",
+        "@id": "https://ivansmiths.com/",
+        url: "https://ivansmiths.com/",
         name: "Ivan Smiths",
       },
       image: {
