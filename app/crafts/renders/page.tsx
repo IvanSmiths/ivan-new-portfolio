@@ -1,53 +1,23 @@
-import { FC } from "react";
-import { db } from "../../../db/db";
-import { renders as rendersTable } from "../../../db/schema";
-import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
-import Footer from "../../globalComponents/Footer/Footer";
-import Filter, { Label } from "../components/Filter";
-import Images from "../components/Images";
 import type { Metadata } from "next";
+import { FC } from "react";
+import { getRenders } from "../../../db/getImages";
+import { rendersMetadata } from "../../../utils/metadata/craftsMetadata";
+import Footer from "../../globalComponents/Footer/Footer";
+import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
+import Filter, { Label } from "../components/Filter";
 import Header from "../components/Header";
+import Images from "../components/Images";
 
-const title: string = "Ivan Smiths, renders";
-const description: string =
-  "Explore a showcase of my renders, including 3d renders of my hard surface modeling and sculpting.";
-
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    siteName: "Ivan Smiths",
-    url: "https://ivansmiths.com/crafts/renders",
-  },
-  twitter: {
-    title,
-    description,
-    card: "summary_large_image",
-    creator: "@Ivansmiths",
-    creatorId: "1303746727594405894",
-  },
-};
+export const metadata: Metadata = rendersMetadata;
 
 const Renders: FC = async () => {
-  const images = await db
-    .select({
-      desktopUrl: rendersTable.desktopUrl,
-      alt: rendersTable.alt,
-      mobileUrl: rendersTable.mobileUrl,
-      id: rendersTable.id,
-      isHorizontal: rendersTable.isHorizontal,
-    })
-    .from(rendersTable)
-    .all();
+  const images = await getRenders();
 
   const headerProps = {
     h1: "Renders",
     h2: "The beginning.",
     paragraph:
-      "The renders are done with Blender and ZBrush, and are a mix of my hard surface modeling and sculpting.",
+      "Explore my 3D renders, featuring detailed hard surface modeling and sculpting projects. This showcase my creativity and technical skills in 3D design, bringing intricate virtual models to life.",
   };
 
   return (
