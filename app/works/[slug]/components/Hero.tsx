@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Arrow from "../../../globalComponents/Footer/Arrow";
+import Social from "../../../globalComponents/Footer/Social";
 
 type HeaderProps = {
   work: {
@@ -35,28 +35,8 @@ const Hero: FC<HeaderProps> = ({ work }) => {
         />
       </div>
       <div className="mt-medium flex w-full gap-small transition-all duration-500">
-        <div className="group flex h-fit w-1/2 cursor-pointer items-center justify-between rounded-md border-2 border-dark p-5 transition-all duration-500 hover:w-[60%] hover:bg-dark dark:border-light dark:hover:bg-light">
-          <a
-            href={work.websiteLink}
-            className="text-2xl transition group-hover:text-light dark:group-hover:text-dark md:text-8xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Website
-          </a>
-          <Arrow />
-        </div>
-        <div className="group flex h-fit w-1/2 cursor-pointer items-center justify-between rounded-md border-2 border-dark p-5 transition-all duration-500 hover:w-[60%] hover:bg-dark dark:border-light dark:hover:bg-light">
-          <a
-            href={work.linkedinLink}
-            className="text-2xl transition group-hover:text-light dark:group-hover:text-dark md:text-8xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <Arrow />
-        </div>
+        <Social label="Website" isInWorkPage link={work.websiteLink} />
+        <Social label="LinkedIn" isInWorkPage link={work.linkedinLink} />
       </div>
     </header>
   );

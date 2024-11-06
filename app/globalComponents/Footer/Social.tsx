@@ -4,11 +4,22 @@ import Arrow from "./Arrow";
 type SocialProps = {
   label: string;
   link: string;
+  isInWorkPage?: boolean;
 };
 
-const Social: FC<SocialProps> = ({ label, link }: SocialProps) => {
+const Social: FC<SocialProps> = ({
+  label,
+  link,
+  isInWorkPage,
+}: SocialProps) => {
   return (
-    <div className="group flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition hover:bg-dark dark:border-light dark:hover:bg-light">
+    <div
+      className={`group flex cursor-pointer items-center gap-8 rounded-md border-2 border-dark px-6 py-3 hover:bg-dark dark:border-light dark:hover:bg-light ${
+        isInWorkPage
+          ? "w-1/2 justify-between transition-all duration-500 hover:w-[60%]"
+          : "justify-center"
+      }`}
+    >
       <a
         target="_blank"
         rel="noopener noreferrer"
