@@ -6,6 +6,7 @@ import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Description from "./components/Description";
 import Hero from "./components/Hero";
 import Images from "./components/Images";
+import WorksDone from "./components/WorksDone";
 
 export type Props = {
   params: { slug: string };
@@ -19,6 +20,7 @@ export default async function Work({ params }: Props) {
     <>
       <Navbar position={Position.Fixed} />
       <Hero work={works} />
+      <WorksDone />
       <Description work={works} />
       <Images work={works} />
       <Footer />
