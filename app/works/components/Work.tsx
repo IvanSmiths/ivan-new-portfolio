@@ -23,7 +23,7 @@ const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
       <div
         id="description"
         className={`relative z-20 ${
-          isInHome ? "h-full w-full" : "md:h-5/6 md:w-7/12"
+          isInHome ? "h-full w-full" : "h-5/6 md:w-7/12"
         }`}
       >
         <img
