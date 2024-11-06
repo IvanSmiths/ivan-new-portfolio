@@ -16,7 +16,7 @@ export { generateMetadata };
 
 export default async function Work({ params }: Props) {
   const works: WorkPage = await getWorksPage(params.slug);
-  console.log(works.worksDone.works);
+
   return (
     <>
       <Navbar position={Position.Fixed} />
