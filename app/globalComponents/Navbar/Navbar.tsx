@@ -1,5 +1,5 @@
-import { FC } from "react";
 import Link from "next/link";
+import { FC } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 export enum Position {
@@ -49,7 +49,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
               <Link
                 data-cy={link.dataCy}
                 href={link.url}
-                className="text-md font-semibold sm:text-xl"
+                className="text-md font-semibold mix-blend-screen sm:text-xl"
               >
                 {link.label}
               </Link>

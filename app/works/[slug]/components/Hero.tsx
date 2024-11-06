@@ -1,34 +1,43 @@
+import { RichText } from "@graphcms/rich-text-react-renderer";
 import { FC } from "react";
-import { bebas_neue } from "../../../../utils/fonts";
+import { WorkPage } from "../../../../utils/graphql";
+import Social from "../../../globalComponents/Footer/Social";
 
 type HeaderProps = {
-  work: {
-    company: string;
-    homeImage: {
-      url: string;
-      height: number;
-      width: number;
-      fileName: string;
-    };
-  };
+  work: WorkPage;
 };
 
 const Hero: FC<HeaderProps> = ({ work }) => {
   return (
-    <>
-      <h1
-        className={`${bebas_neue.className} col-span-full mt-14 text-6xl uppercase sm:mt-36 md:mt-72 md:text-9xl`}
-      >
+    <header className="mt-small flex flex-col items-center justify-center px-small md:mt-section">
+      <h1 className="text-center text-6xl font-thin uppercase md:text-9xl">
         {work.company}
       </h1>
-      <img
-        className="col-span-full w-full"
-        src={work.homeImage.url}
-        height={work.homeImage.height}
-        width={work.homeImage.width}
-        alt={work.homeImage.fileName}
+      <h2 className="mt-small text-center text-xl font-thin italic">
+        {work.role} - ({work.date})
+      </h2>
+      <div className="mt-small w-full md:mt-medium md:h-[60rem]">
+        <img
+          className="h-full w-full rounded-md object-cover"
+          src={work.homeImage.url}
+          height={work.homeImage.height}
+          width={work.homeImage.width}
+          alt={work.homeImage.fileName}
+        />
+      </div>
+      <div className="mt-small flex w-full flex-col gap-small transition-all duration-500 md:flex-row">
+        <Social label="Website" isInWorkPage link={work.websiteLink} />
+        <Social label="LinkedIn" isInWorkPage link={work.linkedinLink} />
+      </div>
+      <RichText
+        content={work.description.raw}
+        renderers={{
+          p: ({ children }) => (
+            <p className="mt-small text-left text-xl md:text-3xl">{children}</p>
+          ),
+        }}
       />
-    </>
+    </header>
   );
 };
 

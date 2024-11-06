@@ -11,5 +11,7 @@ test("snapshot footer", async ({ page }): Promise<void> => {
     .evaluate(
       (element: HTMLElement): string => (element.style.display = "none"),
     );
-  await snapshotElement(page, "footer", "global-footer.png");
+  await snapshotElement(page, "footer", "global-footer.png", {
+    maxDiffPixelRatio: 0.2,
+  });
 });

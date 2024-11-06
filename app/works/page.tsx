@@ -1,40 +1,28 @@
-import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
-import ScrollSection from "./components/ScrollSection";
 import type { Metadata } from "next";
-import { getWorks, Works } from "../../utils/graphql";
 import { FC } from "react";
-import { worksSchema } from "../../utils/Schemas";
+import { getWorks, Works } from "../../utils/graphql";
+import { worksSchema } from "../../utils/metadata/Schemas";
+import { worksMetadata } from "../../utils/metadata/worksMetadata";
+import Header from "../crafts/components/Header";
+import { worksHeaderProps } from "../crafts/components/headerProps";
 import Footer from "../globalComponents/Footer/Footer";
+import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
+import WorksSection from "./components/WorksSection";
 
-const title: string = "Ivan Smiths, all the works";
-const description: string =
-  "Explore a showcase of my diverse works as a UI/UX Developer, encompassing a range of works that highlight my expertise and creativity";
-
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    siteName: "Ivan Smiths",
-    url: `https://ivansmiths.com/works`,
-  },
-  twitter: {
-    title,
-    description,
-    card: "summary_large_image",
-    creator: "@Ivansmiths",
-    creatorId: "1303746727594405894",
-  },
-};
+export const metadata: Metadata = worksMetadata;
 
 const WorksPage: FC = async () => {
   const works: Works[] = await getWorks();
+
   return (
     <>
+      <Header
+        h1={worksHeaderProps.h1}
+        h2={worksHeaderProps.h2}
+        paragraph={worksHeaderProps.paragraph}
+      />
       <Navbar position={Position.Fixed} />
-      <ScrollSection works={works} />
+      <WorksSection works={works} />
       <Footer />
       <script
         type="application/ld+json"

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MutableRefObject } from "react";
+import { bebas_neue } from "../../../../utils/fonts";
 
 type NavLink = {
   href: string;
@@ -35,11 +36,11 @@ export default function NavLinks({
           style={{ opacity: 0 }}
           className="flex w-full flex-col items-end gap-small"
         >
-          <span className="bg-darkSecondary dark:bg-lightSecondary w-full p-[1px]"></span>
+          <span className="w-full bg-darkSecondary p-[1px] dark:bg-lightSecondary"></span>
           <Link
             href={link.href}
             onClick={toggleMenu}
-            className={`pr-small text-7xl ${
+            className={`pr-small text-7xl ${bebas_neue.className} ${
               pathname === link.href
                 ? "text-darkSecondary dark:text-lightSecondary"
                 : "text-dark dark:text-light"
@@ -48,7 +49,7 @@ export default function NavLinks({
             {link.label}
           </Link>
           {index === 3 && (
-            <span className="bg-darkSecondary dark:bg-lightSecondary w-full p-[1px]"></span>
+            <span className="w-full bg-darkSecondary p-[1px] dark:bg-lightSecondary"></span>
           )}
         </li>
       ))}

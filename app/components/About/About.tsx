@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
-import { bebas_neue } from "../../../utils/fonts";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import { useRef } from "react";
+import { bebas_neue } from "../../../utils/fonts";
 
 type RowElement = {
   label: string;
@@ -13,6 +13,7 @@ type RowElement = {
 const About = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
+  const dotRef = useRef<HTMLDivElement | null>(null);
 
   const firstRow: RowElement[] = [
     { label: "I", id: "I" },
@@ -37,6 +38,15 @@ const About = () => {
 
   useGSAP(
     (): void => {
+      const secondTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top bottom",
+          end: "3500px",
+          scrub: true,
+        },
+      });
+
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: triggerRef.current,
@@ -47,7 +57,21 @@ const About = () => {
         },
       });
 
+      secondTimeline.fromTo(
+        dotRef.current,
+        {
+          scale: 0,
+          translateY: -30,
+        },
+        {
+          scale: 350,
+          duration: 1,
+          translateY: 800,
+        },
+      );
+
       const elementIDs: string[] = [
+        "#I",
         "#Expertly",
         "#Blend",
         "#My",
@@ -66,20 +90,33 @@ const About = () => {
           filter: "blur(0px)",
         });
       });
+
+      timeline.to(["#Development", "#Skills"], {
+        color: "#FF4D4D",
+        textShadow: "0px 0px 10px #FF4D4D",
+      });
     },
     { scope: containerRef },
   );
 
   return (
-    <div data-testid="homeAboutSection" ref={containerRef}>
-      <div ref={triggerRef} className="grid h-screen w-full">
+    <div
+      data-testid="homeAboutSection"
+      className="overflow-hidden pt-section"
+      ref={containerRef}
+    >
+      <div ref={triggerRef} className="relative grid h-screen w-full">
+        <div
+          ref={dotRef}
+          className="absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark dark:bg-light"
+        ></div>
         <div className="col-start-1 col-end-7 flex flex-col items-center justify-center gap-x-small gap-y-0 md:col-start-2 md:col-end-12">
           <div className="flex flex-wrap items-center justify-center gap-x-small">
             {firstRow.map(({ label, id }: RowElement, index: number) => (
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} ${index === 0 ? "block" : "hidden opacity-0 blur-2xl"} text-7xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl text-light opacity-0 blur-2xl dark:text-dark md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -90,7 +127,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl text-light opacity-0 blur-2xl dark:text-dark md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>
@@ -101,7 +138,7 @@ const About = () => {
               <span
                 key={index}
                 id={id}
-                className={`${bebas_neue.className} hidden text-7xl opacity-0 blur-2xl md:text-8xl lg:text-[9rem]`}
+                className={`${bebas_neue.className} hidden text-7xl text-light opacity-0 blur-2xl dark:text-dark md:text-8xl lg:text-[9rem]`}
               >
                 {label}
               </span>

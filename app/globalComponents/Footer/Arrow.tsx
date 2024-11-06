@@ -3,7 +3,7 @@ import { FC } from "react";
 const Arrow: FC = () => {
   return (
     <svg
-      className="max-sm:h-7 max-sm:w-7"
+      className="max-md:h-7 max-md:w-7"
       width="57"
       height="57"
       viewBox="0 0 57 57"

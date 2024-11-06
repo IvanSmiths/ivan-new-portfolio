@@ -14,21 +14,6 @@ type Overlay = {
   hide: () => void;
 };
 
-export enum ThemeMode {
-  Light = "Light",
-  Dark = "Dark",
-}
-
-export enum ThemeColors {
-  Light = "#09090B",
-  Dark = "#e7e7e7",
-}
-
-type Theme = {
-  activeTheme: ThemeMode;
-  setActiveTheme: (theme: ThemeMode) => void;
-};
-
 export const useAnimationStore: UseBoundStore<StoreApi<Animation>> =
   create<Animation>()(() => ({
     fast: 0.4,
@@ -51,17 +36,48 @@ export const useOverlayStore: UseBoundStore<StoreApi<Overlay>> = create(
   ),
 );
 
-export const useThemeStore: UseBoundStore<StoreApi<Theme>> = create(
-  persist<Theme>(
-    (set, get) => ({
-      activeTheme: ThemeMode.Light,
-      setActiveTheme: (theme: ThemeMode) => {
-        set({ activeTheme: (get().activeTheme = theme) });
-      },
-    }),
+export interface Position {
+  x: number;
+  y: number;
+}
+
+interface ButtonStore {
+  position: Position;
+  attempts: number;
+  isTransitioning: boolean;
+  incrementAttempts: () => void;
+  setPosition: (position: Position) => void;
+  setTransitioning: (transitioning: boolean) => void;
+  resetPosition: () => void;
+  resetAll: () => void;
+}
+
+export const useButtonStore = create<ButtonStore>()(
+  persist(
+    (set) => {
+      const getCenterX = (): number =>
+        typeof window !== "undefined" ? window.innerWidth / 2 - 100 : 0;
+      const getCenterY = (): number =>
+        typeof window !== "undefined" ? window.innerHeight / 2 + 40 : 0;
+
+      return {
+        position: { x: getCenterX(), y: getCenterY() },
+        attempts: 0,
+        isTransitioning: false,
+        incrementAttempts: () =>
+          set((state) => ({ attempts: state.attempts + 1 })),
+        setPosition: (position) => set({ position }),
+        setTransitioning: (transitioning) =>
+          set({ isTransitioning: transitioning }),
+        resetPosition: (): void => {
+          set({ position: { x: getCenterX(), y: getCenterY() } });
+        },
+        resetAll: () =>
+          set({ attempts: 0, position: { x: getCenterX(), y: getCenterY() } }),
+      };
+    },
     {
-      name: "theme",
-      storage: createJSONStorage(() => localStorage),
+      name: "button-storage",
     },
   ),
 );

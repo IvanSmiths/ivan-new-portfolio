@@ -1,8 +1,9 @@
-import { Metadata } from "./getPosts";
+import { Metadata } from "../getPosts";
+import { description, keywords } from "./homeMetadata";
 
 type WorkProps = {
   slug: string;
-  title: string;
+  company: string;
 };
 
 type BlogSchema = Metadata & { slug?: string };
@@ -13,7 +14,7 @@ export const homeSchema = {
   name: "IvanSmiths",
   url: "https://www.ivansmiths.com",
   image: "https://www.ivansmiths.com/home.png",
-  description: "Frontend developer with 3 years of experience",
+  description,
   sameAs: "https://www.ivansmiths.com",
   author: {
     "@type": "Person",
@@ -24,8 +25,8 @@ export const homeSchema = {
   inLanguage: "en",
   copyrightYear: 2020,
   genre: "http://vocab.getty.edu/aat/300179434",
-  headline: "Seeking the limit.",
-  keywords: "next.js, ui/ux developer, wiesbaden, react.js, frontend developer",
+  headline: "Fullstack developer specialized in design and user experience.",
+  keywords,
   locationCreated: "Wiesbaden",
 };
 
@@ -36,13 +37,13 @@ export const worksSchema = {
     {
       "@type": "ListItem",
       position: 1,
-      name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+      name: "Home",
       item: "https://ivansmiths.com",
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: "Ivan Smiths, all the works",
+      name: "Works",
       item: "https://ivansmiths.com/works",
     },
   ],
@@ -56,23 +57,42 @@ export const workSchema = (works: WorkProps) => {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+        name: "Home",
         item: "https://ivansmiths.com",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Ivan Smiths, all the works",
+        name: "Works",
         item: "https://ivansmiths.com/works",
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: works.title,
+        name: works.company,
         item: `https://ivansmiths.com/works/${works.slug}`,
       },
     ],
   };
+};
+
+export const blogsSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blogs",
+      item: "https://ivansmiths.com/blog",
+    },
+  ],
 };
 
 export const blogSchema = (post: BlogSchema) => {
@@ -84,13 +104,13 @@ export const blogSchema = (post: BlogSchema) => {
         {
           "@type": "ListItem",
           position: 1,
-          name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+          name: "Home",
           item: "https://ivansmiths.com",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "Ivan Smiths, all blog posts",
+          name: "Blog",
           item: "https://ivansmiths.com/blog",
         },
         {
@@ -126,7 +146,8 @@ export const blogSchema = (post: BlogSchema) => {
       dateModified: post.date,
       author: {
         "@type": "Person",
-        "@id": "https://ivansmiths.com/#Person",
+        "@id": "https://ivansmiths.com/",
+        url: "https://ivansmiths.com/",
         name: "Ivan Smiths",
       },
       image: {
@@ -140,4 +161,73 @@ export const blogSchema = (post: BlogSchema) => {
       keywords: post.tags,
     },
   ];
+};
+
+export const craftsSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Crafts",
+      item: "https://ivansmiths.com/crafts",
+    },
+  ],
+};
+
+export const rendersSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Crafts",
+      item: "https://ivansmiths.com/crafts",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Renders",
+      item: "https://ivansmiths.com/renders",
+    },
+  ],
+};
+
+export const photosSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Crafts",
+      item: "https://ivansmiths.com/crafts",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Photos",
+      item: "https://ivansmiths.com/photos",
+    },
+  ],
 };
