@@ -24,16 +24,16 @@ const robots: string = "index, follow";
 const category: string = "Technology & Computing";
 
 export const homeMetadata: Metadata = {
-  title: title,
-  description: description,
-  keywords: keywords,
-  authors: authors,
-  generator: generator,
-  applicationName: applicationName,
-  creator: creator,
+  title,
+  description,
+  keywords,
+  authors,
+  generator,
+  applicationName,
+  creator,
   publisher: creator,
-  robots: robots,
-  category: category,
+  robots,
+  category,
   appleWebApp: {
     capable: true,
     title: title,
