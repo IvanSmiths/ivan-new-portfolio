@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getWorks, Works } from "../utils/graphql";
 import { homeMetadata } from "../utils/metadata/homeMetadata";
-import { homeSchema } from "../utils/Schemas";
+import { homeSchema } from "../utils/metadata/Schemas";
 import About from "./components/About/About";
 import Expertise from "./components/Expertise/Expertise";
 import Hero from "./components/Hero/Hero";

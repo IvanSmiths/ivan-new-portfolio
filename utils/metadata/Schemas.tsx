@@ -1,5 +1,5 @@
-import { Metadata } from "./getPosts";
-import { description, keywords } from "./metadata/homeMetadata";
+import { Metadata } from "../getPosts";
+import { description, keywords } from "./homeMetadata";
 
 type WorkProps = {
   slug: string;
@@ -77,23 +77,23 @@ export const workSchema = (works: WorkProps) => {
 };
 
 export const blogsSchema = {
-    "@context": "http://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://ivansmiths.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blogs",
-        item: "https://ivansmiths.com/blog",
-      },
-    ],
-  };
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blogs",
+      item: "https://ivansmiths.com/blog",
+    },
+  ],
+};
 
 export const blogSchema = (post: BlogSchema) => {
   return [

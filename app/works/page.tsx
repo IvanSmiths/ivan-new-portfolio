@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { FC } from "react";
 import { getWorks, Works } from "../../utils/graphql";
+import { worksSchema } from "../../utils/metadata/Schemas";
 import { worksMetadata } from "../../utils/metadata/worksMetadata";
-import { worksSchema } from "../../utils/Schemas";
 import Header from "../crafts/components/Header";
 import { worksHeaderProps } from "../crafts/components/headerProps";
 import Footer from "../globalComponents/Footer/Footer";

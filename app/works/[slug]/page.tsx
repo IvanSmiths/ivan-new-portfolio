@@ -1,5 +1,5 @@
-import { workSchema } from "../../../utils/Schemas";
 import { getWorksPage, WorkPage } from "../../../utils/graphql";
+import { workSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/workMetadata";
 import Footer from "../../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";

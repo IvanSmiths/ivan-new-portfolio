@@ -1,4 +1,4 @@
-import { blogsSchema } from "../../utils/Schemas";
+import { blogsSchema } from "../../utils/metadata/Schemas";
 import { blogMetadata } from "../../utils/metadata/blogMetadata";
 import Blog from "../components/Blog/Blog";
 import Header from "../crafts/components/Header";

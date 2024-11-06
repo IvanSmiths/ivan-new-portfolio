@@ -34,11 +34,6 @@ export const homeMetadata: Metadata = {
   publisher: creator,
   robots,
   category,
-  appleWebApp: {
-    capable: true,
-    title: title,
-    statusBarStyle: "black-translucent",
-  },
   openGraph: {
     title,
     description,
