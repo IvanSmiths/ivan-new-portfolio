@@ -76,6 +76,25 @@ export const workSchema = (works: WorkProps) => {
   };
 };
 
+export const blogsSchema = {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://ivansmiths.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blogs",
+        item: "https://ivansmiths.com/blog",
+      },
+    ],
+  };
+
 export const blogSchema = (post: BlogSchema) => {
   return [
     {
@@ -142,4 +161,73 @@ export const blogSchema = (post: BlogSchema) => {
       keywords: post.tags,
     },
   ];
+};
+
+export const craftsSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Crafts",
+      item: "https://ivansmiths.com/crafts",
+    },
+  ],
+};
+
+export const rendersSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Crafts",
+      item: "https://ivansmiths.com/crafts",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Renders",
+      item: "https://ivansmiths.com/renders",
+    },
+  ],
+};
+
+export const photosSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Crafts",
+      item: "https://ivansmiths.com/crafts",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Photos",
+      item: "https://ivansmiths.com/photos",
+    },
+  ],
 };

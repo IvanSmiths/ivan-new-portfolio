@@ -1,3 +1,4 @@
+import { blogsSchema } from "../../utils/Schemas";
 import { blogMetadata } from "../../utils/metadata/blogMetadata";
 import Blog from "../components/Blog/Blog";
 import Header from "../crafts/components/Header";
@@ -24,6 +25,10 @@ export default async function BlogPage() {
       <Navbar position={Position.Fixed} />
       <Blog />
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogsSchema) }}
+      />
     </div>
   );
 }
