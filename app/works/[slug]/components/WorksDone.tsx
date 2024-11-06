@@ -5,36 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { FC, useRef } from "react";
 
-const worksDoneList = [
-  {
-    label: "Adidas",
-    link: "www.exampe.com",
-  },
-  {
-    label: "Adidas",
-    link: "www.exampe.com",
-  },
-  {
-    label: "Adidas",
-    link: "www.exampe.com",
-  },
-  {
-    label: "Adidas",
-    link: "www.exampe.com",
-  },
-  {
-    label: "Adidas",
-    link: "www.exampe.com",
-  },
-  {
-    label: "Adidas",
-    link: "www.exampe.com",
-  },
-];
+type WorksDoneProps = {
+  works: { label: string; link: string }[];
+};
 
 gsap.registerPlugin(ScrollTrigger);
-
-const WorksDone: FC = () => {
+const WorksDone: FC<WorksDoneProps> = ({ works }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const worksRef = useRef<HTMLSpanElement>(null);
@@ -97,11 +73,17 @@ const WorksDone: FC = () => {
           </span>
         </div>
       </div>
-      <div className="flex w-full flex-col flex-wrap items-center justify-center gap-small px-small pb-[40rem] pt-[20rem]">
-        {worksDoneList.map((work) => (
-          <div key={work.label} className="text-8xl">
+      <div className="flex w-full flex-col flex-wrap items-center justify-center gap-small px-small pb-[40rem] pt-[60rem]">
+        {works.map((work) => (
+          <a
+            href={work.link}
+            key={work.label}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="z-10 cursor-pointer text-8xl"
+          >
             {work.label}
-          </div>
+          </a>
         ))}
       </div>
     </div>

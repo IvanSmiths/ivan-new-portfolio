@@ -73,6 +73,9 @@ export type WorkPage = {
   role: string;
   homeDescription: string;
   metaDescription: string;
+  worksDone: {
+    works: { label: string; link: string }[];
+  };
   linkedinLink: string;
   homeImage: {
     url: string;
@@ -116,6 +119,7 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
             role
             linkedinLink
             websiteLink
+            worksDone
             stack
             title
             metaDescription
