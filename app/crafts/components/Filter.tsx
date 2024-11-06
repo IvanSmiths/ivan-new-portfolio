@@ -1,5 +1,5 @@
-import { FC } from "react";
 import Link from "next/link";
+import { FC } from "react";
 
 export enum Label {
   All = "All",
@@ -36,7 +36,7 @@ const Filter: FC<FilterProps> = ({ currentPage }) => {
           data-cy={`link-${filter.url}`}
           key={index}
           href={`/crafts/${filter.url}`}
-          className={`rounded-full p-3 py-1 font-bold text-primary ${
+          className={`text-primary rounded-md p-3 py-1 font-bold ${
             currentPage === filter.page
               ? "bg-darker text-light dark:bg-lighter dark:text-dark"
               : "bg-dark text-light dark:bg-light dark:text-dark"

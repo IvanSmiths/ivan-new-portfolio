@@ -1,10 +1,16 @@
 import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
 export type Works = {
+  id: string;
   slug: string;
   company: string;
   role: string;
   homeDescription: string;
+  homeLogo: {
+    url: string;
+    height: number;
+    width: number;
+  };
   homeImage: {
     url: string;
     height: number;
@@ -33,14 +39,22 @@ export async function getWorks(): Promise<Works[]> {
       query: `
         query Works() {
           works(orderBy: createdAt_ASC) {
+            id
             slug
             company
             role
+            homeLogo {
+              url
+              height
+              width
+            }
             homeDescription
             homeImage {
               url
+              height
+              width
             }
-            }
+           }
           }
         `,
     }),
@@ -59,6 +73,9 @@ export type WorkPage = {
   role: string;
   homeDescription: string;
   metaDescription: string;
+  worksDone: {
+    works: { label: string; link: string }[];
+  };
   linkedinLink: string;
   homeImage: {
     url: string;
@@ -102,6 +119,7 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
             role
             linkedinLink
             websiteLink
+            worksDone
             stack
             title
             metaDescription

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import NavLinks from "./NavLinks";
+import { useEffect, useRef } from "react";
 import ThemeToggle from "../ThemeToggle";
+import NavLinks from "./NavLinks";
 
 interface NavMenuProps {
   isOpen: boolean;
@@ -74,7 +74,7 @@ export default function NavMenu({
   return (
     <nav
       ref={navRef}
-      className={`fixed inset-0 z-40 flex flex-col items-end justify-center bg-light transition dark:bg-dark ${
+      className={`fixed inset-0 z-[9] flex flex-col items-end justify-center bg-light transition dark:bg-dark ${
         isOpen ? "" : "pointer-events-none"
       }`}
       style={{ opacity: 0 }}

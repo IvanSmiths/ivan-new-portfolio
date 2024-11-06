@@ -14,7 +14,7 @@ type ImagesProps = {
 
 const Images: FC<ImagesProps> = ({ images }) => {
   return (
-    <div className="mt-small grid">
+    <div className="mt-small grid max-sm:mb-medium">
       <div className="col-span-full">
         <main className="col-span-full flex flex-wrap gap-small">
           {images.map((image: Image, index: number) => (
