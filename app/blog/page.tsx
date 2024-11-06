@@ -1,31 +1,10 @@
-import type { Metadata } from "next";
+import { blogMetadata } from "../../utils/metadata/blogMetadata";
 import Blog from "../components/Blog/Blog";
 import Header from "../crafts/components/Header";
 import Footer from "../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 
-const title: string = "Ivan Smiths, all blog posts";
-const description: string =
-  "Blogposts about next.js, tailwind and other frontend technologies";
-
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    siteName: "Ivan Smiths",
-    url: `https://ivansmiths.com`,
-  },
-  twitter: {
-    title,
-    description,
-    card: "summary_large_image",
-    creator: "@Ivansmiths",
-    creatorId: "1303746727594405894",
-  },
-};
+export const metadata = blogMetadata;
 
 const headerProps = {
   h1: "Blog",
