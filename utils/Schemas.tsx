@@ -8,49 +8,45 @@ type WorkProps = {
 
 type BlogSchema = Metadata & { slug?: string };
 
-export const homeSchema = () => {
-  return {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    name: "IvanSmiths",
+export const homeSchema = {
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  name: "IvanSmiths",
+  url: "https://www.ivansmiths.com",
+  image: "https://www.ivansmiths.com/home.png",
+  description,
+  sameAs: "https://www.ivansmiths.com",
+  author: {
+    "@type": "Person",
+    name: "Ivan",
+    familyName: "Smiths",
     url: "https://www.ivansmiths.com",
-    image: "https://www.ivansmiths.com/home.png",
-    description,
-    sameAs: "https://www.ivansmiths.com",
-    author: {
-      "@type": "Person",
-      name: "Ivan",
-      familyName: "Smiths",
-      url: "https://www.ivansmiths.com",
-    },
-    inLanguage: "en",
-    copyrightYear: 2020,
-    genre: "http://vocab.getty.edu/aat/300179434",
-    headline: "Fullstack developer specialized in design and user experience.",
-    keywords,
-    locationCreated: "Wiesbaden",
-  };
+  },
+  inLanguage: "en",
+  copyrightYear: 2020,
+  genre: "http://vocab.getty.edu/aat/300179434",
+  headline: "Fullstack developer specialized in design and user experience.",
+  keywords,
+  locationCreated: "Wiesbaden",
 };
 
-export const worksSchema = () => {
-  return {
-    "@context": "http://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
-        item: "https://ivansmiths.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Ivan Smiths, all the works",
-        item: "https://ivansmiths.com/works",
-      },
-    ],
-  };
+export const worksSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Ivan Smiths, Frontend UI/UX Developer from Wiesbaden",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Ivan Smiths, all the works",
+      item: "https://ivansmiths.com/works",
+    },
+  ],
 };
 
 export const workSchema = (works: WorkProps) => {
