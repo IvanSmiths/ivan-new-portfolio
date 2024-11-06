@@ -32,7 +32,7 @@ export const homeSchema = () => {
   };
 };
 
-export const worksSchema = (works: WorkProps) => {
+export const worksSchema = () => {
   return {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
