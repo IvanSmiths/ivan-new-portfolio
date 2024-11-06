@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { getBlogPosts, Posts } from "../../../utils/getPosts";
-import { MDXComponents } from "./components/MDXComponents";
 import { notFound } from "next/navigation";
-import Hero from "./components/Hero";
-import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
+import { getBlogPosts, Posts } from "../../../utils/getPosts";
+import { generateBlogPostMetadata } from "../../../utils/metadata/blogPostMetadata";
 import { blogSchema } from "../../../utils/Schemas";
 import Footer from "../../globalComponents/Footer/Footer";
+import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
+import Hero from "./components/Hero";
+import { MDXComponents } from "./components/MDXComponents";
 
-type Params = {
+export type Params = {
   params: {
     slug: string;
   };
@@ -18,50 +18,7 @@ export async function generateStaticParams() {
   return posts?.map((post: Posts) => ({ slug: post?.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: Params): Promise<Metadata | undefined> {
-  let post: Posts | undefined = getBlogPosts().find(
-    (post) => post.slug === params.slug,
-  );
-
-  if (!post) {
-    return;
-  }
-
-  let { title, publishedAt: publishedTime, excerpt, tags } = post.metadata;
-  const ogImage = [
-    {
-      url: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
-      height: post.metadata.coverHeight,
-      width: post.metadata.coverWidth,
-      alt: title,
-    },
-  ];
-
-  return {
-    title,
-    description: excerpt,
-    openGraph: {
-      title,
-      description: excerpt,
-      type: "article",
-      authors: ["Ivan Smiths"],
-      tags: tags,
-      publishedTime,
-      url: `https://ivansmiths.com/blog/${post.slug}`,
-      images: ogImage,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      creator: "@Ivansmiths",
-      creatorId: "1303746727594405894",
-      description: excerpt,
-      images: ogImage,
-    },
-  };
-}
+export { generateBlogPostMetadata };
 
 export default async function Post({ params }: Params) {
   let post: Posts | undefined = getBlogPosts().find(
