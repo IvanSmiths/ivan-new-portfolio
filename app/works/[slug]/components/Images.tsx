@@ -19,7 +19,7 @@ const Images: FC<HeaderProps> = ({ work }) => {
                   <li>
                     <img
                       src={src}
-                      className="w-full"
+                      className="w-full rounded-md"
                       alt="project"
                       loading="lazy"
                       height={height}

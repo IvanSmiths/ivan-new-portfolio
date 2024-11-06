@@ -18,7 +18,7 @@ const Hero: FC<HeaderProps> = ({ work }) => {
       </h2>
       <div className="mt-small w-full md:mt-medium md:h-[60rem]">
         <img
-          className="h-full w-full object-cover"
+          className="h-full w-full rounded-md object-cover"
           src={work.homeImage.url}
           height={work.homeImage.height}
           width={work.homeImage.width}
