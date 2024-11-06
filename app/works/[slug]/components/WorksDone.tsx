@@ -34,20 +34,24 @@ const WorksDone: FC = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "3000px bottom",
+          end: () => `${scrollRef.current?.offsetHeight}px bottom`,
           pin: true,
           scrub: true,
         },
       });
       timeline.to(worksRef.current, {
-        left: "20px",
+        left: "0",
+        transformOrigin: "left",
         duration: 1,
+        scale: 0.3,
         ease: "power2.inOut",
       });
       timeline.to(
         doneRef.current,
         {
-          right: "20px",
+          right: "0",
+          transformOrigin: "right",
+          scale: 0.3,
           duration: 1,
           ease: "power2.inOut",
         },
@@ -58,20 +62,37 @@ const WorksDone: FC = () => {
   );
 
   return (
-    <div ref={containerRef}>
-      <div className="relative h-screen">
-        <span
-          ref={worksRef}
-          className="absolute left-[31%] top-1/2 origin-left -translate-y-1/2 text-9xl"
-        >
-          Works
-        </span>
-        <span
-          ref={doneRef}
-          className="absolute right-[33%] top-1/2 origin-right -translate-y-1/2 text-9xl"
-        >
-          Done
-        </span>
+    <div
+      className="flex h-full w-full flex-col items-center justify-center px-small pb-medium"
+      ref={scrollRef}
+    >
+      <div
+        ref={containerRef}
+        className="flex h-screen w-full items-center justify-between"
+      >
+        <div className="relative h-5 w-1/2 bg-slate-500">
+          <span
+            ref={worksRef}
+            className="absolute right-0 top-1/2 origin-right -translate-y-1/2 text-9xl"
+          >
+            Works
+          </span>
+        </div>
+        <div className="relative h-5 w-1/2 bg-slate-500">
+          <span
+            ref={doneRef}
+            className="absolute left-0 top-1/2 origin-left -translate-y-1/2 text-right text-9xl"
+          >
+            Done
+          </span>
+        </div>
+      </div>
+      <div className="flex w-full flex-col flex-wrap items-center justify-center gap-small px-small">
+        {worksDoneList.map((work) => (
+          <div key={work.label} className="text-8xl">
+            {work.label}
+          </div>
+        ))}
       </div>
     </div>
   );
