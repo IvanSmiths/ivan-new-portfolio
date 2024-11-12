@@ -1,3 +1,6 @@
+import { Code } from "bright";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import Link from "next/link";
 import {
   AnchorHTMLAttributes,
   createElement,
@@ -6,12 +9,9 @@ import {
   ReactElement,
   ReactNode,
 } from "react";
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import { Code } from "bright";
 import { lato } from "../../../../utils/fonts";
 import Note from "./Note";
 import Sections from "./Sections";
-import Link from "next/link";
 
 type HeadingProps = DetailedHTMLProps<
   HTMLAttributes<HTMLHeadingElement>,
@@ -33,7 +33,7 @@ export type ChildrenAsProps = {
 };
 
 Code.theme = {
-  dark: "dark-plus",
+  dark: "nord",
   light: "github-light",
 };
 
@@ -109,7 +109,7 @@ const components = {
   ),
   code: (props: any) => (
     <code
-      className="bg-lighter dark:bg-darker rounded-lg px-2 py-1 font-bold"
+      className="rounded-lg bg-lighter px-2 py-1 font-bold dark:bg-darker"
       {...props}
     >
       {props.children}
