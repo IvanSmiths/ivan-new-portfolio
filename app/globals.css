@@ -3,36 +3,36 @@
 @tailwind utilities;
 
 :root {
-    --brand: #FF4D4D;
+  --brand: #ff4d4d;
 
-    --smallest: 10px;
-    --small: 20px;
-    --regular: 35px;
-    --medium: 60px;
-    --large: 100px;
-    --section: 260px;
+  --smallest: 10px;
+  --small: 20px;
+  --regular: 35px;
+  --medium: 60px;
+  --large: 100px;
+  --section: 260px;
 
-    --body: 18px;
+  --body: 18px;
 }
 
 html,
 body,
 * {
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1,
@@ -48,62 +48,73 @@ label,
 a,
 li,
 time {
-    font-size: var(--body);
-    font-weight: 400;
+  font-size: var(--body);
+  font-weight: 400;
 }
 
 p {
-    line-height: 1.7rem;
-    font-size: var(--body);
+  line-height: 1.7rem;
+  font-size: var(--body);
 }
 
 .grid {
-    transition: background 0.25s ease-in-out;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 20px;
-    padding: 0 20px;
+  transition: background 0.25s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  padding: 0 20px;
 }
 
 .grid-debug {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .grid-debug-item {
-    background-color: rgba(236, 111, 111, 0.21);
+  background-color: rgba(236, 111, 111, 0.21);
 }
 
 article .grid {
-    padding: 0;
+  padding: 0;
 }
 
 article .half {
-    width: 50%;
+  width: 50%;
+}
+
+#articleLinks span {
+  margin-bottom: 10px;
+}
+
+#articleLinks p {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 
-    .grid-debug {
-        grid-template-columns: repeat(6, 1fr);
-    }
+  .grid-debug {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
-    .grid {
-        grid-gap: 10px;
-        padding: 0 20px;
-    }
+  .grid {
+    grid-gap: 10px;
+    padding: 0 20px;
+  }
 
-    .grid-debug {
-        grid-gap: 10px;
-        padding: 0 20px;
-    }
+  .grid-debug {
+    grid-gap: 10px;
+    padding: 0 20px;
+  }
 
-    article .half {
-        width: 100%;
-    }
+  article .half {
+    width: 100%;
+  }
 }
