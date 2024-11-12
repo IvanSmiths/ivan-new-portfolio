@@ -40,13 +40,13 @@ const Showreel = () => {
             muted
           >
             <source
-              src="/videos/showreel-short.mp4"
+              src="https://utfs.io/f/aCaScRJubtiP2mWMJSOEGVHWUKY8TpulMShIcw9X3Asb6rBn"
               media="(min-width: 768px)"
               type="video/mp4"
             />
             <track src="/videos/caption.vtt" kind="captions" />
             <source
-              src="/videos/showreel-short-mobile.mp4"
+              src="https://utfs.io/f/aCaScRJubtiPkBbnx8gxYRIj0MPlmQb12ZBuf38FwgGHAsL9"
               media="(max-width: 767px)"
               type="video/mp4"
             />
