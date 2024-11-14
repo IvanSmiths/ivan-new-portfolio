@@ -1,10 +1,10 @@
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { lato } from "../utils/fonts";
 import React from "react";
 import { ThemeProvider } from "next-themes";
 import NavbarMobile from "./globalComponents/Navbar/NavbarMobile/NavbarMobile";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
@@ -25,7 +25,7 @@ export default function RootLayout({
           <NavbarMobile />
           {children}
         </ThemeProvider>
-        <Analytics />
+        <GoogleAnalytics gaId="G-55MHEPYVDV" />
       </body>
     </html>
   );
