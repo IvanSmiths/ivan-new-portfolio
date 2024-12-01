@@ -1,6 +1,6 @@
-import { ApiResponseProjects, Projects } from "./graphqlTypes";
+import { ApiResponseProjects } from "./graphqlTypes";
 
-export async function getProjects(): Promise<Projects[]> {
+export async function getProjects(): Promise<any> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
