@@ -1,36 +1,51 @@
 import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
-export type GraphQLResponse<T> = {
-  data: T;
-  errors?: any[];
-};
-
-export type Image = {
-  url: string;
-  height: number;
-  width: number;
-  fileName?: string;
-};
-
-export type Logo = Omit<Image, "fileName">;
-
 export type Works = {
   id: string;
   slug: string;
   company: string;
   role: string;
   homeDescription: string;
-  homeLogo: Logo;
-  homeImage: Image;
+  homeLogo: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
 
-export type Projects = Omit<Works, "company"> & {
+export type Projects = {
+  id: string;
+  slug: string;
   project: string;
+  role: string;
+  homeDescription: string;
+  homeLogo: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
 
-export type WorksDone = {
-  label: string;
-  link: string;
+export type ApiResponseWorks = {
+  data: {
+    works: Works[];
+  };
+};
+
+export type ApiResponseProjects = {
+  data: {
+    projects: Projects[];
+  };
 };
 
 export type WorkPage = {
@@ -44,33 +59,37 @@ export type WorkPage = {
   homeDescription: string;
   metaDescription: string;
   worksDone: {
-    works: WorksDone[];
+    works: { label: string; link: string }[];
   };
   linkedinLink: string;
-  homeImage: Image;
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+    fileName: string;
+  };
   websiteLink: string;
   stack: string;
   images: { raw: { children: ElementNode[] } };
 };
 
-export type ProjectPage = Omit<
-  WorkPage,
-  "company" | "role" | "worksDone" | "stack" | "description" | "linkedinLink"
-> & {
+export type ProjectPage = {
+  id: string;
+  slug: string;
+  title: string;
   project: string;
   description: string;
-};
-
-export type ApiResponseWorks = {
-  data: {
-    works: Works[];
+  date: string;
+  homeDescription: string;
+  metaDescription: string;
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+    fileName: string;
   };
-};
-
-export type ApiResponseProjects = {
-  data: {
-    projects: Projects[];
-  };
+  websiteLink: string;
+  images: { raw: { children: ElementNode[] } };
 };
 
 export type ApiResponseWorkPage = {
