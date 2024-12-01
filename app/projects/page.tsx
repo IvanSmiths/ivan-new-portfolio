@@ -10,7 +10,6 @@ const ProjectPage: FC = async () => {
 
   return (
     <>
-      test
       <Navbar position={Position.Fixed} />
       <Footer />
     </>
