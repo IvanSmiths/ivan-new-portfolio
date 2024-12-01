@@ -1,72 +1,180 @@
 import {
-  GraphQLResponse,
+  ApiResponseProjectPage,
+  ApiResponseProjects,
+  ApiResponseWorkPage,
+  ApiResponseWorks,
   ProjectPage,
   Projects,
   WorkPage,
   Works,
 } from "./graphqlTypes";
-import {
-  getProjectsPageQuery,
-  GetProjectsQuery,
-  getWorksPageQuery,
-  GetWorksQuery,
-} from "./graphqlQueries";
 
-function getEndpoint(): string {
-  const endpoint = process.env.HYGRAPH_ENDPOINT;
-  if (!endpoint)
+export async function getWorks(): Promise<Works[]> {
+  if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  return endpoint;
-}
-
-async function fetchGraphQL<T>(
-  query: string,
-  variables?: Record<string, unknown>,
-): Promise<T> {
-  const response: Response = await fetch(getEndpoint(), {
+  }
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
     method: "POST",
     cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({ query, variables }),
+    body: JSON.stringify({
+      query: `
+        query Works() {
+          works(orderBy: createdAt_ASC) {
+            id
+            slug
+            company
+            role
+            homeLogo {
+              url
+              height
+              width
+            }
+            homeDescription
+            homeImage {
+              url
+              height
+              width
+            }
+           }
+          }
+        `,
+    }),
   });
-
-  if (!response.ok) {
-    throw new Error(`Error: ${response.status} - ${response.statusText}`);
-  }
-
-  const result: GraphQLResponse<T> = await response.json();
-
-  if (result.errors) {
-    throw new Error(result.errors.map((err) => err.message).join(", "));
-  }
-
-  return result.data;
-}
-
-export async function getWorks(): Promise<Works[]> {
-  const data = await fetchGraphQL<{ works: Works[] }>(GetWorksQuery);
-  return data.works;
+  const responseData: ApiResponseWorks = await response.json();
+  return responseData.data.works;
 }
 
 export async function getProjects(): Promise<Projects[]> {
-  const data = await fetchGraphQL<{ projects: Projects[] }>(GetProjectsQuery);
-  return data.projects;
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Projects() {
+          projects(orderBy: createdAt_ASC) {
+            id
+            slug
+            project
+            homeLogo {
+              url
+              height
+              width
+            }
+            homeDescription
+            homeImage {
+              url
+              height
+              width
+            }
+           }
+          }
+        `,
+    }),
+  });
+  const responseData: ApiResponseProjects = await response.json();
+  return responseData.data.projects;
 }
 
 export async function getWorksPage(slug: string): Promise<WorkPage> {
-  const data = await fetchGraphQL<{ works: WorkPage[] }>(getWorksPageQuery, {
-    slug,
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Works($slug: String!) {
+          works(where: {slug: $slug}) {
+            id
+            slug
+            company
+            date
+            description {
+                raw
+            }
+            role
+            linkedinLink
+            websiteLink
+            worksDone
+            stack
+            title
+            metaDescription
+            homeImage {
+            url
+            height
+            width
+            fileName
+          }
+            images {
+              raw
+            }
+            }
+          }
+        `,
+      variables: {
+        slug: slug,
+      },
+    }),
   });
-  return data.works[0];
+  const responseDataPage: ApiResponseWorkPage = await response.json();
+  return responseDataPage.data.works[0];
 }
 
 export async function getProjectsPage(slug: string): Promise<ProjectPage> {
-  const data = await fetchGraphQL<{ projects: ProjectPage[] }>(
-    getProjectsPageQuery,
-    { slug },
-  );
-  return data.projects[0];
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Projects($slug: String!) {
+          projects(where: {slug: $slug}) {
+            id
+            slug
+            project
+            description
+            websiteLink
+            title
+            metaDescription
+            homeImage {
+            url
+            height
+            width
+            fileName
+          }
+            images {
+              raw
+            }
+            }
+          }
+        `,
+      variables: {
+        slug: slug,
+      },
+    }),
+  });
+  const responseDataPage: ApiResponseProjectPage = await response.json();
+  return responseDataPage.data.projects[0];
 }

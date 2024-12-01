@@ -55,8 +55,32 @@ export type WorkPage = {
 
 export type ProjectPage = Omit<
   WorkPage,
-  "company" | "role" | "worksDone" | "stack" | "description"
+  "company" | "role" | "worksDone" | "stack" | "description" | "linkedinLink"
 > & {
   project: string;
   description: string;
+};
+
+export type ApiResponseWorks = {
+  data: {
+    works: Works[];
+  };
+};
+
+export type ApiResponseProjects = {
+  data: {
+    projects: Projects[];
+  };
+};
+
+export type ApiResponseWorkPage = {
+  data: {
+    works: WorkPage[];
+  };
+};
+
+export type ApiResponseProjectPage = {
+  data: {
+    projects: ProjectPage[];
+  };
 };
