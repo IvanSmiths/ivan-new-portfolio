@@ -3,7 +3,7 @@ import { blogMetadata } from "../../utils/metadata/blogMetadata";
 import Header from "../components/crafts/Header";
 import Footer from "../components/global/Footer/Footer";
 import Navbar, { Position } from "../components/global/Navbar/Navbar";
-import Blog from "../components/home/Blog/Blog";
+import Blog from "../components/home/blog/Blog";
 
 export const metadata = blogMetadata;
 
