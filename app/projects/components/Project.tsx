@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC, Key } from "react";
-import { Projects } from "../../../utils/graphql";
+import { Projects } from "../../../utils/graphql/graphqlTypes";
 
 type ProjectProps = {
   project: Projects;

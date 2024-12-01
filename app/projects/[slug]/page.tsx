@@ -1,10 +1,11 @@
-import { getProjectsPage, ProjectPage } from "../../../utils/graphql";
 import { projectSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/projectsMetadata";
 import Footer from "../../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Hero from "./components/Hero";
 import Images from "./components/Images";
+import { ProjectPage } from "../../../utils/graphql/graphqlTypes";
+import { getProjectsPage } from "../../../utils/graphql";
 
 export type Props = {
   params: { slug: string };
