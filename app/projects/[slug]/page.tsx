@@ -1,5 +1,5 @@
 import { projectSchema } from "../../../utils/metadata/Schemas";
-import { generateMetadata } from "../../../utils/metadata/projectsMetadata";
+import { generateMetadata } from "../../../utils/metadata/projectMetadata";
 import Footer from "../../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Hero from "./components/Hero";

@@ -5,7 +5,7 @@ const title: string =
 export const description: string =
   "Discover a diverse range of projects in UI/UX and Fullstack Development. Explore award-winning websites, high-traffic landing pages, and innovative e-commerce platforms crafted for clients like Deutsche Bahn, R+V, Adidas, and WMF.";
 
-export const generateMetadata: Metadata = {
+export const projectsMetadata: Metadata = {
   title: title,
   description: description,
   openGraph: {
