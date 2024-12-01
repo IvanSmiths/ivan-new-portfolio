@@ -21,7 +21,6 @@ const Home = async () => {
       <Hero />
       <Overlay />
       <LoaderWrapper />
-      test
       <About />
       <WorksSection works={works} />
       <Expertise />
