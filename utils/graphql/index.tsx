@@ -8,6 +8,12 @@ import {
   WorkPage,
   Works,
 } from "./graphqlTypes";
+import {
+  getProjectsPageQuery,
+  GetProjectsQuery,
+  getWorksPageQuery,
+  GetWorksQuery,
+} from "./graphqlQueries";
 
 export async function getWorks(): Promise<Works[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
@@ -21,27 +27,7 @@ export async function getWorks(): Promise<Works[]> {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query Works() {
-          works(orderBy: createdAt_ASC) {
-            id
-            slug
-            company
-            role
-            homeLogo {
-              url
-              height
-              width
-            }
-            homeDescription
-            homeImage {
-              url
-              height
-              width
-            }
-           }
-          }
-        `,
+      query: GetWorksQuery,
     }),
   });
   const responseData: ApiResponseWorks = await response.json();
@@ -60,26 +46,7 @@ export async function getProjects(): Promise<Projects[]> {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query Projects() {
-          projects(orderBy: createdAt_ASC) {
-            id
-            slug
-            project
-            homeLogo {
-              url
-              height
-              width
-            }
-            homeDescription
-            homeImage {
-              url
-              height
-              width
-            }
-           }
-          }
-        `,
+      query: GetProjectsQuery,
     }),
   });
   const responseData: ApiResponseProjects = await response.json();
@@ -98,35 +65,7 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query Works($slug: String!) {
-          works(where: {slug: $slug}) {
-            id
-            slug
-            company
-            date
-            description {
-                raw
-            }
-            role
-            linkedinLink
-            websiteLink
-            worksDone
-            stack
-            title
-            metaDescription
-            homeImage {
-            url
-            height
-            width
-            fileName
-          }
-            images {
-              raw
-            }
-            }
-          }
-        `,
+      query: getWorksPageQuery,
       variables: {
         slug: slug,
       },
@@ -148,28 +87,7 @@ export async function getProjectsPage(slug: string): Promise<ProjectPage> {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query Projects($slug: String!) {
-          projects(where: {slug: $slug}) {
-            id
-            slug
-            project
-            description
-            websiteLink
-            title
-            metaDescription
-            homeImage {
-            url
-            height
-            width
-            fileName
-          }
-            images {
-              raw
-            }
-            }
-          }
-        `,
+      query: getProjectsPageQuery,
       variables: {
         slug: slug,
       },
