@@ -1,61 +1,73 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { FC, useRef } from "react";
-import Work from "../../works/components/Work";
-import WorkText from "./WorkText";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { FC, Key, useRef } from "react";
+import { useAnimationStore } from "../../../utils/store";
 import { Works } from "../../../utils/graphql/graphqlTypes";
+import Work from "./Work";
 
-type WorksSectionProps = {
+type WorksProps = {
   works: Works[];
 };
 
-const WorksSection: FC<WorksSectionProps> = ({ works }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+const WorksSection: FC<WorksProps> = ({ works }) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<HTMLDivElement | null>(null);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const { slowest, normal } = useAnimationStore();
+
+  const getScrollAmount = (): number | undefined => {
+    let containerWidth = containerRef.current?.offsetWidth;
+    let clientWidth = window.innerWidth;
+    if (containerWidth) {
+      return containerWidth - clientWidth;
+    }
+  };
 
   useGSAP(
     (): void => {
-      const updateHeight = () => {
-        ScrollTrigger.refresh();
-      };
-
-      window.addEventListener("resize", updateHeight);
-
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: () => `${scrollRef.current?.offsetHeight}px bottom`,
-        pin: true,
-        invalidateOnRefresh: true,
-        scrub: true,
-      });
-      // @ts-ignore
-      return () => {
-        window.removeEventListener("resize", updateHeight);
-      };
+      gsap.fromTo(
+        containerRef.current,
+        {
+          translateX: 0,
+        },
+        {
+          ease: "none",
+          duration: slowest,
+          translateX: (): string => `-${getScrollAmount()}px`,
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top top",
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+            snap: {
+              snapTo: 1 / 2,
+              duration: normal,
+              delay: 0,
+              ease: "power1.inOut",
+            },
+            pin: true,
+          },
+        },
+      );
     },
-    { scope: containerRef },
+    { scope: triggerRef },
   );
 
   return (
-    <section
-      ref={scrollRef}
-      className="relative flex h-full flex-col items-center justify-center px-small pb-medium"
-    >
-      <div
-        ref={containerRef}
-        className="flex h-screen w-full items-center justify-center"
-      >
-        <WorkText />
+    <div className="overflow-hidden md:py-medium">
+      <div ref={triggerRef}>
+        <div ref={containerRef} className="flex h-screen w-fit gap-small">
+          {works.map((work: Works, index: Key) => (
+            <Work key={index} work={work} index={index} />
+          ))}
+        </div>
       </div>
-      <div className="flex h-full w-full flex-wrap gap-small">
-        {works.map((work, index) => (
-          <Work work={work} key={work.id} index={index} isInHome />
-        ))}
-      </div>
-    </section>
+    </div>
   );
 };
 

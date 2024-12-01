@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { FC } from "react";
 import { getPhotos } from "../../../db/getImages";
-import { photoHeaderProps } from "../components/headerProps";
 import { photosMetadata } from "../../../utils/metadata/craftsMetadata";
-import Footer from "../../globalComponents/Footer/Footer";
-import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
-import Filter, { Label } from "../components/Filter";
-import Header from "../components/Header";
-import Images from "../components/Images";
+import Filter, { Label } from "../../components/crafts/Filter";
+import Header from "../../components/crafts/Header";
+import { photoHeaderProps } from "../../components/crafts/headerProps";
+import Images from "../../components/crafts/Images";
+import Footer from "../../components/global/Footer/Footer";
+import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 
 export const metadata: Metadata = photosMetadata;
 

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
-import Counter from "./not-found/Counter";
-import ImpossibleButton from "./not-found/ImpossibleButton";
-import Main from "./not-found/Main";
+import Counter from "./components/not-found/Counter";
+import Main from "./components/not-found/Main";
+import ImpossibleButton from "./components/not-found/ImpossibleButton";
 
 const NotFound: NextPage = () => {
   return (

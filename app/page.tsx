@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
+import { getWorks } from "../utils/graphql";
+import { Works } from "../utils/graphql/graphqlTypes";
 import { homeMetadata } from "../utils/metadata/homeMetadata";
 import { homeSchema } from "../utils/metadata/Schemas";
-import About from "./components/About/About";
-import Expertise from "./components/Expertise/Expertise";
-import Hero from "./components/Hero/Hero";
-import LoaderWrapper from "./components/Loader/LoaderWrapper";
-import Overlay from "./components/Loader/Overlay";
-import WorksSection from "./components/Works/WorksSection";
-import Footer from "./globalComponents/Footer/Footer";
-import { Works } from "../utils/graphql/graphqlTypes";
-import { getWorks } from "../utils/graphql";
+import Footer from "./components/global/Footer/Footer";
+import Hero from "./components/home/Hero/Hero";
+import Overlay from "./components/home/Loader/Overlay";
+import LoaderWrapper from "./components/home/Loader/LoaderWrapper";
+import About from "./components/home/About/About";
+import WorksSection from "./components/home/Works/WorksSection";
+import Expertise from "./components/home/Expertise/Expertise";
 
 export const metadata: Metadata = homeMetadata;
 

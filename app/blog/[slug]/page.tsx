@@ -2,10 +2,10 @@ import { notFound } from "next/navigation";
 import { getBlogPosts, Posts } from "../../../utils/getPosts";
 import { generateMetadata } from "../../../utils/metadata/blogPostMetadata";
 import { blogSchema } from "../../../utils/metadata/Schemas";
-import Footer from "../../globalComponents/Footer/Footer";
-import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
-import Hero from "./components/Hero";
-import { MDXComponents } from "./components/MDXComponents";
+import Footer from "../../components/global/Footer/Footer";
+import Navbar, { Position } from "../../components/global/Navbar/Navbar";
+import { MDXComponents } from "../../components/blogPost/MDXComponents";
+import Hero from "../../components/blogPost/Hero";
 
 export type Params = {
   params: {

@@ -1,10 +1,10 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { lato } from "../utils/fonts";
-import React from "react";
-import { ThemeProvider } from "next-themes";
-import NavbarMobile from "./globalComponents/Navbar/NavbarMobile/NavbarMobile";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
+import React from "react";
+import { lato } from "../utils/fonts";
+import NavbarMobile from "./components/global/Navbar/NavbarMobile/NavbarMobile";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
