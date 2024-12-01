@@ -18,33 +18,9 @@ export type Works = {
   };
 };
 
-export type Projects = {
-  id: string;
-  slug: string;
-  project: string;
-  role: string;
-  homeDescription: string;
-  homeLogo: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-  };
-};
-
 export type ApiResponseWorks = {
   data: {
     works: Works[];
-  };
-};
-
-export type ApiResponseProjects = {
-  data: {
-    projects: Projects[];
   };
 };
 
@@ -73,33 +49,8 @@ export type WorkPage = {
   images: { raw: { children: ElementNode[] } };
 };
 
-export type ProjectPage = {
-  id: string;
-  slug: string;
-  title: string;
-  project: string;
-  description: string;
-  date: string;
-  homeDescription: string;
-  metaDescription: string;
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-    fileName: string;
-  };
-  websiteLink: string;
-  images: { raw: { children: ElementNode[] } };
-};
-
 export type ApiResponseWorkPage = {
   data: {
     works: WorkPage[];
-  };
-};
-
-export type ApiResponseProjectPage = {
-  data: {
-    projects: ProjectPage[];
   };
 };

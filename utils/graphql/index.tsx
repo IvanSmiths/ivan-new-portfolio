@@ -1,11 +1,10 @@
 import {
-  ApiResponseProjectPage,
   ApiResponseWorkPage,
   ApiResponseWorks,
-  ProjectPage,
   WorkPage,
   Works,
 } from "./graphqlTypes";
+import { getWorksPageQuery, GetWorksQuery } from "./graphqlQueries";
 
 export async function getWorks(): Promise<Works[]> {
   if (!process.env.HYGRAPH_ENDPOINT) {
@@ -19,27 +18,7 @@ export async function getWorks(): Promise<Works[]> {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query Works() {
-          works(orderBy: createdAt_ASC) {
-            id
-            slug
-            company
-            role
-            homeLogo {
-              url
-              height
-              width
-            }
-            homeDescription
-            homeImage {
-              url
-              height
-              width
-            }
-           }
-          }
-        `,
+      query: GetWorksQuery,
     }),
   });
   const responseData: ApiResponseWorks = await response.json();
@@ -58,35 +37,7 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query Works($slug: String!) {
-          works(where: {slug: $slug}) {
-            id
-            slug
-            company
-            date
-            description {
-                raw
-            }
-            role
-            linkedinLink
-            websiteLink
-            worksDone
-            stack
-            title
-            metaDescription
-            homeImage {
-            url
-            height
-            width
-            fileName
-          }
-            images {
-              raw
-            }
-            }
-          }
-        `,
+      query: getWorksPageQuery,
       variables: {
         slug: slug,
       },
@@ -94,47 +45,4 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
   });
   const responseDataPage: ApiResponseWorkPage = await response.json();
   return responseDataPage.data.works[0];
-}
-
-export async function getProjectsPage(slug: string): Promise<ProjectPage> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
-    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: `
-        query Projects($slug: String!) {
-          projects(where: {slug: $slug}) {
-            id
-            slug
-            project
-            description
-            websiteLink
-            title
-            metaDescription
-            homeImage {
-            url
-            height
-            width
-            fileName
-          }
-            images {
-              raw
-            }
-            }
-          }
-        `,
-      variables: {
-        slug: slug,
-      },
-    }),
-  });
-  const responseDataPage: ApiResponseProjectPage = await response.json();
-  return responseDataPage.data.projects[0];
 }
