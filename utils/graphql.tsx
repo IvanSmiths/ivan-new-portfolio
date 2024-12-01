@@ -18,9 +18,33 @@ export type Works = {
   };
 };
 
-type ApiResponse = {
+export type Projects = {
+  id: string;
+  slug: string;
+  project: string;
+  role: string;
+  homeDescription: string;
+  homeLogo: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+  };
+};
+
+type ApiResponseWorks = {
   data: {
     works: Works[];
+  };
+};
+
+type ApiResponseProjects = {
+  data: {
+    projects: Projects[];
   };
 };
 
@@ -59,8 +83,46 @@ export async function getWorks(): Promise<Works[]> {
         `,
     }),
   });
-  const responseData: ApiResponse = await response.json();
+  const responseData: ApiResponseWorks = await response.json();
   return responseData.data.works;
+}
+
+export async function getProjects(): Promise<Projects[]> {
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Projects() {
+          projects(orderBy: createdAt_ASC) {
+            id
+            slug
+            project
+            homeLogo {
+              url
+              height
+              width
+            }
+            homeDescription
+            homeImage {
+              url
+              height
+              width
+            }
+           }
+          }
+        `,
+    }),
+  });
+  const responseData: ApiResponseProjects = await response.json();
+  return responseData.data.projects;
 }
 
 export type WorkPage = {
@@ -88,9 +150,34 @@ export type WorkPage = {
   images: { raw: { children: ElementNode[] } };
 };
 
-type ApiResponsePage = {
+export type ProjectPage = {
+  id: string;
+  slug: string;
+  title: string;
+  project: string;
+  description: { raw: RichTextContent };
+  date: string;
+  homeDescription: string;
+  metaDescription: string;
+  homeImage: {
+    url: string;
+    height: number;
+    width: number;
+    fileName: string;
+  };
+  websiteLink: string;
+  images: { raw: { children: ElementNode[] } };
+};
+
+type ApiResponseWorkPage = {
   data: {
     works: WorkPage[];
+  };
+};
+
+type ApiResponseProjectPage = {
+  data: {
+    projects: ProjectPage[];
   };
 };
 
@@ -140,6 +227,52 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
       },
     }),
   });
-  const responseDataPage: ApiResponsePage = await response.json();
+  const responseDataPage: ApiResponseWorkPage = await response.json();
   return responseDataPage.data.works[0];
+}
+
+export async function getProductsPage(slug: string): Promise<ProjectPage> {
+  if (!process.env.HYGRAPH_ENDPOINT) {
+    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
+  }
+  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query Projects($slug: String!) {
+          projects(where: {slug: $slug}) {
+            id
+            slug
+            project
+            date
+            description {
+                raw
+            }
+            websiteLink
+            title
+            metaDescription
+            homeImage {
+            url
+            height
+            width
+            fileName
+          }
+            images {
+              raw
+            }
+            }
+          }
+        `,
+      variables: {
+        slug: slug,
+      },
+    }),
+  });
+  const responseDataPage: ApiResponseProjectPage = await response.json();
+  return responseDataPage.data.projects[0];
 }
