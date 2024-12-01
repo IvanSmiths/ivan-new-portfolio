@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { projectSchema } from "../../utils/metadata/Schemas";
 import Header from "../crafts/components/Header";
 import { worksHeaderProps } from "../crafts/components/headerProps";
 import Footer from "../globalComponents/Footer/Footer";
@@ -21,10 +20,6 @@ const ProjectPage: FC = async () => {
       <Navbar position={Position.Fixed} />
       <ProjectsSection projects={projects} />
       <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
-      />
     </>
   );
 };
