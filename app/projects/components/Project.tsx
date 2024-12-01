@@ -5,27 +5,17 @@ import { Projects } from "../../../utils/graphql";
 type ProjectProps = {
   project: Projects;
   index: Key;
-  isInHome?: boolean;
 };
 
-const Project: FC<ProjectProps> = ({ project, index, isInHome }) => {
+const Project: FC<ProjectProps> = ({ project, index }) => {
   return (
     <Link
       href={`projects/${project.slug}`}
       key={index}
       data-testid={`homeWork${index}`}
-      className={`flex items-center justify-center ${
-        isInHome
-          ? "z-10 w-full md:w-[calc(50%-10px)]"
-          : "h-screen w-screen p-small"
-      }`}
+      className="flex h-screen w-screen items-center justify-center p-small"
     >
-      <div
-        id="description"
-        className={`relative z-20 ${
-          isInHome ? "h-full w-full" : "h-5/6 md:w-7/12"
-        }`}
-      >
+      <div id="description" className="relative z-20 h-5/6 md:w-7/12">
         <img
           className="absolute left-small top-small z-20 h-fit w-20 rounded-md object-cover"
           src={project.homeLogo.url}
