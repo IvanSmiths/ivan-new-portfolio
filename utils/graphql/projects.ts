@@ -1,5 +1,3 @@
-import { ApiResponseProjects } from "./graphqlTypes";
-
 export async function getProjects(): Promise<any> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
@@ -34,6 +32,6 @@ export async function getProjects(): Promise<any> {
         `,
     }),
   });
-  const responseData: ApiResponseProjects = await response.json();
+  const responseData = await response.json();
   return responseData.data.projects;
 }
