@@ -15,11 +15,15 @@ import {
   GetWorksQuery,
 } from "./graphqlQueries";
 
-export async function getWorks(): Promise<Works[]> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
+function getEndpoint(): string {
+  const endpoint = process.env.HYGRAPH_ENDPOINT;
+  if (!endpoint)
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+  return endpoint;
+}
+
+export async function getWorks(): Promise<Works[]> {
+  const response: Response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {
@@ -35,10 +39,7 @@ export async function getWorks(): Promise<Works[]> {
 }
 
 export async function getProjects(): Promise<Projects[]> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
-    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+  const response: Response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {
@@ -54,10 +55,7 @@ export async function getProjects(): Promise<Projects[]> {
 }
 
 export async function getWorksPage(slug: string): Promise<WorkPage> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
-    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+  const response: Response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {
@@ -76,10 +74,7 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
 }
 
 export async function getProjectsPage(slug: string): Promise<ProjectPage> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
-    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+  const response: Response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {
