@@ -6,7 +6,7 @@ import { AccordionItem, accordionItems } from "./AccordionItems";
 import useHorizontalScroll from "../../../../utils/hooks/useHorizontalScroll";
 import { bebas_neue } from "../../../../utils/fonts";
 
-const Expertise = () => {
+const ExpertiseNew = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -34,4 +34,4 @@ const Expertise = () => {
   );
 };
 
-export default Expertise;
+export default ExpertiseNew;

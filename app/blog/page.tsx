@@ -3,7 +3,7 @@ import { blogMetadata } from "../../utils/metadata/blogMetadata";
 import Header from "../components/crafts/Header";
 import Footer from "../components/global/Footer/Footer";
 import Navbar, { Position } from "../components/global/Navbar/Navbar";
-import Blog from "../components/home/Blog/Blog";
+import BlogNew from "../components/home/Blog/BlogNew";
 
 export const metadata = blogMetadata;
 
@@ -23,7 +23,7 @@ export default async function BlogPage() {
         paragraph={headerProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
-      <Blog />
+      <BlogNew />
       <Footer />
       <script
         type="application/ld+json"

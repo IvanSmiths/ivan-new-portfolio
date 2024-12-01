@@ -10,7 +10,7 @@ type RowElement = {
   id: string;
 };
 
-const About = () => {
+const AboutNew = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const dotRef = useRef<HTMLDivElement | null>(null);
@@ -150,4 +150,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutNew;

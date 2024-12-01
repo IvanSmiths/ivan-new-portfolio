@@ -4,12 +4,12 @@ import { Works } from "../utils/graphql/graphqlTypes";
 import { homeMetadata } from "../utils/metadata/homeMetadata";
 import { homeSchema } from "../utils/metadata/Schemas";
 import Footer from "./components/global/Footer/Footer";
-import Hero from "./components/home/Hero/Hero";
-import Overlay from "./components/home/Loader/Overlay";
-import LoaderWrapper from "./components/home/Loader/LoaderWrapper";
-import About from "./components/home/About/About";
+import HeroNew from "./components/home/Hero/HeroNew";
+import OverlayNew from "./components/home/Loader/OverlayNew";
+import LoaderWrapperNew from "./components/home/Loader/LoaderWrapperNew";
+import AboutNew from "./components/home/About/AboutNew";
 import WorksSection from "./components/home/Works/WorksSection";
-import Expertise from "./components/home/Expertise/Expertise";
+import ExpertiseNew from "./components/home/Expertise/ExpertiseNew";
 
 export const metadata: Metadata = homeMetadata;
 
@@ -18,12 +18,12 @@ const Home = async () => {
 
   return (
     <>
-      <Hero />
-      <Overlay />
-      <LoaderWrapper />
-      <About />
+      <HeroNew />
+      <OverlayNew />
+      <LoaderWrapperNew />
+      <AboutNew />
       <WorksSection works={works} />
-      <Expertise />
+      <ExpertiseNew />
       <Footer />
       <script
         type="application/ld+json"
