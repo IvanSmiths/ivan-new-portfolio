@@ -20,7 +20,6 @@ async function fetchGraphQL<T>(
 ): Promise<T> {
   const response = await fetch(getEndpoint(), {
     method: "POST",
-    cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
