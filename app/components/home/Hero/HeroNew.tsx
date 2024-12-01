@@ -5,7 +5,7 @@ import NavbarWrapper from "../Navbar/NavbarWrapper";
 import Showreel from "./Showreel";
 import ShowreelMobile from "./ShowreelMobile";
 
-const Hero: FC = () => {
+const HeroNew: FC = () => {
   return (
     <>
       <div data-testid="homeHeroSection" className="flex h-[100vh] flex-col">
@@ -23,4 +23,4 @@ const Hero: FC = () => {
   );
 };
 
-export default Hero;
+export default HeroNew;

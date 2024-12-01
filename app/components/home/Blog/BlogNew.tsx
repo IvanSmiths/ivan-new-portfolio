@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { getBlogPosts, Posts } from "../../../../utils/getPosts";
 
-const Blog: FC = () => {
+const BlogNew: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
     <div data-testid="homeBlogSection" className="my-medium grid">
@@ -69,4 +69,4 @@ const Blog: FC = () => {
   );
 };
 
-export default Blog;
+export default BlogNew;

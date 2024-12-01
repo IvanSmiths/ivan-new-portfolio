@@ -3,7 +3,7 @@
 import React, { FC } from "react";
 import { useOverlayStore } from "../../../../utils/store";
 
-const Overlay: FC = () => {
+const OverlayNew: FC = () => {
   const { isHidden } = useOverlayStore();
   return (
     <div
@@ -12,4 +12,4 @@ const Overlay: FC = () => {
   );
 };
 
-export default Overlay;
+export default OverlayNew;

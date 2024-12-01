@@ -1,9 +1,9 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
-import Loader from "./Loader";
+import LoaderNew from "./LoaderNew";
 
-const LoaderWrapper: FC = () => {
+const LoaderWrapperNew: FC = () => {
   const [loader, setLoader] = useState<boolean>(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const LoaderWrapper: FC = () => {
     }
   }, []);
 
-  return <>{loader && <Loader />}</>;
+  return <>{loader && <LoaderNew />}</>;
 };
 
-export default LoaderWrapper;
+export default LoaderWrapperNew;
