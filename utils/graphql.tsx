@@ -155,7 +155,7 @@ export type ProjectPage = {
   slug: string;
   title: string;
   project: string;
-  description: { raw: RichTextContent };
+  description: string;
   date: string;
   homeDescription: string;
   metaDescription: string;
@@ -231,7 +231,7 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
   return responseDataPage.data.works[0];
 }
 
-export async function getProductsPage(slug: string): Promise<ProjectPage> {
+export async function getProjectsPage(slug: string): Promise<ProjectPage> {
   if (!process.env.HYGRAPH_ENDPOINT) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
@@ -249,10 +249,7 @@ export async function getProductsPage(slug: string): Promise<ProjectPage> {
             id
             slug
             project
-            date
-            description {
-                raw
-            }
+            description
             websiteLink
             title
             metaDescription

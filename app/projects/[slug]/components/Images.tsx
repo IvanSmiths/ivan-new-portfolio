@@ -1,19 +1,19 @@
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { FC } from "react";
-import { WorkPage } from "../../../../utils/graphql";
+import { ProjectPage } from "../../../../utils/graphql";
 
 interface HeaderProps {
-  work: WorkPage;
+  project: ProjectPage;
 }
 
-const Images: FC<HeaderProps> = ({ work }) => {
-  if (work.images) {
+const Images: FC<HeaderProps> = ({ project }) => {
+  if (project.images) {
     return (
       <div className="mb-medium mt-medium grid md:mb-0">
         <div className="col-span-full w-full md:col-start-2 md:col-end-12">
           <ul className="flex flex-col gap-small">
             <RichText
-              content={work.images.raw}
+              content={project.images.raw}
               renderers={{
                 img: ({ src, height, width }) => (
                   <li>

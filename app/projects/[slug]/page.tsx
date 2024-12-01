@@ -1,6 +1,6 @@
-import { getWorksPage, WorkPage } from "../../../utils/graphql";
-import { workSchema } from "../../../utils/metadata/Schemas";
-import { generateMetadata } from "../../../utils/metadata/workMetadata";
+import { getProjectsPage, ProjectPage } from "../../../utils/graphql";
+import { projectSchema } from "../../../utils/metadata/Schemas";
+import { generateMetadata } from "../../../utils/metadata/projectsMetadata";
 import Footer from "../../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Hero from "./components/Hero";
@@ -12,19 +12,21 @@ export type Props = {
 
 export { generateMetadata };
 
-export default async function Work({ params }: Props) {
-  const works: WorkPage = await getWorksPage(params.slug);
+export default async function Project({ params }: Props) {
+  const projects: ProjectPage = await getProjectsPage(params.slug);
+
+  console.log(params.slug);
 
   return (
     <>
       <Navbar position={Position.Fixed} />
-      <Hero work={works} />
-      <Images work={works} />
+      <Hero project={projects} />
+      <Images project={projects} />
       <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(workSchema(works)),
+          __html: JSON.stringify(projectSchema(projects)),
         }}
       />
     </>

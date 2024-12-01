@@ -25,7 +25,6 @@ const Project: FC<ProjectProps> = ({ project, index }) => {
         />
         <div className="absolute inset-0 z-10 rounded-lg bg-black/30"></div>
         <div className="absolute bottom-small left-small z-20 pr-small text-light">
-          <h2 className="pb-smallest text-3xl font-bold">{project.role}</h2>
           <h3 className="text-xl">{project.project}</h3>
         </div>
         <img
