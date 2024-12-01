@@ -11,6 +11,7 @@ const ProjectPage: FC = async () => {
   return (
     <>
       <Navbar position={Position.Fixed} />
+      hi
       <Footer />
     </>
   );
