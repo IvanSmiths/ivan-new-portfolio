@@ -23,7 +23,7 @@ async function fetchGraphQL<T>(
   query: string,
   variables?: Record<string, unknown>,
 ): Promise<T> {
-  const response = await fetch(getEndpoint(), {
+  const response: Response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {

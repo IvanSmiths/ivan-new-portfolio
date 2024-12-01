@@ -5,48 +5,32 @@ export type GraphQLResponse<T> = {
   errors?: any[];
 };
 
+export type Image = {
+  url: string;
+  height: number;
+  width: number;
+  fileName?: string;
+};
+
+export type Logo = Omit<Image, "fileName">;
+
 export type Works = {
   id: string;
   slug: string;
   company: string;
   role: string;
   homeDescription: string;
-  homeLogo: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-  };
+  homeLogo: Logo;
+  homeImage: Image;
 };
 
-export type Projects = {
-  id: string;
-  slug: string;
+export type Projects = Omit<Works, "company"> & {
   project: string;
-  role: string;
-  homeDescription: string;
-  homeLogo: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-  };
 };
 
-export type ApiResponseWorks = {
-  works: Works[];
-};
-
-export type ApiResponseProjects = {
-  projects: Projects[];
+export type WorksDone = {
+  label: string;
+  link: string;
 };
 
 export type WorkPage = {
@@ -60,43 +44,19 @@ export type WorkPage = {
   homeDescription: string;
   metaDescription: string;
   worksDone: {
-    works: { label: string; link: string }[];
+    works: WorksDone[];
   };
   linkedinLink: string;
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-    fileName: string;
-  };
+  homeImage: Image;
   websiteLink: string;
   stack: string;
   images: { raw: { children: ElementNode[] } };
 };
 
-export type ProjectPage = {
-  id: string;
-  slug: string;
-  title: string;
+export type ProjectPage = Omit<
+  WorkPage,
+  "company" | "role" | "worksDone" | "stack" | "description"
+> & {
   project: string;
   description: string;
-  date: string;
-  homeDescription: string;
-  metaDescription: string;
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-    fileName: string;
-  };
-  websiteLink: string;
-  images: { raw: { children: ElementNode[] } };
-};
-
-export type ApiResponseWorkPage = {
-  works: WorkPage[];
-};
-
-export type ApiResponseProjectPage = {
-  projects: ProjectPage[];
 };
