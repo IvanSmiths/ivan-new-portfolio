@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Header from "./Header";
 import Text from "./Text";
-import NavbarWrapper from "../navbar/NavbarWrapper";
+import NavbarWrapper from "../Navbar/NavbarWrapper";
 import Showreel from "./Showreel";
 import ShowreelMobile from "./ShowreelMobile";
 
