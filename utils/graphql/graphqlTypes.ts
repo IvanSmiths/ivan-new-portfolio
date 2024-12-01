@@ -1,5 +1,10 @@
 import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
+export type GraphQLResponse<T> = {
+  data: T;
+  errors?: any[];
+};
+
 export type Works = {
   id: string;
   slug: string;
