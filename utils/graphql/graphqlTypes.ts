@@ -37,15 +37,11 @@ export type Projects = {
 };
 
 export type ApiResponseWorks = {
-  data: {
-    works: Works[];
-  };
+  works: Works[];
 };
 
 export type ApiResponseProjects = {
-  data: {
-    projects: Projects[];
-  };
+  projects: Projects[];
 };
 
 export type WorkPage = {
@@ -93,13 +89,9 @@ export type ProjectPage = {
 };
 
 export type ApiResponseWorkPage = {
-  data: {
-    works: WorkPage[];
-  };
+  works: WorkPage[];
 };
 
 export type ApiResponseProjectPage = {
-  data: {
-    projects: ProjectPage[];
-  };
+  projects: ProjectPage[];
 };

@@ -22,72 +22,54 @@ function getEndpoint(): string {
   return endpoint;
 }
 
-export async function getWorks(): Promise<Works[]> {
-  const response: Response = await fetch(getEndpoint(), {
+async function fetchGraphQL<T>(
+  query: string,
+  variables?: Record<string, any>,
+): Promise<T> {
+  const response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({
-      query: GetWorksQuery,
-    }),
+    body: JSON.stringify({ query, variables }),
   });
-  const responseData: ApiResponseWorks = await response.json();
-  return responseData.data.works;
+
+  if (!response.ok) {
+    throw new Error(`Error: ${response.status} - ${response.statusText}`);
+  }
+
+  const result = await response.json();
+
+  if (result.errors) {
+    throw new Error(result.errors.map((err: any) => err.message).join(", "));
+  }
+
+  return result.data;
+}
+
+export async function getWorks(): Promise<Works[]> {
+  const data = await fetchGraphQL<ApiResponseWorks>(GetWorksQuery);
+  return data.works;
 }
 
 export async function getProjects(): Promise<Projects[]> {
-  const response: Response = await fetch(getEndpoint(), {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: GetProjectsQuery,
-    }),
-  });
-  const responseData: ApiResponseProjects = await response.json();
-  return responseData.data.projects;
+  const data = await fetchGraphQL<ApiResponseProjects>(GetProjectsQuery);
+  return data.projects;
 }
 
 export async function getWorksPage(slug: string): Promise<WorkPage> {
-  const response: Response = await fetch(getEndpoint(), {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: getWorksPageQuery,
-      variables: {
-        slug: slug,
-      },
-    }),
+  const data = await fetchGraphQL<ApiResponseWorkPage>(getWorksPageQuery, {
+    slug,
   });
-  const responseDataPage: ApiResponseWorkPage = await response.json();
-  return responseDataPage.data.works[0];
+  return data.works[0];
 }
 
 export async function getProjectsPage(slug: string): Promise<ProjectPage> {
-  const response: Response = await fetch(getEndpoint(), {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: getProjectsPageQuery,
-      variables: {
-        slug: slug,
-      },
-    }),
-  });
-  const responseDataPage: ApiResponseProjectPage = await response.json();
-  return responseDataPage.data.projects[0];
+  const data = await fetchGraphQL<ApiResponseProjectPage>(
+    getProjectsPageQuery,
+    { slug },
+  );
+  return data.projects[0];
 }
