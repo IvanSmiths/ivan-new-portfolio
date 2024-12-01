@@ -19,9 +19,7 @@ export type Works = {
 };
 
 export type ApiResponseWorks = {
-  data: {
-    works: Works[];
-  };
+  works: Works[];
 };
 
 export type WorkPage = {
@@ -50,7 +48,5 @@ export type WorkPage = {
 };
 
 export type ApiResponseWorkPage = {
-  data: {
-    works: WorkPage[];
-  };
+  works: WorkPage[];
 };

@@ -6,43 +6,52 @@ import {
 } from "./graphqlTypes";
 import { getWorksPageQuery, GetWorksQuery } from "./graphqlQueries";
 
-export async function getWorks(): Promise<Works[]> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
+function getEndpoint(): string {
+  const endpoint = process.env.HYGRAPH_ENDPOINT;
+  if (!endpoint) {
     throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
   }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
+  return endpoint;
+}
+
+async function fetchGraphQL<T>(
+  query: string,
+  variables?: Record<string, any>,
+): Promise<T> {
+  const response = await fetch(getEndpoint(), {
     method: "POST",
     cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({
-      query: GetWorksQuery,
-    }),
+    body: JSON.stringify({ query, variables }),
   });
-  const responseData: ApiResponseWorks = await response.json();
-  return responseData.data.works;
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch: ${response.status} ${response.statusText}`,
+    );
+  }
+
+  const result = await response.json();
+  if (result.errors) {
+    throw new Error(
+      result.errors.map((error: any) => error.message).join(", "),
+    );
+  }
+
+  return result.data;
+}
+
+export async function getWorks(): Promise<Works[]> {
+  const data = await fetchGraphQL<ApiResponseWorks>(GetWorksQuery);
+  return data.works;
 }
 
 export async function getWorksPage(slug: string): Promise<WorkPage> {
-  if (!process.env.HYGRAPH_ENDPOINT) {
-    throw new Error("Environment variable HYGRAPH_ENDPOINT is not set.");
-  }
-  const response: Response = await fetch(process.env.HYGRAPH_ENDPOINT, {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      query: getWorksPageQuery,
-      variables: {
-        slug: slug,
-      },
-    }),
+  const data = await fetchGraphQL<ApiResponseWorkPage>(getWorksPageQuery, {
+    slug,
   });
-  const responseDataPage: ApiResponseWorkPage = await response.json();
-  return responseDataPage.data.works[0];
+  return data.works[0];
 }
