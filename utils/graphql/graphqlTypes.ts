@@ -7,19 +7,13 @@ export type Media = {
   fileName?: string;
 };
 
-type homeLogo = {
-  url: string;
-  height: number;
-  width: number;
-};
-
 export type Link = {
   label: string;
   link: string;
 };
 
 export type WorkBase = {
-  homeLogo: homeLogo;
+  homeLogo: Media;
   id: string;
   slug: string;
   company: string;
