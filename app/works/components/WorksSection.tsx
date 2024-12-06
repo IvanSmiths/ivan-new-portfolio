@@ -4,9 +4,9 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { FC, Key, useRef } from "react";
-import { Works } from "../../../utils/graphql";
 import { useAnimationStore } from "../../../utils/store";
 import Work from "./Work";
+import { Works } from "../../../utils/graphql/graphqlTypes";
 
 type WorksProps = {
   works: Works[];

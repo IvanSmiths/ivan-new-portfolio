@@ -1,4 +1,3 @@
-import { getWorksPage, WorkPage } from "../../../utils/graphql";
 import { workSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/workMetadata";
 import Footer from "../../globalComponents/Footer/Footer";
@@ -6,6 +5,8 @@ import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Hero from "./components/Hero";
 import Images from "./components/Images";
 import WorksDone from "./components/WorksDone";
+import { WorkPage } from "../../../utils/graphql/graphqlTypes";
+import { getWorksPage } from "../../../utils/graphql";
 
 export type Props = {
   params: { slug: string };
