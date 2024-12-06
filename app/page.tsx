@@ -8,13 +8,13 @@ import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import Overlay from "./components/Loader/Overlay";
 import WorksSection from "./components/Works/WorksSection";
 import Footer from "./globalComponents/Footer/Footer";
-import { Works } from "../utils/graphql/graphqlTypes";
+import { WorkBase } from "../utils/graphql/graphqlTypes";
 import { getWorks } from "../utils/graphql";
 
 export const metadata: Metadata = homeMetadata;
 
 const Home = async () => {
-  const works: Works[] = await getWorks();
+  const works: WorkBase[] = await getWorks();
 
   return (
     <>

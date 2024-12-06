@@ -1,47 +1,44 @@
 import { ElementNode, RichTextContent } from "@graphcms/rich-text-types";
 
-export type Works = {
+export type Media = {
+  url: string;
+  height: number;
+  width: number;
+  fileName?: string;
+};
+
+type homeLogo = {
+  url: string;
+  height: number;
+  width: number;
+};
+
+export type Link = {
+  label: string;
+  link: string;
+};
+
+export type WorkBase = {
+  homeLogo: homeLogo;
   id: string;
   slug: string;
   company: string;
   role: string;
   homeDescription: string;
-  homeLogo: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-  };
+  homeImage: Media;
 };
 
 export type ApiResponseWorks = {
-  works: Works[];
+  works: (WorkBase & { homeLogo: Media })[];
 };
 
-export type WorkPage = {
-  id: string;
-  slug: string;
+export type WorkPage = WorkBase & {
   title: string;
-  company: string;
   description: { raw: RichTextContent };
   date: string;
-  role: string;
-  homeDescription: string;
   metaDescription: string;
-  worksDone: {
-    works: { label: string; link: string }[];
-  };
+  worksDone: { works: Link[] };
   linkedinLink: string;
-  homeImage: {
-    url: string;
-    height: number;
-    width: number;
-    fileName: string;
-  };
   websiteLink: string;
   stack: string;
   images: { raw: { children: ElementNode[] } };

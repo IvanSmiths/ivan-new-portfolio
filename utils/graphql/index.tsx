@@ -1,8 +1,8 @@
 import {
   ApiResponseWorkPage,
   ApiResponseWorks,
+  WorkBase,
   WorkPage,
-  Works,
 } from "./graphqlTypes";
 import { getWorksPageQuery, GetWorksQuery } from "./graphqlQueries";
 
@@ -18,7 +18,7 @@ async function fetchGraphQL<T>(
   query: string,
   variables?: Record<string, any>,
 ): Promise<T> {
-  const response = await fetch(getEndpoint(), {
+  const response: Response = await fetch(getEndpoint(), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ async function fetchGraphQL<T>(
   return result.data;
 }
 
-export async function getWorks(): Promise<Works[]> {
+export async function getWorks(): Promise<WorkBase[]> {
   const data = await fetchGraphQL<ApiResponseWorks>(GetWorksQuery);
   return data.works;
 }
