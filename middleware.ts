@@ -1,4 +1,9 @@
-import arcjet, { ArcjetDecision, ArcjetNext, detectBot } from "@arcjet/next";
+import arcjet, {
+  ArcjetDecision,
+  ArcjetNext,
+  detectBot,
+  shield,
+} from "@arcjet/next";
 import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
@@ -10,6 +15,9 @@ const aj: ArcjetNext<{}> = arcjet({
     detectBot({
       mode: "LIVE",
       allow: ["CATEGORY:SEARCH_ENGINE", "CATEGORY:PREVIEW"],
+    }),
+    shield({
+      mode: "LIVE",
     }),
   ],
 });
