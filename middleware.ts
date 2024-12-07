@@ -1,4 +1,4 @@
-import arcjet, { ArcjetNext, detectBot } from "@arcjet/next";
+import arcjet, { ArcjetDecision, ArcjetNext, detectBot } from "@arcjet/next";
 import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
@@ -15,7 +15,7 @@ const aj: ArcjetNext<{}> = arcjet({
 });
 
 export default async function middleware(request: NextRequest) {
-  const decision = await aj.protect(request);
+  const decision: ArcjetDecision = await aj.protect(request);
 
   if (decision.isDenied() && decision.reason.isBot()) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
