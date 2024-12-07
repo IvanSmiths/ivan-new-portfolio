@@ -1,5 +1,5 @@
 export const GetWorksQuery = `
-  query Works() {
+  query Works {
           works(orderBy: createdAt_ASC) {
             id
             slug
