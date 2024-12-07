@@ -1,10 +1,13 @@
 import {
+  ApiResponseProjectPage,
   ApiResponseWorkPage,
   ApiResponseWorks,
+  ProjectPage,
   WorkBase,
   WorkPage,
 } from "./graphqlTypes";
 import {
+  GetProjectsPageQuery,
   GetProjectsQuery,
   getWorksPageQuery,
   GetWorksQuery,
@@ -62,4 +65,13 @@ export async function getWorksPage(slug: string): Promise<WorkPage> {
     slug,
   });
   return data.works[0];
+}
+export async function getProjectsPage(slug: string): Promise<ProjectPage> {
+  const data = await fetchGraphQL<ApiResponseProjectPage>(
+    GetProjectsPageQuery,
+    {
+      slug,
+    },
+  );
+  return data.projects[0];
 }

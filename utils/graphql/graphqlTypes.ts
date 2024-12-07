@@ -41,3 +41,27 @@ export type WorkPage = WorkBase & {
 export type ApiResponseWorkPage = {
   works: WorkPage[];
 };
+
+export type ProjectBase = {
+  homeLogo: Media;
+  id: string;
+  slug: string;
+  project: string;
+  homeDescription: string;
+  homeImage: Media;
+};
+
+export type ApiResponseProjects = {
+  projects: (ProjectBase & { homeLogo: Media })[];
+};
+
+export type ProjectPage = ProjectBase & {
+  title: string;
+  description: string;
+  metaDescription: string;
+  homeImage: Media;
+};
+
+export type ApiResponseProjectPage = {
+  projects: ProjectPage[];
+};

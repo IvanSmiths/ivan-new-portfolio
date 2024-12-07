@@ -70,3 +70,21 @@ export const GetProjectsQuery = `
            }
           }
 `;
+
+export const GetProjectsPageQuery = `
+  query Projects($slug: String!) {
+          projects(where: {slug: $slug}) {
+            id
+            slug
+            project
+            title
+            description
+            metaDescription
+            homeImage {
+              url
+              height
+              width
+            }
+           }
+          }
+`;
