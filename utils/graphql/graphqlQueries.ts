@@ -79,6 +79,7 @@ export const GetProjectsPageQuery = `
             project
             title
             description
+            websiteLink
             metaDescription
             homeImage {
               url

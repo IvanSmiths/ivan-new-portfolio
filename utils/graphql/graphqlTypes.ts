@@ -59,6 +59,8 @@ export type ProjectPage = ProjectBase & {
   title: string;
   description: string;
   metaDescription: string;
+  websiteLink: string;
+  images: { raw: { children: ElementNode[] } };
   homeImage: Media;
 };
 
