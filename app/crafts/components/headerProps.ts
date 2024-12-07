@@ -4,6 +4,7 @@ import {
   rendersDescription,
 } from "../../../utils/metadata/craftsMetadata";
 import { description } from "../../../utils/metadata/worksMetadata";
+import { description as projectsDescription } from "../../../utils/metadata/projectsMetadata";
 
 export const photoHeaderProps = {
   h1: "Photos",
@@ -32,5 +33,5 @@ export const worksHeaderProps = {
 export const projectsHeaderProps = {
   h1: "Projects",
   h2: "All my projects",
-  paragraph: description,
+  paragraph: projectsDescription,
 };
