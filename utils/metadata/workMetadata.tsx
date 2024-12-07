@@ -4,7 +4,7 @@ import { WorkPage } from "../graphql/graphqlTypes";
 import { getWorksPage } from "../graphql";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const work: WorkPage = await getWorksPage(params.slug);
+  const work: WorkPage = await getWorksPage((await params).slug);
   const ogImage = [
     {
       url: work.homeImage.url,

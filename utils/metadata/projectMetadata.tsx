@@ -4,7 +4,7 @@ import { ProjectPage } from "../graphql/graphqlTypes";
 import { getProjectsPage } from "../graphql";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project: ProjectPage = await getProjectsPage(params.slug);
+  const project: ProjectPage = await getProjectsPage((await params).slug);
   const ogImage = [
     {
       url: project.homeImage.url,

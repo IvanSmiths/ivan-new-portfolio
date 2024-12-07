@@ -84,7 +84,7 @@ function slugify(str: ReactNode) {
 
 function createHeading(level: number) {
   // eslint-disable-next-line react/display-name
-  return ({ children }: HeadingProps): ReactElement => {
+  return ({ children }: HeadingProps): ReactElement<any> => {
     let slug: string = slugify(children);
     return createElement(
       `h${level}`,
