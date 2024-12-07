@@ -1,10 +1,10 @@
-import arcjet, { detectBot } from "@arcjet/next";
+import arcjet, { ArcjetNext, detectBot } from "@arcjet/next";
 import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
-const aj = arcjet({
+const aj: ArcjetNext<{}> = arcjet({
   key: process.env.ARCJET_KEY!,
   rules: [
     detectBot({
