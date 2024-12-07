@@ -49,6 +49,25 @@ export const worksSchema = {
   ],
 };
 
+export const projectsSchema = {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ivansmiths.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Works",
+      item: "https://ivansmiths.com/projects",
+    },
+  ],
+};
+
 export const workSchema = (works: WorkProps) => {
   return {
     "@context": "http://schema.org",

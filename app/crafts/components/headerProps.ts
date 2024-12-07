@@ -28,3 +28,9 @@ export const worksHeaderProps = {
   h2: "All my works",
   paragraph: description,
 };
+
+export const projectsHeaderProps = {
+  h1: "Projects",
+  h2: "All my projects",
+  paragraph: description,
+};
