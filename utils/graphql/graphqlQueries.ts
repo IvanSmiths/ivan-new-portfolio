@@ -49,3 +49,24 @@ export const getWorksPageQuery = `
             }
           }
         `;
+
+export const GetProjectsQuery = `
+  query Projects {
+          projects(orderBy: createdAt_ASC) {
+            id
+            slug
+            project
+            homeLogo {
+              url
+              height
+              width
+            }
+            homeDescription
+            homeImage {
+              url
+              height
+              width
+            }
+           }
+          }
+`;

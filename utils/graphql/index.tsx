@@ -4,7 +4,11 @@ import {
   WorkBase,
   WorkPage,
 } from "./graphqlTypes";
-import { getWorksPageQuery, GetWorksQuery } from "./graphqlQueries";
+import {
+  GetProjectsQuery,
+  getWorksPageQuery,
+  GetWorksQuery,
+} from "./graphqlQueries";
 
 function getEndpoint(): string {
   const endpoint = process.env.HYGRAPH_ENDPOINT;
@@ -46,6 +50,11 @@ async function fetchGraphQL<T>(
 export async function getWorks(): Promise<WorkBase[]> {
   const data = await fetchGraphQL<ApiResponseWorks>(GetWorksQuery);
   return data.works;
+}
+
+export async function getProjects(): Promise<any> {
+  const data = await fetchGraphQL<any>(GetProjectsQuery);
+  return data.projects;
 }
 
 export async function getWorksPage(slug: string): Promise<WorkPage> {
