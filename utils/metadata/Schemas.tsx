@@ -6,6 +6,11 @@ type WorkProps = {
   company: string;
 };
 
+type ProjectProps = {
+  slug: string;
+  project: string;
+};
+
 type BlogSchema = Metadata & { slug?: string };
 
 export const homeSchema = {
@@ -90,6 +95,33 @@ export const workSchema = (works: WorkProps) => {
         position: 3,
         name: works.company,
         item: `https://ivansmiths.com/works/${works.slug}`,
+      },
+    ],
+  };
+};
+
+export const projectSchema = (projects: ProjectProps) => {
+  return {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://ivansmiths.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: "https://ivansmiths.com/projects",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: projects.project,
+        item: `https://ivansmiths.com/projects/${projects.slug}`,
       },
     ],
   };
