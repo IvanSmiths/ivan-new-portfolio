@@ -1,7 +1,9 @@
 import {
   ApiResponseProjectPage,
+  ApiResponseProjects,
   ApiResponseWorkPage,
   ApiResponseWorks,
+  ProjectBase,
   ProjectPage,
   WorkBase,
   WorkPage,
@@ -55,8 +57,8 @@ export async function getWorks(): Promise<WorkBase[]> {
   return data.works;
 }
 
-export async function getProjects(): Promise<any> {
-  const data = await fetchGraphQL<any>(GetProjectsQuery);
+export async function getProjects(): Promise<ProjectBase[]> {
+  const data = await fetchGraphQL<ApiResponseProjects>(GetProjectsQuery);
   return data.projects;
 }
 
