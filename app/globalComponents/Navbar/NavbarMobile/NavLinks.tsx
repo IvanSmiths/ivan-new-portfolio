@@ -10,6 +10,7 @@ type NavLink = {
 const navLinks: NavLink[] = [
   { href: "/crafts", label: "CRAFTS" },
   { href: "/blog", label: "BLOG" },
+  { href: "/projects", label: "PROJECTS" },
   { href: "/works", label: "WORKS" },
   { href: "/", label: "HOME" },
 ];
@@ -26,7 +27,7 @@ export default function NavLinks({
   linksRef,
 }: NavLinksProps) {
   return (
-    <ul className="flex w-full flex-col gap-small text-2xl">
+    <ul className="flex w-full flex-col gap-small overflow-auto text-2xl">
       {navLinks.map((link: NavLink, index: number) => (
         <li
           key={link.href}
@@ -48,7 +49,7 @@ export default function NavLinks({
           >
             {link.label}
           </Link>
-          {index === 3 && (
+          {index === 4 && (
             <span className="w-full bg-darkSecondary p-[1px] dark:bg-lightSecondary"></span>
           )}
         </li>

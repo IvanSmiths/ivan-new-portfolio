@@ -8,6 +8,7 @@ import Filter, { Label } from "./components/Filter";
 import Header from "./components/Header";
 import Images from "./components/Images";
 import { craftsHeaderProps } from "./components/headerProps";
+import { craftsSchema } from "../../utils/metadata/Schemas";
 
 export const metadata: Metadata = craftsMetadata;
 
@@ -25,6 +26,10 @@ const Crafts: FC = async () => {
       <Filter currentPage={Label.All} />
       <Images images={images} />
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(craftsSchema) }}
+      />
     </>
   );
 };

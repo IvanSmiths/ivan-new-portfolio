@@ -8,6 +8,7 @@ import Filter, { Label } from "../components/Filter";
 import Header from "../components/Header";
 import Images from "../components/Images";
 import { rendersHeaderProps } from "../components/headerProps";
+import { rendersSchema } from "../../../utils/metadata/Schemas";
 
 export const metadata: Metadata = rendersMetadata;
 
@@ -25,6 +26,10 @@ const Renders: FC = async () => {
       <Filter currentPage={Label.Renders} />
       <Images images={images} />
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(rendersSchema) }}
+      />
     </>
   );
 };
