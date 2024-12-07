@@ -6,6 +6,10 @@ import Footer from "../globalComponents/Footer/Footer";
 import { projectsSchema } from "../../utils/metadata/Schemas";
 import ProjectsSection from "./components/ProjectsSection";
 import { ProjectBase } from "../../utils/graphql/graphqlTypes";
+import type { Metadata } from "next";
+import { projectsMetadata } from "../../utils/metadata/projectsMetadata";
+
+export const metadata: Metadata = projectsMetadata;
 
 export default async function Page() {
   const projects: ProjectBase[] = await getProjects();

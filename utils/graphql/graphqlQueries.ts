@@ -81,6 +81,9 @@ export const GetProjectsPageQuery = `
             description
             websiteLink
             metaDescription
+            images {
+              raw
+            }
             homeImage {
               url
               height

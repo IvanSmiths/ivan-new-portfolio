@@ -9,7 +9,7 @@ type HeaderProps = {
 const Hero: FC<HeaderProps> = ({ project }) => {
   return (
     <header className="mt-small flex flex-col items-center justify-center px-small md:mt-section">
-      <h1 className="text-center text-6xl font-thin uppercase md:text-9xl">
+      <h1 className="text-center text-6xl font-thin uppercase md:text-9xl lg:px-large">
         {project.project}
       </h1>
       <div className="mt-small w-full md:mt-medium md:h-[60rem]">

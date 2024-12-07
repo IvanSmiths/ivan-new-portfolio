@@ -5,10 +5,13 @@ import Footer from "../../globalComponents/Footer/Footer";
 import Hero from "./components/Hero";
 import Images from "./components/Images";
 import { projectSchema } from "../../../utils/metadata/Schemas";
+import { generateMetadata } from "../../../utils/metadata/projectMetadata";
 
 export type Props = {
   params: { slug: string };
 };
+
+export { generateMetadata };
 
 const Project = async ({ params }: Props) => {
   const projects: ProjectPage = await getProjectsPage(params.slug);
