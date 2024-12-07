@@ -9,13 +9,12 @@ import { WorkPage } from "../../../utils/graphql/graphqlTypes";
 import { getWorksPage } from "../../../utils/graphql";
 
 export type Props = {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 };
 
 export { generateMetadata };
 
-export default async function Work(props: Props) {
-  const params = await props.params;
+export default async function Work({ params }: Props) {
   const works: WorkPage = await getWorksPage(params.slug);
 
   return (

@@ -8,9 +8,9 @@ import Hero from "./components/Hero";
 import { MDXComponents } from "./components/MDXComponents";
 
 export type Params = {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 };
 
 export async function generateStaticParams() {
@@ -20,8 +20,7 @@ export async function generateStaticParams() {
 
 export { generateMetadata };
 
-export default async function Post(props: Params) {
-  const params = await props.params;
+export default async function Post({ params }: Params) {
   let post: Posts | undefined = getBlogPosts().find(
     (post) => post.slug === params.slug,
   );

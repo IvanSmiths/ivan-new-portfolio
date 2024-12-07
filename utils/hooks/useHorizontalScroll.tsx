@@ -3,8 +3,8 @@ import { gsap } from "gsap";
 import { RefObject } from "react";
 
 const useHorizontalScroll = (
-  containerRef: RefObject<HTMLDivElement | null>,
-  triggerRef: RefObject<HTMLDivElement | null>,
+  containerRef: RefObject<HTMLDivElement>,
+  triggerRef: RefObject<HTMLDivElement>,
 ): void => {
   const getScrollAmount = (): number | undefined => {
     let containerWidth: number | undefined = containerRef.current?.offsetWidth;

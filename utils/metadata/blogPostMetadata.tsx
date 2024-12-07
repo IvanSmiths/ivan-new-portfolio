@@ -6,7 +6,7 @@ export async function generateMetadata({
   params,
 }: Params): Promise<Metadata | undefined> {
   let post: Posts | undefined = getBlogPosts().find(
-    async (post) => post.slug === (await params).slug,
+    (post) => post.slug === params.slug,
   );
 
   if (!post) {

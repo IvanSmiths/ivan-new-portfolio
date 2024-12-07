@@ -8,13 +8,12 @@ import { projectSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/projectMetadata";
 
 export type Props = {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 };
 
 export { generateMetadata };
 
-const Project = async (props: Props) => {
-  const params = await props.params;
+const Project = async ({ params }: Props) => {
   const projects: ProjectPage = await getProjectsPage(params.slug);
 
   return (
