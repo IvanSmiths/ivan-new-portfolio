@@ -89,7 +89,9 @@ export default function NavMenu({
         ref={themeToggleRef}
         className="mt-small pr-small opacity-0"
       >
-        <ThemeToggle />
+        <div className="ml-small w-full">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
