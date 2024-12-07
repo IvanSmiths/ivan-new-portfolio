@@ -30,7 +30,7 @@ const Project: FC<ProjectProps> = ({ project, index, isInHome }) => {
           height={project.homeLogo.height}
         />
         <div className="absolute inset-0 z-[2] rounded-lg bg-black/30"></div>
-        <div className="absolute bottom-small left-small pr-small text-light">
+        <div className="absolute bottom-small left-small z-[3] pr-small text-light">
           <h3 className="text-xl">{project.project}</h3>
         </div>
         <img
