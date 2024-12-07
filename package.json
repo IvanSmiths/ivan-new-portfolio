@@ -21,6 +21,7 @@
     "cypress:run": "cypress run --config-file=cypress.config.ts"
   },
   "dependencies": {
+    "@arcjet/next": "^1.0.0-alpha.34",
     "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@graphcms/rich-text-types": "^0.5.1",
     "@gsap/react": "^2.1.1",

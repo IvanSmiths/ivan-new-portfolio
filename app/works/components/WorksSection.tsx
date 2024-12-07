@@ -4,12 +4,12 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { FC, Key, useRef } from "react";
-import { Works } from "../../../utils/graphql";
 import { useAnimationStore } from "../../../utils/store";
 import Work from "./Work";
+import { WorkBase } from "../../../utils/graphql/graphqlTypes";
 
 type WorksProps = {
-  works: Works[];
+  works: WorkBase[];
 };
 
 const WorksSection: FC<WorksProps> = ({ works }) => {
@@ -62,7 +62,7 @@ const WorksSection: FC<WorksProps> = ({ works }) => {
     <div className="overflow-hidden md:py-medium">
       <div ref={triggerRef}>
         <div ref={containerRef} className="flex h-screen w-fit gap-small">
-          {works.map((work: Works, index: Key) => (
+          {works.map((work: WorkBase, index: Key) => (
             <Work key={index} work={work} index={index} />
           ))}
         </div>

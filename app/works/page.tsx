@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FC } from "react";
-import { getWorks, Works } from "../../utils/graphql";
 import { worksSchema } from "../../utils/metadata/Schemas";
 import { worksMetadata } from "../../utils/metadata/worksMetadata";
 import Header from "../crafts/components/Header";
@@ -8,11 +7,13 @@ import { worksHeaderProps } from "../crafts/components/headerProps";
 import Footer from "../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import WorksSection from "./components/WorksSection";
+import { WorkBase } from "../../utils/graphql/graphqlTypes";
+import { getWorks } from "../../utils/graphql";
 
 export const metadata: Metadata = worksMetadata;
 
 const WorksPage: FC = async () => {
-  const works: Works[] = await getWorks();
+  const works: WorkBase[] = await getWorks();
 
   return (
     <>

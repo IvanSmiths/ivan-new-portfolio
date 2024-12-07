@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getWorks, Works } from "../utils/graphql";
 import { homeMetadata } from "../utils/metadata/homeMetadata";
 import { homeSchema } from "../utils/metadata/Schemas";
 import About from "./components/About/About";
@@ -9,11 +8,13 @@ import LoaderWrapper from "./components/Loader/LoaderWrapper";
 import Overlay from "./components/Loader/Overlay";
 import WorksSection from "./components/Works/WorksSection";
 import Footer from "./globalComponents/Footer/Footer";
+import { WorkBase } from "../utils/graphql/graphqlTypes";
+import { getWorks } from "../utils/graphql";
 
 export const metadata: Metadata = homeMetadata;
 
 const Home = async () => {
-  const works: Works[] = await getWorks();
+  const works: WorkBase[] = await getWorks();
 
   return (
     <>

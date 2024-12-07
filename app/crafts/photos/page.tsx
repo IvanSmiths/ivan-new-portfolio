@@ -8,6 +8,7 @@ import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
 import Filter, { Label } from "../components/Filter";
 import Header from "../components/Header";
 import Images from "../components/Images";
+import { photosSchema } from "../../../utils/metadata/Schemas";
 
 export const metadata: Metadata = photosMetadata;
 
@@ -25,6 +26,10 @@ const Photos: FC = async () => {
       <Filter currentPage={Label.Photos} />
       <Images images={images} />
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(photosSchema) }}
+      />
     </>
   );
 };
