@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Social from "../../../globalComponents/Footer/Social";
-import { ProjectPage } from "../../../../utils/graphql/graphqlTypes";
+import Social from "../../globalComponents/Footer/Social";
+import { ProjectPage } from "../../../utils/graphql/graphqlTypes";
 
 type HeaderProps = {
   project: ProjectPage;
