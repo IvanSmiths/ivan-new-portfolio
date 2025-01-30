@@ -4,7 +4,7 @@ import { projectsHeaderProps } from "../components/crafts/headerProps";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import Footer from "../globalComponents/Footer/Footer";
 import { projectsSchema } from "../../utils/metadata/Schemas";
-import ProjectsSection from "./components/ProjectsSection";
+import ProjectsSection from "../components/projects/ProjectsSection";
 import { ProjectBase } from "../../utils/graphql/graphqlTypes";
 import type { Metadata } from "next";
 import { projectsMetadata } from "../../utils/metadata/projectsMetadata";
