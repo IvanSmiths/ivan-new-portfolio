@@ -1,7 +1,7 @@
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { FC } from "react";
-import Social from "../../../globalComponents/Footer/Social";
-import { WorkPage } from "../../../../utils/graphql/graphqlTypes";
+import Social from "../../globalComponents/Footer/Social";
+import { WorkPage } from "../../../utils/graphql/graphqlTypes";
 
 type HeaderProps = {
   work: WorkPage;
