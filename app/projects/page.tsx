@@ -1,6 +1,6 @@
 import { getProjects } from "../../utils/graphql";
-import Header from "../crafts/components/Header";
-import { projectsHeaderProps } from "../crafts/components/headerProps";
+import Header from "../components/crafts/Header";
+import { projectsHeaderProps } from "../components/crafts/headerProps";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
 import Footer from "../globalComponents/Footer/Footer";
 import { projectsSchema } from "../../utils/metadata/Schemas";
