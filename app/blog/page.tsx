@@ -2,8 +2,8 @@ import { blogsSchema } from "../../utils/metadata/Schemas";
 import { blogMetadata } from "../../utils/metadata/blogMetadata";
 import Blog from "../components/home/Blog/Blog";
 import Header from "../components/crafts/Header";
-import Footer from "../globalComponents/Footer/Footer";
-import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
+import Navbar, { Position } from "../components/global/Navbar/Navbar";
+import Footer from "../components/global/Footer/Footer";
 
 export const metadata = blogMetadata;
 

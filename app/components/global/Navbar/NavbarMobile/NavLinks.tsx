@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MutableRefObject } from "react";
-import { bebas_neue } from "../../../../utils/fonts";
+import { bebas_neue } from "../../../../../utils/fonts";
 
 type NavLink = {
   href: string;

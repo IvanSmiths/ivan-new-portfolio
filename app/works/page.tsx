@@ -4,11 +4,11 @@ import { worksSchema } from "../../utils/metadata/Schemas";
 import { worksMetadata } from "../../utils/metadata/worksMetadata";
 import Header from "../components/crafts/Header";
 import { worksHeaderProps } from "../components/crafts/headerProps";
-import Footer from "../globalComponents/Footer/Footer";
-import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
+import Navbar, { Position } from "../components/global/Navbar/Navbar";
 import WorksSection from "../components/works/WorksSection";
 import { WorkBase } from "../../utils/graphql/graphqlTypes";
 import { getWorks } from "../../utils/graphql";
+import Footer from "../components/global/Footer/Footer";
 
 export const metadata: Metadata = worksMetadata;
 

@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { useButtonStore } from "../../utils/store";
-import Button from "../globalComponents/Button";
+import Button from "../components/global/Button";
 
 const Main: FC = () => {
   const { attempts } = useButtonStore();

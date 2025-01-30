@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Logo from "../../globalComponents/Logo/Logo";
 import { SocialLink, socialLinks } from "./FooterData";
 import Social from "./Social";
+import Logo from "../Logo/Logo";
 
 const Footer: FC = () => {
   return (

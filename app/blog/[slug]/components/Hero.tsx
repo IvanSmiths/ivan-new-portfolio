@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Blob from "./Blob";
-import Dot from "../../../globalComponents/Dot";
+import Dot from "../../../components/global/Dot";
 import { Metadata } from "../../../../utils/getPosts";
 import { bebas_neue } from "../../../../utils/fonts";
 
@@ -22,7 +22,7 @@ const Hero: FC<PostProps> = ({ post }) => {
         </span>
         <h1
           data-cy="blogPageTitle"
-          className={`${bebas_neue.className} from-darker via-darker to-dark dark:from-light dark:via-lighter dark:to-lighter h-full bg-gradient-to-r bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl`}
+          className={`${bebas_neue.className} h-full bg-gradient-to-r from-darker via-darker to-dark bg-clip-text text-center text-5xl text-transparent dark:from-light dark:via-lighter dark:to-lighter md:text-7xl xl:text-8xl`}
         >
           {post.title}
         </h1>
