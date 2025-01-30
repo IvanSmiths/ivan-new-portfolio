@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { bebas_neue } from "../../../utils/fonts";
-import useHorizontalScroll from "../../../utils/hooks/useHorizontalScroll";
+import { bebas_neue } from "../../../../utils/fonts";
+import useHorizontalScroll from "../../../../utils/hooks/useHorizontalScroll";
 import AnimatedAccordion from "./Accordion";
 import { AccordionItem, accordionItems } from "./AccordionItems";
 

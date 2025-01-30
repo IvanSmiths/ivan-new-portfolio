@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useRef } from "react";
-import { bebas_neue } from "../../../utils/fonts";
+import { bebas_neue } from "../../../../utils/fonts";
 
 type RowElement = {
   label: string;

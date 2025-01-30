@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Logo from "../../globalComponents/Logo/Logo";
+import Logo from "../../../globalComponents/Logo/Logo";
 
 const Header: FC = () => {
   return (

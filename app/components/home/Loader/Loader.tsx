@@ -3,8 +3,8 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { FC, useEffect, useRef } from "react";
-import { useAnimationStore, useOverlayStore } from "../../../utils/store";
-import Header from "../../components/Hero/Header";
+import { useAnimationStore, useOverlayStore } from "../../../../utils/store";
+import Header from "../Hero/Header";
 
 const Loader: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);

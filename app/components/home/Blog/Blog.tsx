@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
-import { getBlogPosts, Posts } from "../../../utils/getPosts";
+import { getBlogPosts, Posts } from "../../../../utils/getPosts";
 
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();

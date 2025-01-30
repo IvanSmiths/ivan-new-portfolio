@@ -2,7 +2,7 @@
 
 import React, { FC, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useAnimationStore } from "../../../../utils/store";
+import { useAnimationStore } from "../../../../../utils/store";
 
 type WeatherProps = {
   temp: number;

@@ -3,7 +3,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useAnimationStore } from "../../../utils/store";
+import { useAnimationStore } from "../../../../utils/store";
 
 const Time: FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
