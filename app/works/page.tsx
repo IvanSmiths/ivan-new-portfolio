@@ -6,7 +6,7 @@ import Header from "../components/crafts/Header";
 import { worksHeaderProps } from "../components/crafts/headerProps";
 import Footer from "../globalComponents/Footer/Footer";
 import Navbar, { Position } from "../globalComponents/Navbar/Navbar";
-import WorksSection from "./components/WorksSection";
+import WorksSection from "../components/works/WorksSection";
 import { WorkBase } from "../../utils/graphql/graphqlTypes";
 import { getWorks } from "../../utils/graphql";
 
