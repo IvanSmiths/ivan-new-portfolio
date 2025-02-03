@@ -1,6 +1,6 @@
 "use client";
 
-import { Position, useButtonStore } from "../../utils/store";
+import { Position, useButtonStore } from "../../../utils/store";
 import { useEffect } from "react";
 import { getButtonMessage } from "./ButtonData";
 import Link from "next/link";
@@ -82,7 +82,7 @@ const ImpossibleButton = () => {
         }}
       >
         <div className="flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition dark:border-light">
-          <Link href="/" className="text-1xl transition">
+          <Link href="/public" className="text-1xl transition">
             {getButtonMessage(attempts)}
           </Link>
         </div>

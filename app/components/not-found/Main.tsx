@@ -1,8 +1,8 @@
 "use client";
 
 import { FC } from "react";
-import { useButtonStore } from "../../utils/store";
-import Button from "../components/global/Button";
+import { useButtonStore } from "../../../utils/store";
+import Button from "../global/Button";
 
 const Main: FC = () => {
   const { attempts } = useButtonStore();

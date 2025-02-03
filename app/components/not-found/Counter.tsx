@@ -1,6 +1,6 @@
 "use client";
 
-import { useButtonStore } from "../../utils/store";
+import { useButtonStore } from "../../../utils/store";
 
 const Counter = () => {
   const { attempts, resetAll } = useButtonStore();
