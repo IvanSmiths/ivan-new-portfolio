@@ -1,12 +1,12 @@
 import { workSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/workMetadata";
-import Footer from "../../globalComponents/Footer/Footer";
-import Navbar, { Position } from "../../globalComponents/Navbar/Navbar";
-import Hero from "./components/Hero";
-import Images from "./components/Images";
-import WorksDone from "./components/WorksDone";
+import Navbar, { Position } from "../../components/global/Navbar/Navbar";
+import Hero from "../../components/work/Hero";
+import Images from "../../components/work/Images";
+import WorksDone from "../../components/work/WorksDone";
 import { WorkPage } from "../../../utils/graphql/graphqlTypes";
 import { getWorksPage } from "../../../utils/graphql";
+import Footer from "../../components/global/Footer/Footer";
 
 export type Props = {
   params: { slug: string };
