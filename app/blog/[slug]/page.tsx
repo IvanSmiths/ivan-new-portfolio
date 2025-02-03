@@ -3,8 +3,8 @@ import { getBlogPosts, Posts } from "../../../utils/getPosts";
 import { generateMetadata } from "../../../utils/metadata/blogPostMetadata";
 import { blogSchema } from "../../../utils/metadata/Schemas";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import Hero from "./components/Hero";
-import { MDXComponents } from "./components/MDXComponents";
+import Hero from "../../components/blog/Hero";
+import { MDXComponents } from "../../components/blog/MDXComponents";
 import Footer from "../../components/global/Footer/Footer";
 
 export type Params = {

@@ -9,7 +9,7 @@ import {
   ReactElement,
   ReactNode,
 } from "react";
-import { lato } from "../../../../utils/fonts";
+import { lato } from "../../../utils/fonts";
 import Note from "./Note";
 import Sections from "./Sections";
 

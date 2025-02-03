@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Blob from "./Blob";
-import Dot from "../../../components/global/Dot";
-import { Metadata } from "../../../../utils/getPosts";
-import { bebas_neue } from "../../../../utils/fonts";
+import Dot from "../global/Dot";
+import { Metadata } from "../../../utils/getPosts";
+import { bebas_neue } from "../../../utils/fonts";
 
 type PostProps = {
   post: Metadata;
