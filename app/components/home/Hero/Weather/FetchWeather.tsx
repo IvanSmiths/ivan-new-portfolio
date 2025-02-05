@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import Weather from "./Weather";
 
 type WeatherData = {
@@ -10,26 +11,42 @@ type WeatherData = {
 };
 
 async function getData() {
-  const res: Response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=Wiesbaden&appid=${process.env.OPEN_WEATHER_API}&units=metric`,
-    {
-      method: "GET",
-      cache: "no-store",
-    },
-  );
+  try {
+    const res: Response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=Wiesbaden&appid=${process.env.OPEN_WEATHER_API}&units=metric`,
+      {
+        method: "GET",
+        cache: "no-store",
+      },
+    );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    if (!res.ok) {
+      throw new Error(`Weather API failed: ${res.statusText}`);
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error("Weather fetch error:", error);
+    return null;
   }
+}
 
-  return res.json();
+function ErrorFallback(): ReactNode {
+  return null;
 }
 
 async function FetchWeather() {
-  const data: WeatherData = await getData();
-  const { weather } = data;
-  const { temp } = data.main;
+  const data: WeatherData | null = await getData();
+
+  if (!data) {
+    return <ErrorFallback />;
+  }
+
+  const weatherData = data as WeatherData;
+  const { weather } = weatherData;
+  const { temp } = weatherData.main;
 
   return <Weather temp={temp} weather={weather[0].main} />;
 }
+
 export default FetchWeather;
