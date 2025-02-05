@@ -32,7 +32,7 @@ const Project: FC<Props> = async ({ params }) => {
       </>
     );
   } catch (error) {
-    console.error("Failed to fetch project page:", error);
+    console.error("Failed to fetch project page.");
     return (
       <>
         <Navbar position={Position.Fixed} />
