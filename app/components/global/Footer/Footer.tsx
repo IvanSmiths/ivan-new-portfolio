@@ -16,7 +16,7 @@ const Footer: FC = () => {
         ))}
       </div>
       <div className="flex justify-between">
-        <span>©2024 Ivan Smiths</span>
+        <span>©2025 Ivan Smiths</span>
         <span>Rocking Since 2020</span>
       </div>
       <Logo />
