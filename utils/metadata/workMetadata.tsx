@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Props } from "../../app/works/[slug]/page";
-import { WorkPage } from "../graphql/graphqlTypes";
-import { getWorksPage } from "../graphql";
+import { WorkPage } from "../fetch/graphql/graphqlTypes";
+import { getWorksPage } from "../fetch/graphql";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work: WorkPage = await getWorksPage(params.slug);

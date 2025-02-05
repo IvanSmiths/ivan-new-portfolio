@@ -4,8 +4,8 @@ import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import Hero from "../../components/work/Hero";
 import Images from "../../components/work/Images";
 import WorksDone from "../../components/work/WorksDone";
-import { WorkPage } from "../../../utils/graphql/graphqlTypes";
-import { getWorksPage } from "../../../utils/graphql";
+import { WorkPage } from "../../../utils/fetch/graphql/graphqlTypes";
+import { getWorksPage } from "../../../utils/fetch/graphql";
 import Footer from "../../components/global/Footer/Footer";
 
 export type Props = {

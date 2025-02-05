@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { FC, useRef } from "react";
 import Work from "../../works/Work";
 import WorkText from "./WorkText";
-import { WorkBase } from "../../../../utils/graphql/graphqlTypes";
+import { WorkBase } from "../../../../utils/fetch/graphql/graphqlTypes";
 
 type WorksSectionProps = {
   works: WorkBase[];

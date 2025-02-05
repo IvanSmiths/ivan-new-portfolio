@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC, Key } from "react";
-import { ProjectBase } from "../../../utils/graphql/graphqlTypes";
+import { ProjectBase } from "../../../utils/fetch/graphql/graphqlTypes";
 
 type ProjectProps = {
   project: ProjectBase;

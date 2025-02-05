@@ -1,5 +1,5 @@
-import { getProjectsPage } from "../../../utils/graphql";
-import { ProjectPage } from "../../../utils/graphql/graphqlTypes";
+import { getProjectsPage } from "../../../utils/fetch/graphql";
+import { ProjectPage } from "../../../utils/fetch/graphql/graphqlTypes";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import Hero from "../../components/project/Hero";
 import Images from "../../components/project/Images";

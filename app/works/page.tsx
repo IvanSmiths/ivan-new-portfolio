@@ -6,8 +6,8 @@ import Header from "../components/crafts/Header";
 import { worksHeaderProps } from "../components/crafts/headerProps";
 import Navbar, { Position } from "../components/global/Navbar/Navbar";
 import WorksSection from "../components/works/WorksSection";
-import { WorkBase } from "../../utils/graphql/graphqlTypes";
-import { getWorks } from "../../utils/graphql";
+import { WorkBase } from "../../utils/fetch/graphql/graphqlTypes";
+import { getWorks } from "../../utils/fetch/graphql";
 import Footer from "../components/global/Footer/Footer";
 
 export const metadata: Metadata = worksMetadata;

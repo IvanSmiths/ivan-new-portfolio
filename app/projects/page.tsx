@@ -1,10 +1,10 @@
-import { getProjects } from "../../utils/graphql";
+import { getProjects } from "../../utils/fetch/graphql";
 import Header from "../components/crafts/Header";
 import { projectsHeaderProps } from "../components/crafts/headerProps";
 import Navbar, { Position } from "../components/global/Navbar/Navbar";
 import { projectsSchema } from "../../utils/metadata/Schemas";
 import ProjectsSection from "../components/projects/ProjectsSection";
-import { ProjectBase } from "../../utils/graphql/graphqlTypes";
+import { ProjectBase } from "../../utils/fetch/graphql/graphqlTypes";
 import type { Metadata } from "next";
 import { projectsMetadata } from "../../utils/metadata/projectsMetadata";
 import Footer from "../components/global/Footer/Footer";
