@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBlogPosts, Posts } from "../../../utils/getPosts";
+import { getBlogPosts, Posts } from "../../../utils/fetch/getPosts";
 import { generateMetadata } from "../../../utils/metadata/blogPostMetadata";
 import { blogSchema } from "../../../utils/metadata/Schemas";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
