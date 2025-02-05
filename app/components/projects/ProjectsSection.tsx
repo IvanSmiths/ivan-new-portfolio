@@ -1,6 +1,6 @@
 import { FC, Key } from "react";
 import Project from "./Project";
-import { ProjectBase } from "../../../utils/graphql/graphqlTypes";
+import { ProjectBase } from "../../../utils/fetch/graphql/graphqlTypes";
 
 type ProjectsProps = {
   projects: ProjectBase[];

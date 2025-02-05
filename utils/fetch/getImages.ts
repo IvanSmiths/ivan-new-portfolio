@@ -1,5 +1,8 @@
-import { db } from "./db";
-import { photos as photosTable, renders as rendersTable } from "./schema";
+import { db } from "../../db/db";
+import {
+  photos as photosTable,
+  renders as rendersTable,
+} from "../../db/schema";
 
 export const getImages = async () => {
   const photos = await db
@@ -28,7 +31,7 @@ export const getImages = async () => {
 };
 
 export const getRenders = async () => {
-  const images = await db
+  return await db
     .select({
       desktopUrl: rendersTable.desktopUrl,
       alt: rendersTable.alt,
@@ -38,12 +41,10 @@ export const getRenders = async () => {
     })
     .from(rendersTable)
     .all();
-
-  return images;
 };
 
 export const getPhotos = async () => {
-  const images = await db
+  return await db
     .select({
       desktopUrl: photosTable.desktopUrl,
       alt: photosTable.alt,
@@ -53,6 +54,4 @@ export const getPhotos = async () => {
     })
     .from(photosTable)
     .all();
-
-  return images;
 };

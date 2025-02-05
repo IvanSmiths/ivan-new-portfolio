@@ -1,6 +1,6 @@
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { FC } from "react";
-import { WorkPage } from "../../../utils/graphql/graphqlTypes";
+import { WorkPage } from "../../../utils/fetch/graphql/graphqlTypes";
 
 interface HeaderProps {
   work: WorkPage;

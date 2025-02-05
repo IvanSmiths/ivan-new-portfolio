@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Params } from "../../app/blog/[slug]/page";
-import { getBlogPosts, Posts } from "../getPosts";
+import { getBlogPosts, Posts } from "../fetch/getPosts";
 
 export async function generateMetadata({
   params,

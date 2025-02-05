@@ -1,4 +1,4 @@
-import { Metadata } from "../getPosts";
+import { Metadata } from "../fetch/getPosts";
 import { description, keywords } from "./homeMetadata";
 
 type WorkProps = {
