@@ -1,4 +1,5 @@
 import Weather from "./Weather";
+import { getWeather } from "../../../../../utils/fetch/getWeather";
 
 type WeatherData = {
   main: {
@@ -9,29 +10,8 @@ type WeatherData = {
   }[];
 };
 
-async function getData() {
-  try {
-    const res: Response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Wiesbaden&appid=${process.env.OPEN_WEATHER_API}&units=metric`,
-      {
-        method: "GET",
-        cache: "no-store",
-      },
-    );
-
-    if (!res.ok) {
-      throw new Error(`Weather API failed: ${res.statusText}`);
-    }
-
-    return res.json();
-  } catch (error) {
-    console.error("Weather fetch error:", error);
-    return null;
-  }
-}
-
 async function FetchWeather() {
-  const data: WeatherData | null = await getData();
+  const data: WeatherData | null = await getWeather();
 
   if (!data) {
     return null;
