@@ -6,6 +6,7 @@ import Images from "../../components/project/Images";
 import { projectSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/projectMetadata";
 import Footer from "../../components/global/Footer/Footer";
+import { FC } from "react";
 
 export type Props = {
   params: { slug: string };
@@ -13,23 +14,32 @@ export type Props = {
 
 export { generateMetadata };
 
-const Project = async ({ params }: Props) => {
-  const projects: ProjectPage = await getProjectsPage(params.slug);
-
-  return (
-    <>
-      <Navbar position={Position.Fixed} />
-      <Hero project={projects} />
-      <Images project={projects} />
-      <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(projectSchema(projects)),
-        }}
-      />
-    </>
-  );
+const Project: FC<Props> = async ({ params }) => {
+  try {
+    const projects: ProjectPage = await getProjectsPage(params.slug);
+    return (
+      <>
+        <Navbar position={Position.Fixed} />
+        <Hero project={projects} />
+        <Images project={projects} />
+        <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(projectSchema(projects)),
+          }}
+        />
+      </>
+    );
+  } catch (error) {
+    console.error("Failed to fetch project page:", error);
+    return (
+      <>
+        <Navbar position={Position.Fixed} />
+        <Footer />
+      </>
+    );
+  }
 };
 
 export default Project;
