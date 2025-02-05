@@ -1,5 +1,8 @@
-import { db } from "./db";
-import { photos as photosTable, renders as rendersTable } from "./schema";
+import { db } from "../../db/db";
+import {
+  photos as photosTable,
+  renders as rendersTable,
+} from "../../db/schema";
 
 export const getImages = async () => {
   const photos = await db

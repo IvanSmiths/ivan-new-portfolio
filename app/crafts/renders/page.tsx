@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { FC } from "react";
-import { getRenders } from "../../../db/getImages";
+import { getRenders } from "../../../utils/fetch/getImages";
 import { rendersMetadata } from "../../../utils/metadata/craftsMetadata";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import Filter, { Label } from "../../components/crafts/Filter";
