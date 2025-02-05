@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import Weather from "./Weather";
 
 type WeatherData = {
@@ -31,15 +30,11 @@ async function getData() {
   }
 }
 
-function ErrorFallback(): ReactNode {
-  return null;
-}
-
 async function FetchWeather() {
   const data: WeatherData | null = await getData();
 
   if (!data) {
-    return <ErrorFallback />;
+    return null;
   }
 
   const weatherData = data as WeatherData;
