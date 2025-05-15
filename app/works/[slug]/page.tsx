@@ -1,19 +1,23 @@
 import { FC } from "react";
-import { notFound } from "next/navigation";
 import { workSchema } from "../../../utils/seo/Schemas";
-import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
 import Hero from "../../../components/work/Hero";
 import Images from "../../../components/work/Images";
 import WorksDone from "../../../components/work/WorksDone";
-import Footer from "../../../components/global/Footer/Footer";
 import worksData from "../../../utils/pages/works/works";
 import { WorkPage } from "../../../utils/pages/types";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
+import PageTemplate from "../../../components/work-project/PageTemplate";
 
 export type Params = Promise<{
   slug: string;
 }>;
+
+export async function generateStaticParams() {
+  return (worksData as WorkPage[]).map((work) => ({
+    slug: work.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -27,28 +31,19 @@ export async function generateMetadata({
 const Work: FC<{ params: Params }> = async ({ params }) => {
   const { slug } = await params;
 
-  const works: WorkPage | undefined = worksData.find(
-    (work) => work.slug === slug,
-  );
-
-  if (!works) {
-    notFound();
-  }
-
   return (
-    <>
-      <Navbar position={Position.Fixed} />
-      <Hero work={works} />
-      <WorksDone works={works.worksDone.works} />
-      <Images work={works} />
-      <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(workSchema(works)),
-        }}
-      />
-    </>
+    <PageTemplate
+      slug={slug}
+      data={worksData}
+      schemaFn={workSchema}
+      renderContent={(work: WorkPage) => (
+        <>
+          <Hero work={work} />
+          <WorksDone works={work.worksDone.works} />
+          <Images work={work} />
+        </>
+      )}
+    />
   );
 };
 
