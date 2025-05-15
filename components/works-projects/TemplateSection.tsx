@@ -5,14 +5,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { FC, Key, useRef } from "react";
 import { useAnimationStore } from "../../utils/store";
-import Work from "./Work";
-import { WorkBase } from "../../utils/pages/types";
+import TemplateMapped from "./TemplateMapped";
+import { WorkProjectBase } from "../../utils/pages/types";
 
 type WorksProps = {
-  works: WorkBase[];
+  works: WorkProjectBase[];
 };
 
-const WorksSection: FC<WorksProps> = ({ works }) => {
+const TemplateSection: FC<WorksProps> = ({ works }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -59,11 +59,11 @@ const WorksSection: FC<WorksProps> = ({ works }) => {
   );
 
   return (
-    <div className="overflow-hidden md:py-medium">
+    <div className="md:py-medium overflow-hidden">
       <div ref={triggerRef}>
-        <div ref={containerRef} className="flex h-screen w-fit gap-small">
-          {works.map((work: WorkBase, index: Key) => (
-            <Work key={index} work={work} index={index} />
+        <div ref={containerRef} className="gap-small flex h-screen w-fit">
+          {works.map((work: WorkProjectBase, index: Key) => (
+            <TemplateMapped key={index} work={work} index={index} />
           ))}
         </div>
       </div>
@@ -71,4 +71,4 @@ const WorksSection: FC<WorksProps> = ({ works }) => {
   );
 };
 
-export default WorksSection;
+export default TemplateSection;

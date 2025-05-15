@@ -4,7 +4,7 @@ import { worksSchema } from "../../utils/seo/Schemas";
 import Header from "../../components/global/header/Header";
 import { worksHeaderProps } from "../../components/global/header/headerProps";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import WorksSection from "../../components/works-projects/WorksSection";
+import TemplateSection from "../../components/works-projects/TemplateSection";
 import Footer from "../../components/global/Footer/Footer";
 import worksData from "../../utils/pages/works";
 import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
@@ -26,7 +26,7 @@ const WorksPage: FC = () => {
         paragraph={worksHeaderProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
-      <WorksSection works={worksData} />
+      <TemplateSection works={worksData} />
       <Footer />
       <script
         type="application/ld+json"

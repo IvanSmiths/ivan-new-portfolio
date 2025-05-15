@@ -4,7 +4,7 @@ import Hero from "../../../components/work-project/Hero";
 import Images from "../../../components/work-project/Images";
 import WorksDone from "../../../components/work-project/WorksDone";
 import worksData from "../../../utils/pages/works";
-import { WorkPage } from "../../../utils/pages/types";
+import { WorkProjectPage } from "../../../utils/pages/types";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
@@ -14,7 +14,7 @@ export type Params = Promise<{
 }>;
 
 export async function generateStaticParams() {
-  return (worksData as WorkPage[]).map((work) => ({
+  return (worksData as WorkProjectPage[]).map((work) => ({
     slug: work.slug,
   }));
 }
@@ -36,7 +36,7 @@ const Work: FC<{ params: Params }> = async ({ params }) => {
       slug={slug}
       data={worksData}
       schemaFn={workSchema}
-      renderContent={(work: WorkPage) => (
+      renderContent={(work) => (
         <>
           <Hero work={work} />
           <WorksDone works={work.worksDone.works} />

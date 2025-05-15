@@ -7,7 +7,7 @@ import { projectsSchema } from "../../utils/seo/Schemas";
 import Footer from "../../components/global/Footer/Footer";
 import projectsData from "../../utils/pages/projects";
 import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
-import WorksSection from "../../components/works-projects/WorksSection";
+import TemplateSection from "../../components/works-projects/TemplateSection";
 
 const title: string =
   "Ivan Smiths - Portfolio of Fullstack and UI/UX Development Projects";
@@ -26,7 +26,7 @@ const ProjectsPage: FC = () => {
         paragraph={projectsHeaderProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
-      <WorksSection works={projectsData} />
+      <TemplateSection works={projectsData} />
       <Footer />
       <script
         type="application/ld+json"

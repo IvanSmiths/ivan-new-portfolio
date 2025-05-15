@@ -1,14 +1,9 @@
 import { Metadata } from "../fetch/getPosts";
 import { description, keywords } from "./home/homeMetadata";
 
-type WorkProps = {
+type WorkProjectProps = {
   slug: string;
-  company: string;
-};
-
-type ProjectProps = {
-  slug: string;
-  project: string;
+  name: string;
 };
 
 type BlogSchema = Metadata & { slug?: string };
@@ -73,7 +68,7 @@ export const projectsSchema = {
   ],
 };
 
-export const workSchema = (works: WorkProps) => {
+export const workSchema = (works: WorkProjectProps) => {
   return {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
@@ -93,14 +88,14 @@ export const workSchema = (works: WorkProps) => {
       {
         "@type": "ListItem",
         position: 3,
-        name: works.company,
+        name: works.name,
         item: `https://ivansmiths.com/works/${works.slug}`,
       },
     ],
   };
 };
 
-export const projectSchema = (projects: ProjectProps) => {
+export const projectSchema = (projects: WorkProjectProps) => {
   return {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
@@ -120,7 +115,7 @@ export const projectSchema = (projects: ProjectProps) => {
       {
         "@type": "ListItem",
         position: 3,
-        name: projects.project,
+        name: projects.name,
         item: `https://ivansmiths.com/projects/${projects.slug}`,
       },
     ],

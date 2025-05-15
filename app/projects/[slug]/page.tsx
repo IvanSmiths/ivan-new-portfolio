@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ProjectPage } from "../../../utils/pages/types";
+import { WorkProjectPage } from "../../../utils/pages/types";
 import { projectSchema } from "../../../utils/seo/Schemas";
 import projectsData from "../../../utils/pages/projects";
 import { Metadata } from "next";
@@ -13,7 +13,7 @@ export type Params = Promise<{
 }>;
 
 export async function generateStaticParams() {
-  return (projectsData as ProjectPage[]).map((project) => ({
+  return (projectsData as WorkProjectPage[]).map((project) => ({
     slug: project.slug,
   }));
 }
@@ -40,7 +40,7 @@ const Project: FC<{ params: Params }> = async ({ params }) => {
       slug={slug}
       data={projectsData}
       schemaFn={projectSchema}
-      renderContent={(project: ProjectPage) => (
+      renderContent={(project) => (
         <>
           <Hero work={project} />
           <Images work={project} />

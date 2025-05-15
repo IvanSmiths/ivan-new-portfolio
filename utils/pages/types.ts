@@ -10,39 +10,23 @@ export type Link = {
   link: string;
 };
 
-export type WorkBase = {
+export type WorkProjectBase = {
   id: string;
   slug: string;
   name: string;
-  role: string;
   homeImage: Media;
+  role?: string;
+  homeDescription?: string;
 };
 
-export type WorkPage = WorkBase & {
-  title: string;
-  description: string;
-  date: string;
-  metaDescription: string;
-  worksDone: { works: Link[] };
-  linkedinLink: string;
-  websiteLink: string;
-  stack: string;
-  images: string[];
-};
-
-export type ProjectBase = {
-  id: string;
-  slug: string;
-  name: string;
-  homeDescription: string;
-  homeImage: Media;
-};
-
-export type ProjectPage = ProjectBase & {
+export type WorkProjectPage = WorkProjectBase & {
   title: string;
   description: string;
   metaDescription: string;
-  websiteLink: string;
   images: string[];
-  homeImage: Media;
+  websiteLink: string;
+  date?: string;
+  worksDone?: { works: Link[] };
+  linkedinLink?: string;
+  stack?: string;
 };

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { FC, Key } from "react";
-import { WorkBase } from "../../utils/pages/types";
+import { WorkProjectBase } from "../../utils/pages/types";
 
 type WorkProps = {
-  work: WorkBase;
+  work: WorkProjectBase;
   index: Key;
   isInHome?: boolean;
 };
 
-const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
+const TemplateMapped: FC<WorkProps> = ({ work, index, isInHome }) => {
   return (
     <Link
       href={`works/${work.slug}`}
@@ -43,4 +43,4 @@ const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
   );
 };
 
-export default Work;
+export default TemplateMapped;
