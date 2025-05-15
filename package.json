@@ -16,9 +16,7 @@
     "migration:generate": "drizzle-kit generate --config=drizzle.config.ts",
     "migration:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
     "migration:push": "drizzle-kit push --config=drizzle.config.ts",
-    "migration:drop": "drizzle-kit drop --config=drizzle.config.ts",
-    "cypress:open": "cypress open --config-file=cypress.config.ts",
-    "cypress:run": "cypress run --config-file=cypress.config.ts"
+    "migration:drop": "drizzle-kit drop --config=drizzle.config.ts"
   },
   "dependencies": {
     "@arcjet/next": "^1.0.0-alpha.34",
