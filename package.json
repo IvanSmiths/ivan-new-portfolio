@@ -24,7 +24,7 @@
     "@libsql/client": "^0.6.2",
     "@next/mdx": "^14.2.13",
     "@types/mdx": "^2.0.13",
-    "bright": "^0.8.5",
+    "bright": "^1.0.0",
     "drizzle-orm": "^0.30.10",
     "gsap": "^3.12.5",
     "next": "^15.3.2",
