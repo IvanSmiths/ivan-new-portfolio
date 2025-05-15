@@ -1,12 +1,16 @@
 import { Metadata } from "next";
-import { Params } from "../../../app/blog/[slug]/page";
 import { getBlogPosts, Posts } from "../../fetch/getPosts";
+import { Params } from "../../../app/blog/[slug]/page";
 
 export async function generateMetadata({
   params,
-}: Params): Promise<Metadata | undefined> {
+}: {
+  params: Params;
+}): Promise<Metadata | undefined> {
+  const { slug } = await params;
+
   let post: Posts | undefined = getBlogPosts().find(
-    (post) => post.slug === params.slug,
+    (post) => post.slug === slug,
   );
 
   if (!post) {
@@ -19,7 +23,7 @@ export async function generateMetadata({
       url: `https://ivansmiths.com/blog/${post.slug}/cover.png`,
       height: post.metadata.coverHeight,
       width: post.metadata.coverWidth,
-      alt: title,
+      alt: post.metadata.title,
     },
   ];
 

@@ -1,16 +1,19 @@
 "use client";
 
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 import { bebas_neue } from "../../../utils/fonts";
 import useHorizontalScroll from "../../../utils/hooks/useHorizontalScroll";
 import AnimatedAccordion from "./Accordion";
 import { AccordionItem, accordionItems } from "./AccordionItems";
 
 const Expertise = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const triggerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
-  useHorizontalScroll(containerRef, triggerRef);
+  useHorizontalScroll(
+    containerRef as RefObject<HTMLDivElement>,
+    triggerRef as RefObject<HTMLDivElement>,
+  );
 
   return (
     <div>

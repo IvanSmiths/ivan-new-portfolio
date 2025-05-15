@@ -7,9 +7,7 @@ import Hero from "../../../components/blog/Hero";
 import { MDXComponents } from "../../../components/blog/MDXComponents";
 import Footer from "../../../components/global/Footer/Footer";
 
-export type Params = Promise<{
-  slug: string;
-}>;
+export type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const posts: Posts[] = getBlogPosts();
