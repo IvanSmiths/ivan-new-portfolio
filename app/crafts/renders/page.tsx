@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { FC } from "react";
 import { getRenders } from "../../../utils/fetch/getImages";
-import { rendersMetadata } from "../../../utils/metadata/craftsMetadata";
-import { rendersSchema } from "../../../utils/metadata/Schemas";
-import { rendersHeaderProps } from "../../../components/crafts/headerProps";
+import { rendersMetadata } from "../../../utils/seo/crafts/craftsMetadata";
+import { rendersSchema } from "../../../utils/seo/Schemas";
+import { rendersHeaderProps } from "../../../components/global/header/headerProps";
 import Images from "../../../components/crafts/Images";
 import GalleryPage from "../../../components/crafts/GalleryPage";
 import { Label } from "../../../components/crafts/Filter";

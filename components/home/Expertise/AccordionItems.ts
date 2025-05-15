@@ -21,7 +21,7 @@ export const accordionItems: AccordionItem[] = [
     left: 40,
     top: 60,
     content:
-      "Using PostgreSQL, Prisma, and Nest.js, I build solid backend systems that deliver. My work ensures data reliability, scalability, and the backend power to drive front-end engagement.",
+      "Using PostgreSQL, Prisma, and Nest.js, I build solid backend systems that deliver. My work-project ensures data reliability, scalability, and the backend power to drive front-end engagement.",
   },
   {
     title: "Design",

@@ -1,17 +1,15 @@
 import { notFound } from "next/navigation";
 import { getBlogPosts, Posts } from "../../../utils/fetch/getPosts";
-import { generateMetadata } from "../../../utils/metadata/blogPostMetadata";
-import { blogSchema } from "../../../utils/metadata/Schemas";
+import { generateMetadata } from "../../../utils/seo/blog/blogPostMetadata";
+import { blogSchema } from "../../../utils/seo/Schemas";
 import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
 import Hero from "../../../components/blog/Hero";
 import { MDXComponents } from "../../../components/blog/MDXComponents";
 import Footer from "../../../components/global/Footer/Footer";
 
-export type Params = {
-  params: {
-    slug: string;
-  };
-};
+export type Params = Promise<{
+  slug: string;
+}>;
 
 export async function generateStaticParams() {
   const posts: Posts[] = getBlogPosts();
@@ -20,9 +18,11 @@ export async function generateStaticParams() {
 
 export { generateMetadata };
 
-export default async function Post({ params }: Params) {
-  let post: Posts | undefined = getBlogPosts().find(
-    (post) => post.slug === params.slug,
+export default async function Post({ params }: { params: Params }) {
+  const { slug } = await params;
+
+  const post: Posts | undefined = getBlogPosts().find(
+    (post) => post.slug === slug,
   );
 
   if (!post) {
@@ -36,7 +36,7 @@ export default async function Post({ params }: Params) {
         <Hero post={post.metadata} />
         <div className="relative col-span-full grid">
           <div className="col-span-full mt-medium flex flex-col gap-regular md:col-start-4 md:col-end-13 lg:col-end-10">
-            <MDXComponents source={post!.content} />
+            <MDXComponents source={post.content} />
           </div>
         </div>
       </article>

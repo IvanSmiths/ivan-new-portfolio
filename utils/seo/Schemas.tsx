@@ -1,5 +1,5 @@
 import { Metadata } from "../fetch/getPosts";
-import { description, keywords } from "./homeMetadata";
+import { description, keywords } from "./home/homeMetadata";
 
 type WorkProps = {
   slug: string;

@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { FC } from "react";
-import Header from "../../components/crafts/Header";
-import { projectsHeaderProps } from "../../components/crafts/headerProps";
+import Header from "../../components/global/header/Header";
+import { projectsHeaderProps } from "../../components/global/header/headerProps";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import { projectsSchema } from "../../utils/metadata/Schemas";
+import { projectsSchema } from "../../utils/seo/Schemas";
 import ProjectsSection from "../../components/projects/ProjectsSection";
-import { projectsMetadata } from "../../utils/metadata/projectsMetadata";
 import Footer from "../../components/global/Footer/Footer";
 import projectsData from "../../utils/pages/projects/projects";
+import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
 
-export const metadata: Metadata = projectsMetadata;
+const title: string =
+  "Ivan Smiths - Portfolio of Fullstack and UI/UX Development Projects";
+const description: string =
+  "Here I share all the new projects that are at least in a beta stage.";
+const path = "/projects";
+
+export const metadata: Metadata = pagesMetadata(title, description, path);
 
 const ProjectsPage: FC = () => {
   return (

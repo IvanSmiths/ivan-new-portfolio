@@ -1,7 +1,7 @@
-import { blogsSchema } from "../../utils/metadata/Schemas";
-import { blogMetadata } from "../../utils/metadata/blogMetadata";
+import { blogsSchema } from "../../utils/seo/Schemas";
+import { blogMetadata } from "../../utils/seo/blog/blogMetadata";
 import Blog from "../../components/home/Blog/Blog";
-import Header from "../../components/crafts/Header";
+import Header from "../../components/global/header/Header";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import Footer from "../../components/global/Footer/Footer";
 

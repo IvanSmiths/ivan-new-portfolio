@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { FC } from "react";
-import { worksSchema } from "../../utils/metadata/Schemas";
-import { worksMetadata } from "../../utils/metadata/worksMetadata";
-import Header from "../../components/crafts/Header";
-import { worksHeaderProps } from "../../components/crafts/headerProps";
+import { worksSchema } from "../../utils/seo/Schemas";
+import Header from "../../components/global/header/Header";
+import { worksHeaderProps } from "../../components/global/header/headerProps";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import WorksSection from "../../components/works/WorksSection";
 import Footer from "../../components/global/Footer/Footer";
 import worksData from "../../utils/pages/works/works";
+import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
 
-export const metadata: Metadata = worksMetadata;
+const title: string =
+  "Ivan Smiths - Portfolio of Fullstack and UI/UX Development Works";
+const description: string =
+  "Discover a diverse range of projects in UI/UX and Fullstack Development. Explore award-winning websites, high-traffic landing pages, and innovative e-commerce platforms crafted for clients like Deutsche Bahn, R+V, Adidas, and WMF.";
+const path = "/works";
+
+export const metadata: Metadata = pagesMetadata(title, description, path);
 
 const WorksPage: FC = () => {
   return (

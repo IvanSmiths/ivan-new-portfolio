@@ -1,23 +1,38 @@
+import { FC } from "react";
+import { notFound } from "next/navigation";
 import { ProjectPage } from "../../../utils/pages/types";
 import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
 import Hero from "../../../components/project/Hero";
 import Images from "../../../components/project/Images";
-import { projectSchema } from "../../../utils/metadata/Schemas";
-import { generateMetadata } from "../../../utils/metadata/projectMetadata";
+import { projectSchema } from "../../../utils/seo/Schemas";
 import Footer from "../../../components/global/Footer/Footer";
-import { FC } from "react";
 import projectsData from "../../../utils/pages/projects/projects";
-import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 
-export type Props = {
-  params: { slug: string };
-};
+export type Params = Promise<{
+  slug: string;
+}>;
 
-export { generateMetadata };
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  return generatePageMetadata(
+    slug,
+    projectsData,
+    "project",
+    "Project Not Found",
+  );
+}
 
-const Project: FC<Props> = ({ params }) => {
+const Project: FC<{ params: Params }> = async ({ params }) => {
+  const { slug } = await params;
+
   const project = (projectsData as ProjectPage[]).find(
-    (proj) => proj.slug === params.slug,
+    (proj) => proj.slug === slug,
   );
 
   if (!project) {
