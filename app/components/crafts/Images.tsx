@@ -23,7 +23,6 @@ const Images: FC<ImagesProps> = ({ images }) => {
               className={`w-full flex-auto md:w-3/12 ${image.isHorizontal ? " md:w-[58.8%]" : ""}`}
             >
               <img
-                data-cy="DBImage"
                 src={image.desktopUrl}
                 srcSet={`${image.desktopUrl} 2000w, ${image.mobileUrl} 1500w`}
                 sizes="(min-width: 66em) 2000px, 1500px"

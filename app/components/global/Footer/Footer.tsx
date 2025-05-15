@@ -7,7 +7,6 @@ const Footer: FC = () => {
   return (
     <footer
       data-testid="footer"
-      data-cy="footer"
       className="flex flex-col justify-end gap-2 px-small pb-small md:mt-section md:min-h-[80vh]"
     >
       <div className="mb-small flex flex-wrap gap-small gap-y-5 md:gap-y-10">

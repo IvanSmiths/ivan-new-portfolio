@@ -12,33 +12,22 @@ const Blog: FC = () => {
             <div className="h-[1px] w-full bg-dark dark:bg-light"></div>
             <Link
               data-testid={`blogPostLink${index}`}
-              data-cy="blogPost"
               className="group flex min-h-32 flex-col items-start justify-center gap-small transition hover:bg-dark dark:hover:bg-light md:flex-row md:items-center md:justify-between md:px-small"
               href={`blog/${post?.slug}`}
             >
               <div className="flex flex-col items-start gap-small md:flex-row md:items-center md:gap-medium">
-                <span
-                  data-cy="blogPostIndex"
-                  className="hidden transition group-hover:text-light dark:group-hover:text-dark md:block"
-                >
+                <span className="hidden transition group-hover:text-light dark:group-hover:text-dark md:block">
                   0{index + 1}
                 </span>
-                <h3
-                  data-cy="blogPostTitle"
-                  className="text-left text-xl font-semibold transition group-hover:text-light dark:group-hover:text-dark md:text-3xl"
-                >
+                <h3 className="text-left text-xl font-semibold transition group-hover:text-light dark:group-hover:text-dark md:text-3xl">
                   {post?.metadata.title}
                 </h3>
               </div>
               <div className="flex min-w-fit flex-row gap-smallest md:ml-regular md:flex-col md:text-right">
-                <span
-                  data-cy="blogPostCategory"
-                  className="transition group-hover:text-light dark:group-hover:text-dark"
-                >
+                <span className="transition group-hover:text-light dark:group-hover:text-dark">
                   {post?.metadata.category}
                 </span>
                 <time
-                  data-cy="blogPostDate"
                   className="transition group-hover:text-light dark:group-hover:text-dark"
                   dateTime={post?.metadata.date}
                 >
@@ -53,10 +42,7 @@ const Blog: FC = () => {
                       )
                     : "Date not available"}
                 </time>
-                <span
-                  data-cy="blogPostTime"
-                  className="transition group-hover:text-light dark:group-hover:text-dark"
-                >
+                <span className="transition group-hover:text-light dark:group-hover:text-dark">
                   {post?.metadata.time} min to read
                 </span>
               </div>

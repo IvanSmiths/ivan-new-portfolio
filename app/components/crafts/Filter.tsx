@@ -33,7 +33,6 @@ const Filter: FC<FilterProps> = ({ currentPage }) => {
     <section className="fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-small gap-y-2 max-sm:bottom-24 max-sm:right-small max-sm:flex-col max-sm:items-end">
       {filters.map((filter: FilterOption, index: number) => (
         <Link
-          data-cy={`link-${filter.url}`}
           key={index}
           href={`/crafts/${filter.url}`}
           className={`text-primary rounded-md p-3 py-1 font-bold ${

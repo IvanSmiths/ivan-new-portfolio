@@ -20,11 +20,7 @@ const ThemeToggle: FC = () => {
   };
 
   return (
-    <span
-      data-cy={theme}
-      className="cursor-pointer text-lg font-bold"
-      onClick={toggleTheme}
-    >
+    <span className="cursor-pointer text-lg font-bold" onClick={toggleTheme}>
       {theme === "light" ? "Dark" : "Light"} Mode
     </span>
   );

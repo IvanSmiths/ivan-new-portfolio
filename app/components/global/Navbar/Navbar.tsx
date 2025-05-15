@@ -50,7 +50,6 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
           {internalLinks.map((link: Links, index: number) => (
             <li key={index}>
               <Link
-                data-cy={link.dataCy}
                 href={link.url}
                 className="text-md font-semibold mix-blend-screen sm:text-xl"
               >

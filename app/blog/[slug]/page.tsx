@@ -35,10 +35,7 @@ export default async function Post({ params }: Params) {
       <article className="mt-large grid">
         <Hero post={post.metadata} />
         <div className="relative col-span-full grid">
-          <div
-            data-cy="blogPageBody"
-            className="col-span-full mt-medium flex flex-col gap-regular md:col-start-4 md:col-end-13 lg:col-end-10"
-          >
+          <div className="col-span-full mt-medium flex flex-col gap-regular md:col-start-4 md:col-end-13 lg:col-end-10">
             <MDXComponents source={post!.content} />
           </div>
         </div>
