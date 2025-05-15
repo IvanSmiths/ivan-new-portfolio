@@ -1,10 +1,20 @@
 import { Metadata } from "next";
 import { Props } from "../../app/works/[slug]/page";
-import { WorkPage } from "../fetch/graphql/graphqlTypes";
-import { getWorksPage } from "../fetch/graphql";
+import { WorkPage } from "../pages/types";
+import worksData from "../pages/works/works";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const work: WorkPage = await getWorksPage(params.slug);
+  const work: WorkPage | undefined = worksData.find(
+    (w) => w.slug === params.slug
+  );
+
+  if (!work) {
+    return {
+      title: "Work Not Found",
+      description: "The requested work could not be found.",
+    };
+  }
+
   const ogImage = [
     {
       url: work.homeImage.url,
@@ -13,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alt: work.company,
     },
   ];
+
   return {
     title: work.title,
     description: work.metaDescription,

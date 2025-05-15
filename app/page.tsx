@@ -7,14 +7,14 @@ import Hero from "./components/home/Hero/Hero";
 import LoaderWrapper from "./components/home/Loader/LoaderWrapper";
 import Overlay from "./components/home/Loader/Overlay";
 import WorksSection from "./components/home/Works/WorksSection";
-import { WorkBase } from "../utils/fetch/graphql/graphqlTypes";
-import { getWorks } from "../utils/fetch/graphql";
+import { WorkBase } from "../utils/pages/types";
 import Footer from "./components/global/Footer/Footer";
+import worksData from "../utils/pages/works/works";
 
 export const metadata: Metadata = homeMetadata;
 
-const Home = async () => {
-  const works: WorkBase[] = await getWorks();
+const Home = () => {
+  const works: WorkBase[] = worksData;
 
   return (
     <>

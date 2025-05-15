@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC, Key } from "react";
-import { WorkBase } from "../../../utils/fetch/graphql/graphqlTypes";
+import { WorkBase } from "../../../utils/pages/types";
 
 type WorkProps = {
   work: WorkBase;
@@ -26,13 +26,6 @@ const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
           isInHome ? "h-full w-full" : "h-5/6 md:w-7/12"
         }`}
       >
-        <img
-          className="absolute left-small top-small z-20 h-fit w-20 rounded-md object-cover"
-          src={work.homeLogo.url}
-          alt={work.company}
-          width={work.homeLogo.width}
-          height={work.homeLogo.height}
-        />
         <div className="absolute inset-0 z-10 rounded-lg bg-black/30"></div>
         <div className="absolute bottom-small left-small z-20 pr-small text-light">
           <h2 className="pb-smallest text-3xl font-bold">{work.role}</h2>

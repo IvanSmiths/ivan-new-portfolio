@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC, Key } from "react";
-import { ProjectBase } from "../../../utils/fetch/graphql/graphqlTypes";
+import { ProjectBase } from "../../../utils/pages/types";
 
 type ProjectProps = {
   project: ProjectBase;
@@ -22,13 +22,6 @@ const Project: FC<ProjectProps> = ({ project, index, isInHome }) => {
         id="description"
         className={`relative ${isInHome ? "h-full w-full" : "h-5/6 md:w-7/12"}`}
       >
-        <img
-          className="absolute left-small top-small z-[3] h-fit w-20 rounded-md object-cover"
-          src={project.homeLogo.url}
-          alt={project.project}
-          width={project.homeLogo.width}
-          height={project.homeLogo.height}
-        />
         <div className="absolute inset-0 z-[2] rounded-lg bg-black/30"></div>
         <div className="absolute bottom-small left-small z-[3] pr-small text-light">
           <h3 className="text-xl">{project.project}</h3>

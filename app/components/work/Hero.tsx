@@ -1,6 +1,5 @@
-import { RichText } from "@graphcms/rich-text-react-renderer";
 import { FC } from "react";
-import { WorkPage } from "../../../utils/fetch/graphql/graphqlTypes";
+import { WorkPage } from "../../../utils/pages/types";
 import Social from "../global/Footer/Social";
 
 type HeaderProps = {
@@ -29,14 +28,9 @@ const Hero: FC<HeaderProps> = ({ work }) => {
         <Social label="Website" isInWorkPage link={work.websiteLink} />
         <Social label="LinkedIn" isInWorkPage link={work.linkedinLink} />
       </div>
-      <RichText
-        content={work.description.raw}
-        renderers={{
-          p: ({ children }) => (
-            <p className="mt-small text-left text-xl md:text-3xl">{children}</p>
-          ),
-        }}
-      />
+      <p className="mt-small text-left text-xl md:text-3xl">
+        {work.description}
+      </p>
     </header>
   );
 };

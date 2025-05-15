@@ -1,10 +1,20 @@
 import { Metadata } from "next";
 import { Props } from "../../app/projects/[slug]/page";
-import { ProjectPage } from "../fetch/graphql/graphqlTypes";
-import { getProjectsPage } from "../fetch/graphql";
+import { ProjectPage } from "../pages/types";
+import projectsData from "../pages/projects/projects";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project: ProjectPage = await getProjectsPage(params.slug);
+  const project: ProjectPage | undefined = projectsData.find(
+    (p) => p.slug === params.slug
+  );
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      description: "The requested project could not be found.",
+    };
+  }
+
   const ogImage = [
     {
       url: project.homeImage.url,
@@ -13,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alt: project.project,
     },
   ];
+
   return {
     title: project.title,
     description: project.metaDescription,
