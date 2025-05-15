@@ -14,7 +14,7 @@ const headerProps = {
     "I write about frontend technologies, such as Next.js, Tailwind, and other frontend technologies.",
 };
 
-export default async function BlogPage() {
+export default function BlogPage() {
   return (
     <div className="md:mt-large">
       <Header
