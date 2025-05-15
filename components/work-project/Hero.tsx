@@ -8,14 +8,14 @@ type HeaderProps = {
 
 const Hero: FC<HeaderProps> = ({ work }) => {
   return (
-    <header className="mt-small flex flex-col items-center justify-center px-small md:mt-section">
+    <header className="mt-small px-small md:mt-section flex flex-col items-center justify-center">
       <h1 className="text-center text-6xl font-thin uppercase md:text-9xl">
-        {work.company}
+        {work.name}
       </h1>
       <h2 className="mt-small text-center text-xl font-thin italic">
         {work.role} - ({work.date})
       </h2>
-      <div className="mt-small w-full md:mt-medium md:h-[60rem]">
+      <div className="mt-small md:mt-medium w-full md:h-[60rem]">
         <img
           className="h-full w-full rounded-md object-cover"
           src={work.homeImage.url}
@@ -24,7 +24,7 @@ const Hero: FC<HeaderProps> = ({ work }) => {
           alt={work.homeImage.fileName}
         />
       </div>
-      <div className="mt-small flex w-full flex-col gap-small transition-all duration-500 md:flex-row">
+      <div className="mt-small gap-small flex w-full flex-col transition-all duration-500 md:flex-row">
         <Social label="Website" isInWorkPage link={work.websiteLink} />
         <Social label="LinkedIn" isInWorkPage link={work.linkedinLink} />
       </div>

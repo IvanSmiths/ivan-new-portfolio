@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { workSchema } from "../../../utils/seo/Schemas";
-import Hero from "../../../components/work/Hero";
-import Images from "../../../components/work/Images";
-import WorksDone from "../../../components/work/WorksDone";
-import worksData from "../../../utils/pages/works/works";
+import Hero from "../../../components/work-project/Hero";
+import Images from "../../../components/work-project/Images";
+import WorksDone from "../../../components/work-project/WorksDone";
+import worksData from "../../../utils/pages/works";
 import { WorkPage } from "../../../utils/pages/types";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";

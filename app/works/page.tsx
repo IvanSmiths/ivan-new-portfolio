@@ -4,9 +4,9 @@ import { worksSchema } from "../../utils/seo/Schemas";
 import Header from "../../components/global/header/Header";
 import { worksHeaderProps } from "../../components/global/header/headerProps";
 import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import WorksSection from "../../components/works/WorksSection";
+import WorksSection from "../../components/works-projects/WorksSection";
 import Footer from "../../components/global/Footer/Footer";
-import worksData from "../../utils/pages/works/works";
+import worksData from "../../utils/pages/works";
 import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
 
 const title: string =

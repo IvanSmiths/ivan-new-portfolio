@@ -17,7 +17,7 @@ const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
       className={`flex items-center justify-center ${
         isInHome
           ? "z-10 w-full md:w-[calc(50%-10px)]"
-          : "h-screen w-screen p-small"
+          : "p-small h-screen w-screen"
       }`}
     >
       <div
@@ -27,14 +27,14 @@ const Work: FC<WorkProps> = ({ work, index, isInHome }) => {
         }`}
       >
         <div className="absolute inset-0 z-10 rounded-lg bg-black/30"></div>
-        <div className="absolute bottom-small left-small z-20 pr-small text-light">
+        <div className="bottom-small left-small pr-small text-light absolute z-20">
           <h2 className="pb-smallest text-3xl font-bold">{work.role}</h2>
-          <h3 className="text-xl">{work.company}</h3>
+          <h3 className="text-xl">{work.name}</h3>
         </div>
         <img
           className="relative h-full w-full rounded-lg object-cover"
           src={work.homeImage.url}
-          alt={work.company}
+          alt={work.name}
           width={work.homeImage.width}
           height={work.homeImage.height}
         />

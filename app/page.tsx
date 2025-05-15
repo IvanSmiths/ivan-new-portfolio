@@ -9,7 +9,7 @@ import Overlay from "../components/home/Loader/Overlay";
 import WorksSection from "../components/home/Works/WorksSection";
 import { WorkBase } from "../utils/pages/types";
 import Footer from "../components/global/Footer/Footer";
-import worksData from "../utils/pages/works/works";
+import worksData from "../utils/pages/works";
 
 export const metadata: Metadata = homeMetadata;
 

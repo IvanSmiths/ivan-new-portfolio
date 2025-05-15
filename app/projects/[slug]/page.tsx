@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { ProjectPage } from "../../../utils/pages/types";
-import Hero from "../../../components/project/Hero";
-import Images from "../../../components/project/Images";
 import { projectSchema } from "../../../utils/seo/Schemas";
-import projectsData from "../../../utils/pages/projects/projects";
+import projectsData from "../../../utils/pages/projects";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
+import Hero from "../../../components/work-project/Hero";
+import Images from "../../../components/work-project/Images";
 
 export type Params = Promise<{
   slug: string;
@@ -42,8 +42,8 @@ const Project: FC<{ params: Params }> = async ({ params }) => {
       schemaFn={projectSchema}
       renderContent={(project: ProjectPage) => (
         <>
-          <Hero project={project} />
-          <Images project={project} />
+          <Hero work={project} />
+          <Images work={project} />
         </>
       )}
     />

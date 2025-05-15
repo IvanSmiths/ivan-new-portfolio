@@ -1,4 +1,3 @@
-
 export type Media = {
   url: string;
   height: number;
@@ -14,7 +13,7 @@ export type Link = {
 export type WorkBase = {
   id: string;
   slug: string;
-  company: string;
+  name: string;
   role: string;
   homeImage: Media;
 };
@@ -34,7 +33,7 @@ export type WorkPage = WorkBase & {
 export type ProjectBase = {
   id: string;
   slug: string;
-  project: string;
+  name: string;
   homeDescription: string;
   homeImage: Media;
 };
