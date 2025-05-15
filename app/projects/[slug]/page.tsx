@@ -1,10 +1,10 @@
 import { ProjectPage } from "../../../utils/pages/types";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import Hero from "../../components/project/Hero";
-import Images from "../../components/project/Images";
+import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
+import Hero from "../../../components/project/Hero";
+import Images from "../../../components/project/Images";
 import { projectSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/projectMetadata";
-import Footer from "../../components/global/Footer/Footer";
+import Footer from "../../../components/global/Footer/Footer";
 import { FC } from "react";
 import projectsData from "../../../utils/pages/projects/projects";
 import { notFound } from "next/navigation";
@@ -17,7 +17,7 @@ export { generateMetadata };
 
 const Project: FC<Props> = ({ params }) => {
   const project = (projectsData as ProjectPage[]).find(
-    (proj) => proj.slug === params.slug
+    (proj) => proj.slug === params.slug,
   );
 
   if (!project) {

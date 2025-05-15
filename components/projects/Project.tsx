@@ -1,0 +1,41 @@
+import Link from "next/link";
+import { FC, Key } from "react";
+import { ProjectBase } from "../../utils/pages/types";
+
+type ProjectProps = {
+  project: ProjectBase;
+  index: Key;
+  isInHome?: boolean;
+};
+
+const Project: FC<ProjectProps> = ({ project, index, isInHome }) => {
+  return (
+    <Link
+      href={`projects/${project.slug}`}
+      key={index}
+      data-testid={`homeWork${index}`}
+      className={`flex items-center justify-center ${
+        isInHome ? "w-full md:w-[calc(50%-10px)]" : "h-screen w-screen p-small"
+      }`}
+    >
+      <div
+        id="description"
+        className={`relative ${isInHome ? "h-full w-full" : "h-5/6 md:w-7/12"}`}
+      >
+        <div className="absolute inset-0 z-[2] rounded-lg bg-black/30"></div>
+        <div className="absolute bottom-small left-small z-[3] pr-small text-light">
+          <h3 className="text-xl">{project.project}</h3>
+        </div>
+        <img
+          className="relative h-full w-full rounded-lg object-cover"
+          src={project.homeImage.url}
+          alt={project.project}
+          width={project.homeImage.width}
+          height={project.homeImage.height}
+        />
+      </div>
+    </Link>
+  );
+};
+
+export default Project;

@@ -1,10 +1,10 @@
 import { workSchema } from "../../../utils/metadata/Schemas";
 import { generateMetadata } from "../../../utils/metadata/workMetadata";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import Hero from "../../components/work/Hero";
-import Images from "../../components/work/Images";
-import WorksDone from "../../components/work/WorksDone";
-import Footer from "../../components/global/Footer/Footer";
+import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
+import Hero from "../../../components/work/Hero";
+import Images from "../../../components/work/Images";
+import WorksDone from "../../../components/work/WorksDone";
+import Footer from "../../../components/global/Footer/Footer";
 import { FC } from "react";
 import worksData from "../../../utils/pages/works/works";
 import { WorkPage } from "../../../utils/pages/types";
@@ -18,7 +18,7 @@ export { generateMetadata };
 
 const Work: FC<Props> = ({ params }) => {
   const works: WorkPage | undefined = worksData.find(
-    (work) => work.slug === params.slug
+    (work) => work.slug === params.slug,
   );
 
   if (!works) {

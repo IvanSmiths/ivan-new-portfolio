@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { FC } from "react";
 import { worksSchema } from "../../utils/metadata/Schemas";
 import { worksMetadata } from "../../utils/metadata/worksMetadata";
-import Header from "../components/crafts/Header";
-import { worksHeaderProps } from "../components/crafts/headerProps";
-import Navbar, { Position } from "../components/global/Navbar/Navbar";
-import WorksSection from "../components/works/WorksSection";
-import Footer from "../components/global/Footer/Footer";
+import Header from "../../components/crafts/Header";
+import { worksHeaderProps } from "../../components/crafts/headerProps";
+import Navbar, { Position } from "../../components/global/Navbar/Navbar";
+import WorksSection from "../../components/works/WorksSection";
+import Footer from "../../components/global/Footer/Footer";
 import worksData from "../../utils/pages/works/works";
 
 export const metadata: Metadata = worksMetadata;

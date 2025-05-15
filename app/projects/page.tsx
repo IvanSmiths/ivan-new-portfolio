@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { FC } from "react";
-import Header from "../components/crafts/Header";
-import { projectsHeaderProps } from "../components/crafts/headerProps";
-import Navbar, { Position } from "../components/global/Navbar/Navbar";
+import Header from "../../components/crafts/Header";
+import { projectsHeaderProps } from "../../components/crafts/headerProps";
+import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import { projectsSchema } from "../../utils/metadata/Schemas";
-import ProjectsSection from "../components/projects/ProjectsSection";
+import ProjectsSection from "../../components/projects/ProjectsSection";
 import { projectsMetadata } from "../../utils/metadata/projectsMetadata";
-import Footer from "../components/global/Footer/Footer";
+import Footer from "../../components/global/Footer/Footer";
 import projectsData from "../../utils/pages/projects/projects";
 
 export const metadata: Metadata = projectsMetadata;

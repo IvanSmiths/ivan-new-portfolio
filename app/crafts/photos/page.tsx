@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { FC, ReactNode } from "react";
 import { getPhotos } from "../../../utils/fetch/getImages";
-import { photoHeaderProps } from "../../components/crafts/headerProps";
+import { photoHeaderProps } from "../../../components/crafts/headerProps";
 import { photosMetadata } from "../../../utils/metadata/craftsMetadata";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import Filter, { Label } from "../../components/crafts/Filter";
-import Header from "../../components/crafts/Header";
-import Images from "../../components/crafts/Images";
+import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
+import Filter, { Label } from "../../../components/crafts/Filter";
+import Header from "../../../components/crafts/Header";
+import Images from "../../../components/crafts/Images";
 import { photosSchema } from "../../../utils/metadata/Schemas";
-import Footer from "../../components/global/Footer/Footer";
+import Footer from "../../../components/global/Footer/Footer";
 
 export const metadata: Metadata = photosMetadata;
 
