@@ -4,7 +4,7 @@ import { lato } from "../utils/fonts";
 import React from "react";
 import { ThemeProvider } from "next-themes";
 import NavbarMobile from "./components/global/Navbar/NavbarMobile/NavbarMobile";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "../utils/analytics/google-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
