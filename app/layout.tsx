@@ -17,10 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en" className={`${lato.className}`}>
-      <body
-        suppressHydrationWarning
-        className="bg-light text-dark dark:bg-dark dark:text-light"
-      >
+      <body suppressHydrationWarning className="bg-light">
         <ThemeProvider enableSystem={true} attribute="class">
           <NavbarMobile />
           {children}

@@ -15,16 +15,16 @@ const Hero: FC<PostProps> = ({ post }) => {
       <Blob />
       <section
         data-testid="blogPostHeroSection"
-        className="col-span-full flex flex-col items-center justify-center gap-small md:col-start-3 md:col-end-11"
+        className="gap-small col-span-full flex flex-col items-center justify-center md:col-start-3 md:col-end-11"
       >
         <span className="font-bold">{post.category}</span>
         <h1
-          className={`${bebas_neue.className} h-full bg-gradient-to-r from-darker via-darker to-dark bg-clip-text text-center text-5xl text-transparent dark:from-light dark:via-lighter dark:to-lighter md:text-7xl xl:text-8xl`}
+          className={`${bebas_neue.className} from-darker via-darker to-dark foreground h-full bg-gradient-to-r bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl`}
         >
           {post.title}
         </h1>
         <h2 className="text-center text-lg leading-7">{post.excerpt}</h2>
-        <div className="flex flex-wrap items-center gap-smallest max-sm:flex-col">
+        <div className="gap-smallest flex flex-wrap items-center max-sm:flex-col">
           <span className="font-bold">
             Published:{" "}
             <time className="font-bold" dateTime={post.date}>
@@ -40,10 +40,10 @@ const Hero: FC<PostProps> = ({ post }) => {
           </div>
           <span className="font-bold">{post.time} minutes read</span>
         </div>
-        <ul className="flex flex-wrap items-center justify-center gap-smallest">
+        <ul className="gap-smallest flex flex-wrap items-center justify-center">
           {tags.map((tag: string, index: number) => (
             <li
-              className="flex items-center justify-center gap-smallest"
+              className="gap-smallest flex items-center justify-center"
               key={index}
             >
               <span>{tag}</span>
@@ -54,7 +54,7 @@ const Hero: FC<PostProps> = ({ post }) => {
           ))}
         </ul>
       </section>
-      <div className="col-span-full mt-small md:col-start-2 md:col-end-12">
+      <div className="mt-small col-span-full md:col-start-2 md:col-end-12">
         <img
           className="w-full"
           fetchPriority="high"

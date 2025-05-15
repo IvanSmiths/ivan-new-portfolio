@@ -108,10 +108,7 @@ const components = {
     <CustomLink {...props}>{props.children}</CustomLink>
   ),
   code: (props: any) => (
-    <code
-      className="rounded-lg bg-lighter px-2 py-1 font-bold dark:bg-darker"
-      {...props}
-    >
+    <code className="bg-background rounded-lg px-2 py-1 font-bold" {...props}>
       {props.children}
     </code>
   ),

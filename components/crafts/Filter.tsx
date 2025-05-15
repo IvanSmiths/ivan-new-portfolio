@@ -30,15 +30,15 @@ const filters: FilterOption[] = [
 
 const Filter: FC<FilterProps> = ({ currentPage }) => {
   return (
-    <section className="fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-small gap-y-2 max-sm:bottom-24 max-sm:right-small max-sm:flex-col max-sm:items-end">
+    <section className="gap-small max-sm:right-small fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-y-2 max-sm:bottom-24 max-sm:flex-col max-sm:items-end">
       {filters.map((filter: FilterOption, index: number) => (
         <Link
           key={index}
           href={`/crafts/${filter.url}`}
           className={`text-primary rounded-md p-3 py-1 font-bold ${
             currentPage === filter.page
-              ? "bg-darker text-light dark:bg-lighter dark:text-dark"
-              : "bg-dark text-light dark:bg-light dark:text-dark"
+              ? "bg-darker text-light"
+              : "bg-dark text-light"
           }`}
         >
           {filter.page}

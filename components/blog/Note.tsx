@@ -6,7 +6,7 @@ const Note: FC<ChildrenAsProps> = ({ children, ...props }) => {
     <div
       id="articleNote"
       {...props}
-      className="rounded-xl bg-brand p-5 font-bold dark:bg-brand"
+      className="bg-brand rounded-xl p-5 font-bold"
     >
       {children}
     </div>

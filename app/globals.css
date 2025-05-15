@@ -1,120 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-brand: #ff4d4d;
+}
 
 :root {
-  --brand: #ff4d4d;
-
-  --smallest: 10px;
-  --small: 20px;
-  --regular: 35px;
-  --medium: 60px;
-  --large: 100px;
-  --section: 260px;
-
-  --body: 18px;
+    --background: #ffffff;
+    --foreground: #000000;
 }
 
-html,
-body,
-* {
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  transition: background 0.25s ease-in-out;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-pre,
-h4,
-h5,
-h6,
-span,
-button,
-label,
-a,
-li,
-time {
-  font-size: var(--body);
-  font-weight: 400;
-}
-
-p {
-  line-height: 1.7rem;
-  font-size: var(--body);
-}
-
-.grid {
-  transition: background 0.25s ease-in-out;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 20px;
-  padding: 0 20px;
-}
-
-.grid-debug {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-
-.grid-debug-item {
-  background-color: rgba(236, 111, 111, 0.21);
-}
-
-article .grid {
-  padding: 0;
-}
-
-article .half {
-  width: 50%;
-}
-
-#articleLinks span {
-  margin-bottom: 10px;
-}
-
-#articleLinks p {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  gap: 10px;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .grid-debug {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .grid {
-    grid-gap: 10px;
-    padding: 0 20px;
-  }
-
-  .grid-debug {
-    grid-gap: 10px;
-    padding: 0 20px;
-  }
-
-  article .half {
-    width: 100%;
-  }
+.dark {
+    --background: #000000;
+    --foreground: #ffffff;
 }
