@@ -6,9 +6,26 @@
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-brand: #ff4d4d;
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+
+    --spacing-xs: calc(var(--space) - 8px);
+    --spacing-sm: calc(var(--space) - 4px);
+    --spacing-md: var(--space);
+    --spacing-lg: calc(var(--space) + 16px);
+    --spacing-xl: calc(var(--space) + 24px);
+    --spacing-2xl: calc(var(--space) + 48px);
+    --spacing-3xl: calc(var(--space) + 64px);
+    --spacing-4xl: calc(var(--space) + 96px);
 }
 
 :root {
+    --radius: 0.625rem;
+    --space: 1rem;
+
     --background: #ffffff;
     --foreground: #000000;
 }

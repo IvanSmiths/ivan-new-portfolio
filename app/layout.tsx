@@ -1,23 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { lato } from "../utils/fonts";
-import React from "react";
 import { ThemeProvider } from "next-themes";
 import NavbarMobile from "../components/global/Navbar/NavbarMobile/NavbarMobile";
 import { GoogleAnalytics } from "../utils/analytics/google-analytics";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en" className={`${lato.className}`}>
-      <body suppressHydrationWarning className="bg-light">
+      <body suppressHydrationWarning className="bg-background text-foreground">
         <ThemeProvider enableSystem={true} attribute="class">
           <NavbarMobile />
           {children}
