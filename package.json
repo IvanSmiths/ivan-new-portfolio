@@ -11,7 +11,6 @@
     "snapshots:run": "npx playwright test",
     "snapshots:ui": "npx playwright test --ui",
     "snapshots:update": "npx playwright test --update-snapshots",
-    "analyze": "cross-env ANALYZE=true next build",
     "drizzle-studio": "npx drizzle-kit studio --port 9000",
     "migration:generate": "drizzle-kit generate --config=drizzle.config.ts",
     "migration:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
@@ -35,12 +34,10 @@
     "zustand": "^5.0.4"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.3.2",
     "@playwright/test": "^1.52.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",
-    "cross-env": "^7.0.3",
     "drizzle-kit": "^0.31.1",
     "eslint": "^9.26.0",
     "eslint-config-next": "^15.3.2",
