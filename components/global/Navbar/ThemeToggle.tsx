@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { dm_mono } from "../../../utils/fonts";
 
 const ThemeToggle: FC = () => {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -20,8 +21,11 @@ const ThemeToggle: FC = () => {
   };
 
   return (
-    <span className="cursor-pointer text-lg font-bold" onClick={toggleTheme}>
-      {theme === "light" ? "Dark" : "Light"} Mode
+    <span
+      className={`cursor-pointer text-xs uppercase ${dm_mono.className}`}
+      onClick={toggleTheme}
+    >
+      [{theme === "light" ? "Dark" : "Light"} Mode]
     </span>
   );
 };
