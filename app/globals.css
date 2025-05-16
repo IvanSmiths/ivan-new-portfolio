@@ -4,7 +4,9 @@
 
 @theme inline {
     --color-background: var(--background);
+    --color-background-muted: var(--background-muted);
     --color-foreground: var(--foreground);
+    --color-foreground-muted: var(--foreground-muted);
     --color-brand: #ff4d4d;
 
     --radius-sm: calc(var(--radius) - 4px);
@@ -27,10 +29,14 @@
     --space: 1rem;
 
     --background: #ffffff;
+    --background-muted: #e3e3e3;
     --foreground: #000000;
+    --foreground-muted: #4a4a4a;
 }
 
 .dark {
     --background: #000000;
+    --background-muted: #252525;
     --foreground: #ffffff;
+    --foreground-muted: #b6b6b6;
 }

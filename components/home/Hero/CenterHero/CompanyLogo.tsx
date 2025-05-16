@@ -14,7 +14,7 @@ const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
       href={href}
       onMouseEnter={() => onHover(name)}
       onMouseLeave={() => onHover(null)}
-      className="group relative flex max-w-40 min-w-20 flex-1 items-center justify-center border border-dashed border-gray-100 p-4 transition duration-300 hover:bg-gray-50"
+      className="group hover:bg-foreground border-background-muted relative flex max-w-40 min-w-20 flex-1 items-center justify-center border border-dashed p-4 transition duration-300"
     >
       {[
         "top-0 -left-1",
@@ -24,7 +24,7 @@ const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
       ].map((pos, i) => (
         <span
           key={i}
-          className={`absolute ${pos} text-xs leading-0 font-bold text-gray-200`}
+          className={`absolute ${pos} text-foreground-muted text-xs leading-0 font-bold`}
         >
           +
         </span>
