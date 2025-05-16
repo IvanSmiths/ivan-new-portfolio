@@ -1,17 +1,17 @@
 import CompanyLogo from "./CompanyLogo";
 
 const logoFiles = [
-  "171024_SEO_ml.png",
-  "Adidas_Logo.svg",
-  "Commerzbank-Logo 1.svg",
-  "Deutsche_Bahn_AG-Logo.svg.png",
-  "Frame 630.svg",
-  "images.png",
-  "logo.png",
-  "neu.svg",
-  "RuV_Logo_Blau 1.png",
-  "svgviewer-output.svg",
-  "WMF-Logo.svg",
+  "Scholz-&-Volkmer.png",
+  "Adidas.svg",
+  "Commerzbank.svg",
+  "Deutsche-Bahn.png",
+  "TD.svg",
+  "Ideology.png",
+  "Lemon-Soda.png",
+  "Neu-Gelb.svg",
+  "R+V.png",
+  "UMB.svg",
+  "WMF.svg",
 ];
 
 const fileNameToName = (file: string) =>
