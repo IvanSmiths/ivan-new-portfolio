@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import CompaniesLogo from "./CompaniesLogo";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { dm_mono } from "../../../../utils/fonts";
 
 const CenterHero = () => {
   const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
@@ -80,7 +81,9 @@ const CenterHero = () => {
 
   return (
     <div className="flex flex-col items-start justify-start">
-      <div className="flex justify-center">
+      <div
+        className={`text-foreground-muted flex justify-center text-xs uppercase ${dm_mono.className}`}
+      >
         Trusted by{" "}
         <div
           ref={animationContainerRef}

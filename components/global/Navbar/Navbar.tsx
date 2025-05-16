@@ -4,8 +4,10 @@ import Link from "next/link";
 import { FC } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { dm_mono } from "../../../utils/fonts";
-import { internalLinks, Links } from "../../../_config/config";
+import { internalLinks, LinkItem } from "../../../_config/config";
 import { usePathname } from "next/navigation";
+import works from "../../../utils/pages/works";
+import projects from "../../../utils/pages/projects";
 
 export enum Position {
   Fixed = "fixed",
@@ -30,7 +32,7 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
         </Link>
 
         <ul className="gap-md flex items-start">
-          {internalLinks.map((link: Links, index: number) => (
+          {internalLinks.map((link: LinkItem, index: number) => (
             <li key={index}>
               <Link
                 href={link.url}
@@ -41,12 +43,12 @@ const Navbar: FC<NavbarProps> = ({ position }) => {
                 {link.label}
                 {index === 1 && (
                   <span className="text-foreground-muted ml-1 text-[8px]">
-                    (4)
+                    ({works.length + 1})
                   </span>
                 )}
                 {index === 2 && (
                   <span className="text-foreground-muted ml-1 text-[8px]">
-                    (2)
+                    ({projects.length + 1})
                   </span>
                 )}
               </Link>

@@ -1,29 +1,22 @@
-enum LinkItem {
-  Home = "Home",
-  Works = "Works",
-  Projects = "Projects",
-  Blog = "Blog",
-  Crafts = "Crafts",
-}
+export const baseUrl: string = "https://www.ivansmiths.com";
+export const siteName: string = "Ivan Smiths";
 
-enum LinkUrl {
-  Home = "/",
-  Works = "/works",
-  Projects = "/projects",
-  Blog = "/blog",
-  Crafts = "/crafts",
-}
-
-export type Links = {
-  label: LinkItem;
-  url: LinkUrl;
-  dataCy?: Lowercase<LinkItem>;
+export type LinkItem = {
+  label: string;
+  url: string;
 };
 
-export const internalLinks: Links[] = [
-  { label: LinkItem.Home, url: LinkUrl.Home, dataCy: "home" },
-  { label: LinkItem.Works, url: LinkUrl.Works, dataCy: "works" },
-  { label: LinkItem.Projects, url: LinkUrl.Projects, dataCy: "projects" },
-  { label: LinkItem.Blog, url: LinkUrl.Blog, dataCy: "blog" },
-  { label: LinkItem.Crafts, url: LinkUrl.Crafts, dataCy: "crafts" },
+export const internalLinks: LinkItem[] = [
+  { label: "Home", url: "/" },
+  { label: "Works", url: "/works" },
+  { label: "Projects", url: "/projects" },
+  { label: "Blog", url: "/blog" },
+  { label: "Crafts", url: "/crafts" },
+];
+
+export const socialLinks: LinkItem[] = [
+  { label: "GitHub", url: "https://github.com/IvanSmiths" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/ivan-fabbri" },
+  { label: "YouTube", url: "https://youtube.com/@ivansmiths" },
+  { label: "info@ivansmiths.com", url: "mailto:info@ivansmiths.com" },
 ];

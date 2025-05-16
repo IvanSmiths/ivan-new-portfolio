@@ -1,4 +1,4 @@
-import Text from "./Text";
+import Text from "./CityInfo/Text";
 import Showreel from "./Showreel";
 
 const BottomHero = () => {
