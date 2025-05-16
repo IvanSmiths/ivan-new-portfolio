@@ -1,16 +1,20 @@
+import Link from "next/link";
+
 type CompanyLogoProps = {
   src: string;
   alt: string;
   name: string;
+  href: string;
   onHover: (name: string | null) => void;
 };
 
-const CompanyLogo = ({ src, alt, name, onHover }: CompanyLogoProps) => {
+const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
   return (
-    <div
-      className="group relative flex aspect-square max-w-40 min-w-20 flex-1 items-center justify-center rounded border border-dotted border-gray-400 p-4"
+    <Link
+      href={href}
       onMouseEnter={() => onHover(name)}
       onMouseLeave={() => onHover(null)}
+      className="group relative flex aspect-square max-w-40 min-w-20 flex-1 items-center justify-center rounded border border-dotted border-gray-400 p-4"
     >
       <img
         src={src}
@@ -30,7 +34,7 @@ const CompanyLogo = ({ src, alt, name, onHover }: CompanyLogoProps) => {
           +
         </span>
       ))}
-    </div>
+    </Link>
   );
 };
 
