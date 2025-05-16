@@ -2,56 +2,23 @@
 
 import { useRef, useState } from "react";
 import CompaniesLogo from "./CompaniesLogo";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { dm_mono } from "../../../../utils/fonts";
+import { useTextSwapAnimation } from "../../../../utils/hooks/useTextSwapAnimation";
 
 const CenterHero = () => {
   const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
   const textRef = useRef<HTMLSpanElement>(null);
-  const isInitialState = useRef(true);
 
-  useGSAP(
-    () => {
-      const el = textRef.current;
-      if (!el) return;
-
-      gsap.killTweensOf(el);
-      gsap.to(el, {
-        opacity: 0,
-        filter: "blur(4px)",
-        duration: 0.2,
-        ease: "power2.out",
-        onComplete: () => {
-          el.textContent = hoveredCompany || "Pioneers";
-
-          gsap.fromTo(
-            el,
-            { opacity: 0, filter: "blur(4px)" },
-            {
-              opacity: 1,
-              filter: "blur(0px)",
-              duration: 0.3,
-              ease: "power2.out",
-            },
-          );
-        },
-      });
-
-      if (hoveredCompany) {
-        isInitialState.current = false;
-      }
-    },
-    { dependencies: [hoveredCompany] },
-  );
+  useTextSwapAnimation(textRef, hoveredCompany, "Pioneers");
 
   return (
-    <div className="flex flex-col items-start justify-start">
-      <div
-        className={`text-foreground-muted text-xs uppercase ${dm_mono.className}`}
-      >
+    <div
+      className={`text-foreground-muted pb-1 text-xs uppercase ${dm_mono.className}`}
+    >
+      <p className="pb-1">
         Trusted by <span ref={textRef}>Pioneers</span>
-      </div>
+      </p>
+
       <CompaniesLogo onHover={setHoveredCompany} />
     </div>
   );

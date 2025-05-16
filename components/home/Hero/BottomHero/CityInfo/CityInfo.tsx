@@ -9,7 +9,7 @@ const CityInfo: FC = () => {
       <span
         className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
       >
-        Wiesbaden (DE)
+        Wiesbaden(DE)
       </span>
       <Weather />
       <Time />

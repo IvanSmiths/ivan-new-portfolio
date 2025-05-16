@@ -31,12 +31,12 @@
     --background: #ffffff;
     --background-muted: #e3e3e3;
     --foreground: #000000;
-    --foreground-muted: #4a4a4a;
+    --foreground-muted: #7a7a7a;
 }
 
 .dark {
     --background: #000000;
     --background-muted: #252525;
     --foreground: #ffffff;
-    --foreground-muted: #b6b6b6;
+    --foreground-muted: #838383;
 }
