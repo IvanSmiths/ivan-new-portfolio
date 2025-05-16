@@ -10,9 +10,10 @@ import { WorkProjectBase } from "../../utils/pages/types";
 
 type WorksProps = {
   works: WorkProjectBase[];
+  path: string;
 };
 
-const TemplateSection: FC<WorksProps> = ({ works }) => {
+const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
@@ -63,7 +64,7 @@ const TemplateSection: FC<WorksProps> = ({ works }) => {
       <div ref={triggerRef}>
         <div ref={containerRef} className="gap-small flex h-screen w-fit">
           {works.map((work: WorkProjectBase, index: Key) => (
-            <TemplateMapped key={index} work={work} index={index} />
+            <TemplateMapped key={index} work={work} index={index} path={path} />
           ))}
         </div>
       </div>

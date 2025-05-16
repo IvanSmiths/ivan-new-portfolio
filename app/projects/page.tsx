@@ -26,7 +26,7 @@ const ProjectsPage: FC = () => {
         paragraph={projectsHeaderProps.paragraph}
       />
       <Navbar position={Position.Fixed} />
-      <TemplateSection works={projectsData} />
+      <TemplateSection works={projectsData} path={path} />
       <Footer />
       <script
         type="application/ld+json"

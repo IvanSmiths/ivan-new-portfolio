@@ -6,12 +6,13 @@ type WorkProps = {
   work: WorkProjectBase;
   index: Key;
   isInHome?: boolean;
+  path: string;
 };
 
-const TemplateMapped: FC<WorkProps> = ({ work, index, isInHome }) => {
+const TemplateMapped: FC<WorkProps> = ({ work, index, isInHome, path }) => {
   return (
     <Link
-      href={`works/${work.slug}`}
+      href={`${path}/${work.slug}`}
       key={index}
       data-testid={`homeWork${index}`}
       className={`flex items-center justify-center ${
