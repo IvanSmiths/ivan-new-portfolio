@@ -6,7 +6,7 @@ type WorkProps = {
   work: WorkProjectBase;
   index: Key;
   isInHome?: boolean;
-  path: string;
+  path?: string;
 };
 
 const TemplateMapped: FC<WorkProps> = ({ work, index, isInHome, path }) => {

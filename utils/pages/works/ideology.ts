@@ -51,8 +51,17 @@ export const ideology = {
       },
     ],
   },
-  stack:
-    "Php · WordPress · JavaScript · CSS · HTML · Adobe XD · WooCommerce · SEO · SEM",
+  stack: [
+    "Php",
+    "WordPress",
+    "JavaScript",
+    "CSS",
+    "HTML",
+    "Adobe XD",
+    "WooCommerce",
+    "SEO",
+    "SEM",
+  ],
   title: "Ivan Smiths - Achievements at Ideology Creative Studio",
   metaDescription:
     "While at Ideology Creative Studio, I secured a competitive design contract with LemonSoda, standing out among 15 contenders. I crafted cohesive website styles using advanced CSS techniques and optimized third-party plugins through PHP for seamless WordPress integration. Additionally, I boosted the RE/MAX website’s SEO by 7% through strategic JavaScript optimizations, enhancing site visibility and user engagement",

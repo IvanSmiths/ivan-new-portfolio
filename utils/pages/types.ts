@@ -11,7 +11,6 @@ export type Link = {
 };
 
 export type WorkProjectBase = {
-  id: string;
   slug: string;
   name: string;
   homeImage: Media;
@@ -28,5 +27,5 @@ export type WorkProjectPage = WorkProjectBase & {
   date?: string;
   worksDone?: { works: Link[] };
   linkedinLink?: string;
-  stack?: string;
+  stack?: string[];
 };

@@ -10,8 +10,16 @@ export const td = {
   worksDone: {
     works: [{ label: "TD Cowen Dashboard", link: "https://www.td.com/" }],
   },
-  stack:
-    "TypeScript · Angular ·RxJs · Cypress · SQL · Nest.js · Figma · Docker ",
+  stack: [
+    "TypeScript",
+    "Angular",
+    "RxJs",
+    "Cypress",
+    "SQL",
+    "Nest.js",
+    "Figma",
+    "Docker",
+  ],
   title: "Ivan Smiths - Achievements at TD Cowen",
   metaDescription:
     "At TD Cowen, I implemented advanced CRM platform features for a top global bank, focusing on data-driven enhancements to improve user engagement and functionality. I ensured platform robustness through comprehensive Cypress testing and redesigned the mobile app with an emphasis on intuitive interfaces, resulting in a more seamless user experience.",

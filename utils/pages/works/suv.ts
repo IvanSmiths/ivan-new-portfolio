@@ -31,8 +31,17 @@ export const suv = {
       },
     ],
   },
-  stack:
-    "React · Next.js · JavaScript · TypeScript · jQuery · Vue · Storybook · Django · Docker",
+  stack: [
+    "React",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "jQuery",
+    "Vue",
+    "Storybook",
+    "Django",
+    "Docker",
+  ],
   title: "Ivan Smiths - Achievements at Scholz & Volkmer",
   metaDescription:
     "During my time at Scholz & Volkmer, I provided Next.js mentorship to colleagues, enhancing their proficiency and boosting team productivity. I streamlined legacy JavaScript by updating it to modern ECMAScript standards and integrated TypeScript with Next.js, enabling the development of robust, high-performance web applications. I also led the migration of our main website from jQuery to TypeScript, which reduced maintenance time by 40% and made the code far more reliable and scalable.",

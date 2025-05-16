@@ -1,6 +1,6 @@
-import { ProjectPage } from "../types";
+import { WorkProjectPage } from "../types";
 import { clbp } from "./clbp";
 
-const projectsData: ProjectPage[] = [clbp];
+const projectsData: WorkProjectPage[] = [clbp];
 
 export default projectsData;

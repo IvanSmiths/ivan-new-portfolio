@@ -5,10 +5,10 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { FC, useRef } from "react";
 import TemplateMapped from "../../works-projects/TemplateMapped";
 import WorkText from "./WorkText";
-import { WorkBase } from "../../../utils/pages/types";
+import { WorkProjectBase } from "../../../utils/pages/types";
 
 type WorksSectionProps = {
-  works: WorkBase[];
+  works: WorkProjectBase[];
 };
 
 const WorksSection: FC<WorksSectionProps> = ({ works }) => {
@@ -52,7 +52,7 @@ const WorksSection: FC<WorksSectionProps> = ({ works }) => {
       </div>
       <div className="gap-small flex h-full w-full flex-wrap">
         {works.map((work, index) => (
-          <TemplateMapped work={work} key={work.id} index={index} isInHome />
+          <TemplateMapped work={work} key={index} index={index} isInHome />
         ))}
       </div>
     </section>

@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { WorkPage } from "../../utils/pages/types";
+import { WorkProjectPage } from "../../utils/pages/types";
 import Social from "../global/Footer/Social";
 
 type HeaderProps = {
-  work: WorkPage;
+  work: WorkProjectPage;
 };
 
 const Hero: FC<HeaderProps> = ({ work }) => {
