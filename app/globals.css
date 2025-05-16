@@ -7,7 +7,10 @@
     --color-background-muted: var(--background-muted);
     --color-foreground: var(--foreground);
     --color-foreground-muted: var(--foreground-muted);
-    --color-brand: #ff4d4d;
+    --color-brand-primary: #FF4829;
+    --color-brand-secondary: #FF6D2A;
+    --color-white: #ffffff;
+    --color-black: #000000;
 
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);

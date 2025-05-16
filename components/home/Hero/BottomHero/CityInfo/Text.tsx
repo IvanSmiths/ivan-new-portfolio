@@ -6,11 +6,10 @@ const Text: FC = () => {
     <div className="mt-auto w-96">
       <h1 className="text-foreground-muted text-base">
         <strong className="text-foreground font-normal">
-          {" "}
-          Fullstack Developer with 3 years of experience. More text will be
-          added here. Less important text{" "}
+          Code Wizard with 4 years of experience️ - Design Alchemist - Turning
+          binary code into digital magic.
         </strong>{" "}
-        there will be here. Seeking the limit.
+        Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
       <CityInfo />
     </div>

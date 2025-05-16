@@ -9,6 +9,7 @@ import WorksSection from "../components/home/Works/WorksSection";
 import { WorkProjectBase } from "../utils/pages/types";
 import Footer from "../components/global/Footer/Footer";
 import worksData from "../utils/pages/works";
+import About from "../components/home/About/About";
 
 export const metadata: Metadata = homeMetadata;
 
@@ -20,6 +21,7 @@ const Home = () => {
       <Hero />
       <Overlay />
       <LoaderWrapper />
+      <About />
       <WorksSection works={works} />
       <Expertise />
       <Footer />
