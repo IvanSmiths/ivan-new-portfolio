@@ -1,5 +1,5 @@
 import Weather from "./Weather";
-import { getWeather } from "../../../../utils/fetch/getWeather";
+import { getWeather } from "../../../../../utils/fetch/getWeather";
 
 type WeatherData = {
   main: {

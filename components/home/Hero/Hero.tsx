@@ -1,25 +1,14 @@
-import { FC } from "react";
-import Header from "./Header";
-import Text from "./Text";
-import NavbarWrapper from "../Navbar/NavbarWrapper";
-import Showreel from "./Showreel";
-import ShowreelMobile from "./ShowreelMobile";
+import TopHero from "./TopHero/TopHero";
+import BottomHero from "./BottomHero/BottomHero";
+import CenterHero from "./CenterHero/CenterHero";
 
-const Hero: FC = () => {
+const Hero = () => {
   return (
-    <>
-      <div data-testid="homeHeroSection" className="flex h-[100vh] flex-col">
-        <Header />
-        <NavbarWrapper />
-        <div className="flex-grow lg:hidden">
-          <ShowreelMobile />
-        </div>
-        <Text />
-      </div>
-      <div className="hidden w-full lg:block">
-        <Showreel />
-      </div>
-    </>
+    <div className="flex h-[100vh] flex-col justify-between">
+      <TopHero />
+      <CenterHero />
+      <BottomHero />
+    </div>
   );
 };
 

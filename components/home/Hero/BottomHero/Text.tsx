@@ -1,11 +1,12 @@
 import { FC } from "react";
-import Title from "./Title";
 import CityInfo from "./CityInfo";
 
 const Text: FC = () => {
   return (
     <div className="mt-auto w-full">
-      <Title />
+      <h1 className="font-semibold">
+        Fullstack Developer with 3 years of experience. Seeking the limit.
+      </h1>
       <CityInfo />
     </div>
   );

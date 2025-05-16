@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { homeMetadata } from "../utils/seo/home/homeMetadata";
 import { homeSchema } from "../utils/seo/Schemas";
-import About from "../components/home/About/About";
 import Expertise from "../components/home/Expertise/Expertise";
 import Hero from "../components/home/Hero/Hero";
 import LoaderWrapper from "../components/home/Loader/LoaderWrapper";
@@ -21,7 +20,6 @@ const Home = () => {
       <Hero />
       <Overlay />
       <LoaderWrapper />
-      <About />
       <WorksSection works={works} />
       <Expertise />
       <Footer />

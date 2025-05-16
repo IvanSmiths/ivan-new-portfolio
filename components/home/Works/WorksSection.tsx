@@ -6,6 +6,7 @@ import { FC, useRef } from "react";
 import TemplateMapped from "../../works-projects/TemplateMapped";
 import WorkText from "./WorkText";
 import { WorkProjectBase } from "../../../utils/pages/types";
+import { gsap } from "gsap";
 
 type WorksSectionProps = {
   works: WorkProjectBase[];
@@ -14,6 +15,7 @@ type WorksSectionProps = {
 const WorksSection: FC<WorksSectionProps> = ({ works }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(
     (): void => {

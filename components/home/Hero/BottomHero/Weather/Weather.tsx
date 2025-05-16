@@ -2,7 +2,7 @@
 
 import React, { FC, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useAnimationStore } from "../../../../utils/store";
+import { useAnimationStore } from "../../../../../utils/store";
 
 type WeatherProps = {
   temp: number;
@@ -63,7 +63,7 @@ const Weather: FC<WeatherProps> = ({ temp, weather }) => {
     >
       <span
         ref={weatherRef}
-        className="absolute left-0 right-0 top-0 mr-auto flex w-fit gap-1 lowercase"
+        className="absolute top-0 right-0 left-0 mr-auto flex w-fit gap-1 lowercase"
       >
         <span className="text-sm sm:text-lg">{temperature}°</span>
         <span className="text-sm capitalize sm:text-lg">{weather}</span>

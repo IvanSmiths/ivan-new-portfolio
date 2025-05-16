@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { FC, useEffect, useRef } from "react";
 import { useAnimationStore, useOverlayStore } from "../../../utils/store";
-import Header from "../Hero/Header";
+import Header from "../Hero/TopHero/Header";
 
 const Loader: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -59,11 +59,11 @@ const Loader: FC = () => {
     <>
       <div
         ref={faderRef}
-        className="absolute bottom-0 left-0 z-10 h-full w-full bg-light dark:bg-dark"
+        className="bg-light dark:bg-dark absolute bottom-0 left-0 z-10 h-full w-full"
       ></div>
       <div
         ref={containerRef}
-        className="fixed left-0 top-0 z-20 h-full w-full bg-light dark:bg-dark"
+        className="bg-light dark:bg-dark fixed top-0 left-0 z-20 h-full w-full"
       >
         <div
           ref={imageRef}
