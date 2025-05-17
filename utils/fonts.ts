@@ -26,7 +26,7 @@ export const dm_mono: NextFontWithVariable = DM_Mono({
 
 export const dm_sans: NextFontWithVariable = DM_Sans({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "1000"],
+  weight: ["400", "500", "1000"],
   preload: true,
   variable: "--font-dm-sans",
   display: "swap",

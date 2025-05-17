@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { dm_mono } from "../../../utils/fonts";
 
 interface AnimatedAccordionProps {
   title: string;
@@ -28,7 +29,7 @@ export default function AnimatedAccordion({
       accordionTimeline.current = gsap.timeline({ paused: true });
       accordionTimeline.current
         .to(accordionRef.current, { rotationZ: 0, duration: 0.5 })
-        .to(accordionRef.current, { width: "400px", duration: 0.5 }, "-=0.25")
+        .to(accordionRef.current, { width: "350px", duration: 0.5 }, "-=0.25")
         .to(contentRef.current, {
           height: "auto",
           duration: 0.5,
@@ -55,18 +56,18 @@ export default function AnimatedAccordion({
       }}
       onClick={toggleAccordion}
       ref={accordionRef}
-      className="group absolute flex w-[200px] origin-top cursor-pointer flex-col rounded-lg border border-dark bg-light p-4 shadow-lg transition hover:border-light hover:bg-dark dark:border-light dark:bg-dark dark:hover:border-dark dark:hover:bg-light"
+      className={`group border-foreground bg-background hover:border-background hover:bg-foreground absolute z-20 flex w-[130px] origin-top cursor-pointer flex-col border p-2 transition ${dm_mono.className}`}
     >
       <div className="flex origin-top items-center justify-between">
-        <h2 className="text-xl font-bold transition group-hover:text-light dark:group-hover:text-dark">
+        <h3 className="group-hover:text-background text-xs uppercase transition">
           {title}
-        </h2>
-        <span className="text-2xl transition group-hover:text-light dark:group-hover:text-dark">
+        </h3>
+        <span className="group-hover:text-background transition">
           {isOpen ? "-" : "+"}
         </span>
       </div>
       <div className="h-0 overflow-hidden" ref={contentRef}>
-        <p className="transition group-hover:text-light dark:group-hover:text-dark">
+        <p className="group-hover:text-background pt-sm transition">
           {content}
         </p>
       </div>
