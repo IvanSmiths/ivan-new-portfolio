@@ -5,13 +5,12 @@ export const td: WorkProjectPage = {
   slug: "td-cowen",
   name: "TD Cowen",
   date: "March 2023 - September 2024",
-  description: "hsbshbshsbbsh",
+  shortDescription: "hsbshbshsbbsh",
+  description: "sbsjhsbs",
   role: "Fullstack Developer",
   linkedinLink: "https://www.linkedin.com/company/td-cowen",
   websiteLink: "https://www.cowen.com/",
-  worksDone: {
-    works: [{ label: "TD Cowen Dashboard", link: "https://www.td.com/" }],
-  },
+  worksDone: [{ label: "TD Cowen Dashboard", link: "https://www.td.com/" }],
   stack: [
     "TypeScript",
     "Angular",

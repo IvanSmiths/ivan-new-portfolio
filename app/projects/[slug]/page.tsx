@@ -41,7 +41,7 @@ const Project: FC<{ params: Params }> = async ({ params }) => {
       data={projectsData}
       schemaFn={projectSchema}
       renderContent={(project) => (
-        <section className="flex">
+        <section className="px-sm flex">
           <Details work={project} />
           <Images work={project} />
         </section>

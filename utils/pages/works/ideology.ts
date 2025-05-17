@@ -5,54 +5,53 @@ export const ideology: WorkProjectPage = {
   slug: "ideology-creative-studio",
   name: "Ideology Creative Studio",
   date: "January 2020 - Febraury 2022",
+  shortDescription: "sbsjhsbs",
   description: "sbsjhsbs",
   role: "Frontend Developer, UI/UX Designer",
   linkedinLink: "https://www.linkedin.com/company/ideology-creative-studio/",
   websiteLink: "https://www.ideology.it/",
-  worksDone: {
-    works: [
-      {
-        link: "/works/ideology-creative-studio",
-        label: "Lemon Soda",
-      },
-      {
-        link: "https://www.mabuprofumerie.it/",
-        label: "Mabu",
-      },
-      {
-        link: "https://www.in20abitare.it/",
-        label: "In20 Abitare",
-      },
-      {
-        link: "https://radiorockragusa.it/",
-        label: "Radio Rock",
-      },
-      {
-        link: "https://www.rapinzeri.it/",
-        label: "Rapinzeri",
-      },
-      {
-        link: "https://racina.it/",
-        label: "Racina",
-      },
-      {
-        link: "https://www.mizzicaristorante.it/",
-        label: "Mizzica!",
-      },
-      {
-        link: "https://www.areasystem.it/",
-        label: "Area System",
-      },
-      {
-        link: "https://www.bottonecannoli.it/",
-        label: "Bottone Cannoli",
-      },
-      {
-        link: "https://imoniliaprile.it/",
-        label: "I Monili",
-      },
-    ],
-  },
+  worksDone: [
+    {
+      link: "/works/ideology-creative-studio",
+      label: "Lemon Soda",
+    },
+    {
+      link: "https://www.mabuprofumerie.it/",
+      label: "Mabu",
+    },
+    {
+      link: "https://www.in20abitare.it/",
+      label: "In20 Abitare",
+    },
+    {
+      link: "https://radiorockragusa.it/",
+      label: "Radio Rock",
+    },
+    {
+      link: "https://www.rapinzeri.it/",
+      label: "Rapinzeri",
+    },
+    {
+      link: "https://racina.it/",
+      label: "Racina",
+    },
+    {
+      link: "https://www.mizzicaristorante.it/",
+      label: "Mizzica!",
+    },
+    {
+      link: "https://www.areasystem.it/",
+      label: "Area System",
+    },
+    {
+      link: "https://www.bottonecannoli.it/",
+      label: "Bottone Cannoli",
+    },
+    {
+      link: "https://imoniliaprile.it/",
+      label: "I Monili",
+    },
+  ],
   stack: [
     "Php",
     "WordPress",

@@ -5,9 +5,9 @@ type RowProps = {
 
 const Row = ({ label, value }: RowProps) => {
   return (
-    <div className="border-background-muted flex border-b-1">
-      <div className="text-foreground-muted w-20">{label}</div>
-      <div>{value}</div>
+    <div className="border-background-muted py-xs flex border-b-1">
+      <span className="text-foreground-muted w-24 flex-shrink-0">{label}</span>
+      <span>{value}</span>
     </div>
   );
 };

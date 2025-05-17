@@ -5,34 +5,34 @@ export const suv: WorkProjectPage = {
   slug: "scholz-und-volkmer",
   name: "Scholz & Volkmer",
   date: "March 2022 - January 2023",
-  description: "bshsbshb",
+  shortDescription:
+    "This will be a short and concise description of the project.",
   role: "Frontend Developer",
   linkedinLink: "https://www.linkedin.com/company/scholzvolkmer/ ",
   websiteLink: "https://www.s-v.de/en/",
-  worksDone: {
-    works: [
-      {
-        link: "https://www.adidas-group.com/en/",
-        label: "Adidas",
-      },
-      {
-        link: "https://db-engineering-consulting.com/en/",
-        label: "Deutsche Bahn",
-      },
-      {
-        link: "https://perfection.wmf.com/de/perfection/",
-        label: "WMF",
-      },
-      {
-        link: "https://umb.de/",
-        label: "UMB",
-      },
-      {
-        link: "https://www.ruv.de/home/",
-        label: "R+V",
-      },
-    ],
-  },
+  description: "sbsjhsbs",
+  worksDone: [
+    {
+      link: "https://www.adidas-group.com/en/",
+      label: "Adidas",
+    },
+    {
+      link: "https://db-engineering-consulting.com/en/",
+      label: "Deutsche Bahn",
+    },
+    {
+      link: "https://perfection.wmf.com/de/perfection/",
+      label: "WMF",
+    },
+    {
+      link: "https://umb.de/",
+      label: "UMB",
+    },
+    {
+      link: "https://www.ruv.de/home/",
+      label: "R+V",
+    },
+  ],
   stack: [
     "React",
     "Next.js",

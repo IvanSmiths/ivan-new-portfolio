@@ -13,19 +13,20 @@ export type WorkProjectBase = {
   slug: string;
   name: string;
   homeImage: Media;
-  role?: string;
+  role: string;
   homeDescription?: string;
 };
 
 export type WorkProjectPage = WorkProjectBase & {
   title: string;
   type: "Work" | "Project";
-  description: string;
+  shortDescription: string;
   metaDescription: string;
   images: string[];
   websiteLink: string;
   date: string;
-  worksDone?: { works: Link[] };
+  description: string;
+  worksDone?: Link[];
   linkedinLink?: string;
   stack: string[];
 };

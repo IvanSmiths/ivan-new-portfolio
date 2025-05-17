@@ -7,8 +7,9 @@ export const clbp: WorkProjectPage = {
   role: "Frontend Developer",
   date: "January 2020 - ",
   title: "Ivan Smiths - Cover Letter Builder Pro",
-  description:
-    "Generate professional cover letters in minutes with Cover Letter Builder Pro...",
+  shortDescription:
+    "Generate professional cover letters in minutes with Cover Letter Builder Pro.",
+  description: "sbsjhsbs",
   websiteLink: "https://cover-letter-builder-pro.vercel.app/",
   metaDescription:
     "Cover Letter Builder Pro generates professional cover letters...",
