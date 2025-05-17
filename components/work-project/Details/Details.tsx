@@ -11,19 +11,23 @@ type DetailsProps = {
 
 const Details = ({ work }: DetailsProps) => {
   return (
-    <main className={`w-3/12 ${dm_sans.className} top-sm sticky h-fit text-sm`}>
+    <main className={`w-3/12 ${dm_sans.className} top-xl sticky h-fit text-sm`}>
       {/*for the future me: the "s" is not a typo!*/}
-      <Link href={`/${work.type.toLocaleLowerCase()}s`}>
+      <Link
+        className="pb-xs inline-block"
+        href={`/${work.type.toLocaleLowerCase()}s`}
+      >
         &#8592; All {work.type}
       </Link>
       <Row label={"Company"} value={work.name} />
-      <Row label={"Description"} value={work.description} />
+      <Row label={"Description"} value={work.shortDescription} />
       <Row label={"Date"} value={work.date} />
       <Row label={"Role"} value={work.role} />
       <RowLinks website={work.websiteLink} linkedin={work.linkedinLink} />
       {work.worksDone && work.worksDone.length > 0 && (
         <RowWorksDone works={work.worksDone} />
       )}
+      <p>{work.description}</p>
     </main>
   );
 };
