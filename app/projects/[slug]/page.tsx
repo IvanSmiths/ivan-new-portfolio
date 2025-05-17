@@ -5,8 +5,8 @@ import projectsData from "../../../utils/pages/projects";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
-import Hero from "../../../components/work-project/Hero";
 import Images from "../../../components/work-project/Images";
+import Details from "../../../components/work-project/Details/Details";
 
 export type Params = Promise<{
   slug: string;
@@ -41,10 +41,10 @@ const Project: FC<{ params: Params }> = async ({ params }) => {
       data={projectsData}
       schemaFn={projectSchema}
       renderContent={(project) => (
-        <>
-          <Hero work={project} />
+        <section className="flex">
+          <Details work={project} />
           <Images work={project} />
-        </>
+        </section>
       )}
     />
   );

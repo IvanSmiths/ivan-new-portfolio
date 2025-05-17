@@ -1,5 +1,7 @@
-export const suv = {
-  id: "clsj5jsg5sh530ak4qcqekxm4",
+import { WorkProjectPage } from "../types";
+
+export const suv: WorkProjectPage = {
+  type: "Work",
   slug: "scholz-und-volkmer",
   name: "Scholz & Volkmer",
   date: "March 2022 - January 2023",
@@ -49,7 +51,6 @@ export const suv = {
     url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341916/portfolio/suv/suv-cover_b1mqne.jpg",
     height: 606,
     width: 809,
-    fileName: "suv-cover.png",
   },
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",

@@ -2,7 +2,6 @@ export type Media = {
   url: string;
   height: number;
   width: number;
-  fileName?: string;
 };
 
 export type Link = {
@@ -20,12 +19,13 @@ export type WorkProjectBase = {
 
 export type WorkProjectPage = WorkProjectBase & {
   title: string;
+  type: "Work" | "Project";
   description: string;
   metaDescription: string;
   images: string[];
   websiteLink: string;
-  date?: string;
+  date: string;
   worksDone?: { works: Link[] };
   linkedinLink?: string;
-  stack?: string[];
+  stack: string[];
 };

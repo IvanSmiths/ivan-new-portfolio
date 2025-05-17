@@ -1,5 +1,7 @@
-export const clbp = {
-  id: "cm45kjibh7yiq07lf57tmuvau",
+import { WorkProjectPage } from "../types";
+
+export const clbp: WorkProjectPage = {
+  type: "Project",
   slug: "cover-letter-builder-pro",
   name: "Cover Letter Builder Pro",
   role: "Frontend Developer",

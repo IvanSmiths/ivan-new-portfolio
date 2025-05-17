@@ -1,5 +1,7 @@
-export const td = {
-  id: "clsj5j1c7siwu0alfg7gm8kjk",
+import { WorkProjectPage } from "../types";
+
+export const td: WorkProjectPage = {
+  type: "Work",
   slug: "td-cowen",
   name: "TD Cowen",
   date: "March 2023 - September 2024",
@@ -27,7 +29,6 @@ export const td = {
     url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747345769/portfolio/td/td-cover_zsqijq.png",
     height: 606,
     width: 809,
-    fileName: "td-cover.png",
   },
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg",

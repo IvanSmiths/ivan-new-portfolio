@@ -1,5 +1,7 @@
-export const ideology = {
-  id: "clskrcr4ow8aq09k5d32it22f",
+import { WorkProjectPage } from "../types";
+
+export const ideology: WorkProjectPage = {
+  type: "Work",
   slug: "ideology-creative-studio",
   name: "Ideology Creative Studio",
   date: "January 2020 - Febraury 2022",
@@ -69,7 +71,6 @@ export const ideology = {
     url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341879/portfolio/ideology/ideology_str98w.jpg",
     height: 633,
     width: 690,
-    fileName: "ideology.jpg",
   },
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
