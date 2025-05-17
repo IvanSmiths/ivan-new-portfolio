@@ -1,13 +1,12 @@
 import { FC } from "react";
 import { workSchema } from "../../../utils/seo/Schemas";
-import Hero from "../../../components/work-project/Hero";
 import Images from "../../../components/work-project/Images";
-import WorksDone from "../../../components/work-project/WorksDone";
 import worksData from "../../../utils/pages/works";
 import { WorkProjectPage } from "../../../utils/pages/types";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
+import Details from "../../../components/work-project/Details/Details";
 
 export type Params = Promise<{
   slug: string;
@@ -37,11 +36,10 @@ const Work: FC<{ params: Params }> = async ({ params }) => {
       data={worksData}
       schemaFn={workSchema}
       renderContent={(work) => (
-        <>
-          <Hero work={work} />
-          <WorksDone works={work.worksDone.works} />
+        <section className="flex">
+          <Details work={work} />
           <Images work={work} />
-        </>
+        </section>
       )}
     />
   );

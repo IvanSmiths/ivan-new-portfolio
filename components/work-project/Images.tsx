@@ -6,17 +6,17 @@ interface HeaderProps {
 }
 
 const Images: FC<HeaderProps> = ({ work }) => {
-  if (work.images) {
-    return (
-      <div className="w-7/12">
-        <div className="col-span-full w-full md:col-start-2 md:col-end-12">
-          <ul className="gap-small flex flex-col"></ul>
-        </div>
-      </div>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <div className="w-full">
+      <ul className="gap-sm flex w-full flex-col">
+        {work.images.map((image, index) => (
+          <li key={index} className="w-full">
+            <img className="h-full" src={image} loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Images;

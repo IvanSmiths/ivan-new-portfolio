@@ -9,7 +9,7 @@ type DetailsProps = {
 
 const Details = ({ work }: DetailsProps) => {
   return (
-    <main className={`w-4/12 ${dm_sans.className} text-sm`}>
+    <main className={`w-3/12 ${dm_sans.className} px-sm text-sm`}>
       {/*for the future me: the "s" is not a typo!*/}
       <Link href={`/${work.type.toLocaleLowerCase()}s`}>
         &#8592; All {work.type}
