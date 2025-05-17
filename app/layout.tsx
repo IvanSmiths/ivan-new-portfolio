@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import NavbarMobile from "../components/global/Navbar/NavbarMobile/NavbarMobile";
 import { GoogleAnalytics } from "../utils/analytics/google-analytics";
 import { ReactNode } from "react";
+import Navbar from "../components/global/Navbar/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body suppressHydrationWarning className="bg-background text-foreground">
         <ThemeProvider enableSystem={true} attribute="class">
           <NavbarMobile />
+          <Navbar />
           {children}
         </ThemeProvider>
         <GoogleAnalytics gaId="G-55MHEPYVDV" />

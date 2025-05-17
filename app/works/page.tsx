@@ -3,7 +3,6 @@ import { FC } from "react";
 import { worksSchema } from "../../utils/seo/Schemas";
 import Header from "../../components/global/header/Header";
 import { worksHeaderProps } from "../../components/global/header/headerProps";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import TemplateSection from "../../components/works-projects/TemplateSection";
 import Footer from "../../components/global/Footer/Footer";
 import worksData from "../../utils/pages/works";
@@ -25,7 +24,6 @@ const WorksPage: FC = () => {
         h2={worksHeaderProps.h2}
         paragraph={worksHeaderProps.paragraph}
       />
-      <Navbar position={Position.Fixed} />
       <TemplateSection path={path} works={worksData} />
       <Footer />
       <script

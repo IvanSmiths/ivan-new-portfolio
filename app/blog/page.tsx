@@ -2,7 +2,6 @@ import { blogsSchema } from "../../utils/seo/Schemas";
 import { blogMetadata } from "../../utils/seo/blog/blogMetadata";
 import Blog from "../../components/home/Blog/Blog";
 import Header from "../../components/global/header/Header";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import Footer from "../../components/global/Footer/Footer";
 
 export const metadata = blogMetadata;
@@ -22,7 +21,6 @@ export default function BlogPage() {
         h2={headerProps.h2}
         paragraph={headerProps.paragraph}
       />
-      <Navbar position={Position.Fixed} />
       <Blog />
       <Footer />
       <script

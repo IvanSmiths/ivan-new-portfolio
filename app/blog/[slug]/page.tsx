@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getBlogPosts, Posts } from "../../../utils/fetch/getPosts";
 import { generateMetadata } from "../../../utils/seo/blog/blogPostMetadata";
 import { blogSchema } from "../../../utils/seo/Schemas";
-import Navbar, { Position } from "../../../components/global/Navbar/Navbar";
 import Hero from "../../../components/blog/Hero";
 import { MDXComponents } from "../../../components/blog/MDXComponents";
 import Footer from "../../../components/global/Footer/Footer";
@@ -29,11 +28,10 @@ export default async function Post({ params }: { params: Params }) {
 
   return (
     <>
-      <Navbar position={Position.Fixed} />
       <article className="mt-large grid">
         <Hero post={post.metadata} />
         <div className="relative col-span-full grid">
-          <div className="col-span-full mt-medium flex flex-col gap-regular md:col-start-4 md:col-end-13 lg:col-end-10">
+          <div className="mt-medium gap-regular col-span-full flex flex-col md:col-start-4 md:col-end-13 lg:col-end-10">
             <MDXComponents source={post.content} />
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import Navbar, { Position } from "../global/Navbar/Navbar";
 import Footer from "../global/Footer/Footer";
 
 type PageTemplateProps<T> = {
@@ -24,7 +23,6 @@ function PageTemplate<T extends { slug: string }>({
 
   return (
     <>
-      <Navbar position={Position.Fixed} />
       {renderContent(entry)}
       <Footer />
       <script

@@ -1,5 +1,4 @@
 import { FC, ReactNode } from "react";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import Filter, { Label } from "../../components/crafts/Filter";
 import Header from "../global/header/Header";
 import Footer from "../../components/global/Footer/Footer";
@@ -19,7 +18,6 @@ const GalleryPage: FC<GalleryPageProps> = ({
 }) => (
   <>
     <Header {...header} />
-    <Navbar position={Position.Fixed} />
     <Filter currentPage={label} />
     {children}
     <Footer />

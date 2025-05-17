@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { FC } from "react";
 import Header from "../../components/global/header/Header";
 import { projectsHeaderProps } from "../../components/global/header/headerProps";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
 import { projectsSchema } from "../../utils/seo/Schemas";
 import Footer from "../../components/global/Footer/Footer";
 import projectsData from "../../utils/pages/projects";
@@ -25,7 +24,6 @@ const ProjectsPage: FC = () => {
         h2={projectsHeaderProps.h2}
         paragraph={projectsHeaderProps.paragraph}
       />
-      <Navbar position={Position.Fixed} />
       <TemplateSection works={projectsData} path={path} />
       <Footer />
       <script
