@@ -6,8 +6,8 @@ type RowProps = {
 const Row = ({ label, value }: RowProps) => {
   return (
     <div className="flex">
-      <div className="w-20">{label}</div>
-      <div>{value}</div>
+      <div className="text-foreground-muted w-20">{label}</div>
+      <div className="">{value}</div>
     </div>
   );
 };
