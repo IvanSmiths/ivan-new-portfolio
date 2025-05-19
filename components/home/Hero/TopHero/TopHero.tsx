@@ -1,11 +1,7 @@
 import Header from "./Header";
 
 const TopHero = () => {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  return <Header />;
 };
 
 export default TopHero;
