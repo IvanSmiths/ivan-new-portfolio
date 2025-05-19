@@ -10,7 +10,8 @@ export type WorksProps = {
 
 export default function Works({ works }: WorksProps) {
   return (
-    <section className="px-sm py-3xl w-full">
+    <section className="px-sm py-4xl w-full">
+      <h2 className="pb-md text-foreground-muted text-4xl">Featured works</h2>
       {works.map((work, index) => {
         return (
           <Link

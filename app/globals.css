@@ -25,6 +25,7 @@
     --spacing-2xl: calc(var(--space) + 48px);
     --spacing-3xl: calc(var(--space) + 64px);
     --spacing-4xl: calc(var(--space) + 96px);
+    --spacing-5xl: calc(var(--space) + 126px);
 }
 
 :root {
