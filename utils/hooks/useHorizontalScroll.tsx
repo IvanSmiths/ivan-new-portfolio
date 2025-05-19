@@ -1,6 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { RefObject } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const useHorizontalScroll = (
   containerRef: RefObject<HTMLDivElement>,
