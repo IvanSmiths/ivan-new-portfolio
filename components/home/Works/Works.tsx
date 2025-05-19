@@ -9,7 +9,7 @@ export type WorksProps = {
 
 export default function Works({ works }: WorksProps) {
   return (
-    <div className="px-sm py-3xl w-full">
+    <section className="px-sm py-3xl w-full">
       {works.map((work, index) => {
         return (
           <div
@@ -29,6 +29,6 @@ export default function Works({ works }: WorksProps) {
           </div>
         );
       })}
-    </div>
+    </section>
   );
 }
