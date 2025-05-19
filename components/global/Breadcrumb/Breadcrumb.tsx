@@ -7,7 +7,10 @@ type BreadcrumbProps = {
 
 const Breadcrumb = ({ label, url }: BreadcrumbProps) => {
   return (
-    <Link className="pb-xs text-foreground-muted inline-block" href={url}>
+    <Link
+      className="pb-xs text-foreground-muted inline-block cursor-pointer"
+      href={url}
+    >
       {label}
     </Link>
   );
