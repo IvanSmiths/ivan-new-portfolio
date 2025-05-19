@@ -4,7 +4,6 @@ import { homeSchema } from "../utils/seo/Schemas";
 import Expertise from "../components/home/Expertise/Expertise";
 import Hero from "../components/home/Hero/Hero";
 import LoaderWrapper from "../components/home/Loader/LoaderWrapper";
-import Overlay from "../components/home/Loader/Overlay";
 import Footer from "../components/global/Footer/Footer";
 import worksData from "../utils/pages/works";
 import About from "../components/home/About/About";
@@ -19,7 +18,6 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Overlay />
       <LoaderWrapper />
       <About />
       <Works works={works} />

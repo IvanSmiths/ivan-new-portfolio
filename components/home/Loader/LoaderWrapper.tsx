@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useState } from "react";
 import Loader from "./Loader";
+import Overlay from "./Overlay";
 
 const LoaderWrapper: FC = () => {
   const [loader, setLoader] = useState<boolean>(false);
@@ -16,7 +17,12 @@ const LoaderWrapper: FC = () => {
     }
   }, []);
 
-  return <>{loader && <Loader />}</>;
+  return (
+    <>
+      {loader && <Loader />}
+      <Overlay />;
+    </>
+  );
 };
 
 export default LoaderWrapper;
