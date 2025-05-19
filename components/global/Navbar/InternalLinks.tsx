@@ -26,12 +26,12 @@ const InternalLinks = () => {
             </Link>
             {index === 1 && (
               <span className="text-foreground-muted ml-1 text-[8px]">
-                ({works.length + 1})
+                ({works.length})
               </span>
             )}
             {index === 2 && (
               <span className="text-foreground-muted ml-1 text-[8px]">
-                ({projects.length + 1})
+                ({projects.length})
               </span>
             )}
           </li>

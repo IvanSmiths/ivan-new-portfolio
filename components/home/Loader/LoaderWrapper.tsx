@@ -20,7 +20,7 @@ const LoaderWrapper: FC = () => {
   return (
     <>
       {loader && <Loader />}
-      <Overlay />;
+      <Overlay />
     </>
   );
 };
