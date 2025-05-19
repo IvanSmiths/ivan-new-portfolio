@@ -14,7 +14,7 @@ const RowLinks = ({ website, linkedin }: RowLinksProps) => {
           rel="noopener noreferrer"
           className="underline"
         >
-          Website &#2197;
+          Website -{">"}
         </a>
         {linkedin && (
           <a
@@ -23,7 +23,7 @@ const RowLinks = ({ website, linkedin }: RowLinksProps) => {
             rel="noopener noreferrer"
             className="underline"
           >
-            , {""} LinkedIn &#2197;
+            , {""} LinkedIn -{">"}
           </a>
         )}
       </span>
