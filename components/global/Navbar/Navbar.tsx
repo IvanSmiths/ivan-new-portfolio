@@ -1,7 +1,8 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
-import { dm_mono } from "../../../utils/fonts";
 import InternalLinks from "./InternalLinks";
+import { dm_mono } from "../../../utils/fonts";
+import ScrollPercentage from "./ScrollPercentage";
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
         Ivan Smiths
       </Link>
       <InternalLinks />
+      <ScrollPercentage />
       <div className="flex w-24">
         <ThemeToggle />
       </div>
