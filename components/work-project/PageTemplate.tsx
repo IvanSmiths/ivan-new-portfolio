@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import Footer from "../global/Footer/Footer";
 
 type PageTemplateProps<T> = {
   slug: string;
@@ -24,7 +23,6 @@ function PageTemplate<T extends { slug: string }>({
   return (
     <>
       {renderContent(entry)}
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

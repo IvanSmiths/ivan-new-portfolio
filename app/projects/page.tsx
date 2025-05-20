@@ -3,7 +3,6 @@ import { FC } from "react";
 import Header from "../../components/global/header/Header";
 import { projectsHeaderProps } from "../../components/global/header/headerProps";
 import { projectsSchema } from "../../utils/seo/Schemas";
-import Footer from "../../components/global/Footer/Footer";
 import projectsData from "../../utils/pages/projects";
 import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
 import TemplateSection from "../../components/works-projects/TemplateSection";
@@ -25,7 +24,6 @@ const ProjectsPage: FC = () => {
         paragraph={projectsHeaderProps.paragraph}
       />
       <TemplateSection works={projectsData} path={path} />
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}

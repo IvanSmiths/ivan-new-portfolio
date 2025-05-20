@@ -1,7 +1,6 @@
 import { FC, ReactNode } from "react";
 import Filter, { Label } from "../../components/crafts/Filter";
 import Header from "../global/header/Header";
-import Footer from "../../components/global/Footer/Footer";
 
 type GalleryPageProps = {
   children?: ReactNode;
@@ -20,7 +19,6 @@ const GalleryPage: FC<GalleryPageProps> = ({
     <Header {...header} />
     <Filter currentPage={label} />
     {children}
-    <Footer />
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

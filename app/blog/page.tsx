@@ -2,7 +2,6 @@ import { blogsSchema } from "../../utils/seo/Schemas";
 import { blogMetadata } from "../../utils/seo/blog/blogMetadata";
 import Blog from "../../components/home/Blog/Blog";
 import Header from "../../components/global/header/Header";
-import Footer from "../../components/global/Footer/Footer";
 
 export const metadata = blogMetadata;
 
@@ -22,7 +21,6 @@ export default function BlogPage() {
         paragraph={headerProps.paragraph}
       />
       <Blog />
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogsSchema) }}

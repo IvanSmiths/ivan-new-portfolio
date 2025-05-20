@@ -6,6 +6,7 @@ import NavbarMobile from "../components/global/Navbar/NavbarMobile/NavbarMobile"
 import { GoogleAnalytics } from "../utils/analytics/google-analytics";
 import { ReactNode } from "react";
 import Navbar from "../components/global/Navbar/Navbar";
+import Footer from "../components/global/Footer/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ivansmiths.com"),
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Navbar />
           {children}
         </ThemeProvider>
+        <Footer />
         <GoogleAnalytics gaId="G-55MHEPYVDV" />
       </body>
     </html>

@@ -4,7 +4,6 @@ import { homeSchema } from "../utils/seo/Schemas";
 import Expertise from "../components/home/Expertise/Expertise";
 import Hero from "../components/home/Hero/Hero";
 import LoaderWrapper from "../components/home/Loader/LoaderWrapper";
-import Footer from "../components/global/Footer/Footer";
 import worksData from "../utils/pages/works";
 import About from "../components/home/About/About";
 import Works from "../components/home/Works/Works";
@@ -22,7 +21,6 @@ const Home = () => {
       <About />
       <Works works={works} />
       <Expertise />
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}

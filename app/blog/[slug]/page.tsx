@@ -4,7 +4,6 @@ import { generateMetadata } from "../../../utils/seo/blog/blogPostMetadata";
 import { blogSchema } from "../../../utils/seo/Schemas";
 import Hero from "../../../components/blog/Hero";
 import { MDXComponents } from "../../../components/blog/MDXComponents";
-import Footer from "../../../components/global/Footer/Footer";
 
 export type Params = Promise<{ slug: string }>;
 
@@ -42,7 +41,6 @@ export default async function Post({ params }: { params: Params }) {
           __html: JSON.stringify(blogSchema(post.metadata)),
         }}
       />
-      <Footer />
     </>
   );
 }

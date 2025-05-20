@@ -4,7 +4,6 @@ import { worksSchema } from "../../utils/seo/Schemas";
 import Header from "../../components/global/header/Header";
 import { worksHeaderProps } from "../../components/global/header/headerProps";
 import TemplateSection from "../../components/works-projects/TemplateSection";
-import Footer from "../../components/global/Footer/Footer";
 import worksData from "../../utils/pages/works";
 import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
 
@@ -25,7 +24,6 @@ const WorksPage: FC = () => {
         paragraph={worksHeaderProps.paragraph}
       />
       <TemplateSection path={path} works={worksData} />
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(worksSchema) }}
