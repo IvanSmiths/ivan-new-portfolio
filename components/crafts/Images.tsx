@@ -1,8 +1,9 @@
 "use client";
 
-import { FC, useEffect, useRef } from "react";
+import { FC, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useImagesScroll } from "../../utils/hooks/useImageScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +20,7 @@ type ImagesProps = {
 };
 
 const Images: FC<ImagesProps> = ({ images }) => {
-  const gridRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLElement | null>(null);
   const columnRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageWrapperRefs = useRef<{ [key: number]: (HTMLDivElement | null)[] }>(
     [0, 1, 2].reduce(
@@ -34,42 +35,11 @@ const Images: FC<ImagesProps> = ({ images }) => {
     ),
   );
 
-  useEffect(() => {
-    if (!gridRef.current) return;
-    const middleColumn = columnRefs.current[1];
-    if (middleColumn) {
-      gsap.to(middleColumn, {
-        yPercent: -10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: "clamp(top bottom)",
-          end: "clamp(bottom top)",
-          scrub: true,
-        },
-      });
-    }
-
-    [0, 2].forEach((columnIndex) => {
-      const columnWrappers = imageWrapperRefs.current[columnIndex] || [];
-
-      columnWrappers.forEach((wrapper) => {
-        if (!wrapper) return;
-
-        gsap.to(wrapper, {
-          rotation: columnIndex === 0 ? -3 : 3,
-          xPercent: columnIndex === 0 ? -4 : 4,
-          ease: "none",
-          scrollTrigger: {
-            trigger: wrapper.parentElement,
-            start: "clamp(top bottom)",
-            end: "clamp(bottom top)",
-            scrub: true,
-          },
-        });
-      });
-    });
-  }, []);
+  useImagesScroll({
+    gridRef,
+    columnRefs,
+    imageWrapperRefs,
+  });
 
   return (
     <main
