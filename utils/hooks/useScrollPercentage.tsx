@@ -11,6 +11,7 @@ export function useScrollPercentage() {
   const pathname = usePathname();
 
   useGSAP(() => {
+    gsap.set(percentRef.current, { innerText: 0 });
     const trigger = ScrollTrigger.create({
       start: 0,
       end: "max",
@@ -30,10 +31,8 @@ export function useScrollPercentage() {
     return () => trigger.kill();
   }, []);
 
+  // call ScrollTrigger.refresh to refresh the end/start position when route changes
   useEffect(() => {
-    if (percentRef.current) {
-      gsap.set(percentRef.current, { innerText: 0 });
-    }
     ScrollTrigger.refresh();
   }, [pathname]);
 
