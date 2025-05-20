@@ -2,10 +2,7 @@
 
 import { RefObject } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type ImageWrapperRefs = {
   [key: number]: (HTMLDivElement | null)[];
@@ -24,7 +21,6 @@ export const useImagesScroll = ({
 }: UseImagesScrollAnimationProps) => {
   useGSAP(() => {
     if (!gridRef.current) return;
-
     const middleColumn = columnRefs.current?.[1];
     if (middleColumn) {
       gsap.to(middleColumn, {
@@ -41,10 +37,8 @@ export const useImagesScroll = ({
 
     [0, 2].forEach((columnIndex) => {
       const columnWrappers = imageWrapperRefs.current?.[columnIndex] || [];
-
       columnWrappers.forEach((wrapper) => {
         if (!wrapper) return;
-
         gsap.to(wrapper, {
           rotation: columnIndex === 0 ? -3 : 3,
           xPercent: columnIndex === 0 ? -4 : 4,
@@ -58,9 +52,5 @@ export const useImagesScroll = ({
         });
       });
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, [gridRef, columnRefs, imageWrapperRefs]);
 };
