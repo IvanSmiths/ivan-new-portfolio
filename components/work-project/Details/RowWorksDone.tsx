@@ -1,4 +1,5 @@
 import { Link } from "../../../utils/pages/types";
+import SquareArrowOutUpRight from "../../global/Icons/SquareArrowOutUpRight";
 
 type RowWorksDoneRow = {
   works: Link[];
@@ -15,11 +16,12 @@ const RowWorksDone = ({ works }: RowWorksDoneRow) => {
               href={work.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="flex items-center gap-1 underline"
             >
-              {work.label}
+              <span>{work.label}</span>
+              <SquareArrowOutUpRight />
+              {index < works.length - 1 && <>,</>}
             </a>
-            {index < works.length - 1 && <span>, </span>}
           </span>
         ))}
       </div>

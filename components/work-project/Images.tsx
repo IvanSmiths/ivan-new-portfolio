@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Images: FC<HeaderProps> = ({ work }) => {
   return (
-    <div className="w-full">
+    <div className="pt-sm w-full">
       <ul className="gap-sm flex w-full flex-col">
         {work.images.map((image, index) => (
           <li key={index} className="w-full">

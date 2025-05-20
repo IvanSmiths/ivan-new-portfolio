@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArrowLeft from "../Icons/ArrowLeft";
 
 type BreadcrumbProps = {
   label: string;
@@ -8,9 +9,10 @@ type BreadcrumbProps = {
 const Breadcrumb = ({ label, url }: BreadcrumbProps) => {
   return (
     <Link
-      className="pb-xs text-foreground-muted inline-block cursor-pointer"
+      className="py-xs text-foreground-muted flex cursor-pointer items-center gap-1"
       href={url}
     >
+      <ArrowLeft />
       {label}
     </Link>
   );

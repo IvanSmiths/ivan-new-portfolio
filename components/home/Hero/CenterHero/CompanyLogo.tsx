@@ -14,7 +14,7 @@ const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
       href={href}
       onMouseEnter={() => onHover(name)}
       onMouseLeave={() => onHover(null)}
-      className="group hover:bg-foreground border-background-muted relative flex max-w-40 min-w-20 flex-1 items-center justify-center border border-dashed p-4 transition duration-300"
+      className="group hover:bg-foreground border-background-muted relative flex max-w-40 min-w-20 flex-1 items-center justify-center border p-4 transition duration-300"
     >
       {[
         "top-0 -left-1",

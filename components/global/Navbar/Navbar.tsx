@@ -6,7 +6,7 @@ import ScrollPercentage from "./ScrollPercentage";
 
 const Navbar = () => {
   return (
-    <nav className="top-sm px-sm fixed z-10 flex w-full items-center justify-between">
+    <nav className="py-sm px-sm bg-background border-background-muted fixed top-0 z-30 flex w-full items-center justify-between border-b">
       <Link href="/" className={`text-xs uppercase ${dm_mono.className}`}>
         Ivan Smiths
       </Link>
