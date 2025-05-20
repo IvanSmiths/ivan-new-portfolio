@@ -12,11 +12,13 @@ export const AnimatedImage: React.FC<AnimatedImageProps> = ({
   refCallback,
 }) => {
   return (
-    <img
-      ref={refCallback}
-      className={`inline object-cover ${className}`}
-      src={src}
-      alt={alt}
-    />
+    <figure className="inline h-24 overflow-hidden">
+      <img
+        ref={refCallback}
+        className={`inline origin-left scale-150 object-cover ${className}`}
+        src={src}
+        alt={alt}
+      />
+    </figure>
   );
 };

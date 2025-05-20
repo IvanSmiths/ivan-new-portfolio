@@ -37,13 +37,13 @@ const About = () => {
             className="h-24 pb-4"
             src="https://res.cloudinary.com/deino2cjx/image/upload/v1747341883/portfolio/ideology/racina_kpctx3.jpg"
           />{" "}
-          YOUR BACK WITH DESIGN{" "}
+          YOUR BACK WITH DESIGN AND CODE AT{" "}
           <AnimatedImage
             refCallback={setImageRef}
             className="h-24 pb-4"
             src="https://res.cloudinary.com/deino2cjx/image/upload/v1747341881/portfolio/ideology/lemon-soda-2_kuj5ha.jpg"
           />{" "}
-          AND CODE AT MAXIMUM LEVEL.
+          MAXIMUM LEVEL.
         </h2>
       </div>
     </div>

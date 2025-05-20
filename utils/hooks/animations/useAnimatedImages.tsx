@@ -24,16 +24,12 @@ export function useAnimatedImages() {
         })
         .to(img, {
           width: "auto",
-          height: "6rem",
+          scale: 1,
           opacity: 1,
           duration: 0.8,
           ease: "power2.out",
         });
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, []);
 
   return { setImageRef };
