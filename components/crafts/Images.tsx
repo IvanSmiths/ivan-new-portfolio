@@ -1,11 +1,7 @@
 "use client";
 
 import { FC, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import { useImagesScroll } from "../../utils/hooks/useImageScroll";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type Image = {
   desktopUrl: string;
