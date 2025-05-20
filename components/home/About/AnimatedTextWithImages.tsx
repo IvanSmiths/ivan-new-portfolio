@@ -10,20 +10,15 @@ interface AnimatedTextWithImagesProps {
   words: string[];
   images: string[];
   triggerRef: RefObject<HTMLElement | null>;
-  textClassName?: string;
   wordClassName?: string;
-  imageClassName?: string;
 }
 
 export const AnimatedTextWithImages = ({
   words,
   images,
   triggerRef,
-  textClassName = "",
-  wordClassName = "",
-  imageClassName = "",
 }: AnimatedTextWithImagesProps) => {
-  const wordRefs = useRef([]);
+  const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const { setImageRef } = useAnimatedImages();
 
   useScrollTextFill({
@@ -34,17 +29,12 @@ export const AnimatedTextWithImages = ({
   let imageIndex = 0;
 
   return (
-    <h2 className={textClassName}>
+    <h2 className="lg:leading-4xl leading-2xl flex flex-wrap justify-center gap-x-2 gap-y-4 text-center text-6xl font-black uppercase lg:text-8xl">
       {words.map((word, index) => {
         if (word === " ") {
           const src = images[imageIndex++];
           return (
-            <AnimatedImage
-              key={`img-${index}`}
-              refCallback={setImageRef}
-              className={imageClassName}
-              src={src}
-            />
+            <AnimatedImage key={index} refCallback={setImageRef} src={src} />
           );
         }
 
@@ -55,7 +45,6 @@ export const AnimatedTextWithImages = ({
             setRef={(el) => {
               wordRefs.current[index] = el;
             }}
-            className={wordClassName}
           />
         );
       })}

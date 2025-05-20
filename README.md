@@ -1,6 +1,10 @@
-## My personal portfolio
+# My personal portfolio
 
-Built with:
+## Animations
+
+All the animations are reusable hooks (@hooks/animations). Need to document the params.
+
+### Built with:
 
 - Next.js with TypeScript: Framework
 - Drizzle: ORM

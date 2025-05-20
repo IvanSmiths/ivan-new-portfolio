@@ -1,21 +1,19 @@
 type AnimatedImageProps = {
   src: string;
   alt?: string;
-  className?: string;
   refCallback: (el: HTMLImageElement | null) => void;
 };
 
-export const AnimatedImage: React.FC<AnimatedImageProps> = ({
+export const AnimatedImage = ({
   src,
   alt = "",
-  className = "",
   refCallback,
-}) => {
+}: AnimatedImageProps) => {
   return (
-    <figure className="inline h-24 overflow-hidden">
+    <figure className="inline h-16 overflow-hidden lg:h-24">
       <img
         ref={refCallback}
-        className={`inline origin-left scale-150 object-cover ${className}`}
+        className="inline h-16 origin-left scale-150 object-cover pb-4 lg:h-24"
         src={src}
         alt={alt}
       />

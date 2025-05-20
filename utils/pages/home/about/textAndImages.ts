@@ -18,7 +18,7 @@ export const animatedWords: string[] = [
   "DESIGN",
   "AND",
   "CODE",
-  "AT",
+  "AT A",
   " ",
   "MAXIMUM",
   "LEVEL.",

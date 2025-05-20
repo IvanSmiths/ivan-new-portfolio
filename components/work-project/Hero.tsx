@@ -21,12 +21,11 @@ const Hero: FC<HeaderProps> = ({ work }) => {
           src={work.homeImage.url}
           height={work.homeImage.height}
           width={work.homeImage.width}
-          alt={work.homeImage.fileName}
         />
       </div>
       <div className="mt-small gap-small flex w-full flex-col transition-all duration-500 md:flex-row">
-        <Social label="Website" isInWorkPage link={work.websiteLink} />
-        <Social label="LinkedIn" isInWorkPage link={work.linkedinLink} />
+        <Social label="Website" isInWorkPage url={work.websiteLink} />
+        <Social label="LinkedIn" isInWorkPage url={work.linkedinLink} />
       </div>
       <p className="mt-small text-left text-xl md:text-3xl">
         {work.description}

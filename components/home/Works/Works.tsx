@@ -11,7 +11,11 @@ export type WorksProps = {
 export default function Works({ works }: WorksProps) {
   return (
     <section className="px-sm py-4xl w-full">
-      <h2 className="pb-md text-foreground-muted text-4xl">Featured works</h2>
+      <h2
+        className={`text-foreground-muted ${dm_mono.className} pb-md text-xs uppercase`}
+      >
+        Featured works
+      </h2>
       {works.map((work, index) => {
         return (
           <Link
@@ -26,7 +30,7 @@ export default function Works({ works }: WorksProps) {
             >
               (0{index + 1})
             </span>
-            <h3 className="group-hover:text-background text-9xl uppercase transition">
+            <h3 className="group-hover:text-background text-6xl uppercase transition lg:text-9xl">
               {work.name.replace("Creative Studio", "").trim()}
             </h3>
           </Link>
