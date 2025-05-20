@@ -1,0 +1,32 @@
+export const animatedWords: string[] = [
+  "FROM",
+  " ",
+  "TOP",
+  "TIER",
+  "GLOBAL",
+  "COMPANIES",
+  " ",
+  "TO",
+  "LOCAL",
+  "REALITIES,",
+  "I",
+  "GOT",
+  " ",
+  "YOUR",
+  "BACK",
+  "WITH",
+  "DESIGN",
+  "AND",
+  "CODE",
+  "AT",
+  " ",
+  "MAXIMUM",
+  "LEVEL.",
+];
+
+export const animatedImages: string[] = [
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341878/portfolio/ideology/ideology-website-9_jdwyyf.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341883/portfolio/ideology/racina_kpctx3.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341881/portfolio/ideology/lemon-soda-2_kuj5ha.jpg",
+];
