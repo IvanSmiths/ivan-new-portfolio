@@ -28,7 +28,7 @@ const Images: FC<ImagesProps> = ({ images }) => {
     const columnElements = Array.from(columns);
 
     gsap.to(columnElements[1], {
-      yPercent: -20,
+      yPercent: -10,
       ease: "none",
       scrollTrigger: {
         trigger: gridRef.current,
@@ -44,8 +44,8 @@ const Images: FC<ImagesProps> = ({ images }) => {
       const items = column.querySelectorAll(".column__item-imgwrap");
       items.forEach((wrapper) => {
         gsap.to(wrapper, {
-          rotation: columnIndex === 0 ? -6 : 6,
-          xPercent: columnIndex === 0 ? -10 : 10,
+          rotation: columnIndex === 0 ? -3 : 3,
+          xPercent: columnIndex === 0 ? -4 : 4,
           ease: "none",
           scrollTrigger: {
             trigger: wrapper.parentElement,
@@ -60,7 +60,7 @@ const Images: FC<ImagesProps> = ({ images }) => {
 
   return (
     <main
-      className="columns mx-auto grid w-full max-w-[1200px] grid-cols-3 gap-[1vw] py-[20vh]"
+      className="columns mx-auto grid w-full max-w-[1400px] grid-cols-3 gap-[1vw] py-[20vh]"
       ref={gridRef}
     >
       {[0, 1, 2].map((columnIndex, index) => (
@@ -68,14 +68,12 @@ const Images: FC<ImagesProps> = ({ images }) => {
           {images
             .filter((_, index) => index % 3 === columnIndex)
             .map((image, index) => (
-              <figure className="column__item" key={index}>
-                <div className="column__item-imgwrap relative aspect-[1/1] w-full overflow-hidden rounded-[20px]">
-                  <div
-                    className="column__item-img absolute top-0 left-0 h-full w-full bg-cover bg-[center_20%]"
-                    style={{
-                      backgroundImage: `url(${image.desktopUrl})`,
-                    }}
-                  ></div>
+              <figure className="h-[600px]" key={index}>
+                <div className="column__item-imgwrap relative h-full w-full overflow-hidden">
+                  <img
+                    src={image.desktopUrl}
+                    className="column__item-img absolute top-0 left-0 h-full w-full object-cover"
+                  ></img>
                 </div>
               </figure>
             ))}
