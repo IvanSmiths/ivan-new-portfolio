@@ -1,23 +1,19 @@
 import { FC } from "react";
 import Arrow from "./Arrow";
+import { dm_mono } from "../../../utils/fonts";
 
 type SocialProps = {
   label: string;
   url?: string;
-  isInWorkPage?: boolean;
 };
 
-const Social: FC<SocialProps> = ({ label, url, isInWorkPage }: SocialProps) => {
+const Social: FC<SocialProps> = ({ label, url }: SocialProps) => {
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group border-dark hover:bg-dark hover:text-dark dark:border-light dark:hover:bg-light dark:hover:text-dark flex cursor-pointer items-center gap-8 rounded-md border-2 px-6 py-3 text-2xl transition-all duration-300 md:text-6xl lg:text-8xl ${
-        isInWorkPage
-          ? "w-full justify-between hover:w-[60%] md:w-1/2"
-          : "justify-center"
-      }`}
+      className={`group border-foreground uppercase ${dm_mono.className} hover:bg-foreground hover:text-background border-foreground-muted flex cursor-pointer items-center gap-8 border p-4 text-2xl transition-all duration-300 md:text-6xl lg:text-7xl`}
     >
       {label}
       <Arrow />
