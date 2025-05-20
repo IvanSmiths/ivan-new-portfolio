@@ -1,7 +1,7 @@
 "use client";
 
 import { RefObject, useRef } from "react";
-import useHorizontalScroll from "../../../utils/hooks/useHorizontalScroll";
+import useHorizontalScroll from "../../../utils/hooks/animations/useHorizontalScroll";
 import AnimatedAccordion from "./Accordion";
 import { AccordionItem, accordionItems } from "./AccordionItems";
 import ExpertiseText from "./ExpertiseText";

@@ -1,6 +1,6 @@
 "use client";
 
-import { useScrollPercentage } from "../../../utils/hooks/useScrollPercentage";
+import { useScrollPercentage } from "../../../utils/hooks/animations/useScrollPercentage";
 import { dm_mono } from "../../../utils/fonts";
 
 const ScrollPercentage = () => {

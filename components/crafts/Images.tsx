@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useRef } from "react";
-import { useImagesScroll } from "../../utils/hooks/useImageScroll";
+import { useImagesScroll } from "../../utils/hooks/animations/useImageScroll";
 
 type Image = {
   desktopUrl: string;

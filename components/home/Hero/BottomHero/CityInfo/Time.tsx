@@ -2,13 +2,13 @@
 
 import { FC, useEffect, useRef, useState } from "react";
 import { dm_mono } from "../../../../../utils/fonts";
-import { useTextSwapAnimation } from "../../../../../utils/hooks/useTextSwapAnimation";
+import { useTextSwap } from "../../../../../utils/hooks/animations/useTextSwap";
 
 const Time: FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
   const timeRef = useRef<HTMLSpanElement | null>(null);
 
-  useTextSwapAnimation(timeRef, currentTime, "");
+  useTextSwap(timeRef, currentTime, "");
 
   useEffect(() => {
     const intervalId = setInterval(() => {

@@ -3,13 +3,13 @@
 import { useRef, useState } from "react";
 import CompaniesLogo from "./CompaniesLogo";
 import { dm_mono } from "../../../../utils/fonts";
-import { useTextSwapAnimation } from "../../../../utils/hooks/useTextSwapAnimation";
+import { useTextSwap } from "../../../../utils/hooks/animations/useTextSwap";
 
 const CenterHero = () => {
   const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
   const textRef = useRef<HTMLSpanElement>(null);
 
-  useTextSwapAnimation(textRef, hoveredCompany, "Pioneers");
+  useTextSwap(textRef, hoveredCompany, "Pioneers");
 
   return (
     <div

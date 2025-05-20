@@ -8,7 +8,7 @@ import gsap from "gsap";
  * Hook to animate swapping text using fade and blur.
  * Hides element on first render and fades it in.
  */
-export function useTextSwapAnimation(
+export function useTextSwap(
   ref: RefObject<HTMLElement | null>,
   newText: string | null,
   fallbackText: string,

@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { useCollectRefs } from "./useCollectRefs";
+import { useCollectRefs } from "../ref/useCollectRefs";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 

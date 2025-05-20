@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useAnimatedImages } from "../../../utils/hooks/useAnimatedImages";
+import { useAnimatedImages } from "../../../utils/hooks/animations/useAnimatedImages";
 import { AnimatedImage } from "./AnimatedImage";
 
 const About = () => {
