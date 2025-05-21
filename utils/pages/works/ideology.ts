@@ -5,8 +5,8 @@ export const ideology: WorkProjectPage = {
   slug: "ideology-creative-studio",
   name: "Ideology Creative Studio",
   date: "January 2020 - Febraury 2022",
-  shortDescription: "sbsjhsbs",
-  description: "sbsjhsbs",
+  description:
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
   role: "Frontend Developer, UI/UX Designer",
   linkedinLink: "https://www.linkedin.com/company/ideology-creative-studio/",
   websiteLink: "https://www.ideology.it/",

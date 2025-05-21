@@ -5,7 +5,6 @@ export const td: WorkProjectPage = {
   slug: "td-cowen",
   name: "TD Cowen",
   date: "March 2023 - September 2024",
-  shortDescription: "hsbshbshsbbsh",
   description: "sbsjhsbs",
   role: "Fullstack Developer",
   linkedinLink: "https://www.linkedin.com/company/td-cowen",

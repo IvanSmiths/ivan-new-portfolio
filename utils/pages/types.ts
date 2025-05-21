@@ -20,7 +20,6 @@ export type WorkProjectBase = {
 export type WorkProjectPage = WorkProjectBase & {
   title: string;
   type: "Work" | "Project";
-  shortDescription: string;
   metaDescription: string;
   images: string[];
   websiteLink: string;

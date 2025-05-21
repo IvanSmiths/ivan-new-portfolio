@@ -5,7 +5,6 @@ export const neugelb: WorkProjectPage = {
   slug: "neugelb",
   name: "NeuGelb",
   date: "March 2023 - September 2024",
-  shortDescription: "hsbshbshsbbsh",
   description: "sbsjhsbs",
   role: "Fullstack Developer",
   linkedinLink: "https://www.linkedin.com/company/neugelb",

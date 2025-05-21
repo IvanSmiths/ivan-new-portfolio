@@ -11,7 +11,6 @@ const RowSection = ({ work }: RowSectionProps) => {
   return (
     <>
       <Row label={"Company"} value={work.name} />
-      <Row label={"Description"} value={work.shortDescription} />
       <Row label={"Date"} value={work.date} />
       <Row label={"Role"} value={work.role} />
       <RowLinks website={work.websiteLink} linkedin={work.linkedinLink} />

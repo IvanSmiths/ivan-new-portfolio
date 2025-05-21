@@ -24,7 +24,7 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const { slug } = await params;
-  return generatePageMetadata(slug, worksData, "project", "Project Not Found");
+  return generatePageMetadata(slug, worksData, "work", "Work Not Found");
 }
 
 const Work: FC<{ params: Params }> = async ({ params }) => {
@@ -36,7 +36,7 @@ const Work: FC<{ params: Params }> = async ({ params }) => {
       data={worksData}
       schemaFn={workSchema}
       renderContent={(work) => (
-        <section className="px-sm pt-xl gap-sm flex">
+        <section className="px-sm pt-xl gap-sm flex flex-col md:flex-row">
           <Details work={work} />
           <Images work={work} />
         </section>
