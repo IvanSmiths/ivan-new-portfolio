@@ -1,67 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-interface TOCItem {
-  id: string;
-  text: string;
-  level: number;
-}
+import { useTableOfContents } from "../../utils/hooks/useTableOfContents";
 
 export default function TableOfContents() {
-  const [headings, setHeadings] = useState<TOCItem[]>([]);
-  const [activeId, setActiveId] = useState("");
+  const { headings, activeId } = useTableOfContents({});
 
-  useEffect(() => {
-    const elements = Array.from(
-      document.querySelectorAll("h1, h2, h3, h4, h5, h6"),
-    );
-
-    const items = elements.map((element) => {
-      const level = parseInt(element.tagName[1]);
-      return {
-        id: element.id,
-        text: element.textContent || "",
-        level: level,
-      };
-    });
-
-    // Filter out the first h1 and h2 as they are in the Hero section
-    let filteredItems = [...items];
-
-    const firstH1Index = filteredItems.findIndex((item) => item.level === 1);
-    if (firstH1Index !== -1) {
-      filteredItems.splice(firstH1Index, 1);
-    }
-
-    const firstH2Index = filteredItems.findIndex((item) => item.level === 2);
-    if (firstH2Index !== -1) {
-      filteredItems.splice(firstH2Index, 1);
-    }
-
-    setHeadings(filteredItems);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -80% 0px" },
-    );
-
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    return () => {
-      elements.forEach((element) => {
-        observer.unobserve(element);
-      });
-    };
-  }, []);
+  if (headings.length === 0) {
+    return null;
+  }
 
   return (
     <section className="sticky top-24 right-8 max-h-[calc(100vh-120px)] w-64 overflow-y-auto">
@@ -81,9 +27,16 @@ export default function TableOfContents() {
               }`}
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById(heading.id)?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                const element = document.getElementById(heading.id);
+                if (element) {
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition =
+                    elementPosition + window.pageYOffset - 50;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  });
+                }
               }}
             >
               {heading.text}
