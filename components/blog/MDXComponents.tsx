@@ -2,7 +2,6 @@ import { Code as CodeTheme } from "bright";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { ReactNode } from "react";
 import Note from "./Note";
-import Sections from "./Sections";
 import { CustomLink } from "./CustomLink";
 import { createHeading } from "./CreateHeading";
 import Code from "./Code";
@@ -22,7 +21,6 @@ const components = {
   code: Code,
   pre: CodeTheme,
   Note: Note,
-  Sections: Sections,
 };
 
 export function MDXComponents(props: MDXRemoteProps) {

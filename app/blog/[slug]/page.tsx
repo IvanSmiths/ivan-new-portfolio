@@ -26,7 +26,7 @@ export default async function Post({ params }: { params: Params }) {
   }
 
   return (
-    <div className="mt-20 flex w-full flex-col items-center">
+    <div className="relative mt-20 flex w-full flex-col items-center">
       <article className="gap-lg px-xl flex w-full flex-col lg:w-3/5 lg:px-0">
         <Hero post={post.metadata} />
         <MDXComponents source={post.content} />
