@@ -9,7 +9,7 @@ type BreadcrumbProps = {
 const Breadcrumb = ({ label, url }: BreadcrumbProps) => {
   return (
     <Link
-      className="py-xs text-foreground-muted flex cursor-pointer items-center gap-1"
+      className="py-xs pl-sm text-foreground-muted border-background-muted flex cursor-pointer items-center gap-1 border-b"
       href={url}
     >
       <ArrowLeft />

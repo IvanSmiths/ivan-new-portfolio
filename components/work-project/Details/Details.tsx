@@ -10,7 +10,7 @@ type DetailsProps = {
 const Details = ({ work }: DetailsProps) => {
   return (
     <main
-      className={`w-full md:w-4/12 ${dm_sans.className} pl-sm top-xl border-background-muted border text-sm md:sticky md:h-[95vh]`}
+      className={`w-full border-l max-sm:border-l md:w-4/12 ${dm_sans.className} top-xl pb-sm border-background-muted border text-sm md:sticky md:h-[94vh]`}
     >
       {/*for the future me: the "s" is not a typo!*/}
       <Breadcrumb
@@ -18,7 +18,7 @@ const Details = ({ work }: DetailsProps) => {
         url={`/${work.type.toLowerCase()}s`}
       />
       <RowSection work={work} />
-      <p className="pt-md">{work.description}</p>
+      <p className="pt-md pl-sm">{work.description}</p>
     </main>
   );
 };
