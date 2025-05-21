@@ -10,7 +10,7 @@ type DetailsProps = {
 const Details = ({ work }: DetailsProps) => {
   return (
     <main
-      className={`w-full md:w-4/12 ${dm_sans.className} top-xl border-t-background-muted border-r-background-muted border-b-background-muted border-t border-r border-b text-sm md:sticky md:h-[94vh]`}
+      className={`w-full md:w-4/12 ${dm_sans.className} top-xl border-t-background-muted border-r-background-muted border-b-background-muted border-t border-r border-b text-sm md:sticky md:h-[95vh]`}
     >
       {/*for the future me: the "s" is not a typo!*/}
       <Breadcrumb

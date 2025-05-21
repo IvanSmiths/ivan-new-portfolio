@@ -1,60 +1,53 @@
-import { FC } from "react";
-import Blob from "./Blob";
 import Dot from "../global/Dot";
 import { Metadata } from "../../utils/fetch/getPosts";
-import { bebas_neue } from "../../utils/fonts";
+import { dm_mono } from "../../utils/fonts";
 
 type PostProps = {
   post: Metadata;
 };
 
-const Hero: FC<PostProps> = ({ post }) => {
+const Hero = ({ post }: PostProps) => {
   const tags: string[] = post.tags.split(",");
   return (
-    <>
-      <Blob />
-      <section
-        data-testid="blogPostHeroSection"
-        className="gap-small col-span-full flex flex-col items-center justify-center md:col-start-3 md:col-end-11"
+    <header className="gap-sm flex flex-col items-center justify-center text-center">
+      <span
+        className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
       >
-        <span className="font-bold">{post.category}</span>
-        <h1
-          className={`${bebas_neue.className} from-darker via-darker to-dark foreground h-full bg-gradient-to-r bg-clip-text text-center text-5xl text-transparent md:text-7xl xl:text-8xl`}
-        >
-          {post.title}
-        </h1>
-        <h2 className="text-center text-lg leading-7">{post.excerpt}</h2>
-        <div className="gap-smallest flex flex-wrap items-center max-sm:flex-col">
-          <span className="font-bold">
-            Published:{" "}
-            <time className="font-bold" dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString("en-us", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-          </span>
-          <div className="hidden sm:block">
-            <Dot dimension="small" />
-          </div>
-          <span className="font-bold">{post.time} minutes read</span>
+        {post.category}
+      </span>
+      <h1 className="text-6xl font-bold uppercase">{post.title}</h1>
+      <h2>{post.excerpt}</h2>
+      <div className="gap-xs flex flex-wrap items-center max-sm:flex-col">
+        <span>
+          Published:{" "}
+          <time dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString("en-us", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+        </span>
+        <div className="hidden sm:block">
+          <Dot dimension="small" />
         </div>
-        <ul className="gap-smallest flex flex-wrap items-center justify-center">
-          {tags.map((tag: string, index: number) => (
-            <li
-              className="gap-smallest flex items-center justify-center"
-              key={index}
+        <span>{post.time} minutes read</span>
+      </div>
+      <ul className="gap-xs flex flex-wrap items-center justify-center">
+        {tags.map((tag: string, index: number) => (
+          <li className="gap-xs flex items-center justify-center" key={index}>
+            <span
+              className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
             >
-              <span>{tag}</span>
-              <div className={index === tags.length - 1 ? "hidden" : ""}>
-                <Dot dimension="small" />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <div className="mt-small col-span-full md:col-start-2 md:col-end-12">
+              {tag}
+            </span>
+            <div className={index === tags.length - 1 ? "hidden" : ""}>
+              <Dot dimension="small" />
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-sm">
         <img
           className="w-full"
           fetchPriority="high"
@@ -64,7 +57,7 @@ const Hero: FC<PostProps> = ({ post }) => {
           height={post.coverHeight}
         />
       </div>
-    </>
+    </header>
   );
 };
 
