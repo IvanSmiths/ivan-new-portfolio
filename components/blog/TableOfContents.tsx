@@ -26,7 +26,20 @@ export default function TableOfContents() {
       };
     });
 
-    setHeadings(items);
+    // Filter out the first h1 and h2 as they are in the Hero section
+    let filteredItems = [...items];
+
+    const firstH1Index = filteredItems.findIndex((item) => item.level === 1);
+    if (firstH1Index !== -1) {
+      filteredItems.splice(firstH1Index, 1);
+    }
+
+    const firstH2Index = filteredItems.findIndex((item) => item.level === 2);
+    if (firstH2Index !== -1) {
+      filteredItems.splice(firstH2Index, 1);
+    }
+
+    setHeadings(filteredItems);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -52,7 +65,7 @@ export default function TableOfContents() {
 
   return (
     <section className="sticky top-24 right-8 max-h-[calc(100vh-120px)] w-64 overflow-y-auto">
-      <h2 className="mb-4 text-lg font-semibold">Table of Contents</h2>
+      <span className="mb-4 text-lg font-semibold">Table of Contents</span>
       <ul className="space-y-2">
         {headings.map((heading, index) => (
           <li
