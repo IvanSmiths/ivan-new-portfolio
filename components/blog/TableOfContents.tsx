@@ -51,7 +51,7 @@ export default function TableOfContents() {
   }, []);
 
   return (
-    <nav className="toc fixed top-24 right-8 max-h-[calc(100vh-120px)] w-64 overflow-y-auto">
+    <section className="sticky top-24 right-8 max-h-[calc(100vh-120px)] w-64 overflow-y-auto">
       <h2 className="mb-4 text-lg font-semibold">Table of Contents</h2>
       <ul className="space-y-2">
         {headings.map((heading, index) => (
@@ -78,6 +78,6 @@ export default function TableOfContents() {
           </li>
         ))}
       </ul>
-    </nav>
+    </section>
   );
 }

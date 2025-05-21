@@ -27,12 +27,16 @@ export default async function Post({ params }: { params: Params }) {
   }
 
   return (
-    <div className="relative mt-20 flex w-full flex-col items-center">
-      <article className="gap-lg px-xl flex w-full flex-col lg:w-3/5 lg:px-0">
+    <>
+      <article className="gap-lg pt-2xl flex w-full flex-col items-center justify-center">
         <Hero post={post.metadata} />
-        <MDXComponents source={post.content} />
-        <div className="hidden lg:col-span-4 lg:block">
-          <TableOfContents />
+        <div className="gap-xl flex">
+          <div className="gap-lg flex w-full flex-col">
+            <MDXComponents source={post.content} />
+          </div>
+          <div className="hidden lg:block">
+            <TableOfContents />
+          </div>
         </div>
       </article>
       <script
@@ -41,6 +45,6 @@ export default async function Post({ params }: { params: Params }) {
           __html: JSON.stringify(blogSchema(post.metadata)),
         }}
       />
-    </div>
+    </>
   );
 }

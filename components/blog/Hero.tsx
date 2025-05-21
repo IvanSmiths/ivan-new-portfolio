@@ -9,7 +9,7 @@ type PostProps = {
 const Hero = ({ post }: PostProps) => {
   const tags: string[] = post.tags.split(",");
   return (
-    <header className="gap-sm flex flex-col items-center justify-center text-center">
+    <header className="gap-sm flex w-3/5 flex-col items-center justify-center text-center">
       <span
         className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
       >
