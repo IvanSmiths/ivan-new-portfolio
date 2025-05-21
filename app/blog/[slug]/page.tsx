@@ -31,7 +31,7 @@ export default async function Post({ params }: { params: Params }) {
       <article className="gap-lg pt-2xl flex w-full flex-col items-center">
         <Hero post={post.metadata} />
         <div className="flex w-full pl-60">
-          <div className="gap-lg p-sm border-background-muted flex w-9/12 flex-col border border-r-0">
+          <div className="gap-xs p-md border-background-muted flex w-9/12 flex-col border border-r-0">
             <MDXComponents source={post.content} />
           </div>
           <TableOfContents />

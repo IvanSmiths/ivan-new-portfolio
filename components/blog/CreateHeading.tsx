@@ -36,22 +36,26 @@ export function createHeading(level: number) {
     switch (level) {
       case 1:
         fontSize = "text-4xl";
+        padding = "py-sm";
         break;
       case 2:
         fontSize = "text-3xl";
+        padding = "py-sm";
         break;
       case 3:
         fontSize = "text-2xl";
+        padding = "py-sm";
         break;
       default:
         fontSize = "text-xl";
+        padding = "py-sm";
     }
 
     return createElement(
       `h${level}`,
       {
         id: slug,
-        className: `font-bold ${fontSize}`,
+        className: `font-bold ${fontSize} ${padding}`,
         ...props,
       },
       children,
