@@ -30,13 +30,11 @@ export default async function Post({ params }: { params: Params }) {
     <>
       <article className="gap-lg pt-2xl flex w-full flex-col items-center justify-center">
         <Hero post={post.metadata} />
-        <div className="gap-xl flex">
-          <div className="gap-lg flex w-full flex-col">
+        <div className="gap-md flex w-full">
+          <div className="gap-lg flex w-9/12 flex-col pl-60">
             <MDXComponents source={post.content} />
           </div>
-          <div className="hidden lg:block">
-            <TableOfContents />
-          </div>
+          <TableOfContents />
         </div>
       </article>
       <script

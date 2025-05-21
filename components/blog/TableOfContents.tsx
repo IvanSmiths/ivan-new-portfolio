@@ -10,7 +10,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <section className="sticky top-24 right-8 max-h-[calc(100vh-120px)] w-64 overflow-y-auto">
+    <section className="top-2xl sticky right-8 hidden max-h-[calc(100vh-120px)] w-64 lg:block">
       <span className="mb-4 text-lg font-semibold">Table of Contents</span>
       <ul className="space-y-2">
         {headings.map((heading, index) => (
