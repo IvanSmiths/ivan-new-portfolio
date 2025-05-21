@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { FC } from "react";
 import { worksSchema } from "../../utils/seo/Schemas";
-import Header from "../../components/global/header/Header";
-import { worksHeaderProps } from "../../components/global/header/headerProps";
 import TemplateSection from "../../components/works-projects/TemplateSection";
 import worksData from "../../utils/pages/works";
 import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
@@ -18,11 +16,6 @@ export const metadata: Metadata = pagesMetadata(title, description, path);
 const WorksPage: FC = () => {
   return (
     <>
-      <Header
-        h1={worksHeaderProps.h1}
-        h2={worksHeaderProps.h2}
-        paragraph={worksHeaderProps.paragraph}
-      />
       <TemplateSection path={path} works={worksData} />
       <script
         type="application/ld+json"

@@ -46,7 +46,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
             scrub: 0.6,
             invalidateOnRefresh: true,
             snap: {
-              snapTo: 1 / 2,
+              snapTo: 1 / (works.length - 1),
               duration: normal,
               delay: 0,
               ease: "power1.inOut",
@@ -60,9 +60,9 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   );
 
   return (
-    <div className="md:py-medium overflow-hidden">
+    <div className="overflow-hidden">
       <div ref={triggerRef}>
-        <div ref={containerRef} className="gap-small flex h-screen w-fit">
+        <div ref={containerRef} className="flex h-screen w-fit">
           {works.map((work: WorkProjectBase, index: Key) => (
             <TemplateMapped key={index} work={work} index={index} path={path} />
           ))}
