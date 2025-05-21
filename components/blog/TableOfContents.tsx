@@ -11,8 +11,8 @@ export default function TableOfContents() {
 
   return (
     <section className="top-2xl sticky right-8 hidden max-h-[calc(100vh-120px)] w-64 lg:block">
-      <span className="mb-4 text-lg font-semibold">Table of Contents</span>
-      <ul className="space-y-2">
+      <span className="text-sm">Table of Contents</span>
+      <ul className="pt-sm space-y-2">
         {headings.map((heading, index) => (
           <li
             key={index}
@@ -20,10 +20,10 @@ export default function TableOfContents() {
           >
             <a
               href={`#${heading.id}`}
-              className={`block border-l-2 py-1 pl-2 text-sm transition-colors hover:text-blue-600 ${
+              className={`hover:text-foreground block border-l-2 pl-2 text-sm transition-colors ${
                 activeId === heading.id
-                  ? "border-blue-500 font-medium text-blue-500"
-                  : "border-gray-200 text-gray-600"
+                  ? "text-foreground border-foreground"
+                  : "border-foreground-muted text-foreground-muted"
               }`}
               onClick={(e) => {
                 e.preventDefault();
