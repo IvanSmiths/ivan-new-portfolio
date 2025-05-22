@@ -16,7 +16,9 @@ type WorksProps = {
 const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
+  const textRef = useRef<HTMLDivElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +30,24 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
     if (containerWidth) {
       return containerWidth - clientWidth;
     }
+  };
+
+  const hideText = () => {
+    gsap.to(textRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const showText = () => {
+    gsap.to(textRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      ease: "power2.out",
+    });
   };
 
   useGSAP(
@@ -51,18 +71,21 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
               duration: normal,
               delay: 0,
               ease: "power1.inOut",
-              onComplete: (self) => {
-                const progress = self.progress;
-                const newIndex = Math.round(progress * (works.length - 1));
-                setCurrentIndex(
-                  Math.max(0, Math.min(newIndex, works.length - 1)),
-                );
+              onComplete: () => {
+                showText();
               },
             },
             pin: true,
             onUpdate: (self) => {
               const progress = self.progress;
               const totalWorks = works.length;
+
+              if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+                scrollTimeoutRef.current = null;
+              } else {
+                hideText();
+              }
 
               const segmentSize = 1 / (totalWorks - 1);
               let newIndex = 0;
@@ -92,6 +115,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
             },
             onRefresh: () => {
               setCurrentIndex(0);
+              showText();
             },
           },
         },
@@ -127,7 +151,10 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
         </div>
 
         {/* Stationary text overlay */}
-        <div className="absolute right-0 bottom-0 left-0 z-10 flex justify-center">
+        <div
+          ref={textRef}
+          className="absolute right-0 bottom-0 left-0 z-10 flex justify-center"
+        >
           <div className="flex w-5/12 justify-between">
             <h2>{works[currentIndex]?.role}</h2>
             <h3>{works[currentIndex]?.name}</h3>
