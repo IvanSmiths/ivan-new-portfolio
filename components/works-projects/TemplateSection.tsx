@@ -80,6 +80,25 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
               const progress = self.progress;
               const totalWorks = works.length;
 
+              // Check if we're outside the snappable range
+              const isBeforeFirstWork = progress <= 0;
+              const isAfterLastWork = progress >= 1;
+
+              if (isBeforeFirstWork || isAfterLastWork) {
+                if (scrollTimeoutRef.current) {
+                  clearTimeout(scrollTimeoutRef.current);
+                  scrollTimeoutRef.current = null;
+                }
+                showText();
+
+                if (isBeforeFirstWork) {
+                  setCurrentIndex(0);
+                } else {
+                  setCurrentIndex(totalWorks - 1);
+                }
+                return;
+              }
+
               if (scrollTimeoutRef.current) {
                 clearTimeout(scrollTimeoutRef.current);
                 scrollTimeoutRef.current = null;
