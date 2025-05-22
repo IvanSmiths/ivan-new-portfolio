@@ -71,9 +71,9 @@ export const ideology: WorkProjectPage = {
   metaDescription:
     "While at Ideology Creative Studio, I secured a competitive design contract with LemonSoda, standing out among 15 contenders. I crafted cohesive website styles using advanced CSS techniques and optimized third-party plugins through PHP for seamless WordPress integration. Additionally, I boosted the RE/MAX website’s SEO by 7% through strategic JavaScript optimizations, enhancing site visibility and user engagement",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341879/portfolio/ideology/ideology_str98w.jpg",
-    height: 633,
-    width: 690,
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png",
+    height: 600,
+    width: 420,
   },
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
