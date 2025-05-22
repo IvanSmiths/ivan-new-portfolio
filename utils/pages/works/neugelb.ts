@@ -24,9 +24,9 @@ export const neugelb: WorkProjectPage = {
   metaDescription:
     "At TD Cowen, I implemented advanced CRM platform features for a top global bank, focusing on data-driven enhancements to improve user engagement and functionality. I ensured platform robustness through comprehensive Cypress testing and redesigned the mobile app with an emphasis on intuitive interfaces, resulting in a more seamless user experience.",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747345769/portfolio/td/td-cover_zsqijq.png",
-    height: 606,
-    width: 809,
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943424/portfolio/neugelb/coba_dmqn8n.png",
+    height: 600,
+    width: 420,
   },
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg",
