@@ -175,7 +175,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
 
         <h2
           ref={titleRef}
-          className="absolute top-36 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-8xl font-black uppercase"
+          className="absolute top-60 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-8xl font-black uppercase"
         >
           {works[currentIndex]?.name}
         </h2>
