@@ -47,9 +47,9 @@ export const suv: WorkProjectPage = {
   metaDescription:
     "During my time at Scholz & Volkmer, I provided Next.js mentorship to colleagues, enhancing their proficiency and boosting team productivity. I streamlined legacy JavaScript by updating it to modern ECMAScript standards and integrated TypeScript with Next.js, enabling the development of robust, high-performance web applications. I also led the migration of our main website from jQuery to TypeScript, which reduced maintenance time by 40% and made the code far more reliable and scalable.",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341916/portfolio/suv/suv-cover_b1mqne.jpg",
-    height: 606,
-    width: 809,
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943384/portfolio/suv/suv_soz49c.png",
+    height: 600,
+    width: 420,
   },
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
