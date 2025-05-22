@@ -16,7 +16,8 @@ type WorksProps = {
 const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLDivElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const subtitleRef = useRef<HTMLHeadingElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -33,20 +34,24 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   };
 
   const hideText = () => {
-    gsap.to(textRef.current, {
+    const textElements = [titleRef.current, subtitleRef.current];
+    gsap.to(textElements, {
       opacity: 0,
       y: 20,
       duration: 0.3,
       ease: "power2.out",
+      stagger: 0.05,
     });
   };
 
   const showText = () => {
-    gsap.to(textRef.current, {
+    const textElements = [titleRef.current, subtitleRef.current];
+    gsap.to(textElements, {
       opacity: 1,
       y: 0,
       duration: 0.4,
       ease: "power2.out",
+      stagger: 0.1,
     });
   };
 
@@ -153,8 +158,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
               key={index}
               className="relative flex h-screen w-screen items-center justify-center"
             >
-              <span className="top-2xl left-xl absolute">{index}</span>
-              <div className="w-5/12">
+              <div className="w-3/12">
                 <Link href={`${path}/${work.slug}`}>
                   <img
                     className="h-full w-full object-cover"
@@ -169,16 +173,18 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
           ))}
         </div>
 
-        {/* Stationary text overlay */}
-        <div
-          ref={textRef}
-          className="absolute right-0 bottom-0 left-0 z-10 flex justify-center"
+        <h2
+          ref={titleRef}
+          className="absolute top-36 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-8xl font-black uppercase"
         >
-          <div className="flex w-5/12 justify-between">
-            <h2>{works[currentIndex]?.role}</h2>
-            <h3>{works[currentIndex]?.name}</h3>
-          </div>
-        </div>
+          {works[currentIndex]?.name}
+        </h2>
+        <h3
+          ref={subtitleRef}
+          className="absolute top-48 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center"
+        >
+          {works[currentIndex]?.role}
+        </h3>
       </div>
     </div>
   );

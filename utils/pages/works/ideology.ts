@@ -2,8 +2,8 @@ import { WorkProjectPage } from "../types";
 
 export const ideology: WorkProjectPage = {
   type: "Work",
-  slug: "ideology-creative-studio",
-  name: "Ideology Creative Studio",
+  slug: "ideology",
+  name: "Ideology",
   date: "January 2020 - Febraury 2022",
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
@@ -11,6 +11,10 @@ export const ideology: WorkProjectPage = {
   linkedinLink: "https://www.linkedin.com/company/ideology-creative-studio/",
   websiteLink: "https://www.ideology.it/",
   worksDone: [
+    {
+      link: "/works/ideology-creative-studio",
+      label: "RE/MAX",
+    },
     {
       link: "/works/ideology-creative-studio",
       label: "Lemon Soda",
