@@ -185,6 +185,28 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
         >
           {works[currentIndex]?.role}
         </h3>
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2">
+          <div className="flex gap-4">
+            {works.map((work: WorkProjectBase, index: number) => (
+              <button
+                key={index}
+                className={`relative h-12 w-16 overflow-hidden rounded transition-all duration-300 hover:scale-110 ${
+                  index === currentIndex
+                    ? "scale-110 ring-2 ring-white ring-offset-2 ring-offset-black"
+                    : "opacity-70 hover:opacity-100"
+                }`}
+              >
+                <img
+                  className="h-full w-full object-cover"
+                  src={work.homeImage.url}
+                  alt={`Navigate to ${work.name}`}
+                  width={64}
+                  height={48}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
