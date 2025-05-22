@@ -67,6 +67,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
           duration: slowest,
           translateX: (): string => `-${getScrollAmount()}px`,
           scrollTrigger: {
+            id: "worksScroll",
             trigger: triggerRef.current,
             start: "top top",
             scrub: 0.6,
@@ -74,7 +75,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
             snap: {
               snapTo: 1 / (works.length - 1),
               duration: normal,
-              delay: 0,
+              delay: 0.5,
               ease: "power1.inOut",
               onComplete: () => {
                 showText();
@@ -190,6 +191,16 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
             {works.map((work: WorkProjectBase, index: number) => (
               <button
                 key={index}
+                onClick={() => {
+                  const scrollTrigger = ScrollTrigger.getById("worksScroll");
+                  if (scrollTrigger) {
+                    const progress = index / (works.length - 1);
+                    scrollTrigger.scroll(
+                      scrollTrigger.start +
+                        (scrollTrigger.end - scrollTrigger.start) * progress,
+                    );
+                  }
+                }}
                 className={`relative h-12 w-16 overflow-hidden rounded transition-all duration-300 hover:scale-110 ${
                   index === currentIndex
                     ? "scale-110 ring-2 ring-white ring-offset-2 ring-offset-black"
