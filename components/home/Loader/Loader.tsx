@@ -30,9 +30,8 @@ const Loader: FC = () => {
       tl.to(imageRef.current, {
         opacity: 1,
         filter: "blur(0px)",
-        duration: 1.5,
-        // @ts-ignore
-        onStart: hide(),
+        duration: 1,
+        onStart: () => hide(),
       });
       tl.to(imageRef.current, {
         margin: 0,
@@ -62,11 +61,11 @@ const Loader: FC = () => {
       ></div>
       <div
         ref={containerRef}
-        className="bg-background top-xl fixed left-0 z-20 h-full w-full"
+        className="bg-background fixed top-0 left-0 z-20 h-full w-full"
       >
         <div
           ref={imageRef}
-          className="px-sm absolute inset-0 z-20 mx-auto my-auto h-fit w-full opacity-0 blur-2xl"
+          className="px-sm pt-sm md:pt-xl absolute inset-0 z-20 mx-auto my-auto h-fit w-full opacity-0 blur-2xl"
         >
           <Header />
         </div>
