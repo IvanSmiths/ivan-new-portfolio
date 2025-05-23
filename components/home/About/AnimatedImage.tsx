@@ -10,7 +10,7 @@ export const AnimatedImage = ({
   refCallback,
 }: AnimatedImageProps) => {
   return (
-    <figure className="inline h-16 overflow-hidden lg:h-24">
+    <figure className="hidden h-16 overflow-hidden md:inline lg:h-24">
       <img
         ref={refCallback}
         className="inline h-16 origin-left scale-150 object-cover pb-4 lg:h-24"

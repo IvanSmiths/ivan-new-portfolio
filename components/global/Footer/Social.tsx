@@ -11,7 +11,7 @@ const Social = () => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`group border-foreground uppercase ${dm_mono.className} hover:bg-foreground hover:text-background border-foreground-muted flex cursor-pointer items-center gap-8 border p-4 text-2xl transition-all duration-300 md:text-6xl lg:text-7xl`}
+          className={`group border-foreground uppercase ${dm_mono.className} hover:bg-foreground hover:text-background border-foreground-muted flex cursor-pointer items-center gap-8 border p-4 text-xl transition-all duration-300 md:text-6xl lg:text-7xl`}
         >
           {label}
           <SquareArrowOutUpRight dimensions={50} />
