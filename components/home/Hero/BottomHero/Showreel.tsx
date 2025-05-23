@@ -13,6 +13,9 @@ const Showreel = () => {
           Watch on Youtube
         </span>
       </div>
+      <span className={`text-xs ${dm_mono} text-foreground-muted uppercase`}>
+        2020 - 2024 Showreel
+      </span>
       <video
         className="w-full object-cover md:h-40 md:w-fit"
         autoPlay
