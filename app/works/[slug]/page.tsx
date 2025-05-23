@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { workSchema } from "../../../utils/seo/Schemas";
 import Images from "../../../components/work-project/Images";
 import worksData from "../../../utils/pages/works";
 import { WorkProjectPage } from "../../../utils/pages/types";
@@ -7,6 +6,8 @@ import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
 import Details from "../../../components/work-project/Details/Details";
+import { pageSchema } from "../../../utils/seo/work-project/pageSchema";
+import { notFound } from "next/navigation";
 
 export type Params = Promise<{
   slug: string;
@@ -24,17 +25,28 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const { slug } = await params;
-  return generatePageMetadata(slug, worksData, "work", "Work Not Found");
+  const entry = worksData.find((work) => work.slug === slug);
+  if (!entry) {
+    return {
+      title: "Work Not Found",
+    };
+  }
+
+  return generatePageMetadata(entry.slug, worksData, "work", "Work Not Found");
 }
 
 const Work: FC<{ params: Params }> = async ({ params }) => {
   const { slug } = await params;
+  const entry = worksData.find((work) => work.slug === slug);
+
+  if (!entry) {
+    notFound();
+  }
 
   return (
     <PageTemplate
-      slug={slug}
-      data={worksData}
-      schemaFn={workSchema}
+      entry={entry}
+      schema={pageSchema(entry, "works")}
       renderContent={(work) => (
         <>
           <Details work={work} />
