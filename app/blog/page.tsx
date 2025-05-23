@@ -1,8 +1,8 @@
-import { blogsSchema } from "../../utils/seo/Schemas";
-import { blogMetadata } from "../../utils/seo/blog/blogMetadata";
+import { blogsMetadata } from "../../utils/seo/blogs/blogsMetadata";
 import Blog from "../../components/blog/Blog";
+import { blogsSchema } from "../../utils/seo/blogs/blogsSchema";
 
-export const metadata = blogMetadata;
+export const metadata = blogsMetadata;
 
 export default function BlogPage() {
   return (

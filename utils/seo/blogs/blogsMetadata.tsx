@@ -5,7 +5,7 @@ const title: string =
 const description: string =
   "Explore blog posts on modern frontend technologies, including Next.js, Tailwind CSS, and advanced development techniques. Gain insights, tips, and tutorials to enhance your skills in building efficient, user-friendly web applications.";
 
-export const blogMetadata: Metadata = {
+export const blogsMetadata: Metadata = {
   title: title,
   description: description,
   openGraph: {

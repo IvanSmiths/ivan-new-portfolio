@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { FC } from "react";
 import { getPhotos } from "../../../utils/fetch/getImages";
 import { photosMetadata } from "../../../utils/seo/crafts/craftsMetadata";
-import { photosSchema } from "../../../utils/seo/Schemas";
 import { photoHeaderProps } from "../../../components/global/header/headerProps";
 import Images from "../../../components/crafts/Images";
 import GalleryPage from "../../../components/crafts/GalleryPage";
 import { Label } from "../../../components/crafts/Filter";
+import { photosSchema } from "../../../utils/seo/crafts/craftsSchema";
 
 export const metadata: Metadata = photosMetadata;
 

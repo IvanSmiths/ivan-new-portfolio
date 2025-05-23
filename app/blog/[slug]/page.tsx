@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { getBlogPosts, Posts } from "../../../utils/fetch/getPosts";
 import { generateMetadata } from "../../../utils/seo/blog/blogPostMetadata";
-import { blogSchema } from "../../../utils/seo/Schemas";
 import Hero from "../../../components/blog/Hero";
 import { MDXComponents } from "../../../components/blog/MDXComponents";
 import TableOfContents from "../../../components/blog/TableOfContents";
+import { blogSchema } from "../../../utils/seo/blog/blogSchema";
 
 export type Params = Promise<{ slug: string }>;
 
