@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useEffect, useRef, useState } from "react";
-import { dm_mono } from "../../../../../utils/fonts";
+import { dm_mono } from "../../../../../utils/fonts/fonts";
 import { useTextSwap } from "../../../../../utils/hooks/animations/useTextSwap";
 
 const Time: FC = () => {

@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { dm_sans } from "../utils/fonts";
+import { dm_sans } from "../utils/fonts/fonts";
 import { ThemeProvider } from "next-themes";
 import NavbarMobile from "../components/global/Navbar/NavbarMobile/NavbarMobile";
 import { GoogleAnalytics } from "../utils/analytics/google-analytics";

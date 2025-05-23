@@ -1,6 +1,6 @@
 import Dot from "../global/Dot";
 import { Metadata } from "../../utils/fetch/getPosts";
-import { dm_mono } from "../../utils/fonts";
+import { dm_mono } from "../../utils/fonts/fonts";
 
 type PostProps = {
   post: Metadata;

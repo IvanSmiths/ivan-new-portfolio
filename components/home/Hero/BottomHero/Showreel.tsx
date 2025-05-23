@@ -1,4 +1,4 @@
-import { dm_mono } from "../../../../utils/fonts";
+import { dm_mono } from "../../../../utils/fonts/fonts";
 
 const Showreel = () => {
   return (

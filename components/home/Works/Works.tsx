@@ -1,6 +1,6 @@
 "use client";
 
-import { dm_mono } from "../../../utils/fonts";
+import { dm_mono } from "../../../utils/fonts/fonts";
 import { WorkProjectBase } from "../../../utils/pages/types";
 import Link from "next/link";
 

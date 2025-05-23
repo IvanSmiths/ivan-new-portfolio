@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { FC, useEffect, useRef } from "react";
-import { useAnimationStore, useOverlayStore } from "../../../utils/store";
+import { useOverlayStore } from "../../../utils/stores/overlay";
 import Header from "../Hero/TopHero/Header";
 
 const Loader: FC = () => {
@@ -11,7 +11,6 @@ const Loader: FC = () => {
   const faderRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
 
-  const { normal, slow } = useAnimationStore();
   const { hide } = useOverlayStore();
 
   useEffect(() => {
@@ -31,14 +30,14 @@ const Loader: FC = () => {
       tl.to(imageRef.current, {
         opacity: 1,
         filter: "blur(0px)",
-        duration: slow,
+        duration: 1.5,
         // @ts-ignore
         onStart: hide(),
       });
       tl.to(imageRef.current, {
         margin: 0,
         top: 0,
-        duration: slow,
+        duration: 1.5,
         ease: "power4.inOut",
       });
       tl.to(containerRef.current, {
@@ -46,13 +45,13 @@ const Loader: FC = () => {
       });
       tl.to(faderRef.current, {
         opacity: 0,
-        duration: normal,
+        duration: 0.6,
       });
       tl.to(faderRef.current, {
         display: "none",
       });
     },
-    { scope: containerRef, dependencies: [hide, slow, normal] },
+    { scope: containerRef, dependencies: [hide] },
   );
 
   return (

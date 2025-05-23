@@ -2,7 +2,6 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { RefObject, useRef, useState } from "react";
-import { useAnimationStore } from "../../store";
 
 interface UseHorizontalScrollProps<T> {
   items: T[];
@@ -23,8 +22,6 @@ export const useHorizontalScrollWithText = <T>({
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   gsap.registerPlugin(ScrollTrigger);
-
-  const { slowest, normal } = useAnimationStore();
 
   const getScrollAmount = (): number | undefined => {
     let containerWidth = containerRef.current?.offsetWidth;
@@ -65,7 +62,7 @@ export const useHorizontalScrollWithText = <T>({
         },
         {
           ease: "none",
-          duration: slowest,
+          duration: 2,
           translateX: (): string => `-${getScrollAmount()}px`,
           scrollTrigger: {
             id: "worksScroll",
@@ -75,7 +72,7 @@ export const useHorizontalScrollWithText = <T>({
             invalidateOnRefresh: true,
             snap: {
               snapTo: 1 / (items.length - 1),
-              duration: normal,
+              duration: 0.6,
               delay: 0.5,
               ease: "power1.inOut",
               onComplete: () => {

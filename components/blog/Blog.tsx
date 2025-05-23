@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { getBlogPosts, Posts } from "../../utils/fetch/getPosts";
 import { formatDate } from "../../utils/formatters/formatDate";
-import { dm_mono } from "../../utils/fonts";
+import { dm_mono } from "../../utils/fonts/fonts";
 
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();

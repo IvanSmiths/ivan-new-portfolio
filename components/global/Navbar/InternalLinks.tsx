@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { dm_mono } from "../../../utils/fonts";
+import { dm_mono } from "../../../utils/fonts/fonts";
 import works from "../../../utils/pages/works";
 import projects from "../../../utils/pages/projects";
 import { internalLinks, LinkItem } from "../../../_config/config";

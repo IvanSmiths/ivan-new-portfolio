@@ -1,5 +1,5 @@
 import { getWeather } from "../../../../../../utils/fetch/getWeather";
-import { dm_mono } from "../../../../../../utils/fonts";
+import { dm_mono } from "../../../../../../utils/fonts/fonts";
 import React from "react";
 
 type WeatherData = {

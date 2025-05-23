@@ -1,4 +1,4 @@
-import { dm_sans } from "../../../utils/fonts";
+import { dm_sans } from "../../../utils/fonts/fonts";
 import { WorkProjectPage } from "../../../utils/pages/types";
 import RowSection from "./RowSection";
 import Breadcrumb from "../../global/Breadcrumb/Breadcrumb";

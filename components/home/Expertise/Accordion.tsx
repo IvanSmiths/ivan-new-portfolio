@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { dm_mono } from "../../../utils/fonts";
+import { dm_mono } from "../../../utils/fonts/fonts";
 
 interface AnimatedAccordionProps {
   title: string;
