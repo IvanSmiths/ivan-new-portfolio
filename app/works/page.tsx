@@ -16,7 +16,6 @@ export const metadata: Metadata = pagesMetadata(title, description, path);
 const WorksPage: FC = () => {
   return (
     <>
-      <div className="pb-3xl">works</div>
       <TemplateSection path={path} works={worksData} />
       <script
         type="application/ld+json"

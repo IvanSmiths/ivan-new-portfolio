@@ -150,7 +150,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   );
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pt-1">
       <div ref={triggerRef} className="relative">
         {/* Scrolling images container */}
         <div ref={containerRef} className="flex h-screen w-fit">
@@ -159,7 +159,8 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
               key={index}
               className="relative flex h-screen w-screen items-center justify-center"
             >
-              <div className="w-3/12">
+              <div className="relative w-9/12 md:w-[400px] lg:w-96">
+                <div className="absolute top-0 left-0 h-full w-full bg-white/20"></div>
                 <Link href={`${path}/${work.slug}`}>
                   <img
                     className="h-full w-full object-cover"
@@ -176,18 +177,18 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
 
         <h2
           ref={titleRef}
-          className="absolute top-60 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-8xl font-black uppercase"
+          className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-6xl font-black uppercase lg:text-8xl"
         >
           {works[currentIndex]?.name}
         </h2>
         <h3
           ref={subtitleRef}
-          className="absolute top-48 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center"
+          className="absolute top-28 left-1/2 hidden origin-center -translate-x-1/2 -translate-y-1/2 text-center md:block lg:top-[114px]"
         >
           {works[currentIndex]?.role}
         </h3>
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2">
-          <div className="flex gap-4">
+        <div className="md:bottom-sm absolute bottom-[100px] left-1/2 z-20 -translate-x-1/2">
+          <div className="gap-md flex">
             {works.map((work: WorkProjectBase, index: number) => (
               <button
                 key={index}
@@ -201,9 +202,9 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
                     );
                   }
                 }}
-                className={`relative h-12 w-16 overflow-hidden rounded transition-all duration-300 hover:scale-110 ${
+                className={`relative h-12 w-16 overflow-hidden transition-all duration-300 hover:scale-110 ${
                   index === currentIndex
-                    ? "scale-110 ring-2 ring-white ring-offset-2 ring-offset-black"
+                    ? "ring-foreground scale-110 ring-2"
                     : "opacity-70 hover:opacity-100"
                 }`}
               >
