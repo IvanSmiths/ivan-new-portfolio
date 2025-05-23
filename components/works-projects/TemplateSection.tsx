@@ -160,8 +160,8 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
               className="relative flex h-screen w-screen items-center justify-center"
             >
               <div className="relative w-9/12 md:w-[400px] lg:w-96">
-                <div className="absolute top-0 left-0 h-full w-full bg-white/20"></div>
                 <Link href={`${path}/${work.slug}`}>
+                  <div className="absolute top-0 left-0 h-full w-full bg-white/20"></div>
                   <img
                     className="h-full w-full object-cover"
                     src={work.homeImage.url}
@@ -174,13 +174,15 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
             </div>
           ))}
         </div>
+        <Link href={`${path}/${works[currentIndex]?.slug}`}>
+          <h2
+            ref={titleRef}
+            className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-6xl font-black uppercase lg:text-8xl"
+          >
+            {works[currentIndex]?.name}
+          </h2>
+        </Link>
 
-        <h2
-          ref={titleRef}
-          className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-6xl font-black uppercase lg:text-8xl"
-        >
-          {works[currentIndex]?.name}
-        </h2>
         <h3
           ref={subtitleRef}
           className="absolute top-28 left-1/2 hidden origin-center -translate-x-1/2 -translate-y-1/2 text-center md:block lg:top-[114px]"

@@ -36,7 +36,7 @@ const Work: FC<{ params: Params }> = async ({ params }) => {
       data={worksData}
       schemaFn={workSchema}
       renderContent={(work) => (
-        <section className="pr-sm pt-xl max-sm:pl-sm gap-sm flex flex-col md:flex-row">
+        <section className="pr-sm md:pt-xl pt-sm max-md:pl-sm gap-sm flex flex-col md:flex-row">
           <Details work={work} />
           <Images work={work} />
         </section>

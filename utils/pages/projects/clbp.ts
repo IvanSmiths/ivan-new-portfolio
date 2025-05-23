@@ -20,8 +20,8 @@ export const clbp: WorkProjectPage = {
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747342038/portfolio/clbp/twitter-image_eueo7s.jpg",
   ],
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747342036/portfolio/clbp/clbp_m3bwq1.jpg",
-    height: 906,
-    width: 1918,
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747997902/portfolio/clbp/clbp_n01mj9.png",
+    height: 600,
+    width: 420,
   },
 };
