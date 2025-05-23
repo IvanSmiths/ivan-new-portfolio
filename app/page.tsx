@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { homeMetadata } from "../utils/seo/home/homeMetadata";
-import { homeSchema } from "../utils/seo/Schemas";
+import { homeSchema } from "../utils/seo/home/homeSchema";
 import Expertise from "../components/home/Expertise/Expertise";
 import Hero from "../components/home/Hero/Hero";
 import LoaderWrapper from "../components/home/Loader/LoaderWrapper";

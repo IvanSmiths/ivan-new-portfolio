@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { FC } from "react";
-import { projectsSchema } from "../../utils/seo/Schemas";
+import { pagesSchema } from "../../utils/seo/works-projects/pagesSchemas";
 import projectsData from "../../utils/pages/projects";
-import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
+import { pagesMetadata } from "../../utils/seo/works-projects/pagesMetadata";
 import TemplateSection from "../../components/works-projects/TemplateSection";
 
 const title: string =
@@ -13,13 +12,15 @@ const path = "/projects";
 
 export const metadata: Metadata = pagesMetadata(title, description, path);
 
-const ProjectsPage: FC = () => {
+const ProjectsPage = () => {
   return (
     <>
       <TemplateSection works={projectsData} path={path} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pagesSchema(path)),
+        }}
       />
     </>
   );

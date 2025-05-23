@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { FC } from "react";
-import { worksSchema } from "../../utils/seo/Schemas";
 import TemplateSection from "../../components/works-projects/TemplateSection";
 import worksData from "../../utils/pages/works";
-import { pagesMetadata } from "../../utils/seo/work-project/pagesMetadata";
+import { pagesMetadata } from "../../utils/seo/works-projects/pagesMetadata";
+import { pagesSchema } from "../../utils/seo/works-projects/pagesSchemas";
 
 const title: string =
   "Ivan Smiths - Portfolio of Fullstack and UI/UX Development Works";
@@ -13,13 +12,15 @@ const path = "/works";
 
 export const metadata: Metadata = pagesMetadata(title, description, path);
 
-const WorksPage: FC = () => {
+const WorksPage = () => {
   return (
     <>
       <TemplateSection path={path} works={worksData} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(worksSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pagesSchema(path)),
+        }}
       />
     </>
   );
