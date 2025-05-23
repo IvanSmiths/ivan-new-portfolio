@@ -7,7 +7,9 @@ const ScrollPercentage = () => {
   const { percentRef } = useScrollPercentage();
 
   return (
-    <div className={`absolute right-96 text-xs ${dm_mono.className}`}>
+    <div
+      className={`absolute text-xs md:right-52 lg:right-72 ${dm_mono.className}`}
+    >
       [<span ref={percentRef}></span>]
     </div>
   );

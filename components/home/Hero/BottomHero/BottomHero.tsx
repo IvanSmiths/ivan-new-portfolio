@@ -3,7 +3,7 @@ import Showreel from "./Showreel";
 
 const BottomHero = () => {
   return (
-    <div className="flex justify-between">
+    <div className="gap-xl flex flex-col-reverse justify-between md:flex-row">
       <Text />
       <Showreel />
     </div>

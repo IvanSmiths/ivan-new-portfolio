@@ -4,7 +4,7 @@ import CenterHero from "./CenterHero/CenterHero";
 
 const Hero = () => {
   return (
-    <div className="p-sm md:pt-xl pt-sm flex h-[100vh] flex-col justify-between">
+    <div className="p-sm md:pt-xl pt-sm gap-xl flex min-h-[100vh] flex-col justify-between">
       <TopHero />
       <CenterHero />
       <BottomHero />

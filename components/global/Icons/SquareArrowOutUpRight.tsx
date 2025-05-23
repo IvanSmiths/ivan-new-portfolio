@@ -9,7 +9,7 @@ const SquareArrowOutUpRight = ({ dimensions }: SquareArrowOutUpRightProps) => {
       xmlns="http://www.w3.org/2000/svg"
       width={dimensions}
       height={dimensions}
-      className="stroke-foreground group-hover:stroke-background fill-none transition"
+      className="stroke-foreground group-hover:stroke-background hidden fill-none transition md:block"
       viewBox={`0 0 24 24`}
       strokeWidth="2"
       strokeLinecap="round"

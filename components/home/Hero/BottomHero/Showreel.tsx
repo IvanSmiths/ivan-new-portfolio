@@ -11,7 +11,12 @@ const Showreel = () => {
       <div className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/50 opacity-0 transition group-hover:opacity-100">
         <span className={`text-xs ${dm_mono} uppercase`}>Watch on Youtube</span>
       </div>
-      <video className="h-40 w-fit object-cover" autoPlay loop muted>
+      <video
+        className="w-full object-cover md:h-40 md:w-fit"
+        autoPlay
+        loop
+        muted
+      >
         <source
           src="https://utfs.io/f/aCaScRJubtiP2mWMJSOEGVHWUKY8TpulMShIcw9X3Asb6rBn"
           media="(min-width: 768px)"

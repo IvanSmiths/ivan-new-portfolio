@@ -7,7 +7,7 @@ export default function MenuButton({ isOpen, toggleMenu }: MenuButtonProps) {
   return (
     <button
       onClick={toggleMenu}
-      className="bottom-sm right-sm bg-foreground visible fixed z-[22] flex h-14 w-14 flex-col items-center justify-center gap-1 rounded-md p-3.5 transition md:hidden"
+      className="bottom-sm right-sm bg-foreground visible fixed z-[22] flex h-10 w-10 flex-col items-center justify-center gap-1 p-3.5 transition md:hidden"
       aria-label={isOpen ? "Close menu" : "Open menu"}
     >
       {isOpen ? (
