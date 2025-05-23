@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { MutableRefObject } from "react";
-import { bebas_neue } from "../../../../utils/fonts";
 
 type NavLink = {
   href: string;
@@ -27,7 +26,7 @@ export default function NavLinks({
   linksRef,
 }: NavLinksProps) {
   return (
-    <ul className="flex w-full flex-col gap-small overflow-auto text-2xl">
+    <ul className="gap-s flex w-full flex-col overflow-auto text-2xl">
       {navLinks.map((link: NavLink, index: number) => (
         <li
           key={link.href}
@@ -35,22 +34,22 @@ export default function NavLinks({
             linksRef.current[index] = el;
           }}
           style={{ opacity: 0 }}
-          className="flex w-full flex-col items-end gap-small"
+          className="gap-small flex w-full flex-col items-end"
         >
-          <span className="w-full bg-darkSecondary p-[1px] dark:bg-lightSecondary"></span>
+          <span className="bg-background-muted w-full p-[0.5px]"></span>
           <Link
             href={link.href}
             onClick={toggleMenu}
-            className={`pr-small text-7xl ${bebas_neue.className} ${
+            className={`pr-small text-7xl ${
               pathname === link.href
-                ? "text-darkSecondary dark:text-lightSecondary"
-                : "text-dark dark:text-light"
+                ? "text-foreground"
+                : "text-foreground-muted"
             }`}
           >
             {link.label}
           </Link>
           {index === 4 && (
-            <span className="w-full bg-darkSecondary p-[1px] dark:bg-lightSecondary"></span>
+            <span className="bg-background-muted w-full p-[0.5px]"></span>
           )}
         </li>
       ))}

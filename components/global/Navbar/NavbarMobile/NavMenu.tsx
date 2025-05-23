@@ -74,7 +74,7 @@ export default function NavMenu({
   return (
     <nav
       ref={navRef}
-      className={`fixed inset-0 z-[21] flex flex-col items-end justify-center bg-light transition dark:bg-dark ${
+      className={`bg-background fixed inset-0 z-[21] flex flex-col items-end justify-center transition ${
         isOpen ? "" : "pointer-events-none"
       }`}
       style={{ opacity: 0 }}
@@ -89,7 +89,7 @@ export default function NavMenu({
         ref={themeToggleRef}
         className="mt-small pr-small opacity-0"
       >
-        <div className="ml-small w-full">
+        <div className="ml-sm mt-md w-full">
           <ThemeToggle />
         </div>
       </div>
