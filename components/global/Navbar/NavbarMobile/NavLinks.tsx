@@ -26,7 +26,7 @@ export default function NavLinks({
   linksRef,
 }: NavLinksProps) {
   return (
-    <ul className="gap-s flex w-full flex-col overflow-auto text-2xl">
+    <ul className="gap-s flex w-full flex-col overflow-auto">
       {navLinks.map((link: NavLink, index: number) => (
         <li
           key={link.href}
@@ -34,13 +34,13 @@ export default function NavLinks({
             linksRef.current[index] = el;
           }}
           style={{ opacity: 0 }}
-          className="gap-small flex w-full flex-col items-end"
+          className="flex w-full flex-col items-end"
         >
           <span className="bg-background-muted w-full p-[0.5px]"></span>
           <Link
             href={link.href}
             onClick={toggleMenu}
-            className={`pr-small text-7xl ${
+            className={`pr-small py-md text-6xl ${
               pathname === link.href
                 ? "text-foreground"
                 : "text-foreground-muted"

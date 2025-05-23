@@ -15,7 +15,7 @@ const About = () => {
       ref={containerRef}
       className="py-3xl flex w-full items-center justify-center"
     >
-      <div className="flex w-8/12 items-center justify-center">
+      <div className="max-sm:px-sm flex w-full items-center justify-center md:w-8/12">
         <AnimatedTextWithImages
           words={animatedWords}
           images={animatedImages}

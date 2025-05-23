@@ -30,7 +30,7 @@ export default function Works({ works }: WorksProps) {
             >
               (0{index + 1})
             </span>
-            <h3 className="group-hover:text-background relative inline-block text-4xl uppercase transition md:text-6xl lg:text-9xl">
+            <h3 className="group-hover:text-background relative inline-block text-5xl uppercase transition md:text-6xl lg:text-9xl">
               {work.name}
             </h3>
           </Link>
