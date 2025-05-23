@@ -14,7 +14,7 @@ const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
       href={href}
       onMouseEnter={() => onHover(name)}
       onMouseLeave={() => onHover(null)}
-      className="group hover:bg-foreground border-background-muted relative flex max-w-40 min-w-20 flex-1 items-center justify-center border p-4 transition duration-300"
+      className="group hover:bg-foreground border-background-muted relative flex w-20 items-center justify-center border p-4 transition duration-300 lg:flex-1"
     >
       {[
         "top-0 -left-1",
@@ -32,7 +32,7 @@ const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
       <img
         src={src}
         alt={alt}
-        className="h-10 w-full object-contain grayscale transition duration-300 group-hover:grayscale-0"
+        className="h-8 object-contain grayscale transition duration-300 group-hover:grayscale-0 lg:h-12"
       />
     </Link>
   );
