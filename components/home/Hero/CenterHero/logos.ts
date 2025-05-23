@@ -12,21 +12,21 @@ export const logos = [
     slug: "adidas",
   },
   {
-    src: "Commerzbank.svg",
+    src: "Commerzbank.png",
     alt: "Commerzbank",
     name: "Commerzbank",
     slug: "commerzbank",
   },
   {
-    src: "Deutsche-Bahn.png",
+    src: "Deutsche-Bahn.svg",
     alt: "Deutsche Bahn",
     name: "Deutsche Bahn",
     slug: "deutsche-bahn",
   },
   {
-    src: "TD.svg",
+    src: "td.svg",
     alt: "TD",
-    name: "TD",
+    name: "TD COWEN",
     slug: "td",
   },
   {
@@ -54,9 +54,9 @@ export const logos = [
     slug: "rv",
   },
   {
-    src: "UMB.svg",
-    alt: "UMB",
-    name: "UMB",
+    src: "remax.png",
+    alt: "re/max",
+    name: "re/max",
     slug: "umb",
   },
   {
