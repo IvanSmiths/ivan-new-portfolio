@@ -6,6 +6,21 @@ type Logos = {
 
 export const logos: Logos = [
   {
+    src: "Commerzbank.png",
+    name: "Commerzbank",
+    slug: "neugelb",
+  },
+  {
+    src: "td.svg",
+    name: "TD COWEN",
+    slug: "td-cowen",
+  },
+  {
+    src: "remax.png",
+    name: "re/max",
+    slug: "ideology",
+  },
+  {
     src: "Scholz-&-Volkmer.png",
     name: "Scholz & Volkmer",
     slug: "scholz-und-volkmer",
@@ -16,19 +31,9 @@ export const logos: Logos = [
     slug: "scholz-und-volkmer",
   },
   {
-    src: "Commerzbank.png",
-    name: "Commerzbank",
-    slug: "neugelb",
-  },
-  {
     src: "Deutsche-Bahn.svg",
     name: "Deutsche Bahn",
     slug: "scholz-und-volkmer",
-  },
-  {
-    src: "td.svg",
-    name: "TD COWEN",
-    slug: "td-cowen",
   },
   {
     src: "Ideology.png",
@@ -49,11 +54,6 @@ export const logos: Logos = [
     src: "R+V.png",
     name: "R+V",
     slug: "scholz-und-volkmer",
-  },
-  {
-    src: "remax.png",
-    name: "re/max",
-    slug: "ideology",
   },
   {
     src: "WMF.svg",
