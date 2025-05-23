@@ -6,14 +6,9 @@ import NavLinks from "./NavLinks";
 interface NavMenuProps {
   isOpen: boolean;
   toggleMenu: () => void;
-  pathname: string;
 }
 
-export default function NavMenu({
-  isOpen,
-  toggleMenu,
-  pathname,
-}: NavMenuProps) {
+export default function NavMenu({ isOpen, toggleMenu }: NavMenuProps) {
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLLIElement | null)[]>([]);
   const themeToggleRef = useRef<HTMLDivElement | null>(null);
@@ -79,17 +74,13 @@ export default function NavMenu({
       }`}
       style={{ opacity: 0 }}
     >
-      <NavLinks
-        pathname={pathname}
-        toggleMenu={toggleMenu}
-        linksRef={linksRef}
-      />
+      <NavLinks toggleMenu={toggleMenu} linksRef={linksRef} />
       <div
         onClick={toggleMenu}
         ref={themeToggleRef}
         className="mt-small pr-small opacity-0"
       >
-        <div className="ml-sm mt-md w-full">
+        <div className="mx-sm mt-md w-full">
           <ThemeToggle />
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MutableRefObject } from "react";
+import { usePathname } from "next/navigation";
 
 type NavLink = {
   href: string;
@@ -14,17 +15,19 @@ const navLinks: NavLink[] = [
   { href: "/", label: "HOME" },
 ];
 
-interface NavLinksProps {
-  pathname: string;
+type NavLinksProps = {
   toggleMenu: () => void;
   linksRef: MutableRefObject<(HTMLLIElement | null)[]>;
-}
+};
 
-export default function NavLinks({
-  pathname,
-  toggleMenu,
-  linksRef,
-}: NavLinksProps) {
+export default function NavLinks({ toggleMenu, linksRef }: NavLinksProps) {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === href;
+    return pathname.startsWith(href) && href !== "/";
+  };
+
   return (
     <ul className="gap-s flex w-full flex-col overflow-auto">
       {navLinks.map((link: NavLink, index: number) => (
@@ -34,16 +37,14 @@ export default function NavLinks({
             linksRef.current[index] = el;
           }}
           style={{ opacity: 0 }}
-          className="flex w-full flex-col items-end"
+          className="pr-sm flex w-full flex-col items-end"
         >
           <span className="bg-background-muted w-full p-[0.5px]"></span>
           <Link
             href={link.href}
             onClick={toggleMenu}
             className={`pr-small py-md text-6xl ${
-              pathname === link.href
-                ? "text-foreground"
-                : "text-foreground-muted"
+              isActive(link.href) ? "text-foreground" : "text-foreground-muted"
             }`}
           >
             {link.label}
