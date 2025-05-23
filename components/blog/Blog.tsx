@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FC } from "react";
-import { getBlogPosts, Posts } from "../../../utils/fetch/getPosts";
-import { formatDate } from "../../../utils/formatters/formatDate";
-import { dm_mono } from "../../../utils/fonts";
+import { getBlogPosts, Posts } from "../../utils/fetch/getPosts";
+import { formatDate } from "../../utils/formatters/formatDate";
+import { dm_mono } from "../../utils/fonts";
 
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
@@ -11,7 +11,7 @@ const Blog: FC = () => {
       {posts.map((post: Posts, index: number) => (
         <Link
           key={index}
-          className="group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-[600px] flex-col border"
+          className="group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-[600px] flex-col border transition"
           href={`blog/${post?.slug}`}
         >
           <img

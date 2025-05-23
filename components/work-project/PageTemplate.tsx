@@ -21,7 +21,7 @@ function PageTemplate<T extends { slug: string }>({
   }
 
   return (
-    <>
+    <section className="pr-sm md:pt-xl pt-sm max-md:pl-sm gap-sm flex flex-col md:flex-row">
       {renderContent(entry)}
       <script
         type="application/ld+json"
@@ -29,7 +29,7 @@ function PageTemplate<T extends { slug: string }>({
           __html: JSON.stringify(schemaFn(entry)),
         }}
       />
-    </>
+    </section>
   );
 }
 
