@@ -8,13 +8,13 @@ const CompaniesLogo = ({
 }) => {
   return (
     <div className="flex w-full flex-wrap justify-center gap-4">
-      {logos.map(({ src, alt, name, slug }, index) => (
+      {logos.map(({ src, name, slug }, index) => (
         <CompanyLogo
           key={index}
           src={`/logo/${src}`}
-          alt={alt}
+          alt={name}
           name={name}
-          href={`/work/${slug}`}
+          href={`/works/${slug}`}
           onHover={onHover}
         />
       ))}

@@ -1,68 +1,63 @@
-export const logos = [
+type Logos = {
+  src: string;
+  name: string;
+  slug: "scholz-und-volkmer" | "ideology" | "neugelb" | "td-cowen";
+}[];
+
+export const logos: Logos = [
   {
     src: "Scholz-&-Volkmer.png",
-    alt: "Scholz & Volkmer",
     name: "Scholz & Volkmer",
     slug: "scholz-und-volkmer",
   },
   {
     src: "Adidas.svg",
-    alt: "Adidas",
     name: "Adidas",
-    slug: "adidas",
+    slug: "scholz-und-volkmer",
   },
   {
     src: "Commerzbank.png",
-    alt: "Commerzbank",
     name: "Commerzbank",
-    slug: "commerzbank",
+    slug: "neugelb",
   },
   {
     src: "Deutsche-Bahn.svg",
-    alt: "Deutsche Bahn",
     name: "Deutsche Bahn",
-    slug: "deutsche-bahn",
+    slug: "scholz-und-volkmer",
   },
   {
     src: "td.svg",
-    alt: "TD",
     name: "TD COWEN",
-    slug: "td",
+    slug: "td-cowen",
   },
   {
     src: "Ideology.png",
-    alt: "Ideology",
     name: "Ideology",
     slug: "ideology",
   },
   {
     src: "Lemon-Soda.png",
-    alt: "Lemon Soda",
-    name: "Lemon Soda",
-    slug: "lemon-soda",
+    name: "LemonSoda",
+    slug: "ideology",
   },
   {
     src: "Neu-Gelb.svg",
-    alt: "Neu Gelb",
-    name: "Neu Gelb",
-    slug: "neu-gelb",
+    name: "NeuGelb",
+    slug: "neugelb",
   },
   {
     src: "R+V.png",
-    alt: "R+V",
     name: "R+V",
-    slug: "rv",
+    slug: "scholz-und-volkmer",
   },
   {
     src: "remax.png",
-    alt: "re/max",
     name: "re/max",
-    slug: "umb",
+    slug: "ideology",
   },
   {
     src: "WMF.svg",
-    alt: "WMF",
     name: "WMF",
-    slug: "wmf",
+    slug: "scholz-und-volkmer",
   },
 ];
