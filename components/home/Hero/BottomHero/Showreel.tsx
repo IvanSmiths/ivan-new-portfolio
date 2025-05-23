@@ -9,7 +9,9 @@ const Showreel = () => {
       rel="noreferrer noopener"
     >
       <div className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/50 opacity-0 transition group-hover:opacity-100">
-        <span className={`text-xs ${dm_mono} uppercase`}>Watch on Youtube</span>
+        <span className={`text-xs ${dm_mono} font-bold text-white uppercase`}>
+          Watch on Youtube
+        </span>
       </div>
       <video
         className="w-full object-cover md:h-40 md:w-fit"

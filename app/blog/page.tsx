@@ -1,25 +1,12 @@
 import { blogsSchema } from "../../utils/seo/Schemas";
 import { blogMetadata } from "../../utils/seo/blog/blogMetadata";
 import Blog from "../../components/home/Blog/Blog";
-import Header from "../../components/global/header/Header";
 
 export const metadata = blogMetadata;
 
-const headerProps = {
-  h1: "Blog",
-  h2: "All my blogposts",
-  paragraph:
-    "I write about frontend technologies, such as Next.js, Tailwind, and other frontend technologies.",
-};
-
 export default function BlogPage() {
   return (
-    <div className="md:mt-large">
-      <Header
-        h1={headerProps.h1}
-        h2={headerProps.h2}
-        paragraph={headerProps.paragraph}
-      />
+    <div className="md:mt-3xl">
       <Blog />
       <script
         type="application/ld+json"

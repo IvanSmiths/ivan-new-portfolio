@@ -1,57 +1,46 @@
 import Link from "next/link";
 import { FC } from "react";
 import { getBlogPosts, Posts } from "../../../utils/fetch/getPosts";
+import { formatDate } from "../../../utils/formatters/formatDate";
+import { dm_mono } from "../../../utils/fonts";
 
 const Blog: FC = () => {
   const posts: Posts[] = getBlogPosts();
   return (
-    <div data-testid="homeBlogSection" className="my-medium grid">
-      <div className="col-span-full flex flex-col md:col-start-4 md:col-end-13">
-        {posts.map((post: Posts, index: number) => (
-          <div key={index}>
-            <div className="h-[1px] w-full bg-dark dark:bg-light"></div>
-            <Link
-              data-testid={`blogPostLink${index}`}
-              className="group flex min-h-32 flex-col items-start justify-center gap-small transition hover:bg-dark dark:hover:bg-light md:flex-row md:items-center md:justify-between md:px-small"
-              href={`blog/${post?.slug}`}
+    <main className="p-sm gap-sm flex flex-wrap">
+      {posts.map((post: Posts, index: number) => (
+        <Link
+          key={index}
+          className="group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-[600px] flex-col border"
+          href={`blog/${post?.slug}`}
+        >
+          <img
+            src={post.metadata.cover}
+            className="w-full object-cover"
+            alt="blogpost main image"
+          />
+          <div className="gap-sm flex items-center">
+            <time
+              className={`group-hover:text-background ${dm_mono} text-xs uppercase transition`}
+              dateTime={post.metadata.date}
             >
-              <div className="flex flex-col items-start gap-small md:flex-row md:items-center md:gap-medium">
-                <span className="hidden transition group-hover:text-light dark:group-hover:text-dark md:block">
-                  0{index + 1}
-                </span>
-                <h3 className="text-left text-xl font-semibold transition group-hover:text-light dark:group-hover:text-dark md:text-3xl">
-                  {post?.metadata.title}
-                </h3>
-              </div>
-              <div className="flex min-w-fit flex-row gap-smallest md:ml-regular md:flex-col md:text-right">
-                <span className="transition group-hover:text-light dark:group-hover:text-dark">
-                  {post?.metadata.category}
-                </span>
-                <time
-                  className="transition group-hover:text-light dark:group-hover:text-dark"
-                  dateTime={post?.metadata.date}
-                >
-                  {post?.metadata.date
-                    ? new Date(post?.metadata.date).toLocaleDateString(
-                        "en-us",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        },
-                      )
-                    : "Date not available"}
-                </time>
-                <span className="transition group-hover:text-light dark:group-hover:text-dark">
-                  {post?.metadata.time} min to read
-                </span>
-              </div>
-            </Link>
-            <div className="h-[1px] w-full bg-dark dark:bg-light"></div>
+              {formatDate(post.metadata.date)}
+            </time>
+            <span
+              className={`group-hover:text-background ${dm_mono} text-xs uppercase transition`}
+            >
+              {post.metadata.category}
+            </span>
           </div>
-        ))}
-      </div>
-    </div>
+          <h2 className="group-hover:text-background text-2xl font-medium transition md:text-4xl">
+            {post.metadata.title}
+          </h2>
+          <h3 className="group-hover:text-background text-sm transition">
+            {post.metadata.excerpt}
+          </h3>
+        </Link>
+      ))}
+    </main>
   );
 };
 
