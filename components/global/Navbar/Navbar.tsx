@@ -12,7 +12,7 @@ const Navbar = () => {
       </Link>
       <InternalLinks />
       <ScrollPercentage />
-      <div className="flex w-24">
+      <div className="flex w-24 justify-end">
         <ThemeToggle />
       </div>
     </nav>

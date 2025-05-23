@@ -17,7 +17,10 @@ const Expertise = () => {
 
   return (
     <div>
-      <div ref={triggerRef} className="h-screen w-full overflow-hidden">
+      <div
+        ref={triggerRef}
+        className="pt-lg pl-sm h-screen w-full overflow-hidden"
+      >
         <div
           ref={containerRef}
           className="relative flex h-full w-fit items-center"

@@ -6,7 +6,7 @@ interface AnimatedWordProps {
 
 export const AnimatedWord = ({ word, setRef }: AnimatedWordProps) => {
   return (
-    <span ref={setRef} className="mr-2 opacity-40">
+    <span ref={setRef} className="mx-1.5 opacity-40">
       {word}
     </span>
   );

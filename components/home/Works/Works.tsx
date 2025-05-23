@@ -26,12 +26,12 @@ export default function Works({ works }: WorksProps) {
             }`}
           >
             <span
-              className={`text-foreground-muted pt-3 text-xs uppercase ${dm_mono.className}`}
+              className={`text-foreground-muted pt-1 text-xs uppercase md:pt-4 ${dm_mono.className}`}
             >
               (0{index + 1})
             </span>
-            <h3 className="group-hover:text-background text-6xl uppercase transition lg:text-9xl">
-              {work.name.replace("Creative Studio", "").trim()}
+            <h3 className="group-hover:text-background relative inline-block text-4xl uppercase transition md:text-6xl lg:text-9xl">
+              {work.name}
             </h3>
           </Link>
         );
