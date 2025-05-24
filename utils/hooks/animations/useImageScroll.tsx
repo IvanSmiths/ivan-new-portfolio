@@ -3,10 +3,13 @@
 import { RefObject } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 type ImageWrapperRefs = {
   [key: number]: (HTMLDivElement | null)[];
 };
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface UseImagesScrollAnimationProps {
   gridRef: RefObject<HTMLElement | null>;
@@ -21,19 +24,23 @@ export const useImagesScroll = ({
 }: UseImagesScrollAnimationProps) => {
   useGSAP(() => {
     if (!gridRef.current) return;
-    const middleColumn = columnRefs.current?.[1];
-    if (middleColumn) {
-      gsap.to(middleColumn, {
-        yPercent: -10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: "clamp(top bottom)",
-          end: "clamp(bottom top)",
-          scrub: true,
-        },
-      });
-    }
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 800px)", () => {
+      const middleColumn = columnRefs.current?.[1];
+      if (middleColumn) {
+        gsap.to(middleColumn, {
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "clamp(top bottom)",
+            end: "clamp(bottom top)",
+            scrub: true,
+          },
+        });
+      }
+    });
 
     [0, 2].forEach((columnIndex) => {
       const columnWrappers = imageWrapperRefs.current?.[columnIndex] || [];
@@ -52,5 +59,9 @@ export const useImagesScroll = ({
         });
       });
     });
+
+    return () => {
+      mm.revert();
+    };
   }, [gridRef, columnRefs, imageWrapperRefs]);
 };

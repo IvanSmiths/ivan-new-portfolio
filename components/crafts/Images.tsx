@@ -39,12 +39,12 @@ const Images: FC<ImagesProps> = ({ images }) => {
 
   return (
     <main
-      className="columns mx-auto grid w-full max-w-[1400px] grid-cols-3 gap-[1vw] py-[20vh]"
+      className="columns mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-[1vw] py-[20vh] lg:grid-cols-3"
       ref={gridRef}
     >
       {[0, 1, 2].map((columnIndex) => (
         <div
-          className="column flex flex-col gap-[1vw]"
+          className="column p-sm gap-sm flex flex-col"
           key={columnIndex}
           ref={(el) => {
             columnRefs.current[columnIndex] = el;
