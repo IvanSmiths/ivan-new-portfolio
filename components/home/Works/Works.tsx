@@ -29,7 +29,7 @@ export default function Works({ works }: WorksProps) {
   );
 
   useGSAP(() => {
-    workRefs.current.forEach((refs, index) => {
+    workRefs.current.forEach((refs) => {
       const { link, marquee, marqueeText, originalText } = refs;
 
       if (!link || !marquee || !marqueeText || !originalText) return;

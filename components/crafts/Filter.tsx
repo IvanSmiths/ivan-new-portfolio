@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
+import { dm_mono } from "../../utils/fonts/fonts";
 
 export enum Label {
   All = "All",
@@ -30,15 +31,15 @@ const filters: FilterOption[] = [
 
 const Filter: FC<FilterProps> = ({ currentPage }) => {
   return (
-    <section className="gap-small max-sm:right-small fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-y-2 max-sm:bottom-24 max-sm:flex-col max-sm:items-end">
+    <section className="gap-sm max-sm:right-small fixed bottom-4 z-20 flex w-full flex-wrap items-center justify-center gap-y-2 max-sm:bottom-24 max-sm:flex-col max-sm:items-end">
       {filters.map((filter: FilterOption, index: number) => (
         <Link
           key={index}
           href={`/crafts/${filter.url}`}
-          className={`text-primary rounded-md p-3 py-1 font-bold ${
+          className={`${dm_mono} p-3 py-1 text-sm uppercase ${
             currentPage === filter.page
-              ? "bg-darker text-light"
-              : "bg-dark text-light"
+              ? "bg-background text-foreground ring-foreground-muted ring-1"
+              : "bg-background-muted text-foreground-muted"
           }`}
         >
           {filter.page}

@@ -44,7 +44,7 @@ const Images: FC<ImagesProps> = ({ images }) => {
     >
       {[0, 1, 2].map((columnIndex) => (
         <div
-          className="column p-sm gap-sm flex flex-col"
+          className="column max-sm:p-sm gap-sm flex flex-col"
           key={columnIndex}
           ref={(el) => {
             columnRefs.current[columnIndex] = el;
