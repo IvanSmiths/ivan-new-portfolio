@@ -51,7 +51,7 @@ export const useHorizontalScrollWithText = <T>({
       ease: "power2.out",
       stagger: 0.05,
     });
-  }, []);
+  }, [subtitleRef, titleRef]);
 
   const showText = useCallback(() => {
     const textElements = [titleRef.current, subtitleRef.current].filter(
@@ -222,7 +222,9 @@ export const useHorizontalScrollWithText = <T>({
       updateScrollMode(ScrollMode.PROGRAMMATIC);
       lastUserScrollTime.current = Date.now();
 
-      setCurrentIndex(index);
+      setTimeout(() => {
+        setCurrentIndex(index);
+      }, 500);
       hideText();
 
       const targetProgress = index / (items.length - 1);
