@@ -64,7 +64,7 @@ export const useHorizontalScrollWithText = <T>({
       ease: "power2.out",
       stagger: 0.1,
     });
-  }, []);
+  }, [subtitleRef, titleRef]);
 
   const updateScrollMode = useCallback((mode: ScrollMode) => {
     scrollModeRef.current = mode;
@@ -120,7 +120,6 @@ export const useHorizontalScrollWithText = <T>({
       }
 
       if (scrollModeRef.current === ScrollMode.USER) {
-        // Clear existing timeout
         if (scrollTimeoutRef.current) {
           clearTimeout(scrollTimeoutRef.current);
         }
