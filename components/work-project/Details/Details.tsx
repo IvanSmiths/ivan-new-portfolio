@@ -18,7 +18,6 @@ const Details = ({ work }: DetailsProps) => {
         url={`/${work.type.toLowerCase()}s`}
       />
       <RowSection work={work} />
-      <p className="pt-md pl-sm">{work.description}</p>
     </main>
   );
 };

@@ -2,15 +2,15 @@ import { Link } from "../../../utils/pages/types";
 import SquareArrowOutUpRight from "../../global/Icons/SquareArrowOutUpRight";
 
 type RowWorksDoneRow = {
-  works: Link[];
+  worksDone: Link[];
 };
 
-const RowWorksDone = ({ works }: RowWorksDoneRow) => {
+const RowWorksDone = ({ worksDone }: RowWorksDoneRow) => {
   return (
     <div className="border-background-muted pl-sm py-xs flex items-start border-b-1">
       <div className="text-foreground-muted w-24 flex-shrink-0">Works Done</div>
       <div className="gap-xs flex flex-wrap gap-y-0.5 break-words">
-        {works.map((work, index) => (
+        {worksDone.map((work, index) => (
           <span key={index}>
             <a
               href={work.link}
@@ -20,7 +20,7 @@ const RowWorksDone = ({ works }: RowWorksDoneRow) => {
             >
               <span>{work.label}</span>
               <SquareArrowOutUpRight />
-              {index < works.length - 1 && <>,</>}
+              {index < worksDone.length - 1 && <>,</>}
             </a>
           </span>
         ))}
