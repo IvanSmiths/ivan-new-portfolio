@@ -102,7 +102,9 @@ export default function Works({ works }: WorksProps) {
           <Link
             href={`/works/${work.slug}`}
             key={index}
-            ref={(el) => (workRefs.current[index].link = el)}
+            ref={(el) => {
+              workRefs.current[index].link = el;
+            }}
             className={`group border-background-muted hover:bg-foreground relative flex cursor-pointer items-start justify-center overflow-hidden border-b py-10 text-center transition ${
               index === 0 ? "border-t" : ""
             }`}
@@ -114,18 +116,24 @@ export default function Works({ works }: WorksProps) {
             </span>
 
             <h3
-              ref={(el) => (workRefs.current[index].originalText = el)}
+              ref={(el) => {
+                workRefs.current[index].originalText = el;
+              }}
               className="relative inline-block text-5xl uppercase group-hover:opacity-0 md:text-6xl lg:text-9xl"
             >
               {work.name}
             </h3>
 
             <div
-              ref={(el) => (workRefs.current[index].marquee = el)}
+              ref={(el) => {
+                workRefs.current[index].marquee = el;
+              }}
               className="pointer-events-none absolute inset-0 flex items-center overflow-hidden opacity-0"
             >
               <div
-                ref={(el) => (workRefs.current[index].marqueeText = el)}
+                ref={(el) => {
+                  workRefs.current[index].marqueeText = el;
+                }}
                 className="flex whitespace-nowrap"
               >
                 <span className="text-background mr-8 text-5xl uppercase md:text-6xl lg:text-9xl">
