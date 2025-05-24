@@ -1,7 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { RefObject, useRef, useState } from "react";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 
 interface UseHorizontalScrollProps<T> {
   items: T[];
@@ -9,6 +10,12 @@ interface UseHorizontalScrollProps<T> {
   triggerRef: RefObject<HTMLDivElement | null>;
   titleRef: RefObject<HTMLHeadingElement | null>;
   subtitleRef: RefObject<HTMLHeadingElement | null>;
+}
+
+enum ScrollMode {
+  USER = "user",
+  PROGRAMMATIC = "programmatic",
+  IDLE = "idle",
 }
 
 export const useHorizontalScrollWithText = <T>({
@@ -20,19 +27,23 @@ export const useHorizontalScrollWithText = <T>({
 }: UseHorizontalScrollProps<T>) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollModeRef = useRef<ScrollMode>(ScrollMode.IDLE);
+  const lastUserScrollTime = useRef<number>(0);
+  const programmaticScrollTween = useRef<gsap.core.Tween | null>(null);
+  const scrollTriggerInstance = useRef<ScrollTrigger | null>(null);
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-  const getScrollAmount = (): number | undefined => {
-    let containerWidth = containerRef.current?.offsetWidth;
-    let clientWidth = window.innerWidth;
-    if (containerWidth) {
-      return containerWidth - clientWidth;
-    }
+  const getScrollAmount = (): number => {
+    const containerWidth = containerRef.current?.offsetWidth || 0;
+    const clientWidth = window.innerWidth;
+    return Math.max(0, containerWidth - clientWidth);
   };
 
-  const hideText = () => {
-    const textElements = [titleRef.current, subtitleRef.current];
+  const hideText = useCallback(() => {
+    const textElements = [titleRef.current, subtitleRef.current].filter(
+      Boolean,
+    );
     gsap.to(textElements, {
       opacity: 0,
       y: 20,
@@ -40,10 +51,12 @@ export const useHorizontalScrollWithText = <T>({
       ease: "power2.out",
       stagger: 0.05,
     });
-  };
+  }, []);
 
-  const showText = () => {
-    const textElements = [titleRef.current, subtitleRef.current];
+  const showText = useCallback(() => {
+    const textElements = [titleRef.current, subtitleRef.current].filter(
+      Boolean,
+    );
     gsap.to(textElements, {
       opacity: 1,
       y: 0,
@@ -51,112 +64,208 @@ export const useHorizontalScrollWithText = <T>({
       ease: "power2.out",
       stagger: 0.1,
     });
-  };
+  }, []);
+
+  const updateScrollMode = useCallback((mode: ScrollMode) => {
+    scrollModeRef.current = mode;
+
+    if (mode === ScrollMode.USER) {
+      lastUserScrollTime.current = Date.now();
+    }
+  }, []);
+
+  const calculateIndexFromProgress = useCallback(
+    (progress: number): number => {
+      const totalItems = items.length;
+      const exactIndex = progress * (totalItems - 1);
+      return Math.max(0, Math.min(Math.round(exactIndex), totalItems - 1));
+    },
+    [items.length],
+  );
+
+  const handleScrollUpdate = useCallback(
+    (self: ScrollTrigger) => {
+      const now = Date.now();
+      const timeSinceLastProgrammaticScroll = now - lastUserScrollTime.current;
+
+      if (
+        scrollModeRef.current === ScrollMode.PROGRAMMATIC &&
+        timeSinceLastProgrammaticScroll < 1200
+      ) {
+        return;
+      }
+
+      if (scrollModeRef.current !== ScrollMode.PROGRAMMATIC) {
+        updateScrollMode(ScrollMode.USER);
+        lastUserScrollTime.current = now;
+      }
+
+      const progress = self.progress;
+      const totalItems = items.length;
+
+      if (progress <= 0) {
+        setCurrentIndex(0);
+        if (scrollModeRef.current === ScrollMode.USER) {
+          showText();
+        }
+        return;
+      }
+
+      if (progress >= 1) {
+        setCurrentIndex(totalItems - 1);
+        if (scrollModeRef.current === ScrollMode.USER) {
+          showText();
+        }
+        return;
+      }
+
+      if (scrollModeRef.current === ScrollMode.USER) {
+        // Clear existing timeout
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+
+        hideText();
+
+        const newIndex = calculateIndexFromProgress(progress);
+
+        if (newIndex !== currentIndex) {
+          setCurrentIndex(newIndex);
+        }
+      }
+    },
+    [
+      currentIndex,
+      items.length,
+      calculateIndexFromProgress,
+      hideText,
+      showText,
+      updateScrollMode,
+    ],
+  );
+
+  const handleSnapComplete = useCallback(() => {
+    showText();
+    setTimeout(() => {
+      updateScrollMode(ScrollMode.IDLE);
+    }, 50);
+  }, [showText, updateScrollMode]);
 
   useGSAP(
     (): void => {
-      gsap.fromTo(
-        containerRef.current,
-        {
-          translateX: 0,
-        },
-        {
-          ease: "none",
-          duration: 2,
-          translateX: (): string => `-${getScrollAmount()}px`,
-          scrollTrigger: {
-            id: "worksScroll",
-            trigger: triggerRef.current,
-            start: "top top",
-            scrub: 0.6,
-            invalidateOnRefresh: true,
-            snap: {
-              snapTo: 1 / (items.length - 1),
-              duration: 0.6,
-              delay: 0.5,
-              ease: "power1.inOut",
-              onComplete: () => {
-                showText();
-              },
-            },
-            pin: true,
-            onUpdate: (self) => {
-              const progress = self.progress;
-              const totalItems = items.length;
+      const scrollAmount = getScrollAmount();
 
-              // Check if we're outside the snappable range
-              const isBeforeFirstItem = progress <= 0;
-              const isAfterLastItem = progress >= 1;
+      if (!containerRef.current || !triggerRef.current || scrollAmount <= 0) {
+        return;
+      }
 
-              if (isBeforeFirstItem || isAfterLastItem) {
-                if (scrollTimeoutRef.current) {
-                  clearTimeout(scrollTimeoutRef.current);
-                  scrollTimeoutRef.current = null;
-                }
-                showText();
-
-                if (isBeforeFirstItem) {
-                  setCurrentIndex(0);
-                } else {
-                  setCurrentIndex(totalItems - 1);
-                }
-                return;
-              }
-
-              if (scrollTimeoutRef.current) {
-                clearTimeout(scrollTimeoutRef.current);
-                scrollTimeoutRef.current = null;
-              } else {
-                hideText();
-              }
-
-              const segmentSize = 1 / (totalItems - 1);
-              let newIndex = 0;
-
-              for (let i = 0; i < totalItems; i++) {
-                const segmentStart = i * segmentSize;
-                const segmentEnd = (i + 1) * segmentSize;
-
-                if (
-                  progress >= segmentStart - 0.1 &&
-                  progress <= segmentEnd + 0.1
-                ) {
-                  if (progress <= segmentStart + segmentSize / 2) {
-                    newIndex = i;
-                  } else if (i < totalItems - 1) {
-                    newIndex = i + 1;
-                  } else {
-                    newIndex = i;
-                  }
-                  break;
-                }
-              }
-              newIndex = Math.max(0, Math.min(newIndex, totalItems - 1));
-              if (newIndex !== currentIndex) {
-                setCurrentIndex(newIndex);
-              }
-            },
-            onRefresh: () => {
-              setCurrentIndex(0);
-              showText();
-            },
+      const scrollTrigger = ScrollTrigger.create({
+        id: "worksScroll",
+        trigger: triggerRef.current,
+        start: "top top",
+        end: `+=${scrollAmount}`,
+        scrub: 0.6,
+        pin: true,
+        invalidateOnRefresh: true,
+        snap: {
+          snapTo: (progress: number) => {
+            if (
+              scrollModeRef.current === ScrollMode.USER ||
+              scrollModeRef.current === ScrollMode.IDLE
+            ) {
+              return (
+                Math.round(progress * (items.length - 1)) / (items.length - 1)
+              );
+            }
+            return progress;
           },
+          duration: 0.6,
+          delay: 0.25,
+          ease: "power2.inOut",
+          onComplete: handleSnapComplete,
         },
-      );
+        animation: gsap.fromTo(
+          containerRef.current,
+          { translateX: 0 },
+          {
+            translateX: -scrollAmount,
+            ease: "none",
+          },
+        ),
+        onUpdate: handleScrollUpdate,
+        onRefresh: () => {
+          setCurrentIndex(0);
+          updateScrollMode(ScrollMode.IDLE);
+          showText();
+        },
+      });
+
+      scrollTriggerInstance.current = scrollTrigger;
+
+      return () => {
+        scrollTrigger.kill();
+        scrollTriggerInstance.current = null;
+      };
     },
-    { scope: triggerRef },
+    { scope: triggerRef, dependencies: [items.length] },
   );
 
-  const scrollToItem = (index: number) => {
-    const scrollTrigger = ScrollTrigger.getById("worksScroll");
-    if (scrollTrigger) {
-      const progress = index / (items.length - 1);
-      scrollTrigger.scroll(
+  const scrollToItem = useCallback(
+    (index: number) => {
+      if (!scrollTriggerInstance.current || index === currentIndex) {
+        return;
+      }
+
+      if (programmaticScrollTween.current) {
+        programmaticScrollTween.current.kill();
+      }
+      updateScrollMode(ScrollMode.PROGRAMMATIC);
+      lastUserScrollTime.current = Date.now();
+
+      setCurrentIndex(index);
+      hideText();
+
+      const targetProgress = index / (items.length - 1);
+      const scrollTrigger = scrollTriggerInstance.current;
+      const targetScroll =
         scrollTrigger.start +
-          (scrollTrigger.end - scrollTrigger.start) * progress,
-      );
+        (scrollTrigger.end - scrollTrigger.start) * targetProgress;
+
+      programmaticScrollTween.current = gsap.to(window, {
+        scrollTo: {
+          y: targetScroll,
+          autoKill: false,
+        },
+        duration: 1.0,
+        ease: "power2.inOut",
+        onComplete: () => {
+          setTimeout(() => {
+            showText();
+            updateScrollMode(ScrollMode.IDLE);
+            programmaticScrollTween.current = null;
+          }, 100);
+        },
+        onInterrupt: () => {
+          updateScrollMode(ScrollMode.USER);
+          programmaticScrollTween.current = null;
+        },
+      });
+    },
+    [currentIndex, items.length, updateScrollMode, hideText, showText],
+  );
+
+  const cleanup = useCallback(() => {
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
     }
-  };
+    if (programmaticScrollTween.current) {
+      programmaticScrollTween.current.kill();
+    }
+  }, []);
+
+  useEffect(() => {
+    return cleanup;
+  }, [cleanup]);
 
   return {
     currentIndex,
