@@ -5,12 +5,16 @@ export const pikaPrime: WorkProjectPage = {
   slug: "pika-prime",
   name: "Pika Prime",
   role: "Frontend Developer",
-  date: "January 2020 - ",
+  date: "March 2025 - Current",
   title: "Ivan Smiths - Cover Letter Builder Pro",
-  description: "sbsjhsbs",
+  description: [
+    "Built a Pokémon card tracking platform that scrapes multiple shops daily using Playwright to monitor stock updates and new set releases.",
+    "Automated scraping process to run once per day, ensuring up-to-date listings while minimizing server load.",
+    "Displayed static data using TanStack Table for efficient sorting and filtering; also integrated a static blog powered by MDX for SEO-friendly content.",
+  ],
   websiteLink: "https://www.pikaprime.com/",
   metaDescription:
-    "Cover Letter Builder Pro generates professional cover letters...",
+    "Track the latest Pokémon card set releases and stock updates with Pika Prime. Our automated scraper checks top shops daily, displaying real-time data in a sortable table—featuring a static MDX blog for news and tips.",
   homeDescription: "Cover Letter Builder Pro",
   stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Figma", "Docker"],
   images: [
