@@ -4,12 +4,15 @@ export const suv: WorkProjectPage = {
   type: "Work",
   slug: "scholz-und-volkmer",
   name: "Scholz & Volkmer",
-  date: "March 2022 - January 2023",
+  date: "March 2022 - December 2022",
   role: "Frontend Developer",
   linkedinLink: "https://www.linkedin.com/company/scholzvolkmer/ ",
   websiteLink: "https://www.s-v.de/en/",
-  description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  description: [
+    "Mentored a team of 4+ developers on Next.js, improving their ability to create dynamic websites and reducing development time by 30%",
+    "Developed and delivered 7+ award-winning websites for high-profile clients such as Adidas, Deutsche Bahn, and WMF, contributing to a 20% increase in company revenue.",
+    "Led the migration of the company’s main website from jQuery to TypeScript, cutting maintenance time by 40% and boosting code reliability and scalability.",
+  ],
   worksDone: [
     {
       link: "https://www.adidas-group.com/en/",

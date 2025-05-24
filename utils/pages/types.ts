@@ -24,7 +24,7 @@ export type WorkProjectPage = WorkProjectBase & {
   images: string[];
   websiteLink: string;
   date: string;
-  description: string;
+  description: string[];
   worksDone?: Link[];
   linkedinLink?: string;
   stack: string[];
