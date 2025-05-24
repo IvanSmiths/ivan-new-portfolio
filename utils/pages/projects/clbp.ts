@@ -16,7 +16,18 @@ export const clbp: WorkProjectPage = {
   metaDescription:
     "Generate professional, tailored cover letters instantly using our AI-powered tool. Paste any job description and get a customized response in seconds—built with Next.js and GROQ.",
   homeDescription: "Cover Letter Builder Pro",
-  stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Figma", "Docker"],
+  stack: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Groq",
+    "AI-SDK",
+    "RadixUI",
+    "Zod",
+    "Zustand",
+    "React PDF",
+  ],
   images: [
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747342036/portfolio/clbp/clbp_m3bwq1.jpg",
     "https://res.cloudinary.com/deino2cjx/image/upload/v1747342034/portfolio/clbp/clbp-2_p0jbpo.jpg",

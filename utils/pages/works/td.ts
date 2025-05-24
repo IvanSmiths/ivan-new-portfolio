@@ -24,9 +24,10 @@ export const td: WorkProjectPage = {
     "Figma",
     "Docker",
   ],
-  title: "Ivan Smiths - Achievements at TD Cowen",
+  title:
+    "Ivan Smiths | Data-Driven CRM Features & Mobile App Redesign at TD Cowen",
   metaDescription:
-    "At TD Cowen, I implemented advanced CRM platform features for a top global bank, focusing on data-driven enhancements to improve user engagement and functionality. I ensured platform robustness through comprehensive Cypress testing and redesigned the mobile app with an emphasis on intuitive interfaces, resulting in a more seamless user experience.",
+    "Boosted CRM efficiency by 25% through data-driven features, redesigned the mobile app for a 40% increase in adoption, and reduced bugs by 30% with 40+ automated tests across the stack.",
   homeImage: {
     url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943287/portfolio/td/td_ep0igm.png",
     height: 600,

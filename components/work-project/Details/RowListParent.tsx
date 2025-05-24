@@ -11,7 +11,7 @@ const RowListParent = ({ description }: RowListParentProps) => {
       <span
         className={`${dm_sans.className} text-foreground-muted pl-sm mt-md block`}
       >
-        Highlight:
+        Highlight
       </span>
       <ul className="pl-sm">
         {description.map((desc, i) => (

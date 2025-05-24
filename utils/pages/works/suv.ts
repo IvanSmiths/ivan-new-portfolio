@@ -46,9 +46,10 @@ export const suv: WorkProjectPage = {
     "Django",
     "Docker",
   ],
-  title: "Ivan Smiths - Achievements at Scholz & Volkmer",
+  title:
+    "Ivan Smiths | Next.js Leadership & Scalable Web Solutions for Top Brands",
   metaDescription:
-    "During my time at Scholz & Volkmer, I provided Next.js mentorship to colleagues, enhancing their proficiency and boosting team productivity. I streamlined legacy JavaScript by updating it to modern ECMAScript standards and integrated TypeScript with Next.js, enabling the development of robust, high-performance web applications. I also led the migration of our main website from jQuery to TypeScript, which reduced maintenance time by 40% and made the code far more reliable and scalable.",
+    "Mentored developers in Next.js, led a jQuery-to-TypeScript migration, and built award-winning websites for Adidas, Deutsche Bahn, and WMF—boosting scalability, revenue, and development efficiency.",
   homeImage: {
     url: "https://res.cloudinary.com/deino2cjx/image/upload/v1748080455/portfolio/suv/suv_on7eq5.png",
     height: 600,

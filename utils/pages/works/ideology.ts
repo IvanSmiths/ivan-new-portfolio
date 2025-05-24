@@ -71,9 +71,10 @@ export const ideology: WorkProjectPage = {
     "SEO",
     "SEM",
   ],
-  title: "Ivan Smiths - Achievements at Ideology Creative Studio",
+  title:
+    "Ivan Smiths | Award-Winning Web Design & UX Optimization for LemonSoda",
   metaDescription:
-    "While at Ideology Creative Studio, I secured a competitive design contract with LemonSoda, standing out among 15 contenders. I crafted cohesive website styles using advanced CSS techniques and optimized third-party plugins through PHP for seamless WordPress integration. Additionally, I boosted the RE/MAX website’s SEO by 7% through strategic JavaScript optimizations, enhancing site visibility and user engagement",
+    "Won the LemonSoda design contract by outperforming 15 firms, optimized WordPress integrations with PHP, launched 20+ high-converting websites, and reduced cart abandonment by 15% through user-driven UX improvements.",
   homeImage: {
     url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png",
     height: 600,

@@ -3,6 +3,7 @@ import RowLinks from "./RowLinks";
 import RowWorksDone from "./RowWorksDone";
 import { WorkProjectPage } from "../../../utils/pages/types";
 import RowListParent from "./RowListParent";
+import RowLabelList from "./RowLabelList";
 
 type RowSectionProps = {
   work: WorkProjectPage;
@@ -18,6 +19,7 @@ const RowSection = ({ work }: RowSectionProps) => {
       {work.worksDone && work.worksDone.length > 0 && (
         <RowWorksDone worksDone={work.worksDone} />
       )}
+      <RowLabelList stack={work.stack} />
       <RowListParent description={work.description} />
     </>
   );
