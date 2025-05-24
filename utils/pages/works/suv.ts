@@ -27,12 +27,12 @@ export const suv: WorkProjectPage = {
       label: "WMF",
     },
     {
-      link: "https://umb.de/",
-      label: "UMB",
-    },
-    {
       link: "https://www.ruv.de/home/",
       label: "R+V",
+    },
+    {
+      link: "https://umb.de/",
+      label: "UMB",
     },
   ],
   stack: [

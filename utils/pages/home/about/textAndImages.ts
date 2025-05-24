@@ -26,7 +26,7 @@ export const animatedWords: string[] = [
 
 export const animatedImages: string[] = [
   "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
-  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341878/portfolio/ideology/ideology-website-9_jdwyyf.jpg",
-  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341883/portfolio/ideology/racina_kpctx3.jpg",
-  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341881/portfolio/ideology/lemon-soda-2_kuj5ha.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.26_xcpxma.png",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341908/portfolio/suv/scholz-und-volkmer-website-1_vrgodm.jpg",
 ];
