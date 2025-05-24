@@ -1,22 +1,14 @@
 import { FC, ReactNode } from "react";
 import Filter, { Label } from "../../components/crafts/Filter";
-import Header from "../global/header/Header";
 
 type GalleryPageProps = {
   children?: ReactNode;
-  header: { h1: string; h2: string; paragraph: string };
   label: Label;
   schema: Record<string, any>;
 };
 
-const GalleryPage: FC<GalleryPageProps> = ({
-  children,
-  header,
-  label,
-  schema,
-}) => (
+const GalleryPage: FC<GalleryPageProps> = ({ children, label, schema }) => (
   <>
-    <Header {...header} />
     <Filter currentPage={label} />
     {children}
     <script

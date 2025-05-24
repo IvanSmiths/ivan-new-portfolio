@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { FC } from "react";
 import { getImages } from "../../utils/fetch/getImages";
 import { craftsMetadata } from "../../utils/seo/crafts/craftsMetadata";
-import { craftsHeaderProps } from "../../components/global/header/headerProps";
 import Images from "../../components/crafts/Images";
 import GalleryPage from "../../components/crafts/GalleryPage";
 import { Label } from "../../components/crafts/Filter";
@@ -10,7 +8,7 @@ import { craftsSchema } from "../../utils/seo/crafts/craftsSchema";
 
 export const metadata: Metadata = craftsMetadata;
 
-const Crafts: FC = async () => {
+const Crafts = async () => {
   let images = null;
 
   try {
@@ -20,11 +18,7 @@ const Crafts: FC = async () => {
   }
 
   return (
-    <GalleryPage
-      header={craftsHeaderProps}
-      label={Label.All}
-      schema={craftsSchema}
-    >
+    <GalleryPage label={Label.All} schema={craftsSchema}>
       {images && <Images images={images} />}
     </GalleryPage>
   );
