@@ -38,10 +38,12 @@ export const suv: WorkProjectPage = {
   stack: [
     "React",
     "Next.js",
+    "Vue",
+    "Vuex",
+    "Nuxt",
     "JavaScript",
     "TypeScript",
     "jQuery",
-    "Vue",
     "Storybook",
     "Django",
     "Docker",
