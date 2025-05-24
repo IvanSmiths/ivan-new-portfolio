@@ -152,7 +152,7 @@ export const useHorizontalScrollWithText = <T>({
   }, [showText, updateScrollMode]);
 
   useGSAP(
-    (): void => {
+    () => {
       const scrollAmount = getScrollAmount();
 
       if (!containerRef.current || !triggerRef.current || scrollAmount <= 0) {
