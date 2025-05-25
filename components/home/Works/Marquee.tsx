@@ -26,7 +26,7 @@ export const Marquee = forwardRef<MarqueeHandle, MarqueeProps>(
         ref={containerRef}
         className="bg-foreground pointer-events-none absolute inset-0 flex h-full items-center overflow-hidden opacity-0"
       >
-        <div ref={textRef} className="flex whitespace-nowrap">
+        <div ref={textRef} className="gap-3xl flex whitespace-nowrap">
           {children}
         </div>
       </div>
