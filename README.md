@@ -8,9 +8,8 @@ All the animations are reusable hooks (@hooks/animations). Need to document the 
 
 - Next.js with TypeScript: Framework
 - Drizzle: ORM
-- Turso with Sqlite: Database
+- Turso with Sqlite: Database for images
 - Zustand: Global state management
-- Playwright: Testing (Snapshots) library
 - Next Mdx Remote: MDX library for the blog
 - Tailwind CSS: CSS Framework
 - Bright: Serverside code highlighter
