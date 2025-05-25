@@ -7,7 +7,7 @@ import {
   description,
   path,
   title,
-} from "../../utils/seo/works-projects/worksMetadata";
+} from "../../utils/seo/works-projects/projectsMetadata";
 
 export const metadata: Metadata = pagesMetadata(title, description, path);
 
