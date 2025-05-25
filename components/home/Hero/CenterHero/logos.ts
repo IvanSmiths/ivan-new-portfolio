@@ -6,7 +6,7 @@ type Logos = {
 
 export const logos: Logos = [
   {
-    src: "Commerzbank.png",
+    src: "commerzbank.png",
     name: "Commerzbank",
     slug: "neugelb",
   },
@@ -26,7 +26,7 @@ export const logos: Logos = [
     slug: "scholz-und-volkmer",
   },
   {
-    src: "Adidas.svg",
+    src: "adidas.svg",
     name: "Adidas",
     slug: "scholz-und-volkmer",
   },
@@ -51,12 +51,12 @@ export const logos: Logos = [
     slug: "neugelb",
   },
   {
-    src: "R+V.png",
+    src: "r+v.png",
     name: "R+V",
     slug: "scholz-und-volkmer",
   },
   {
-    src: "WMF.svg",
+    src: "wmf.svg",
     name: "WMF",
     slug: "scholz-und-volkmer",
   },
