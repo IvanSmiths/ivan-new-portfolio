@@ -6,57 +6,57 @@ type Logos = {
 
 export const logos: Logos = [
   {
-    src: "commerzbank.png",
+    src: "coba-logo.png",
     name: "Commerzbank",
     slug: "neugelb",
   },
   {
-    src: "td.svg",
+    src: "td-cowen.svg",
     name: "TD COWEN",
     slug: "td-cowen",
   },
   {
-    src: "remax.png",
+    src: "remax-logo.png",
     name: "re/max",
     slug: "ideology",
   },
   {
-    src: "Scholz-&-Volkmer.png",
+    src: "suv-logo.png",
     name: "Scholz & Volkmer",
     slug: "scholz-und-volkmer",
   },
   {
-    src: "adidas.svg",
+    src: "adidas-logo.svg",
     name: "Adidas",
     slug: "scholz-und-volkmer",
   },
   {
-    src: "Deutsche-Bahn.svg",
+    src: "db-logo.svg",
     name: "Deutsche Bahn",
     slug: "scholz-und-volkmer",
   },
   {
-    src: "Ideology.png",
+    src: "id-logo.png",
     name: "Ideology",
     slug: "ideology",
   },
   {
-    src: "Lemon-Soda.png",
+    src: "lemon-soda-logo.png",
     name: "LemonSoda",
     slug: "ideology",
   },
   {
-    src: "Neu-Gelb.svg",
+    src: "neugelb-logo.svg",
     name: "NeuGelb",
     slug: "neugelb",
   },
   {
-    src: "r+v.png",
+    src: "rv-logo.png",
     name: "R+V",
     slug: "scholz-und-volkmer",
   },
   {
-    src: "wmf.svg",
+    src: "wmf-logo.svg",
     name: "WMF",
     slug: "scholz-und-volkmer",
   },
