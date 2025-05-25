@@ -34,7 +34,7 @@ const CompanyLogo = ({ src, alt, name, href, onHover }: CompanyLogoProps) => {
         alt={alt}
         height="32"
         width="32"
-        className="h-8 object-contain grayscale transition duration-300 group-hover:grayscale-0 lg:h-12"
+        className="h-8 w-fit object-contain grayscale transition duration-300 group-hover:grayscale-0 lg:h-12"
       />
     </Link>
   );
