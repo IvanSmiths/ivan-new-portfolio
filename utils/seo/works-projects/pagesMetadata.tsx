@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { baseUrl, siteName, twitter } from "../../../_config/config";
 
 export function pagesMetadata(
   title: string,
@@ -12,14 +13,7 @@ export function pagesMetadata(
     baseUrl?: string;
   } = {},
 ): Metadata {
-  const {
-    siteName = "Ivan Smiths",
-    twitterCreator = "@Ivansmiths",
-    twitterCreatorId = "1303746727594405894",
-    type = "website",
-    baseUrl = "https://ivansmiths.com",
-  } = options;
-
+  const { type = "website" } = options;
   return {
     title,
     description,
@@ -34,8 +28,8 @@ export function pagesMetadata(
       title,
       description,
       card: "summary_large_image",
-      creator: twitterCreator,
-      creatorId: twitterCreatorId,
+      creator: twitter.twitterCreator,
+      creatorId: twitter.twitterCreatorId,
     },
   };
 }

@@ -3,12 +3,11 @@ import { pagesSchema } from "../../utils/seo/works-projects/pagesSchemas";
 import projectsData from "../../utils/pages/projects";
 import { pagesMetadata } from "../../utils/seo/works-projects/pagesMetadata";
 import TemplateSection from "../../components/works-projects/TemplateSection";
-
-const title: string =
-  "Ivan Smiths - Portfolio of Fullstack and UI/UX Development Projects";
-const description: string =
-  "Here I share all the new projects that are at least in a beta stage.";
-const path = "/projects";
+import {
+  description,
+  path,
+  title,
+} from "../../utils/seo/works-projects/worksMetadata";
 
 export const metadata: Metadata = pagesMetadata(title, description, path);
 

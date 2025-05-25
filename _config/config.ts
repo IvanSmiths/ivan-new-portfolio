@@ -1,6 +1,11 @@
 export const baseUrl: string = "https://www.ivansmiths.com";
 export const siteName: string = "Ivan Smiths";
 
+export const twitter = {
+  twitterCreator: "@Ivansmiths",
+  twitterCreatorId: "1303746727594405894",
+};
+
 export type LinkItem = {
   label: string;
   url: string;

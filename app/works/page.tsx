@@ -3,12 +3,11 @@ import TemplateSection from "../../components/works-projects/TemplateSection";
 import worksData from "../../utils/pages/works";
 import { pagesMetadata } from "../../utils/seo/works-projects/pagesMetadata";
 import { pagesSchema } from "../../utils/seo/works-projects/pagesSchemas";
-
-const title: string =
-  "Ivan Smiths - Portfolio of Fullstack and UI/UX Development Works";
-const description: string =
-  "Discover a diverse range of projects in UI/UX and Fullstack Development. Explore award-winning websites, high-traffic landing pages, and innovative e-commerce platforms crafted for clients like Deutsche Bahn, R+V, Adidas, and WMF.";
-const path = "/works";
+import {
+  description,
+  path,
+  title,
+} from "../../utils/seo/works-projects/worksMetadata";
 
 export const metadata: Metadata = pagesMetadata(title, description, path);
 
