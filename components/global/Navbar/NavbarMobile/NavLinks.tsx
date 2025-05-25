@@ -43,7 +43,7 @@ export default function NavLinks({ toggleMenu, linksRef }: NavLinksProps) {
           <Link
             href={link.href}
             onClick={toggleMenu}
-            className={`pr-small py-md text-6xl ${
+            className={`pr-small py-md text-6xl font-bold ${
               isActive(link.href) ? "text-foreground" : "text-foreground-muted"
             }`}
           >
