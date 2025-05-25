@@ -3,14 +3,12 @@ import { MarqueeRefs } from "../../../utils/hooks/animations/useMarquee";
 
 interface MarqueeProps {
   children: ReactNode;
-  className?: string;
-  textClassName?: string;
 }
 
 export interface MarqueeHandle extends MarqueeRefs {}
 
 export const Marquee = forwardRef<MarqueeHandle, MarqueeProps>(
-  ({ children, className = "", textClassName = "" }, ref) => {
+  ({ children }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
 
@@ -26,12 +24,9 @@ export const Marquee = forwardRef<MarqueeHandle, MarqueeProps>(
     return (
       <div
         ref={containerRef}
-        className={`pointer-events-none absolute inset-0 flex items-center overflow-hidden opacity-0 ${className}`}
+        className="bg-foreground pointer-events-none absolute inset-0 flex h-full items-center overflow-hidden opacity-0"
       >
-        <div
-          ref={textRef}
-          className={`flex whitespace-nowrap ${textClassName}`}
-        >
+        <div ref={textRef} className="flex whitespace-nowrap">
           {children}
         </div>
       </div>
