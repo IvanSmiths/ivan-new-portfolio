@@ -26,12 +26,11 @@ const useHorizontalScroll = (
         },
         {
           ease: "none",
-          duration: 20,
           translateX: (): string => `-${getScrollAmount()}px`,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
-            scrub: 0.6,
+            scrub: 0.5,
             invalidateOnRefresh: true,
             pin: true,
           },

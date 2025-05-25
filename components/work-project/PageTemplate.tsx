@@ -12,7 +12,7 @@ function PageTemplate<T>({
   renderContent,
 }: PageTemplateProps<T>) {
   return (
-    <section className="pr-sm md:pt-xl pt-sm max-md:pl-sm gap-sm flex flex-col md:flex-row">
+    <section className="pr-sm md:pt-xl pt-sm max-lg:pl-sm gap-sm flex flex-col lg:flex-row">
       {renderContent(entry)}
       <script
         type="application/ld+json"
