@@ -2,7 +2,7 @@
 
 ## Animations
 
-All the animations are reusable hooks (@hooks/animations). Need to document the params.
+All the animations are reusable hooks (@utils/hooks/animations). Need to document the params.
 
 ### Built with:
 
