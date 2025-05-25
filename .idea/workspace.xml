@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="update README.md" />
+    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="fix misspelled names">
+      <change beforePath="$PROJECT_DIR$/components/home/Hero/CenterHero/logos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/home/Hero/CenterHero/logos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/Adidas.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/adidas-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/Deutsche-Bahn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/db-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/Ideology.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/id-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/Lemon-Soda.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/lemon-soda-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/Neu-Gelb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/neugelb-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/R+V.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/rv-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/Scholz-&amp;-Volkmer.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/suv-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/TD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/td-cowen.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/UMB.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/umb-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/WMF.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/wmf-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/commerzbank.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/coba-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo/remax.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo/remax-logo.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,22 +210,7 @@
       <workItem from="1748185279585" duration="15000" />
       <workItem from="1748185297545" duration="23000" />
       <workItem from="1748185330714" duration="89000" />
-    </task>
-    <task id="LOCAL-00104" summary="improve responsiveness">
-      <option name="closed" value="true" />
-      <created>1747990366793</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1747990366793</updated>
-    </task>
-    <task id="LOCAL-00105" summary="improve responsiveness">
-      <option name="closed" value="true" />
-      <created>1747994147323</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1747994147324</updated>
+      <workItem from="1748185430965" duration="354000" />
     </task>
     <task id="LOCAL-00106" summary="improve responsiveness">
       <option name="closed" value="true" />
@@ -589,7 +588,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748185066825</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="add idea folder to repo">
+      <option name="closed" value="true" />
+      <created>1748185447482</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1748185447482</updated>
+    </task>
+    <task id="LOCAL-00154" summary="add idea folder to repo">
+      <option name="closed" value="true" />
+      <created>1748185561204</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1748185561204</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,8 +626,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix link highlight" />
-    <MESSAGE value="improve text" />
     <MESSAGE value="add context" />
     <MESSAGE value="change image" />
     <MESSAGE value="add text" />
@@ -636,6 +649,8 @@
     <MESSAGE value="remove not existent links" />
     <MESSAGE value="add more gap" />
     <MESSAGE value="update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
+    <MESSAGE value="add idea folder to repo" />
+    <MESSAGE value="fix misspelled names" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix misspelled names" />
   </component>
 </project>
