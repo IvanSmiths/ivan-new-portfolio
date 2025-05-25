@@ -16,11 +16,11 @@ export const ideology: WorkProjectPage = {
   websiteLink: "https://www.ideology.it/",
   worksDone: [
     {
-      link: "/works/ideology-creative-studio",
+      link: "/works/ideology",
       label: "RE/MAX",
     },
     {
-      link: "/works/ideology-creative-studio",
+      link: "/works/ideology",
       label: "Lemon Soda",
     },
     {
