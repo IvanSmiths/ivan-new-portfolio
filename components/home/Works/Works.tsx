@@ -4,90 +4,50 @@ import { dm_mono } from "../../../utils/fonts/fonts";
 import { WorkProjectBase } from "../../../utils/pages/types";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import { useRef } from "react";
+import { Marquee, MarqueeHandle } from "./Marquee";
+import { useMarqueeAnimation } from "../../../utils/hooks/animations/useMarquee";
 
 export type WorksProps = {
   works: WorkProjectBase[];
 };
 
 export default function Works({ works }: WorksProps) {
-  const workRefs = useRef<
-    Array<{
-      link: HTMLAnchorElement | null;
-      marquee: HTMLDivElement | null;
-      marqueeText: HTMLDivElement | null;
-      originalText: HTMLHeadingElement | null;
-    }>
-  >(
-    works.map(() => ({
-      link: null,
-      marquee: null,
-      marqueeText: null,
-      originalText: null,
-    })),
-  );
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>(works.map(() => null));
+  const marqueeRefs = useRef<(MarqueeHandle | null)[]>(works.map(() => null));
+
+  const { startMarquee, stopMarquee, cleanup } = useMarqueeAnimation();
 
   useGSAP(() => {
-    workRefs.current.forEach((refs) => {
-      const { link, marquee, marqueeText, originalText } = refs;
+    const cleanupFunctions: (() => void)[] = [];
 
-      if (!link || !marquee || !marqueeText || !originalText) return;
+    works.forEach((_, index) => {
+      const link = linkRefs.current[index];
+      const marqueeHandle = marqueeRefs.current[index];
 
-      let marqueeAnimation: gsap.core.Tween;
+      if (!link || !marqueeHandle) return;
 
-      const startMarquee = () => {
-        const singleTextWidth =
-          marqueeText.offsetWidth / marqueeText.children.length;
-        const containerWidth = marquee.offsetWidth;
-        const instancesNeeded = Math.ceil(containerWidth / singleTextWidth) + 2;
-
-        const currentInstances = marqueeText.children.length;
-        for (let i = currentInstances; i < instancesNeeded; i++) {
-          const clone = marqueeText.children[0].cloneNode(true);
-          marqueeText.appendChild(clone);
-        }
-
-        gsap.to(marquee, {
-          opacity: 1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-
-        const speed = 150;
-        const duration = singleTextWidth / speed;
-
-        gsap.set(marqueeText, { x: 0 });
-        marqueeAnimation = gsap.to(marqueeText, {
-          x: -singleTextWidth,
-          duration: duration,
-          ease: "none",
-          repeat: -1,
-        });
+      const handleMouseEnter = () => {
+        startMarquee(marqueeHandle);
       };
 
-      const stopMarquee = () => {
-        if (marqueeAnimation) {
-          marqueeAnimation.kill();
-        }
-        gsap.to(marquee, {
-          opacity: 0,
-          duration: 0.3,
-          ease: "power2.out",
-        });
+      const handleMouseLeave = () => {
+        stopMarquee(marqueeHandle.container);
       };
 
-      link.addEventListener("mouseenter", startMarquee);
-      link.addEventListener("mouseleave", stopMarquee);
+      link.addEventListener("mouseenter", handleMouseEnter);
+      link.addEventListener("mouseleave", handleMouseLeave);
 
-      return () => {
-        link.removeEventListener("mouseenter", startMarquee);
-        link.removeEventListener("mouseleave", stopMarquee);
-        if (marqueeAnimation) {
-          marqueeAnimation.kill();
-        }
-      };
+      cleanupFunctions.push(() => {
+        link.removeEventListener("mouseenter", handleMouseEnter);
+        link.removeEventListener("mouseleave", handleMouseLeave);
+      });
     });
+
+    return () => {
+      cleanupFunctions.forEach((fn) => fn());
+      cleanup();
+    };
   });
 
   return (
@@ -103,7 +63,7 @@ export default function Works({ works }: WorksProps) {
             href={`/works/${work.slug}`}
             key={index}
             ref={(el) => {
-              workRefs.current[index].link = el;
+              linkRefs.current[index] = el;
             }}
             className={`group border-background-muted hover:bg-foreground relative flex cursor-pointer items-start justify-center overflow-hidden border-b py-10 text-center transition ${
               index === 0 ? "border-t" : ""
@@ -115,32 +75,19 @@ export default function Works({ works }: WorksProps) {
               (0{index + 1})
             </span>
 
-            <h3
-              ref={(el) => {
-                workRefs.current[index].originalText = el;
-              }}
-              className="relative inline-block text-5xl uppercase group-hover:opacity-0 md:text-6xl lg:text-9xl"
-            >
+            <h3 className="relative inline-block text-5xl uppercase group-hover:opacity-0 md:text-6xl lg:text-9xl">
               {work.name}
             </h3>
 
-            <div
+            <Marquee
               ref={(el) => {
-                workRefs.current[index].marquee = el;
+                marqueeRefs.current[index] = el;
               }}
-              className="pointer-events-none absolute inset-0 flex items-center overflow-hidden opacity-0"
             >
-              <div
-                ref={(el) => {
-                  workRefs.current[index].marqueeText = el;
-                }}
-                className="flex whitespace-nowrap"
-              >
-                <span className="text-background mr-8 text-5xl uppercase md:text-6xl lg:text-9xl">
-                  {work.name}
-                </span>
-              </div>
-            </div>
+              <span className="text-background mr-8 text-5xl uppercase md:text-6xl lg:text-9xl">
+                {work.name}
+              </span>
+            </Marquee>
           </Link>
         );
       })}
