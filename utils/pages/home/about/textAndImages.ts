@@ -1,0 +1,32 @@
+export const animatedWords: string[] = [
+  "From",
+  " ",
+  "global",
+  "enterprise",
+  "to",
+  "local",
+  " ",
+  "heroes",
+  "i",
+  "bring,",
+  "design",
+  "and",
+  "code",
+  " ",
+  "without",
+  "compromises.",
+  "You",
+  "dream",
+  "it —",
+  "i",
+  "build",
+  "it.",
+  " ",
+];
+
+export const animatedImages: string[] = [
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.26_xcpxma.png",
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1747341908/portfolio/suv/scholz-und-volkmer-website-1_vrgodm.jpg",
+];

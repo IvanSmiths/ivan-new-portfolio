@@ -1,45 +1,66 @@
-import { getProjectsPage } from "../../../utils/fetch/graphql";
-import { ProjectPage } from "../../../utils/fetch/graphql/graphqlTypes";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import Hero from "../../components/project/Hero";
-import Images from "../../components/project/Images";
-import { projectSchema } from "../../../utils/metadata/Schemas";
-import { generateMetadata } from "../../../utils/metadata/projectMetadata";
-import Footer from "../../components/global/Footer/Footer";
 import { FC } from "react";
+import { WorkProjectPage } from "../../../utils/pages/types";
+import projectsData from "../../../utils/pages/projects";
+import { Metadata } from "next";
+import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
+import PageTemplate from "../../../components/work-project/PageTemplate";
+import Images from "../../../components/work-project/Images";
+import Details from "../../../components/work-project/Details/Details";
+import { notFound } from "next/navigation";
+import { pageSchema } from "../../../utils/seo/work-project/pageSchema";
 
-export type Props = {
-  params: { slug: string };
-};
+export type Params = Promise<{
+  slug: string;
+}>;
 
-export { generateMetadata };
+export async function generateStaticParams() {
+  return (projectsData as WorkProjectPage[]).map((project) => ({
+    slug: project.slug,
+  }));
+}
 
-const Project: FC<Props> = async ({ params }) => {
-  try {
-    const projects: ProjectPage = await getProjectsPage(params.slug);
-    return (
-      <>
-        <Navbar position={Position.Fixed} />
-        <Hero project={projects} />
-        <Images project={projects} />
-        <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(projectSchema(projects)),
-          }}
-        />
-      </>
-    );
-  } catch (error) {
-    console.error("Failed to fetch project page.");
-    return (
-      <>
-        <Navbar position={Position.Fixed} />
-        <Footer />
-      </>
-    );
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const entry = projectsData.find((project) => project.slug === slug);
+
+  if (!entry) {
+    return {
+      title: "Project Not Found",
+    };
   }
+
+  return generatePageMetadata(
+    entry.slug,
+    projectsData,
+    "project",
+    "Project Not Found",
+  );
+}
+
+const Project: FC<{ params: Params }> = async ({ params }) => {
+  const { slug } = await params;
+  const entry = projectsData.find((project) => project.slug === slug);
+
+  if (!entry) {
+    notFound();
+  }
+
+  return (
+    <PageTemplate
+      entry={entry}
+      schema={pageSchema(entry, "projects")}
+      renderContent={(project) => (
+        <>
+          <Details work={project} />
+          <Images work={project} />
+        </>
+      )}
+    />
+  );
 };
 
 export default Project;

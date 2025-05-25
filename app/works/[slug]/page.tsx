@@ -1,47 +1,60 @@
-import { workSchema } from "../../../utils/metadata/Schemas";
-import { generateMetadata } from "../../../utils/metadata/workMetadata";
-import Navbar, { Position } from "../../components/global/Navbar/Navbar";
-import Hero from "../../components/work/Hero";
-import Images from "../../components/work/Images";
-import WorksDone from "../../components/work/WorksDone";
-import { WorkPage } from "../../../utils/fetch/graphql/graphqlTypes";
-import { getWorksPage } from "../../../utils/fetch/graphql";
-import Footer from "../../components/global/Footer/Footer";
 import { FC } from "react";
+import Images from "../../../components/work-project/Images";
+import worksData from "../../../utils/pages/works";
+import { WorkProjectPage } from "../../../utils/pages/types";
+import { Metadata } from "next";
+import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
+import PageTemplate from "../../../components/work-project/PageTemplate";
+import Details from "../../../components/work-project/Details/Details";
+import { pageSchema } from "../../../utils/seo/work-project/pageSchema";
+import { notFound } from "next/navigation";
 
-export type Props = {
-  params: { slug: string };
-};
+export type Params = Promise<{
+  slug: string;
+}>;
 
-export { generateMetadata };
+export async function generateStaticParams() {
+  return (worksData as WorkProjectPage[]).map((work) => ({
+    slug: work.slug,
+  }));
+}
 
-const Work: FC<Props> = async ({ params }) => {
-  try {
-    const works: WorkPage = await getWorksPage(params.slug);
-    return (
-      <>
-        <Navbar position={Position.Fixed} />
-        <Hero work={works} />
-        <WorksDone works={works.worksDone.works} />
-        <Images work={works} />
-        <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(workSchema(works)),
-          }}
-        />
-      </>
-    );
-  } catch (error) {
-    console.error("Failed to fetch work page.");
-    return (
-      <>
-        <Navbar position={Position.Fixed} />
-        <Footer />
-      </>
-    );
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const entry = worksData.find((work) => work.slug === slug);
+  if (!entry) {
+    return {
+      title: "Work Not Found",
+    };
   }
+
+  return generatePageMetadata(entry.slug, worksData, "work", "Work Not Found");
+}
+
+const Work: FC<{ params: Params }> = async ({ params }) => {
+  const { slug } = await params;
+  const entry = worksData.find((work) => work.slug === slug);
+
+  if (!entry) {
+    notFound();
+  }
+
+  return (
+    <PageTemplate
+      entry={entry}
+      schema={pageSchema(entry, "works")}
+      renderContent={(work) => (
+        <>
+          <Details work={work} />
+          <Images work={work} />
+        </>
+      )}
+    />
+  );
 };
 
 export default Work;

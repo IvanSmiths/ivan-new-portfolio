@@ -1,30 +1,13 @@
-import { blogsSchema } from "../../utils/metadata/Schemas";
-import { blogMetadata } from "../../utils/metadata/blogMetadata";
-import Blog from "../components/home/Blog/Blog";
-import Header from "../components/crafts/Header";
-import Navbar, { Position } from "../components/global/Navbar/Navbar";
-import Footer from "../components/global/Footer/Footer";
+import { blogsMetadata } from "../../utils/seo/blogs/blogsMetadata";
+import Blog from "../../components/blog/Blog";
+import { blogsSchema } from "../../utils/seo/blogs/blogsSchema";
 
-export const metadata = blogMetadata;
+export const metadata = blogsMetadata;
 
-const headerProps = {
-  h1: "Blog",
-  h2: "All my blogposts",
-  paragraph:
-    "I write about frontend technologies, such as Next.js, Tailwind, and other frontend technologies.",
-};
-
-export default async function BlogPage() {
+export default function BlogPage() {
   return (
-    <div className="md:mt-large">
-      <Header
-        h1={headerProps.h1}
-        h2={headerProps.h2}
-        paragraph={headerProps.paragraph}
-      />
-      <Navbar position={Position.Fixed} />
+    <div className="md:mt-3xl">
       <Blog />
-      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogsSchema) }}
