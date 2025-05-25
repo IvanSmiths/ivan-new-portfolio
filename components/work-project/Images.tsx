@@ -1,11 +1,10 @@
-import { FC } from "react";
 import { WorkProjectPage } from "../../utils/pages/types";
 
-interface HeaderProps {
+type HeaderProps = {
   work: WorkProjectPage;
-}
+};
 
-const Images: FC<HeaderProps> = ({ work }) => {
+const Images = ({ work }: HeaderProps) => {
   return (
     <div className="pt-sm w-full">
       <ul className="gap-sm flex w-full flex-col">
