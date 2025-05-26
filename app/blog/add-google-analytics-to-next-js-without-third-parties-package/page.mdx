@@ -1,6 +1,7 @@
 import { data, postMetadata, postSchema } from "./postMetadata";
 import Hero from "../../../components/blog/Hero";
 import Note from "../../../components/blog/Note";
+import Code from "../../../components/blog/Code";
 export const metadata = postMetadata;
 
 <Hero post={data} />
@@ -28,8 +29,8 @@ You’ll find the Google Analytics implementation used in the official plugin in
 
 Here’s what the full GA implementation looks like:
 
-```tsx
-'use client'
+<Code lang="tsx" title="packages/third-parties/src/google/ga.tsx">
+  {`'use client'
 // TODO: Evaluate import 'client only'
 import React, { useEffect } from 'react'
 import Script from 'next/script'
@@ -37,67 +38,66 @@ import Script from 'next/script'
 import type { GAParams } from '../types/google'
 
 declare global {
-  interface Window {
-    dataLayer?: Object[]
-  }
+interface Window {
+dataLayer?: Object[]
+}
 }
 
-let currDataLayerName: string | undefined = undefined
+  let currDataLayerName: string | undefined = undefined
 
-export function GoogleAnalytics(props: GAParams) {
-  const { gaId, debugMode, dataLayerName = 'dataLayer', nonce } = props
+    export function GoogleAnalytics(props: GAParams) {
+      const { gaId, debugMode, dataLayerName = 'dataLayer', nonce } = props
 
-  if (currDataLayerName === undefined) {
-    currDataLayerName = dataLayerName
-  }
+      if (currDataLayerName === undefined) {
+        currDataLayerName = dataLayerName
+      }
 
-  useEffect(() => {
-    performance.mark('mark_feature_usage', {
-      detail: {
-        feature: 'next-third-parties-ga',
-      },
-    })
-  }, [])
+      useEffect(() => {
+        performance.mark('mark_feature_usage', {
+          detail: {
+            feature: 'next-third-parties-ga',
+          },
+        })
+      }, [])
 
-  return (
+    return (
     <>
       <Script
-        id="_next-ga-init"
-        dangerouslySetInnerHTML={{
-          __html: `
-          window['${dataLayerName}'] = window['${dataLayerName}'] || [];
-          function gtag(){window['${dataLayerName}'].push(arguments);}
-          gtag('js', new Date());
+      id="_next-ga-init"
+      dangerouslySetInnerHTML={{
+      __html: \`
+            window['\${dataLayerName}'] = window['\${dataLayerName}'] || [];
+            function gtag(){window['\${dataLayerName}'].push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', '${gaId}' ${debugMode ? ",{ 'debug_mode': true }" : ''});`,
-        }}
-        nonce={nonce}
-      />
-      <Script
-        id="_next-ga"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        nonce={nonce}
-      />
-    </>
-  )
-}
-
-export function sendGAEvent(..._args: Object[]) {
-  if (currDataLayerName === undefined) {
-    console.warn(`@next/third-parties: GA has not been initialized`)
-    return
-  }
-
-  if (window[currDataLayerName]) {
-    window[currDataLayerName].push(arguments)
-  } else {
-    console.warn(
-      `@next/third-parties: GA dataLayer ${currDataLayerName} does not exist`
+            gtag('config', '\${gaId}' \${debugMode ? ",{ 'debug_mode': true }" : ''});\`,
+          }}
+          nonce={nonce}
+        />
+        <Script
+          id="_next-ga"
+          src={\`https://www.googletagmanager.com/gtag/js?id=\${gaId}\`}
+          nonce={nonce}
+        />
+      </>
     )
   }
-}
-export default IndexPage;
-```
+
+  export function sendGAEvent(..._args: Object[]) {
+    if (currDataLayerName === undefined) {
+      console.warn(\`@next/third-parties: GA has not been initialized\`)
+      return
+    }
+
+    if (window[currDataLayerName]) {
+      window[currDataLayerName].push(arguments)
+    } else {
+      console.warn(
+        \`@next/third-parties: GA dataLayer \${currDataLayerName} does not exist\`
+      )
+    }
+  }`}
+</Code>
 
 ### Explanation
 
