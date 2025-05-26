@@ -1,6 +1,6 @@
 import { FC, RefObject } from "react";
 import Link from "next/link";
-import { WorkProjectBase } from "../../utils/pages/types";
+import { WorkProjectBase } from "../../utils/data/types";
 
 interface WorkTitleProps {
   work: WorkProjectBase;
@@ -17,7 +17,7 @@ const TemplateText: FC<WorkTitleProps> = ({
 }) => {
   return (
     <>
-      <Link href={`${path}/${work?.slug}`}>
+      <Link href={(path + "/" + work.slug).toString()}>
         <h2
           ref={titleRef}
           className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-6xl font-black uppercase lg:text-8xl"

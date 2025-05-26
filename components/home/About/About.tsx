@@ -5,7 +5,7 @@ import { AnimatedTextWithImages } from "./AnimatedTextWithImages";
 import {
   animatedImages,
   animatedWords,
-} from "../../../utils/pages/home/about/textAndImages";
+} from "../../../utils/data/home/about/textAndImages";
 
 const About = () => {
   const containerRef = useRef(null);

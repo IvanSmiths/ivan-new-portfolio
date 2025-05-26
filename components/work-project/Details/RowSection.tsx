@@ -1,7 +1,7 @@
 import Row from "./Row";
 import RowLinks from "./RowLinks";
 import RowWorksDone from "./RowWorksDone";
-import { WorkProjectPage } from "../../../utils/pages/types";
+import { WorkProjectPage } from "../../../utils/data/types";
 import RowListParent from "./RowListParent";
 import RowLabelList from "./RowLabelList";
 

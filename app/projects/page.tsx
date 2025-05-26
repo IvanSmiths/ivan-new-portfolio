@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pagesSchema } from "../../utils/seo/works-projects/pagesSchemas";
-import projectsData from "../../utils/pages/projects";
+import projectsData from "../../utils/data/projects";
 import { pagesMetadata } from "../../utils/seo/works-projects/pagesMetadata";
 import TemplateSection from "../../components/works-projects/TemplateSection";
 import {

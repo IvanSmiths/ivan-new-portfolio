@@ -1,8 +1,8 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
-import InternalLinks from "./InternalLinks";
 import { dm_mono } from "../../../utils/fonts/fonts";
 import ScrollPercentage from "./ScrollPercentage";
+import InternalLinks from "./InternalLinks";
 
 const Navbar = () => {
   return (

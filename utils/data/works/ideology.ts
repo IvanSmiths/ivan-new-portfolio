@@ -8,7 +8,7 @@ export const ideology: WorkProjectPage = {
   description: [
     "Secured the design contract from LemonSoda, outperforming 15 competing firms, by demonstrating a compelling and innovative design vision.",
     "Optimized third-party plugins using PHP to ensure flawless integration with custom WordPress themes, significantly improving site functionality, user experience, and performance.",
-    "Designed and developed 20+ diverse websites, including high-traffic e-commerce platforms and fully responsive landing pages, contributing to a 25% increase in user engagement and conversions.",
+    "Designed and developed 20+ diverse websites, including high-traffic e-commerce platforms and fully responsive landing data, contributing to a 25% increase in user engagement and conversions.",
     "Led user research by conducting interviews with 20+ target users to uncover pain points in the checkout process. Insights informed a redesigned checkout flow, resulting in a 15% reduction in cart abandonment and improved user satisfaction.",
   ],
   role: "Frontend Developer, UI/UX Designer",

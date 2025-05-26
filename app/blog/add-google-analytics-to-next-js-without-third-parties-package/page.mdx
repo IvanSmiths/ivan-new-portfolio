@@ -1,0 +1,84 @@
+import { data, postMetadata, postSchema } from "./postMetadata";
+import { gaSource, gaUsage, rootLayout } from "./codeSnippets";
+import Hero from "../../../components/blog/Hero";
+import Note from "../../../components/blog/Note";
+import Code from "../../../components/blog/Code";
+export const metadata = postMetadata;
+
+<Hero post={data} />
+
+# How to Add Google Analytics to Next.js Without Third-Party Packages
+
+While it’s generally recommended to use the official [@next/third-parties](https://github.com/vercel/next.js/tree/canary/packages/third-parties)
+package provided by the Vercel team for integrating Google Analytics with Next.js, you might prefer to keep your `package.json`
+clean and avoid unnecessary dependencies.
+
+This guide shows you how to **implement Google Analytics** manually using the underlying logic from the **Vercel package**.
+The benefit? More control, no extra dependencies — but keep in mind, you’ll need to manually track any future changes to the
+official implementation (I would not expect big changes on this code).
+
+<Note>
+  > ⚠️ Heads-up: Using this custom method obviously means you won’t receive automatic updates/pushes from the Vercel
+  team. Check the [source code on GitHub](https://github.com/vercel/next.js/tree/canary/packages/third-parties)
+  periodically to stay aligned and see if there are changes (again, unlikely).
+</Note>
+
+## Extracting the Google Analytics Integration Code
+
+You’ll find the Google Analytics implementation used in the official plugin in the file:
+`packages/third-parties/src/google/ga.tsx`.
+
+Here’s what the full GA implementation looks like:
+
+<Code lang="tsx" title="packages/third-parties/src/google/ga.tsx">
+  {gaSource}
+</Code>
+
+### Explanation
+
+This code replicates what the official @next/third-parties plugin does under the hood:
+
+- `use client`: Ensures this component runs only on the client side, which is necessary for Google Analytics since it interacts with window.
+- `Script` from `next/script:` Used to dynamically load external JS and inject inline code safely while optimizing performance.
+- `window['dataLayer']`: Sets up the dataLayer array that GA uses to queue events.
+- `gtag()`: The function that pushes events into the data layer.
+- `gtag('js', new Date())`: Initializes tracking.
+- `gtag('config', 'GA-ID')`: Configures your analytics instance.
+- `Debug Mode`: Optionally enables debug logs for GA in development or staging environments.
+- `sendGAEvent()`: A utility to manually send custom events to GA if needed.
+
+
+## A Leaner Version
+
+If you want to simplify the GA logic and only use the essential parts for tracking, here’s a lighter version of the integration:
+
+<Code lang="tsx" title="google-analitycs.tsx">
+  {gaUsage}
+</Code>
+
+### What's Different in This Version?
+
+- No `useEffect` hook: This version skips performance marks or other diagnostics external to Google Analytics.
+- Simpler and smaller: It focuses only on GA setup with optional debug mode and no event-sending utility.
+- Still fully functional: You can track page views and conversions just like in the full version.
+
+## Integrate It in Your App Router Layout
+
+To activate tracking across all pages, import your `google-analytics.tsx` component in `app/layout.tsx` and pass your GA ID.
+
+<Code lang="tsx" title="layout.tsx">
+  {rootLayout}
+</Code>
+
+### Why This Works
+Next.js App Router renders `app/layout.tsx` on every route change unless nested layouts override it.
+That means this script will persist across navigation and initialize Google Analytics once — just like the official integration would.
+
+**Happy tracking! 🎯**
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(postSchema),
+  }}
+/>

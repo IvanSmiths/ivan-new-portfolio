@@ -1,6 +1,6 @@
 "use client";
 
-import { useTableOfContents } from "../../utils/hooks/useTableOfContents";
+import { useTableOfContents } from "../../utils/hooks/blog/useTableOfContents";
 
 export default function TableOfContents() {
   const { headings, activeId } = useTableOfContents({});

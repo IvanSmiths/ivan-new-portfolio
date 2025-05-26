@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useRef } from "react";
-import { WorkProjectBase } from "../../utils/pages/types";
+import { WorkProjectBase } from "../../utils/data/types";
 import { useHorizontalScrollWithText } from "../../utils/hooks/animations/useHorizontalScrollWithText";
 import TemplateItem from "./TemplateItem";
 import TemplateText from "./TemplateText";

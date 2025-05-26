@@ -22,7 +22,7 @@ function slugify(str: ReactNode): string {
     .replace(/\s+/g, "-")
     .replace(/&/g, "-and-")
     .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-");
+    .replace(/--+/g, "-");
 }
 
 export function createHeading(level: number) {
@@ -35,20 +35,20 @@ export function createHeading(level: number) {
 
     switch (level) {
       case 1:
-        fontSize = "text-4xl";
-        padding = "py-sm";
+        fontSize = "md:text-4xl text-3xl";
+        padding = "pt-xl";
         break;
       case 2:
-        fontSize = "text-3xl";
-        padding = "py-sm";
+        fontSize = "md:text-3xl text-2xl";
+        padding = "pt-xl";
         break;
       case 3:
-        fontSize = "text-2xl";
-        padding = "py-sm";
+        fontSize = "md:text-2xl text-xl";
+        padding = "pt-md";
         break;
       default:
         fontSize = "text-xl";
-        padding = "py-sm";
+        padding = "pt-sm";
     }
 
     return createElement(
@@ -58,7 +58,14 @@ export function createHeading(level: number) {
         className: `font-bold ${fontSize} ${padding}`,
         ...props,
       },
-      children,
+      createElement(
+        "a",
+        {
+          href: `#${slug}`,
+          className: "no-underline hover:underline",
+        },
+        children,
+      ),
     );
   };
 }

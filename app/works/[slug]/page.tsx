@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Images from "../../../components/work-project/Images";
-import worksData from "../../../utils/pages/works";
-import { WorkProjectPage } from "../../../utils/pages/types";
+import worksData from "../../../utils/data/works";
+import { WorkProjectPage } from "../../../utils/data/types";
 import { Metadata } from "next";
 import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
