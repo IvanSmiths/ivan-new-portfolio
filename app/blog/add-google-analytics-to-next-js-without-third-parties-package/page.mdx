@@ -1,4 +1,5 @@
 import { data, postMetadata, postSchema } from "./postMetadata";
+import { gaSource, gaUsage, rootLayout } from "./codeSnippets";
 import Hero from "../../../components/blog/Hero";
 import Note from "../../../components/blog/Note";
 import Code from "../../../components/blog/Code";
@@ -30,73 +31,7 @@ You’ll find the Google Analytics implementation used in the official plugin in
 Here’s what the full GA implementation looks like:
 
 <Code lang="tsx" title="packages/third-parties/src/google/ga.tsx">
-  {`'use client'
-// TODO: Evaluate import 'client only'
-import React, { useEffect } from 'react'
-import Script from 'next/script'
-
-import type { GAParams } from '../types/google'
-
-declare global {
-interface Window {
-dataLayer?: Object[]
-}
-}
-
-  let currDataLayerName: string | undefined = undefined
-
-    export function GoogleAnalytics(props: GAParams) {
-      const { gaId, debugMode, dataLayerName = 'dataLayer', nonce } = props
-
-      if (currDataLayerName === undefined) {
-        currDataLayerName = dataLayerName
-      }
-
-      useEffect(() => {
-        performance.mark('mark_feature_usage', {
-          detail: {
-            feature: 'next-third-parties-ga',
-          },
-        })
-      }, [])
-
-    return (
-    <>
-      <Script
-      id="_next-ga-init"
-      dangerouslySetInnerHTML={{
-      __html: \`
-            window['\${dataLayerName}'] = window['\${dataLayerName}'] || [];
-            function gtag(){window['\${dataLayerName}'].push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', '\${gaId}' \${debugMode ? ",{ 'debug_mode': true }" : ''});\`,
-          }}
-          nonce={nonce}
-        />
-        <Script
-          id="_next-ga"
-          src={\`https://www.googletagmanager.com/gtag/js?id=\${gaId}\`}
-          nonce={nonce}
-        />
-      </>
-    )
-  }
-
-  export function sendGAEvent(..._args: Object[]) {
-    if (currDataLayerName === undefined) {
-      console.warn(\`@next/third-parties: GA has not been initialized\`)
-      return
-    }
-
-    if (window[currDataLayerName]) {
-      window[currDataLayerName].push(arguments)
-    } else {
-      console.warn(
-        \`@next/third-parties: GA dataLayer \${currDataLayerName} does not exist\`
-      )
-    }
-  }`}
+  {gaSource}
 </Code>
 
 ### Explanation
@@ -117,48 +52,9 @@ This code replicates what the official @next/third-parties plugin does under the
 
 If you want to simplify the GA logic and only use the essential parts for tracking, here’s a lighter version of the integration:
 
-```tsx
-import Script from "next/script";
-
-type GAParams = {
-  gaId: string;
-  dataLayerName?: string;
-  debugMode?: boolean;
-  nonce?: string;
-};
-
-let currDataLayerName: string | undefined = undefined;
-
-export function GoogleAnalytics(props: GAParams) {
-  const { gaId, debugMode, dataLayerName = "dataLayer", nonce } = props;
-
-  if (currDataLayerName === undefined) {
-    currDataLayerName = dataLayerName;
-  }
-
-  return (
-    <>
-      <Script
-        id="_next-ga-init"
-        dangerouslySetInnerHTML={{
-          __html: `
-          window['${dataLayerName}'] = window['${dataLayerName}'] || [];
-          function gtag(){window['${dataLayerName}'].push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${gaId}' ${debugMode ? ",{ 'debug_mode': true }" : ""});`,
-        }}
-        nonce={nonce}
-      />
-      <Script
-        id="_next-ga"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        nonce={nonce}
-      />
-    </>
-  );
-}
-```
+<Code lang="tsx" title="google-analitycs.tsx">
+  {gaUsage}
+</Code>
 
 ### What's Different in This Version?
 
@@ -170,21 +66,9 @@ export function GoogleAnalytics(props: GAParams) {
 
 To activate tracking across all pages, import your `GoogleAnalytics.tsx` component in `app/layout.tsx` and pass your GA ID.
 
-```tsx
-import "./globals.css";
-import { GoogleAnalytics } from "../utils/analytics/google-analytics";
-import { ReactNode } from "react";
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <body> {children}
-        <GoogleAnalytics gaId="pass-your-GA-id-here-as-a-string" />
-      </body>
-    </html>
-  );
-}
-```
+<Code lang="tsx" title="layout.tsx">
+  {rootLayout}
+</Code>
 
 ### Why This Works
 Next.js App Router renders `app/layout.tsx` on every route change unless nested layouts override it.
