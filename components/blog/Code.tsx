@@ -6,6 +6,11 @@ CodeTheme.theme = {
   light: "github-light",
 };
 
+CodeTheme.lineNumbers = true;
+CodeTheme.style = {
+  fontSize: "14px",
+};
+
 export const Code = (props: any) => {
   return (
     <code
