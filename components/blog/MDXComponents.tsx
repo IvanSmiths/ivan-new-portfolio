@@ -20,6 +20,7 @@ const components = {
   h5: createHeading(5),
   h6: createHeading(6),
   a: CustomLink,
+  Code: Code,
   code: Code,
   pre: CodeTheme,
   Note: Note,
