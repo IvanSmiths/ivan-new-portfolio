@@ -5,6 +5,8 @@ import Note from "./Note";
 import { CustomLink } from "./CustomLink";
 import { createHeading } from "./CreateHeading";
 import Code from "./Code";
+import { UnorderedList } from "./UnorderedList";
+import { OrderedList } from "./OrderedList";
 
 export type ChildrenAsProps = {
   children: ReactNode;
@@ -21,6 +23,8 @@ const components = {
   code: Code,
   pre: CodeTheme,
   Note: Note,
+  ul: UnorderedList,
+  ol: OrderedList,
 };
 
 export function MDXComponents(props: MDXRemoteProps) {

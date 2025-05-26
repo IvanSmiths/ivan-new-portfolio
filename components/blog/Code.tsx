@@ -1,13 +1,17 @@
 import { Code as CodeTheme } from "bright";
+import { dm_mono } from "../../utils/fonts/fonts";
 
 CodeTheme.theme = {
-  dark: "nord",
+  dark: "slack-dark",
   light: "github-light",
 };
 
 export const Code = (props: any) => {
   return (
-    <code className="bg-background rounded-lg px-2 py-1 font-bold" {...props}>
+    <code
+      className={`bg-background-muted px-2 py-1 text-sm ${dm_mono.className}`}
+      {...props}
+    >
       {props.children}
     </code>
   );
