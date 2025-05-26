@@ -1,4 +1,4 @@
-import { Link } from "../../../utils/pages/types";
+import { Link } from "../../../utils/data/types";
 import SquareArrowOutUpRight from "../../global/Icons/SquareArrowOutUpRight";
 
 type RowWorksDoneRow = {

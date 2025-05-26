@@ -1,4 +1,4 @@
-import { WorkProjectBase } from "../../utils/pages/types";
+import { WorkProjectBase } from "../../utils/data/types";
 
 interface WorkNavigationProps {
   works: WorkProjectBase[];

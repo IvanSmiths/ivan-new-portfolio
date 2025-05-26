@@ -1,7 +1,7 @@
 "use client";
 
 import { dm_mono } from "../../../utils/fonts/fonts";
-import { WorkProjectBase } from "../../../utils/pages/types";
+import { WorkProjectBase } from "../../../utils/data/types";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";

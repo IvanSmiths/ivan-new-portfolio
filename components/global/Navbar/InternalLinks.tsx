@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { dm_mono } from "../../../utils/fonts/fonts";
-import works from "../../../utils/pages/works";
-import projects from "../../../utils/pages/projects";
+import works from "../../../utils/data/works";
+import projects from "../../../utils/data/projects";
 import { internalRoutes, LinkItem } from "../../../_config/config";
 import { usePathname } from "next/navigation";
 

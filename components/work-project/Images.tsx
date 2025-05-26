@@ -1,4 +1,4 @@
-import { WorkProjectPage } from "../../utils/pages/types";
+import { WorkProjectPage } from "../../utils/data/types";
 
 type HeaderProps = {
   work: WorkProjectPage;
