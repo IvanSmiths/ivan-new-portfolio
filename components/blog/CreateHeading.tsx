@@ -36,19 +36,19 @@ export function createHeading(level: number) {
     switch (level) {
       case 1:
         fontSize = "text-4xl";
-        padding = "py-sm";
+        padding = "pt-xl";
         break;
       case 2:
         fontSize = "text-3xl";
-        padding = "py-sm";
+        padding = "pt-xl";
         break;
       case 3:
         fontSize = "text-2xl";
-        padding = "py-sm";
+        padding = "pt-md";
         break;
       default:
         fontSize = "text-xl";
-        padding = "py-sm";
+        padding = "pt-sm";
     }
 
     return createElement(

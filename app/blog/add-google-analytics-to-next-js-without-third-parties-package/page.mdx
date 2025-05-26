@@ -1,17 +1,9 @@
-import Note from "../components/blog/Note";
----
-title: How to Add Google Analytics to Next.js Without Third-Party Packages
-excerpt: Learn how to add Google Analytics to your Next.js App Router project without relying on third-party libraries. This guide walks you through the setup using native Next.js features for a leaner, dependency-free implementation.
-date: 2025-05-26T12:00:00+08:00
-slug: how-to-add-google-analytics-to-next-js-without-third-party-package
-category: Guide
-cover: https://res.cloudinary.com/deino2cjx/image/upload/v1748246277/portfolio/blog/Next%20Google%20Analytics/cover_iplg3d.png
-coverAlt: open graph and twitter card
-coverWidth: 5442
-coverHeight: 2710
-time: 5
-tags: Next.js, Google Analytics, App Router, SEO, Analytics Integration, Website Tracking
----
+import { data, postMetadata, postSchema } from "./postMetadata";
+import Hero from "../../../components/blog/Hero";
+import Note from "../../../components/blog/Note";
+export const metadata = postMetadata;
+
+<Hero post={data} />
 
 # How to Add Google Analytics to Next.js Without Third-Party Packages
 
@@ -107,7 +99,8 @@ export function sendGAEvent(..._args: Object[]) {
 export default IndexPage;
 ```
 
-Explanation
+### Explanation
+
 This code replicates what the official @next/third-parties plugin does under the hood:
 
 - `use client`: Ensures this component runs only on the client side, which is necessary for Google Analytics since it interacts with window.
@@ -193,11 +186,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 }
 ```
 
-## Why This Works
+### Why This Works
 Next.js App Router renders `app/layout.tsx` on every route change unless nested layouts override it.
 That means this script will persist across navigation and initialize Google Analytics once — just like the official integration would.
 
 **Happy tracking! 🎯**
 
-
-
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(postSchema),
+  }}
+/>

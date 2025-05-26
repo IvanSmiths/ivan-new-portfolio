@@ -1,16 +1,9 @@
----
-title: How to add Open Graph and Twitter metadata to Next.js app router
-excerpt: Next.js App Router simplifies adding Open Graph and Twitter metadata. We'll walk through an easy implementation and testing in your dev setup. Let's level up your website's social game!
-date: 2024-04-23T08:00:00+08:00
-slug: add-open-graph-twitter-nextjs-app-router
-category: Guide
-cover: https://utfs.io/f/aCaScRJubtiPvv2th03UO3qozXDu8rHybdfWAaIZ6KiJ0lYk
-coverAlt: open graph and twitter card
-coverWidth: 5442
-coverHeight: 2710
-time: 7
-tags: Next.js, Metadata, Open Graph, Twitter, App router
----
+import Hero from "../../../components/blog/Hero";
+import Note from "../../../components/blog/Note";
+import { data, postMetadata, postSchema } from "./postMetadata";
+export const metadata = postMetadata;
+
+<Hero post={data} />
 
 ## What is Open Graph
 
@@ -252,3 +245,10 @@ selected, you will see in the navbar on the top, the Open Graph link.
 />
 
 With this, you ensure that your website will look nice and clan when shared on social media.
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(postSchema),
+  }}
+/>
