@@ -22,7 +22,7 @@ function slugify(str: ReactNode): string {
     .replace(/\s+/g, "-")
     .replace(/&/g, "-and-")
     .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-");
+    .replace(/--+/g, "-");
 }
 
 export function createHeading(level: number) {
@@ -58,7 +58,14 @@ export function createHeading(level: number) {
         className: `font-bold ${fontSize} ${padding}`,
         ...props,
       },
-      children,
+      createElement(
+        "a",
+        {
+          href: `#${slug}`,
+          className: "no-underline hover:underline",
+        },
+        children,
+      ),
     );
   };
 }
