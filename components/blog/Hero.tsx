@@ -8,27 +8,25 @@ type PostProps = {
 
 const Hero = ({ post }: PostProps) => {
   return (
-    <header className="gap-md flex flex-col items-center justify-center text-center">
+    <header className="gap-md flex flex-col text-left">
       <span
         className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
       >
         {post.category}
       </span>
-      <h1 className="text-6xl font-bold uppercase">{post.title}</h1>
+      <h1 className="text-4xl font-bold uppercase md:text-6xl">{post.title}</h1>
       <h2>{post.description}</h2>
-      <div className="gap-xs flex flex-wrap items-center max-sm:flex-col">
-        <span>
-          Published:{" "}
-          <time dateTime={post.publishedAt}>
-            {new Date(post.publishedAt).toLocaleDateString("en-us", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
-        </span>
-      </div>
-      <ul className="gap-xs flex flex-wrap items-center justify-center">
+      <span>
+        Published:{" "}
+        <time dateTime={post.publishedAt}>
+          {new Date(post.publishedAt).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </time>
+      </span>
+      <ul className="gap-xs flex flex-wrap">
         {post.tags.map((tag: string, index: number) => (
           <li className="gap-xs flex items-center justify-center" key={index}>
             <span

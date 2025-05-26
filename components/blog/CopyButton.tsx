@@ -1,39 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import Check from "../global/Icons/Check";
 import Copy from "../global/Icons/Copy";
+import { useCopyToClipboard } from "../../utils/hooks/blog/useCopyToClipboard";
+import { ReactNode } from "react";
 
-interface CopyButtonProps {
+type CopyButtonProps = {
   content: string;
-}
+};
+
+type Label = "Copied!" | "Copy";
 
 export const CopyButton = ({ content }: CopyButtonProps) => {
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useCopyToClipboard();
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(content);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
+  const icon: ReactNode = copied ? <Check /> : <Copy />;
+  const label: Label = copied ? "Copied!" : "Copy";
 
   return (
     <button
-      onClick={handleCopy}
+      onClick={() => copy(content)}
       className={`text-muted-foreground absolute top-8 right-4 z-10 cursor-pointer p-2 transition`}
-      aria-label="Copy code"
+      aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
+      title={copied ? "Copied!" : "Copy"}
+      aria-live="polite"
     >
-      {copied ? (
-        <div className="flex flex-row items-center gap-2">
-          <Check />
-          <span className="text-xs">Copied!</span>
-        </div>
-      ) : (
-        <div className="flex flex-row items-center gap-2">
-          <Copy />
-          <span className="text-xs">Copy</span>
-        </div>
-      )}
+      <div className="flex flex-row items-center gap-2">
+        {icon}
+        <span className="text-xs">{label}</span>
+      </div>
     </button>
   );
 };

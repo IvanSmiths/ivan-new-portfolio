@@ -35,15 +35,15 @@ export function createHeading(level: number) {
 
     switch (level) {
       case 1:
-        fontSize = "text-4xl";
+        fontSize = "md:text-4xl text-3xl";
         padding = "pt-xl";
         break;
       case 2:
-        fontSize = "text-3xl";
+        fontSize = "md:text-3xl text-2xl";
         padding = "pt-xl";
         break;
       case 3:
-        fontSize = "text-2xl";
+        fontSize = "md:text-2xl text-xl";
         padding = "pt-md";
         break;
       default:

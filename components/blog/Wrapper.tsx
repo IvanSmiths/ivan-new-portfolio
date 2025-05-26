@@ -3,9 +3,11 @@ import TableOfContents from "./TableOfContents";
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <article className="gap-lg pt-2xl flex w-full flex-col items-center">
-      <div className="flex w-full pl-60">
-        <div className="gap-md p-md flex w-9/12 flex-col">{children}</div>
+    <article className="gap-lg md:pt-2xl pt-sm flex w-full flex-col items-center">
+      <div className="flex w-full md:w-9/12">
+        <div className="gap-md p-md flex w-full flex-col md:w-9/12">
+          {children}
+        </div>
         <TableOfContents />
       </div>
     </article>
