@@ -25,3 +25,16 @@ export const socialLinks: LinkItem[] = [
   { label: "YouTube", url: "https://youtube.com/@ivansmiths" },
   { label: "info@ivansmiths.com", url: "mailto:info@ivansmiths.com" },
 ];
+
+export const worksSubRoutes: string[] = [
+  "neugelb",
+  "scholz-und-volkmer",
+  "ideology",
+];
+
+export const projectsSubRoutes: string[] = [
+  "cover-letter-builder-pro",
+  "pika-prime",
+];
+
+export const craftsSubRoutes: string[] = ["photos", "renders"];
