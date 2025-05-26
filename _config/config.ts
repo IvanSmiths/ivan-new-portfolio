@@ -11,7 +11,7 @@ export type LinkItem = {
   url: string;
 };
 
-export const internalLinks: LinkItem[] = [
+export const internalRoutes: LinkItem[] = [
   { label: "Home", url: "/" },
   { label: "Works", url: "/works" },
   { label: "Projects", url: "/projects" },

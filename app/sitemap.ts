@@ -4,7 +4,7 @@ import { MetadataRoute } from "next";
 import {
   baseUrl,
   craftsSubRoutes,
-  internalLinks,
+  internalRoutes,
   projectsSubRoutes,
   worksSubRoutes,
 } from "../_config/config";
@@ -36,25 +36,25 @@ async function getBlogPostSlugs(): Promise<string[]> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const mainRoutes = internalLinks.map((link) => ({
-    url: link.url === internalLinks[0].url ? baseUrl : `${baseUrl}${link.url}`,
+  const mainRoutes = internalRoutes.map((link) => ({
+    url: link.url === internalRoutes[0].url ? baseUrl : `${baseUrl}${link.url}`,
     lastModified: new Date().toISOString(),
     changeFrequency:
-      link.url === internalLinks[0].url
+      link.url === internalRoutes[0].url
         ? ("monthly" as const)
         : ("yearly" as const),
-    priority: link.url === internalLinks[0].url ? 1.0 : 0.8,
+    priority: link.url === internalRoutes[0].url ? 1.0 : 0.8,
   }));
 
   const worksRoutes = worksSubRoutes.map((route) => ({
-    url: `${baseUrl}${internalLinks[1].url}/${route}`,
+    url: `${baseUrl}${internalRoutes[1].url}/${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
     priority: 0.7,
   }));
 
   const projectsRoutes = projectsSubRoutes.map((route) => ({
-    url: `${baseUrl}${internalLinks[2].url}/${route}`,
+    url: `${baseUrl}${internalRoutes[2].url}/${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
     priority: 0.7,
@@ -62,14 +62,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogSlugs = await getBlogPostSlugs();
   const blogRoutes = blogSlugs.map((slug) => ({
-    url: `${baseUrl}${internalLinks[3].url}/${slug}`,
+    url: `${baseUrl}${internalRoutes[3].url}/${slug}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
     priority: 0.7,
   }));
 
   const craftsRoutes = craftsSubRoutes.map((route) => ({
-    url: `${baseUrl}${internalLinks[4].url}/${route}`,
+    url: `${baseUrl}${internalRoutes[4].url}/${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
     priority: 0.5,
