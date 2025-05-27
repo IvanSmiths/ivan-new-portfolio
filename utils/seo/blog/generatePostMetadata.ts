@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { baseUrl } from "@arcjet/env";
-import { siteName } from "../../../_config/config";
+import { baseUrl, siteName } from "../../../_config/config";
 import { PostMetadata } from "../../fetch/posts/types";
 
 export const generatePostMetadata = (data: PostMetadata) => {
@@ -8,7 +7,10 @@ export const generatePostMetadata = (data: PostMetadata) => {
 
   const title = data.title ?? "Untitled";
   const description = data.description ?? "No description available";
-  const publishedTime = data.publishedAt ?? Date.now().toString();
+  const publishedTime = data.publishedAt
+    ? new Date(data.publishedAt).toISOString()
+    : new Date().toISOString();
+
   const image = data.cover ?? "";
   const category = data.category ?? "Post";
 
