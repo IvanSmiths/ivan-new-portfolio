@@ -23,31 +23,37 @@ export const useFadeInOnLoad = ({
     stagger = 0.1,
   } = options;
 
-  useGSAP(() => {
-    gsap.set(
-      refs.map((ref) => ref.current),
-      {
-        y: yOffset,
-        opacity: 0,
-        filter: `blur(${blurAmount}px)`,
-      },
-    );
-
-    const tl = gsap.timeline();
-
-    refs.forEach((ref, i) => {
-      if (!ref.current) return;
-      tl.to(
-        ref.current,
+  useGSAP(
+    () => {
+      gsap.set(
+        refs.map((ref) => ref.current),
         {
-          y: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration: duration,
-          ease: "power3.out",
+          y: yOffset,
+          opacity: 0,
+          filter: `blur(${blurAmount}px)`,
         },
-        i * stagger,
       );
-    });
-  }, [refs]);
+
+      const tl = gsap.timeline();
+
+      refs.forEach((ref, i) => {
+        if (!ref.current) return;
+        tl.to(
+          ref.current,
+          {
+            y: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: duration,
+            ease: "power3.out",
+          },
+          i * stagger,
+        );
+      });
+    },
+    {
+      dependencies: [],
+      scope: refs[0],
+    },
+  );
 };
