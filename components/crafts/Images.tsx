@@ -53,7 +53,10 @@ const Images: FC<ImagesProps> = ({ images }) => {
           {images
             .filter((_, index) => index % 3 === columnIndex)
             .map((image, index) => (
-              <figure className="h-[600px]" key={index}>
+              <figure
+                className={`animate-fadeInUp h-[600px] opacity-0 [animation-delay:${index + 1}00ms]`}
+                key={index}
+              >
                 <div
                   className="column__item-imgwrap relative h-full w-full overflow-hidden"
                   ref={(el) => {
