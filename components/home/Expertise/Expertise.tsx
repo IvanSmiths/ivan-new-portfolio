@@ -16,7 +16,7 @@ const Expertise = () => {
   );
 
   return (
-    <div>
+    <div className="hidden sm:block">
       <div
         ref={triggerRef}
         className="pt-lg pl-sm h-screen w-full overflow-hidden"

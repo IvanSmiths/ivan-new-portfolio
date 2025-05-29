@@ -3,9 +3,10 @@
 import { FC, useRef } from "react";
 import { WorkProjectBase } from "../../utils/data/types";
 import { useHorizontalScrollWithText } from "../../utils/hooks/animations/useHorizontalScrollWithText";
-import TemplateItem from "./TemplateItem";
 import TemplateText from "./TemplateText";
 import TemplateNavigation from "./TemplateNavigation";
+import TemplateItemWrapper from "./TemplateItemWrapper";
+import { useFadeInOnLoad } from "../../utils/hooks/animations/useFadeInOnLoad";
 
 type WorksProps = {
   works: WorkProjectBase[];
@@ -18,6 +19,10 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const subtitleRef = useRef<HTMLHeadingElement | null>(null);
 
+  const itemsWrapperRef = useRef<HTMLDivElement | null>(null);
+  const textWrapperRef = useRef<HTMLDivElement | null>(null);
+  const navigationWrapperRef = useRef<HTMLDivElement | null>(null);
+
   const { currentIndex, scrollToItem } = useHorizontalScrollWithText({
     items: works,
     containerRef,
@@ -26,17 +31,29 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
     subtitleRef,
   });
 
+  useFadeInOnLoad({
+    refs: [itemsWrapperRef, textWrapperRef, navigationWrapperRef],
+    options: {
+      duration: 0.8,
+      yOffset: 60,
+      blurAmount: 10,
+      stagger: 0.2,
+    },
+  });
+
   return (
     <div className="overflow-hidden pt-1">
-      <div ref={triggerRef} className="relative">
-        <div ref={containerRef} className="flex h-screen w-fit">
-          {works.map((work, index) => (
-            <TemplateItem key={index} work={work} path={path} />
-          ))}
-        </div>
+      <div className="relative" ref={triggerRef}>
+        <TemplateItemWrapper
+          works={works}
+          path={path}
+          containerRef={containerRef}
+          itemsWrapperRef={itemsWrapperRef}
+        />
         <TemplateText
           work={works[currentIndex] || works[0]}
           path={path}
+          textWrapperRef={textWrapperRef}
           titleRef={titleRef}
           subtitleRef={subtitleRef}
         />
@@ -44,6 +61,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
           works={works}
           currentIndex={currentIndex}
           onNavigate={scrollToItem}
+          navigationWrapperRef={navigationWrapperRef}
         />
       </div>
     </div>

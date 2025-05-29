@@ -25,7 +25,7 @@ export function useNavFade({
       if (isOpen) {
         gsap.to(navElement, {
           opacity: 1,
-          duration: 0.3,
+          duration: 0.2,
           ease: "power2.inOut",
         });
         gsap.fromTo(
@@ -37,13 +37,12 @@ export function useNavFade({
             duration: 0.3,
             stagger: 0.1,
             ease: "power2.out",
-            delay: 0.2,
           },
         );
         gsap.to(themeToggleRef.current, {
           opacity: 1,
           y: 0,
-          delay: 0.4,
+          delay: 0.3,
           duration: 0.3,
           ease: "power2.in",
         });
@@ -66,7 +65,7 @@ export function useNavFade({
           opacity: 0,
           duration: 0.3,
           ease: "power2.inOut",
-          delay: 0.6,
+          delay: 0.4,
         });
       }
     },

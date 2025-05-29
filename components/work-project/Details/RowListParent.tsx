@@ -1,13 +1,15 @@
 import { dm_sans } from "../../../utils/fonts/fonts";
 import RowList from "./RowList";
+import clsx from "clsx";
 
 type RowListParentProps = {
   description: string[];
+  className?: string;
 };
 
-const RowListParent = ({ description }: RowListParentProps) => {
+const RowListParent = ({ description, className }: RowListParentProps) => {
   return (
-    <>
+    <div className={clsx(className, "opacity-0")}>
       <span
         className={`${dm_sans.className} text-foreground-muted pl-sm mt-md block`}
       >
@@ -18,7 +20,7 @@ const RowListParent = ({ description }: RowListParentProps) => {
           <RowList key={i} desc={desc} />
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

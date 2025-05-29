@@ -7,6 +7,7 @@ interface WorkTitleProps {
   path: string;
   titleRef: RefObject<HTMLHeadingElement | null>;
   subtitleRef: RefObject<HTMLHeadingElement | null>;
+  textWrapperRef: RefObject<HTMLDivElement | null>;
 }
 
 const TemplateText: FC<WorkTitleProps> = ({
@@ -14,25 +15,27 @@ const TemplateText: FC<WorkTitleProps> = ({
   path,
   titleRef,
   subtitleRef,
+  textWrapperRef,
 }) => {
   return (
-    <>
-      <Link href={(path + "/" + work.slug).toString()}>
-        <h2
-          ref={titleRef}
-          className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-6xl font-black uppercase lg:text-8xl"
-        >
-          {work?.name}
-        </h2>
+    <div
+      className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center"
+      ref={textWrapperRef}
+    >
+      <Link
+        className="text-6xl font-black uppercase lg:text-8xl"
+        href={(path + "/" + work.slug).toString()}
+      >
+        <h2 ref={titleRef}>{work?.name}</h2>
       </Link>
 
       <h3
         ref={subtitleRef}
-        className="absolute top-28 left-1/2 hidden origin-center -translate-x-1/2 -translate-y-1/2 text-center md:block lg:top-[114px]"
+        className="s hidden origin-center text-center font-medium md:block lg:top-[114px]"
       >
         {work?.role}
       </h3>
-    </>
+    </div>
   );
 };
 

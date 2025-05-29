@@ -76,6 +76,8 @@ export const generatePostMetadata = (data: PostMetadata) => {
       headline: title,
       datePublished: publishedTime,
       dateModified: publishedTime,
+      description,
+      type: "TechArticle",
       author: {
         "@type": "Person",
         name: "Ivan Smiths",

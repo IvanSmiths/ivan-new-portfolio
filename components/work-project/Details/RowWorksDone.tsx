@@ -1,11 +1,13 @@
 import { Link } from "../../../utils/data/types";
 import SquareArrowOutUpRight from "../../global/Icons/SquareArrowOutUpRight";
+import clsx from "clsx";
 
 type RowWorksDoneRow = {
   worksDone: Link[];
+  className?: string;
 };
 
-const RowWorksDone = ({ worksDone }: RowWorksDoneRow) => {
+const RowWorksDone = ({ worksDone, className }: RowWorksDoneRow) => {
   const shouldRenderAsPlainText = (label: string) => {
     return (
       label === "RE/MAX" ||
@@ -15,7 +17,12 @@ const RowWorksDone = ({ worksDone }: RowWorksDoneRow) => {
   };
 
   return (
-    <div className="border-background-muted pl-sm py-xs flex items-start border-b-1">
+    <div
+      className={clsx(
+        "border-background-muted pl-sm py-xs flex items-start border-b-1 opacity-0",
+        className,
+      )}
+    >
       <div className="text-foreground-muted w-24 flex-shrink-0">Works Done</div>
       <div className="gap-xs flex flex-wrap gap-y-0.5 break-words">
         {worksDone.map((work, index) => (

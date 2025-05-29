@@ -12,15 +12,36 @@ type RowSectionProps = {
 const RowSection = ({ work }: RowSectionProps) => {
   return (
     <>
-      <Row label={"Company"} value={work.name} />
-      <Row label={"Date"} value={work.date} />
-      <Row label={"Role"} value={work.role} />
-      <RowLinks website={work.websiteLink} linkedin={work.linkedinLink} />
+      <Row className="animate-fadeInUp" label={"Company"} value={work.name} />
+      <Row
+        className="animate-fadeInUp [animation-delay:100ms]"
+        label={"Date"}
+        value={work.date}
+      />
+      <Row
+        className="animate-fadeInUp [animation-delay:200ms]"
+        label={"Role"}
+        value={work.role}
+      />
+      <RowLinks
+        className="animate-fadeInUp [animation-delay:300ms]"
+        website={work.websiteLink}
+        linkedin={work.linkedinLink}
+      />
       {work.worksDone && work.worksDone.length > 0 && (
-        <RowWorksDone worksDone={work.worksDone} />
+        <RowWorksDone
+          className="animate-fadeInUp [animation-delay:400ms]"
+          worksDone={work.worksDone}
+        />
       )}
-      <RowLabelList stack={work.stack} />
-      <RowListParent description={work.description} />
+      <RowLabelList
+        className="animate-fadeInUp [animation-delay:500ms]"
+        stack={work.stack}
+      />
+      <RowListParent
+        className="animate-fadeInUp [animation-delay:600ms]"
+        description={work.description}
+      />
     </>
   );
 };

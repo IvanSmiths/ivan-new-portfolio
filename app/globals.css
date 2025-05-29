@@ -26,6 +26,21 @@
     --spacing-3xl: calc(var(--space) + 64px);
     --spacing-4xl: calc(var(--space) + 96px);
     --spacing-5xl: calc(var(--space) + 126px);
+
+    --animate-fadeInUp: fadeInUp 0.6s ease-out forwards;
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(5px);
+            filter: 'blur(8px)';
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: 'blur(0)';
+        }
+    }
 }
 
 :root {
