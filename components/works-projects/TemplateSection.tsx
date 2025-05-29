@@ -37,7 +37,7 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
       duration: 0.8,
       yOffset: 60,
       blurAmount: 10,
-      stagger: 0.5,
+      stagger: 0.2,
     },
   });
 

@@ -20,7 +20,7 @@ export const useFadeInOnLoad = ({
     duration = 0.8,
     yOffset = 60,
     blurAmount = 10,
-    stagger = 0.5,
+    stagger = 0.1,
   } = options;
 
   useGSAP(() => {
@@ -43,10 +43,10 @@ export const useFadeInOnLoad = ({
           y: 0,
           opacity: 1,
           filter: "blur(0px)",
-          duration: duration - i * 0.1,
+          duration: duration,
           ease: "power3.out",
         },
-        i === 0 ? 0 : `-=${stagger}`,
+        i * stagger,
       );
     });
   }, [refs]);
