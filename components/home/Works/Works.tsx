@@ -53,9 +53,9 @@ export default function Works({ works }: WorksProps) {
   return (
     <section className="px-sm py-4xl w-full">
       <h2
-        className={`text-foreground-muted ${dm_mono.className} pb-md text-xs uppercase`}
+        className={`text-foreground ${dm_mono.className} pt-md text-xs uppercase underline underline-offset-2`}
       >
-        Featured works
+        <Link href="/works">All the works</Link>
       </h2>
       {works.map((work, index) => {
         return (
