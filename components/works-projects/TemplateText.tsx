@@ -31,7 +31,7 @@ const TemplateText: FC<WorkTitleProps> = ({
 
       <h3
         ref={subtitleRef}
-        className="hidden origin-center text-center md:block lg:top-[114px]"
+        className="s hidden origin-center text-center font-medium md:block lg:top-[114px]"
       >
         {work?.role}
       </h3>
