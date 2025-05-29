@@ -12,7 +12,7 @@ const Blog: FC = async () => {
       {posts.map((post: Post, index: number) => (
         <Link
           key={index}
-          className="group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-[600px] flex-col border transition"
+          className={`group animate-fadeInUp [animation-delay:${index + 1}00ms] hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-[600px] flex-col border opacity-0 transition`}
           href={`blog/${post?.slug}`}
         >
           <img
