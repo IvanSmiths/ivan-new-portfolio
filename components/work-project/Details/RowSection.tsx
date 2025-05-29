@@ -12,11 +12,7 @@ type RowSectionProps = {
 const RowSection = ({ work }: RowSectionProps) => {
   return (
     <>
-      <Row
-        className="animate-fadeInUp [animation-delay:0ms]"
-        label={"Company"}
-        value={work.name}
-      />
+      <Row className="animate-fadeInUp" label={"Company"} value={work.name} />
       <Row
         className="animate-fadeInUp [animation-delay:100ms]"
         label={"Date"}

@@ -3,7 +3,7 @@ import CityInfo from "./CityInfo";
 
 const Text: FC = () => {
   return (
-    <div className="mt-auto w-full md:w-96">
+    <div className="animate-fadeInUp mt-auto w-full opacity-0 md:w-96">
       <h1 className="text-foreground-muted text-base font-normal">
         <strong className="text-foreground font-medium">
           Code Wizard with 4 years of experience️ &#8226; Design Alchemist

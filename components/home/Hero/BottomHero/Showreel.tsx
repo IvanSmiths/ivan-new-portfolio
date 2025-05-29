@@ -4,7 +4,7 @@ const Showreel = () => {
   return (
     <a
       href="https://youtu.be/osf7rWGB9qw"
-      className="group relative cursor-pointer"
+      className="group animate-fadeInUp relative cursor-pointer opacity-0 [animation-delay:100ms]"
       target="_blank"
       rel="noreferrer noopener"
     >
