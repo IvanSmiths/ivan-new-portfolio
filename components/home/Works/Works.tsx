@@ -75,7 +75,7 @@ export default function Works({ works }: WorksProps) {
               (0{index + 1})
             </span>
 
-            <h3 className="relative inline-block text-5xl uppercase group-hover:opacity-0 md:text-6xl lg:text-9xl">
+            <h3 className="relative inline-block text-5xl font-black uppercase group-hover:opacity-0 md:text-6xl lg:text-9xl">
               {work.name}
             </h3>
 

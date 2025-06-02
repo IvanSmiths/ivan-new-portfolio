@@ -10,7 +10,7 @@ export interface MarqueeHandle extends MarqueeRefs {}
 export const Marquee = forwardRef<MarqueeHandle, MarqueeProps>(
   ({ children }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLHeadingElement>(null);
 
     useImperativeHandle(
       ref,
@@ -26,9 +26,9 @@ export const Marquee = forwardRef<MarqueeHandle, MarqueeProps>(
         ref={containerRef}
         className="bg-foreground pointer-events-none absolute inset-0 flex h-full items-center overflow-hidden opacity-0"
       >
-        <div ref={textRef} className="gap-3xl flex whitespace-nowrap">
+        <h3 ref={textRef} className="gap-3xl flex font-black whitespace-nowrap">
           {children}
-        </div>
+        </h3>
       </div>
     );
   },
