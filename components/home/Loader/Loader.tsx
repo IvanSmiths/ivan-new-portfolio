@@ -1,12 +1,11 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { FC, useEffect, useRef } from "react";
-import { useOverlayStore } from "../../../utils/stores/overlay";
+import { useEffect, useRef } from "react";
 import Header from "../Hero/TopHero/Header";
+import { useOverlayStore } from "../../../utils/stores/overlay";
+import { useLoader } from "../../../utils/hooks/animations/useLoader";
 
-const Loader: FC = () => {
+const Loader = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const faderRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
@@ -19,39 +18,10 @@ const Loader: FC = () => {
       document.body.style.overflow = "auto";
     }, 3000);
 
-    return () => {
-      clearTimeout(timeoutId);
-    };
+    return () => clearTimeout(timeoutId);
   }, []);
 
-  useGSAP(
-    () => {
-      const tl = gsap.timeline();
-      tl.to(imageRef.current, {
-        opacity: 1,
-        filter: "blur(0px)",
-        duration: 1,
-        onStart: () => hide(),
-      });
-      tl.to(imageRef.current, {
-        margin: 0,
-        top: 0,
-        duration: 1.5,
-        ease: "power4.inOut",
-      });
-      tl.to(containerRef.current, {
-        display: "none",
-      });
-      tl.to(faderRef.current, {
-        opacity: 0,
-        duration: 0.6,
-      });
-      tl.to(faderRef.current, {
-        display: "none",
-      });
-    },
-    { scope: containerRef, dependencies: [hide] },
-  );
+  useLoader({ containerRef, faderRef, imageRef }, { onHide: hide });
 
   return (
     <>
