@@ -1,23 +1,20 @@
 import { WorkProjectBase } from "../../utils/data/types";
-import { RefObject } from "react";
 
 interface WorkNavigationProps {
   works: WorkProjectBase[];
   currentIndex: number;
   onNavigate: (index: number) => void;
-  navigationWrapperRef: RefObject<HTMLDivElement | null>;
 }
 
 const TemplateNavigation = ({
   works,
   currentIndex,
   onNavigate,
-  navigationWrapperRef,
 }: WorkNavigationProps) => {
   return (
     <div
-      ref={navigationWrapperRef}
-      className="md:bottom-sm absolute bottom-[100px] left-1/2 z-20 -translate-x-1/2"
+      className="md:bottom-sm animate-fadeInUp absolute bottom-[100px] left-1/2 z-20 -translate-x-1/2 opacity-0"
+      style={{ animationDelay: "400ms" }}
     >
       <div className="gap-md flex">
         {works.map((work: WorkProjectBase, index: number) => (

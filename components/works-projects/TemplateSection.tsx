@@ -6,7 +6,6 @@ import { useHorizontalScrollWithText } from "../../utils/hooks/animations/useHor
 import TemplateText from "./TemplateText";
 import TemplateNavigation from "./TemplateNavigation";
 import TemplateItemWrapper from "./TemplateItemWrapper";
-import { useFadeInOnLoad } from "../../utils/hooks/animations/useFadeInOnLoad";
 
 type WorksProps = {
   works: WorkProjectBase[];
@@ -19,26 +18,12 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const subtitleRef = useRef<HTMLHeadingElement | null>(null);
 
-  const itemsWrapperRef = useRef<HTMLDivElement | null>(null);
-  const textWrapperRef = useRef<HTMLDivElement | null>(null);
-  const navigationWrapperRef = useRef<HTMLDivElement | null>(null);
-
   const { currentIndex, scrollToItem } = useHorizontalScrollWithText({
     items: works,
     containerRef,
     triggerRef,
     titleRef,
     subtitleRef,
-  });
-
-  useFadeInOnLoad({
-    refs: [itemsWrapperRef, textWrapperRef, navigationWrapperRef],
-    options: {
-      duration: 0.8,
-      yOffset: 60,
-      blurAmount: 10,
-      stagger: 0.2,
-    },
   });
 
   return (
@@ -48,12 +33,10 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
           works={works}
           path={path}
           containerRef={containerRef}
-          itemsWrapperRef={itemsWrapperRef}
         />
         <TemplateText
           work={works[currentIndex] || works[0]}
           path={path}
-          textWrapperRef={textWrapperRef}
           titleRef={titleRef}
           subtitleRef={subtitleRef}
         />
@@ -61,7 +44,6 @@ const TemplateSection: FC<WorksProps> = ({ works, path }) => {
           works={works}
           currentIndex={currentIndex}
           onNavigate={scrollToItem}
-          navigationWrapperRef={navigationWrapperRef}
         />
       </div>
     </div>

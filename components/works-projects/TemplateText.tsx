@@ -7,7 +7,6 @@ interface WorkTitleProps {
   path: string;
   titleRef: RefObject<HTMLHeadingElement | null>;
   subtitleRef: RefObject<HTMLHeadingElement | null>;
-  textWrapperRef: RefObject<HTMLDivElement | null>;
 }
 
 const TemplateText: FC<WorkTitleProps> = ({
@@ -15,12 +14,11 @@ const TemplateText: FC<WorkTitleProps> = ({
   path,
   titleRef,
   subtitleRef,
-  textWrapperRef,
 }) => {
   return (
     <div
-      className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center"
-      ref={textWrapperRef}
+      className="animate-fadeInUp absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center opacity-0"
+      style={{ animationDelay: "200ms" }}
     >
       <Link
         className="text-6xl font-black uppercase lg:text-8xl"
