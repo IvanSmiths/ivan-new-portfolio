@@ -12,11 +12,11 @@ const Images = ({ work }: HeaderProps) => {
           <li key={index} className="h-fit w-full">
             <img
               alt={`work number ${index}`}
-              className="animate-fadeInUp h-full opacity-0"
+              className="animate-fadeInUp opacity-0"
               src={image}
               loading="lazy"
               style={{
-                animationDelay: `${index * 800}ms`,
+                animationDelay: `${index * 80}ms`,
               }}
             />
           </li>
