@@ -8,7 +8,7 @@ export const animatedWords: string[] = [
   " ",
   "heroes",
   "i",
-  "bring,",
+  "bring",
   "design",
   "and",
   "code",

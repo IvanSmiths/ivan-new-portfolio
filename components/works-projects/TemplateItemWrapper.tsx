@@ -8,17 +8,18 @@ type TemplateItemWrapperProps = {
   works: WorkProjectBase[];
   path: string;
   containerRef: RefObject<HTMLDivElement | null>;
-  itemsWrapperRef: RefObject<HTMLDivElement | null>;
 };
 
 const TemplateItemWrapper: FC<TemplateItemWrapperProps> = ({
   works,
   path,
   containerRef,
-  itemsWrapperRef,
 }) => {
   return (
-    <div ref={itemsWrapperRef}>
+    <div
+      className="animate-fadeInUp opacity-0"
+      style={{ animationDelay: "0ms" }}
+    >
       <div ref={containerRef} className="flex h-screen w-fit">
         {works.map((work, index) => (
           <TemplateItem key={index} work={work} path={path} />

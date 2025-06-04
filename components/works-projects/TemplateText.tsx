@@ -7,7 +7,6 @@ interface WorkTitleProps {
   path: string;
   titleRef: RefObject<HTMLHeadingElement | null>;
   subtitleRef: RefObject<HTMLHeadingElement | null>;
-  textWrapperRef: RefObject<HTMLDivElement | null>;
 }
 
 const TemplateText: FC<WorkTitleProps> = ({
@@ -15,15 +14,14 @@ const TemplateText: FC<WorkTitleProps> = ({
   path,
   titleRef,
   subtitleRef,
-  textWrapperRef,
 }) => {
   return (
     <div
-      className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center"
-      ref={textWrapperRef}
+      className="animate-fadeInUp px-md absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 sm:px-36 md:px-56 lg:px-92"
+      style={{ animationDelay: "200ms" }}
     >
       <Link
-        className="text-6xl font-black uppercase lg:text-8xl"
+        className="text-5xl font-black uppercase sm:text-6xl lg:text-8xl"
         href={(path + "/" + work.slug).toString()}
       >
         <h2 ref={titleRef}>{work?.name}</h2>
@@ -31,7 +29,7 @@ const TemplateText: FC<WorkTitleProps> = ({
 
       <h3
         ref={subtitleRef}
-        className="s hidden origin-center text-center font-medium md:block lg:top-[114px]"
+        className="hidden origin-center text-center font-medium md:block lg:top-[114px]"
       >
         {work?.role}
       </h3>

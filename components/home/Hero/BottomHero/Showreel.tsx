@@ -16,12 +16,7 @@ const Showreel = () => {
       <span className={`text-xs ${dm_mono} text-foreground-muted uppercase`}>
         2020 - 2024 Showreel
       </span>
-      <video
-        className="w-full object-cover md:h-40 md:w-fit"
-        autoPlay
-        loop
-        muted
-      >
+      <video className="object-cover md:h-40" autoPlay loop muted>
         <source
           src="https://utfs.io/f/aCaScRJubtiP2mWMJSOEGVHWUKY8TpulMShIcw9X3Asb6rBn"
           media="(min-width: 768px)"
