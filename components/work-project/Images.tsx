@@ -9,7 +9,7 @@ const Images = ({ work }: HeaderProps) => {
     <div className="pt-sm w-full">
       <ul className="gap-sm flex w-full flex-col">
         {work.images.map((image, index) => (
-          <li key={index} className="w-full">
+          <li key={index} className="h-fit w-full">
             <img
               alt={`work number ${index}`}
               className="animate-fadeInUp h-full opacity-0"
