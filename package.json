@@ -34,15 +34,15 @@
     "zustand": "^5.0.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.7",
-    "@types/node": "^22.15.18",
-    "@types/react": "^19.1.4",
-    "drizzle-kit": "^0.31.1",
-    "eslint": "^9.26.0",
-    "eslint-config-next": "^15.3.2",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.7",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^24.0.4",
+    "@types/react": "^19.1.8",
+    "drizzle-kit": "^0.31.2",
+    "eslint": "^9.29.0",
+    "eslint-config-next": "^15.3.4",
+    "prettier": "^3.6.1",
+    "prettier-plugin-tailwindcss": "^0.6.13",
+    "tailwindcss": "^4.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
