@@ -14,7 +14,6 @@ export type LinkItem = {
 export const routes = {
   home: "/",
   works: "/works",
-  projects: "/projects",
   blog: "/blog",
   crafts: "/crafts",
 } as const;
@@ -35,7 +34,6 @@ export const craftsSubRoutes = ["photos", "renders"] as const;
 export const internalRoutes: LinkItem[] = [
   { label: "Home", url: routes.home },
   { label: "Works", url: routes.works },
-  { label: "Projects", url: routes.projects },
   { label: "Blog", url: routes.blog },
   { label: "Crafts", url: routes.crafts },
 ];

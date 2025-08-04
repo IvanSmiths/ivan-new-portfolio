@@ -17,7 +17,7 @@ const TemplateText: FC<WorkTitleProps> = ({
 }) => {
   return (
     <div
-      className="animate-fadeInUp px-md absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 sm:px-36 md:px-56 lg:px-92"
+      className="animate-fadeInUp px-md absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 sm:px-36 md:px-56 lg:px-96 xl:px-[500px]"
       style={{ animationDelay: "200ms" }}
     >
       <Link
