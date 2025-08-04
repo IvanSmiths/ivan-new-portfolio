@@ -3,7 +3,6 @@ import {
   baseUrl,
   craftsSubRoutes,
   internalRoutes,
-  projectsSubRoutes,
   worksSubRoutes,
 } from "../_config/config";
 import { getBlogPostSlugs } from "../utils/sitemap/getBlogPostSlug";
@@ -26,23 +25,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const projectsRoutes = projectsSubRoutes.map((route) => ({
-    url: `${baseUrl}${internalRoutes[2].url}/${route}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: "yearly" as const,
-    priority: 0.7,
-  }));
-
   const blogSlugs = await getBlogPostSlugs();
   const blogRoutes = blogSlugs.map((slug) => ({
-    url: `${baseUrl}${internalRoutes[3].url}/${slug}`,
+    url: `${baseUrl}${internalRoutes[2].url}/${slug}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
     priority: 0.7,
   }));
 
   const craftsRoutes = craftsSubRoutes.map((route) => ({
-    url: `${baseUrl}${internalRoutes[4].url}/${route}`,
+    url: `${baseUrl}${internalRoutes[3].url}/${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
     priority: 0.5,
@@ -51,14 +43,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allRoutes = [
     ...mainRoutes,
     ...worksRoutes,
-    ...projectsRoutes,
     ...blogRoutes,
     ...craftsRoutes,
   ];
 
   console.log(`✅ Generated sitemap with ${allRoutes.length} URLs`);
   console.log(
-    `📄 Main: ${mainRoutes.length}, Works: ${worksRoutes.length}, Projects: ${projectsRoutes.length}, Crafts: ${craftsRoutes.length}, Blog: ${blogRoutes.length}`,
+    `📄 Main: ${mainRoutes.length}, Works: ${worksRoutes.length}, Crafts: ${craftsRoutes.length}, Blog: ${blogRoutes.length}`,
   );
 
   return allRoutes;
