@@ -1,4 +1,4 @@
-import { dm_mono } from "../../../utils/fonts/fonts";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 import { LinkItem, socialLinks } from "../../../_config/config";
 import SquareArrowOutUpRight from "../Icons/SquareArrowOutUpRight";
 

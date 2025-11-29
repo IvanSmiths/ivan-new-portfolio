@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { dm_mono } from "../../../utils/fonts/fonts";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 
 const ThemeToggle: FC = () => {
   const [mounted, setMounted] = useState<boolean>(false);

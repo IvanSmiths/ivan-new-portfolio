@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { getImages } from "../../utils/fetch/getImages";
-import { craftsMetadata } from "../../utils/seo/crafts/craftsMetadata";
+import { craftsMetadata } from "../../utils/marketing/seo/crafts/craftsMetadata";
 import Images from "../../components/crafts/Images";
 import GalleryPage from "../../components/crafts/GalleryPage";
 import { Label } from "../../components/crafts/Filter";
-import { craftsSchema } from "../../utils/seo/crafts/craftsSchema";
+import { craftsSchema } from "../../utils/marketing/seo/crafts/craftsSchema";
 
 export const metadata: Metadata = craftsMetadata;
 

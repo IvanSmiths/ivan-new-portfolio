@@ -1,5 +1,5 @@
 import { Code as CodeTheme } from "bright";
-import { dm_mono } from "../../utils/fonts/fonts";
+import { dm_mono } from "../../utils/style/fonts/fonts";
 import { ReactNode } from "react";
 import { CopyButton } from "./CopyButton";
 

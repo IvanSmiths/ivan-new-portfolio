@@ -5,7 +5,7 @@ import {
   internalRoutes,
   worksSubRoutes,
 } from "../_config/config";
-import { getBlogPostSlugs } from "../utils/sitemap/getBlogPostSlug";
+import { getBlogPostSlugs } from "../utils/marketing/sitemap/getBlogPostSlug";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainRoutes = internalRoutes.map((link) => ({

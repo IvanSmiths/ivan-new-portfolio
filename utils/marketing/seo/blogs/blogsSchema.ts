@@ -1,6 +1,6 @@
-import { baseUrl } from "../../../_config/config";
+import { baseUrl } from "../../../../_config/config";
 
-export const pagesSchema = (type: string) => ({
+export const blogsSchema = {
   "@context": "http://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
@@ -13,8 +13,8 @@ export const pagesSchema = (type: string) => ({
     {
       "@type": "ListItem",
       position: 2,
-      name: "Works",
-      item: `{${baseUrl}${type}}`,
+      name: "Blogs",
+      item: `${baseUrl}/blog`,
     },
   ],
-});
+};

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import CompaniesLogo from "./CompaniesLogo";
-import { dm_mono } from "../../../../utils/fonts/fonts";
+import { dm_mono } from "../../../../utils/style/fonts/fonts";
 import { useTextSwap } from "../../../../utils/hooks/animations/useTextSwap";
 
 const CenterHero = () => {

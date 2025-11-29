@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
-import { dm_mono } from "../../utils/fonts/fonts";
+import { dm_mono } from "../../utils/style/fonts/fonts";
 
 export enum Label {
   All = "All",

@@ -1,4 +1,4 @@
-import { baseUrl } from "../../../_config/config";
+import { baseUrl } from "../../../../_config/config";
 
 type pageProps = {
   slug: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { dm_mono } from "../../../utils/fonts/fonts";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 import works from "../../../utils/data/works";
 import { internalRoutes, LinkItem } from "../../../_config/config";
 import { usePathname } from "next/navigation";

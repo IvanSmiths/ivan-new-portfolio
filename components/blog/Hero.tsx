@@ -1,5 +1,5 @@
 import Dot from "../global/Dot";
-import { dm_mono } from "../../utils/fonts/fonts";
+import { dm_mono } from "../../utils/style/fonts/fonts";
 import { PostMetadata } from "../../utils/fetch/posts/types";
 
 type PostProps = {

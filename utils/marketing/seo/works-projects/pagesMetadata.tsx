@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { baseUrl, siteName, twitter } from "../../../_config/config";
+import { baseUrl, siteName, twitter } from "../../../../_config/config";
 
 export function pagesMetadata(
   title: string,
