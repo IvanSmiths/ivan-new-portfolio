@@ -6,6 +6,11 @@ import {
   animatedImages,
   animatedWords,
 } from "../../../utils/data/home/about/textAndImages";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const About = () => {
   const containerRef = useRef(null);
