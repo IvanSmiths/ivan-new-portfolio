@@ -34,6 +34,7 @@
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.10.1",
     "@types/react": "19.2.7",
+    "babel-plugin-react-compiler": "^1.0.0",
     "drizzle-kit": "^0.31.7",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.5",
