@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { useOverlayStore } from "../../../utils/stores/overlay";
 
 const Overlay: FC = () => {
