@@ -22,7 +22,7 @@ const aj: ArcjetNext<{}> = arcjet({
   ],
 });
 
-export default async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   const decision: ArcjetDecision = await aj.protect(request);
 
   if (decision.isDenied() && decision.reason.isBot()) {
