@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Images from "../../../components/work-project/Images";
 import worksData from "../../../utils/data/works";
-import { WorkProjectPage } from "../../../utils/data/types";
+import { WorkProjectPage } from "../../../utils/data/types";  
 import { Metadata } from "next";
-import { generatePageMetadata } from "../../../utils/seo/work-project/pageMetadata";
+import { generatePageMetadata } from "../../../utils/marketing/seo/work-project/pageMetadata";
 import PageTemplate from "../../../components/work-project/PageTemplate";
 import Details from "../../../components/work-project/Details/Details";
-import { pageSchema } from "../../../utils/seo/work-project/pageSchema";
+import { pageSchema } from "../../../utils/marketing/seo/work-project/pageSchema";
 import { notFound } from "next/navigation";
 
 export type Params = Promise<{

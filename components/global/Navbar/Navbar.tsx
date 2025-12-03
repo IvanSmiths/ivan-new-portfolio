@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
-import { dm_mono } from "../../../utils/fonts/fonts";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 import ScrollPercentage from "./ScrollPercentage";
 import InternalLinks from "./InternalLinks";
 

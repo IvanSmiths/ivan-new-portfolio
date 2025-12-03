@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Time from "./Time";
 import Weather from "./Weather/Weather";
-import { dm_mono } from "../../../../../utils/fonts/fonts";
+import { dm_mono } from "../../../../../utils/style/fonts/fonts";
 
 const CityInfo: FC = () => {
   return (

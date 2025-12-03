@@ -1,4 +1,4 @@
-import { dm_sans } from "../../../utils/fonts/fonts";
+import { dm_sans } from "../../../utils/style/fonts/fonts";
 import RowList from "./RowList";
 import clsx from "clsx";
 

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { baseUrl, siteName } from "../../../_config/config";
-import { PostMetadata } from "../../fetch/posts/types";
+import { baseUrl, siteName } from "../../../../_config/config";
+import { PostMetadata } from "../../../fetch/posts/types";
 
 export const generatePostMetadata = (data: PostMetadata) => {
   const slug = data.title.toLowerCase().replace(/ /g, "-");

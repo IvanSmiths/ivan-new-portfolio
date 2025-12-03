@@ -1,4 +1,4 @@
-import { baseUrl } from "../../../_config/config";
+import { baseUrl } from "../../../../_config/config";
 
 export const craftsSchema = {
   "@context": "http://schema.org",

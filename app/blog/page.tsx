@@ -1,6 +1,6 @@
-import { blogsMetadata } from "../../utils/seo/blogs/blogsMetadata";
+import { blogsMetadata } from "../../utils/marketing/seo/blogs/blogsMetadata";
 import Blog from "../../components/blog/Blog";
-import { blogsSchema } from "../../utils/seo/blogs/blogsSchema";
+import { blogsSchema } from "../../utils/marketing/seo/blogs/blogsSchema";
 
 export const metadata = blogsMetadata;
 

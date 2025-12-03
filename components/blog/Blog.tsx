@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FC } from "react";
 import { formatDate } from "../../utils/formatters/formatDate";
-import { dm_mono } from "../../utils/fonts/fonts";
+import { dm_mono } from "../../utils/style/fonts/fonts";
 import { getPosts } from "../../utils/fetch/posts/getPosts";
 import { Post } from "../../utils/fetch/posts/types";
 

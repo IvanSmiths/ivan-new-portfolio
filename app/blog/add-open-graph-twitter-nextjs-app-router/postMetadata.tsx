@@ -1,5 +1,5 @@
 import { PostMetadata } from "../../../utils/fetch/posts/types";
-import { generatePostMetadata } from "../../../utils/seo/blog/generatePostMetadata";
+import { generatePostMetadata } from "../../../utils/marketing/seo/blog/generatePostMetadata";
 
 export const data: PostMetadata = {
   title: "How to add Open Graph and Twitter metadata to Next.js app router",

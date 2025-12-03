@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { dm_sans } from "../utils/fonts/fonts";
+import { dm_sans } from "../utils/style/fonts/fonts";
 import { ThemeProvider } from "next-themes";
 import NavbarMobile from "../components/global/Navbar/NavbarMobile/NavbarMobile";
-import { GoogleAnalytics } from "../utils/analytics/google-analytics";
+import { GoogleAnalytics } from "../utils/marketing/analytics/google-analytics";
 import { ReactNode } from "react";
 import Navbar from "../components/global/Navbar/Navbar";
 import Footer from "../components/global/Footer/Footer";

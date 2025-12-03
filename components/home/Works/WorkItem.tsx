@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { dm_mono } from "../../../utils/fonts/fonts";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 import { WorkProjectBase } from "../../../utils/data/types";
 import { Marquee, MarqueeHandle } from "./Marquee";
 
