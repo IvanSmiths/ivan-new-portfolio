@@ -1,6 +1,6 @@
-import { getWeather } from "../../../../../../utils/fetch/getWeather";
-import { dm_mono } from "../../../../../../utils/style/fonts/fonts";
 import React from "react";
+import { getWeather } from "../../../../../../utils/queries/getWeather";
+import { dm_mono } from "../../../../../../utils/style/fonts/fonts";
 
 type WeatherData = {
   main: {
@@ -26,16 +26,16 @@ async function Weather() {
 
   return (
     <div className="flex">
+			<span
+        className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
+      >
+				{temperature}°
+			</span>
       <span
         className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
       >
-        {temperature}°
-      </span>
-      <span
-        className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
-      >
-        {weatherDeg}
-      </span>
+				{weatherDeg}
+			</span>
     </div>
   );
 }

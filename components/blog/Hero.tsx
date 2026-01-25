@@ -1,6 +1,6 @@
-import Dot from "../global/Dot";
+import type { PostMetadata } from "../../utils/queries/posts/types";
 import { dm_mono } from "../../utils/style/fonts/fonts";
-import { PostMetadata } from "../../utils/fetch/posts/types";
+import Dot from "../global/Dot";
 
 type PostProps = {
   post: PostMetadata;
@@ -9,31 +9,31 @@ type PostProps = {
 const Hero = ({ post }: PostProps) => {
   return (
     <header className="gap-md flex flex-col text-left">
-      <span
+			<span
         className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
       >
-        {post.category}
-      </span>
+				{post.category}
+			</span>
       <h1 className="text-4xl font-bold uppercase md:text-6xl">{post.title}</h1>
       <h2>{post.description}</h2>
       <span>
-        Published:{" "}
+				Published:{" "}
         <time dateTime={post.publishedAt}>
-          {new Date(post.publishedAt).toLocaleDateString("en-us", {
+					{new Date(post.publishedAt).toLocaleDateString("en-us", {
             year: "numeric",
             month: "long",
-            day: "numeric",
+            day: "numeric"
           })}
-        </time>
-      </span>
+				</time>
+			</span>
       <ul className="gap-xs flex flex-wrap">
         {post.tags.map((tag: string, index: number) => (
           <li className="gap-xs flex items-center justify-center" key={index}>
-            <span
+						<span
               className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
             >
-              {tag}
-            </span>
+							{tag}
+						</span>
             <div className={index === post.tags.length - 1 ? "hidden" : ""}>
               <Dot dimension="small" />
             </div>

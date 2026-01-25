@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { FC } from "react";
-import { getPosts } from "../../utils/fetch/posts/getPosts";
-import type { Post } from "../../utils/fetch/posts/types";
 import { formatDate } from "../../utils/formatters/formatDate";
+import { getPosts } from "../../utils/queries/posts/getPosts";
+import type { Post } from "../../utils/queries/posts/types";
 import { dm_mono } from "../../utils/style/fonts/fonts";
 
 const Blog: FC = async () => {
