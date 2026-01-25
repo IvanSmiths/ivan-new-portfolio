@@ -1,43 +1,42 @@
-import React from "react";
 import { getWeather } from "../../../../../../utils/queries/getWeather";
 import { dm_mono } from "../../../../../../utils/style/fonts/fonts";
 
 type WeatherData = {
-  main: {
-    temp: number;
-  };
-  weather: {
-    main: string;
-  }[];
+	main: {
+		temp: number;
+	};
+	weather: {
+		main: string;
+	}[];
 };
 
 async function Weather() {
-  const data: WeatherData | null = await getWeather();
+	const data: WeatherData | null = await getWeather();
 
-  if (!data) {
-    return null;
-  }
+	if (!data) {
+		return null;
+	}
 
-  const weatherData = data as WeatherData;
-  const { weather } = weatherData;
-  const { temp } = weatherData.main;
-  const temperature = Math.round(temp);
-  const weatherDeg = weather[0].main;
+	const weatherData = data as WeatherData;
+	const { weather } = weatherData;
+	const { temp } = weatherData.main;
+	const temperature = Math.round(temp);
+	const weatherDeg = weather[0].main;
 
-  return (
-    <div className="flex">
+	return (
+		<div className="flex">
 			<span
-        className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
-      >
+				className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
+			>
 				{temperature}°
 			</span>
-      <span
-        className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
-      >
+			<span
+				className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
+			>
 				{weatherDeg}
 			</span>
-    </div>
-  );
+		</div>
+	);
 }
 
 export default Weather;
