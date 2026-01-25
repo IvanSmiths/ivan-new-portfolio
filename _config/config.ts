@@ -15,7 +15,6 @@ export const routes = {
   home: "/",
   works: "/works",
   blog: "/blog",
-  crafts: "/crafts",
 } as const;
 
 export const worksSubRoutes = [
@@ -35,7 +34,6 @@ export const internalRoutes: LinkItem[] = [
   { label: "Home", url: routes.home },
   { label: "Works", url: routes.works },
   { label: "Blog", url: routes.blog },
-  { label: "Crafts", url: routes.crafts },
 ];
 
 export const socialLinks: LinkItem[] = [
