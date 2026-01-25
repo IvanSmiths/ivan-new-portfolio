@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { FC } from "react";
+import type { FC } from "react";
+import { getPosts } from "../../utils/fetch/posts/getPosts";
+import type { Post } from "../../utils/fetch/posts/types";
 import { formatDate } from "../../utils/formatters/formatDate";
 import { dm_mono } from "../../utils/style/fonts/fonts";
-import { getPosts } from "../../utils/fetch/posts/getPosts";
-import { Post } from "../../utils/fetch/posts/types";
 
 const Blog: FC = async () => {
   const posts: Post[] = await getPosts();
@@ -18,7 +18,7 @@ const Blog: FC = async () => {
           <img
             src={post.cover}
             className="w-full object-cover"
-            alt="blogpost main image"
+            alt="blogpost"
           />
           <div className="gap-sm flex items-center">
             <time
@@ -30,8 +30,8 @@ const Blog: FC = async () => {
             <span
               className={`group-hover:text-background ${dm_mono} text-xs uppercase transition`}
             >
-              {post.category}
-            </span>
+							{post.category}
+						</span>
           </div>
           <h2 className="group-hover:text-background text-2xl font-medium transition md:text-4xl">
             {post.title}

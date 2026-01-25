@@ -1,10 +1,5 @@
-import { MetadataRoute } from "next";
-import {
-  baseUrl,
-  craftsSubRoutes,
-  internalRoutes,
-  worksSubRoutes,
-} from "../_config/config";
+import type { MetadataRoute } from "next";
+import { baseUrl, internalRoutes, worksSubRoutes } from "../_config/config";
 import { getBlogPostSlugs } from "../utils/marketing/sitemap/getBlogPostSlug";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -15,14 +10,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       link.url === internalRoutes[0].url
         ? ("monthly" as const)
         : ("yearly" as const),
-    priority: link.url === internalRoutes[0].url ? 1.0 : 0.8,
+    priority: link.url === internalRoutes[0].url ? 1.0 : 0.8
   }));
 
   const worksRoutes = worksSubRoutes.map((route) => ({
     url: `${baseUrl}${internalRoutes[1].url}/${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
-    priority: 0.7,
+    priority: 0.7
   }));
 
   const blogSlugs = await getBlogPostSlugs();
@@ -30,26 +25,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}${internalRoutes[2].url}/${slug}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "yearly" as const,
-    priority: 0.7,
+    priority: 0.7
   }));
 
-  const craftsRoutes = craftsSubRoutes.map((route) => ({
-    url: `${baseUrl}${internalRoutes[3].url}/${route}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: "yearly" as const,
-    priority: 0.5,
-  }));
-
-  const allRoutes = [
-    ...mainRoutes,
-    ...worksRoutes,
-    ...blogRoutes,
-    ...craftsRoutes,
-  ];
+  const allRoutes = [...mainRoutes, ...worksRoutes, ...blogRoutes];
 
   console.log(`✅ Generated sitemap with ${allRoutes.length} URLs`);
   console.log(
-    `📄 Main: ${mainRoutes.length}, Works: ${worksRoutes.length}, Crafts: ${craftsRoutes.length}, Blog: ${blogRoutes.length}`,
+    `📄 Main: ${mainRoutes.length}, Works: ${worksRoutes.length}, Blog: ${blogRoutes.length}`
   );
 
   return allRoutes;

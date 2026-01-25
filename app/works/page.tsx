@@ -3,11 +3,7 @@ import TemplateSection from "../../components/works-projects/TemplateSection";
 import worksData from "../../utils/data/works";
 import { pagesMetadata } from "../../utils/marketing/seo/works-projects/pagesMetadata";
 import { pagesSchema } from "../../utils/marketing/seo/works-projects/pagesSchemas";
-import {
-  description,
-  path,
-  title,
-} from "../../utils/marketing/seo/works-projects/worksMetadata";
+import { description, path, title } from "../../utils/marketing/seo/works-projects/worksMetadata";
 
 export const metadata: Metadata = pagesMetadata(title, description, path);
 
@@ -17,8 +13,9 @@ const WorksPage = () => {
       <TemplateSection path={path} works={worksData} />
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: cannot be avoided
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pagesSchema(path)),
+          __html: JSON.stringify(pagesSchema(path))
         }}
       />
     </>
