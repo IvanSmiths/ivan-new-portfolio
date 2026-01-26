@@ -1,4 +1,4 @@
-import { WorkProjectBase } from "../../utils/data/types";
+import type { WorkProjectBase } from "../../utils/data/types";
 
 interface WorkNavigationProps {
   works: WorkProjectBase[];
@@ -7,10 +7,10 @@ interface WorkNavigationProps {
 }
 
 const TemplateNavigation = ({
-  works,
-  currentIndex,
-  onNavigate,
-}: WorkNavigationProps) => {
+                              works,
+                              currentIndex,
+                              onNavigate
+                            }: WorkNavigationProps) => {
   return (
     <div
       className="md:bottom-sm animate-fadeInUp absolute bottom-[100px] left-1/2 z-20 -translate-x-1/2 opacity-0"
@@ -19,6 +19,7 @@ const TemplateNavigation = ({
       <div className="gap-md flex">
         {works.map((work: WorkProjectBase, index: number) => (
           <button
+            type="button"
             key={index}
             onClick={() => onNavigate(index)}
             className={`relative h-12 w-16 cursor-pointer overflow-hidden transition-all duration-300 hover:scale-110 ${

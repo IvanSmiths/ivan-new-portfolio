@@ -3,7 +3,7 @@
 import { useTableOfContents } from "../../utils/hooks/blog/useTableOfContents";
 
 export default function TableOfContents() {
-  const { headings, activeId } = useTableOfContents({});
+  const { headings, activeId } = useTableOfContents();
 
   if (headings.length === 0) {
     return null;
@@ -11,7 +11,8 @@ export default function TableOfContents() {
 
   return (
     <section>
-      <div className="top-2xl p-sm border-background-muted sticky right-8 hidden max-h-[calc(100vh-80px)] w-64 border lg:block">
+      <div
+        className="top-2xl p-sm border-background-muted sticky right-8 hidden max-h-[calc(100vh-80px)] w-64 border lg:block">
         <span className="text-sm">In this page:</span>
         <ul className="pt-sm space-y-2">
           {headings.map((heading, index) => (
@@ -35,7 +36,7 @@ export default function TableOfContents() {
                       elementPosition + window.pageYOffset - 50;
                     window.scrollTo({
                       top: offsetPosition,
-                      behavior: "smooth",
+                      behavior: "smooth"
                     });
                   }
                 }}

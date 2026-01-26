@@ -1,13 +1,13 @@
-import { FC } from "react";
-import Images from "../../../components/work-project/Images";
-import worksData from "../../../utils/data/works";
-import { WorkProjectPage } from "../../../utils/data/types";  
-import { Metadata } from "next";
-import { generatePageMetadata } from "../../../utils/marketing/seo/work-project/pageMetadata";
-import PageTemplate from "../../../components/work-project/PageTemplate";
-import Details from "../../../components/work-project/Details/Details";
-import { pageSchema } from "../../../utils/marketing/seo/work-project/pageSchema";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import type { FC } from "react";
+import Details from "../../../components/work-project/Details/Details";
+import Images from "../../../components/work-project/Images";
+import PageTemplate from "../../../components/work-project/PageTemplate";
+import type { WorkProjectPage } from "../../../utils/data/types";
+import worksData from "../../../utils/data/works";
+import { generatePageMetadata } from "../../../utils/marketing/seo/work-project/pageMetadata";
+import { pageSchema } from "../../../utils/marketing/seo/work-project/pageSchema";
 
 export type Params = Promise<{
   slug: string;
@@ -15,20 +15,20 @@ export type Params = Promise<{
 
 export async function generateStaticParams() {
   return (worksData as WorkProjectPage[]).map((work) => ({
-    slug: work.slug,
+    slug: work.slug
   }));
 }
 
 export async function generateMetadata({
-  params,
-}: {
+                                         params
+                                       }: {
   params: Params;
 }): Promise<Metadata> {
   const { slug } = await params;
   const entry = worksData.find((work) => work.slug === slug);
   if (!entry) {
     return {
-      title: "Work Not Found",
+      title: "Work Not Found"
     };
   }
 

@@ -1,6 +1,6 @@
-import { FC, RefObject } from "react";
 import Link from "next/link";
-import { WorkProjectBase } from "../../utils/data/types";
+import type { FC, RefObject } from "react";
+import type { WorkProjectBase } from "../../utils/data/types";
 
 interface WorkTitleProps {
   work: WorkProjectBase;
@@ -10,11 +10,11 @@ interface WorkTitleProps {
 }
 
 const TemplateText: FC<WorkTitleProps> = ({
-  work,
-  path,
-  titleRef,
-  subtitleRef,
-}) => {
+                                            work,
+                                            path,
+                                            titleRef,
+                                            subtitleRef
+                                          }) => {
   return (
     <div
       className="animate-fadeInUp px-md absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 sm:px-36 md:px-56 lg:px-96 xl:px-[500px]"
@@ -22,7 +22,7 @@ const TemplateText: FC<WorkTitleProps> = ({
     >
       <Link
         className="text-5xl font-black uppercase sm:text-6xl lg:text-8xl"
-        href={(path + "/" + work.slug).toString()}
+        href={`${path}/${work.slug}`.toString()}
       >
         <h2 ref={titleRef}>{work?.name}</h2>
       </Link>

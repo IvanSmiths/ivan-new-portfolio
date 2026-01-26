@@ -1,16 +1,16 @@
 import { Code as CodeTheme } from "bright";
+import type { ReactNode } from "react";
 import { dm_mono } from "../../utils/style/fonts/fonts";
-import { ReactNode } from "react";
 import { CopyButton } from "./CopyButton";
 
 CodeTheme.theme = {
   dark: "slack-dark",
-  light: "github-light",
+  light: "github-light"
 };
 
 CodeTheme.lineNumbers = true;
 CodeTheme.style = {
-  fontSize: "14px",
+  fontSize: "14px"
 };
 
 interface CodeProps {
@@ -18,6 +18,7 @@ interface CodeProps {
   children: ReactNode;
   title?: string;
 
+  // biome-ignore lint/suspicious/noExplicitAny: it's as intended
   [key: string]: any;
 }
 

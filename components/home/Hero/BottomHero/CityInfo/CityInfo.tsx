@@ -1,20 +1,20 @@
-import { FC } from "react";
+import type { FC } from "react";
+import { dm_mono } from "../../../../../utils/style/fonts/fonts";
 import Time from "./Time";
 import Weather from "./Weather/Weather";
-import { dm_mono } from "../../../../../utils/style/fonts/fonts";
 
 const CityInfo: FC = () => {
-  return (
-    <div className="mt-sm gap-md flex">
-      <span
-        className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
-      >
-        Wiesbaden(DE)
-      </span>
-      <Weather />
-      <Time />
-    </div>
-  );
+	return (
+		<div className="mt-sm gap-md flex">
+			<span
+				className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
+			>
+				Wiesbaden(DE)
+			</span>
+			<Weather />
+			<Time />
+		</div>
+	);
 };
 
 export default CityInfo;

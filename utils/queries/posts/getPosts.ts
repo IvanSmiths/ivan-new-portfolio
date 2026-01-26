@@ -1,7 +1,7 @@
-import path from "path";
-import fs from "fs";
+import fs from "node:fs";
+import path from "node:path";
 import { extractPostMetadata } from "./extractMetadataExport";
-import { Post } from "./types";
+import type { Post } from "./types";
 
 export async function getPosts(count?: number): Promise<Post[]> {
   const postsDirectory = path.join(process.cwd(), "app/blog");
@@ -27,7 +27,7 @@ export async function getPosts(count?: number): Promise<Post[]> {
             cover: metadata.cover,
             coverAlt: metadata.coverAlt,
             tags: metadata.tags,
-            category: metadata.category,
+            category: metadata.category
           });
         }
       } catch (error) {
@@ -38,7 +38,7 @@ export async function getPosts(count?: number): Promise<Post[]> {
 
   const sortedPosts = posts.sort(
     (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
   return typeof count === "number" ? sortedPosts.slice(0, count) : sortedPosts;

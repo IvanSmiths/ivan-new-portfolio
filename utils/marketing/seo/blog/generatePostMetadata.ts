@@ -1,6 +1,6 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { baseUrl, siteName } from "../../../../_config/config";
-import { PostMetadata } from "../../../fetch/posts/types";
+import type { PostMetadata } from "../../../queries/posts/types";
 
 export const generatePostMetadata = (data: PostMetadata) => {
   const slug = data.title.toLowerCase().replace(/ /g, "-");
@@ -28,21 +28,21 @@ export const generatePostMetadata = (data: PostMetadata) => {
       publishedTime,
       images: [
         {
-          url: image,
-        },
+          url: image
+        }
       ],
       siteName,
       modifiedTime: publishedTime,
       authors: [siteName],
       tags: [category],
-      url: `${fullUrl}`,
+      url: `${fullUrl}`
     },
     twitter: {
       title,
       description,
       card: "summary_large_image",
-      creator: "@PikaPrimeX",
-    },
+      creator: "@PikaPrimeX"
+    }
   };
 
   const postSchema = [
@@ -54,21 +54,21 @@ export const generatePostMetadata = (data: PostMetadata) => {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: baseUrl,
+          item: baseUrl
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Blog",
-          item: `${urlUntilPostPage}`,
+          item: `${urlUntilPostPage}`
         },
         {
           "@type": "ListItem",
           position: 3,
           name: title,
-          item: `${fullUrl}`,
-        },
-      ],
+          item: `${fullUrl}`
+        }
+      ]
     },
     {
       "@context": "http://schema.org",
@@ -81,10 +81,10 @@ export const generatePostMetadata = (data: PostMetadata) => {
       author: {
         "@type": "Person",
         name: "Ivan Smiths",
-        url: "https://ivansmiths.com/",
+        url: "https://ivansmiths.com/"
       },
-      image: [image],
-    },
+      image: [image]
+    }
   ];
 
   return { postMetadata, postSchema };

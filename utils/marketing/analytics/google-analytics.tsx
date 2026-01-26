@@ -7,7 +7,7 @@ type GAParams = {
   nonce?: string;
 };
 
-let currDataLayerName: string | undefined = undefined;
+let currDataLayerName: string | undefined;
 
 export function GoogleAnalytics(props: GAParams) {
   const { gaId, debugMode, dataLayerName = "dataLayer", nonce } = props;
@@ -20,13 +20,14 @@ export function GoogleAnalytics(props: GAParams) {
     <>
       <Script
         id="_next-ga-init"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: cannot avoid this
         dangerouslySetInnerHTML={{
           __html: `
           window['${dataLayerName}'] = window['${dataLayerName}'] || [];
           function gtag(){window['${dataLayerName}'].push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${gaId}' ${debugMode ? ",{ 'debug_mode': true }" : ""});`,
+          gtag('config', '${gaId}' ${debugMode ? ",{ 'debug_mode': true }" : ""});`
         }}
         nonce={nonce}
       />

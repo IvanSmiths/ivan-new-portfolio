@@ -5,8 +5,8 @@ export async function getWeather() {
     const res: Response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=Wiesbaden&appid=${process.env.OPEN_WEATHER_API}&units=metric`,
       {
-        method: "GET",
-      },
+        method: "GET"
+      }
     );
 
     if (!res.ok) {
@@ -15,7 +15,7 @@ export async function getWeather() {
 
     return res.json();
   } catch (error) {
-    console.error("Weather fetch error:", error);
+    console.error("Weather queries error:", error);
     return null;
   }
 }
