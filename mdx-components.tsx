@@ -1,11 +1,11 @@
 import { Code as CodeTheme } from "bright";
-import Note from "./components/blog/Note";
-import { CustomLink } from "./components/blog/CustomLink";
-import { createHeading } from "./components/blog/CreateHeading";
+import type { ReactNode } from "react";
 import Code from "./components/blog/Code";
-import { UnorderedList } from "./components/blog/UnorderedList";
+import { createHeading } from "./components/blog/CreateHeading";
+import { CustomLink } from "./components/blog/CustomLink";
+import Note from "./components/blog/Note";
 import { OrderedList } from "./components/blog/OrderedList";
-import { ReactNode } from "react";
+import { UnorderedList } from "./components/blog/UnorderedList";
 import Wrapper from "./components/blog/Wrapper";
 
 export type ChildrenAsProps = {
@@ -26,7 +26,7 @@ const components = {
   pre: CodeTheme,
   Note: Note,
   ul: UnorderedList,
-  ol: OrderedList,
+  ol: OrderedList
 };
 
 declare global {

@@ -1,25 +1,21 @@
-import arcjet, {
-  ArcjetDecision,
-  ArcjetNext,
-  detectBot,
-  shield,
-} from "@arcjet/next";
-import { NextRequest, NextResponse } from "next/server";
+import arcjet, { type ArcjetDecision, type ArcjetNext, detectBot, shield } from "@arcjet/next";
+import { type NextRequest, NextResponse } from "next/server";
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"]
 };
+
 const aj: ArcjetNext<{}> = arcjet({
   key: process.env.ARCJET_KEY!,
   rules: [
     detectBot({
       mode: "LIVE",
-      allow: ["CATEGORY:SEARCH_ENGINE", "CATEGORY:PREVIEW"],
+      allow: ["CATEGORY:SEARCH_ENGINE", "CATEGORY:PREVIEW"]
     }),
     shield({
-      mode: "LIVE",
-    }),
-  ],
+      mode: "LIVE"
+    })
+  ]
 });
 
 export default async function proxy(request: NextRequest) {

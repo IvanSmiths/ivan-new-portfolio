@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 const title: string =
   "Ivan Smiths - Insights and Articles on Next.js, Tailwind CSS, and Frontend Development";
@@ -13,13 +13,13 @@ export const blogsMetadata: Metadata = {
     description,
     type: "website",
     siteName: "Ivan Smiths",
-    url: `https://ivansmiths.com`,
+    url: `https://ivansmiths.com`
   },
   twitter: {
     title,
     description,
     card: "summary_large_image",
     creator: "@Ivansmiths",
-    creatorId: "1303746727594405894",
-  },
+    creatorId: "1303746727594405894"
+  }
 };

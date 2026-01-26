@@ -1,22 +1,11 @@
 import Link from "next/link";
-import { MutableRefObject } from "react";
 import { usePathname } from "next/navigation";
-
-type NavLink = {
-  href: string;
-  label: string;
-};
-
-const navLinks: NavLink[] = [
-  { href: "/crafts", label: "CRAFTS" },
-  { href: "/blog", label: "BLOG" },
-  { href: "/works", label: "WORKS" },
-  { href: "/", label: "HOME" },
-];
+import type { RefObject } from "react";
+import { internalRoutes, type LinkItem } from "../../../../_config/config";
 
 type NavLinksProps = {
   toggleMenu: () => void;
-  linksRef: MutableRefObject<(HTMLLIElement | null)[]>;
+  linksRef: RefObject<(HTMLLIElement | null)[]>;
 };
 
 export default function NavLinks({ toggleMenu, linksRef }: NavLinksProps) {
@@ -29,9 +18,9 @@ export default function NavLinks({ toggleMenu, linksRef }: NavLinksProps) {
 
   return (
     <ul className="gap-s flex w-full flex-col overflow-auto">
-      {navLinks.map((link: NavLink, index: number) => (
+      {internalRoutes.map((link: LinkItem, index: number) => (
         <li
-          key={link.href}
+          key={link.url}
           ref={(el: HTMLLIElement | null): void => {
             linksRef.current[index] = el;
           }}
@@ -40,10 +29,11 @@ export default function NavLinks({ toggleMenu, linksRef }: NavLinksProps) {
         >
           <span className="bg-background-muted w-full p-[0.5px]"></span>
           <Link
-            href={link.href}
+            href={link.url}
             onClick={toggleMenu}
-            className={`pr-small py-md text-6xl font-bold ${isActive(link.href) ? "text-foreground" : "text-foreground-muted"
-              }`}
+            className={`pr-small py-md text-6xl font-bold ${
+              isActive(link.url) ? "text-foreground" : "text-foreground-muted"
+            }`}
           >
             {link.label}
           </Link>
