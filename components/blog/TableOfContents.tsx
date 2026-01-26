@@ -3,7 +3,7 @@
 import { useTableOfContents } from "../../utils/hooks/blog/useTableOfContents";
 
 export default function TableOfContents() {
-  const { headings, activeId } = useTableOfContents({});
+  const { headings, activeId } = useTableOfContents();
 
   if (headings.length === 0) {
     return null;
