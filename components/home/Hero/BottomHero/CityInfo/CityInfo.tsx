@@ -1,9 +1,12 @@
 import type { FC } from "react";
+import { useWeather } from "../../../../../utils/hooks/useWeather";
 import { dm_mono } from "../../../../../utils/style/fonts/fonts";
 import Time from "./Time";
 import Weather from "./Weather/Weather";
 
 const CityInfo: FC = () => {
+	const { data: weather, isLoading, error } = useWeather();
+
 	return (
 		<div className="mt-sm gap-md flex">
 			<span
@@ -11,7 +14,7 @@ const CityInfo: FC = () => {
 			>
 				Wiesbaden(DE)
 			</span>
-			<Weather />
+			<Weather data={weather || null} />
 			<Time />
 		</div>
 	);

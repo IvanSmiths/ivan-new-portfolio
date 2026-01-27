@@ -1,12 +1,15 @@
+import type { GetStaticProps } from "next";
 import Link from "next/link";
-import type { FC } from "react";
 import { formatDate } from "../../utils/formatters/formatDate";
 import { getPosts } from "../../utils/queries/posts/getPosts";
 import type { Post } from "../../utils/queries/posts/types";
 import { dm_mono } from "../../utils/style/fonts/fonts";
 
-const Blog: FC = async () => {
-	const posts: Post[] = await getPosts();
+type BlogPageProps = {
+	posts: Post[];
+};
+
+export default function BlogPage({ posts }: BlogPageProps) {
 	return (
 		<main className="p-sm gap-sm flex flex-wrap">
 			{posts.map((post: Post, index: number) => (
@@ -43,6 +46,13 @@ const Blog: FC = async () => {
 			))}
 		</main>
 	);
-};
+}
 
-export default Blog;
+export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
+	const posts = getPosts(); // synchronous
+
+	return {
+		props: { posts },
+		revalidate: 60, // optional ISR: rebuild every 60s
+	};
+};

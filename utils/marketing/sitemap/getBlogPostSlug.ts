@@ -3,16 +3,19 @@ import path from "node:path";
 
 export async function getBlogPostSlugs(): Promise<string[]> {
 	try {
-		const blogDirectory = path.join(process.cwd(), "app", "blog");
+		const blogDirectory = path.join(process.cwd(), "pages", "blog");
 		const entries = await fs.readdir(blogDirectory, { withFileTypes: true });
 		const slugs: string[] = [];
 
 		for (const entry of entries) {
-			if (entry.isDirectory()) {
+			if (entry.isDirectory() && entry.name !== "data") {
 				const dirPath = path.join(blogDirectory, entry.name);
 				try {
 					const dirContents = await fs.readdir(dirPath);
-					if (dirContents.includes("page.mdx")) {
+					if (
+						dirContents.includes("index.tsx") ||
+						dirContents.includes("index.js")
+					) {
 						slugs.push(entry.name);
 					}
 				} catch (error) {

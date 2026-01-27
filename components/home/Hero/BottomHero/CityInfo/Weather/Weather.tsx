@@ -1,4 +1,3 @@
-import { getWeather } from "../../../../../../utils/queries/getWeather";
 import { dm_mono } from "../../../../../../utils/style/fonts/fonts";
 
 type WeatherData = {
@@ -10,21 +9,21 @@ type WeatherData = {
 	}[];
 };
 
-async function Weather() {
-	const data: WeatherData | null = await getWeather();
+type WeatherProps = {
+	data: WeatherData | null;
+};
 
+function Weather({ data }: WeatherProps) {
 	if (!data) {
 		return null;
 	}
 
-	const weatherData = data as WeatherData;
-	const { weather } = weatherData;
-	const { temp } = weatherData.main;
-	const temperature = Math.round(temp);
+	const { weather, main } = data;
+	const temperature = Math.round(main.temp);
 	const weatherDeg = weather[0].main;
 
 	return (
-		<div className="flex">
+		<div className="flex gap-1">
 			<span
 				className={`text-foreground-muted ${dm_mono.className} text-xs uppercase`}
 			>
