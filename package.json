@@ -20,7 +20,6 @@
     "@next/mdx": "^16.1.4",
     "@tanstack/react-query": "^5.90.20",
     "@types/mdx": "^2.0.13",
-    "bright": "^1.0.0",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "next": "^16.1.4",
