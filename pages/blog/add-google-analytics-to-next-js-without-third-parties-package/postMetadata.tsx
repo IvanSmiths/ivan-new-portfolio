@@ -1,5 +1,5 @@
-import { generatePostMetadata } from "../../../marketing/seo/blog/generatePostMetadata";
-import type { PostMetadata } from "../../../queries/posts/types";
+import { generatePostMetadata } from "../../../utils/marketing/seo/blog/generatePostMetadata";
+import type { PostMetadata } from "../../../utils/queries/posts/types";
 
 export const data: PostMetadata = {
   title: "How to Add Google Analytics to Next.js Without Third-Party Packages",

@@ -1,13 +1,8 @@
-import type { GetStaticProps } from "next";
 import Link from "next/link";
+import type { BlogPageProps } from "../../pages/blog";
 import { formatDate } from "../../utils/formatters/formatDate";
-import { getPosts } from "../../utils/queries/posts/getPosts";
 import type { Post } from "../../utils/queries/posts/types";
 import { dm_mono } from "../../utils/style/fonts/fonts";
-
-type BlogPageProps = {
-  posts: Post[];
-};
 
 export default function BlogPage({ posts }: BlogPageProps) {
   return (
@@ -15,7 +10,7 @@ export default function BlogPage({ posts }: BlogPageProps) {
       {posts.map((post: Post, index: number) => (
         <Link
           key={index}
-          className={`group animate-fadeInUp [animation-delay:${index + 1}00ms] hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-[600px] flex-col border opacity-0 transition`}
+          className={`group animate-fadeInUp [animation-delay:${index + 1}00ms] hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-150 flex-col border opacity-0 transition`}
           href={`blog/${post?.slug}`}
         >
           <img
@@ -47,12 +42,3 @@ export default function BlogPage({ posts }: BlogPageProps) {
     </main>
   );
 }
-
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const posts = getPosts(); // synchronous
-
-  return {
-    props: { posts },
-    revalidate: 60 // optional ISR: rebuild every 60s
-  };
-};

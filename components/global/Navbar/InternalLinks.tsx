@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { internalRoutes, type LinkItem } from "../../../_config/config";
-import works from "../../../utils/data/works";
+import works from "../../../pages/works";
 import { dm_mono } from "../../../utils/style/fonts/fonts";
 
 const InternalLinks = () => {

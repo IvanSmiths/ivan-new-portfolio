@@ -23,8 +23,6 @@ export const worksSubRoutes = [
   "ideology"
 ] as const;
 
-export const craftsSubRoutes = ["photos", "renders"] as const;
-
 export const internalRoutes: LinkItem[] = [
   { label: "Home", url: routes.home },
   { label: "Works", url: routes.works },

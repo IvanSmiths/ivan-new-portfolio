@@ -13,7 +13,7 @@ export async function getBlogPostSlugs(): Promise<string[]> {
         try {
           const dirContents = await fs.readdir(dirPath);
           if (
-            dirContents.includes("index.tsx") ||
+            dirContents.includes("index.mdx") ||
             dirContents.includes("index.js")
           ) {
             slugs.push(entry.name);

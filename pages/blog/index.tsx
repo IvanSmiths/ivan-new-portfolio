@@ -1,11 +1,20 @@
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Blog from "../../components/blog/Blog";
 import { blogsSchema } from "../../utils/marketing/seo/blogs/blogsSchema";
+import { getPosts } from "../../utils/queries/posts/getPosts";
+import type { Post } from "../../utils/queries/posts/types";
 
-const title = "Ivan Smiths - Insights and Articles on Next.js, Tailwind CSS, and Frontend Development";
-const description = "Explore blog posts on modern frontend technologies, including Next.js, Tailwind CSS, and advanced development techniques. Gain insights, tips, and tutorials to enhance your skills in building efficient, user-friendly web applications.";
+export type BlogPageProps = {
+  posts: Post[];
+};
 
-export default function BlogPage() {
+const title =
+  "Ivan Smiths - Insights and Articles on Next.js, Tailwind CSS, and Frontend Development";
+const description =
+  "Explore blog posts on modern frontend technologies, including Next.js, Tailwind CSS, and advanced development techniques. Gain insights, tips, and tutorials to enhance your skills in building efficient, user-friendly web applications.";
+
+export default function BlogPage({ posts }: BlogPageProps) {
   return (
     <>
       <Head>
@@ -27,8 +36,16 @@ export default function BlogPage() {
         />
       </Head>
       <div className="md:mt-3xl">
-        <Blog />
+        <Blog posts={posts} />
       </div>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
+  const posts: Post[] = getPosts();
+
+  return {
+    props: { posts }
+  };
+};
