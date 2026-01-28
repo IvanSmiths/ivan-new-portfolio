@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { internalRoutes, type LinkItem } from "../../../_config/config";

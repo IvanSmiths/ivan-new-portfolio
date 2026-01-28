@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import MenuButton from "./MenuButton";
 import NavMenu from "./NavMenu";

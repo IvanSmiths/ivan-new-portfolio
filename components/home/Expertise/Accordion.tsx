@@ -1,5 +1,3 @@
-"use client";
-
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { dm_mono } from "../../../utils/style/fonts/fonts";

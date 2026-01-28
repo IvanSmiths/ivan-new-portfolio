@@ -1,5 +1,3 @@
-"use client";
-
 import { useTheme } from "next-themes";
 import { type FC, useEffect, useState } from "react";
 import { dm_mono } from "../../../utils/style/fonts/fonts";

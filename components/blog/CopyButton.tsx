@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { useCopyToClipboard } from "../../utils/hooks/blog/useCopyToClipboard";
 import Check from "../global/Icons/Check";

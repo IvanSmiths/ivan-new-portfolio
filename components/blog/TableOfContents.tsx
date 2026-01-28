@@ -1,5 +1,3 @@
-"use client";
-
 import { useTableOfContents } from "../../utils/hooks/blog/useTableOfContents";
 
 export default function TableOfContents() {
