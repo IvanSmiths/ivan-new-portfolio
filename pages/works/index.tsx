@@ -1,5 +1,5 @@
 import Head from "next/head";
-import TemplateSection from "../../components/works-projects/TemplateSection";
+import TemplateSection from "../../components/works/TemplateSection";
 import worksData from "../../utils/data/works";
 import { pagesSchema } from "../../utils/marketing/seo/works-projects/pagesSchemas";
 import { description, path, title } from "../../utils/marketing/seo/works-projects/worksMetadata";

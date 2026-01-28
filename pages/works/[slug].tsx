@@ -1,9 +1,9 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import type { FC } from "react";
-import Details from "../../components/work-project/Details/Details";
-import Images from "../../components/work-project/Images";
-import PageTemplate from "../../components/work-project/PageTemplate";
+import Details from "../../components/work/Details/Details";
+import Images from "../../components/work/Images";
+import PageTemplate from "../../components/work/PageTemplate";
 import type { WorkProjectPage } from "../../utils/data/types";
 import worksData from "../../utils/data/works";
 import { generatePageMetadata } from "../../utils/marketing/seo/work-project/pageMetadata";
