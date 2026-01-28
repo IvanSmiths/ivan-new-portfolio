@@ -8,13 +8,13 @@ export const blogsSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: baseUrl,
+      item: baseUrl
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Blogs",
-      item: `${baseUrl}/blog`,
-    },
-  ],
+      item: `${baseUrl}/blog`
+    }
+  ]
 };

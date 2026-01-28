@@ -3,13 +3,13 @@ import CenterHero from "./CenterHero/CenterHero";
 import TopHero from "./TopHero/TopHero";
 
 const Hero = () => {
-	return (
-		<div className="p-sm md:pt-xl pt-sm gap-xl flex min-h-[100vh] flex-col justify-between">
-			<TopHero />
-			<CenterHero />
-			<BottomHero />
-		</div>
-	);
+  return (
+    <div className="p-sm md:pt-xl pt-sm gap-xl flex min-h-[100vh] flex-col justify-between">
+      <TopHero />
+      <CenterHero />
+      <BottomHero />
+    </div>
+  );
 };
 
 export default Hero;
