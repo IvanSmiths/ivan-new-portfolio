@@ -8,6 +8,7 @@ export interface PostMetadata {
   coverAlt: string;
   tags: string[];
   category: PostCategory;
+  url: string;
 }
 
 export interface Post extends PostMetadata {

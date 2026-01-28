@@ -7,6 +7,10 @@ import { OrderedList } from "./components/blog/OrderedList";
 import { UnorderedList } from "./components/blog/UnorderedList";
 import Wrapper from "./components/blog/Wrapper";
 
+export type ChildrenAsProps = {
+  children: ReactNode;
+};
+
 const components = {
   wrapper: Wrapper,
   h1: createHeading(1),

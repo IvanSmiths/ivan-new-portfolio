@@ -11,7 +11,6 @@ export default function Code({ children, className }: CodeProps) {
   const isBlock = className?.includes("language-");
 
   const codeString = typeof children === "string" ? children.trim() : "";
-  console.log("MDX code className:", className);
 
   if (!isBlock) {
     return (

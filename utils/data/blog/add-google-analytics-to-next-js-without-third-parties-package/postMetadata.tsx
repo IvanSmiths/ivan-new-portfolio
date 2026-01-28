@@ -1,10 +1,11 @@
-import { generatePostMetadata } from "../../../utils/marketing/seo/blog/generatePostMetadata";
-import type { PostMetadata } from "../../../utils/queries/posts/types";
+import { generatePostMetadata } from "../../../marketing/seo/blog/generatePostMetadata";
+import type { PostMetadata } from "../../../queries/posts/types";
 
 export const data: PostMetadata = {
   title: "How to Add Google Analytics to Next.js Without Third-Party Packages",
   description:
     "Learn how to add Google Analytics to your Next.js App Router project without relying on third-party libraries. This guide walks you through the setup using native Next.js features for a leaner, dependency-free implementation.",
+  url: "https://ivansmiths.com/blog/add-google-analytics-to-next-js-without-third-parties-package",
   publishedAt: "2025-05-26",
   cover:
     "https://res.cloudinary.com/deino2cjx/image/upload/v1748246277/portfolio/blog/Next%20Google%20Analytics/cover_iplg3d.png",

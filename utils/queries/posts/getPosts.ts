@@ -4,7 +4,7 @@ import { extractPostMetadata } from "./extractMetadataExport";
 import type { Post } from "./types";
 
 export function getPosts(count?: number): Post[] {
-  const postsDirectory = path.join(process.cwd(), "pages/blog");
+  const postsDirectory = path.join(process.cwd(), "utils/data/blog");
   const directories = fs
     .readdirSync(postsDirectory, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -25,6 +25,7 @@ export function getPosts(count?: number): Post[] {
             publishedAt: metadata.publishedAt,
             description: metadata.description,
             cover: metadata.cover,
+            url: metadata.url,
             coverAlt: metadata.coverAlt,
             tags: metadata.tags,
             category: metadata.category
