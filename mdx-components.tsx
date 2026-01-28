@@ -1,4 +1,3 @@
-import { Code as CodeTheme } from "bright";
 import type { ReactNode } from "react";
 import Code from "./components/blog/Code";
 import { createHeading } from "./components/blog/CreateHeading";
@@ -7,10 +6,6 @@ import Note from "./components/blog/Note";
 import { OrderedList } from "./components/blog/OrderedList";
 import { UnorderedList } from "./components/blog/UnorderedList";
 import Wrapper from "./components/blog/Wrapper";
-
-export type ChildrenAsProps = {
-  children: ReactNode;
-};
 
 const components = {
   wrapper: Wrapper,
@@ -21,18 +16,15 @@ const components = {
   h5: createHeading(5),
   h6: createHeading(6),
   a: CustomLink,
-  Code: Code,
+
+  pre: ({ children }: { children: ReactNode }) => children,
   code: Code,
-  pre: CodeTheme,
-  Note: Note,
+
+  Note,
   ul: UnorderedList,
   ol: OrderedList
 };
 
-declare global {
-  type MDXProvidedComponents = typeof components;
-}
-
-export function useMDXComponents(): MDXProvidedComponents {
+export function useMDXComponents() {
   return components;
 }

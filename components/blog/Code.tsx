@@ -1,54 +1,34 @@
-import { Code as CodeTheme } from "bright";
 import type { ReactNode } from "react";
 import { dm_mono } from "../../utils/style/fonts/fonts";
 import { CopyButton } from "./CopyButton";
 
-CodeTheme.theme = {
-  dark: "slack-dark",
-  light: "github-light"
-};
-
-CodeTheme.lineNumbers = true;
-CodeTheme.style = {
-  fontSize: "14px"
-};
-
 interface CodeProps {
-  lang?: string;
   children: ReactNode;
-  title?: string;
-
-  // biome-ignore lint/suspicious/noExplicitAny: it's as intended
-  [key: string]: any;
+  className?: string;
 }
 
-export const Code = ({ lang, title, children, ...props }: CodeProps) => {
-  const codeString =
-    typeof children === "string"
-      ? children
-      : Array.isArray(children)
-        ? children.map((c) => (typeof c === "string" ? c : "")).join("")
-        : "";
+export default function Code({ children, className }: CodeProps) {
+  const isBlock = className?.includes("language-");
 
-  if (lang) {
+  const codeString = typeof children === "string" ? children.trim() : "";
+  console.log("MDX code className:", className);
+
+  if (!isBlock) {
     return (
-      <div className="relative -my-3">
-        <CopyButton content={codeString} />
-        <CodeTheme title={title} lang={lang} {...props}>
-          {children}
-        </CodeTheme>
-      </div>
+      <code
+        className={`rounded bg-muted px-1.5 py-0.5 text-sm ${dm_mono.className}`}
+      >
+        {children}
+      </code>
     );
   }
 
   return (
-    <code
-      className={`bg-background-muted px-2 py-1 text-sm ${dm_mono.className}`}
-      {...props}
-    >
-      {children}
-    </code>
+    <div className="relative my-6">
+      <CopyButton content={codeString} />
+      <pre className="overflow-x-auto rounded-xl bg-code p-4">
+				<code className={`${className} ${dm_mono.className}`}>{children}</code>
+			</pre>
+    </div>
   );
-};
-
-export default Code;
+}
