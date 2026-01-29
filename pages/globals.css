@@ -66,3 +66,20 @@ pre {
     font-size: 14px;
     line-height: 1.6;
 }
+
+.page-change-cnt {
+    z-index: 999999;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.page-change-col {
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    transform: translateY(-100%);
+    background-color: var(--background-muted);
+}

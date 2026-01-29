@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import Footer from "../components/global/Footer/Footer";
 import Navbar from "../components/global/Navbar/Navbar";
+import RouteTransition from "../components/global/routeTransition";
 import { GoogleAnalytics } from "../utils/marketing/analytics/google-analytics";
 import { OverlayProvider } from "../utils/stores/overlay";
 
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <OverlayProvider>
             <Navbar />
+            <RouteTransition />
             <Component {...pageProps} />
             <Footer />
           </OverlayProvider>
