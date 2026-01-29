@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { internalRoutes, type LinkItem } from "../../../_config/config";
-import works from "../../../pages/works";
+import works from "../../../utils/data/works/";
 import { dm_mono } from "../../../utils/style/fonts/fonts";
 
 const InternalLinks = () => {
   const pathname = usePathname();
   return (
-    <ul className="gap-md flex items-start">
+    <ul className="md:gap-md gap-lg flex items-start">
       {internalRoutes.map((link: LinkItem, index: number) => {
         const isActive =
           link.url === "/" ? pathname === "/" : pathname.startsWith(link.url);

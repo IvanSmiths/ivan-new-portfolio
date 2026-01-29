@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import type { Author } from "next/dist/lib/metadata/types/metadata-types";
 
-const title: string =
+export const title: string =
   "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
 export const description: string =
   "Fullstack Developer with over 4 years of experience in building user-centered websites and applications for clients like Deutsche Bahn, R+V, Adidas, and WMF. Skilled in Next.js, TypeScript, and UX design, I enhances digital experiences through innovative, data-driven solutions and seamless functionality.";
+export const url = "https://ivansmiths.com";
 export const keywords: string[] = [
   "next.js",
   "react.js",

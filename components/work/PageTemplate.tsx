@@ -16,7 +16,6 @@ function PageTemplate<T>({
       {renderContent(entry)}
       <script
         type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: cannot avoid
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(schema)
         }}

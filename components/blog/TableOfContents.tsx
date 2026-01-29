@@ -20,7 +20,7 @@ export default function TableOfContents() {
             >
               <a
                 href={`#${heading.id}`}
-                className={`hover:text-foreground block border-l-1 pl-2 text-sm transition-colors ${
+                className={`hover:text-foreground block border-l pl-2 text-sm transition-colors ${
                   activeId === heading.id
                     ? "text-foreground border-foreground"
                     : "border-foreground-muted text-foreground-muted"

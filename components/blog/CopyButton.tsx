@@ -19,7 +19,7 @@ export const CopyButton = ({ content }: CopyButtonProps) => {
     <button
       type="button"
       onClick={() => copy(content)}
-      className={`text-muted-foreground absolute top-8 right-4 z-10 cursor-pointer p-2 transition`}
+      className={`text-muted-foreground absolute top-3 right-4 z-10 cursor-pointer p-2 transition`}
       aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
       title={copied ? "Copied!" : "Copy"}
       aria-live="polite"

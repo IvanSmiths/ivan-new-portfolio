@@ -51,9 +51,6 @@
     --background-muted: #e3e3e3;
     --foreground: #000000;
     --foreground-muted: #757575;
-
-    --code-bg: #f6f8fa;
-    --code-fg: #24292f;
 }
 
 .dark {
@@ -61,39 +58,11 @@
     --background-muted: #252525;
     --foreground: #ffffff;
     --foreground-muted: #838383;
-
-    --code-bg: #0d1117;
-    --code-fg: #c9d1d9;
 }
 
 pre {
-    background: var(--code-bg);
-    color: var(--code-fg);
+    background: var(--background-muted);
+    color: var(--foreground);
     font-size: 14px;
     line-height: 1.6;
-}
-
-code .keyword {
-    color: #ff7b72;
-}
-
-code .string {
-    color: #a5d6ff;
-}
-
-code .comment {
-    color: #8b949e;
-    font-style: italic;
-}
-
-code .function {
-    color: #d2a8ff;
-}
-
-code .number {
-    color: #79c0ff;
-}
-
-code:not(pre code) {
-    background: rgba(110, 118, 129, 0.15);
 }

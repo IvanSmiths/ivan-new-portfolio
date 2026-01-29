@@ -1,13 +1,13 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
 import type { FC } from "react";
+import { Seo } from "../../components/global/seo";
 import Details from "../../components/work/Details/Details";
 import Images from "../../components/work/Images";
 import PageTemplate from "../../components/work/PageTemplate";
 import type { WorkProjectPage } from "../../utils/data/types";
 import worksData from "../../utils/data/works";
-import { generatePageMetadata } from "../../utils/marketing/seo/work-project/pageMetadata";
-import { pageSchema } from "../../utils/marketing/seo/work-project/pageSchema";
+import { pageSchema } from "../../utils/marketing/seo/work/pageSchema";
+import { pagesSchema } from "../../utils/marketing/seo/works/pagesSchemas";
 
 interface WorkProps {
   entry: WorkProjectPage;
@@ -42,51 +42,16 @@ export const getStaticProps: GetStaticProps<WorkProps> = async ({ params }) => {
 };
 
 const Work: FC<WorkProps> = ({ entry }) => {
-  const metadata = generatePageMetadata(
-    entry.slug,
-    worksData,
-    "work",
-    "Work Not Found"
-  );
-
   return (
     <>
-      <Head>
-        <title>{String(metadata.title)}</title>
-        <meta name="description" content={String(metadata.description || "")} />
-        <meta property="og:title" content={String(metadata.title)} />
-        <meta
-          property="og:description"
-          content={String(metadata.description || "")}
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://ivansmiths.com/works/${entry.slug}`}
-        />
-        {Array.isArray(metadata.openGraph?.images) &&
-          metadata.openGraph.images.map((image: any, index: number) => (
-            <meta key={index} property="og:image" content={image.url} />
-          ))}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={String(metadata.title)} />
-        <meta
-          name="twitter:description"
-          content={String(metadata.description || "")}
-        />
-        <meta name="twitter:creator" content="@Ivansmiths" />
-        {Array.isArray(metadata.twitter?.images) &&
-          metadata.twitter.images.map((image: any, index: number) => (
-            <meta key={index} name="twitter:image" content={image.url} />
-          ))}
-        <script
-          type="application/ld+json"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: cannot be avoided
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(pageSchema(entry, "works"))
-          }}
-        />
-      </Head>
+      <Seo
+        title={entry.title}
+        description={entry.metaDescription}
+        url={entry.url}
+        image={entry.homeImage.url}
+        type="website"
+        schema={pagesSchema}
+      />
       <PageTemplate
         entry={entry}
         schema={pageSchema(entry, "works")}
