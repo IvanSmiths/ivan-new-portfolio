@@ -29,31 +29,29 @@ export default function App({ Component, pageProps }: AppProps) {
             if (!nodeRef.current) return;
 
             gsap.set(nodeRef.current, {
-              autoAlpha: 0,
-              scale: 0.8,
-              xPercent: -100
+              y: 80,
+              scale: 0.95,
+              autoAlpha: 0
             });
 
-            gsap
-              .timeline()
-              .to(nodeRef.current, {
-                autoAlpha: 1,
-                xPercent: 0,
-                duration: 0.25
-              })
-              .to(nodeRef.current, { scale: 1, duration: 0.25 });
+            gsap.to(nodeRef.current, {
+              y: 0,
+              scale: 1,
+              autoAlpha: 1,
+              duration: 0.6,
+              ease: "power3.out"
+            });
           }}
           onExit={() => {
             if (!nodeRef.current) return;
 
-            gsap
-              .timeline()
-              .to(nodeRef.current, { scale: 0.8, duration: 0.2 })
-              .to(nodeRef.current, {
-                xPercent: 100,
-                autoAlpha: 0,
-                duration: 0.2
-              });
+            gsap.to(nodeRef.current, {
+              y: 40,
+              scale: 0.9,
+              autoAlpha: 0,
+              duration: 0.6,
+              ease: "power3.inOut"
+            });
           }}
         >
           <div ref={nodeRef}>
