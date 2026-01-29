@@ -18,6 +18,7 @@ export function WorkItem({
                          }: WorkItemProps) {
   return (
     <Link
+      scroll={false}
       href={`/works/${work.slug}`}
       ref={(el) => onLinkRefAction(index, el)}
       className={`group border-background-muted hover:bg-foreground relative flex cursor-pointer items-start justify-center overflow-hidden border-b py-10 text-center transition ${

@@ -13,7 +13,7 @@ const TemplateNavigation = ({
                             }: WorkNavigationProps) => {
   return (
     <div
-      className="md:bottom-sm animate-fadeInUp absolute bottom-[100px] left-1/2 z-20 -translate-x-1/2 opacity-0"
+      className="md:bottom-sm absolute bottom-25 left-1/2 z-20 -translate-x-1/2 "
       style={{ animationDelay: "400ms" }}
     >
       <div className="gap-md flex">

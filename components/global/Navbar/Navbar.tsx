@@ -10,6 +10,7 @@ const Navbar = () => {
       className="fixed bottom-0 left-0 z-30 flex flex-row-reverse md:flex-row w-full items-center justify-between border-t border-background-muted bg-background px-sm py-sm md:top-0 md:bottom-auto md:border-t-0 md:border-b">
       <Link
         href="/"
+        scroll={false}
         className={`text-xs hidden md:block uppercase ${dm_mono.className}`}
       >
         Ivan Smiths

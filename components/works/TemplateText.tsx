@@ -17,10 +17,11 @@ const TemplateText: FC<WorkTitleProps> = ({
                                           }) => {
   return (
     <div
-      className="animate-fadeInUp px-md absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 sm:px-36 md:px-56 lg:px-96 xl:px-[500px]"
+      className="px-md absolute inset-0 flex flex-col items-center justify-center text-center sm:px-36 md:px-56 lg:px-96 xl:px-125"
       style={{ animationDelay: "200ms" }}
     >
       <Link
+        scroll={false}
         className="text-5xl font-black uppercase sm:text-6xl lg:text-8xl"
         href={`${path}/${work.slug}`.toString()}
       >
@@ -29,7 +30,7 @@ const TemplateText: FC<WorkTitleProps> = ({
 
       <h3
         ref={subtitleRef}
-        className="hidden origin-center text-center font-medium md:block lg:top-[114px]"
+        className="hidden origin-center text-center font-medium md:block lg:top-28.5"
       >
         {work?.role}
       </h3>

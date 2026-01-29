@@ -12,7 +12,12 @@ export function CustomLink(props: CustomLinkProps) {
   }
   if (href.startsWith("/")) {
     return (
-      <Link className="text-lg font-bold underline" href={href} {...props}>
+      <Link
+        scroll={false}
+        className="text-lg font-bold underline"
+        href={href}
+        {...props}
+      >
         {props.children}
       </Link>
     );

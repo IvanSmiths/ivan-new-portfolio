@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import "./globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
 import { useRef } from "react";
@@ -24,10 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <Transition
           key={router.pathname}
           nodeRef={nodeRef}
-          timeout={500}
+          timeout={600}
           onEnter={() => {
             if (!nodeRef.current) return;
-
+            window.scrollTo(0, 0);
             gsap.set(nodeRef.current, {
               y: 80,
               scale: 0.95,
@@ -39,11 +40,17 @@ export default function App({ Component, pageProps }: AppProps) {
               scale: 1,
               autoAlpha: 1,
               duration: 0.6,
-              ease: "power3.out"
+              ease: "power3.out",
+              onComplete: () => {
+                // Remove all GSAP-applied styles so the stacking context is reset
+                gsap.set(nodeRef.current, { clearProps: "all" });
+                ScrollTrigger.refresh();
+              }
             });
           }}
           onExit={() => {
             if (!nodeRef.current) return;
+            ScrollTrigger.getAll().forEach((t) => t.kill());
 
             gsap.to(nodeRef.current, {
               y: 40,
@@ -59,14 +66,13 @@ export default function App({ Component, pageProps }: AppProps) {
               <QueryClientProvider client={queryClient}>
                 <OverlayProvider>
                   <Component {...pageProps} />
+                  <Footer />
                 </OverlayProvider>
               </QueryClientProvider>
             </ThemeProvider>
           </div>
         </Transition>
       </SwitchTransition>
-
-      <Footer />
       <GoogleAnalytics gaId="G-55MHEPYVDV" />
     </>
   );

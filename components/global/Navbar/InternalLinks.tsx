@@ -14,6 +14,7 @@ const InternalLinks = () => {
         return (
           <li className="flex" key={link.url}>
             <Link
+              scroll={false}
               href={link.url}
               className={`flex text-xs uppercase ${dm_mono.className} ${
                 isActive ? "underline underline-offset-2" : ""

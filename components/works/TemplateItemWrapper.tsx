@@ -14,10 +14,7 @@ const TemplateItemWrapper: FC<TemplateItemWrapperProps> = ({
                                                              containerRef
                                                            }) => {
   return (
-    <div
-      className="animate-fadeInUp opacity-0"
-      style={{ animationDelay: "0ms" }}
-    >
+    <div className="" style={{ animationDelay: "0ms" }}>
       <div ref={containerRef} className="flex h-screen w-fit">
         {works.map((work, index) => (
           <TemplateItem key={index} work={work} path={path} />

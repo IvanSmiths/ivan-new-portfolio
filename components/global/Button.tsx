@@ -11,6 +11,7 @@ const Button: FC<ButtonProps> = ({ label, link }: ButtonProps) => {
     <div
       className="group flex cursor-pointer items-center justify-center gap-8 rounded-md border-2 border-dark px-6 py-3 transition hover:bg-dark dark:border-light dark:hover:bg-light">
       <Link
+        scroll={false}
         className="text-1xl transition group-hover:text-light dark:group-hover:text-dark"
         href={link}
       >

@@ -9,8 +9,9 @@ export default function BlogPage({ posts }: BlogPageProps) {
     <main className="p-sm gap-sm flex flex-wrap">
       {posts.map((post: Post, index: number) => (
         <Link
+          scroll={false}
           key={index}
-          className={`group animate-fadeInUp [animation-delay:${index + 1}00ms] hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-150 flex-col border opacity-0 transition`}
+          className={`group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-150 flex-col border`}
           href={`blog/${post?.slug}`}
         >
           <img
