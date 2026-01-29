@@ -10,7 +10,7 @@ const Row = ({ label, value, className }: RowProps) => {
   return (
     <div
       className={clsx(
-        "border-background-muted pl-sm py-xs flex border-b opacity-0",
+        "border-background-muted pl-sm py-xs flex border-b",
         className
       )}
     >

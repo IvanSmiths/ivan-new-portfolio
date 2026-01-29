@@ -16,7 +16,9 @@ export default function Works({ works }: WorksProps) {
       <h2
         className={`text-foreground ${dm_mono.className} pb-sm text-xs uppercase underline underline-offset-2`}
       >
-        <Link href="/works">All the works</Link>
+        <Link scroll={false} href="/works">
+          All the works
+        </Link>
       </h2>
       {works.map((work, index) => (
         <WorkItem

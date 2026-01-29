@@ -1,65 +1,33 @@
 import type { AppProps } from "next/app";
 import "./globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useRouter } from "next/router";
+import { type NextRouter, useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
-import { useRef } from "react";
 import { SwitchTransition, Transition } from "react-transition-group";
 import Footer from "../components/global/Footer/Footer";
 import Navbar from "../components/global/Navbar/Navbar";
+import { useRouteTransition } from "../utils/hooks/animations/useRouteTransition";
 import { GoogleAnalytics } from "../utils/marketing/analytics/google-analytics";
 import { OverlayProvider } from "../utils/stores/overlay";
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const nodeRef = useRef<HTMLDivElement>(null);
+  const router: NextRouter = useRouter();
+
+  const { nodeRef, containerRef, handleEnter, handleExit } =
+    useRouteTransition();
 
   return (
-    <>
+    <div ref={containerRef}>
       <Navbar />
       <SwitchTransition mode="out-in">
         <Transition
           key={router.pathname}
           nodeRef={nodeRef}
           timeout={600}
-          onEnter={() => {
-            if (!nodeRef.current) return;
-            window.scrollTo(0, 0);
-            gsap.set(nodeRef.current, {
-              y: 80,
-              scale: 0.95,
-              autoAlpha: 0
-            });
-
-            gsap.to(nodeRef.current, {
-              y: 0,
-              scale: 1,
-              autoAlpha: 1,
-              duration: 0.6,
-              ease: "power3.out",
-              onComplete: () => {
-                // Remove all GSAP-applied styles so the stacking context is reset
-                gsap.set(nodeRef.current, { clearProps: "all" });
-                ScrollTrigger.refresh();
-              }
-            });
-          }}
-          onExit={() => {
-            if (!nodeRef.current) return;
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-
-            gsap.to(nodeRef.current, {
-              y: 40,
-              scale: 0.9,
-              autoAlpha: 0,
-              duration: 0.6,
-              ease: "power3.inOut"
-            });
-          }}
+          onEnter={handleEnter}
+          onExit={handleExit}
         >
           <div ref={nodeRef}>
             <ThemeProvider enableSystem attribute="class">
@@ -74,6 +42,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </Transition>
       </SwitchTransition>
       <GoogleAnalytics gaId="G-55MHEPYVDV" />
-    </>
+    </div>
   );
 }

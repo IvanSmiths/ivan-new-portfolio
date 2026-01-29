@@ -9,7 +9,7 @@ const RowLabelList = ({ stack, className }: RowLabelListProps) => {
   return (
     <div
       className={clsx(
-        "border-background-muted pl-sm py-xs flex items-start border-b opacity-0",
+        "border-background-muted pl-sm py-xs flex items-start border-b",
         className
       )}
     >
