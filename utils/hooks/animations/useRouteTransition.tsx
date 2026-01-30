@@ -1,35 +1,31 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useRouter } from "next/router";
 import { useRef } from "react";
 
 export const useRouteTransition = () => {
-  const router = useRouter();
   const nodeRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const killAllScrollTriggers = () => {
+    ScrollTrigger.getAll().forEach((t) => {
+      t.kill(true);
+    });
+    ScrollTrigger.clearMatchMedia();
+  };
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
   });
 
-  useGSAP(
-    () => {
-      return () => {
-        ScrollTrigger.getAll().forEach((t) => {
-          t.kill();
-        });
-      };
-    },
-    {
-      scope: containerRef,
-      dependencies: [router.pathname]
-    }
-  );
+  killAllScrollTriggers();
 
   const handleEnter = () => {
     if (!nodeRef.current) return;
-    window.scrollTo(0, 0);
+    document.documentElement.classList.remove("route-transitioning");
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
 
     gsap.set(nodeRef.current, {
       y: 80,
@@ -44,7 +40,6 @@ export const useRouteTransition = () => {
       duration: 0.6,
       ease: "power3.out",
       onComplete: () => {
-        // Remove all GSAP-applied styles so the stacking context is reset
         gsap.set(nodeRef.current, { clearProps: "all" });
         ScrollTrigger.refresh();
       }
@@ -53,6 +48,8 @@ export const useRouteTransition = () => {
 
   const handleExit = () => {
     if (!nodeRef.current) return;
+    document.documentElement.classList.add("route-transitioning");
+    killAllScrollTriggers();
 
     gsap.to(nodeRef.current, {
       y: 40,

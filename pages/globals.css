@@ -66,3 +66,8 @@ pre {
     font-size: 14px;
     line-height: 1.6;
 }
+
+html.route-transitioning,
+body.route-transitioning {
+    overflow: hidden;
+}
