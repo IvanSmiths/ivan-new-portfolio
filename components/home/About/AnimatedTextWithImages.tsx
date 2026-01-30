@@ -8,7 +8,6 @@ interface AnimatedTextWithImagesProps {
   words: string[];
   images: string[];
   triggerRef: RefObject<HTMLElement | null>;
-  wordClassName?: string;
 }
 
 export const AnimatedTextWithImages = ({
@@ -21,7 +20,7 @@ export const AnimatedTextWithImages = ({
 
   useScrollTextFill({
     refs: wordRefs.current,
-    triggerRef: triggerRef
+    triggerRef
   });
 
   let imageIndex = 0;
@@ -33,7 +32,11 @@ export const AnimatedTextWithImages = ({
         if (word === " ") {
           const src = images[imageIndex++];
           return (
-            <AnimatedImage key={index} refCallback={setImageRef} src={src} />
+            <AnimatedImage
+              key={`image-${index}`}
+              refCallback={setImageRef}
+              src={src}
+            />
           );
         }
 

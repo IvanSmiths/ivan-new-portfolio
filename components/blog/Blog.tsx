@@ -11,14 +11,9 @@ export default function BlogPage({ posts }: BlogPageProps) {
         <Link
           scroll={false}
           key={index}
-          className={`group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-sm flex w-150 flex-col border`}
+          className={`group hover:bg-foreground border-background-muted gap-sm hover:border-foreground p-md flex w-96 flex-col border`}
           href={`blog/${post?.slug}`}
         >
-          <img
-            src={post.cover}
-            className="w-full object-cover"
-            alt="blogpost"
-          />
           <div className="gap-sm flex items-center">
             <time
               className={`group-hover:text-background ${dm_mono} text-xs uppercase transition`}
@@ -32,7 +27,7 @@ export default function BlogPage({ posts }: BlogPageProps) {
 							{post.category}
 						</span>
           </div>
-          <h2 className="group-hover:text-background text-2xl font-medium transition md:text-4xl">
+          <h2 className="group-hover:text-background text-1xl font-medium transition md:text-4xl">
             {post.title}
           </h2>
           <h3 className="group-hover:text-background text-sm transition">
