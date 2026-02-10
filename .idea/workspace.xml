@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add header">
+    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add navbar">
+      <change afterPath="$PROJECT_DIR$/_config/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/global/navbar/InternalLinks.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/global/navbar/Navbar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/global/navbar/ScrollPercentage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/composables/useScrollPercentage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/works.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/home/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/home/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
-        <option value="Vue Composition API Component" />
         <option value="TypeScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -119,11 +122,11 @@
       <recent name="$PROJECT_DIR$/app/blog" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/components/global/navbar" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/components/global" />
       <recent name="$PROJECT_DIR$/utils/marketing/seo/blog" />
-      <recent name="$PROJECT_DIR$/utils/data/blog/add-open-graph-twitter-nextjs-app-router" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -280,15 +283,7 @@
       <workItem from="1770716398482" duration="4555000" />
       <workItem from="1770725581072" duration="1732000" />
       <workItem from="1770727320622" duration="10000" />
-      <workItem from="1770727450943" duration="619000" />
-    </task>
-    <task id="LOCAL-00184" summary="add fade animation">
-      <option name="closed" value="true" />
-      <created>1748535383222</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1748535383222</updated>
+      <workItem from="1770727450943" duration="1934000" />
     </task>
     <task id="LOCAL-00185" summary="add year">
       <option name="closed" value="true" />
@@ -674,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770721234665</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL-00233" summary="add tailwind">
+      <option name="closed" value="true" />
+      <created>1770728122344</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1770728122344</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,8 +700,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="try fix centering" />
-    <MESSAGE value="add reusable hook" />
     <MESSAGE value="fix style" />
     <MESSAGE value="refactor" />
     <MESSAGE value="add animation hook" />
@@ -722,6 +723,8 @@
     <MESSAGE value="fix route transition" />
     <MESSAGE value="add nuxt" />
     <MESSAGE value="add header" />
-    <option name="LAST_COMMIT_MESSAGE" value="add header" />
+    <MESSAGE value="add tailwind" />
+    <MESSAGE value="add navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add navbar" />
   </component>
 </project>

@@ -1,5 +1,7 @@
 <template>
-  <header class="relative z-20 flex flex-col justify-between gap-sm h-screen">
+  <header
+    class="p-sm md:pt-xl pt-sm gap-xl flex min-h-screen flex-col justify-between"
+  >
     <div class="flex">
       <svg
         fill="none"
@@ -13,38 +15,40 @@
         />
       </svg>
     </div>
-    <div class="gap-md flex w-full flex-wrap justify-start">
+    <div class="flex w-full flex-wrap justify-start">
       <p class="text-foreground-muted pb-1 text-xs uppercase font-dm-mono">
         Trusted by
         <span class="inline-block transition-opacity duration-200" />
       </p>
-      <div
-        v-for="(logo, index) in logos"
-        :key="index"
-        :style="{ animationDelay: `${index * 80}ms` }"
-        class="animate-fadeInUp flex w-20 opacity-0 lg:flex-1"
-      >
-        <NuxtLink
-          :scroll="false"
-          :to="`/works/${logo.slug}`"
-          class="group hover:bg-foreground border-background-muted relative flex w-20 items-center justify-center border p-4 transition duration-300 lg:flex-1"
-          @mouseenter="hoveredCompany = logo.name"
-          @mouseleave="hoveredCompany = null"
+      <div class="gap-md flex w-full flex-wrap justify-start">
+        <div
+          v-for="(logo, index) in logos"
+          :key="index"
+          :style="{ animationDelay: `${index * 80}ms` }"
+          class="animate-fadeInUp flex w-20 opacity-0 lg:flex-1"
         >
-          <span
-            v-for="(pos, i) in plusPositions"
-            :key="i"
-            :class="`absolute ${pos} text-foreground-muted text-xs leading-0 font-bold`"
-          >+</span>
-
-          <img
-            :alt="logo.name"
-            :src="`/logo/${logo.src}`"
-            class="h-8 w-fit object-contain grayscale transition duration-300 group-hover:grayscale-0 lg:h-12"
-            height="32"
-            width="32"
+          <NuxtLink
+            :scroll="false"
+            :to="`/works/${logo.slug}`"
+            class="group hover:bg-foreground border-background-muted relative flex w-20 items-center justify-center border p-4 transition duration-300 lg:flex-1"
+            @mouseenter="hoveredCompany = logo.name"
+            @mouseleave="hoveredCompany = null"
           >
-        </NuxtLink>
+            <span
+              v-for="(pos, i) in plusPositions"
+              :key="i"
+              :class="`absolute ${pos} text-foreground-muted text-xs leading-0 font-bold`"
+            >+</span>
+
+            <img
+              :alt="logo.name"
+              :src="`/logo/${logo.src}`"
+              class="h-8 w-fit object-contain grayscale transition duration-300 group-hover:grayscale-0 lg:h-12"
+              height="32"
+              width="32"
+            >
+          </NuxtLink>
+        </div>
       </div>
     </div>
     <div class="gap-xl flex flex-col-reverse justify-between md:flex-row">
@@ -52,8 +56,10 @@
         <h1 class="text-foreground-muted text-base font-normal">
           <strong class="text-foreground font-medium">
             Code Wizard with 4 years of experience️ &#8226; Design Alchemist
-            &#8226; Turning binary code into digital magic. </strong>{" "} Transforming wild ideas into pixel-perfect realities. Seeking
-          the limit.
+            &#8226; Turning binary code into digital magic.
+          </strong>
+          Transforming wild ideas into pixel-perfect realities. Seeking the
+          limit.
         </h1>
         <div class="mt-sm gap-md flex">
           <span class="text-foreground-muted text-xs uppercase">

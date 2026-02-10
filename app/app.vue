@@ -1,4 +1,5 @@
 <template>
-  <NuxtPage/>
+  <NuxtPage />
+  <Navbar />
   <CurtainTransition />
 </template>
