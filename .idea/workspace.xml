@@ -4,162 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="fix route transition">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config/config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/biome.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Blog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Code.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/CopyButton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/CreateHeading.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/CustomLink.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Hero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Note.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/OrderedList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/TableOfContents.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/UnorderedList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Wrapper.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Breadcrumb/Breadcrumb.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Dot.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Footer/Arrow.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Footer/Footer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Footer/FooterText.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Footer/Social.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/GridDebug/GridDebug.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Icons/ArrowLeft.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Icons/Check.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Icons/Copy.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Icons/SquareArrowOutUpRight.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/InternalLinks.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/Navbar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/NavbarMobile/MenuButton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/NavbarMobile/NavLinks.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/NavbarMobile/NavMenu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/NavbarMobile/NavbarMobile.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/ScrollPercentage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Navbar/ThemeToggle.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/seo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/About/About.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/About/AnimatedImage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/About/AnimatedTextWithImages.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/About/AnimatedWord.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Expertise/Accordion.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Expertise/AccordionItems.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Expertise/Expertise.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Expertise/ExpertiseText.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/BottomHero/BottomHero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/BottomHero/CityInfo/CityInfo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/BottomHero/CityInfo/Text.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/BottomHero/CityInfo/Time.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/BottomHero/CityInfo/Weather/Weather.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/BottomHero/Showreel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/CenterHero/CenterHero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/CenterHero/CompaniesLogo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/CenterHero/CompanyLogo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/CenterHero/logos.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/Hero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/TopHero/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/TopHero/Logo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Hero/TopHero/TopHero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Loader/Loader.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Loader/LoaderWrapper.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Loader/Overlay.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Works/Marquee.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Works/WorkItem.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Works/Works.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/Details.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/Row.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/RowLabelList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/RowLinks.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/RowList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/RowListParent.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/RowSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Details/RowWorksDone.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/Images.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/work/PageTemplate.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/works/TemplateItem.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/works/TemplateItemWrapper.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/works/TemplateNavigation.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/works/TemplateSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/works/TemplateText.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mdx-components.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/weather.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/blog/add-google-analytics-to-next-js-without-third-parties-package/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/blog/add-open-graph-twitter-nextjs-app-router/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/blog/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/sitemap.xml.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/works/[slug].tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/works/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/google5652fbc379fc574d.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/adidas-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/coba-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/db-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/id-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/lemon-soda-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/neugelb-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/remax-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/rv-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/suv-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/td-cowen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/umb-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo/wmf-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/videos/caption.vtt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/blog/add-google-analytics-to-next-js-without-third-parties-package/index.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/blog/add-google-analytics-to-next-js-without-third-parties-package/postMetadata.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/blog/add-open-graph-twitter-nextjs-app-router/index.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/blog/add-open-graph-twitter-nextjs-app-router/postMetadata.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/home/about/textAndImages.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/works/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/formatters/formatDate.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useAnimatedImages.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useFadeInOnLoad.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useHorizontalScroll.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useHorizontalScrollWithText.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useImageScroll.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useLoader.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useMarquee.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useNavFade.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useRouteTransition.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useScrollPercentage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useScrollTextFill.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useTextSwap.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/animations/useWorkAnimationItem.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/blog/useCopyToClipboard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/blog/useTableOfContents.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/ref/useCollectRefs.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/hooks/useWeather.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/analytics/google-analytics.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/blog/blogMetadata.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/blog/generatePostMetadata.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/blogs/blogsMetadata.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/blogs/blogsSchema.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/home/homeMetadata.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/home/homeSchema.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/work/pageMetadata.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/work/pageSchema.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/works/pagesMetadata.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/works/pagesSchemas.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/seo/works/worksMetadata.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/marketing/sitemap/getBlogPostSlug.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/queries/posts/extractMetadataExport.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/queries/posts/getPosts.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/queries/posts/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/stores/overlay.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/style/fonts/fonts.ts" beforeDir="false" />
+    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add nuxt">
+      <change afterPath="$PROJECT_DIR$/app/components/global/Seo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/home/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/composables/useTextSwap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/directives/v-text-swaps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/directives.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/google5652fbc379fc574d.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/adidas-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/coba-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/db-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/id-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/lemon-soda-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/neugelb-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/remax-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/rv-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/suv-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/td-cowen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/umb-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/wmf-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/videos/caption.vtt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/biome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/biome.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,14 +39,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="169" />
+    <option name="cachedIndexableFilesCount" value="32" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -210,46 +83,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Plugins Suggestion&quot;: &quot;Plugin suggestions available&quot;,
-    &quot;Notification.DoNotAsk-Plugins Suggestion&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ivan/GitHub/ivan-new-portfolio/pages/blog&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
-    &quot;npm.analyze.executor&quot;: &quot;Run&quot;,
-    &quot;npm.build.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/ivan/GitHub/ivan-new-portfolio/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.Biome&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.29765546&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-Plugins Suggestion": "Plugin suggestions available",
+    "Notification.DoNotAsk-Plugins Suggestion": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "code.cleanup.on.save": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "development",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/ivan/GitHub/ivan-new-portfolio/pages/blog",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Next.js: server-side.executor": "Run",
+    "npm.analyze.executor": "Run",
+    "npm.build.executor": "Run",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/ivan/GitHub/ivan-new-portfolio/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.splitter.proportion": "0.29765546",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/blog" />
@@ -259,11 +137,11 @@
       <recent name="$PROJECT_DIR$/app/blog" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/components/global" />
       <recent name="$PROJECT_DIR$/utils/marketing/seo/blog" />
       <recent name="$PROJECT_DIR$/utils/data/blog/add-open-graph-twitter-nextjs-app-router" />
       <recent name="$PROJECT_DIR$/utils/data/blog/add-google-analytics-to-next-js-without-third-parties-package" />
-      <recent name="$PROJECT_DIR$/pages/blog/add-google-analytics-to-next-js-without-third-parties-package" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -416,15 +294,8 @@
       <workItem from="1770375360106" duration="4000" />
       <workItem from="1770655703400" duration="558000" />
       <workItem from="1770656513099" duration="4000" />
-      <workItem from="1770656519356" duration="123000" />
-    </task>
-    <task id="LOCAL-00180" summary="add fade animation">
-      <option name="closed" value="true" />
-      <created>1748527234258</created>
-      <option name="number" value="00180" />
-      <option name="presentableId" value="LOCAL-00180" />
-      <option name="project" value="LOCAL" />
-      <updated>1748527234258</updated>
+      <workItem from="1770656519356" duration="422000" />
+      <workItem from="1770716398482" duration="2910000" />
     </task>
     <task id="LOCAL-00181" summary="add fade animation">
       <option name="closed" value="true" />
@@ -810,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769764045548</updated>
     </task>
-    <option name="localTasksCounter" value="229" />
+    <task id="LOCAL-00229" summary="add nuxt">
+      <option name="closed" value="true" />
+      <created>1770656709112</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL-00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1770656709113</updated>
+    </task>
+    <option name="localTasksCounter" value="230" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -819,6 +698,7 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.name" />
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="nuxt.config.ts" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -832,7 +712,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="simplify animation" />
     <MESSAGE value="fix aspect ratio on safari" />
     <MESSAGE value="try fix centering" />
     <MESSAGE value="add reusable hook" />
@@ -857,6 +736,7 @@
     <MESSAGE value="route animation works" />
     <MESSAGE value="fix image animation" />
     <MESSAGE value="fix route transition" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix route transition" />
+    <MESSAGE value="add nuxt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add nuxt" />
   </component>
 </project>

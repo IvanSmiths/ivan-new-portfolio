@@ -1,0 +1,1 @@
+import{_ as o}from"./DKZgPlcm.js";import{_ as a,c as n,b as s,w as r,a as _,F as c,o as m,d as l}from"./BDiRO4g1.js";const u={};function x(d,t){const e=o;return m(),n(c,null,[s(e,{to:"/"},{default:r(()=>[...t[0]||(t[0]=[l("home",-1)])]),_:1}),t[1]||(t[1]=_("h1",{class:"text-xl"},"about",-1))],64)}const i=a(u,[["render",x]]);export{i as default};
