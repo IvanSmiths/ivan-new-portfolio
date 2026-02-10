@@ -5,75 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add nuxt">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/nitro.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/B9Z1tDvP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/BDiRO4g1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/Bu1G9aUU.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/Bw3gLtf0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/CRRwXFaE.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/CcYB7K9a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/DKZgPlcm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/DWZK2Rix.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/bqQqR-kd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/builds/latest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/builds/meta/abedd995-7ac8-4191-8d51-614bf44de5b3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/entry.EvMx591M.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/error-404.C-Ezrlz-.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/error-500.DBWf9FGj.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/_nuxt/index.xydNtxgx.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/google5652fbc379fc574d.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/adidas-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/coba-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/db-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/id-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/lemon-soda-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/neugelb-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/remax-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/rv-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/suv-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/td-cowen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/umb-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/logo/wmf-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/public/videos/caption.vtt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/_/error-500.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/_/error-500.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/Header-styles.D9prJSUk.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/Header-styles.D9prJSUk.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/Seo-CrGYVO9U.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/Seo-CrGYVO9U.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/about-DsPDZQvG.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/about-DsPDZQvG.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/client.precomputed.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/client.precomputed.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/composables-DGuTFNfb.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/composables-DGuTFNfb.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-404-BrmvXtd3.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-404-BrmvXtd3.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-404-styles.DuDrf-v0.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-404-styles.DuDrf-v0.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-500-D6FpYJwZ.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-500-D6FpYJwZ.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-500-styles.8IYEHzz6.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/error-500-styles.8IYEHzz6.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/index-B18_mh6z.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/index-B18_mh6z.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/nuxt-link-Dk7IsXAh.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/nuxt-link-Dk7IsXAh.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/server.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/styles.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/build/styles.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/nitro/nitro.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/nitro/nitro.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/routes/renderer.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/routes/renderer.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/virtual/_virtual_spa-template.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/chunks/virtual/_virtual_spa-template.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/index.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/index.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.output/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/home/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/home/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,15 +273,7 @@
       <workItem from="1770655703400" duration="558000" />
       <workItem from="1770656513099" duration="4000" />
       <workItem from="1770656519356" duration="422000" />
-      <workItem from="1770716398482" duration="3167000" />
-    </task>
-    <task id="LOCAL-00182" summary="add fade animation">
-      <option name="closed" value="true" />
-      <created>1748535121635</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1748535121635</updated>
+      <workItem from="1770716398482" duration="3992000" />
     </task>
     <task id="LOCAL-00183" summary="add fade animation">
       <option name="closed" value="true" />
@@ -731,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770719723708</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="add nuxt">
+      <option name="closed" value="true" />
+      <created>1770719754424</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1770719754424</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

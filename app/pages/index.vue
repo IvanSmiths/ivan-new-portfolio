@@ -31,7 +31,6 @@ useSeoMeta({
   charset: "utf-8"
 });
 
-// Horizontal scroll refs
 const containerRef = ref<HTMLElement | null>(null);
 const triggerRef = ref<HTMLElement | null>(null);
 useHorizontalScroll(containerRef, triggerRef);
@@ -39,9 +38,7 @@ useHorizontalScroll(containerRef, triggerRef);
 
 <template>
   <div class="p-sm md:pt-xl pt-sm gap-xl flex min-h-[100vh] flex-col justify-between">
-    <!-- Use your Header component -->
     <Header />
-
     <!-- Optional: BottomHero or other sections -->
     <div>
       <!-- Your BottomHero content here -->
