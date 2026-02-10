@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import Header from '~/components/home/Header.vue'
+import Header from '~/components/home/header/Header.vue'
 import { ref } from 'vue'
 import { useHorizontalScroll } from '~/composables/useHorizontalScroll'
+import About from '~/components/home/about/About.vue'
 
 const title
   = 'Ivan Smiths - Fullstack Developer Specialized in Design and User Experience'
@@ -41,4 +42,5 @@ useHorizontalScroll(containerRef, triggerRef)
 
 <template>
   <Header />
+  <About />
 </template>
