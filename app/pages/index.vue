@@ -1,13 +1,14 @@
 <script lang="ts" setup>
-import Header from '~/components/home/header/Header.vue'
-import { ref } from 'vue'
-import { useHorizontalScroll } from '~/composables/useHorizontalScroll'
-import About from '~/components/home/about/About.vue'
+import Header from "~/components/home/header/Header.vue";
+import { ref } from "vue";
+import { useHorizontalScroll } from "~/composables/useHorizontalScroll";
+import About from "~/components/home/about/About.vue";
+import Works from "~/components/home/works/Works.vue";
 
-const title
-  = 'Ivan Smiths - Fullstack Developer Specialized in Design and User Experience'
-const description
-  = 'Fullstack Developer with over 4 years of experience in building user-centered websites and applications for clients like Deutsche Bahn, R+V, Adidas, and WMF. Skilled in Next.js, TypeScript, and UX design, I enhance digital experiences through innovative, data-driven solutions and seamless functionality.'
+const title =
+  "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
+const description =
+  "Fullstack Developer with over 4 years of experience in building user-centered websites and applications for clients like Deutsche Bahn, R+V, Adidas, and WMF. Skilled in Next.js, TypeScript, and UX design, I enhance digital experiences through innovative, data-driven solutions and seamless functionality.";
 
 useSeoMeta({
   title,
@@ -15,32 +16,33 @@ useSeoMeta({
 
   ogTitle: title,
   ogDescription: description,
-  ogType: 'website',
-  ogUrl: 'https://example.com',
+  ogType: "website",
+  ogUrl: "https://example.com",
   ogSiteName: title,
-  ogImage: 'https://example.com/image.png',
-  ogImageAlt: 'Preview image for My Amazing Site',
+  ogImage: "https://example.com/image.png",
+  ogImageAlt: "Preview image for My Amazing Site",
 
-  twitterCard: 'summary_large_image',
+  twitterCard: "summary_large_image",
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: 'https://example.com/image.png',
-  twitterCreator: '@mytwitterhandle',
-  twitterSite: '@mytwitterhandle',
+  twitterImage: "https://example.com/image.png",
+  twitterCreator: "@mytwitterhandle",
+  twitterSite: "@mytwitterhandle",
 
-  author: 'Ivan Smiths',
-  applicationName: 'Ivan Smiths Portfolio',
-  generator: 'Nuxt',
-  robots: 'index, follow',
-  charset: 'utf-8',
-})
+  author: "Ivan Smiths",
+  applicationName: "Ivan Smiths Portfolio",
+  generator: "Nuxt",
+  robots: "index, follow",
+  charset: "utf-8",
+});
 
-const containerRef = ref<HTMLElement | null>(null)
-const triggerRef = ref<HTMLElement | null>(null)
-useHorizontalScroll(containerRef, triggerRef)
+const containerRef = ref<HTMLElement | null>(null);
+const triggerRef = ref<HTMLElement | null>(null);
+useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
   <Header />
   <About />
+  <Works />
 </template>
