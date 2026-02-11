@@ -12,7 +12,7 @@ const works = [
     category: "UI Design",
     image:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
-    color: "#1a1a1a",
+    color: "#ffffff"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const works = [
     category: "3D Concept",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop",
-    color: "#2d241f",
+    color: "#2d241f"
   },
   {
     id: 3,
@@ -28,8 +28,8 @@ const works = [
     category: "Branding",
     image:
       "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop",
-    color: "#1e0a3c",
-  },
+    color: "#1e0a3c"
+  }
 ];
 
 const sectionRef = ref(null);
@@ -69,7 +69,7 @@ onMounted(() => {
         snap: {
           snapTo: snapPoints,
           duration: 0.5,
-          ease: "power2.inOut",
+          ease: "power2.inOut"
         },
         onUpdate: (self) => {
           const p = self.progress;
@@ -78,15 +78,15 @@ onMounted(() => {
               Math.abs(curr - p) < Math.abs(snapPoints[prev] - p)
                 ? index
                 : prev,
-            0,
+            0
           );
 
           if (activeIndex.value !== closest) {
             activeIndex.value = closest;
             activeColor.value = works[closest].color;
           }
-        },
-      },
+        }
+      }
     });
 
     tl.fromTo(track, { x: startX }, { x: endX, ease: "none" });
@@ -105,9 +105,9 @@ onMounted(() => {
             containerAnimation: tl,
             start: "left right",
             end: "center center",
-            scrub: true,
-          },
-        },
+            scrub: true
+          }
+        }
       );
     });
   }, sectionRef.value);

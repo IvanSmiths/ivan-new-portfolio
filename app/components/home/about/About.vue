@@ -10,65 +10,56 @@ const container = ref(null);
 const phrases = [
   {
     text: "FROM",
-    font: "font-sans",
+    font: "font-sans font-bold",
     bg: "#000000",
-    color: "#ffffff",
-    split: "words",
+    color: "#ffffff"
   },
   {
     text: "GLOBAL ENTERPRISE",
-    font: "font-sans",
+    font: "font-sans font-bold",
     bg: "#000000",
-    color: "#FFFFFF",
-    split: "words",
+    color: "#FFFFFF"
   },
   {
     text: "TO",
-    font: "font-serif",
+    font: "font-sans",
     bg: "#FFFFFF",
-    color: "#000000",
-    split: "chars",
+    color: "#000000"
   },
   {
     text: "LOCAL HEROES",
-    font: "font-serif",
+    font: "font-cursive font-extralight",
     bg: "#FFFFFF",
-    color: "#000000",
-    split: "chars",
+    color: "#000000"
   },
   {
     text: "I BRING WEBSITES",
-    font: "font-mono",
+    font: "font-sans",
     bg: "#ffffff",
-    color: "#000000",
-    split: "words",
+    color: "#000000"
   },
   {
     text: "WITHOUT COMPROMISES.",
     font: "font-cursive",
     bg: "#FFFFFF",
-    color: "#000000",
-    split: "chars",
-  },
+    color: "#000000"
+  }
 ];
 
 const splitText = (text, type) => {
-  if (type === "chars")
-    return text.split("").map((c) => (c === " " ? "\u00A0" : c));
-  return text.split(" ");
+  return text.split("").map((c) => (c === " " ? "\u00A0" : c));
 };
 
 onMounted(() => {
   const sections = gsap.utils.toArray(".phrase-wrapper");
-
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container.value,
       start: "top top",
       end: "+=800%",
       scrub: 1,
-      pin: true,
-    },
+      pin: true
+    }
   });
 
   let t = 0;
@@ -76,26 +67,22 @@ onMounted(() => {
   sections.forEach((section, i) => {
     const elements = section.querySelectorAll(".anim-unit");
 
-    // Show section
     tl.set(section, { autoAlpha: 1 }, t);
-
-    // Background transition
     tl.to(
       container.value,
       {
         backgroundColor: phrases[i].bg,
         duration: 0.6,
-        ease: "expo.inOut",
+        ease: "expo.inOut"
       },
-      t,
+      t
     );
-
     /* --------------------
-       ENTER — UNIQUE PER PHRASE
+       ENTER
     -------------------- */
     switch (i) {
       case 0:
-        // FROM — subtle rise, strong clarity
+        // FROM
         tl.fromTo(
           elements,
           { opacity: 0, y: 60 },
@@ -104,30 +91,30 @@ onMounted(() => {
             y: 0,
             stagger: 0.12,
             duration: 1,
-            ease: "expo.out",
+            ease: "expo.out"
           },
-          t + 0.2,
+          t + 0.2
         );
         break;
 
       case 1:
-        // GLOBAL ENTERPRISE — tracking reveal
+        // GLOBAL ENTERPRISE
         tl.fromTo(
           elements,
-          { opacity: 0, letterSpacing: "0.4em" },
+          { opacity: 0, letterSpacing: "0.7em" },
           {
             opacity: 1,
-            letterSpacing: "0em",
+            letterSpacing: "0.2em",
             stagger: 0.08,
             duration: 1.2,
-            ease: "power4.out",
+            ease: "power4.out"
           },
-          t + 0.2,
+          t + 0.2
         );
         break;
 
       case 2:
-        // TO — vertical compression
+        // TO
         tl.fromTo(
           elements,
           { opacity: 0, scaleY: 0.6, transformOrigin: "bottom" },
@@ -136,14 +123,14 @@ onMounted(() => {
             scaleY: 1,
             stagger: 0.06,
             duration: 0.9,
-            ease: "expo.out",
+            ease: "expo.out"
           },
-          t + 0.2,
+          t + 0.2
         );
         break;
 
       case 3:
-        // LOCAL HEROES — depth + perspective
+        // LOCAL HEROES
         tl.fromTo(
           elements,
           { opacity: 0, y: 80, rotateX: 35 },
@@ -153,14 +140,14 @@ onMounted(() => {
             rotateX: 0,
             stagger: 0.05,
             duration: 1.3,
-            ease: "expo.out",
+            ease: "expo.out"
           },
-          t + 0.2,
+          t + 0.2
         );
         break;
 
       case 4:
-        // I BRING WEBSITES — lateral confidence
+        // I BRING WEBSITES
         tl.fromTo(
           elements,
           { opacity: 0, x: -40 },
@@ -169,14 +156,14 @@ onMounted(() => {
             x: 0,
             stagger: 0.1,
             duration: 1,
-            ease: "power3.out",
+            ease: "power3.out"
           },
-          t + 0.2,
+          t + 0.2
         );
         break;
 
       case 5:
-        // WITHOUT COMPROMISES — refined blur reveal
+        // WITHOUT COMPROMISES
         tl.fromTo(
           elements,
           { opacity: 0, y: 40, filter: "blur(8px)" },
@@ -186,41 +173,39 @@ onMounted(() => {
             filter: "blur(0px)",
             stagger: 0.04,
             duration: 1.4,
-            ease: "expo.out",
+            ease: "expo.out"
           },
-          t + 0.2,
+          t + 0.7
         );
         break;
     }
-
-    // HOLD
     tl.to({}, { duration: 0.6 });
     t += 1.8;
-
     /* --------------------
-       EXIT — UNIQUE (same as before)
+       EXIT
     -------------------- */
     switch (i) {
+      // FROM
       case 0:
         tl.to(elements, {
           opacity: 0,
           letterSpacing: "-0.15em",
           filter: "blur(10px)",
           duration: 0.9,
-          ease: "power4.in",
+          ease: "power4.in"
         });
         break;
-
+      // GLOBAL ENTERPRISES
       case 1:
         tl.to(elements, {
           y: -40,
           opacity: 0,
           stagger: 0.02,
           duration: 0.8,
-          ease: "expo.inOut",
+          ease: "expo.inOut"
         });
         break;
-
+      // TO
       case 2:
         tl.to(elements, {
           scaleY: 0,
@@ -228,28 +213,28 @@ onMounted(() => {
           transformOrigin: "top",
           stagger: 0.05,
           duration: 0.9,
-          ease: "expo.inOut",
+          ease: "expo.inOut"
         });
         break;
-
+      // LOCAL HEROES
       case 3:
         tl.to(elements, {
           scale: 1.15,
           opacity: 0,
           stagger: 0.04,
           duration: 0.9,
-          ease: "power4.inOut",
+          ease: "power4.inOut"
         });
         break;
-
+      // I BRING WEBSITES
       case 4:
         tl.to(elements, {
           y: 30,
           rotateZ: 2,
           opacity: 0,
           stagger: 0.06,
-          duration: 0.8,
-          ease: "power3.in",
+          duration: 0.3,
+          ease: "power3.in"
         });
         break;
     }
@@ -266,15 +251,13 @@ onMounted(() => {
       :key="index"
       class="phrase-wrapper absolute inset-0 flex items-center justify-center p-6 md:p-20"
     >
-      <div
-        class="flex flex-wrap justify-center overflow-hidden text-nowrap whitespace-nowrap"
-      >
+      <div class="flex flex-wrap justify-center overflow-hidden">
         <span
           v-for="(unit, uIdx) in splitText(phrase.text, phrase.split)"
           :key="uIdx"
           :class="[
             phrase.font,
-            'anim-unit inline-block font-bold uppercase text-5xl md:text-7xl text-nowrap whitespace-nowrap lg:text-8xl tracking-tight leading-[0.9]',
+            'anim-unit inline-block uppercase text-4xl md:text-8xl lg:text-9xl tracking-tight',
           ]"
           :style="{ color: phrase.color }"
         >
@@ -287,11 +270,6 @@ onMounted(() => {
     <div
       class="absolute inset-0 pointer-events-none border-[1rem] border-transparent mix-blend-difference"
     >
-      <div
-        class="absolute top-10 left-10 text-[10px] tracking-[0.5em] text-white uppercase font-mono"
-      >
-        Portfolio / 2026
-      </div>
       <div
         class="absolute bottom-10 right-10 text-[10px] tracking-[0.5em] text-white uppercase font-mono"
       >
