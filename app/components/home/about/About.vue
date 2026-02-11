@@ -5,29 +5,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const slow = 1.4;
+
 const container = ref(null);
 
 const phrases = [
   {
-    text: "FROM",
-    font: "font-sans font-bold",
-    bg: "#000000",
-    color: "#ffffff"
-  },
-  {
-    text: "GLOBAL ENTERPRISE",
+    text: "FROM GLOBAL ENTERPRISE",
     font: "font-sans font-bold",
     bg: "#000000",
     color: "#FFFFFF"
   },
   {
-    text: "TO",
-    font: "font-sans",
-    bg: "#FFFFFF",
-    color: "#000000"
-  },
-  {
-    text: "LOCAL HEROES",
+    text: "TO LOCAL HEROES",
     font: "font-cursive font-extralight",
     bg: "#FFFFFF",
     color: "#000000"
@@ -66,28 +56,25 @@ onMounted(() => {
     const elements = section.querySelectorAll(".anim-unit");
 
     tl.set(section, { autoAlpha: 1 });
-    tl.to(
-      container.value,
-      {
-        backgroundColor: phrases[i].bg,
-        duration: 0.6,
-        ease: "expo.inOut"
-      }
-    );
+    tl.to(container.value, {
+      backgroundColor: phrases[i].bg,
+      duration: slow,
+      ease: "expo.inOut"
+    });
     /* --------------------
        ENTER
     -------------------- */
     switch (i) {
       case 0:
-        // FROM
+        // FROM GLOBAL ENTERPRISES
         tl.fromTo(
           elements,
-          { opacity: 0, y: 60 },
+          { opacity: 0, letterSpacing: "0.7em" },
           {
             opacity: 1,
-            y: 0,
             stagger: 0.12,
-            duration: 3,
+            letterSpacing: "0em",
+            duration: slow,
             ease: "expo.out"
           },
           "<"
@@ -95,55 +82,23 @@ onMounted(() => {
         break;
 
       case 1:
-        // GLOBAL ENTERPRISE
+        // TO LOCAL HEROES
         tl.fromTo(
           elements,
-          { opacity: 0, letterSpacing: "0.7em" },
+          { opacity: 0, scaleY: 0.6, transformOrigin: "bottom", rotateX: 95 },
           {
             opacity: 1,
-            letterSpacing: "0em",
-            stagger: 0.08,
-            duration: 1.2,
-            ease: "power4.out"
+            scaleY: 1,
+            stagger: 0.06,
+            rotateX: 0,
+            duration: slow,
+            ease: "expo.out"
           },
           "<"
         );
         break;
 
       case 2:
-        // TO
-        tl.fromTo(
-          elements,
-          { opacity: 0, scaleY: 0.6, transformOrigin: "bottom" },
-          {
-            opacity: 1,
-            scaleY: 1,
-            stagger: 0.06,
-            duration: 0.9,
-            ease: "expo.out"
-          },
-          "<"
-        );
-        break;
-
-      case 3:
-        // LOCAL HEROES
-        tl.fromTo(
-          elements,
-          { opacity: 0, y: 80, rotateX: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            stagger: 0.05,
-            duration: 1.3,
-            ease: "expo.out"
-          },
-          "<"
-        );
-        break;
-
-      case 4:
         // I BRING WEBSITES
         tl.fromTo(
           elements,
@@ -152,14 +107,14 @@ onMounted(() => {
             opacity: 1,
             x: 0,
             stagger: 0.1,
-            duration: 1,
+            duration: slow,
             ease: "power3.out"
           },
           "<"
         );
         break;
 
-      case 5:
+      case 3:
         // WITHOUT COMPROMISES
         tl.fromTo(
           elements,
@@ -169,7 +124,7 @@ onMounted(() => {
             y: 0,
             filter: "blur(0px)",
             stagger: 0.04,
-            duration: 1.4,
+            duration: slow,
             ease: "expo.out"
           },
           "<"
@@ -181,7 +136,7 @@ onMounted(() => {
        EXIT
     -------------------- */
     switch (i) {
-      // FROM
+      // FROM GLOBAL ENTERPRISES
       case 0:
         tl.to(elements, {
           opacity: 0,
@@ -191,39 +146,20 @@ onMounted(() => {
           ease: "power4.in"
         });
         break;
-      // GLOBAL ENTERPRISES
+      // TO LOCAL HEROES
       case 1:
         tl.to(elements, {
-          y: -40,
-          opacity: 0,
-          stagger: 0.02,
-          duration: 0.8,
-          ease: "expo.inOut"
-        });
-        break;
-      // TO
-      case 2:
-        tl.to(elements, {
+          scale: 1.15,
           scaleY: 0,
           opacity: 0,
           transformOrigin: "top",
-          stagger: 0.05,
-          duration: 0.9,
-          ease: "expo.inOut"
-        });
-        break;
-      // LOCAL HEROES
-      case 3:
-        tl.to(elements, {
-          scale: 1.15,
-          opacity: 0,
           stagger: 0.04,
           duration: 0.9,
           ease: "power4.inOut"
         });
         break;
       // I BRING WEBSITES
-      case 4:
+      case 2:
         tl.to(elements, {
           y: 30,
           rotateZ: 2,
@@ -238,7 +174,6 @@ onMounted(() => {
   });
 });
 </script>
-
 <template>
   <div ref="container" class="relative w-full h-screen overflow-hidden">
     <div
@@ -271,7 +206,6 @@ onMounted(() => {
     ></div>
   </div>
 </template>
-
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Libre+Bodoni:ital,wght@0,700;1,700&family=Space+Mono:wght@700&family=Cormorant+Garamond:ital,wght@1,600&display=swap");
 
