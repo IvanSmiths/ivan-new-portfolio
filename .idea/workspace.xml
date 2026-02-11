@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add works wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/home/about/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/home/about/About.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/home/works/Works.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/home/works/Works.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

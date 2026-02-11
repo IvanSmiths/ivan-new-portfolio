@@ -89,13 +89,8 @@ onMounted(() => {
       },
     });
 
-    // Track movement
     tl.fromTo(track, { x: startX }, { x: endX, ease: "none" });
-
-    // Background parallax movement
     tl.fromTo(bgTextRef.value, { x: "5%" }, { x: "-20%", ease: "none" }, 0);
-
-    // 3D Entry Perspective
     cards.forEach((card) => {
       gsap.fromTo(
         card,
