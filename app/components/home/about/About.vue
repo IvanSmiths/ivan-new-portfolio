@@ -46,8 +46,8 @@ const phrases = [
   }
 ];
 
-const splitText = (text, type) => {
-  return text.split("").map((c) => (c === " " ? "\u00A0" : c));
+const splitText = (text) => {
+  return text.split(" ");
 };
 
 onMounted(() => {
@@ -62,20 +62,17 @@ onMounted(() => {
     }
   });
 
-  let t = 0;
-
   sections.forEach((section, i) => {
     const elements = section.querySelectorAll(".anim-unit");
 
-    tl.set(section, { autoAlpha: 1 }, t);
+    tl.set(section, { autoAlpha: 1 });
     tl.to(
       container.value,
       {
         backgroundColor: phrases[i].bg,
         duration: 0.6,
         ease: "expo.inOut"
-      },
-      t
+      }
     );
     /* --------------------
        ENTER
@@ -90,10 +87,10 @@ onMounted(() => {
             opacity: 1,
             y: 0,
             stagger: 0.12,
-            duration: 1,
+            duration: 3,
             ease: "expo.out"
           },
-          t + 0.2
+          "<"
         );
         break;
 
@@ -104,12 +101,12 @@ onMounted(() => {
           { opacity: 0, letterSpacing: "0.7em" },
           {
             opacity: 1,
-            letterSpacing: "0.2em",
+            letterSpacing: "0em",
             stagger: 0.08,
             duration: 1.2,
             ease: "power4.out"
           },
-          t + 0.2
+          "<"
         );
         break;
 
@@ -125,7 +122,7 @@ onMounted(() => {
             duration: 0.9,
             ease: "expo.out"
           },
-          t + 0.2
+          "<"
         );
         break;
 
@@ -142,7 +139,7 @@ onMounted(() => {
             duration: 1.3,
             ease: "expo.out"
           },
-          t + 0.2
+          "<"
         );
         break;
 
@@ -158,7 +155,7 @@ onMounted(() => {
             duration: 1,
             ease: "power3.out"
           },
-          t + 0.2
+          "<"
         );
         break;
 
@@ -175,12 +172,11 @@ onMounted(() => {
             duration: 1.4,
             ease: "expo.out"
           },
-          t + 0.7
+          "<"
         );
         break;
     }
     tl.to({}, { duration: 0.6 });
-    t += 1.8;
     /* --------------------
        EXIT
     -------------------- */
@@ -239,7 +235,6 @@ onMounted(() => {
         break;
     }
     tl.set(section, { autoAlpha: 0 });
-    t += 1.2;
   });
 });
 </script>
@@ -251,31 +246,29 @@ onMounted(() => {
       :key="index"
       class="phrase-wrapper absolute inset-0 flex items-center justify-center p-6 md:p-20"
     >
-      <div class="flex flex-wrap justify-center overflow-hidden">
+      <div class="flex flex-col items-center overflow-hidden">
         <span
-          v-for="(unit, uIdx) in splitText(phrase.text, phrase.split)"
-          :key="uIdx"
-          :class="[
-            phrase.font,
-            'anim-unit inline-block uppercase text-4xl md:text-8xl lg:text-9xl tracking-tight',
-          ]"
-          :style="{ color: phrase.color }"
+          v-for="(word, wIdx) in splitText(phrase.text)"
+          :key="wIdx"
+          class="flex"
         >
-          {{ unit }}
-          <span v-if="phrase.split === 'words'">&nbsp;</span>
+          <span
+            v-for="(char, cIdx) in word.split('')"
+            :key="cIdx"
+            :class="[
+              phrase.font,
+              'anim-unit inline-block uppercase text-4xl md:text-8xl lg:text-9xl tracking-tight',
+            ]"
+            :style="{ color: phrase.color }"
+          >
+            {{ char }}
+          </span>
         </span>
       </div>
     </div>
-
     <div
       class="absolute inset-0 pointer-events-none border-[1rem] border-transparent mix-blend-difference"
-    >
-      <div
-        class="absolute bottom-10 right-10 text-[10px] tracking-[0.5em] text-white uppercase font-mono"
-      >
-        Scroll to explore
-      </div>
-    </div>
+    ></div>
   </div>
 </template>
 
