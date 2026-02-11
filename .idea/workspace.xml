@@ -277,14 +277,6 @@
       <workItem from="1770727320622" duration="10000" />
       <workItem from="1770727450943" duration="3030000" />
     </task>
-    <task id="LOCAL-00187" summary="improve mobile">
-      <option name="closed" value="true" />
-      <created>1748537430260</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1748537430260</updated>
-    </task>
     <task id="LOCAL-00188" summary="improve mobile">
       <option name="closed" value="true" />
       <created>1748537459479</created>
@@ -669,7 +661,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770805101651</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <task id="LOCAL-00236" summary="add works wip">
+      <option name="closed" value="true" />
+      <created>1770805624195</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1770805624195</updated>
+    </task>
+    <option name="localTasksCounter" value="237" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
