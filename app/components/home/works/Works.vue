@@ -35,6 +35,7 @@ const works = [
 const sectionRef = ref(null);
 const trackRef = ref(null);
 const cardRefs = ref([]);
+const bgTextRef = ref(null);
 const activeIndex = ref(0);
 const activeColor = ref(works[0].color);
 
@@ -46,21 +47,15 @@ onMounted(() => {
     const track = trackRef.value;
     const windowWidth = window.innerWidth;
     const cardWidth = cards[0].offsetWidth;
-    const gap = 150;
+    const gap = windowWidth < 768 ? 60 : 150;
 
-    // 1. Calculate the exact movement range
     const centerOffset = windowWidth / 2 - cardWidth / 2;
-    const startX = windowWidth; // Cards start just off-screen
+    const startX = windowWidth;
     const endX = centerOffset - (works.length - 1) * (cardWidth + gap);
-
-    // The total distance the track will travel
     const totalDistance = startX - endX;
 
-    // 2. Generate snap points based on the distance required to center each card
     const snapPoints = works.map((_, i) => {
-      const distanceToCenterThisCard = i * (cardWidth + gap);
-      const targetX = centerOffset - distanceToCenterThisCard;
-      // Calculate progress (0 to 1) for this specific targetX
+      const targetX = centerOffset - i * (cardWidth + gap);
       return (startX - targetX) / totalDistance;
     });
 
@@ -73,9 +68,8 @@ onMounted(() => {
         end: "+=3000",
         snap: {
           snapTo: snapPoints,
-          duration: 0.4,
-          delay: 0.05,
-          ease: "power1.inOut",
+          duration: 0.5,
+          ease: "power2.inOut",
         },
         onUpdate: (self) => {
           const p = self.progress;
@@ -95,20 +89,17 @@ onMounted(() => {
       },
     });
 
-    // 3. The Combined Animation
-    // We animate the track's X position
+    // Track movement
     tl.fromTo(track, { x: startX }, { x: endX, ease: "none" });
 
-    // 4. Perspective "Swoop"
-    // We link the card's 3D rotation to the scroll progress
-    cards.forEach((card, i) => {
+    // Background parallax movement
+    tl.fromTo(bgTextRef.value, { x: "5%" }, { x: "-20%", ease: "none" }, 0);
+
+    // 3D Entry Perspective
+    cards.forEach((card) => {
       gsap.fromTo(
         card,
-        {
-          z: 400,
-          rotationY: -30,
-          opacity: 0.2,
-        },
+        { z: 400, rotationY: -30, opacity: 0 },
         {
           z: 0,
           rotationY: 0,
@@ -116,9 +107,9 @@ onMounted(() => {
           ease: "none",
           scrollTrigger: {
             trigger: card,
-            containerAnimation: tl, // This is key! It links the card's 3D flip to the track's movement
-            start: "left right", // Start when card enters from right
-            end: "center center", // Finish when card is centered
+            containerAnimation: tl,
+            start: "left right",
+            end: "center center",
             scrub: true,
           },
         },
@@ -137,59 +128,96 @@ onUnmounted(() => ctx?.revert());
     class="relative h-screen w-full overflow-hidden transition-colors duration-1000 flex items-center"
   >
     <div
+      ref="bgTextRef"
+      class="absolute whitespace-nowrap select-none pointer-events-none flex items-center h-full z-0"
+    >
+      <transition mode="out-in" name="fade-slide">
+        <h1
+          :key="activeIndex"
+          class="text-[35vh] font-black uppercase tracking-tighter text-white opacity-[0.03] italic"
+        >
+          {{ works[activeIndex].title }}
+        </h1>
+      </transition>
+    </div>
+
+    <div
       ref="trackRef"
-      class="absolute flex items-center gap-[150px] will-change-transform"
+      class="absolute flex items-center gap-10 md:gap-[150px] will-change-transform z-10"
       style="transform-style: preserve-3d"
     >
       <div
         v-for="(work, index) in works"
         :key="work.id"
         ref="cardRefs"
-        class="group relative shrink-0 w-[300px] md:w-[420px] aspect-[4/5]"
+        class="group relative shrink-0 w-[280px] md:w-[420px] aspect-[4/5]"
         style="transform-style: preserve-3d"
       >
         <div
-          class="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out group-hover:-translate-y-6 group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
+          :class="activeIndex === index ? 'ring-1 ring-white/20' : ''"
+          class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 ease-out md:group-hover:-translate-y-6"
         >
           <img
+            :class="
+              activeIndex === index
+                ? 'scale-110 grayscale-0'
+                : 'scale-100 grayscale-[0.6]'
+            "
             :src="work.image"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            class="w-full h-full object-cover transition-all duration-1000"
           />
 
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity"
+            :class="activeIndex === index ? 'opacity-90' : 'opacity-60'"
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent transition-opacity duration-700"
           ></div>
 
           <div
-            class="absolute inset-0 p-10 flex flex-col justify-end overflow-hidden"
+            class="absolute inset-0 p-6 md:p-10 flex flex-col justify-end overflow-hidden"
           >
             <div class="overflow-hidden">
               <h2
-                class="text-white text-4xl font-black uppercase tracking-tighter translate-y-[110%] transition-transform duration-500 ease-out group-hover:translate-y-0"
+                :class="[
+                  activeIndex === index
+                    ? 'translate-y-0'
+                    : 'md:translate-y-[110%]',
+                  'group-hover:translate-y-0',
+                ]"
+                class="text-white text-3xl md:text-4xl font-black uppercase tracking-tighter transition-transform duration-700 ease-out"
               >
                 {{ work.title }}
               </h2>
             </div>
             <div class="overflow-hidden mt-1">
               <p
-                class="text-white/50 text-xs uppercase tracking-[0.3em] translate-y-[110%] transition-transform duration-500 ease-out delay-75 group-hover:translate-y-0"
+                :class="[
+                  activeIndex === index
+                    ? 'translate-y-0'
+                    : 'md:translate-y-[110%]',
+                  'group-hover:translate-y-0',
+                ]"
+                class="text-white/50 text-[10px] md:text-xs uppercase tracking-[0.3em] transition-transform duration-700 ease-out delay-75"
               >
                 {{ work.category }}
               </p>
             </div>
           </div>
         </div>
-
-        <div
-          class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-full h-10 bg-black/40 blur-2xl rounded-[100%] scale-x-75 opacity-50"
-        ></div>
       </div>
     </div>
 
     <div
-      class="absolute bottom-10 left-10 text-white/20 text-[10px] font-mono tracking-[0.5em] uppercase"
+      class="absolute top-10 right-10 flex items-baseline gap-2 overflow-hidden h-10"
     >
-      0{{ activeIndex + 1 }} / 0{{ works.length }}
+      <transition mode="out-in" name="digit-flip">
+        <span
+          :key="activeIndex"
+          class="text-white font-black text-4xl italic leading-none"
+        >
+          0{{ activeIndex + 1 }}
+        </span>
+      </transition>
+      <span class="text-white/20 font-bold">/ 0{{ works.length }}</span>
     </div>
   </section>
   <div class="h-screen flex justify-center items-center bg-black">
@@ -199,7 +227,6 @@ onUnmounted(() => ctx?.revert());
 
 <style scoped>
 section {
-  /* This prevents a common perspective bug where items disappear */
   backface-visibility: hidden;
 }
 </style>
