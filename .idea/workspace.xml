@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add navbar">
-      <change afterPath="$PROJECT_DIR$/app/components/home/works/Works.vue" afterDir="false" />
+    <list default="true" id="b9b95b74-0d93-472d-80f0-8606e2e294e7" name="Changes" comment="add works wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/home/works/Works.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/home/works/Works.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,14 +276,6 @@
       <workItem from="1770725581072" duration="1732000" />
       <workItem from="1770727320622" duration="10000" />
       <workItem from="1770727450943" duration="3030000" />
-    </task>
-    <task id="LOCAL-00186" summary="improve dark/light mode">
-      <option name="closed" value="true" />
-      <created>1748536980634</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1748536980634</updated>
     </task>
     <task id="LOCAL-00187" summary="improve mobile">
       <option name="closed" value="true" />
@@ -670,7 +661,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770729678717</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="add works wip">
+      <option name="closed" value="true" />
+      <created>1770805101651</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1770805101651</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix style" />
     <MESSAGE value="refactor" />
     <MESSAGE value="add animation hook" />
     <MESSAGE value="update deps" />
@@ -718,6 +716,7 @@
     <MESSAGE value="add header" />
     <MESSAGE value="add tailwind" />
     <MESSAGE value="add navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="add navbar" />
+    <MESSAGE value="add works wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="add works wip" />
   </component>
 </project>
