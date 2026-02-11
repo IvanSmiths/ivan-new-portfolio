@@ -8,24 +8,32 @@ gsap.registerPlugin(ScrollTrigger);
 const works = [
   {
     id: 1,
-    title: "Lumina Interface",
-    category: "UI Design",
+    title: "Ideology",
+    category: "Frontend/Designer",
     image:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
-    color: "#ffffff"
+    color: "bg-yellow-100"
   },
   {
     id: 2,
-    title: "Apex Architecture",
-    category: "3D Concept",
+    title: "Scholz & Volkmer",
+    category: "Frontend",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop",
     color: "#2d241f"
   },
   {
     id: 3,
-    title: "Nebula Brand",
-    category: "Branding",
+    title: "TD COWEN",
+    category: "Fullstack",
+    image:
+      "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop",
+    color: "#1e0a3c"
+  },
+  {
+    id: 4,
+    title: "Neugelb",
+    category: "Frontend",
     image:
       "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop",
     color: "#1e0a3c"
@@ -90,15 +98,14 @@ onMounted(() => {
     });
 
     tl.fromTo(track, { x: startX }, { x: endX, ease: "none" });
-    tl.fromTo(bgTextRef.value, { x: "5%" }, { x: "-20%", ease: "none" }, 0);
+    tl.fromTo(bgTextRef.value, { x: "35%" }, { x: "-20%", ease: "none" }, 0);
     cards.forEach((card) => {
       gsap.fromTo(
         card,
-        { z: 400, rotationY: -30, opacity: 0 },
+        { z: 400, rotationY: -40 },
         {
           z: 0,
           rotationY: 0,
-          opacity: 1,
           ease: "none",
           scrollTrigger: {
             trigger: card,
@@ -112,7 +119,6 @@ onMounted(() => {
     });
   }, sectionRef.value);
 });
-
 onUnmounted(() => ctx?.revert());
 </script>
 
@@ -127,12 +133,12 @@ onUnmounted(() => ctx?.revert());
       class="absolute whitespace-nowrap select-none pointer-events-none flex items-center h-full z-0"
     >
       <transition mode="out-in" name="fade-slide">
-        <h1
+        <h3
           :key="activeIndex"
-          class="text-[35vh] font-black uppercase tracking-tighter text-white opacity-[0.03] italic"
+          class="text-[25vh]  font-black uppercase tracking-tighter italic"
         >
           {{ works[activeIndex].title }}
-        </h1>
+        </h3>
       </transition>
     </div>
 

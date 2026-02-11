@@ -1,6 +1,6 @@
 <template>
   <header
-    class="p-sm md:pt-xl pt-sm gap-xl flex min-h-screen flex-col justify-between"
+    class="p-sm bg-background md:pt-xl pt-sm gap-xl flex min-h-screen flex-col justify-between"
   >
     <div class="flex">
       <svg
@@ -38,7 +38,8 @@
               v-for="(pos, i) in plusPositions"
               :key="i"
               :class="`absolute ${pos} text-foreground-muted text-xs leading-0 font-bold`"
-            >+</span>
+            >+</span
+            >
 
             <img
               :alt="logo.name"
@@ -46,7 +47,7 @@
               class="h-8 w-fit object-contain grayscale transition duration-300 group-hover:grayscale-0 lg:h-12"
               height="32"
               width="32"
-            >
+            />
           </NuxtLink>
         </div>
       </div>
@@ -92,26 +93,18 @@
         <span class="text-xs text-foreground-muted uppercase">
           2020 - 2024 Showreel
         </span>
-        <video
-          autoPlay
-          class="object-cover md:h-40"
-          loop
-          muted
-        >
+        <video autoPlay class="object-cover md:h-40" loop muted>
           <source
             media="(min-width: 768px)"
             src="https://utfs.io/f/aCaScRJubtiP2mWMJSOEGVHWUKY8TpulMShIcw9X3Asb6rBn"
             type="video/mp4"
-          >
-          <track
-            kind="captions"
-            src="/videos/caption.vtt"
-          >
+          />
+          <track kind="captions" src="/videos/caption.vtt" />
           <source
             media="(max-width: 767px)"
             src="https://utfs.io/f/aCaScRJubtiPkBbnx8gxYRIj0MPlmQb12ZBuf38FwgGHAsL9"
             type="video/mp4"
-          >
+          />
           Your browser does not support the video tag.
         </video>
       </a>
@@ -120,30 +113,30 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const hoveredCompany = ref<string | null>(null)
+const hoveredCompany = ref<string | null>(null);
 
 const plusPositions = [
-  'top-0 -left-1',
-  'top-0 -right-1',
-  'bottom-0 -left-1',
-  'bottom-0 -right-1',
-]
+  "top-0 -left-1",
+  "top-0 -right-1",
+  "bottom-0 -left-1",
+  "bottom-0 -right-1"
+];
 
 const logos = [
-  { src: 'coba-logo.png', name: 'Commerzbank', slug: 'neugelb' },
-  { src: 'td-cowen.svg', name: 'TD COWEN', slug: 'td-cowen' },
-  { src: 'remax-logo.png', name: 're/max', slug: 'ideology' },
-  { src: 'suv-logo.png', name: 'Scholz & Volkmer', slug: 'scholz-und-volkmer' },
-  { src: 'adidas-logo.svg', name: 'Adidas', slug: 'scholz-und-volkmer' },
-  { src: 'db-logo.svg', name: 'Deutsche Bahn', slug: 'scholz-und-volkmer' },
-  { src: 'id-logo.png', name: 'Ideology', slug: 'ideology' },
-  { src: 'lemon-soda-logo.png', name: 'LemonSoda', slug: 'ideology' },
-  { src: 'neugelb-logo.svg', name: 'NeuGelb', slug: 'neugelb' },
-  { src: 'rv-logo.png', name: 'R+V', slug: 'scholz-und-volkmer' },
-  { src: 'wmf-logo.svg', name: 'WMF', slug: 'scholz-und-volkmer' },
-]
+  { src: "coba-logo.png", name: "Commerzbank", slug: "neugelb" },
+  { src: "td-cowen.svg", name: "TD COWEN", slug: "td-cowen" },
+  { src: "remax-logo.png", name: "re/max", slug: "ideology" },
+  { src: "suv-logo.png", name: "Scholz & Volkmer", slug: "scholz-und-volkmer" },
+  { src: "adidas-logo.svg", name: "Adidas", slug: "scholz-und-volkmer" },
+  { src: "db-logo.svg", name: "Deutsche Bahn", slug: "scholz-und-volkmer" },
+  { src: "id-logo.png", name: "Ideology", slug: "ideology" },
+  { src: "lemon-soda-logo.png", name: "LemonSoda", slug: "ideology" },
+  { src: "neugelb-logo.svg", name: "NeuGelb", slug: "neugelb" },
+  { src: "rv-logo.png", name: "R+V", slug: "scholz-und-volkmer" },
+  { src: "wmf-logo.svg", name: "WMF", slug: "scholz-und-volkmer" }
+];
 </script>
 
 <style scoped>

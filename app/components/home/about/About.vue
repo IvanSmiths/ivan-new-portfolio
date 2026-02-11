@@ -175,7 +175,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div ref="container" class="relative w-full h-screen overflow-hidden">
+  <div ref="container" class="relative bg-background w-full h-screen overflow-hidden">
     <div
       v-for="(phrase, index) in phrases"
       :key="index"
@@ -192,7 +192,7 @@ onMounted(() => {
             :key="cIdx"
             :class="[
               phrase.font,
-              'anim-unit inline-block uppercase text-4xl md:text-8xl lg:text-9xl tracking-tight',
+              'anim-unit text-foreground-muted inline-block uppercase text-4xl md:text-8xl lg:text-9xl tracking-tight',
             ]"
             :style="{ color: phrase.color }"
           >

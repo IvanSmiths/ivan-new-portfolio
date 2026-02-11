@@ -1,26 +1,26 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { internalRoutes } from '~~/_config/config'
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import { internalRoutes } from "~~/_config/config";
 
-const route = useRoute()
-const worksCount = 4
+const route = useRoute();
+const worksCount = 4;
 
 const getLinkStatus = (url: string) => {
-  if (url === '/') {
-    return route.path === '/'
+  if (url === "/") {
+    return route.path === "/";
   }
-  return route.path.startsWith(url)
-}
+  return route.path.startsWith(url);
+};
 
 const navigationLinks = computed(() =>
   internalRoutes.map((link, index) => ({
     ...link,
     isActive: getLinkStatus(link.url),
     showCount: index === 1,
-    hasMargin: index !== 1 && index !== 2,
-  })),
-)
+    hasMargin: index !== 1 && index !== 2
+  }))
+);
 </script>
 
 <template>
@@ -28,11 +28,13 @@ const navigationLinks = computed(() =>
     <li
       v-for="link in navigationLinks"
       :key="link.url"
-      class="flex items-baseline"
+      class="flex text-foreground-muted items-baseline"
     >
       <NuxtLink
         :class="[
-          link.isActive ? 'underline underline-offset-2' : '',
+          link.isActive
+            ? 'underline text-foreground-muted underline-offset-2'
+            : '',
           link.hasMargin ? 'mr-1' : '',
         ]"
         :prefetch="true"
@@ -42,10 +44,7 @@ const navigationLinks = computed(() =>
         {{ link.label }}
       </NuxtLink>
 
-      <span
-        v-if="link.showCount"
-        class="text-muted ml-1 text-[8px]"
-      >
+      <span v-if="link.showCount" class="text-foreground-muted ml-1 text-[8px]">
         ({{ worksCount }})
       </span>
     </li>
