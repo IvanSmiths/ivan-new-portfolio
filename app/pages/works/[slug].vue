@@ -90,8 +90,9 @@ onMounted(() => {
       ease: "none",
       scrollTrigger: {
         trigger: scrollSectionRef.value,
-        start: "top bottom",
-        end: "bottom bottom",
+        start: "10% 70%",
+        end: "90% 95%",
+        markers: true,
         scrub: true,
         onUpdate: (self) => {
           if (!hasNavigated.value && self.progress >= 0.999) {
@@ -132,10 +133,10 @@ onUnmounted(() => {
         <NuxtLink
           v-if="hasExternalWebsite"
           :to="work?.websiteLink"
+          class="hover:opacity-70 transition"
           external
           rel="noopener noreferrer"
           target="_blank"
-          class="hover:opacity-70 transition"
         >
           Visit website
         </NuxtLink>
@@ -143,10 +144,10 @@ onUnmounted(() => {
         <NuxtLink
           v-if="hasExternalLinkedin"
           :to="work?.linkedinLink"
+          class="hover:opacity-70 transition"
           external
           rel="noopener noreferrer"
           target="_blank"
-          class="hover:opacity-70 transition"
         >
           Visit LinkedIn
         </NuxtLink>
@@ -156,8 +157,8 @@ onUnmounted(() => {
     <section class="mx-auto mt-8 w-full max-w-6xl">
       <div class="mx-auto max-w-4xl overflow-hidden border border-black/10 bg-black/3">
         <img
-          :src="coverImage"
           :alt="`${work?.name} cover image`"
+          :src="coverImage"
           class="mx-auto h-auto w-full object-cover"
           loading="eager"
         >
@@ -187,10 +188,10 @@ onUnmounted(() => {
             <NuxtLink
               v-for="entry in workLinks"
               :key="entry.label"
-              :to="entry.link"
               :external="entry.link.startsWith('http')"
-              :target="entry.link.startsWith('http') ? '_blank' : undefined"
               :rel="entry.link.startsWith('http') ? 'noopener noreferrer' : undefined"
+              :target="entry.link.startsWith('http') ? '_blank' : undefined"
+              :to="entry.link"
               class="border border-black/15 px-3 py-1.5 text-sm font-medium uppercase transition hover:bg-black hover:text-white"
             >
               {{ entry.label }}
@@ -231,8 +232,8 @@ onUnmounted(() => {
       <img
         v-for="(image, index) in work?.images.slice(1)"
         :key="`gallery-${index}`"
-        :src="image"
         :alt="`${work?.name} image ${index + 2}`"
+        :src="image"
         class="h-full w-full object-cover"
         loading="lazy"
       >
