@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { worksData } from './utils/data/works'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -22,6 +23,11 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       stylistic: true,
+    },
+  },
+  nitro: {
+    prerender: {
+      routes: worksData.map((work) => `/works/${work.slug}`),
     },
   },
 })
