@@ -1,6 +1,11 @@
 <script lang="ts" setup>
+import { computed, onMounted, onUnmounted, ref } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import worksData from "~~/utils/data/works";
 import type { Link, WorkProjectPage } from "~~/utils/data/works/types";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const route = useRoute();
 
@@ -50,6 +55,59 @@ const hasExternalLinkedin = computed(() =>
   Boolean(work.value?.linkedinLink?.startsWith("http"))
 );
 const hasManyImages = computed(() => (work.value?.images.length ?? 0) > 1);
+
+const orderedSlugs = [
+  "ideology",
+  "scholz-und-volkmer",
+  "td-cowen",
+  "neugelb"
+] as const;
+const currentSlug = computed(() => String(route.params.slug));
+const nextSlug = computed(() => {
+  const index = orderedSlugs.indexOf(currentSlug.value as (typeof orderedSlugs)[number]);
+  if (index === -1) {
+    return orderedSlugs[0];
+  }
+
+  return orderedSlugs[(index + 1) % orderedSlugs.length];
+});
+
+const scrollSectionRef = ref<HTMLElement | null>(null);
+const fillLineRef = ref<HTMLElement | null>(null);
+let gsapContext: gsap.Context | null = null;
+const hasNavigated = ref(false);
+
+onMounted(() => {
+  gsapContext = gsap.context(() => {
+    if (!scrollSectionRef.value || !fillLineRef.value) {
+      return;
+    }
+
+    gsap.set(fillLineRef.value, { scaleX: 0, transformOrigin: "left center" });
+
+    gsap.to(fillLineRef.value, {
+      scaleX: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: scrollSectionRef.value,
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+        onUpdate: (self) => {
+          if (!hasNavigated.value && self.progress >= 0.999) {
+            hasNavigated.value = true;
+            navigateTo(`/works/${nextSlug.value}`);
+          }
+        }
+      }
+    });
+  });
+});
+
+onUnmounted(() => {
+  gsapContext?.revert();
+  gsapContext = null;
+});
 </script>
 
 <template>
@@ -178,6 +236,25 @@ const hasManyImages = computed(() => (work.value?.images.length ?? 0) > 1);
         class="h-full w-full object-cover"
         loading="lazy"
       >
+    </section>
+
+    <section
+      ref="scrollSectionRef"
+      class="mx-auto mt-14 flex h-[34vh] w-full max-w-6xl items-end border-t border-black/10 pb-8"
+    >
+      <div class="w-full">
+        <p
+          class="text-foreground-muted mb-3 text-xs font-semibold tracking-[0.18em] uppercase"
+        >
+          Scroll to see next project
+        </p>
+        <div class="relative h-[2px] w-full bg-[#cccccc]">
+          <div
+            ref="fillLineRef"
+            class="absolute inset-y-0 left-0 h-full w-full bg-black"
+          />
+        </div>
+      </div>
     </section>
   </article>
 </template>
