@@ -1,29 +1,38 @@
+<!-- components/SeamlessCardGallery.vue -->
 <template>
   <ClientOnly>
     <section
       ref="galleryEl"
       class="relative h-screen w-full overflow-hidden bg-zinc-950"
     >
+      <!-- Card stack anchor -->
       <ul
         ref="cardsEl"
         aria-label="Portrait gallery"
-        class="absolute left-1/2 top-[40%] h-96 w-56 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-[40%] h-72 w-56 -translate-x-1/2 -translate-y-1/2"
       >
         <li
-          v-for="(src, i) in images"
+          v-for="(card, i) in cards"
           :key="i"
-          class="absolute left-0 top-0 h-fit w-56 list-none overflow-hidden rounded-xl text-center"
+          class="absolute left-0 top-0 h-72 w-56 list-none overflow-hidden rounded-xl text-center"
+          tabindex="0"
+          @blur="onLeave"
+          @focus="onHover(i)"
+          @mouseenter="onHover(i)"
+          @mouseleave="onLeave"
         >
           <img
-            :src="src"
-            alt=""
+            :alt="card.title"
+            :src="card.src"
             class="mx-auto max-w-[90%] opacity-0"
             decoding="async"
             loading="lazy"
           />
         </li>
       </ul>
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2">
+
+      <!-- Actions -->
+      <div class="absolute bottom-20 left-1/2 -translate-x-1/2">
         <button
           ref="prevBtnEl"
           class="m-4 inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-zinc-100 bg-zinc-900 px-6 py-3 font-semibold leading-[18px] text-zinc-100 outline-none transition hover:bg-zinc-800 active:scale-[0.99]"
@@ -31,6 +40,7 @@
         >
           Prev
         </button>
+
         <button
           ref="nextBtnEl"
           class="m-4 inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-zinc-100 bg-zinc-900 px-6 py-3 font-semibold leading-[18px] text-zinc-100 outline-none transition hover:bg-zinc-800 active:scale-[0.99]"
@@ -39,30 +49,103 @@
           Next
         </button>
       </div>
+
+      <!-- Bottom text (title + index) -->
+      <div class="absolute bottom-6 left-1/2 w-full -translate-x-1/2 px-6">
+        <div
+          class="mx-auto flex max-w-5xl items-baseline justify-between text-zinc-100"
+        >
+          <span class="text-lg font-semibold tracking-tight">
+            {{ activeTitle }}
+          </span>
+
+          <span class="text-lg font-semibold tabular-nums tracking-tight">
+            {{ activeIndexLabel }}
+          </span>
+        </div>
+      </div>
     </section>
   </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 
-const images = [
-  "https://assets.codepen.io/16327/portrait-number-1.png",
-  "https://assets.codepen.io/16327/portrait-number-2.png",
-  "https://assets.codepen.io/16327/portrait-number-3.png",
-  "https://assets.codepen.io/16327/portrait-number-4.png",
-  "https://assets.codepen.io/16327/portrait-number-5.png",
-  "https://assets.codepen.io/16327/portrait-number-1.png",
-  "https://assets.codepen.io/16327/portrait-number-2.png",
-  "https://assets.codepen.io/16327/portrait-number-3.png",
-  "https://assets.codepen.io/16327/portrait-number-4.png",
-  "https://assets.codepen.io/16327/portrait-number-5.png",
-];
+type Card = { src: string; title: string };
+
+const cards = ref<Card[]>([
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-1.png",
+    title: "Portrait 1"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-2.png",
+    title: "Portrait 2"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-3.png",
+    title: "Portrait 3"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-4.png",
+    title: "Portrait 4"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-5.png",
+    title: "Portrait 5"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-1.png",
+    title: "Portrait 1 (Alt)"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-2.png",
+    title: "Portrait 2 (Alt)"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-3.png",
+    title: "Portrait 3 (Alt)"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-4.png",
+    title: "Portrait 4 (Alt)"
+  },
+  {
+    src: "https://assets.codepen.io/16327/portrait-number-5.png",
+    title: "Portrait 5 (Alt)"
+  }
+]);
 
 const galleryEl = ref<HTMLElement | null>(null);
 const cardsEl = ref<HTMLElement | null>(null);
 const prevBtnEl = ref<HTMLButtonElement | null>(null);
 const nextBtnEl = ref<HTMLButtonElement | null>(null);
+
+const hoveredIndex = ref<number | null>(null);
+
+// Defaults when nothing is hovered
+const defaultTitle = "works";
+const defaultIndexLabel = "00";
+
+const activeTitle = computed(() => {
+  if (hoveredIndex.value == null) return defaultTitle;
+  return cards.value[hoveredIndex.value]?.title ?? defaultTitle;
+});
+
+const activeIndexLabel = computed(() => {
+  if (hoveredIndex.value == null) return defaultIndexLabel;
+  // show position in array (01, 02, ...)
+  const n = hoveredIndex.value + 1;
+  return String(n).padStart(2, "0");
+});
+
+function onHover(i: number) {
+  hoveredIndex.value = i;
+}
+
+function onLeave() {
+  hoveredIndex.value = null;
+}
 
 let cleanup: (() => void) | null = null;
 
@@ -70,8 +153,10 @@ onMounted(async () => {
   const gsapModule = await import("gsap");
   const stModule = await import("gsap/ScrollTrigger");
 
-  const gsap = gsapModule.gsap ?? gsapModule.default ?? gsapModule;
-  const ScrollTrigger = stModule.ScrollTrigger ?? stModule.default ?? stModule;
+  const gsap =
+    (gsapModule as any).gsap ?? (gsapModule as any).default ?? gsapModule;
+  const ScrollTrigger =
+    (stModule as any).ScrollTrigger ?? (stModule as any).default ?? stModule;
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -79,22 +164,22 @@ onMounted(async () => {
   const cardsRoot = cardsEl.value;
   if (!root || !cardsRoot) return;
 
-  const cards = Array.from(cardsRoot.querySelectorAll("li"));
-  const imgs = Array.from(cardsRoot.querySelectorAll("img"));
+  const liEls = Array.from(cardsRoot.querySelectorAll("li"));
+  const imgEls = Array.from(cardsRoot.querySelectorAll("img"));
 
-  gsap.to(imgs, { opacity: 1, delay: 0.1 });
+  gsap.to(imgEls, { opacity: 1, delay: 0.1 });
 
   let iteration = 0;
   const spacing = 0.1;
   const snap = gsap.utils.snap(spacing);
 
-  const seamlessLoop = buildSeamlessLoop(gsap, cards, spacing);
+  const seamlessLoop = buildSeamlessLoop(gsap, liEls, spacing);
 
   const scrub = gsap.to(seamlessLoop, {
     totalTime: 0,
     duration: 0.5,
     ease: "power3",
-    paused: true,
+    paused: true
   });
 
   const trigger = ScrollTrigger.create({
@@ -108,12 +193,12 @@ onMounted(async () => {
         wrapBackward(self);
       } else {
         scrub.vars.totalTime = snap(
-          (iteration + self.progress) * seamlessLoop.duration(),
+          (iteration + self.progress) * seamlessLoop.duration()
         );
         scrub.invalidate().restart();
         self.wrapping = false;
       }
-    },
+    }
   });
 
   function wrapForward(tr: any) {
@@ -127,7 +212,7 @@ onMounted(async () => {
     if (iteration < 0) {
       iteration = 9;
       seamlessLoop.totalTime(
-        seamlessLoop.totalTime() + seamlessLoop.duration() * 10,
+        seamlessLoop.totalTime() + seamlessLoop.duration() * 10
       );
       scrub.pause();
     }
@@ -161,16 +246,20 @@ onMounted(async () => {
 
     try {
       trigger?.kill(true);
-    } catch {}
+    } catch {
+    }
     try {
       scrub?.kill();
-    } catch {}
+    } catch {
+    }
     try {
       seamlessLoop?.kill();
-    } catch {}
+    } catch {
+    }
     try {
       ScrollTrigger?.killAll(false);
-    } catch {}
+    } catch {
+    }
   };
 });
 
@@ -186,8 +275,9 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
     paused: true,
     repeat: -1,
     onRepeat() {
+      // @ts-ignore
       this._time === this._dur && (this._tTime += this._dur - 0.01);
-    },
+    }
   });
 
   const l = items.length + overlap * 2;
@@ -211,15 +301,15 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
           yoyo: true,
           repeat: 1,
           ease: "power1.in",
-          immediateRender: false,
+          immediateRender: false
         },
-        time,
+        time
       )
       .fromTo(
         item,
         { xPercent: 400 },
         { xPercent: -400, duration: 1, ease: "none", immediateRender: false },
-        time,
+        time
       );
 
     if (i <= items.length) seamlessLoop.add("label" + i, time);
@@ -231,7 +321,7 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
     .to(rawSequence, {
       time: loopTime,
       duration: loopTime - startTime,
-      ease: "none",
+      ease: "none"
     })
     .fromTo(
       rawSequence,
@@ -240,8 +330,8 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
         time: startTime,
         duration: startTime - (overlap * spacing + 1),
         immediateRender: false,
-        ease: "none",
-      },
+        ease: "none"
+      }
     );
 
   return seamlessLoop;
