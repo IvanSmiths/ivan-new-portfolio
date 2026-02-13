@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import Header from "~/components/home/header/Header.vue";
 import { ref } from "vue";
 import { useHorizontalScroll } from "~/composables/useHorizontalScroll";
-import About from "~/components/home/about/About.vue";
-import Works from "~/components/home/works/Works.vue";
+import SeamlessCards from "~/components/home/SeamlessCards.vue";
 
 const title =
   "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
@@ -33,7 +31,7 @@ useSeoMeta({
   applicationName: "Ivan Smiths Portfolio",
   generator: "Nuxt",
   robots: "index, follow",
-  charset: "utf-8",
+  charset: "utf-8"
 });
 
 const containerRef = ref<HTMLElement | null>(null);
@@ -42,7 +40,5 @@ useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
-  <Header />
-  <About />
-  <Works />
+  <SeamlessCards />
 </template>
