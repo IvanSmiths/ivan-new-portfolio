@@ -9,12 +9,12 @@
       <ul
         ref="cardsEl"
         aria-label="Portrait gallery"
-        class="absolute left-1/2 top-[40%] h-72 w-56 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-[40%] h-96 w-56 -translate-x-1/2 -translate-y-1/2"
       >
         <li
           v-for="(card, i) in cards"
           :key="i"
-          class="absolute left-0 top-0 h-72 w-56 list-none overflow-hidden rounded-xl text-center"
+          class="absolute left-0 top-0 h-fit w-56 list-none overflow-hidden rounded-xl text-center"
           tabindex="0"
           @blur="onLeave"
           @focus="onHover(i)"
@@ -35,7 +35,7 @@
       <div class="absolute bottom-20 left-1/2 -translate-x-1/2">
         <button
           ref="prevBtnEl"
-          class="m-4 inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-zinc-100 bg-zinc-900 px-6 py-3 font-semibold leading-[18px] text-zinc-100 outline-none transition hover:bg-zinc-800 active:scale-[0.99]"
+          class="m-4 inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-zinc-100 bg-zinc-900 px-6 py-3 font-semibold leading-[18px] text-zinc-100 outline-none transition hover:bg-zinc-800"
           type="button"
         >
           Prev
@@ -43,7 +43,7 @@
 
         <button
           ref="nextBtnEl"
-          class="m-4 inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-zinc-100 bg-zinc-900 px-6 py-3 font-semibold leading-[18px] text-zinc-100 outline-none transition hover:bg-zinc-800 active:scale-[0.99]"
+          class="m-4 inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-zinc-100 bg-zinc-900 px-6 py-3 font-semibold leading-[18px] text-zinc-100 outline-none transition hover:bg-zinc-800"
           type="button"
         >
           Next
@@ -134,7 +134,6 @@ const activeTitle = computed(() => {
 
 const activeIndexLabel = computed(() => {
   if (hoveredIndex.value == null) return defaultIndexLabel;
-  // show position in array (01, 02, ...)
   const n = hoveredIndex.value + 1;
   return String(n).padStart(2, "0");
 });
@@ -164,16 +163,25 @@ onMounted(async () => {
   const cardsRoot = cardsEl.value;
   if (!root || !cardsRoot) return;
 
-  const liEls = Array.from(cardsRoot.querySelectorAll("li"));
-  const imgEls = Array.from(cardsRoot.querySelectorAll("img"));
+  const liEls = Array.from(cardsRoot.querySelectorAll("li")) as HTMLElement[];
+  const imgEls = Array.from(cardsRoot.querySelectorAll("img")) as HTMLElement[];
 
   gsap.to(imgEls, { opacity: 1, delay: 0.1 });
 
-  let iteration = 0;
-  const spacing = 0.1;
+  /**
+   * ✅ Safe knobs
+   * spacing = how much "scroll progress" (and button step) advances per card
+   * itemDuration = how long each card takes to traverse (xPercent tween duration)
+   *
+   * You can change spacing freely now.
+   * If you change itemDuration, overlap math will still be correct.
+   */
+  const spacing = 0.18;
+  const itemDuration = 1;
+
   const snap = gsap.utils.snap(spacing);
 
-  const seamlessLoop = buildSeamlessLoop(gsap, liEls, spacing);
+  const seamlessLoop = buildSeamlessLoop(gsap, liEls, spacing, itemDuration);
 
   const scrub = gsap.to(seamlessLoop, {
     totalTime: 0,
@@ -181,6 +189,9 @@ onMounted(async () => {
     ease: "power3",
     paused: true
   });
+
+  let iteration = 0;
+  const cardCount = liEls.length;
 
   const trigger = ScrollTrigger.create({
     start: 0,
@@ -209,13 +220,18 @@ onMounted(async () => {
 
   function wrapBackward(tr: any) {
     iteration--;
+
+    // ✅ No more hard-coded "9" / "* 10"
     if (iteration < 0) {
-      iteration = 9;
+      iteration = cardCount - 1;
+
+      // keep totalTime in a safe positive range
       seamlessLoop.totalTime(
-        seamlessLoop.totalTime() + seamlessLoop.duration() * 10
+        seamlessLoop.totalTime() + seamlessLoop.duration() * cardCount
       );
       scrub.pause();
     }
+
     tr.wrapping = true;
     tr.scroll(tr.end - 1);
   }
@@ -257,6 +273,7 @@ onMounted(async () => {
     } catch {
     }
     try {
+      // prefer killing only our trigger, but keep as you had it
       ScrollTrigger?.killAll(false);
     } catch {
     }
@@ -265,10 +282,24 @@ onMounted(async () => {
 
 onUnmounted(() => cleanup?.());
 
-function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
-  const overlap = Math.ceil(1 / spacing);
-  const startTime = items.length * spacing + 0.5;
-  const loopTime = (items.length + overlap) * spacing + 1;
+function buildSeamlessLoop(
+  gsap: any,
+  items: HTMLElement[],
+  spacing: number,
+  itemDuration = 1
+) {
+  /**
+   * ✅ Make overlap depend on the actual animation window.
+   * If itemDuration is 1s and spacing is 0.1, overlap = 10 (same as the demo).
+   */
+  const overlap = Math.ceil(itemDuration / spacing);
+
+  /**
+   * ✅ Remove magic numbers tied to the old spacing.
+   * These offsets ensure the rawSequence has "runway" before/after so the loop is seamless.
+   */
+  const startTime = items.length * spacing + itemDuration * 0.5;
+  const loopTime = (items.length + overlap) * spacing + itemDuration;
 
   const rawSequence = gsap.timeline({ paused: true });
   const seamlessLoop = gsap.timeline({
@@ -282,7 +313,7 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
 
   const l = items.length + overlap * 2;
 
-  gsap.set(items, { xPercent: 400, opacity: 0, scale: 0 });
+  gsap.set(items, { xPercent: 400, opacity: 0 });
 
   for (let i = 0; i < l; i++) {
     const index = i % items.length;
@@ -292,12 +323,11 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
     rawSequence
       .fromTo(
         item,
-        { scale: 0, opacity: 0 },
+        { opacity: 0 },
         {
-          scale: 1,
           opacity: 1,
           zIndex: 100,
-          duration: 0.5,
+          duration: itemDuration / 2,
           yoyo: true,
           repeat: 1,
           ease: "power1.in",
@@ -308,7 +338,12 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
       .fromTo(
         item,
         { xPercent: 400 },
-        { xPercent: -400, duration: 1, ease: "none", immediateRender: false },
+        {
+          xPercent: -400,
+          duration: itemDuration,
+          ease: "none",
+          immediateRender: false
+        },
         time
       );
 
@@ -325,10 +360,10 @@ function buildSeamlessLoop(gsap: any, items: HTMLElement[], spacing: number) {
     })
     .fromTo(
       rawSequence,
-      { time: overlap * spacing + 1 },
+      { time: overlap * spacing + itemDuration },
       {
         time: startTime,
-        duration: startTime - (overlap * spacing + 1),
+        duration: startTime - (overlap * spacing + itemDuration),
         immediateRender: false,
         ease: "none"
       }
