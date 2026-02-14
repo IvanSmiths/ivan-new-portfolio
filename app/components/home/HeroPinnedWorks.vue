@@ -2,15 +2,23 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import Observer from "gsap/Observer";
+import { homeWorks } from "~~/utils/data/home/works.ts";
 
 gsap.registerPlugin(Observer);
 
-const wrapperRef = ref(null);
-const listRef = ref(null);
-let ctx; // GSAP Context for cleanup
+// Props or Local Data
+const props = defineProps({
+  homeWorks: {
+    type: Array,
+    required: true,
+    default: () => []
+  }
+});
 
-// --- The Horizontal Loop Helper Function ---
-// (Kept largely intact, adapted slightly for scope safety)
+const wrapperRef = ref(null);
+let ctx;
+
+// --- GSAP Horizontal Loop Helper ---
 function horizontalLoop(items, config) {
   items = gsap.utils.toArray(items);
   config = config || {};
@@ -88,58 +96,32 @@ function horizontalLoop(items, config) {
     times[i] = distanceToStart / pixelsPerSecond;
   }
 
-  function toIndex(index, vars) {
-    vars = vars || {};
-    Math.abs(index - curIndex) > length / 2 &&
-    (index += index > curIndex ? -length : length);
-    let newIndex = gsap.utils.wrap(0, length, index),
-      time = times[newIndex];
-    if (time > tl.time() !== index > curIndex) {
-      vars.modifiers = { time: gsap.utils.wrap(0, tl.duration()) };
-      time += tl.duration() * (index > curIndex ? 1 : -1);
-    }
-    curIndex = newIndex;
-    vars.overwrite = true;
-    return tl.tweenTo(time, vars);
-  }
-
-  tl.next = (vars) => toIndex(curIndex + 1, vars);
-  tl.previous = (vars) => toIndex(curIndex - 1, vars);
-  tl.current = () => curIndex;
-  tl.toIndex = (index, vars) => toIndex(index, vars);
-  tl.times = times;
-  tl.progress(1, true).progress(0, true);
-
-  if (config.reversed) {
-    tl.vars.onReverseComplete();
-    tl.reverse();
-  }
   return tl;
 }
 
 onMounted(() => {
-  // Use gsap.context to scope selectors and allow easy cleanup
-  ctx = gsap.context((self) => {
-    // Select the list items explicitly
-    const boxes = gsap.utils.toArray(".card-item");
+  ctx = gsap.context(() => {
+    // 1. Select our new work items
+    const items = gsap.utils.toArray(".work-item");
 
-    // 1. Create the infinite loop
-    const loop = horizontalLoop(boxes, { repeat: -1 });
+    // 2. Initialize the loop
+    const loop = horizontalLoop(items, {
+      repeat: -1,
+      speed: 1,
+      paddingRight: 20 // Optional gap at the end of the loop
+    });
 
-    // 2. Create the deceleration tween
+    // 3. Deceleration setup
     let slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
-
-    // 3. Stop initially
     loop.timeScale(0);
 
-    // 4. Create the Observer
+    // 4. Observer with preventDefault to stop page scrolling
     Observer.create({
-      target: wrapperRef.value, // Listen on the wrapper div
+      target: wrapperRef.value,
       type: "pointer,touch,wheel",
       wheelSpeed: -1,
-      preventDefault: true, // <--- ADD THIS: Stops native page scrolling
+      preventDefault: true,
       onChange: (self) => {
-        // Whichever direction is bigger determines the loop direction
         loop.timeScale(
           Math.abs(self.deltaX) > Math.abs(self.deltaY)
             ? -self.deltaX
@@ -152,25 +134,42 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  ctx.revert(); // Clean up all GSAP animations and Observers
+  if (ctx) ctx.revert();
 });
 </script>
 
 <template>
   <div
     ref="wrapperRef"
-    class="relative w-full h-screen overflow-hidden bg-[#111] touch-none overscroll-none"
+    class="relative w-full h-screen overflow-hidden bg-white touch-none overscroll-none flex items-center"
   >
-    <ul
-      ref="listRef"
-      class="flex flex-nowrap flex-row pl-0 h-full items-center"
-    >
+    <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none">
       <li
-        v-for="i in 10"
-        :key="i"
-        class="card-item list-none p-0 m-0 w-[14rem] shrink-0 h-[18rem] text-center leading-[18rem] text-[2rem] font-sans bg-[#9d7cce] rounded-[0.8rem] select-none cursor-grab active:cursor-grabbing"
+        v-for="(item, idx) in homeWorks"
+        :key="idx"
+        class="work-item w-96 shrink-0 list-none select-none cursor-grab active:cursor-grabbing"
       >
-        {{ i - 1 }}
+        <div class="flex flex-row justify-between items-center">
+          <div
+            class="text-xs font-semibold uppercase tracking-wider text-black"
+          >
+            {{ item.role }}
+          </div>
+          <div
+            class="text-center text-xs font-bold tracking-wide text-neutral-800"
+          >
+            {{ item.title }}
+          </div>
+        </div>
+
+        <div class="h-[22.5rem] w-full overflow-hidden bg-neutral-200">
+          <img
+            :alt="item.title"
+            :src="item.image"
+            class="h-full w-full object-cover pointer-events-none"
+            draggable="false"
+          />
+        </div>
       </li>
     </ul>
   </div>
