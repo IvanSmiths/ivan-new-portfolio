@@ -13,7 +13,7 @@
             <div
               v-for="(item, idx) in loopItems"
               :key="idx"
-              class="w-96 shrink-0"
+              class="w-64 shrink-0"
             >
               <div class="p-2 flex flex-row justify-between items-center">
                 <div
@@ -86,6 +86,20 @@ const works = ref<Work[]>([
     title: "IDEOLOGY",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png"
+  },
+  {
+    role: "DESIGN/FRONTEND",
+    client: "Lemon Soda / RE/MAX",
+    title: "IDEOLOGY",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png"
+  },
+  {
+    role: "DESIGN/FRONTEND",
+    client: "Lemon Soda / RE/MAX",
+    title: "IDEOLOGY",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png"
   }
 ]);
 
@@ -122,11 +136,11 @@ onMounted(async () => {
     let lastProgress = 0;
 
     // Tune how much scroll drives movement
-    const speed = 2600; // px per full progress delta (0->1)
+    const speed = 3600; // px per full progress delta (0->1)
 
     const wrapX = (value: number) => gsap.utils.wrap(-firstSetWidth, 0, value);
 
-    gsap.set(trackEl.value, { x: 0 });
+    gsap.set(trackEl.value, { x: 0, ease: "expo" });
 
     let isTeleporting = false;
 
