@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useHorizontalScroll } from "~/composables/useHorizontalScroll";
-import SeamlessCards from "~/components/home/SeamlessCards.vue";
+import CardsLoop from "~/components/home/CardsLoop.vue";
 
 const title =
   "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
@@ -40,5 +40,5 @@ useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
-  <SeamlessCards />
+  <CardsLoop />
 </template>
