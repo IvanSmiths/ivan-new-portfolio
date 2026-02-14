@@ -71,3 +71,7 @@ html.route-transitioning,
 body.route-transitioning {
     overflow: hidden;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
