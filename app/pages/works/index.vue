@@ -1,166 +1,195 @@
-<script setup>
-import { onMounted, onUnmounted, ref } from "vue";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const works = [
-  {
-    id: 1,
-    title: "LIENDE COLLECTION",
-    category: "BRANDING, PACK",
-    number: "04",
-    year: "18",
-    bgImage:
-      "https://images.unsplash.com/photo-1594146664973-206e8b7d7af3?q=80&w=2574&auto=format&fit=crop",
-    innerImage:
-      "https://images.unsplash.com/photo-1594146664973-206e8b7d7af3?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: 2,
-    title: "LA VIARTE",
-    category: "WEB DESIGN",
-    number: "03",
-    year: "19",
-    bgImage:
-      "https://images.unsplash.com/photo-1559563362-c667ba5f5480?q=80&w=2601&auto=format&fit=crop",
-    innerImage:
-      "https://images.unsplash.com/photo-1559563362-c667ba5f5480?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: 3,
-    title: "OLIVE OIL CO",
-    category: "ART DIRECTION",
-    number: "02",
-    year: "20",
-    bgImage:
-      "https://images.unsplash.com/photo-1474608137496-0d46fc6e06a6?q=80&w=2574&auto=format&fit=crop",
-    innerImage:
-      "https://images.unsplash.com/photo-1474608137496-0d46fc6e06a6?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: 4,
-    title: "MODERN WINE",
-    category: "PACKAGING",
-    number: "01",
-    year: "21",
-    bgImage:
-      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2670&auto=format&fit=crop",
-    innerImage:
-      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=800&auto=format&fit=crop"
-  }
-];
-
-const mainContainer = ref(null);
-const bgStrip = ref(null);
-const cardStrip = ref(null);
-
-let ctx;
-
-onMounted(() => {
-  ctx = gsap.context(() => {
-    const totalSlides = works.length;
-    const movementLimit = -(totalSlides - 1) * 100;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: mainContainer.value,
-        start: "top top",
-        end: `+=${totalSlides * 100}%`,
-        scrub: 1,
-        pin: true,
-        snap: {
-          snapTo: 1 / (totalSlides - 1),
-          duration: { min: 0.3, max: 0.8 },
-          delay: 0.1,
-          ease: "power1.inOut"
-        }
-      }
-    });
-    tl.to(
-      bgStrip.value,
-      {
-        yPercent: movementLimit,
-        ease: "none"
-      },
-      0
-    );
-    tl.to(
-      cardStrip.value,
-      {
-        yPercent: movementLimit,
-        ease: "none"
-      },
-      0
-    );
-  }, mainContainer.value);
-});
-
-onUnmounted(() => {
-  ctx.revert();
-});
-</script>
-
 <template>
-  <div
-    ref="mainContainer"
-    class="relative h-screen w-full overflow-hidden bg-black"
-  >
-    <div ref="bgStrip" class="absolute inset-0 w-full h-full z-0 flex flex-col">
-      <div
-        v-for="work in works"
-        :key="work.id"
-        class="w-full h-screen flex-shrink-0 relative"
-      >
-        <img
-          :src="work.bgImage"
-          alt="Background"
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/20"></div>
-      </div>
-    </div>
-
-    <div
-      class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] md:w-[60%] lg:w-[40%] h-[300px] md:h-[400px] bg-white shadow-2xl overflow-hidden"
+  <div class="h-screen overflow-hidden bg-black text-white">
+    <header
+      class="fixed top-0 left-0 z-[3] flex h-28 w-full items-center justify-between px-[5%] text-[clamp(0.66rem,2vw,1rem)] tracking-[0.5em] uppercase"
     >
-      <div ref="cardStrip" class="w-full h-full flex flex-col">
-        <div
-          v-for="work in works"
-          :key="'card-' + work.id"
-          class="w-full h-[300px] md:h-[400px] flex-shrink-0 flex items-center justify-between px-6 md:px-12 relative"
+      <div>Animated Sections</div>
+      <div>
+        <a
+          class="text-white no-underline hover:underline"
+          href="https://codepen.io/BrianCross/pen/PoWapLP"
+          rel="noreferrer"
+          target="_blank"
         >
-          <div
-            class="flex flex-col justify-between h-full py-8 text-xs md:text-sm font-bold tracking-widest uppercase text-gray-800 z-10"
-          >
-            <span>{{ work.number }}</span>
-            <span>{{ work.title }}</span>
-          </div>
+          Original Inspiration
+        </a>
+      </div>
+    </header>
 
+    <section
+      v-for="(s, i) in slides"
+      :key="s.key"
+      ref="sectionRefs"
+      class="fixed top-0 h-full w-full invisible"
+    >
+      <div ref="outerRefs" class="outer h-full w-full overflow-hidden">
+        <div ref="innerRefs" class="inner h-full w-full overflow-hidden">
           <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] md:w-[180px] h-[160px] md:h-[240px] shadow-lg overflow-hidden"
+            ref="bgRefs"
+            :class="s.bgPosClass"
+            :style="{ backgroundImage: bgImage(s.url) }"
+            class="bg absolute top-0 flex h-full w-full items-center justify-center bg-cover bg-center"
           >
-            <img :src="work.innerImage" class="w-full h-full object-cover" />
-          </div>
-
-          <div
-            class="flex flex-col justify-between h-full py-8 text-xs md:text-sm font-bold tracking-widest uppercase text-gray-800 text-right z-10"
-          >
-            <span>{{ work.year }}</span>
-            <span>{{ work.category }}</span>
+            <h2
+              class="section-heading z-[2] w-[90vw] max-w-[1200px] text-center font-semibold normal-case leading-[1.2] [font-size:clamp(1rem,6vw,10rem)] [margin-right:-0.5em]"
+            >
+              {{ s.title }}
+            </h2>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
+<script lang="ts" setup>
+import gsap from "gsap";
+import Observer from "gsap/Observer";
+import SplitText from "gsap/SplitText";
+
+const slides = [
+  {
+    key: "first",
+    title: "Scroll down",
+    url: "https://assets.codepen.io/16327/site-landscape-1.jpg",
+    bgPosClass: ""
+  },
+  {
+    key: "second",
+    title: "Animated with GSAP",
+    url: "https://assets.codepen.io/16327/site-landscape-2.jpg",
+    bgPosClass: ""
+  },
+  {
+    key: "third",
+    title: "GreenSock",
+    url: "https://assets.codepen.io/16327/site-landscape-3.jpg",
+    bgPosClass: ""
+  },
+  {
+    key: "fourth",
+    title: "Animation platform",
+    url: "https://assets.codepen.io/16327/site-landscape-4.jpg",
+    bgPosClass: ""
+  },
+  {
+    key: "fifth",
+    title: "Keep scrolling",
+    url: "https://assets.codepen.io/16327/site-landscape-5.jpg",
+    bgPosClass: "bg-[position:50%_45%]"
+  }
+] as const;
+
+const sectionRefs = ref<HTMLElement[]>([]);
+const outerRefs = ref<HTMLElement[]>([]);
+const innerRefs = ref<HTMLElement[]>([]);
+const bgRefs = ref<HTMLElement[]>([]);
+
+function bgImage(url: string) {
+  // gradient overlay + image (like your SCSS)
+  return `linear-gradient(180deg, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.1) 100%), url("${url}")`;
+}
+
+onMounted(async () => {
+  // make sure this never runs on SSR
+  if (import.meta.server) return;
+
+  gsap.registerPlugin(Observer, SplitText);
+
+  // In Nuxt, refs fill after mount; nextTick helps ensure arrays are populated.
+  await nextTick();
+
+  const sections = sectionRefs.value;
+  const images = bgRefs.value;
+  const headings = gsap.utils.toArray<HTMLElement>(".section-heading");
+  const outerWrappers = outerRefs.value;
+  const innerWrappers = innerRefs.value;
+
+  const splitHeadings = headings.map(
+    (heading) =>
+      new SplitText(heading, {
+        type: "chars,words,lines",
+        linesClass: "clip-text"
+      })
+  );
+
+  let currentIndex = -1;
+  const wrap = gsap.utils.wrap(0, sections.length);
+  let animating = false;
+
+  gsap.set(outerWrappers, { yPercent: 100 });
+  gsap.set(innerWrappers, { yPercent: -100 });
+
+  function gotoSection(index: number, direction: number) {
+    index = wrap(index);
+    animating = true;
+
+    const fromTop = direction === -1;
+    const dFactor = fromTop ? -1 : 1;
+
+    const tl = gsap.timeline({
+      defaults: { duration: 1.25, ease: "power1.inOut" },
+      onComplete: () => (animating = false)
+    });
+
+    if (currentIndex >= 0) {
+      gsap.set(sections[currentIndex], { zIndex: 0 });
+      tl.to(images[currentIndex], { yPercent: -15 * dFactor }).set(
+        sections[currentIndex],
+        { autoAlpha: 0 }
+      );
+    }
+
+    gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
+
+    tl.fromTo(
+      [outerWrappers[index], innerWrappers[index]],
+      { yPercent: (i: number) => (i ? -100 * dFactor : 100 * dFactor) },
+      { yPercent: 0 },
+      0
+    )
+      .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
+      .fromTo(
+        splitHeadings[index].chars,
+        { autoAlpha: 0, yPercent: 150 * dFactor },
+        {
+          autoAlpha: 1,
+          yPercent: 0,
+          duration: 1,
+          ease: "power2",
+          stagger: { each: 0.02, from: "random" }
+        },
+        0.2
+      );
+
+    currentIndex = index;
+  }
+
+  const obs = Observer.create({
+    type: "wheel,touch,pointer",
+    wheelSpeed: -1,
+    onDown: () => !animating && gotoSection(currentIndex - 1, -1),
+    onUp: () => !animating && gotoSection(currentIndex + 1, 1),
+    tolerance: 10,
+    preventDefault: true
+  });
+
+  gotoSection(0, 1);
+
+  onBeforeUnmount(() => {
+    obs?.kill();
+    splitHeadings.forEach((s) => s.revert());
+  });
+});
+</script>
+
 <style scoped>
-/* Ensures smooth rendering
-*/
-img {
-  will-change: transform;
+* {
+  box-sizing: border-box;
   user-select: none;
+}
+
+.section-heading * {
+  will-change: transform;
 }
 </style>

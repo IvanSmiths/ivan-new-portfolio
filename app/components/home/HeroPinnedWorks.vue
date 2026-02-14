@@ -162,7 +162,7 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <div class="h-[22.5rem] w-full overflow-hidden bg-neutral-200">
+        <div class="h-90 w-full overflow-hidden bg-neutral-200">
           <img
             :alt="item.title"
             :src="item.image"
