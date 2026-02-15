@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import InternalLinks from "~/components/global/navbar/InternalLinks.vue";
-import ScrollPercentage from "~/components/global/navbar/ScrollPercentage.vue";
+import InternalLinks from "./InternalLinks.vue";
+import ScrollPercentage from "./ScrollPercentage.vue";
 
 const colorMode = ref<"light" | "dark">("light");
 

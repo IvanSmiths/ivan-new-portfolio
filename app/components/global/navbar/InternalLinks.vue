@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { internalRoutes } from "~~/_config/config";
 
+const appConfig = useAppConfig();
+const internalRoutes = appConfig.internalRoutes;
 const route = useRoute();
 const worksCount = 4;
 
