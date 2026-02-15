@@ -16,7 +16,8 @@ function horizontalLoop(items, config) {
       repeat: config.repeat,
       paused: config.paused,
       defaults: { ease: "none" },
-      onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100)
+      onReverseComplete: () =>
+        tl.totalTime(tl.rawTime() + tl.duration() * 1000)
     }),
     length = items.length,
     startX = items[0].offsetLeft,
@@ -96,15 +97,17 @@ onMounted(() => {
     const loop = horizontalLoop(items, {
       repeat: -1,
       speed: 1,
-      paddingRight: 20 // gap at the end of the loop
+      paddingRight: 20
     });
+
+    loop.totalTime(loop.duration() * 1000);
 
     let slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
     loop.timeScale(0);
 
     Observer.create({
       target: window,
-      type: "pointer,touch,wheel",
+      type: "touch,wheel",
       wheelSpeed: -1,
       dragMinimum: 2,
       ignore: "a, button, input, select, textarea, .navbar",
@@ -130,11 +133,13 @@ onUnmounted(() => {
     ref="wrapperRef"
     class="w-full absolute bottom-2.5 h-screen overflow-hidden flex items-end pointer-events-none"
   >
-    <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none pointer-events-auto">
+    <ul
+      class="flex flex-nowrap flex-row list-none pointer-events-auto"
+    >
       <li
         v-for="(item, idx) in works"
         :key="idx"
-        class="work-item w-96 shrink-0 list-none select-none cursor-grab active:cursor-grabbing"
+        class="work-item w-96 pl-2.5 shrink-0 list-none select-none cursor-pointer"
       >
         <div class="flex flex-row justify-between items-center">
           <div
