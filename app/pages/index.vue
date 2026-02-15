@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useHorizontalScroll } from "~/composables/useHorizontalScroll";
-import HeroPinnedWorks from "~/components/home/HeroPinnedWorks.vue";
+import HomeWorks from "~/components/home/works/HomeWorks.vue";
+import HomeDescription from "~/components/home/description/HomeDescription.vue";
 
 const title =
   "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
@@ -40,5 +41,6 @@ useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
-  <HeroPinnedWorks />
+  <HomeDescription />
+  <HomeWorks />
 </template>

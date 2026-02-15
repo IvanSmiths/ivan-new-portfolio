@@ -2,14 +2,13 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import Observer from "gsap/dist/Observer";
-import { homeWorks } from "~~/utils/data/home/works.ts";
+import { works } from "~~/utils/data/works/works.ts";
 
 gsap.registerPlugin(Observer);
 
 const wrapperRef = ref(null);
 let ctx;
 
-// --- GSAP Horizontal Loop Helper ---
 function horizontalLoop(items, config) {
   items = gsap.utils.toArray(items);
   config = config || {};
@@ -92,21 +91,17 @@ function horizontalLoop(items, config) {
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // 1. Select our new work items
     const items = gsap.utils.toArray(".work-item");
 
-    // 2. Initialize the loop
     const loop = horizontalLoop(items, {
       repeat: -1,
       speed: 1,
-      paddingRight: 20 // Optional gap at the end of the loop
+      paddingRight: 20 // gap at the end of the loop
     });
 
-    // 3. Deceleration setup
     let slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
     loop.timeScale(0);
 
-    // 4. Observer with preventDefault to stop page scrolling
     Observer.create({
       target: wrapperRef.value,
       type: "pointer,touch,wheel",
@@ -136,7 +131,7 @@ onUnmounted(() => {
   >
     <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none">
       <li
-        v-for="(item, idx) in homeWorks"
+        v-for="(item, idx) in works"
         :key="idx"
         class="work-item w-96 shrink-0 list-none select-none cursor-grab active:cursor-grabbing"
       >

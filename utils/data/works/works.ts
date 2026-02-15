@@ -6,7 +6,7 @@ export type Work = {
   image: string;
 };
 
-export const homeWorks: Work[] = [
+export const works: Work[] = [
   {
     role: "FRONTEND",
     client: "Commerzbank",

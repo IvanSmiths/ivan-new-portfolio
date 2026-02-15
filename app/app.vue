@@ -1,10 +1,7 @@
-<template>
-  <NuxtPage />
-  <Navbar />
-  <CurtainTransition />
-</template>
-
 <script lang="ts" setup>
+import CurtainTransition from "~/components/global/CurtainTransition.vue";
+import Navbar from "~/components/global/navbar/Navbar.vue";
+
 useHead({
   script: [
     {
@@ -24,3 +21,9 @@ useHead({
   ]
 });
 </script>
+
+<template>
+  <NuxtPage />
+  <Navbar />
+  <CurtainTransition />
+</template>
