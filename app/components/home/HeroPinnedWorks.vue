@@ -1,19 +1,10 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
-import Observer from "gsap/Observer";
+import Observer from "gsap/dist/Observer";
 import { homeWorks } from "~~/utils/data/home/works.ts";
 
 gsap.registerPlugin(Observer);
-
-// Props or Local Data
-const props = defineProps({
-  homeWorks: {
-    type: Array,
-    required: true,
-    default: () => []
-  }
-});
 
 const wrapperRef = ref(null);
 let ctx;

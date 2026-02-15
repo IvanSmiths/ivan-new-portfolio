@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import gsap from "gsap";
-import Observer from "gsap/Observer";
+import Observer from "gsap/dist/Observer";
 import SplitText from "gsap/SplitText";
 
 const slides = [
@@ -38,10 +38,10 @@ const slides = [
   }
 ] as const;
 
-const sectionRefs = ref<HTMLElement[]>([]);
-const outerRefs = ref<HTMLElement[]>([]);
-const innerRefs = ref<HTMLElement[]>([]);
-const bgRefs = ref<HTMLElement[]>([]);
+const sectionRefs = ref<(HTMLElement | null)[]>([]);
+const outerRefs = ref<(HTMLElement | null)[]>([]);
+const innerRefs = ref<(HTMLElement | null)[]>([]);
+const bgRefs = ref<(HTMLElement | null)[]>([]);
 
 function bgImage(image: string) {
   return `linear-gradient(180deg, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.1) 100%), url("${image}")`;
@@ -84,28 +84,30 @@ onMounted(async () => {
 
     const tl = gsap.timeline({
       defaults: { duration: 0.8, ease: "power1.inOut" },
-      onComplete: () => (animating = false)
+      onComplete: () => {
+        animating = false;
+      }
     });
 
     if (currentIndex >= 0) {
-      gsap.set(sections[currentIndex], { zIndex: 0 });
-      tl.to(images[currentIndex], { yPercent: -15 * dFactor }).set(
-        sections[currentIndex],
+      gsap.set(sections[currentIndex]!, { zIndex: 0 });
+      tl.to(images[currentIndex]!, { yPercent: -15 * dFactor }).set(
+        sections[currentIndex]!,
         { autoAlpha: 0 }
       );
     }
 
-    gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
+    gsap.set(sections[index]!, { autoAlpha: 1, zIndex: 1 });
 
     tl.fromTo(
-      [outerWrappers[index], innerWrappers[index]],
+      [outerWrappers[index]!, innerWrappers[index]!],
       { yPercent: (i: number) => (i ? -100 * dFactor : 100 * dFactor) },
       { yPercent: 0 },
       0
     )
-      .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
+      .fromTo(images[index]!, { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
       .fromTo(
-        splitHeadings[index].chars,
+        splitHeadings[index]!.chars,
         { autoAlpha: 0, yPercent: 150 * dFactor, opacity: 0 },
         {
           autoAlpha: 1,
@@ -113,7 +115,7 @@ onMounted(async () => {
           opacity: 1,
           duration: 0.4,
           ease: "power2",
-          stagger: { each: 0.05, from: "left" }
+          stagger: { each: 0.05, from: "start" }
         },
         0.2
       );
