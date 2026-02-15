@@ -41,6 +41,8 @@ useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
-  <HomeDescription />
-  <HomeWorks />
+  <section>
+    <HomeDescription />
+    <HomeWorks />
+  </section>
 </template>

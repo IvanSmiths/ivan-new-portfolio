@@ -103,10 +103,9 @@ onMounted(() => {
     loop.timeScale(0);
 
     Observer.create({
-      target: wrapperRef.value,
+      target: window,
       type: "pointer,touch,wheel",
       wheelSpeed: -1,
-      preventDefault: true,
       onChange: (self) => {
         loop.timeScale(
           Math.abs(self.deltaX) > Math.abs(self.deltaY)
@@ -127,7 +126,7 @@ onUnmounted(() => {
 <template>
   <div
     ref="wrapperRef"
-    class="relative w-full h-screen overflow-hidden bg-white touch-none overscroll-none flex items-center"
+    class="w-full absolute bottom-2.5 h-screen overflow-hidden  touch-none overscroll-none flex items-end"
   >
     <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none">
       <li
