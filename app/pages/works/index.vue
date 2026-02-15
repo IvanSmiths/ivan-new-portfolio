@@ -1,47 +1,3 @@
-<template>
-  <div class="h-screen overflow-hidden bg-black text-white">
-    <header
-      class="fixed top-0 left-0 z-[3] flex h-28 w-full items-center justify-between px-[5%] text-[clamp(0.66rem,2vw,1rem)] tracking-[0.5em] uppercase"
-    >
-      <div>Animated Sections</div>
-      <div>
-        <a
-          class="text-white no-underline hover:underline"
-          href="https://codepen.io/BrianCross/pen/PoWapLP"
-          rel="noreferrer"
-          target="_blank"
-        >
-          Original Inspiration
-        </a>
-      </div>
-    </header>
-
-    <section
-      v-for="(s, i) in slides"
-      :key="s.key"
-      ref="sectionRefs"
-      class="fixed top-0 h-full w-full invisible"
-    >
-      <div ref="outerRefs" class="outer h-full w-full overflow-hidden">
-        <div ref="innerRefs" class="inner h-full w-full overflow-hidden">
-          <div
-            ref="bgRefs"
-            :class="s.bgPosClass"
-            :style="{ backgroundImage: bgImage(s.url) }"
-            class="bg absolute top-0 flex h-full w-full items-center justify-center bg-cover bg-center"
-          >
-            <h2
-              class="section-heading z-[2] w-[90vw] max-w-[1200px] text-center font-semibold normal-case leading-[1.2] [font-size:clamp(1rem,6vw,10rem)] [margin-right:-0.5em]"
-            >
-              {{ s.title }}
-            </h2>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import gsap from "gsap";
 import Observer from "gsap/Observer";
@@ -50,32 +6,34 @@ import SplitText from "gsap/SplitText";
 const slides = [
   {
     key: "first",
-    title: "Scroll down",
-    url: "https://assets.codepen.io/16327/site-landscape-1.jpg",
+    category: "Fullstack",
+    title: "Ideology",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png",
     bgPosClass: ""
   },
   {
     key: "second",
-    title: "Animated with GSAP",
-    url: "https://assets.codepen.io/16327/site-landscape-2.jpg",
+    category: "Fullstack",
+    title: "Scholz & Volkmer",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1748080455/portfolio/suv/suv_on7eq5.png",
     bgPosClass: ""
   },
   {
     key: "third",
-    title: "GreenSock",
-    url: "https://assets.codepen.io/16327/site-landscape-3.jpg",
+    category: "Fullstack",
+    title: "TD COWEN",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943287/portfolio/td/td_ep0igm.png",
     bgPosClass: ""
   },
   {
     key: "fourth",
-    title: "Animation platform",
-    url: "https://assets.codepen.io/16327/site-landscape-4.jpg",
-    bgPosClass: ""
-  },
-  {
-    key: "fifth",
-    title: "Keep scrolling",
-    url: "https://assets.codepen.io/16327/site-landscape-5.jpg",
+    category: "Fullstack",
+    title: "Neugelb",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943424/portfolio/neugelb/coba_dmqn8n.png",
     bgPosClass: "bg-[position:50%_45%]"
   }
 ] as const;
@@ -85,18 +43,15 @@ const outerRefs = ref<HTMLElement[]>([]);
 const innerRefs = ref<HTMLElement[]>([]);
 const bgRefs = ref<HTMLElement[]>([]);
 
-function bgImage(url: string) {
-  // gradient overlay + image (like your SCSS)
-  return `linear-gradient(180deg, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.1) 100%), url("${url}")`;
+function bgImage(image: string) {
+  return `linear-gradient(180deg, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.1) 100%), url("${image}")`;
 }
 
 onMounted(async () => {
-  // make sure this never runs on SSR
   if (import.meta.server) return;
 
   gsap.registerPlugin(Observer, SplitText);
 
-  // In Nuxt, refs fill after mount; nextTick helps ensure arrays are populated.
   await nextTick();
 
   const sections = sectionRefs.value;
@@ -128,7 +83,7 @@ onMounted(async () => {
     const dFactor = fromTop ? -1 : 1;
 
     const tl = gsap.timeline({
-      defaults: { duration: 1.25, ease: "power1.inOut" },
+      defaults: { duration: 0.8, ease: "power1.inOut" },
       onComplete: () => (animating = false)
     });
 
@@ -151,13 +106,14 @@ onMounted(async () => {
       .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
       .fromTo(
         splitHeadings[index].chars,
-        { autoAlpha: 0, yPercent: 150 * dFactor },
+        { autoAlpha: 0, yPercent: 150 * dFactor, opacity: 0 },
         {
           autoAlpha: 1,
           yPercent: 0,
-          duration: 1,
+          opacity: 1,
+          duration: 0.4,
           ease: "power2",
-          stagger: { each: 0.02, from: "random" }
+          stagger: { each: 0.05, from: "left" }
         },
         0.2
       );
@@ -182,6 +138,34 @@ onMounted(async () => {
   });
 });
 </script>
+
+<template>
+  <div class="h-screen overflow-hidden bg-black text-white">
+    <section
+      v-for="(s, i) in slides"
+      :key="s.key"
+      ref="sectionRefs"
+      class="fixed top-0 h-full w-full invisible"
+    >
+      <div ref="outerRefs" class="outer h-full w-full overflow-hidden">
+        <div ref="innerRefs" class="inner h-full w-full overflow-hidden">
+          <div
+            ref="bgRefs"
+            :class="s.bgPosClass"
+            :style="{ backgroundImage: bgImage(s.image) }"
+            class="bg absolute top-0 flex h-full w-full items-center justify-center bg-cover bg-center"
+          >
+            <h2
+              class="section-heading z-2 w-[90vw] max-w-300 text-center font-semibold normal-case leading-[1.2] text-[clamp(1rem,6vw,10rem)] mr-[-0.5em]"
+            >
+              {{ s.title }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
 
 <style scoped>
 * {
