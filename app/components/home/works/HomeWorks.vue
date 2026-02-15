@@ -106,6 +106,8 @@ onMounted(() => {
       target: window,
       type: "pointer,touch,wheel",
       wheelSpeed: -1,
+      dragMinimum: 2,
+      ignore: "a, button, input, select, textarea, .navbar",
       onChange: (self) => {
         loop.timeScale(
           Math.abs(self.deltaX) > Math.abs(self.deltaY)
@@ -126,9 +128,9 @@ onUnmounted(() => {
 <template>
   <div
     ref="wrapperRef"
-    class="w-full absolute bottom-2.5 h-screen overflow-hidden  touch-none overscroll-none flex items-end"
+    class="w-full fixed bottom-2.5 h-screen overflow-hidden flex items-end pointer-events-none"
   >
-    <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none">
+    <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none pointer-events-auto">
       <li
         v-for="(item, idx) in works"
         :key="idx"
