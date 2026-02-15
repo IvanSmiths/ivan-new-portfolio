@@ -10,7 +10,7 @@ const slides = [
     title: "Ideology",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png",
-    bgPosClass: ""
+    bgPosClass: "",
   },
   {
     key: "second",
@@ -18,7 +18,7 @@ const slides = [
     title: "Scholz & Volkmer",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1748080455/portfolio/suv/suv_on7eq5.png",
-    bgPosClass: ""
+    bgPosClass: "",
   },
   {
     key: "third",
@@ -26,7 +26,7 @@ const slides = [
     title: "TD COWEN",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747943287/portfolio/td/td_ep0igm.png",
-    bgPosClass: ""
+    bgPosClass: "",
   },
   {
     key: "fourth",
@@ -34,8 +34,8 @@ const slides = [
     title: "Neugelb",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747943424/portfolio/neugelb/coba_dmqn8n.png",
-    bgPosClass: "bg-[position:50%_45%]"
-  }
+    bgPosClass: "bg-[position:50%_45%]",
+  },
 ] as const;
 
 const sectionRefs = ref<(HTMLElement | null)[]>([]);
@@ -64,8 +64,8 @@ onMounted(async () => {
     (heading) =>
       new SplitText(heading, {
         type: "chars,words,lines",
-        linesClass: "clip-text"
-      })
+        linesClass: "clip-text",
+      }),
   );
 
   let currentIndex = -1;
@@ -86,15 +86,14 @@ onMounted(async () => {
       defaults: { duration: 0.8, ease: "power1.inOut" },
       onComplete: () => {
         animating = false;
-      }
+      },
     });
 
     if (currentIndex >= 0) {
       gsap.set(sections[currentIndex]!, { zIndex: 0 });
-      tl.to(images[currentIndex]!, { yPercent: -15 * dFactor }).set(
-        sections[currentIndex]!,
-        { autoAlpha: 0 }
-      );
+      tl.to(images[currentIndex]!, { yPercent: -15 * dFactor }).set(sections[currentIndex]!, {
+        autoAlpha: 0,
+      });
     }
 
     gsap.set(sections[index]!, { autoAlpha: 1, zIndex: 1 });
@@ -103,7 +102,7 @@ onMounted(async () => {
       [outerWrappers[index]!, innerWrappers[index]!],
       { yPercent: (i: number) => (i ? -100 * dFactor : 100 * dFactor) },
       { yPercent: 0 },
-      0
+      0,
     )
       .fromTo(images[index]!, { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
       .fromTo(
@@ -115,9 +114,9 @@ onMounted(async () => {
           opacity: 1,
           duration: 0.4,
           ease: "power2",
-          stagger: { each: 0.05, from: "start" }
+          stagger: { each: 0.05, from: "start" },
         },
-        0.2
+        0.2,
       );
 
     currentIndex = index;
@@ -129,7 +128,7 @@ onMounted(async () => {
     onDown: () => !animating && gotoSection(currentIndex - 1, -1),
     onUp: () => !animating && gotoSection(currentIndex + 1, 1),
     tolerance: 10,
-    preventDefault: true
+    preventDefault: true,
   });
 
   gotoSection(0, 1);

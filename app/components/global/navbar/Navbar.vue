@@ -33,10 +33,7 @@ onMounted(() => {
   <nav
     class="fixed bg-background bottom-0 left-0 z-30 flex flex-row-reverse md:flex-row w-full items-center justify-between border-t border-background-muted px-sm py-sm md:top-0 md:bottom-auto md:border-t-0 md:border-b navbar"
   >
-    <NuxtLink
-      class="text-xs text-foreground-muted hidden md:block uppercase"
-      to="/"
-    >
+    <NuxtLink class="text-xs text-foreground-muted hidden md:block uppercase" to="/">
       Ivan Smiths
     </NuxtLink>
     <InternalLinks />

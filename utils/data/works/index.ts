@@ -11,7 +11,7 @@ export const worksData: WorkProjectPage[] = [
       "Secured the design contract from LemonSoda, outperforming 15 competing firms, by demonstrating a compelling and innovative design vision.",
       "Optimized third-party plugins using PHP to ensure flawless integration with custom WordPress themes, significantly improving site functionality, user experience, and performance.",
       "Designed and developed 20+ diverse websites, including high-traffic e-commerce platforms and fully responsive landing data, contributing to a 25% increase in user engagement and conversions.",
-      "Led user research by conducting interviews with 20+ target users to uncover pain points in the checkout process. Insights informed a redesigned checkout flow, resulting in a 15% reduction in cart abandonment and improved user satisfaction."
+      "Led user research by conducting interviews with 20+ target users to uncover pain points in the checkout process. Insights informed a redesigned checkout flow, resulting in a 15% reduction in cart abandonment and improved user satisfaction.",
     ],
     role: "Frontend Developer, UI/UX Designer",
     linkedinLink: "https://www.linkedin.com/company/ideology-creative-studio/",
@@ -19,48 +19,48 @@ export const worksData: WorkProjectPage[] = [
     worksDone: [
       {
         link: "/works/ideology",
-        label: "RE/MAX"
+        label: "RE/MAX",
       },
       {
         link: "/works/ideology",
-        label: "Lemon Soda"
+        label: "Lemon Soda",
       },
       {
         link: "https://www.mabuprofumerie.it/",
-        label: "Mabu"
+        label: "Mabu",
       },
       {
         link: "https://www.in20abitare.it/",
-        label: "In20 Abitare"
+        label: "In20 Abitare",
       },
       {
         link: "https://radiorockragusa.it/",
-        label: "Radio Rock"
+        label: "Radio Rock",
       },
       {
         link: "https://www.rapinzeri.it/",
-        label: "Rapinzeri"
+        label: "Rapinzeri",
       },
       {
         link: "https://racina.it/",
-        label: "Racina"
+        label: "Racina",
       },
       {
         link: "https://www.mizzicaristorante.it/",
-        label: "Mizzica!"
+        label: "Mizzica!",
       },
       {
         link: "https://www.areasystem.it/",
-        label: "Area System"
+        label: "Area System",
       },
       {
         link: "https://www.bottonecannoli.it/",
-        label: "Bottone Cannoli"
+        label: "Bottone Cannoli",
       },
       {
         link: "https://imoniliaprile.it/",
-        label: "I Monili"
-      }
+        label: "I Monili",
+      },
     ],
     stack: [
       "Php",
@@ -71,16 +71,15 @@ export const worksData: WorkProjectPage[] = [
       "Adobe XD",
       "WooCommerce",
       "SEO",
-      "SEM"
+      "SEM",
     ],
-    title:
-      "Ivan Smiths | Award-Winning Web Design & UX Optimization for LemonSoda",
+    title: "Ivan Smiths | Award-Winning Web Design & UX Optimization for LemonSoda",
     metaDescription:
       "Won the LemonSoda design contract by outperforming 15 firms, optimized WordPress integrations with PHP, launched 20+ high-converting websites, and reduced cart abandonment by 15% through user-driven UX improvements.",
     homeImage: {
       url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png",
       height: 600,
-      width: 420
+      width: 420,
     },
     images: [
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
@@ -97,8 +96,8 @@ export const worksData: WorkProjectPage[] = [
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341875/portfolio/ideology/ideology-website-2_hzjjzw.jpg",
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341875/portfolio/ideology/ideology-website-1_umefit.jpg",
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341875/portfolio/ideology/ideology-website-3_tazisv.jpg",
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747341880/portfolio/ideology/in20-2_hdppvs.jpg"
-    ]
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747341880/portfolio/ideology/in20-2_hdppvs.jpg",
+    ],
   },
   {
     type: "Work",
@@ -112,29 +111,29 @@ export const worksData: WorkProjectPage[] = [
     description: [
       "Mentored a team of 4+ developers on Next.js, improving their ability to create dynamic websites and reducing development time by 30%",
       "Developed and delivered 7+ award-winning websites for high-profile clients such as Adidas, Deutsche Bahn, and WMF, contributing to a 20% increase in company revenue.",
-      "Led the migration of the company’s main website from jQuery to TypeScript, cutting maintenance time by 40% and boosting code reliability and scalability."
+      "Led the migration of the company’s main website from jQuery to TypeScript, cutting maintenance time by 40% and boosting code reliability and scalability.",
     ],
     worksDone: [
       {
         link: "https://www.adidas-group.com/en/",
-        label: "Adidas"
+        label: "Adidas",
       },
       {
         link: "https://db-engineering-consulting.com/en/",
-        label: "Deutsche Bahn"
+        label: "Deutsche Bahn",
       },
       {
         link: "https://perfection.wmf.com/de/perfection/",
-        label: "WMF"
+        label: "WMF",
       },
       {
         link: "https://www.ruv.de/home/",
-        label: "R+V"
+        label: "R+V",
       },
       {
         link: "https://umb.de/",
-        label: "UMB"
-      }
+        label: "UMB",
+      },
     ],
     stack: [
       "React",
@@ -147,16 +146,15 @@ export const worksData: WorkProjectPage[] = [
       "jQuery",
       "Storybook",
       "Django",
-      "Docker"
+      "Docker",
     ],
-    title:
-      "Ivan Smiths | Next.js Leadership & Scalable Web Solutions for Top Brands",
+    title: "Ivan Smiths | Next.js Leadership & Scalable Web Solutions for Top Brands",
     metaDescription:
       "Mentored developers in Next.js, led a jQuery-to-TypeScript migration, and built award-winning websites for Adidas, Deutsche Bahn, and WMF—boosting scalability, revenue, and development efficiency.",
     homeImage: {
       url: "https://res.cloudinary.com/deino2cjx/image/upload/v1748080455/portfolio/suv/suv_on7eq5.png",
       height: 600,
-      width: 420
+      width: 420,
     },
     images: [
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
@@ -167,8 +165,8 @@ export const worksData: WorkProjectPage[] = [
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341910/portfolio/suv/scholz-und-volkmer-website-3_page5t.jpg",
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341912/portfolio/suv/suv-1_jz2ro9.jpg",
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747341913/portfolio/suv/suv-2_dkjhfw.jpg",
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747341914/portfolio/suv/suv-3_uloc6w.jpg"
-    ]
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747341914/portfolio/suv/suv-3_uloc6w.jpg",
+    ],
   },
   {
     type: "Work",
@@ -180,14 +178,12 @@ export const worksData: WorkProjectPage[] = [
       "Developed and integrated 20+ data-driven features, leveraging user behavior analytics to optimize CRM functionality, resulting in a 25% increase in user engagement and task efficiency.",
       "Led the complete redesign, development, and testing of the company’s mobile app, improving user experience and driving a 40% increase in daily adoption, as verified through Datadog analytics.",
       "Authored and executed 40+ automated tests, ensuring seamless functionality across the UI, backend processing, and database interactions, reducing post-launch defects by 30%.",
-      "*The dashboard is not meant to be seen by people external to TD Cowen / TD Securities."
+      "*The dashboard is not meant to be seen by people external to TD Cowen / TD Securities.",
     ],
     role: "Fullstack Developer",
     linkedinLink: "https://www.linkedin.com/company/td-cowen",
     websiteLink: "https://www.cowen.com/",
-    worksDone: [
-      { label: "TD Cowen Dashboard", link: "https://www.tdsecurities.com/" }
-    ],
+    worksDone: [{ label: "TD Cowen Dashboard", link: "https://www.tdsecurities.com/" }],
     stack: [
       "TypeScript",
       "Angular",
@@ -198,20 +194,19 @@ export const worksData: WorkProjectPage[] = [
       "SQL",
       "Nest.js",
       "Figma",
-      "Docker"
+      "Docker",
     ],
-    title:
-      "Ivan Smiths | Data-Driven CRM Features & Mobile App Redesign at TD Cowen",
+    title: "Ivan Smiths | Data-Driven CRM Features & Mobile App Redesign at TD Cowen",
     metaDescription:
       "Boosted CRM efficiency by 25% through data-driven features, redesigned the mobile app for a 40% increase in adoption, and reduced bugs by 30% with 40+ automated tests across the stack.",
     homeImage: {
       url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943287/portfolio/td/td_ep0igm.png",
       height: 600,
-      width: 420
+      width: 420,
     },
     images: [
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg"
-    ]
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg",
+    ],
   },
   {
     type: "Work",
@@ -222,14 +217,12 @@ export const worksData: WorkProjectPage[] = [
     description: [
       "Contributing to the development and enhancement of diverse Commerzbank websites, ensuring seamless functionality and user experience.",
       "Developing and optimizing Chatbot features, enhancing customer interaction and support on the platform.",
-      "Improving web accessibility, adhering to WCAG guidelines and ensuring compliance with the newest accessibility standards."
+      "Improving web accessibility, adhering to WCAG guidelines and ensuring compliance with the newest accessibility standards.",
     ],
     role: "Senior Fullstack Developer",
     linkedinLink: "https://www.linkedin.com/company/neugelb",
     websiteLink: "https://www.neugelb.com/",
-    worksDone: [
-      { label: "Commerzbank", link: "https://www.commerzbank.de/service/" }
-    ],
+    worksDone: [{ label: "Commerzbank", link: "https://www.commerzbank.de/service/" }],
     stack: [
       "React",
       "Next.js",
@@ -240,24 +233,23 @@ export const worksData: WorkProjectPage[] = [
       "Zod",
       "MySQL",
       "Azure",
-      "Docker"
+      "Docker",
     ],
-    title:
-      "Ivan Smiths | Enhancing Web Accessibility & User Experience for Commerzbank",
+    title: "Ivan Smiths | Enhancing Web Accessibility & User Experience for Commerzbank",
     metaDescription:
       "Contributed to the development of Commerzbank websites by optimizing chatbot features, improving accessibility to meet WCAG standards, and ensuring a seamless user experience across platforms.",
     homeImage: {
       url: "https://res.cloudinary.com/deino2cjx/image/upload/v1747943424/portfolio/neugelb/coba_dmqn8n.png",
       height: 600,
-      width: 420
+      width: 420,
     },
     images: [
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.26_xcpxma.png",
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.50.12_kdz5bn.png",
       "https://res.cloudinary.com/deino2cjx/image/upload/v1747342383/portfolio/neugelb/Screenshot_2025-05-15_at_22.51.27_a0lqey.png",
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747342380/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.02_gl1voc.png"
-    ]
-  }
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1747342380/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.02_gl1voc.png",
+    ],
+  },
 ];
 
 export default worksData;

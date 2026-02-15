@@ -10,13 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 const route = useRoute();
 
 const work = computed<WorkProjectPage | undefined>(() =>
-  worksData.find((item) => item.slug === route.params.slug)
+  worksData.find((item) => item.slug === route.params.slug),
 );
 
 if (!work.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Work not found"
+    statusMessage: "Work not found",
   });
 }
 
@@ -44,24 +44,15 @@ useSeoMeta({
   applicationName: "Ivan Smiths Portfolio",
   generator: "Nuxt",
   robots: "index, follow",
-  charset: "utf-8"
+  charset: "utf-8",
 });
 
 const workLinks = computed<Link[]>(() => work.value?.worksDone ?? []);
-const hasExternalWebsite = computed(() =>
-  Boolean(work.value?.websiteLink?.startsWith("http"))
-);
-const hasExternalLinkedin = computed(() =>
-  Boolean(work.value?.linkedinLink?.startsWith("http"))
-);
+const hasExternalWebsite = computed(() => Boolean(work.value?.websiteLink?.startsWith("http")));
+const hasExternalLinkedin = computed(() => Boolean(work.value?.linkedinLink?.startsWith("http")));
 const hasManyImages = computed(() => (work.value?.images.length ?? 0) > 1);
 
-const orderedSlugs = [
-  "ideology",
-  "scholz-und-volkmer",
-  "td-cowen",
-  "neugelb"
-] as const;
+const orderedSlugs = ["ideology", "scholz-und-volkmer", "td-cowen", "neugelb"] as const;
 const currentSlug = computed(() => String(route.params.slug));
 const nextSlug = computed(() => {
   const index = orderedSlugs.indexOf(currentSlug.value as (typeof orderedSlugs)[number]);
@@ -99,8 +90,8 @@ onMounted(() => {
             hasNavigated.value = true;
             navigateTo(`/works/${nextSlug.value}`);
           }
-        }
-      }
+        },
+      },
     });
   });
 });
@@ -161,7 +152,7 @@ onUnmounted(() => {
           :src="coverImage"
           class="mx-auto h-auto w-full object-cover"
           loading="eager"
-        >
+        />
       </div>
     </section>
 
@@ -236,7 +227,7 @@ onUnmounted(() => {
         :src="image"
         class="h-full w-full object-cover"
         loading="lazy"
-      >
+      />
     </section>
 
     <section
@@ -244,16 +235,11 @@ onUnmounted(() => {
       class="mx-auto mt-14 flex h-[34vh] w-full max-w-6xl items-end border-t border-black/10 pb-8"
     >
       <div class="w-full">
-        <p
-          class="text-foreground-muted mb-3 text-xs font-semibold tracking-[0.18em] uppercase"
-        >
+        <p class="text-foreground-muted mb-3 text-xs font-semibold tracking-[0.18em] uppercase">
           Scroll to see next project
         </p>
         <div class="relative h-[2px] w-full bg-[#cccccc]">
-          <div
-            ref="fillLineRef"
-            class="absolute inset-y-0 left-0 h-full w-full bg-black"
-          />
+          <div ref="fillLineRef" class="absolute inset-y-0 left-0 h-full w-full bg-black" />
         </div>
       </div>
     </section>

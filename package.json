@@ -19,6 +19,7 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1"
   }
 }

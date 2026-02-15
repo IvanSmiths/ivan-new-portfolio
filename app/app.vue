@@ -16,9 +16,9 @@ useHead({
           } catch (e) {}
         })();
       `,
-      type: "text/javascript"
-    }
-  ]
+      type: "text/javascript",
+    },
+  ],
 });
 </script>
 

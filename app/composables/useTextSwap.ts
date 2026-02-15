@@ -3,7 +3,7 @@ import { type Ref, watch } from "vue";
 export function useTextSwap(
   el: Ref<HTMLElement | null>,
   value: Ref<string | null>,
-  fallback: string
+  fallback: string,
 ) {
   watch(
     value,
@@ -11,6 +11,6 @@ export function useTextSwap(
       if (!el.value) return;
       el.value.textContent = newValue ?? fallback;
     },
-    { immediate: true }
+    { immediate: true },
   );
 }

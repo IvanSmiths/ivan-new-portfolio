@@ -4,8 +4,7 @@ import { useHorizontalScroll } from "~/composables/useHorizontalScroll";
 import HomeWorks from "~/components/home/works/HomeWorks.vue";
 import HomeDescription from "~/components/home/description/HomeDescription.vue";
 
-const title =
-  "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
+const title = "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
 const description =
   "Fullstack Developer with over 4 years of experience in building user-centered websites and applications for clients like Deutsche Bahn, R+V, Adidas, and WMF. Skilled in Next.js, TypeScript, and UX design, I enhance digital experiences through innovative, data-driven solutions and seamless functionality.";
 
@@ -32,13 +31,13 @@ useSeoMeta({
   applicationName: "Ivan Smiths Portfolio",
   generator: "Nuxt",
   robots: "index, follow",
-  charset: "utf-8"
+  charset: "utf-8",
 });
 
 useHead({
   htmlAttrs: {
-    class: "home-page"
-  }
+    class: "home-page bg-background",
+  },
 });
 
 const containerRef = ref<HTMLElement | null>(null);
@@ -52,7 +51,3 @@ useHorizontalScroll(containerRef, triggerRef);
     <HomeWorks />
   </section>
 </template>
-
-<style scoped>
-
-</style>

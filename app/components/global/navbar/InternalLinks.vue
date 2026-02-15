@@ -19,8 +19,8 @@ const navigationLinks = computed(() =>
     ...link,
     isActive: getLinkStatus(link.url),
     showCount: index === 1,
-    hasMargin: index !== 1 && index !== 2
-  }))
+    hasMargin: index !== 1 && index !== 2,
+  })),
 );
 </script>
 
@@ -33,9 +33,7 @@ const navigationLinks = computed(() =>
     >
       <NuxtLink
         :class="[
-          link.isActive
-            ? 'underline text-foreground-muted underline-offset-2'
-            : '',
+          link.isActive ? 'underline text-foreground-muted underline-offset-2' : '',
           link.hasMargin ? 'mr-1' : '',
         ]"
         :prefetch="true"
