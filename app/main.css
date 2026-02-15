@@ -75,3 +75,11 @@ body.route-transitioning {
 ::-webkit-scrollbar {
     display: none;
 }
+
+html.home-page,
+html.home-page body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}

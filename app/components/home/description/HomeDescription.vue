@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="gap-xl flex flex-col-reverse justify-between md:flex-row fixed left-0"
+    class="gap-xl flex flex-col-reverse justify-between md:flex-row left-0"
   >
     <div class="animate-fadeInUp mt-auto w-full opacity-0 md:w-96">
       <h1 class="text-foreground-muted text-base font-normal">

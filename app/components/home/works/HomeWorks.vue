@@ -128,7 +128,7 @@ onUnmounted(() => {
 <template>
   <div
     ref="wrapperRef"
-    class="w-full fixed bottom-2.5 h-screen overflow-hidden flex items-end pointer-events-none"
+    class="w-full absolute bottom-2.5 h-screen overflow-hidden flex items-end pointer-events-none"
   >
     <ul class="flex flex-nowrap gap-3 flex-row pl-0 m-0 list-none pointer-events-auto">
       <li

@@ -35,14 +35,24 @@ useSeoMeta({
   charset: "utf-8"
 });
 
+useHead({
+  htmlAttrs: {
+    class: "home-page"
+  }
+});
+
 const containerRef = ref<HTMLElement | null>(null);
 const triggerRef = ref<HTMLElement | null>(null);
 useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
-  <section>
+  <section class="h-full w-full">
     <HomeDescription />
     <HomeWorks />
   </section>
 </template>
+
+<style scoped>
+
+</style>
