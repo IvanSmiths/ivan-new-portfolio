@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import CurtainTransition from "~/components/global/CurtainTransition.vue";
 import Navbar from "~/components/global/navbar/Navbar.vue";
 
 useHead({
@@ -25,5 +24,4 @@ useHead({
 <template>
   <Navbar />
   <NuxtPage />
-  <CurtainTransition />
 </template>

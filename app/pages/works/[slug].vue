@@ -109,7 +109,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <article class="bg-background text-foreground min-h-screen px-4 py-10 sm:px-6 lg:px-10">
+  <article class="bg-background text-foreground min-h-screen">
+    <div>
+      <img :src="work.homeImage.url" alt="" class="h-full w-full" />
+    </div>
     <header class="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
       <p class="text-foreground-muted text-xs font-semibold tracking-[0.22em] uppercase">
         {{ work?.type }}

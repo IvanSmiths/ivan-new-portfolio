@@ -2,15 +2,21 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import Observer from "gsap/dist/Observer";
+import { useRouter } from "vue-router";
 import { worksCards } from "~/domain/works/index.ts";
 
 gsap.registerPlugin(Observer);
 
+const router = useRouter();
 const wrapperRef = ref(null);
 let ctx;
+let observer;
 
 let cards = [];
 let images = [];
+
+let overlayClone = null;
+let isExpanding = false;
 
 function setClientsHidden() {
   const allClients = gsap.utils.toArray(".work-item .client-item");
@@ -68,6 +74,67 @@ function onHoverOut() {
     y: 8,
     duration: 0.18,
     overwrite: true,
+  });
+}
+
+// --- FLIP Clone Expand → Navigate ---
+function onImageClick(event, idx) {
+  if (isExpanding) return;
+  isExpanding = true;
+
+  const work = worksCards[idx];
+  const imgEl = event.currentTarget.querySelector(".work-img");
+  if (!imgEl) return;
+
+  // 1. Snapshot the real viewport position of the image,
+  //    independent of whatever GSAP xPercent the loop has applied.
+  const rect = imgEl.getBoundingClientRect();
+
+  // 2. Inject a fixed clone at that exact position.
+  //    The clone lives on document.body, completely outside the loop DOM,
+  //    so it won't be affected by the loop's ongoing transforms.
+  overlayClone = document.createElement("div");
+  overlayClone.style.cssText = `
+    position: fixed;
+    top: ${rect.top}px;
+    left: ${rect.left}px;
+    width: ${rect.width}px;
+    height: ${rect.height}px;
+    overflow: hidden;
+    z-index: 9999;
+    pointer-events: none;
+  `;
+
+  const clonedImg = document.createElement("img");
+  clonedImg.src = imgEl.src;
+  clonedImg.alt = imgEl.alt;
+  clonedImg.style.cssText = `
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+  `;
+  overlayClone.appendChild(clonedImg);
+  document.body.appendChild(overlayClone);
+
+  // 3. Expand to fullscreen, then navigate.
+  //    The destination page renders underneath while the clone covers everything,
+  //    creating the illusion of a seamless shared-element transition.
+  gsap.to(overlayClone, {
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    duration: 0.65,
+    ease: "expo.inOut",
+    onComplete: () => {
+      router.push(`/works/${work.slug}`).then(() => {
+        overlayClone?.remove();
+        overlayClone = null;
+        isExpanding = false;
+      });
+    },
   });
 }
 
@@ -145,6 +212,9 @@ function horizontalLoop(cards, config) {
 }
 
 onMounted(() => {
+  cards = [];
+  images = [];
+
   ctx = gsap.context(() => {
     cards = gsap.utils.toArray(".work-item");
     images = gsap.utils.toArray(".work-item .work-img");
@@ -157,7 +227,7 @@ onMounted(() => {
     let slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
     loop.timeScale(0);
 
-    Observer.create({
+    observer = Observer.create({
       target: window,
       type: "touch,wheel",
       wheelSpeed: -1,
@@ -170,7 +240,9 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  observer?.kill();
   if (ctx) ctx.revert();
+  overlayClone?.remove();
 });
 </script>
 
@@ -206,17 +278,16 @@ onUnmounted(() => {
 
         <div
           class="h-90 w-full overflow-hidden"
+          @click="onImageClick($event, idx)"
           @mouseenter="onHoverIn(idx)"
           @mouseleave="onHoverOut"
         >
-          <NuxtLink :to="`/works/${work.slug}`">
-            <img
-              :alt="work.title"
-              :src="work.image"
-              class="work-img h-full w-full cursor-pointer object-cover pointer-events-none"
-              draggable="false"
-            />
-          </NuxtLink>
+          <img
+            :alt="work.title"
+            :src="work.image"
+            class="work-img h-full w-full cursor-pointer object-cover pointer-events-none"
+            draggable="false"
+          />
         </div>
       </li>
     </ul>
