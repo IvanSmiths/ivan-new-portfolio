@@ -172,16 +172,10 @@ onMounted(() => {
 onUnmounted(() => {
   if (ctx) ctx.revert();
 });
-
-// expose handlers to template
-// (in <script setup> these are automatically exposed)
 </script>
 
 <template>
-  <div
-    ref="wrapperRef"
-    class="w-full absolute bottom-2.5 h-screen overflow-hidden flex items-end pointer-events-none"
-  >
+  <div ref="wrapperRef" class="w-full pb-2.5 h-full flex items-end pointer-events-none">
     <ul class="flex flex-nowrap flex-row justify-end items-end list-none pointer-events-auto">
       <li
         v-for="(work, idx) in worksCards"

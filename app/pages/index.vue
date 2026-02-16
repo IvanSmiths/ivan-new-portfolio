@@ -46,7 +46,7 @@ useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
-  <section class="h-full w-full">
+  <section class="h-screen w-full flex flex-col justify-end">
     <Paragraph />
     <HomeWorks />
   </section>

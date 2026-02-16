@@ -4,8 +4,8 @@ import Time from "~/components/home/description/Time.vue";
 </script>
 
 <template>
-  <div class="gap-xl flex flex-col-reverse justify-between md:flex-row left-0">
-    <div class="animate-fadeInUp mt-auto w-full opacity-0 md:w-96">
+  <div class="gap-2.5 pt-10 pl-2.5 flex flex-col-reverse h-full items-center md:flex-row">
+    <div class="animate-fadeInUp w-full opacity-0 md:w-96">
       <h1 class="text-foreground-muted">
         <strong class="text-foreground text-sm">
           Code Wizard with 4 years of experience️ &#8226; Design Alchemist &#8226; Turning binary

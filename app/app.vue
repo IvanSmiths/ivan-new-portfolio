@@ -23,7 +23,7 @@ useHead({
 </script>
 
 <template>
-  <NuxtPage />
   <Navbar />
+  <NuxtPage />
   <CurtainTransition />
 </template>
