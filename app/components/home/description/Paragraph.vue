@@ -1,4 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Weather from "~/components/home/description/Weather.vue";
+import Time from "~/components/home/description/Time.vue";
+</script>
 
 <template>
   <div class="gap-xl flex flex-col-reverse justify-between md:flex-row left-0">
@@ -11,12 +14,11 @@
         Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
       <div class="mt-sm gap-md flex">
-        <span class="text-foreground-muted text-xs"> Wiesbaden(DE) </span>
+        <span class="text-foreground-muted text-xs"> Wiesbaden (DE)</span>
         <div class="flex gap-1">
-          <span class="text-foreground-muted text-xs"> Temperature </span>
-          <span class="text-foreground-muted text-xs"> Weather </span>
+          <Weather />
         </div>
-        <span class="text-foreground-muted text-xs"> Time </span>
+        <Time />
       </div>
     </div>
   </div>

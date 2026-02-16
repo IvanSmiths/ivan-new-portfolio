@@ -1,10 +1,17 @@
 import tailwindcss from "@tailwindcss/vite";
-import { worksData } from "./utils/data/works";
+import { worksPages } from "./app/domain/works";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["@nuxt/eslint"],
   devtools: { enabled: true },
+  runtimeConfig: {
+    openWeatherApiKey: process.env.OPEN_WEATHER_API,
+  },
+  devServer: {
+    host: "0.0.0.0",
+    port: 3000,
+  },
   app: {
     head: {
       title: "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience",
@@ -26,7 +33,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: worksData.map((work) => `/works/${work.slug}`),
+      routes: worksPages.map((work) => `/works/${work.slug}`),
     },
   },
 });

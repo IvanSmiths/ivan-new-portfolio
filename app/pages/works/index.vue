@@ -2,41 +2,7 @@
 import gsap from "gsap";
 import Observer from "gsap/dist/Observer";
 import SplitText from "gsap/SplitText";
-
-const slides = [
-  {
-    key: "first",
-    category: "Fullstack",
-    title: "Ideology",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943460/portfolio/ideology/id_qmk79w.png",
-    bgPosClass: "",
-  },
-  {
-    key: "second",
-    category: "Fullstack",
-    title: "Scholz & Volkmer",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1748080455/portfolio/suv/suv_on7eq5.png",
-    bgPosClass: "",
-  },
-  {
-    key: "third",
-    category: "Fullstack",
-    title: "TD COWEN",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943287/portfolio/td/td_ep0igm.png",
-    bgPosClass: "",
-  },
-  {
-    key: "fourth",
-    category: "Fullstack",
-    title: "Neugelb",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1747943424/portfolio/neugelb/coba_dmqn8n.png",
-    bgPosClass: "bg-[position:50%_45%]",
-  },
-] as const;
+import { worksCards } from "~/domain/works";
 
 const sectionRefs = ref<(HTMLElement | null)[]>([]);
 const outerRefs = ref<(HTMLElement | null)[]>([]);
@@ -143,8 +109,8 @@ onMounted(async () => {
 <template>
   <div class="h-screen overflow-hidden bg-black text-white">
     <section
-      v-for="(s, i) in slides"
-      :key="s.key"
+      v-for="(work, i) in worksCards"
+      :key="i"
       ref="sectionRefs"
       class="fixed top-0 h-full w-full invisible"
     >
@@ -152,14 +118,13 @@ onMounted(async () => {
         <div ref="innerRefs" class="inner h-full w-full overflow-hidden">
           <div
             ref="bgRefs"
-            :class="s.bgPosClass"
-            :style="{ backgroundImage: bgImage(s.image) }"
+            :style="{ backgroundImage: bgImage(work.image) }"
             class="bg absolute top-0 flex h-full w-full items-center justify-center bg-cover bg-center"
           >
             <h2
               class="section-heading z-2 w-[90vw] max-w-300 text-center font-semibold normal-case leading-[1.2] text-[clamp(1rem,6vw,10rem)] mr-[-0.5em]"
             >
-              {{ s.title }}
+              {{ work.title }}
             </h2>
           </div>
         </div>

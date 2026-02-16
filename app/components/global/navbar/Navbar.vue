@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import InternalLinks from "./InternalLinks.vue";
-import ScrollPercentage from "./ScrollPercentage.vue";
 
 const colorMode = ref<"light" | "dark">("light");
 
@@ -37,7 +36,6 @@ onMounted(() => {
       Ivan Smiths
     </NuxtLink>
     <InternalLinks />
-    <ScrollPercentage />
     <div class="flex w-24 justify-end">
       <button
         class="text-xs text-foreground-muted uppercase cursor-pointer font-mono"

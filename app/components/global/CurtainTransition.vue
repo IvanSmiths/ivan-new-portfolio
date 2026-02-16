@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { gsap } from "gsap";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { useCurtainTransition } from "~/composables/useCurtainTransition";
+import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
 
 const curtainEl = ref<HTMLDivElement | null>(null);
 const tween = ref<gsap.core.Tween | null>(null);

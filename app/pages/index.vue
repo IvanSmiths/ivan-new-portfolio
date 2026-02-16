@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { useHorizontalScroll } from "~/composables/useHorizontalScroll";
+import { useHorizontalScroll } from "~/composables/animations/useHorizontalScroll";
 import HomeWorks from "~/components/home/works/HomeWorks.vue";
-import HomeDescription from "~/components/home/description/HomeDescription.vue";
+import Paragraph from "~/components/home/description/Paragraph.vue";
 
 const title = "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
 const description =
@@ -47,7 +47,7 @@ useHorizontalScroll(containerRef, triggerRef);
 
 <template>
   <section class="h-full w-full">
-    <HomeDescription />
+    <Paragraph />
     <HomeWorks />
   </section>
 </template>

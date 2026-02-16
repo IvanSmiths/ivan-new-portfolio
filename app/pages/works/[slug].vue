@@ -2,21 +2,28 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import worksData from "~~/utils/data/works";
 import type { Link, WorkProjectPage } from "~~/utils/data/works/types";
+import { orderedSlugs, worksBySlug } from "~/domain/works";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const route = useRoute();
 
-const work = computed<WorkProjectPage | undefined>(() =>
-  worksData.find((item) => item.slug === route.params.slug),
-);
+const slug = computed(() => {
+  const p = route.params.slug;
+  return Array.isArray(p) ? p[0] : p;
+});
+
+const work = computed<WorkProjectPage | undefined>(() => {
+  const key = String(slug.value || "");
+  return worksBySlug[key];
+});
 
 if (!work.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Work not found",
+    fatal: true,
   });
 }
 
@@ -50,9 +57,8 @@ useSeoMeta({
 const workLinks = computed<Link[]>(() => work.value?.worksDone ?? []);
 const hasExternalWebsite = computed(() => Boolean(work.value?.websiteLink?.startsWith("http")));
 const hasExternalLinkedin = computed(() => Boolean(work.value?.linkedinLink?.startsWith("http")));
-const hasManyImages = computed(() => (work.value?.images.length ?? 0) > 1);
+const hasManyImages = computed(() => (work.value?.images?.length ?? 0) > 1);
 
-const orderedSlugs = ["ideology", "scholz-und-volkmer", "td-cowen", "neugelb"] as const;
 const currentSlug = computed(() => String(route.params.slug));
 const nextSlug = computed(() => {
   const index = orderedSlugs.indexOf(currentSlug.value as (typeof orderedSlugs)[number]);
@@ -221,7 +227,7 @@ onUnmounted(() => {
       class="mx-auto mt-12 grid w-full max-w-6xl gap-6 border-t border-black/10 pt-8 md:grid-cols-2"
     >
       <img
-        v-for="(image, index) in work?.images.slice(1)"
+        v-for="(image, index) in work?.images?.slice(1)"
         :key="`gallery-${index}`"
         :alt="`${work?.name} image ${index + 2}`"
         :src="image"

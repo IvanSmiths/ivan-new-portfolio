@@ -2,13 +2,12 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import Observer from "gsap/dist/Observer";
-import { works } from "~~/utils/data/works/works.ts";
+import { worksCards } from "~/domain/works/index.ts";
 
 gsap.registerPlugin(Observer);
 
 const wrapperRef = ref(null);
 let ctx;
-
 
 function horizontalLoop(items, config) {
   items = gsap.utils.toArray(items);
@@ -122,7 +121,7 @@ onUnmounted(() => {
   >
     <ul class="flex flex-nowrap flex-row list-none pointer-events-auto">
       <li
-        v-for="(work, idx) in works"
+        v-for="(work, idx) in worksCards"
         :key="idx"
         class="work-item w-96 shrink-0 pl-2.5 list-none select-none cursor-pointer"
       >
@@ -136,7 +135,7 @@ onUnmounted(() => {
         </div>
 
         <div class="h-90 w-full overflow-hidden bg-neutral-200">
-          <NuxtLink :to="`/works/${work.url}`">
+          <NuxtLink :to="`/works/${work.slug}`">
             <img
               :alt="work.title"
               :src="work.image"

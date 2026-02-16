@@ -1,6 +1,6 @@
 import type { RouteLocationNormalized } from "vue-router";
 import { defineNuxtPlugin, useRouter } from "#app";
-import { useCurtainTransition } from "~/composables/useCurtainTransition";
+import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
 
 export default defineNuxtPlugin(() => {
   const router = useRouter();
