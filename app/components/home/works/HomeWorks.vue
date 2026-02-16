@@ -182,7 +182,7 @@ onUnmounted(() => {
         :key="idx"
         class="work-item w-96 shrink-0 pl-2.5 list-none"
       >
-        <div class="flex flex-row justify-between items-end p-2.5">
+        <div class="flex flex-row justify-between items-end p-2.5 pb-1">
           <div class="flex flex-col">
             <div class="clients flex flex-col gap-1">
               <template v-for="client in work.clients.slice(0, 3)" :key="client">

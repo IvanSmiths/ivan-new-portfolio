@@ -6,11 +6,8 @@ import Time from "~/components/home/description/Time.vue";
 <template>
   <div class="gap-2.5 pt-10 pl-2.5 flex flex-col-reverse h-full items-center md:flex-row">
     <div class="animate-fadeInUp w-full opacity-0 md:w-96">
-      <h1 class="text-foreground-muted">
-        <strong class="text-foreground text-sm">
-          Code Wizard with 4 years of experience️ &#8226; Design Alchemist &#8226; Turning binary
-          code into digital magic.
-        </strong>
+      <h1 class="text-foreground text-base">
+        <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
         Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
       <div class="mt-sm gap-md flex">

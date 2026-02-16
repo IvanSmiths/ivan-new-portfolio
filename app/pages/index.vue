@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import { useHorizontalScroll } from "~/composables/animations/useHorizontalScroll";
 import HomeWorks from "~/components/home/works/HomeWorks.vue";
 import Paragraph from "~/components/home/description/Paragraph.vue";
 
@@ -39,10 +37,6 @@ useHead({
     class: "home-page bg-background",
   },
 });
-
-const containerRef = ref<HTMLElement | null>(null);
-const triggerRef = ref<HTMLElement | null>(null);
-useHorizontalScroll(containerRef, triggerRef);
 </script>
 
 <template>
