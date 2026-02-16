@@ -119,27 +119,36 @@ onUnmounted(() => {
     ref="wrapperRef"
     class="w-full absolute bottom-2.5 h-screen overflow-hidden flex items-end pointer-events-none"
   >
-    <ul class="flex flex-nowrap flex-row list-none pointer-events-auto">
+    <ul class="flex flex-nowrap flex-row justify-end items-end list-none pointer-events-auto">
       <li
         v-for="(work, idx) in worksCards"
         :key="idx"
-        class="work-item w-96 shrink-0 pl-2.5 list-none select-none cursor-pointer"
+        class="work-item w-96 shrink-0 pl-2.5 list-none"
       >
-        <div class="flex flex-row justify-between items-center p-2.5">
-          <div class="text-sm font-bold uppercase text-foreground">
-            {{ work.role }}
+        <div class="flex flex-row justify-between items-end p-2.5">
+          <div class="flex flex-col">
+            <div class="flex flex-col gap-1">
+              <template v-for="client in work.clients.slice(0, 3)" :key="client">
+                <span class="text-xs text-foreground-muted">{{ client }}</span>
+              </template>
+            </div>
+            <span class="text-sm font-bold uppercase text-foreground pt-1">
+              {{ work.role }}
+            </span>
           </div>
-          <div class="text-sm font-bold uppercase text-foreground">
-            {{ work.title }}
+          <div class="">
+            <span class="text-sm font-bold uppercase text-foreground">
+              {{ work.title }}
+            </span>
           </div>
         </div>
 
-        <div class="h-90 w-full overflow-hidden bg-neutral-200">
+        <div class="h-90 w-full overflow-hidden">
           <NuxtLink :to="`/works/${work.slug}`">
             <img
               :alt="work.title"
               :src="work.image"
-              class="h-full w-full object-cover pointer-events-none"
+              class="h-full w-full cursor-pointer object-cover pointer-events-none"
               draggable="false"
             />
           </NuxtLink>
