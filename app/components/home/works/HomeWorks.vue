@@ -9,8 +9,70 @@ gsap.registerPlugin(Observer);
 const wrapperRef = ref(null);
 let ctx;
 
-function horizontalLoop(items, config) {
-  items = gsap.utils.toArray(items);
+let cards = [];
+let images = [];
+
+function setClientsHidden() {
+  const allClients = gsap.utils.toArray(".work-item .client-item");
+  gsap.set(allClients, { autoAlpha: 0, y: 8 });
+}
+
+function onHoverIn(idx) {
+  const hoveredCard = cards[idx];
+  if (!hoveredCard) return;
+  images.forEach((img, i) => {
+    gsap.to(img, {
+      filter: i === idx ? "blur(0px) saturate(1)" : "blur(6px) saturate(0)",
+      duration: 0.25,
+      scale: i === idx ? 1.03 : 1,
+      overwrite: true,
+    });
+  });
+
+  cards.forEach((item, i) => {
+    const clientSpans = item.querySelectorAll(".client-item");
+    if (i !== idx) {
+      gsap.to(clientSpans, {
+        autoAlpha: 0,
+        y: 8,
+        duration: 0.15,
+        overwrite: true,
+      });
+    }
+  });
+
+  const hoveredClients = hoveredCard.querySelectorAll(".client-item");
+  gsap.to(hoveredClients, {
+    autoAlpha: 1,
+    y: 0,
+    duration: 0.28,
+    stagger: 0.06,
+    ease: "power2.out",
+    overwrite: true,
+  });
+}
+
+function onHoverOut() {
+  images.forEach((img) => {
+    gsap.to(img, {
+      filter: "blur(0px) saturate(1)",
+      duration: 0.25,
+      scale: 1,
+      overwrite: true,
+    });
+  });
+
+  const allClients = gsap.utils.toArray(".work-item .client-item");
+  gsap.to(allClients, {
+    autoAlpha: 0,
+    y: 8,
+    duration: 0.18,
+    overwrite: true,
+  });
+}
+
+function horizontalLoop(cards, config) {
+  cards = gsap.utils.toArray(cards);
   config = config || {};
   let tl = gsap.timeline({
       repeat: config.repeat,
@@ -18,12 +80,11 @@ function horizontalLoop(items, config) {
       defaults: { ease: "none" },
       onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 1000),
     }),
-    length = items.length,
-    startX = items[0].offsetLeft,
+    length = cards.length,
+    startX = cards[0].offsetLeft,
     times = [],
     widths = [],
     xPercents = [],
-    curIndex = 0,
     pixelsPerSecond = (config.speed || 1) * 100,
     snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
     totalWidth,
@@ -33,7 +94,7 @@ function horizontalLoop(items, config) {
     item,
     i;
 
-  gsap.set(items, {
+  gsap.set(cards, {
     xPercent: (i, el) => {
       let w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
       xPercents[i] = snap(
@@ -42,17 +103,17 @@ function horizontalLoop(items, config) {
       return xPercents[i];
     },
   });
-  gsap.set(items, { x: 0 });
+  gsap.set(cards, { x: 0 });
 
   totalWidth =
-    items[length - 1].offsetLeft +
+    cards[length - 1].offsetLeft +
     (xPercents[length - 1] / 100) * widths[length - 1] -
     startX +
-    items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") +
+    cards[length - 1].offsetWidth * gsap.getProperty(cards[length - 1], "scaleX") +
     (parseFloat(config.paddingRight) || 0);
 
   for (i = 0; i < length; i++) {
-    item = items[i];
+    item = cards[i];
     curX = (xPercents[i] / 100) * widths[i];
     distanceToStart = item.offsetLeft + curX - startX;
     distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
@@ -85,13 +146,12 @@ function horizontalLoop(items, config) {
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    const items = gsap.utils.toArray(".work-item");
+    cards = gsap.utils.toArray(".work-item");
+    images = gsap.utils.toArray(".work-item .work-img");
 
-    const loop = horizontalLoop(items, {
-      repeat: -1,
-      speed: 1,
-    });
+    setClientsHidden();
 
+    const loop = horizontalLoop(cards, { repeat: -1, speed: 1 });
     loop.totalTime(loop.duration() * 1000);
 
     let slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
@@ -112,6 +172,9 @@ onMounted(() => {
 onUnmounted(() => {
   if (ctx) ctx.revert();
 });
+
+// expose handlers to template
+// (in <script setup> these are automatically exposed)
 </script>
 
 <template>
@@ -127,28 +190,36 @@ onUnmounted(() => {
       >
         <div class="flex flex-row justify-between items-end p-2.5">
           <div class="flex flex-col">
-            <div class="flex flex-col gap-1">
+            <div class="clients flex flex-col gap-1">
               <template v-for="client in work.clients.slice(0, 3)" :key="client">
-                <span class="text-xs text-foreground-muted">{{ client }}</span>
+                <span class="client-item text-xs opacity-0 text-foreground-muted">{{
+                  client
+                }}</span>
               </template>
             </div>
+
             <span class="text-sm font-bold uppercase text-foreground pt-1">
               {{ work.role }}
             </span>
           </div>
-          <div class="">
+
+          <div>
             <span class="text-sm font-bold uppercase text-foreground">
               {{ work.title }}
             </span>
           </div>
         </div>
 
-        <div class="h-90 w-full overflow-hidden">
+        <div
+          class="h-90 w-full overflow-hidden"
+          @mouseenter="onHoverIn(idx)"
+          @mouseleave="onHoverOut"
+        >
           <NuxtLink :to="`/works/${work.slug}`">
             <img
               :alt="work.title"
               :src="work.image"
-              class="h-full w-full cursor-pointer object-cover pointer-events-none"
+              class="work-img h-full w-full cursor-pointer object-cover pointer-events-none"
               draggable="false"
             />
           </NuxtLink>
