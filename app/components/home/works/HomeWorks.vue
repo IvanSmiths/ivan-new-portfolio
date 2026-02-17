@@ -91,6 +91,7 @@ async function onImageClick(event: MouseEvent, idx: number) {
 
   try {
     const work = worksCards[idx];
+    if (!work) return;
     const target = event.currentTarget as HTMLElement | null;
     if (!target) return;
 
@@ -152,7 +153,9 @@ function horizontalLoop(cards: gsap.DOMTarget[], config: any) {
       repeat: config.repeat,
       paused: config.paused,
       defaults: { ease: "none" },
-      onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 1000),
+      onReverseComplete: () => {
+        tl.totalTime(tl.rawTime() + tl.duration() * 1000);
+      },
     }),
     length = cards.length,
     startX = (cards[0] as HTMLElement).offsetLeft,
@@ -165,7 +168,7 @@ function horizontalLoop(cards: gsap.DOMTarget[], config: any) {
     curX: number,
     distanceToStart: number,
     distanceToLoop: number,
-    item: any,
+    item: HTMLElement,
     i: number;
 
   gsap.set(cards, {
@@ -184,21 +187,21 @@ function horizontalLoop(cards: gsap.DOMTarget[], config: any) {
 
   totalWidth =
     last.offsetLeft +
-    (xPercents[length - 1] / 100) * widths[length - 1] -
+    (xPercents[length - 1]! / 100) * widths[length - 1]! -
     startX +
     last.offsetWidth * (gsap.getProperty(last, "scaleX") as number) +
     (parseFloat(config.paddingRight) || 0);
 
   for (i = 0; i < length; i++) {
     item = cards[i] as HTMLElement;
-    curX = (xPercents[i] / 100) * widths[i];
+    curX = (xPercents[i]! / 100) * widths[i]!;
     distanceToStart = item.offsetLeft + curX - startX;
-    distanceToLoop = distanceToStart + widths[i] * (gsap.getProperty(item, "scaleX") as number);
+    distanceToLoop = distanceToStart + widths[i]! * (gsap.getProperty(item, "scaleX") as number);
 
     tl.to(
       item,
       {
-        xPercent: snap(((curX - distanceToLoop) / widths[i]) * 100),
+        xPercent: snap(((curX - distanceToLoop) / widths[i]!) * 100),
         duration: distanceToLoop / pixelsPerSecond,
       },
       0,
@@ -206,10 +209,10 @@ function horizontalLoop(cards: gsap.DOMTarget[], config: any) {
       .fromTo(
         item,
         {
-          xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100),
+          xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]!) * 100),
         },
         {
-          xPercent: xPercents[i],
+          xPercent: xPercents[i]!,
           duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
           immediateRender: false,
         },
