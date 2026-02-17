@@ -1,31 +1,40 @@
-<script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+<script lang="ts" setup>
+import { nextTick, onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import Observer from "gsap/dist/Observer";
 import { useRouter } from "vue-router";
-import { worksCards } from "~/domain/works/index.ts";
+import { worksCards } from "~/domain/works";
 
 gsap.registerPlugin(Observer);
 
 const router = useRouter();
-const wrapperRef = ref(null);
-let ctx;
-let observer;
+const wrapperRef = ref<HTMLElement | null>(null);
 
-let cards = [];
-let images = [];
+let ctx: gsap.Context | null = null;
+let observer: any = null;
 
-let overlayClone = null;
+let cards: HTMLElement[] = [];
+let images: HTMLImageElement[] = [];
+let cardClients: HTMLElement[][] = [];
+
+let overlayClone: HTMLDivElement | null = null;
 let isExpanding = false;
 
+function qsa<T extends Element>(selector: string): T[] {
+  const root = wrapperRef.value;
+  if (!root) return [];
+  return Array.from(root.querySelectorAll(selector)) as T[];
+}
+
 function setClientsHidden() {
-  const allClients = gsap.utils.toArray(".work-item .client-item");
+  const allClients = qsa<HTMLElement>(".work-item .client-item");
   gsap.set(allClients, { autoAlpha: 0, y: 8 });
 }
 
-function onHoverIn(idx) {
+function onHoverIn(idx: number) {
   const hoveredCard = cards[idx];
   if (!hoveredCard) return;
+
   images.forEach((img, i) => {
     gsap.to(img, {
       filter: i === idx ? "blur(0px) saturate(1)" : "blur(6px) saturate(0)",
@@ -35,10 +44,9 @@ function onHoverIn(idx) {
     });
   });
 
-  cards.forEach((item, i) => {
-    const clientSpans = item.querySelectorAll(".client-item");
+  cardClients.forEach((clients, i) => {
     if (i !== idx) {
-      gsap.to(clientSpans, {
+      gsap.to(clients, {
         autoAlpha: 0,
         y: 8,
         duration: 0.15,
@@ -47,7 +55,7 @@ function onHoverIn(idx) {
     }
   });
 
-  const hoveredClients = hoveredCard.querySelectorAll(".client-item");
+  const hoveredClients = cardClients[idx] ?? [];
   gsap.to(hoveredClients, {
     autoAlpha: 1,
     y: 0,
@@ -68,7 +76,7 @@ function onHoverOut() {
     });
   });
 
-  const allClients = gsap.utils.toArray(".work-item .client-item");
+  const allClients = qsa<HTMLElement>(".work-item .client-item");
   gsap.to(allClients, {
     autoAlpha: 0,
     y: 8,
@@ -77,60 +85,67 @@ function onHoverOut() {
   });
 }
 
-function onImageClick(event, idx) {
+async function onImageClick(event: MouseEvent, idx: number) {
   if (isExpanding) return;
   isExpanding = true;
 
-  const work = worksCards[idx];
-  const imgEl = event.currentTarget.querySelector(".work-img");
-  if (!imgEl) return;
+  try {
+    const work = worksCards[idx];
+    const target = event.currentTarget as HTMLElement | null;
+    if (!target) return;
 
-  const rect = imgEl.getBoundingClientRect();
+    const imgEl = target.querySelector<HTMLImageElement>(".work-img");
+    if (!imgEl) return;
 
-  overlayClone = document.createElement("div");
-  overlayClone.style.cssText = `
-    position: fixed;
-    top: ${rect.top}px;
-    left: ${rect.left}px;
-    width: ${rect.width}px;
-    height: ${rect.height}px;
-    overflow: hidden;
-    z-index: 20;
-    pointer-events: none;
-  `;
+    const rect = imgEl.getBoundingClientRect();
 
-  const clonedImg = document.createElement("img");
-  clonedImg.src = imgEl.src;
-  clonedImg.alt = imgEl.alt;
-  clonedImg.style.cssText = `
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    user-select: none;
-  `;
-  overlayClone.appendChild(clonedImg);
-  document.body.appendChild(overlayClone);
+    overlayClone = document.createElement("div");
+    overlayClone.style.cssText = `
+      position: fixed;
+      top: ${rect.top}px;
+      left: ${rect.left}px;
+      width: ${rect.width}px;
+      height: ${rect.height}px;
+      overflow: hidden;
+      z-index: 20;
+      pointer-events: none;
+    `;
 
-  gsap.to(overlayClone, {
-    top: 0,
-    left: 0,
-    width: "100vw",
-    height: "100vh",
-    objectFit: "cover",
-    duration: 0.65,
-    ease: "expo.inOut",
-    onComplete: () => {
-      router.push(`/works/${work.slug}`).then(() => {
-        overlayClone?.remove();
-        overlayClone = null;
-        isExpanding = false;
+    const clonedImg = document.createElement("img");
+    clonedImg.src = imgEl.currentSrc || imgEl.src; // currentSrc is safer for responsive images
+    clonedImg.alt = imgEl.alt;
+    clonedImg.style.cssText = `
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+    `;
+
+    overlayClone.appendChild(clonedImg);
+    document.body.appendChild(overlayClone);
+
+    await new Promise<void>((resolve) => {
+      gsap.to(overlayClone!, {
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        duration: 0.65,
+        ease: "expo.inOut",
+        onComplete: resolve,
       });
-    },
-  });
+    });
+
+    await router.push(`/works/${work.slug}`);
+  } finally {
+    overlayClone?.remove();
+    overlayClone = null;
+    isExpanding = false;
+  }
 }
 
-function horizontalLoop(cards, config) {
+function horizontalLoop(cards: gsap.DOMTarget[], config: any) {
   cards = gsap.utils.toArray(cards);
   config = config || {};
   let tl = gsap.timeline({
@@ -140,42 +155,46 @@ function horizontalLoop(cards, config) {
       onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 1000),
     }),
     length = cards.length,
-    startX = cards[0].offsetLeft,
-    times = [],
-    widths = [],
-    xPercents = [],
+    startX = (cards[0] as HTMLElement).offsetLeft,
+    times: number[] = [],
+    widths: number[] = [],
+    xPercents: number[] = [],
     pixelsPerSecond = (config.speed || 1) * 100,
-    snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
-    totalWidth,
-    curX,
-    distanceToStart,
-    distanceToLoop,
-    item,
-    i;
+    snap = config.snap === false ? (v: number) => v : gsap.utils.snap(config.snap || 1),
+    totalWidth: number,
+    curX: number,
+    distanceToStart: number,
+    distanceToLoop: number,
+    item: any,
+    i: number;
 
   gsap.set(cards, {
-    xPercent: (i, el) => {
-      let w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
+    xPercent: (i: number, el: Element) => {
+      const w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px") as string));
       xPercents[i] = snap(
-        (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 + gsap.getProperty(el, "xPercent"),
+        (parseFloat(gsap.getProperty(el, "x", "px") as string) / w) * 100 +
+          (gsap.getProperty(el, "xPercent") as number),
       );
       return xPercents[i];
     },
   });
   gsap.set(cards, { x: 0 });
 
+  const last = cards[length - 1] as HTMLElement;
+
   totalWidth =
-    cards[length - 1].offsetLeft +
+    last.offsetLeft +
     (xPercents[length - 1] / 100) * widths[length - 1] -
     startX +
-    cards[length - 1].offsetWidth * gsap.getProperty(cards[length - 1], "scaleX") +
+    last.offsetWidth * (gsap.getProperty(last, "scaleX") as number) +
     (parseFloat(config.paddingRight) || 0);
 
   for (i = 0; i < length; i++) {
-    item = cards[i];
+    item = cards[i] as HTMLElement;
     curX = (xPercents[i] / 100) * widths[i];
     distanceToStart = item.offsetLeft + curX - startX;
-    distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+    distanceToLoop = distanceToStart + widths[i] * (gsap.getProperty(item, "scaleX") as number);
+
     tl.to(
       item,
       {
@@ -197,44 +216,53 @@ function horizontalLoop(cards, config) {
         distanceToLoop / pixelsPerSecond,
       )
       .add("label" + i, distanceToStart / pixelsPerSecond);
+
     times[i] = distanceToStart / pixelsPerSecond;
   }
 
   return tl;
 }
 
-onMounted(() => {
-  cards = [];
-  images = [];
+onMounted(async () => {
+  await nextTick();
 
   ctx = gsap.context(() => {
-    cards = gsap.utils.toArray(".work-item");
-    images = gsap.utils.toArray(".work-item .work-img");
+    cards = qsa<HTMLElement>(".work-item");
+    images = qsa<HTMLImageElement>(".work-item .work-img");
+
+    cardClients = cards.map((card) =>
+      Array.from(card.querySelectorAll<HTMLElement>(".client-item")),
+    );
 
     setClientsHidden();
 
     const loop = horizontalLoop(cards, { repeat: -1, speed: 1 });
     loop.totalTime(loop.duration() * 1000);
 
-    let slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
+    const slow = gsap.to(loop, { timeScale: 0, duration: 0.5 });
     loop.timeScale(0);
 
     observer = Observer.create({
       target: window,
       type: "touch,wheel",
       wheelSpeed: -1,
-      onChange: (self) => {
+      onChange: (self: any) => {
         loop.timeScale(Math.abs(self.deltaX) > Math.abs(self.deltaY) ? -self.deltaX : -self.deltaY);
         slow.invalidate().restart();
       },
     });
-  }, wrapperRef.value);
+  }, wrapperRef.value!);
 });
 
 onUnmounted(() => {
   observer?.kill();
-  if (ctx) ctx.revert();
+  observer = null;
+
+  ctx?.revert();
+  ctx = null;
+
   overlayClone?.remove();
+  overlayClone = null;
 });
 </script>
 
