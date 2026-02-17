@@ -12,11 +12,9 @@ const wrapperRef = ref<HTMLElement | null>(null);
 
 let ctx: gsap.Context | null = null;
 let observer: any = null;
-
 let cards: HTMLElement[] = [];
 let images: HTMLImageElement[] = [];
 let cardClients: HTMLElement[][] = [];
-
 let overlayClone: HTMLDivElement | null = null;
 let isExpanding = false;
 
@@ -113,7 +111,7 @@ async function onImageClick(event: MouseEvent, idx: number) {
     `;
 
     const clonedImg = document.createElement("img");
-    clonedImg.src = imgEl.currentSrc || imgEl.src; // currentSrc is safer for responsive images
+    clonedImg.src = imgEl.currentSrc || imgEl.src;
     clonedImg.alt = imgEl.alt;
     clonedImg.style.cssText = `
       width: 100%;

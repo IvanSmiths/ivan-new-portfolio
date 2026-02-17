@@ -32,8 +32,8 @@ async function playCover() {
 
   tween.value = gsap.to(curtainEl.value, {
     yPercent: 0,
-    duration: 0.55,
-    ease: "power3.inOut",
+    duration: 0.6,
+    ease: "power2.inOut",
     onComplete: () => {
       notifyCovered();
     },
@@ -48,8 +48,9 @@ async function playReveal() {
 
   tween.value = gsap.to(curtainEl.value, {
     yPercent: -100,
-    duration: 0.55,
-    ease: "power3.inOut",
+    duration: 0.6,
+    delay: 0.2,
+    ease: "power2.inOut",
     onComplete: () => {
       gsap.set(curtainEl.value, { yPercent: 100 });
       notifyRevealed();
