@@ -98,6 +98,15 @@ async function onImageClick(event: MouseEvent, idx: number) {
 
     const rect = imgEl.getBoundingClientRect();
 
+    const otherCards = cards.filter((_, i) => i !== idx);
+    gsap.to(otherCards, {
+      opacity: 0,
+      filter: "blur(12px)",
+      scale: 0.97,
+      duration: 0.5,
+      ease: "power2.inOut",
+    });
+
     overlayClone = document.createElement("div");
     overlayClone.style.cssText = `
       position: fixed;
@@ -117,10 +126,10 @@ async function onImageClick(event: MouseEvent, idx: number) {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;   /* ← start centered to match card */
+      object-position: center;
       display: block;
       user-select: none;
-      `;
+    `;
 
     overlayClone.appendChild(clonedImg);
     document.body.appendChild(overlayClone);
@@ -149,6 +158,8 @@ async function onImageClick(event: MouseEvent, idx: number) {
     });
     await router.push(`/works/${work.slug}`);
   } finally {
+    gsap.set(cards, { opacity: 1, filter: "none", scale: 1 });
+
     overlayClone?.remove();
     overlayClone = null;
     isExpanding = false;
