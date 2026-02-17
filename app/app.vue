@@ -24,4 +24,5 @@ useHead({
 <template>
   <Navbar />
   <NuxtPage />
+  <CurtainTransition />
 </template>

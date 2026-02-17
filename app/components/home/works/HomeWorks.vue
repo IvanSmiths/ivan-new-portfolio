@@ -5,8 +5,6 @@ import Observer from "gsap/dist/Observer";
 import { useRouter } from "vue-router";
 import { worksCards } from "~/domain/works/index.ts";
 
-const duplicatedWorks = [...worksCards, ...worksCards];
-
 gsap.registerPlugin(Observer);
 
 const router = useRouter();
@@ -97,7 +95,7 @@ function onImageClick(event, idx) {
     width: ${rect.width}px;
     height: ${rect.height}px;
     overflow: hidden;
-    z-index: 9999;
+    z-index: 20;
     pointer-events: none;
   `;
 
@@ -243,9 +241,9 @@ onUnmounted(() => {
   <div ref="wrapperRef" class="w-full pb-2.5 h-full flex items-end pointer-events-none">
     <ul class="flex flex-nowrap flex-row justify-end items-end list-none pointer-events-auto">
       <li
-        v-for="(work, idx) in duplicatedWorks"
+        v-for="(work, idx) in worksCards"
         :key="idx"
-        class="work-item w-72 shrink-0 pl-2.5 list-none"
+        class="work-item w-96 shrink-0 pl-2.5 list-none"
       >
         <div class="flex flex-row justify-between items-end p-2.5 pb-1">
           <div class="flex flex-col">
@@ -270,7 +268,7 @@ onUnmounted(() => {
         </div>
 
         <div
-          class="h-90 w-full overflow-hidden"
+          class="h-90 w-full cursor-pointer overflow-hidden"
           @click="onImageClick($event, idx)"
           @mouseenter="onHoverIn(idx)"
           @mouseleave="onHoverOut"
@@ -278,7 +276,7 @@ onUnmounted(() => {
           <img
             :alt="work.title"
             :src="work.image"
-            class="work-img h-full w-full cursor-pointer object-cover pointer-events-none"
+            class="work-img h-full w-full object-cover pointer-events-none"
             draggable="false"
           />
         </div>
