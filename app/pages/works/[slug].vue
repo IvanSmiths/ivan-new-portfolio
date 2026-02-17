@@ -4,7 +4,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { Link, WorkProjectPage } from "~/domain/works/types";
+import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
 
+const { phase } = useCurtainTransition();
 gsap.registerPlugin(ScrollTrigger);
 
 const route = useRoute();
@@ -110,7 +112,10 @@ onUnmounted(() => {
 
 <template>
   <article class="bg-background text-foreground min-h-screen">
-    <div class="absolute top-0 left-0 w-full h-full z-20">
+    <div
+      :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
+      class="absolute top-0 left-0 w-full h-full"
+    >
       <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover block" />
     </div>
     <div class="h-screen block"></div>
