@@ -5,6 +5,8 @@ import Observer from "gsap/dist/Observer";
 import { useRouter } from "vue-router";
 import { worksCards } from "~/domain/works/index.ts";
 
+const duplicatedWorks = [...worksCards, ...worksCards];
+
 gsap.registerPlugin(Observer);
 
 const router = useRouter();
@@ -77,7 +79,6 @@ function onHoverOut() {
   });
 }
 
-// --- FLIP Clone Expand → Navigate ---
 function onImageClick(event, idx) {
   if (isExpanding) return;
   isExpanding = true;
@@ -86,13 +87,8 @@ function onImageClick(event, idx) {
   const imgEl = event.currentTarget.querySelector(".work-img");
   if (!imgEl) return;
 
-  // 1. Snapshot the real viewport position of the image,
-  //    independent of whatever GSAP xPercent the loop has applied.
   const rect = imgEl.getBoundingClientRect();
 
-  // 2. Inject a fixed clone at that exact position.
-  //    The clone lives on document.body, completely outside the loop DOM,
-  //    so it won't be affected by the loop's ongoing transforms.
   overlayClone = document.createElement("div");
   overlayClone.style.cssText = `
     position: fixed;
@@ -118,9 +114,6 @@ function onImageClick(event, idx) {
   overlayClone.appendChild(clonedImg);
   document.body.appendChild(overlayClone);
 
-  // 3. Expand to fullscreen, then navigate.
-  //    The destination page renders underneath while the clone covers everything,
-  //    creating the illusion of a seamless shared-element transition.
   gsap.to(overlayClone, {
     top: 0,
     left: 0,
@@ -250,9 +243,9 @@ onUnmounted(() => {
   <div ref="wrapperRef" class="w-full pb-2.5 h-full flex items-end pointer-events-none">
     <ul class="flex flex-nowrap flex-row justify-end items-end list-none pointer-events-auto">
       <li
-        v-for="(work, idx) in worksCards"
+        v-for="(work, idx) in duplicatedWorks"
         :key="idx"
-        class="work-item w-96 shrink-0 pl-2.5 list-none"
+        class="work-item w-72 shrink-0 pl-2.5 list-none"
       >
         <div class="flex flex-row justify-between items-end p-2.5 pb-1">
           <div class="flex flex-col">
@@ -264,13 +257,13 @@ onUnmounted(() => {
               </template>
             </div>
 
-            <span class="text-sm font-bold uppercase text-foreground pt-1">
+            <span class="text-sm text-foreground pt-1">
               {{ work.role }}
             </span>
           </div>
 
           <div>
-            <span class="text-sm font-bold uppercase text-foreground">
+            <span class="text-sm text-foreground">
               {{ work.title }}
             </span>
           </div>
