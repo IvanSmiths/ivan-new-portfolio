@@ -111,14 +111,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <article class="bg-background text-foreground min-h-screen">
+  <article class="bg-background text-foreground">
     <div
       :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
-      class="absolute top-0 left-0 w-full h-full"
+      class="relative top-0 left-0 w-full h-full"
     >
-      <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover block" />
+      <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover" />
     </div>
-    <div class="h-screen block"></div>
     <header class="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
       <p class="text-foreground-muted text-xs font-semibold tracking-[0.22em] uppercase">
         {{ work?.type }}

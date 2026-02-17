@@ -117,25 +117,36 @@ async function onImageClick(event: MouseEvent, idx: number) {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;   /* ← start centered to match card */
       display: block;
       user-select: none;
-    `;
+      `;
 
     overlayClone.appendChild(clonedImg);
     document.body.appendChild(overlayClone);
 
-    await new Promise<void>((resolve) => {
-      gsap.to(overlayClone!, {
+    await new Promise((resolve) => {
+      const tl = gsap.timeline({ onComplete: resolve });
+
+      tl.to(overlayClone!, {
         top: 0,
         left: 0,
         width: "100vw",
         height: "100vh",
-        duration: 0.65,
+        duration: 1,
         ease: "expo.inOut",
-        onComplete: resolve,
       });
-    });
 
+      tl.to(
+        clonedImg,
+        {
+          objectPosition: "center top",
+          duration: 1,
+          ease: "expo.inOut",
+        },
+        "<",
+      );
+    });
     await router.push(`/works/${work.slug}`);
   } finally {
     overlayClone?.remove();
@@ -306,7 +317,7 @@ onUnmounted(() => {
           <img
             :alt="work.title"
             :src="work.image"
-            class="work-img h-full w-full object-cover"
+            class="work-img h-full w-full object-cover object-top"
             draggable="false"
           />
         </div>
