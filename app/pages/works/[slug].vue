@@ -2,8 +2,8 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type { Link, WorkProjectPage } from "~~/utils/data/works/types";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
+import type { Link, WorkProjectPage } from "~/domain/works/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,8 +110,8 @@ onUnmounted(() => {
 
 <template>
   <article class="bg-background text-foreground min-h-screen">
-    <div>
-      <img :src="work.homeImage.url" alt="" class="h-full w-full" />
+    <div class="relative z-20">
+      <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover" />
     </div>
     <header class="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
       <p class="text-foreground-muted text-xs font-semibold tracking-[0.22em] uppercase">

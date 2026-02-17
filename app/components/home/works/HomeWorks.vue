@@ -276,7 +276,7 @@ onUnmounted(() => {
           <img
             :alt="work.title"
             :src="work.image"
-            class="work-img h-full w-full object-cover pointer-events-none"
+            class="work-img h-full w-full object-cover"
             draggable="false"
           />
         </div>

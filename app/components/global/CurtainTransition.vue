@@ -95,6 +95,6 @@ onBeforeUnmount(() => {
   <div
     ref="curtainEl"
     :class="isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
-    class="fixed inset-0 z-9999 bg-foreground transition-opacity"
+    class="fixed inset-0 z-10 bg-foreground transition-opacity"
   />
 </template>
