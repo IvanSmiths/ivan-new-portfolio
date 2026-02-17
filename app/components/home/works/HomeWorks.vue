@@ -117,6 +117,7 @@ function onImageClick(event, idx) {
     left: 0,
     width: "100vw",
     height: "100vh",
+    objectFit: "cover",
     duration: 0.65,
     ease: "expo.inOut",
     onComplete: () => {

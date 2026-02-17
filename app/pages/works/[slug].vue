@@ -110,9 +110,10 @@ onUnmounted(() => {
 
 <template>
   <article class="bg-background text-foreground min-h-screen">
-    <div class="relative z-20">
-      <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover" />
+    <div class="absolute top-0 left-0 w-full h-full z-20">
+      <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover block" />
     </div>
+    <div class="h-screen block"></div>
     <header class="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
       <p class="text-foreground-muted text-xs font-semibold tracking-[0.22em] uppercase">
         {{ work?.type }}
@@ -247,7 +248,7 @@ onUnmounted(() => {
         <p class="text-foreground-muted mb-3 text-xs font-semibold tracking-[0.18em] uppercase">
           Scroll to see next project
         </p>
-        <div class="relative h-[2px] w-full bg-[#cccccc]">
+        <div class="relative h-0.5 w-full bg-[#cccccc]">
           <div ref="fillLineRef" class="absolute inset-y-0 left-0 h-full w-full bg-black" />
         </div>
       </div>
