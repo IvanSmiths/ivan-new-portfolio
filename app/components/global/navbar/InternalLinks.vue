@@ -38,7 +38,7 @@ const navigationLinks = computed(() =>
         ]"
         :prefetch="true"
         :to="link.url"
-        class="flex text-xs"
+        class="flex text-xs hover:opacity-80 transition-opacity"
       >
         {{ link.label }}
       </NuxtLink>

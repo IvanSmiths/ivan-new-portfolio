@@ -12,7 +12,7 @@
         <a
           v-else
           :href="work.link"
-          class="flex items-center gap-1 underline"
+          class="flex items-center hover:opacity-80 transition-opacity gap-1 underline"
           rel="noopener noreferrer"
           target="_blank"
         >

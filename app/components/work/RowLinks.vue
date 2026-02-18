@@ -5,7 +5,7 @@
     <span class="flex">
       <a
         :href="website"
-        class="flex items-center gap-1 underline"
+        class="flex items-center hover:opacity-80 transition-opacity gap-1 underline"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -15,7 +15,7 @@
       <a
         v-if="linkedin"
         :href="linkedin"
-        class="flex items-center gap-1 underline"
+        class="flex items-center hover:opacity-80 transition-opacity gap-1 underline"
         rel="noopener noreferrer"
         target="_blank"
       >
