@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { dm_mono } from "../../../utils/fonts/fonts";
-import works from "../../../utils/data/works";
-import projects from "../../../utils/data/projects";
-import { internalRoutes, LinkItem } from "../../../_config/config";
 import { usePathname } from "next/navigation";
+import { internalRoutes, type LinkItem } from "../../../_config/config";
+import works from "../../../utils/data/works";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 
 const InternalLinks = () => {
   const pathname = usePathname();
@@ -15,7 +14,7 @@ const InternalLinks = () => {
         const isActive =
           link.url === "/" ? pathname === "/" : pathname.startsWith(link.url);
         return (
-          <li className="flex" key={index}>
+          <li className="flex" key={link.url}>
             <Link
               href={link.url}
               className={`flex text-xs uppercase ${dm_mono.className} ${
@@ -26,13 +25,8 @@ const InternalLinks = () => {
             </Link>
             {index === 1 && (
               <span className="text-foreground-muted ml-1 text-[8px]">
-                ({works.length})
-              </span>
-            )}
-            {index === 2 && (
-              <span className="text-foreground-muted ml-1 text-[8px]">
-                ({projects.length})
-              </span>
+								({works.length})
+							</span>
             )}
           </li>
         );

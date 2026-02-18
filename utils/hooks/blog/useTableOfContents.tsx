@@ -8,25 +8,25 @@ export interface TOCItem {
   level: number;
 }
 
-export function useTableOfContents({} = {}) {
+export function useTableOfContents() {
   const [headings, setHeadings] = useState<TOCItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
     const elements = Array.from(
-      document.querySelectorAll("h1, h2, h3, h4, h5, h6"),
+      document.querySelectorAll("h1, h2, h3, h4, h5, h6")
     );
 
     const items = elements.map((element) => {
-      const level = parseInt(element.tagName[1]);
+      const level = parseInt(element.tagName[1], 10);
       return {
         id: element.id,
         text: element.textContent || "",
-        level: level,
+        level: level
       };
     });
 
-    let filteredItems = [...items];
+    const filteredItems = [...items];
 
     // Filter out the first h1 and h2 as they are in the Hero section
     const firstH1Index = filteredItems.findIndex((item) => item.level === 1);
@@ -49,7 +49,7 @@ export function useTableOfContents({} = {}) {
           }
         });
       },
-      { rootMargin: "0px 0px -80% 0px" },
+      { rootMargin: "0px 0px -80% 0px" }
     );
 
     elements.forEach((element) => {
@@ -71,7 +71,7 @@ export function useTableOfContents({} = {}) {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
   };
@@ -79,6 +79,6 @@ export function useTableOfContents({} = {}) {
   return {
     headings,
     activeId,
-    scrollToHeading,
+    scrollToHeading
   };
 }

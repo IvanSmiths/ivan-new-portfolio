@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type PageTemplateProps<T> = {
   entry: T;
@@ -7,17 +7,18 @@ type PageTemplateProps<T> = {
 };
 
 function PageTemplate<T>({
-  entry,
-  schema,
-  renderContent,
-}: PageTemplateProps<T>) {
+                           entry,
+                           schema,
+                           renderContent
+                         }: PageTemplateProps<T>) {
   return (
     <section className="pr-sm md:pt-xl pt-sm max-lg:pl-sm gap-sm flex flex-col lg:flex-row">
       {renderContent(entry)}
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: cannot avoid
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schema),
+          __html: JSON.stringify(schema)
         }}
       />
     </section>

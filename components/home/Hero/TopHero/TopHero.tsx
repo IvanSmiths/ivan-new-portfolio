@@ -1,7 +1,7 @@
 import Header from "./Header";
 
 const TopHero = () => {
-  return <Header />;
+	return <Header />;
 };
 
 export default TopHero;

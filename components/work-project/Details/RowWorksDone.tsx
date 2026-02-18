@@ -1,11 +1,13 @@
-import { Link } from "../../../utils/data/types";
+import clsx from "clsx";
+import type { Link } from "../../../utils/data/types";
 import SquareArrowOutUpRight from "../../global/Icons/SquareArrowOutUpRight";
 
 type RowWorksDoneRow = {
   worksDone: Link[];
+  className?: string;
 };
 
-const RowWorksDone = ({ worksDone }: RowWorksDoneRow) => {
+const RowWorksDone = ({ worksDone, className }: RowWorksDoneRow) => {
   const shouldRenderAsPlainText = (label: string) => {
     return (
       label === "RE/MAX" ||
@@ -15,16 +17,21 @@ const RowWorksDone = ({ worksDone }: RowWorksDoneRow) => {
   };
 
   return (
-    <div className="border-background-muted pl-sm py-xs flex items-start border-b-1">
-      <div className="text-foreground-muted w-24 flex-shrink-0">Works Done</div>
-      <div className="gap-xs flex flex-wrap gap-y-0.5 break-words">
+    <div
+      className={clsx(
+        "border-background-muted pl-sm py-xs flex items-start border-b opacity-0",
+        className
+      )}
+    >
+      <div className="text-foreground-muted w-24 shrink-0">Works Done</div>
+      <div className="gap-xs flex flex-wrap gap-y-0.5 wrap-break-word">
         {worksDone.map((work, index) => (
           <span key={index}>
-            {shouldRenderAsPlainText(work.label) ? (
+						{shouldRenderAsPlainText(work.label) ? (
               <span className="flex items-center gap-1">
-                <span>{work.label}</span>
+								<span>{work.label}</span>
                 {index < worksDone.length - 1 && <>,</>}
-              </span>
+							</span>
             ) : (
               <a
                 href={work.link}
@@ -37,7 +44,7 @@ const RowWorksDone = ({ worksDone }: RowWorksDoneRow) => {
                 {index < worksDone.length - 1 && <>,</>}
               </a>
             )}
-          </span>
+					</span>
         ))}
       </div>
     </div>

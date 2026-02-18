@@ -1,5 +1,5 @@
-import { PostMetadata } from "../../../utils/fetch/posts/types";
-import { generatePostMetadata } from "../../../utils/seo/blog/generatePostMetadata";
+import { generatePostMetadata } from "../../../utils/marketing/seo/blog/generatePostMetadata";
+import type { PostMetadata } from "../../../utils/queries/posts/types";
 
 export const data: PostMetadata = {
   title: "How to add Open Graph and Twitter metadata to Next.js app router",
@@ -9,7 +9,7 @@ export const data: PostMetadata = {
   cover: "https://utfs.io/f/aCaScRJubtiPvv2th03UO3qozXDu8rHybdfWAaIZ6KiJ0lYk",
   coverAlt: "next js and open graph logos",
   tags: ["Next.js", "Metadata", "Open Graph", "Twitter", "App Router"],
-  category: "Guide",
+  category: "Guide"
 };
 
 export const { postMetadata, postSchema } = generatePostMetadata(data);

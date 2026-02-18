@@ -1,9 +1,7 @@
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
 
 export function useScrollPercentage() {
   const percentRef = useRef<HTMLSpanElement>(null);
-  const pathname = usePathname();
 
   useEffect(() => {
     const calculateScrollPercentage = () => {
@@ -17,7 +15,7 @@ export function useScrollPercentage() {
       if (scrollTop + windowHeight >= documentHeight - 5) return 100;
       return Math.max(
         0,
-        Math.min(100, Math.round((scrollTop / maxScroll) * 100)),
+        Math.min(100, Math.round((scrollTop / maxScroll) * 100))
       );
     };
 
@@ -41,7 +39,7 @@ export function useScrollPercentage() {
     }, 300);
 
     return () => clearTimeout(timeout);
-  }, [pathname]);
+  }, []);
 
   return { percentRef };
 }

@@ -12,6 +12,7 @@ const Check = () => {
       strokeLinejoin="round"
       className="stroke-foreground fill-none"
     >
+      <title id="icon-title">Check</title>
       <path d="M20 6 9 17l-5-5" />
     </svg>
   );

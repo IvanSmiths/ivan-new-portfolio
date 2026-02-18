@@ -1,6 +1,6 @@
-import { FC, RefObject } from "react";
 import Link from "next/link";
-import { WorkProjectBase } from "../../utils/data/types";
+import type { FC, RefObject } from "react";
+import type { WorkProjectBase } from "../../utils/data/types";
 
 interface WorkTitleProps {
   work: WorkProjectBase;
@@ -10,29 +10,30 @@ interface WorkTitleProps {
 }
 
 const TemplateText: FC<WorkTitleProps> = ({
-  work,
-  path,
-  titleRef,
-  subtitleRef,
-}) => {
+                                            work,
+                                            path,
+                                            titleRef,
+                                            subtitleRef
+                                          }) => {
   return (
-    <>
-      <Link href={(path + "/" + work.slug).toString()}>
-        <h2
-          ref={titleRef}
-          className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-6xl font-black uppercase lg:text-8xl"
-        >
-          {work?.name}
-        </h2>
+    <div
+      className="animate-fadeInUp px-md absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 sm:px-36 md:px-56 lg:px-96 xl:px-[500px]"
+      style={{ animationDelay: "200ms" }}
+    >
+      <Link
+        className="text-5xl font-black uppercase sm:text-6xl lg:text-8xl"
+        href={`${path}/${work.slug}`.toString()}
+      >
+        <h2 ref={titleRef}>{work?.name}</h2>
       </Link>
 
       <h3
         ref={subtitleRef}
-        className="absolute top-28 left-1/2 hidden origin-center -translate-x-1/2 -translate-y-1/2 text-center md:block lg:top-[114px]"
+        className="hidden origin-center text-center font-medium md:block lg:top-[114px]"
       >
         {work?.role}
       </h3>
-    </>
+    </div>
   );
 };
 

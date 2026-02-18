@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { dm_mono } from "../../../utils/fonts/fonts";
+import { useEffect, useRef, useState } from "react";
+import { dm_mono } from "../../../utils/style/fonts/fonts";
 
 interface AnimatedAccordionProps {
   title: string;
@@ -13,12 +13,12 @@ interface AnimatedAccordionProps {
 }
 
 export default function AnimatedAccordion({
-  title,
-  content,
-  top,
-  left,
-  rotation,
-}: AnimatedAccordionProps) {
+                                            title,
+                                            content,
+                                            top,
+                                            left,
+                                            rotation
+                                          }: AnimatedAccordionProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const accordionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ export default function AnimatedAccordion({
         .to(accordionRef.current, { width: "350px", duration: 0.5 }, "-=0.25")
         .to(contentRef.current, {
           height: "auto",
-          duration: 0.5,
+          duration: 0.5
         });
     }
   }, []);
@@ -52,7 +52,7 @@ export default function AnimatedAccordion({
       style={{
         transform: `rotate(${rotation}deg)`,
         left: `${left}%`,
-        top: `${top}%`,
+        top: `${top}%`
       }}
       onClick={toggleAccordion}
       ref={accordionRef}
@@ -63,8 +63,8 @@ export default function AnimatedAccordion({
           {title}
         </h3>
         <span className="group-hover:text-background transition">
-          {isOpen ? "-" : "+"}
-        </span>
+					{isOpen ? "-" : "+"}
+				</span>
       </div>
       <div className="h-0 overflow-hidden" ref={contentRef}>
         <p className="group-hover:text-background pt-sm transition">

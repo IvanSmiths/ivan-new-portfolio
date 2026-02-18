@@ -163,7 +163,7 @@ something like this:
 
 ```tsx
 export async function generateMetadata({ params }) {
-    // the logic on how you fetch your data
+    // the logic on how you queries your data
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 })
 ```
