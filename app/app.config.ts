@@ -8,19 +8,16 @@ export default defineAppConfig({
   contacts: [{ email: "info@ivansmiths.com" }],
   socials: [
     {
-      github: {
-        url: "https://github.com/IvanSmiths",
-      },
+      label: "GitHub",
+      url: "https://github.com/IvanSmiths",
     },
     {
-      linkedIn: {
-        url: "https://www.linkedin.com/in/ivan-fabbri/",
-      },
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/ivan-fabbri/",
     },
     {
-      youtube: {
-        url: "https://www.youtube.com/channel/ivansmithsdev",
-      },
+      label: "YouTube",
+      url: "https://www.youtube.com/channel/ivansmithsdev",
     },
   ],
 });
