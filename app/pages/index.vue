@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import HomeWorks from "~/components/home/works/HomeWorks.vue";
 import Paragraph from "~/components/home/description/Paragraph.vue";
+import WorksLoader from "~/components/home/works/WorksLoader.vue";
+
+const loaderDone = ref(false);
 
 const title = "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
 const description =
@@ -42,6 +45,7 @@ useHead({
 <template>
   <section class="h-screen w-full flex flex-col justify-end">
     <Paragraph />
+    <WorksLoader @done="loaderDone = true" />
     <HomeWorks />
   </section>
 </template>
