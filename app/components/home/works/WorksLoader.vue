@@ -28,8 +28,8 @@ function markLoaderSeen() {
 }
 
 function getCardImageRects(): DOMRect[] {
-  const imgs = Array.from(document.querySelectorAll<HTMLImageElement>(".work-item .work-img"));
-  return imgs.map((el) => el.getBoundingClientRect());
+  const images = Array.from(document.querySelectorAll<HTMLImageElement>(".work-item .work-img"));
+  return images.map((el) => el.getBoundingClientRect());
 }
 
 let ctx: gsap.Context | null = null;
@@ -47,8 +47,8 @@ async function runAnimation() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
-    const THUMB_W = 48;
-    const THUMB_H = 64;
+    const THUMB_W = 28;
+    const THUMB_H = 44;
     const THUMB_GAP = 10;
     const totalH = items.length * THUMB_H + (items.length - 1) * THUMB_GAP;
     const startY = (vh - totalH) / 2;
@@ -59,7 +59,6 @@ async function runAnimation() {
       height: THUMB_H,
       left: vw / 2 - THUMB_W / 2,
       top: (i: number) => startY + i * (THUMB_H + THUMB_GAP),
-      borderRadius: 4,
       overflow: "hidden",
       zIndex: 50,
       opacity: 0,
@@ -89,10 +88,10 @@ async function runAnimation() {
       ease: "power3.out",
     });
 
-    tl.to({}, { duration: 0.6 });
+    tl.to({}, { duration: 0.5 });
 
-    const HORIZ_W = 80;
-    const HORIZ_H = 96;
+    const HORIZ_W = 140;
+    const HORIZ_H = 166;
     const HORIZ_GAP = 12;
     const totalW = items.length * HORIZ_W + (items.length - 1) * HORIZ_GAP;
     const horizStartX = (vw - totalW) / 2;
@@ -165,7 +164,7 @@ onUnmounted(() => {
           }
         "
         class="loader-thumb absolute overflow-hidden"
-        style="opacity: 0; width: 48px; height: 64px"
+        style="opacity: 0; width: 28px; height: 44px"
       >
         <img
           :alt="work.title"
