@@ -3,15 +3,10 @@ export default defineAppConfig({
   internalRoutes: [
     { label: "Home", url: "/" },
     { label: "Works", url: "/works" },
+    { label: "Contacts", url: "/contacts" },
   ],
   contacts: [{ email: "info@ivansmiths.com" }],
   socials: [
-    {
-      x: {
-        xCreator: "@Ivansmiths",
-        xCreatorId: "1303746727594405894",
-      },
-    },
     {
       github: {
         url: "https://github.com/IvanSmiths",

@@ -23,6 +23,9 @@ useHead({
 
 <template>
   <Navbar />
+  <ClientOnly>
+    <CursorHelper />
+  </ClientOnly>
   <NuxtPage />
   <CurtainTransition />
 </template>

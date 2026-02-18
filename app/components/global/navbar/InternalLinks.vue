@@ -33,7 +33,7 @@ const navigationLinks = computed(() =>
     >
       <NuxtLink
         :class="[
-          link.isActive ? 'underline text-foreground-muted underline-offset-2' : '',
+          link.isActive ? 'underline text-foreground underline-offset-3' : '',
           link.hasMargin ? 'mr-1' : '',
         ]"
         :prefetch="true"
