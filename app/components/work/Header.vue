@@ -39,26 +39,26 @@ onMounted(() => {
   <div
     ref="containerRef"
     :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
-    class="relative w-full h-full"
+    class="relative"
   >
     <div
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-1 z-10"
     >
       <h1
         :ref="(el) => el && labelRefs.push(el as HTMLElement)"
-        class="mix-blend-difference text-foreground uppercase text-xs"
+        class="text-white uppercase text-xs"
       >
         {{ work.role }}
       </h1>
       <h2
         :ref="(el) => el && labelRefs.push(el as HTMLElement)"
-        class="mix-blend-difference text-foreground uppercase text-xs"
+        class="text-white uppercase text-xs"
       >
         {{ work.name }}
       </h2>
     </div>
     <div ref="overlayRef" class="absolute inset-0 z-5 bg-black/50 pointer-events-none" />
-    <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover" />
+    <img :src="work?.homeImage.url" alt="" class="min-h-screen w-screen object-cover" />
   </div>
 </template>
 
