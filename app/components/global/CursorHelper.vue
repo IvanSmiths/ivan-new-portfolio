@@ -44,7 +44,7 @@ const showScrollText = () => {
 
   gsap.fromTo(
     scrollTextEl.value,
-    { opacity: 0, letterSpacing: "0em" },
+    { opacity: 0, letterSpacing: "0em", display: "none", visibility: "hidden" },
     {
       opacity: 1,
       letterSpacing: "0.10em",
@@ -63,6 +63,8 @@ const hideScrollText = () => {
 
   gsap.to(scrollTextEl.value, {
     opacity: 0,
+    display: "none",
+    visibility: "hidden",
     duration: 0.25,
     letterSpacing: "0.10em",
     ease: "power2.in",
