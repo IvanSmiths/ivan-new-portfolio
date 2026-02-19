@@ -70,6 +70,10 @@ const hideScrollText = () => {
 };
 
 const onScroll = () => {
+  if (scrollAppearTimer) {
+    window.clearTimeout(scrollAppearTimer);
+    scrollAppearTimer = null;
+  }
   if (scrollTextVisible) {
     hideScrollText();
   }
@@ -77,13 +81,15 @@ const onScroll = () => {
 
 const scheduleScrollText = () => {
   if (scrollAppearTimer) window.clearTimeout(scrollAppearTimer);
+
+  if (window.scrollY > 0) return;
+
   scrollAppearTimer = window.setTimeout(() => {
-    if (isScrollRoutes.value && state.value.mode === "default") {
+    if (isScrollRoutes.value && state.value.mode === "default" && window.scrollY === 0) {
       showScrollText();
     }
   }, 5000);
 };
-
 const onMove = (e: MouseEvent) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
@@ -127,6 +133,10 @@ watch(
 );
 
 watch(interactionBus, () => {
+  if (scrollAppearTimer) {
+    window.clearTimeout(scrollAppearTimer);
+    scrollAppearTimer = null;
+  }
   if (scrollTextVisible) hideScrollText();
 });
 
@@ -152,10 +162,9 @@ onMounted(() => {
     if (!dotEl.value) return;
     if (!isMoving) return;
 
-    quickX(mouse.x + 10);
-    quickY(mouse.y - 5);
+    quickX(mouse.x + 2);
+    quickY(mouse.y - dotEl.value.offsetHeight);
   });
-
   if (dotEl.value) {
     gsap.set(dotEl.value, { x: -999, y: -999 });
   }
@@ -177,21 +186,18 @@ onBeforeUnmount(() => {
   <div
     ref="dotEl"
     aria-hidden="true"
-    class="pointer-events-none fixed left-0 rounded-2xl top-0 z-9999 -translate-x-1/2 -translate-y-1/2 bg-foreground backdrop-blur will-change-transform flex items-center justify-center overflow-hidden"
-    style="width: 10px; height: 10px"
+    class="pointer-events-none origin-bottom-left w-2.5 h-2.5 fixed left-0 rounded-2xl top-0 z-9999 bg-foreground backdrop-blur will-change-transform flex items-center justify-center overflow-hidden"
   >
     <img
       ref="iconEl"
       :src="state.iconSrc || ''"
       alt=""
-      class="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 opacity-0"
+      class="absolute left-1/2 top-1/2 h-6 w-6 scale-95 -translate-x-1/2 -translate-y-1/2 opacity-0"
       draggable="false"
-      style="transform: translate(-50%, -50%) scale(0.85)"
     />
     <span
       ref="scrollTextEl"
-      class="absolute whitespace-nowrap text-background opacity-0 select-none"
-      style="font-size: 8px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase"
+      class="whitespace-nowrap text-background opacity-0 select-none text-xs"
     >
       scroll
     </span>
