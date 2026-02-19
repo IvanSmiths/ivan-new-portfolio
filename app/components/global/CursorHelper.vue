@@ -109,7 +109,7 @@ watch(
       gsap.to(dotEl.value, {
         width: 56,
         height: 56,
-        borderRadius: 0,
+        borderRadius: 200,
         duration: 0.22,
         ease: "power3.out",
       });
@@ -120,7 +120,7 @@ watch(
       gsap.to(dotEl.value, {
         width: 10,
         height: 10,
-        borderRadius: 0,
+        borderRadius: 200,
         duration: 0.22,
         ease: "power3.out",
       });
