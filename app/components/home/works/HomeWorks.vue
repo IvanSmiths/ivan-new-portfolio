@@ -17,6 +17,7 @@ let images: HTMLImageElement[] = [];
 let cardClients: HTMLElement[][] = [];
 let overlayClone: HTMLDivElement | null = null;
 let isExpanding = false;
+const { notifyInteraction } = useCursorHelper();
 
 function qsa<T extends Element>(selector: string): T[] {
   const root = wrapperRef.value;
@@ -270,6 +271,7 @@ onMounted(async () => {
       type: "touch,wheel",
       wheelSpeed: -1,
       onChange: (self: any) => {
+        notifyInteraction();
         loop.timeScale(Math.abs(self.deltaX) > Math.abs(self.deltaY) ? -self.deltaX : -self.deltaY);
         slow.invalidate().restart();
       },
