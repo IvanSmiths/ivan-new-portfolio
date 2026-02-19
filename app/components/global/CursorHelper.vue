@@ -113,9 +113,6 @@ watch(
         duration: 0.22,
         ease: "power3.out",
       });
-      if (iconEl.value) {
-        gsap.to(iconEl.value, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out" });
-      }
     } else if (!scrollTextVisible) {
       gsap.to(dotEl.value, {
         width: 10,
@@ -124,9 +121,6 @@ watch(
         duration: 0.22,
         ease: "power3.out",
       });
-      if (iconEl.value) {
-        gsap.to(iconEl.value, { opacity: 0, scale: 0.85, duration: 0.12, ease: "power2.out" });
-      }
     }
   },
   { deep: true },
@@ -188,13 +182,13 @@ onBeforeUnmount(() => {
     aria-hidden="true"
     class="pointer-events-none origin-bottom-left w-2.5 h-2.5 fixed left-0 rounded-2xl top-0 z-9999 bg-foreground backdrop-blur will-change-transform flex items-center justify-center overflow-hidden"
   >
-    <img
-      ref="iconEl"
-      :src="state.iconSrc || ''"
-      alt=""
-      class="absolute left-1/2 top-1/2 h-6 w-6 scale-95 -translate-x-1/2 -translate-y-1/2 opacity-0"
-      draggable="false"
-    />
+    <Transition name="icon-fade">
+      <component
+        :is="state.iconComponent"
+        v-if="state.iconComponent"
+        class="absolute p-0.5 inset-0 w-full h-full text-background"
+      />
+    </Transition>
     <span
       ref="scrollTextEl"
       class="whitespace-nowrap text-background opacity-0 select-none text-xs"
