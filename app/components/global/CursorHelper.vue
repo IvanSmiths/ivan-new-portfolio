@@ -61,6 +61,9 @@ const hideScrollText = () => {
   if (!scrollTextEl.value || !dotEl.value || !scrollTextVisible) return;
   scrollTextVisible = false;
 
+  gsap.killTweensOf(scrollTextEl.value);
+  gsap.killTweensOf(dotEl.value, "width,height,borderRadius,letterSpacing");
+
   gsap.to(scrollTextEl.value, {
     opacity: 0,
     display: "none",
