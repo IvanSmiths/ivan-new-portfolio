@@ -9,7 +9,7 @@ const { phase } = useCurtainTransition();
 
 function setEnterInitial() {
   if (!pageEl.value) return;
-  gsap.set(pageEl.value, { opacity: 0, y: 100 });
+  gsap.set(pageEl.value, { y: 100 });
 }
 
 watch(phase, async (p) => {
@@ -18,9 +18,8 @@ watch(phase, async (p) => {
 
   if (p === "covering") {
     gsap.to(pageEl.value, {
-      opacity: 0,
-      y: -100,
-      duration: 0.45,
+      y: -200,
+      duration: 0.7,
       ease: "power2.in",
     });
     return;
@@ -29,7 +28,6 @@ watch(phase, async (p) => {
   if (p === "revealing") {
     setEnterInitial();
     gsap.to(pageEl.value, {
-      opacity: 1,
       y: 0,
       duration: 0.5,
       delay: 0.15,

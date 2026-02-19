@@ -52,12 +52,12 @@ async function playCover() {
     )
     .to(curtainEl.value, {
       yPercent: 10,
-      duration: 0.2,
+      duration: 0.25,
       ease: "none",
     })
     .to(curtainEl.value, {
       yPercent: 0,
-      duration: 0.25,
+      duration: 0.3,
       ease: "power2.out",
     });
 }
@@ -88,12 +88,12 @@ async function playReveal() {
     )
     .to(curtainEl.value, {
       yPercent: -80,
-      duration: 0.2,
+      duration: 0.25,
       ease: "none",
     })
     .to(curtainEl.value, {
       yPercent: -100,
-      duration: 0.25,
+      duration: 0.3,
       ease: "power2.out",
     })
     .to(
@@ -101,7 +101,7 @@ async function playReveal() {
       {
         opacity: 0,
         backdropFilter: "blur(0px)",
-        duration: 0.25,
+        duration: 0.1,
         ease: "power2.out",
       },
       "-=0.25",
