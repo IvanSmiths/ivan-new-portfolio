@@ -57,9 +57,7 @@ onMounted(() => {
         {{ work.name }}
       </h2>
     </div>
-
-    <div ref="overlayRef" class="absolute inset-0 z-[5] bg-black/50 pointer-events-none" />
-
+    <div ref="overlayRef" class="absolute inset-0 z-5 bg-black/50 pointer-events-none" />
     <img :src="work?.homeImage.url" alt="" class="h-full w-full object-cover" />
   </div>
 </template>

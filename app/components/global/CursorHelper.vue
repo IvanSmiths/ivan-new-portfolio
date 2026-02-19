@@ -5,14 +5,15 @@ const route = useRoute();
 const { state, interactionBus } = useCursorHelper();
 
 const dotEl = ref<HTMLDivElement | null>(null);
-const iconEl = ref<HTMLImageElement | null>(null);
 const scrollTextEl = ref<HTMLSpanElement | null>(null);
+const hoverTextEl = ref<HTMLSpanElement | null>(null);
 
 const isContactsRoute = computed(() => route.path === "/contacts");
 const isScrollRoutes = computed(() => route.path === "/" || route.path.startsWith("/works/"));
 
 const mouse = reactive({ x: 0, y: 0 });
 let isMoving = false;
+
 let idleTimer: number | null = null;
 let scrollAppearTimer: number | null = null;
 let scrollTextVisible = false;
@@ -43,8 +44,16 @@ const showScrollText = () => {
 
   gsap.fromTo(
     scrollTextEl.value,
-    { opacity: 0, letterSpacing: "0.3em" },
-    { opacity: 1, letterSpacing: "0.18em", duration: 0.4, delay: 0.25, ease: "power2.out" },
+    { opacity: 0, letterSpacing: "0em" },
+    {
+      opacity: 1,
+      letterSpacing: "0.10em",
+      display: "block",
+      visibility: "visible",
+      duration: 0.4,
+      delay: 0.25,
+      ease: "power2.out",
+    },
   );
 };
 
@@ -54,8 +63,8 @@ const hideScrollText = () => {
 
   gsap.to(scrollTextEl.value, {
     opacity: 0,
-    letterSpacing: "0.4em",
     duration: 0.25,
+    letterSpacing: "0.10em",
     ease: "power2.in",
   });
 
@@ -63,8 +72,53 @@ const hideScrollText = () => {
     width: 10,
     height: 10,
     borderRadius: 200,
+    letterSpacing: "0em",
     duration: 0.35,
     delay: 0.1,
+    ease: "power3.out",
+  });
+};
+
+const measureHoverWidth = () => {
+  const w = hoverTextEl.value?.scrollWidth ?? 0;
+  return Math.max(56, w + 30);
+};
+
+const showHoverText = () => {
+  if (!dotEl.value || !hoverTextEl.value) return;
+
+  const targetW = measureHoverWidth();
+
+  gsap.to(dotEl.value, {
+    width: targetW,
+    height: 28,
+    borderRadius: 0,
+    duration: 0.22,
+    ease: "power3.out",
+  });
+
+  gsap.fromTo(
+    hoverTextEl.value,
+    { opacity: 0, letterSpacing: "0em" },
+    { opacity: 1, letterSpacing: "0.10em", duration: 0.18, ease: "power2.out" },
+  );
+};
+
+const hideHoverText = () => {
+  if (!dotEl.value || !hoverTextEl.value) return;
+
+  gsap.to(hoverTextEl.value, {
+    opacity: 0,
+    duration: 0.15,
+    letterSpacing: "0em",
+    ease: "power2.in",
+  });
+
+  gsap.to(dotEl.value, {
+    width: 10,
+    height: 10,
+    borderRadius: 200,
+    duration: 0.22,
     ease: "power3.out",
   });
 };
@@ -74,9 +128,7 @@ const onScroll = () => {
     window.clearTimeout(scrollAppearTimer);
     scrollAppearTimer = null;
   }
-  if (scrollTextVisible) {
-    hideScrollText();
-  }
+  if (scrollTextVisible) hideScrollText();
 };
 
 const scheduleScrollText = () => {
@@ -90,6 +142,7 @@ const scheduleScrollText = () => {
     }
   }, 5000);
 };
+
 const onMove = (e: MouseEvent) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
@@ -102,9 +155,20 @@ watch(
   (next) => {
     if (!dotEl.value) return;
 
-    const shouldExpand = isContactsRoute.value && next.mode === "hover";
+    const hasHoverText = !!next.hoverText;
+    const isHoverMode = next.mode === "hover";
 
-    if (shouldExpand) {
+    const shouldShowHoverText = isContactsRoute.value && isHoverMode && hasHoverText;
+    const shouldExpandIcon =
+      isContactsRoute.value && isHoverMode && !!next.iconComponent && !hasHoverText;
+
+    if (shouldShowHoverText) {
+      if (scrollTextVisible) hideScrollText();
+      requestAnimationFrame(() => showHoverText());
+      return;
+    }
+
+    if (shouldExpandIcon) {
       if (scrollTextVisible) hideScrollText();
       gsap.to(dotEl.value, {
         width: 56,
@@ -113,17 +177,24 @@ watch(
         duration: 0.22,
         ease: "power3.out",
       });
-    } else if (!scrollTextVisible) {
-      gsap.to(dotEl.value, {
-        width: 10,
-        height: 10,
-        borderRadius: 200,
-        duration: 0.22,
-        ease: "power3.out",
-      });
+      return;
+    }
+
+    if (!scrollTextVisible) {
+      hideHoverText();
     }
   },
   { deep: true },
+);
+
+watch(
+  () => state.value.hoverText,
+  () => {
+    if (!dotEl.value) return;
+    if (isContactsRoute.value && state.value.mode === "hover" && state.value.hoverText) {
+      requestAnimationFrame(() => showHoverText());
+    }
+  },
 );
 
 watch(interactionBus, () => {
@@ -139,6 +210,11 @@ watch(
   () => {
     if (scrollTextVisible) hideScrollText();
     if (scrollAppearTimer) window.clearTimeout(scrollAppearTimer);
+
+    if (!isContactsRoute.value && state.value.hoverText) {
+      hideHoverText();
+    }
+
     if (isScrollRoutes.value) {
       scheduleScrollText();
     }
@@ -159,6 +235,7 @@ onMounted(() => {
     quickX(mouse.x + 2);
     quickY(mouse.y - dotEl.value.offsetHeight);
   });
+
   if (dotEl.value) {
     gsap.set(dotEl.value, { x: -999, y: -999 });
   }
@@ -185,13 +262,18 @@ onBeforeUnmount(() => {
     <Transition name="icon-fade">
       <component
         :is="state.iconComponent"
-        v-if="state.iconComponent"
+        v-if="state.iconComponent && !state.hoverText"
         class="absolute p-0.5 inset-0 w-full h-full text-background"
       />
     </Transition>
+
+    <span ref="hoverTextEl" class="whitespace-nowrap text-background opacity-0 select-none text-xs">
+      {{ state.hoverText }}
+    </span>
+
     <span
       ref="scrollTextEl"
-      class="whitespace-nowrap text-background opacity-0 select-none text-xs"
+      class="whitespace-nowrap hidden text-background opacity-0 select-none text-xs"
     >
       scroll
     </span>
