@@ -33,11 +33,10 @@ const showScrollText = () => {
   if (!scrollTextEl.value || !dotEl.value || scrollTextVisible) return;
   scrollTextVisible = true;
 
-  // Expand dot to fit text
   gsap.to(dotEl.value, {
     width: 72,
     height: 28,
-    borderRadius: 20,
+    borderRadius: 0,
     duration: 0.45,
     ease: "back.out(1.4)",
   });
@@ -63,7 +62,7 @@ const hideScrollText = () => {
   gsap.to(dotEl.value, {
     width: 10,
     height: 10,
-    borderRadius: "50%",
+    borderRadius: 200,
     duration: 0.35,
     delay: 0.1,
     ease: "power3.out",
@@ -100,12 +99,11 @@ watch(
     const shouldExpand = isContactsRoute.value && next.mode === "hover";
 
     if (shouldExpand) {
-      // Hide scroll text first if showing
       if (scrollTextVisible) hideScrollText();
       gsap.to(dotEl.value, {
         width: 56,
         height: 56,
-        borderRadius: "50%",
+        borderRadius: 0,
         duration: 0.22,
         ease: "power3.out",
       });
@@ -116,7 +114,7 @@ watch(
       gsap.to(dotEl.value, {
         width: 10,
         height: 10,
-        borderRadius: "50%",
+        borderRadius: 0,
         duration: 0.22,
         ease: "power3.out",
       });
@@ -135,7 +133,6 @@ watch(interactionBus, () => {
 watch(
   () => route.path,
   () => {
-    // Reset and re-schedule on route change
     if (scrollTextVisible) hideScrollText();
     if (scrollAppearTimer) window.clearTimeout(scrollAppearTimer);
     if (isScrollRoutes.value) {
@@ -180,7 +177,7 @@ onBeforeUnmount(() => {
   <div
     ref="dotEl"
     aria-hidden="true"
-    class="pointer-events-none fixed left-0 top-0 z-9999 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground backdrop-blur will-change-transform flex items-center justify-center overflow-hidden"
+    class="pointer-events-none fixed left-0 rounded-2xl top-0 z-9999 -translate-x-1/2 -translate-y-1/2 bg-foreground backdrop-blur will-change-transform flex items-center justify-center overflow-hidden"
     style="width: 10px; height: 10px"
   >
     <img
