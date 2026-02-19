@@ -1,5 +1,42 @@
 <script lang="ts" setup>
+import { gsap } from "gsap";
+import { nextTick, ref, watch } from "vue";
 import Navbar from "~/components/global/navbar/Navbar.vue";
+import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
+
+const pageEl = ref<HTMLDivElement | null>(null);
+const { phase } = useCurtainTransition();
+
+function setEnterInitial() {
+  if (!pageEl.value) return;
+  gsap.set(pageEl.value, { opacity: 0, y: 100 });
+}
+
+watch(phase, async (p) => {
+  await nextTick();
+  if (!pageEl.value) return;
+
+  if (p === "covering") {
+    gsap.to(pageEl.value, {
+      opacity: 0,
+      y: -100,
+      duration: 0.45,
+      ease: "power2.in",
+    });
+    return;
+  }
+
+  if (p === "revealing") {
+    setEnterInitial();
+    gsap.to(pageEl.value, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      delay: 0.15,
+      ease: "power2.out",
+    });
+  }
+});
 
 useHead({
   script: [
@@ -26,6 +63,8 @@ useHead({
   <ClientOnly>
     <CursorHelper />
   </ClientOnly>
-  <NuxtPage />
+  <div ref="pageEl">
+    <NuxtPage />
+  </div>
   <CurtainTransition />
 </template>
