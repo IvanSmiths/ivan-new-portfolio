@@ -154,10 +154,82 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
       overlayClone.appendChild(clonedImage);
       document.body.appendChild(overlayClone);
 
-      await new Promise<void>((resolve) => {
-        const timeline = gsap.timeline({ onComplete: resolve });
+      await new Promise((resolve) => {
+        const tl = gsap.timeline({ onComplete: resolve });
 
-        timeline.to(overlayClone, {
+        const coverDiv = document.createElement("div");
+        coverDiv.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+          z-index: 998;
+          opacity: 0;
+          pointer-events: none;
+        `;
+        gsap.set(overlayClone!, { zIndex: 999 });
+        document.body.appendChild(coverDiv);
+
+        const titleText = document.createElement("div");
+        titleText.textContent = "Loading...";
+        titleText.style.cssText = `
+          position: fixed;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1001;
+          color: white;
+          font-weight: bold;
+          opacity: 0;
+          pointer-events: none;
+          white-space: nowrap;
+        `;
+        document.body.appendChild(titleText);
+
+        const finalWidth = window.innerWidth * 0.5;
+        const finalHeight = window.innerHeight * 0.5;
+        const centeredLeft = (window.innerWidth - finalWidth) / 2;
+        const centeredTop = (window.innerHeight - finalHeight) / 2;
+
+        gsap.set(clonedImage, { objectPosition: "center top" });
+        tl.to(coverDiv, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+
+        tl.to(
+          overlayClone!,
+          {
+            top: centeredTop,
+            left: centeredLeft,
+            width: finalWidth,
+            height: finalHeight,
+            duration: 0.5,
+            ease: "power2.inOut",
+          },
+          "<",
+        );
+
+        const textTop = centeredTop - titleText.offsetHeight - 10;
+        gsap.set(titleText, { top: textTop });
+
+        tl.fromTo(
+          titleText,
+          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+        );
+
+        tl.to(titleText, {
+          opacity: 0,
+          y: -20,
+          duration: 0.3,
+          ease: "power2.in",
+          delay: 0.3,
+        });
+
+        tl.to(overlayClone!, {
           top: 0,
           left: 0,
           width: "100vw",
@@ -166,7 +238,7 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
           ease: "expo.inOut",
         });
 
-        timeline.to(
+        tl.to(
           clonedImage,
           {
             objectPosition: "center top",
@@ -175,6 +247,11 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
           },
           "<",
         );
+
+        tl.add(() => {
+          titleText.remove();
+          coverDiv.remove();
+        });
       });
 
       await router.push(`/works/${work.slug}`);
