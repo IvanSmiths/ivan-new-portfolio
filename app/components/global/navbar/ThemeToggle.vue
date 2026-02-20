@@ -27,14 +27,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex w-24 justify-end">
-    <button
-      class="text-xs hover:opacity-80 transition-opacity text-foreground-muted cursor-pointer"
-      @click="toggleTheme"
-    >
-      [{{ colorMode === "light" ? "Dark mode" : "Light mode" }}]
-    </button>
-  </div>
+  <button
+    class="md:text-xs text-sm hover:opacity-80 transition-opacity text-foreground-muted cursor-pointer"
+    @click="toggleTheme"
+  >
+    [{{ colorMode === "light" ? "Dark mode" : "Light mode" }}]
+  </button>
 </template>
 
 <style scoped></style>

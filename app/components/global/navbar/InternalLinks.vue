@@ -25,7 +25,7 @@ const navigationLinks = computed(() =>
 </script>
 
 <template>
-  <ul class="md:gap-md gap-lg flex items-start">
+  <ul class="gap-2.5 flex items-start">
     <li
       v-for="link in navigationLinks"
       :key="link.url"
@@ -38,7 +38,7 @@ const navigationLinks = computed(() =>
         ]"
         :prefetch="true"
         :to="link.url"
-        class="flex text-xs hover:opacity-80 transition-opacity"
+        class="flex md:text-xs text-sm hover:opacity-80 transition-opacity"
       >
         {{ link.label }}
       </NuxtLink>

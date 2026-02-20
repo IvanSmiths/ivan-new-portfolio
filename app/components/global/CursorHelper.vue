@@ -262,7 +262,7 @@ onBeforeUnmount(() => {
   <div
     ref="dotEl"
     aria-hidden="true"
-    class="pointer-events-none origin-bottom-left w-2.5 h-2.5 fixed left-0 rounded-2xl top-0 z-9999 bg-foreground backdrop-blur will-change-transform flex items-center justify-center overflow-hidden"
+    class="pointer-events-none origin-bottom-left w-2.5 h-2.5 fixed left-0 rounded-2xl top-0 z-9999 bg-foreground backdrop-blur will-change-transform hidden lg:flex items-center justify-center overflow-hidden"
   >
     <Transition name="icon-fade">
       <component
