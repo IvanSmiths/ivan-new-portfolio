@@ -14,7 +14,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <li class="work-item w-96 lg:w-130 xl:w-150 2xl:w-230 shrink-0 pl-2.5 list-none">
+  <li class="work-item w-96 lg:w-130 xl:w-150 3xl:w-230 shrink-0 pl-2.5 list-none">
     <div
       class="flex flex-row justify-between items-end p-2.5 pb-1 text-foreground font-semibold text-sm uppercase"
     >
