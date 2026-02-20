@@ -14,29 +14,29 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <li class="work-item w-96 shrink-0 pl-2.5 list-none">
-    <div class="flex flex-row justify-between items-end p-2.5 pb-1">
+  <li class="work-item w-96 lg:w-130 xl:w-150 2xl:w-230 shrink-0 pl-2.5 list-none">
+    <div
+      class="flex flex-row justify-between items-end p-2.5 pb-1 text-foreground font-semibold text-sm uppercase"
+    >
       <div class="flex flex-col">
-        <div class="clients flex flex-col gap-1">
+        <div class="clients hidden lg:flex flex-col gap-1">
           <template v-for="client in work.clients.slice(0, 3)" :key="client">
             <span class="client-item text-xs opacity-0 text-foreground-muted">{{ client }}</span>
           </template>
         </div>
 
-        <span class="text-sm text-foreground font-semibold uppercase pt-1">
+        <span class="md:block hidden pt-1">
           {{ work.role }}
         </span>
       </div>
 
-      <div>
-        <span class="text-sm text-foreground font-semibold uppercase">
-          {{ work.title }}
-        </span>
-      </div>
+      <span class="md:block hidden">
+        {{ work.title }}
+      </span>
     </div>
 
     <div
-      class="h-112.5 w-full cursor-pointer overflow-hidden"
+      class="md:h-116 h-140 w-full cursor-pointer overflow-hidden"
       @click="emit('imageClick', $event, index)"
       @mouseenter="emit('hoverIn', index)"
       @mouseleave="emit('hoverOut')"

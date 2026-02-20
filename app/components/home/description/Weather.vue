@@ -13,7 +13,7 @@ const condition = computed(() => data.value?.condition);
 
 <template>
   <div v-if="temperature != null && condition" class="flex gap-0.5">
-    <span class="text-foreground-muted text-xs">{{ temperature }}°</span>
-    <span class="text-foreground-muted text-xs">{{ condition }}</span>
+    <span>{{ temperature }}°</span>
+    <span>{{ condition }}</span>
   </div>
 </template>

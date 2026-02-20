@@ -38,14 +38,12 @@ const navigationLinks = computed(() =>
         ]"
         :prefetch="true"
         :to="link.url"
-        class="flex md:text-xs text-sm hover:opacity-80 transition-opacity"
+        class="flex hover:opacity-80 transition-opacity"
       >
         {{ link.label }}
       </NuxtLink>
 
-      <span v-if="link.showCount" class="text-foreground-muted ml-1 text-[9px]">
-        ({{ worksCount }})
-      </span>
+      <span v-if="link.showCount" class="ml-1 text-[9px]"> ({{ worksCount }}) </span>
     </li>
   </ul>
 </template>

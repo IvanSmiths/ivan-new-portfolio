@@ -13,7 +13,7 @@ const { currentTime } = useLiveTime({
 </script>
 
 <template>
-  <span ref="timeRef" class="text-foreground-muted text-xs uppercase">
+  <span ref="timeRef">
     {{ currentTime }}
   </span>
 </template>
