@@ -173,14 +173,13 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
         document.body.appendChild(coverDiv);
 
         const titleText = document.createElement("div");
-        titleText.textContent = "Loading...";
+        titleText.textContent = work.title;
         titleText.style.cssText = `
           position: fixed;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1001;
-          color: white;
-          font-weight: bold;
+          color: var(--foreground);
           opacity: 0;
           pointer-events: none;
           white-space: nowrap;
@@ -206,7 +205,7 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
             left: centeredLeft,
             width: finalWidth,
             height: finalHeight,
-            duration: 0.5,
+            duration: 0.6,
             ease: "power2.inOut",
           },
           "<",
@@ -217,13 +216,13 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
 
         tl.fromTo(
           titleText,
-          { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" },
         );
 
         tl.to(titleText, {
           opacity: 0,
-          y: -20,
+          y: 10,
           duration: 0.3,
           ease: "power2.in",
           delay: 0.3,
