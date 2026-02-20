@@ -265,7 +265,7 @@ export function useHomeWorksRail({ wrapperRef, works }: UseHomeWorksRailOptions)
 
   function createHorizontalLoop(targets: gsap.DOMTarget[], config: HorizontalLoopConfig = {}) {
     const loopTargets = gsap.utils.toArray(targets) as HTMLElement[];
-    const pixelsPerSecond = (config.speed ?? 1) * 100;
+    const pixelsPerSecond = (config.speed ?? 1) * 20;
     const snap =
       config.snap === false
         ? (value: number) => value
