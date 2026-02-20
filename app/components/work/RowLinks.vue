@@ -10,6 +10,7 @@
         target="_blank"
       >
         <span>Website</span>
+        <ExternalLink />
       </a>
 
       <a
