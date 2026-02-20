@@ -1,14 +1,11 @@
 <script lang="ts" setup>
 import { worksCards } from "~/domain/works";
 import HomeWorkCard from "~/components/home/works/HomeWorkCard.vue";
-import { useHomeWorksRail } from "~/composables/animations/home/useHomeWorksRail";
+import { useHomeWorksLoop } from "~/composables/animations/home/useHomeWorksLoop";
 
 const wrapperRef = ref<HTMLElement | null>(null);
 
-const { onHoverIn, onHoverOut, onImageClick } = useHomeWorksRail({
-  wrapperRef,
-  works: worksCards,
-});
+const { register, onHoverIn, onHoverOut, onImageClick } = useHomeWorksLoop(worksCards);
 </script>
 
 <template>
@@ -19,6 +16,7 @@ const { onHoverIn, onHoverOut, onImageClick } = useHomeWorksRail({
         :key="work.slug"
         :index="idx"
         :work="work"
+        @register="register"
         @hover-in="onHoverIn"
         @hover-out="onHoverOut"
         @image-click="onImageClick"
