@@ -309,20 +309,20 @@ onUnmounted(() => {
               </template>
             </div>
 
-            <span class="text-sm text-foreground pt-1">
+            <span class="text-sm text-foreground font-semibold uppercase pt-1">
               {{ work.role }}
             </span>
           </div>
 
           <div>
-            <span class="text-sm text-foreground">
+            <span class="text-sm text-foreground font-semibold uppercase">
               {{ work.title }}
             </span>
           </div>
         </div>
 
         <div
-          class="h-90 w-full cursor-pointer overflow-hidden"
+          class="h-112.5 w-full cursor-pointer overflow-hidden"
           @click="onImageClick($event, idx)"
           @mouseenter="onHoverIn(idx)"
           @mouseleave="onHoverOut"
