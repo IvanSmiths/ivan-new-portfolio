@@ -72,7 +72,7 @@ const nextSlug = computed(() => {
 <template>
   <section class="bg-background text-foreground">
     <Header v-if="work" :work="work" />
-    <section class="flex p-2.5 flex-col lg:flex-row">
+    <section class="flex p-5 gap-5 flex-col lg:flex-row">
       <Images v-if="work" :work="work" />
       <RowSection v-if="work" :work="work" />
     </section>

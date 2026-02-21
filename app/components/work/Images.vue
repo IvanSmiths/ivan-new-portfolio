@@ -23,7 +23,7 @@ const hasManyImages = computed(() => (props.work.images?.length ?? 0) > 1);
       <img :src="coverSrc" alt="" class="h-full w-full object-cover" />
     </div>
 
-    <div v-if="hasManyImages" class="h-full w-full flex flex-col gap-2.5">
+    <div v-if="hasManyImages" class="h-full w-full flex flex-col gap-5">
       <img
         v-for="(image, index) in galleryImages"
         :key="image"

@@ -55,7 +55,8 @@ function buildTimeline() {
     {
       duration: 1.25,
       translateY: `${multiplier * 10}%`,
-      scaleX: 0.92,
+      paddingLeft: 20,
+      paddingRight: 20,
       ease: "power3.inOut",
     },
     0,

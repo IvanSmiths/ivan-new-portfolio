@@ -36,8 +36,8 @@ export function useWorkHover(opts: {
     $gsap.to(clients[index] ?? [], {
       autoAlpha: 1,
       y: 0,
-      duration: 0.28,
-      stagger: 0.06,
+      duration: 0.3,
+      stagger: 1,
       ease: "power2.out",
       overwrite: true,
     });

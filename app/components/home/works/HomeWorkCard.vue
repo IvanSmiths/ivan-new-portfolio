@@ -33,7 +33,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <li ref="cardEl" class="work-item w-96 lg:w-130 xl:w-160 3xl:w-230 shrink-0 pl-2.5 list-none">
+  <li ref="cardEl" class="work-item w-96 lg:w-130 xl:w-160 3xl:w-230 shrink-0 list-none">
     <div
       class="md:h-130 lg:h-96 h-110 w-full cursor-pointer overflow-hidden"
       @click="emit('imageClick', $event, index)"

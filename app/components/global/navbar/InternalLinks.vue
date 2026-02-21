@@ -25,7 +25,7 @@ const navigationLinks = computed(() =>
 </script>
 
 <template>
-  <ul class="gap-2.5 flex items-start">
+  <ul class="gap-5 flex items-start">
     <li
       v-for="link in navigationLinks"
       :key="link.url"
