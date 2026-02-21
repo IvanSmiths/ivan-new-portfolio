@@ -9,7 +9,7 @@ const { register, onHoverIn, onHoverOut, onImageClick } = useHomeWorksLoop(works
 </script>
 
 <template>
-  <div ref="wrapperRef" class="w-full flex items-start justify-start mt-10">
+  <div ref="wrapperRef" class="w-full flex items-start justify-start md:mt-10">
     <ul class="flex flex-nowrap flex-row justify-start items-start list-none">
       <HomeWorkCard
         v-for="(work, idx) in worksCards"

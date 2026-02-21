@@ -1,14 +1,15 @@
 <script lang="ts" setup>
 import Weather from "~/components/home/description/Weather.vue";
 import Time from "~/components/home/description/Time.vue";
+import Logo from "~/components/home/description/Logo.vue";
 </script>
 
 <template>
-  <div
-    class="gap-2.5 md:pt-10 pt-2.5 pl-2.5 max-sm:pr-2.5 flex h-full md:items-center items-start md:flex-row"
-  >
-    <div class="animate-fadeInUp w-full opacity-0 md:w-96 3xl:w-134">
-      <h1 class="text-foreground text-base 3xl:text-2xl">
+  <div class="flex flex-col gap-2.5 px-2.5 items-end">
+    <div
+      class="animate-fadeInUp w-full opacity-0 flex md:flex-row flex-col md:justify-between items-start md:items-end"
+    >
+      <h1 class="text-foreground text-base 3xl:text-2xl md:w-96 3xl:w-134">
         <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
         Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
@@ -20,6 +21,7 @@ import Time from "~/components/home/description/Time.vue";
         <Time />
       </div>
     </div>
+    <Logo />
   </div>
 </template>
 
