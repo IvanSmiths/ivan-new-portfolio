@@ -32,7 +32,7 @@ export const Td: WorkProjectPage = {
   metaDescription:
     "Boosted CRM efficiency by 25% through data-driven features, redesigned the mobile app for a 40% increase in adoption, and reduced bugs by 30% with 40+ automated tests across the stack.",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771253575/piggybank-9svD2HGsM28-unsplash_1_yb68ut.jpg",
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771687701/Frame_678_3_tfoqsx.png",
     height: 600,
     width: 420,
   },

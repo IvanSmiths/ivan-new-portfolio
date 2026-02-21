@@ -53,7 +53,7 @@ export const Suv: WorkProjectPage = {
   metaDescription:
     "Mentored developers in Next.js, led a jQuery-to-TypeScript migration, and built award-winning websites for Adidas, Deutsche Bahn, and WMF—boosting scalability, revenue, and development efficiency.",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771253574/camilla-carvalho-Cgb4gMKRcMA-unsplash_1_wyjuvx.jpg",
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771687696/Frame_678_1_dfsbdn.png",
     height: 600,
     width: 420,
   },

@@ -66,7 +66,7 @@ export const Ideology: WorkProjectPage = {
   metaDescription:
     "Won the LemonSoda design contract by outperforming 15 firms, optimized WordPress integrations with PHP, launched 20+ high-converting websites, and reduced cart abandonment by 15% through user-driven UX improvements.",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771253574/chuttersnap-x5O1GmmGoPE-unsplash_1_iqpi97.jpg",
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771687696/Frame_678_2_l0dhlu.png",
     height: 600,
     width: 420,
   },

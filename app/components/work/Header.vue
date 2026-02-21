@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
     </div>
 
     <div ref="imageWrapEl" class="relative z-20 will-change-transform">
-      <img :src="work?.homeImage.url" alt="" class="origin-top object-cover min-h-screen" />
+      <img :src="work?.homeImage.url" alt="" class="origin-top object-cover min-h-screen w-full" />
     </div>
     <div ref="spacerEl" class="w-full"></div>
   </section>

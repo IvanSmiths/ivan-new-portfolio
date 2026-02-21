@@ -9,8 +9,7 @@ const scrollTextEl = ref<HTMLSpanElement | null>(null);
 const hoverTextEl = ref<HTMLSpanElement | null>(null);
 
 const isContactsRoute = computed(() => route.path === "/contacts");
-const isHome = computed(() => route.path === "/");
-const isSingleWork = computed(() => route.path.startsWith("/works/"));
+const isScrollRoutes = computed(() => route.path === "/" || route.path.startsWith("/works/"));
 
 const mouse = reactive({ x: 0, y: 0 });
 let isMoving = false;
@@ -143,16 +142,10 @@ const scheduleScrollText = () => {
   if (window.scrollY > 0) return;
 
   scrollAppearTimer = window.setTimeout(() => {
-    if (isHome.value && state.value.mode === "default" && window.scrollY === 0) {
+    if (isScrollRoutes.value && state.value.mode === "default" && window.scrollY === 0) {
       showScrollText();
     }
   }, 5000);
-
-  scrollAppearTimer = window.setTimeout(() => {
-    if (isSingleWork.value && state.value.mode === "default" && window.scrollY === 0) {
-      showScrollText();
-    }
-  }, 500);
 };
 
 const onMove = (e: MouseEvent) => {
@@ -227,11 +220,7 @@ watch(
       hideHoverText();
     }
 
-    if (isHome.value) {
-      scheduleScrollText();
-    }
-
-    if (isSingleWork.value) {
+    if (isScrollRoutes.value) {
       scheduleScrollText();
     }
   },
@@ -256,7 +245,7 @@ onMounted(() => {
     gsap.set(dotEl.value, { x: -999, y: -999 });
   }
 
-  if (isHome.value) {
+  if (isScrollRoutes.value) {
     scheduleScrollText();
   }
 });
