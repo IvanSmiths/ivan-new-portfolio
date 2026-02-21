@@ -59,6 +59,7 @@ function buildTimeline() {
     {
       duration: 0.9,
       opacity: 1,
+      delay: 0.8,
       y: 0,
       stagger: 0.08,
     },
@@ -71,6 +72,7 @@ function buildTimeline() {
     {
       duration: 0.9,
       opacity: 1,
+      delay: 0.8,
       y: 0,
     },
     0.12,
@@ -105,31 +107,26 @@ onBeforeUnmount(() => {
   <section
     ref="rootEl"
     :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
-    class="relative min-h-screen w-screen overflow-hidden"
+    class="relative"
   >
-    <!-- Background text (can be absolute, that's fine) -->
-    <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+    <div class="absolute inset-0 bottom-52 z-10 flex items-center justify-center">
       <div class="flex flex-col items-center text-center">
-        <h1 ref="titleEl" class="text-4xl md:text-6xl font-medium leading-tight">
+        <h1 ref="titleEl" class="text-4xl md:text-9xl uppercase font-medium">
           {{ work?.name }}
         </h1>
-        <p ref="roleEl" class="mt-3 text-base md:text-lg opacity-80">
-          {{ work?.role }}
-        </p>
+        <p ref="roleEl" class="mt-3 text-base md:text-2xl">[{{ work?.role }}]</p>
       </div>
     </div>
 
-    <!-- Bottom meta -->
-    <div class="pointer-events-none absolute bottom-8 left-1/2 z-10 w-[60%] -translate-x-1/2">
+    <div class="absolute bottom-48 left-1/2 z-10 w-[60%] -translate-x-1/2">
       <div ref="metaBarEl" class="flex items-center justify-between text-sm md:text-base">
-        <span class="opacity-80">{{ "01" }}-{{ "04" }}</span>
-        <span class="opacity-80">{{ work?.date }}</span>
+        <span>{{ "01" }}-{{ "04" }}</span>
+        <span>{{ work?.date }}</span>
       </div>
     </div>
 
-    <!-- Image layer IN FLOW (relative, not absolute) -->
-    <div ref="imageWrapEl" class="relative z-20 h-screen w-screen will-change-transform">
-      <img :src="work?.homeImage.url" alt="" class="h-full w-full origin-top" draggable="false" />
+    <div ref="imageWrapEl" class="relative z-20 will-change-transform">
+      <img :src="work?.homeImage.url" alt="" class="origin-top" />
     </div>
   </section>
 </template>
