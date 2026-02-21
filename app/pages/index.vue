@@ -43,9 +43,9 @@ useHead({
 </script>
 
 <template>
-  <section class="h-screen w-full flex flex-col justify-end">
+  <section class="h-screen w-full flex flex-col">
+    <HomeWorks />
     <Paragraph />
     <WorksLoader @done="loaderDone = true" />
-    <HomeWorks />
   </section>
 </template>

@@ -10,7 +10,7 @@ export function useWorkHover(opts: {
 
   function hideAllClients() {
     const all = opts.clientsByIndex().flat();
-    $gsap.set(all, { autoAlpha: 0, y: 8 });
+    $gsap.set(all, { autoAlpha: 0, y: -8 });
   }
 
   function hoverIn(index: number) {
@@ -57,7 +57,7 @@ export function useWorkHover(opts: {
 
     $gsap.to(opts.clientsByIndex().flat(), {
       autoAlpha: 0,
-      y: 8,
+      y: -8,
       duration: 0.18,
       overwrite: true,
     });
