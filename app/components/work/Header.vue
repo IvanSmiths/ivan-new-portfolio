@@ -16,6 +16,7 @@ const imageWrapEl = ref<HTMLElement | null>(null);
 const titleEl = ref<HTMLElement | null>(null);
 const roleEl = ref<HTMLElement | null>(null);
 const metaBarEl = ref<HTMLElement | null>(null);
+const spacerEl = ref<HTMLElement | null>(null);
 
 let tl: gsap.core.Timeline | null = null;
 
@@ -38,6 +39,13 @@ function buildTimeline() {
     willChange: "transform, opacity",
   });
 
+  const multiplier = 7;
+
+  const imageHeight = imageWrapEl.value.offsetHeight;
+  const extraSpaceNeeded = imageHeight * (multiplier / 10);
+
+  gsap.set(spacerEl.value, { height: 0 });
+
   tl = gsap.timeline({
     defaults: { ease: "power3.out" },
   });
@@ -46,8 +54,17 @@ function buildTimeline() {
     imageWrapEl.value,
     {
       duration: 1.25,
-      translateY: "80%",
+      translateY: `${multiplier * 10}%`,
       scaleX: 0.92,
+      ease: "power3.inOut",
+    },
+    0,
+  );
+  tl.to(
+    spacerEl.value,
+    {
+      duration: 1.25,
+      height: extraSpaceNeeded,
       ease: "power3.inOut",
     },
     0,
@@ -103,7 +120,7 @@ onBeforeUnmount(() => {
     :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
     class="relative"
   >
-    <div class="absolute inset-0 bottom-52 z-10 flex items-center justify-center">
+    <div class="absolute top-48 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center">
       <div class="flex flex-col items-center text-center">
         <h1 ref="titleEl" class="text-4xl md:text-9xl uppercase font-medium">
           {{ work?.name }}
@@ -112,7 +129,7 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
-    <div class="absolute bottom-48 left-1/2 z-10 w-[60%] -translate-x-1/2">
+    <div class="absolute top-140 left-1/2 z-10 w-[60%] -translate-x-1/2">
       <div ref="metaBarEl" class="flex items-center justify-between text-sm md:text-base">
         <span>{{ "01" }}-{{ "04" }}</span>
         <span>{{ work?.date }}</span>
@@ -120,7 +137,8 @@ onBeforeUnmount(() => {
     </div>
 
     <div ref="imageWrapEl" class="relative z-20 will-change-transform">
-      <img :src="work?.homeImage.url" alt="" class="origin-top" />
+      <img :src="work?.homeImage.url" alt="" class="origin-top object-cover min-h-screen" />
     </div>
+    <div ref="spacerEl" class="w-full"></div>
   </section>
 </template>
