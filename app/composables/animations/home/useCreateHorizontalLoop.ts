@@ -13,7 +13,7 @@ export function useCreateHorizontalLoop(
   config: HorizontalLoopConfig = {},
 ) {
   const loopTargets = gsap.utils.toArray(targets) as HTMLElement[];
-  const pixelsPerSecond = (config.speed ?? 1) * 20;
+  const pixelsPerSecond = (config.speed ?? 1) * 100;
   const snap =
     config.snap === false ? (v: number) => v : gsap.utils.snap((config.snap ?? 1) as number);
 

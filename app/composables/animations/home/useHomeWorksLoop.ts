@@ -50,6 +50,8 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
     const slowDown = $gsap.to(loop, { timeScale: 0, duration: 0.5 });
     loop.timeScale(0);
 
+    const clampSpeed = $gsap.utils.clamp(-200, 200);
+
     const obs = $gsapObserver.create({
       target: window,
       type: "touch,wheel",
@@ -57,7 +59,9 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
       onChange: (self: { deltaX: number; deltaY: number }) => {
         notifyInteraction();
         const d = Math.abs(self.deltaX) > Math.abs(self.deltaY) ? self.deltaX : self.deltaY;
-        loop.timeScale(-d);
+
+        loop.timeScale(clampSpeed(-d));
+
         slowDown.invalidate().restart();
       },
     });
