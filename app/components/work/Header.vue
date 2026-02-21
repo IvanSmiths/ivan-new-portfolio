@@ -26,7 +26,7 @@ function buildTimeline() {
   tl = null;
 
   gsap.set(imageWrapEl.value, {
-    y: 0,
+    translateY: 0,
     scaleX: 1,
     willChange: "transform",
     objectPosition: "top",
@@ -34,7 +34,7 @@ function buildTimeline() {
 
   gsap.set([titleEl.value, roleEl.value, metaBarEl.value].filter(Boolean), {
     opacity: 0,
-    y: 18,
+    translateY: 18,
     willChange: "transform, opacity",
   });
 
@@ -46,46 +46,40 @@ function buildTimeline() {
     imageWrapEl.value,
     {
       duration: 1.25,
-      y: "80%",
+      translateY: "80%",
       scaleX: 0.92,
       ease: "power3.inOut",
     },
     0,
   );
-
-  // Texts fade up at the same time
   tl.to(
     [titleEl.value, roleEl.value].filter(Boolean),
     {
       duration: 0.9,
       opacity: 1,
       delay: 0.8,
-      y: 0,
+      translateY: 0,
       stagger: 0.08,
     },
     0.05,
   );
-
-  // Bottom bar fades up slightly after, still overlapping with image
   tl.to(
     metaBarEl.value,
     {
       duration: 0.9,
       opacity: 1,
       delay: 0.8,
-      y: 0,
+      translateY: 0,
     },
     0.12,
   );
 }
 
 function play() {
-  // Build fresh in case of resize or different work content
   buildTimeline();
 }
 
 function onResize() {
-  // Recompute targetY on resize and replay at end-state quickly
   if (!tl) return;
   play();
 }
