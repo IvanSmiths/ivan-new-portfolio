@@ -5,9 +5,9 @@ import ThemeToggle from "~/components/global/navbar/ThemeToggle.vue";
 
 <template>
   <nav
-    class="fixed bg-background bottom-0 text-sm text-foreground-muted 3xl:text-lg left-0 z-9999 flex flex-row-reverse md:flex-row w-full items-center justify-between px-5 py-2.5 md:top-0 md:bottom-auto navbar"
+    class="bg-background text-foreground-muted 3xl:text-lg navbar fixed bottom-0 left-0 z-9999 flex w-full flex-row-reverse items-center justify-between px-5 py-2.5 text-sm md:top-0 md:bottom-auto md:flex-row"
   >
-    <NuxtLink class="hover:opacity-80 transition-opacity hidden md:block" to="/"
+    <NuxtLink class="hidden transition-opacity hover:opacity-80 md:block" to="/"
       >Ivan Smiths</NuxtLink
     >
     <InternalLinks />
