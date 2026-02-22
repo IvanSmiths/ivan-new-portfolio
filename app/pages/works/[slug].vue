@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
 import RowSection from "~/components/work/RowSection.vue";
@@ -67,6 +67,13 @@ const nextSlug = computed(() => {
 
   return orderedSlugs[(index + 1) % orderedSlugs.length];
 });
+
+const nextWorkContainer = ref<HTMLElement | null>(null);
+
+onMounted(async () => {
+  await nextTick();
+  ScrollTrigger.refresh();
+});
 </script>
 
 <template>
@@ -75,6 +82,22 @@ const nextSlug = computed(() => {
     <section class="flex p-5 gap-5 flex-col lg:flex-row">
       <Images v-if="work" :work="work" />
       <RowSection v-if="work" :work="work" />
+    </section>
+    <section
+      ref="nextWorkContainer"
+      class="flex flex-col gap-5 justify-center items-center min-h-screen w-full"
+    >
+      <div class="flex flex-col items-center text-center">
+        <h1 ref="titleEl" class="text-4xl md:text-9xl uppercase font-medium">Next Work</h1>
+        <p ref="roleEl" class="mt-3 text-base md:text-2xl">[Scroll...]</p>
+        <div class="mt-6 w-56 md:w-96 h-0.5 rounded-full bg-foreground/20 overflow-hidden">
+          <div
+            ref="progressFillEl"
+            class="h-full w-full bg-foreground rounded-full"
+            style="transform: scaleX(0)"
+          />
+        </div>
+      </div>
     </section>
   </section>
 </template>
