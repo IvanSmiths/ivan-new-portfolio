@@ -98,6 +98,7 @@ onMounted(async () => {
     start: "top top",
     end: "+=100%",
     pin: true,
+    markers: true,
     scrub: true,
     onUpdate(self) {
       $gsap.set(progressFillRef.value, { scaleX: self.progress });

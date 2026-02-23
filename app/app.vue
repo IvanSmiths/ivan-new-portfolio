@@ -7,6 +7,8 @@ import { useCurtainTransition } from "~/composables/animations/global/useCurtain
 const pageEl = ref<HTMLDivElement | null>(null);
 const { phase } = useCurtainTransition();
 
+const { $ScrollTrigger } = useNuxtApp();
+
 function setEnterInitial() {
   if (!pageEl.value) return;
   gsap.set(pageEl.value, { y: 100 });
@@ -15,6 +17,7 @@ function setEnterInitial() {
 watch(phase, async (p) => {
   await nextTick();
   if (!pageEl.value) return;
+  gsap.killTweensOf(pageEl.value);
 
   if (p === "covering") {
     gsap.to(pageEl.value, {
@@ -32,6 +35,14 @@ watch(phase, async (p) => {
       duration: 0.5,
       delay: 0.15,
       ease: "power2.out",
+      onComplete: () => {
+        if (!pageEl.value) return;
+        gsap.set(pageEl.value, { clearProps: "transform" });
+
+        // ✅ NOW ScrollTrigger measures correct positions
+        // The transform is cleared, DOM is stable
+        $ScrollTrigger.refresh();
+      },
     });
   }
 });
@@ -61,8 +72,10 @@ useHead({
   <ClientOnly>
     <CursorHelper />
   </ClientOnly>
-  <div ref="pageEl">
-    <NuxtPage />
+  <div>
+    <div ref="pageEl">
+      <NuxtPage />
+    </div>
   </div>
   <CurtainTransition />
 </template>
