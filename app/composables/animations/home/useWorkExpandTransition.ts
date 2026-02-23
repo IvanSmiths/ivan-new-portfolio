@@ -1,4 +1,3 @@
-import type gsap from "gsap";
 import type { WorkCard } from "~/domain/works/types";
 
 export function useWorkExpandTransition(opts: {

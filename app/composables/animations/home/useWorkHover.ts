@@ -1,5 +1,3 @@
-import type gsap from "gsap";
-
 export function useWorkHover(opts: {
   gsap: typeof gsap;
   images: () => HTMLImageElement[];
@@ -16,10 +14,10 @@ export function useWorkHover(opts: {
   function hoverIn(index: number) {
     if (opts.isLocked()) return;
 
-    const imgs = opts.images();
+    const images = opts.images();
     const clients = opts.clientsByIndex();
 
-    imgs.forEach((img, i) => {
+    images.forEach((img, i) => {
       $gsap.to(img, {
         filter: i === index ? "blur(0px) saturate(1)" : "blur(6px) saturate(0)",
         duration: 0.25,
