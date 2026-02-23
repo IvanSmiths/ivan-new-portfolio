@@ -24,7 +24,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="top-xl pb-sm w-full text-sm lg:sticky lg:h-[94vh] lg:w-5/12">
+  <div class="top-xl pb-sm w-full text-sm lg:w-5/12">
     <Row :value="work.name" class-name="animate-fadeInUp" label="Company" />
     <Row :value="work.date" class-name="animate-fadeInUp [animation-delay:100ms]" label="Date" />
     <Row :value="work.role" class-name="animate-fadeInUp [animation-delay:200ms]" label="Role" />

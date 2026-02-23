@@ -30,7 +30,6 @@ const hasManyImages = computed(() => (props.work.images?.length ?? 0) > 1);
         :alt="`${work.name} image ${skipFirstGalleryImage ? index + 2 : index + 1}`"
         :src="image"
         class="h-full w-full object-cover"
-        loading="lazy"
       />
     </div>
   </div>
