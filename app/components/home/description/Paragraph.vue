@@ -13,7 +13,7 @@ import Logo from "~/components/home/description/Logo.vue";
         <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
         Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
-      <div class="mt-sm gap-md text-foreground-muted 3xl:text-xl flex text-sm">
+      <div class="text-foreground-muted 3xl:text-xl mt-5 flex gap-2.5 text-sm">
         <span> Wiesbaden (DE)</span>
         <div class="flex gap-1">
           <Weather />
