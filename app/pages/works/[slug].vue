@@ -3,7 +3,6 @@ import { computed } from "vue";
 import { worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
 import RowSection from "~/components/work/RowSection.vue";
-import Images from "~/components/work/Images.vue";
 import Header from "~/components/work/Header.vue";
 import NextWork from "~/components/work/NextWork.vue";
 
@@ -61,7 +60,6 @@ useSeoMeta({
   <section class="bg-background text-foreground">
     <Header v-if="work" :work="work" />
     <section class="flex flex-col gap-5 p-5 lg:flex-row">
-      <Images v-if="work" :work="work" />
       <RowSection v-if="work" :work="work" />
     </section>
     <NextWork :current-slug="currentSlug" />
