@@ -1,13 +1,15 @@
+with this code, instead of creating the scrolltrigger instance, add it to a gsap animation (ot whole
+timeline). Also animate the container image and the image (they scale at differrent values, max at
+60%)
 <script lang="ts" setup>
 import { computed } from "vue";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
 import RowSection from "~/components/work/RowSection.vue";
 import Images from "~/components/work/Images.vue";
 import Header from "~/components/work/Header.vue";
 
-const { $gsap } = useNuxtApp();
+const { $gsap, $ScrollTrigger } = useNuxtApp();
 
 const route = useRoute();
 const router = useRouter();
@@ -84,7 +86,29 @@ function goToNextWork() {
 
 onMounted(async () => {
   await nextTick();
-  ScrollTrigger.refresh();
+
+  $ScrollTrigger.refresh();
+
+  if (!nextWorkContainerRef.value || !progressFillRef.value) return;
+
+  $gsap.set(progressFillRef.value, { scaleX: 0, transformOrigin: "left center" });
+
+  $ScrollTrigger.create({
+    trigger: nextWorkContainerRef.value,
+    start: "top top",
+    end: "+=100%",
+    pin: true,
+    scrub: true,
+    onUpdate(self) {
+      $gsap.set(progressFillRef.value, { scaleX: self.progress });
+    },
+  });
+
+  $ScrollTrigger.refresh();
+});
+
+onUnmounted(() => {
+  $ScrollTrigger.getAll().forEach((t) => t.kill());
 });
 </script>
 
@@ -102,6 +126,7 @@ onMounted(async () => {
       <div class="flex flex-col items-center pb-36 text-center">
         <h1 ref="titleRef" class="text-4xl font-medium uppercase md:text-9xl">Next Work</h1>
         <p ref="roleRef" class="mt-3 text-base md:text-2xl">[Scroll...]</p>
+        <NuxtLink :to="nextSlug">Next Work</NuxtLink>
         <div class="bg-foreground/20 mt-6 h-0.5 w-56 overflow-hidden rounded-full md:w-96">
           <div
             ref="progressFillRef"
