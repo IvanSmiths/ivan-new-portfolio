@@ -1,0 +1,49 @@
+<script lang="ts" setup>
+import { computed } from "vue";
+import { orderedSlugs, worksBySlug } from "~/domain/works";
+import type { WorkProjectPage } from "~/domain/works/types";
+import { useNextWorkAnimation } from "~/composables/animations/work/useNextWorkAnimation";
+
+const props = defineProps<{
+  currentSlug: string;
+}>();
+
+const nextSlug = computed(() => {
+  const index = orderedSlugs.indexOf(props.currentSlug as (typeof orderedSlugs)[number]);
+  return orderedSlugs[(index === -1 ? 0 : index + 1) % orderedSlugs.length];
+});
+
+const nextWork = computed<WorkProjectPage | undefined>(() => {
+  return worksBySlug[String(nextSlug.value)];
+});
+
+const { nextWorkContainerRef, progressFillRef } = useNextWorkAnimation();
+</script>
+
+<template>
+  <section
+    ref="nextWorkContainerRef"
+    class="relative flex min-h-screen w-full flex-col items-center justify-center gap-5 overflow-y-hidden"
+  >
+    <div class="flex flex-col items-center pb-36 text-center">
+      <h1 class="text-4xl font-medium uppercase md:text-9xl">Next Work</h1>
+      <p class="mt-3 text-base md:text-2xl">[Scroll...]</p>
+      <NuxtLink :to="nextSlug">Next Work</NuxtLink>
+      <div class="bg-foreground/20 mt-6 h-0.5 w-56 overflow-hidden rounded-full md:w-96">
+        <div
+          ref="progressFillRef"
+          class="bg-foreground h-full w-full rounded-full"
+          style="transform: scaleX(0)"
+        />
+      </div>
+      <div class="absolute -bottom-72 left-1/2 z-10 origin-center -translate-x-1/2 transform">
+        <img
+          v-if="nextWork"
+          :alt="`${nextWork.name} preview`"
+          :src="nextWork.homeImage.url"
+          class="next-work-image"
+        />
+      </div>
+    </div>
+  </section>
+</template>
