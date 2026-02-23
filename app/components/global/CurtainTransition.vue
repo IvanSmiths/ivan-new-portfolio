@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { gsap } from "gsap";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
+import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 
 const curtainEl = ref<HTMLDivElement | null>(null);
 const blurEl = ref<HTMLDivElement | null>(null);
@@ -130,10 +130,10 @@ onBeforeUnmount(killTimeline);
 </script>
 
 <template>
-  <div ref="blurEl" class="fixed inset-0 z-9 pointer-events-none" style="opacity: 0" />
+  <div ref="blurEl" class="pointer-events-none fixed inset-0 z-9" style="opacity: 0" />
   <div
     ref="curtainEl"
     :class="isActive ? 'pointer-events-auto' : 'pointer-events-none'"
-    class="fixed inset-0 z-10 bg-foreground"
+    class="bg-foreground fixed inset-0 z-10"
   />
 </template>

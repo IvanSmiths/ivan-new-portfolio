@@ -1,4 +1,3 @@
-// ~/composables/useClipboard.ts
 import { computed, ref, type Ref, unref } from "vue";
 
 type MaybeRef<T> = T | Ref<T>;
@@ -22,7 +21,6 @@ export function useClipboard(options?: { copiedTimeout?: number }) {
     const el = document.createElement("textarea");
     el.value = text;
 
-    // Avoid scrolling to bottom on iOS
     el.style.position = "fixed";
     el.style.top = "0";
     el.style.left = "0";

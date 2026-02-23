@@ -2,7 +2,7 @@
 import { gsap } from "gsap";
 import { nextTick, ref, watch } from "vue";
 import Navbar from "~/components/global/navbar/Navbar.vue";
-import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
+import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 
 const pageEl = ref<HTMLDivElement | null>(null);
 const { phase } = useCurtainTransition();

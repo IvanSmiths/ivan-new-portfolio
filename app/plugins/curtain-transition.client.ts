@@ -1,6 +1,6 @@
 import type { RouteLocationNormalized } from "vue-router";
 import { defineNuxtPlugin, useRouter } from "#app";
-import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
+import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 
 function shouldSkip(from: RouteLocationNormalized, to: RouteLocationNormalized): boolean {
   const isFromHome = from.name === "index";

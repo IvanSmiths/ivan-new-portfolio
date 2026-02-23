@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useCurtainTransition } from "~/composables/animations/useCurtainTransition";
+import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 import { useWorkHeaderAnimation } from "~/composables/animations/work/useWorkHeaderAnimation";
 import type { WorkProjectPage } from "~/domain/works/types";
 
