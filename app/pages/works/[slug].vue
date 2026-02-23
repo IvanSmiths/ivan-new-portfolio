@@ -1,6 +1,3 @@
-with this code, instead of creating the scrolltrigger instance, add it to a gsap animation (ot whole
-timeline). Also animate the container image and the image (they scale at differrent values, max at
-60%)
 <script lang="ts" setup>
 import { computed } from "vue";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
