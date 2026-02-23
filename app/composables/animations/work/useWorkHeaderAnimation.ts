@@ -32,7 +32,7 @@ export function useWorkHeaderAnimation() {
         willChange: "transform, opacity",
       });
 
-      $gsap.set(spacerRef.value, { height: 0 });
+      $gsap.set(spacerRef.value, { height: extraSpaceNeeded }); // set immediately, no tween
 
       $gsap
         .timeline({ defaults: { ease: "power3.out" } })
@@ -41,17 +41,6 @@ export function useWorkHeaderAnimation() {
           {
             duration: 1.25,
             translateY: `${multiplier * 10}%`,
-            paddingLeft: 20,
-            paddingRight: 20,
-            ease: "power3.inOut",
-          },
-          0,
-        )
-        .to(
-          spacerRef.value,
-          {
-            duration: 1.25,
-            height: extraSpaceNeeded,
             ease: "power3.inOut",
           },
           0,
