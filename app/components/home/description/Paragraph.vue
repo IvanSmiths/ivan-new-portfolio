@@ -5,15 +5,15 @@ import Logo from "~/components/home/description/Logo.vue";
 </script>
 
 <template>
-  <div class="flex flex-col gap-5 max-sm:pb-6 px-5 items-end">
+  <div class="flex flex-col items-end gap-5 px-5 max-sm:pb-6">
     <div
-      class="animate-fadeInUp w-full opacity-0 flex md:flex-row flex-col md:justify-between items-start md:items-end"
+      class="animate-fadeInUp flex w-full flex-col items-start opacity-0 md:flex-row md:items-end md:justify-between"
     >
-      <h1 class="text-foreground text-sm 3xl:text-2xl md:w-96 3xl:w-134">
+      <h1 class="text-foreground 3xl:text-2xl 3xl:w-134 text-sm md:w-96">
         <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
         Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
-      <div class="mt-sm gap-md flex text-foreground-muted text-sm 3xl:text-xl">
+      <div class="mt-sm gap-md text-foreground-muted 3xl:text-xl flex text-sm">
         <span> Wiesbaden (DE)</span>
         <div class="flex gap-1">
           <Weather />
@@ -26,5 +26,3 @@ import Logo from "~/components/home/description/Logo.vue";
     </div>
   </div>
 </template>
-
-<style scoped></style>

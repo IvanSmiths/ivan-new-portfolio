@@ -1,5 +1,3 @@
-<script lang="ts" setup></script>
-
 <template>
   <svg viewBox="0 0 1472 210" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -41,5 +39,3 @@
     />
   </svg>
 </template>
-
-<style scoped></style>

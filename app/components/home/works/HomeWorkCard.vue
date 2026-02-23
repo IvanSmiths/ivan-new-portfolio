@@ -1,60 +1,85 @@
 <script lang="ts" setup>
 import type { WorkCard } from "~/domain/works/types";
+import type { ComponentPublicInstance } from "vue";
 
-const props = defineProps<{ work: WorkCard; index: number }>();
+const props = defineProps<{ work: WorkCard }>();
 
 const emit = defineEmits<{
   register: [
-    payload: { index: number; card: HTMLElement; image: HTMLImageElement; clients: HTMLElement[] },
+    payload: {
+      id: string;
+      card: HTMLElement;
+      image: HTMLImageElement;
+      clients: HTMLElement[];
+    },
   ];
-  hoverIn: [index: number];
+  unregister: [id: string];
+  hoverIn: [id: string];
   hoverOut: [];
-  imageClick: [event: MouseEvent, index: number];
+  imageClick: [event: MouseEvent, id: string];
 }>();
 
-const cardEl = ref<HTMLElement | null>(null);
-const imageEl = ref<HTMLImageElement | null>(null);
-const clientEls = ref<HTMLElement[]>([]);
+const cardRef = ref<HTMLElement | null>(null);
+const imageRef = ref<HTMLImageElement | null>(null);
+const clientRefs = ref<HTMLElement[]>([]);
 
-function setClientRef(el: Element | null) {
-  if (!el) return;
-  clientEls.value.push(el as HTMLElement);
+function setClientRefAt(i: number) {
+  return (el: Element | ComponentPublicInstance | null) => {
+    if (el && el instanceof HTMLElement) clientRefs.value[i] = el;
+  };
 }
 
+watch(
+  () => props.work.clients,
+  () => {
+    clientRefs.value = [];
+  },
+  { deep: true },
+);
+
 onMounted(() => {
-  if (!cardEl.value || !imageEl.value) return;
+  if (!cardRef.value || !imageRef.value) return;
+
   emit("register", {
-    index: props.index,
-    card: cardEl.value,
-    image: imageEl.value,
-    clients: clientEls.value,
+    id: props.work.slug,
+    card: cardRef.value,
+    image: imageRef.value,
+    clients: clientRefs.value,
   });
+});
+
+onBeforeUnmount(() => {
+  emit("unregister", props.work.slug);
 });
 </script>
 
 <template>
-  <li ref="cardEl" class="work-item w-96 lg:w-130 xl:w-160 3xl:w-230 shrink-0 list-none">
+  <li ref="cardRef" class="work-item 3xl:w-230 w-96 shrink-0 list-none lg:w-130 xl:w-160">
     <div
-      class="md:h-130 lg:h-96 h-110 w-full cursor-pointer overflow-hidden"
-      @click="emit('imageClick', $event, index)"
-      @mouseenter="emit('hoverIn', index)"
+      class="h-110 w-full cursor-pointer overflow-hidden md:h-130 lg:h-96"
+      @click="emit('imageClick', $event, work.slug)"
+      @mouseenter="emit('hoverIn', work.slug)"
       @mouseleave="emit('hoverOut')"
     >
       <img
-        ref="imageEl"
+        ref="imageRef"
         :alt="work.title"
         :src="work.image"
         class="work-img h-full w-full object-cover object-top"
         draggable="false"
       />
     </div>
+
     <div
-      class="flex flex-row justify-between items-end p-2.5 pb-1 text-foreground font-semibold text-sm uppercase"
+      class="text-foreground flex flex-row items-end justify-between p-2.5 pb-1 text-sm font-semibold uppercase"
     >
       <div class="flex flex-col">
-        <div class="clients hidden lg:flex flex-col gap-1">
-          <template v-for="client in work.clients.slice(0, 3)" :key="client">
-            <span :ref="setClientRef" class="client-item text-xs opacity-0 text-foreground-muted">
+        <div class="clients hidden flex-col gap-1 lg:flex">
+          <template v-for="(client, i) in work.clients.slice(0, 3)" :key="client">
+            <span
+              :ref="setClientRefAt(i)"
+              class="client-item text-foreground-muted text-xs opacity-0"
+            >
               {{ client }}
             </span>
           </template>

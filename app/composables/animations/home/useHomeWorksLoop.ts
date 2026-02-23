@@ -2,6 +2,20 @@ import { useWorkExpandTransition } from "~/composables/animations/home/useWorkEx
 import { useWorkHover } from "~/composables/animations/home/useWorkHover";
 import type { WorkCard } from "~/domain/works/types";
 import { useCreateHorizontalLoop } from "~/composables/animations/home/useCreateHorizontalLoop";
+import { computed, onMounted, onScopeDispose, ref, shallowRef } from "vue";
+
+type RegisterPayload = {
+  id: string;
+  card: HTMLElement;
+  image: HTMLImageElement;
+  clients: HTMLElement[];
+};
+
+type Entry = {
+  card: HTMLElement;
+  image: HTMLImageElement;
+  clients: HTMLElement[];
+};
 
 export function useHomeWorksLoop(works: readonly WorkCard[]) {
   const { $gsap, $gsapObserver } = useNuxtApp();
@@ -10,25 +24,38 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
 
   const lock = ref(false);
 
-  const cards = shallowRef<HTMLElement[]>([]);
-  const images = shallowRef<HTMLImageElement[]>([]);
-  const clients = shallowRef<HTMLElement[][]>([]);
+  const entries = shallowRef(new Map<string, Entry>());
 
-  function register(payload: {
-    index: number;
-    card: HTMLElement;
-    image: HTMLImageElement;
-    clients: HTMLElement[];
-  }) {
-    cards.value[payload.index] = payload.card;
-    images.value[payload.index] = payload.image;
-    clients.value[payload.index] = payload.clients;
+  const cards = computed(
+    () => works.map((w) => entries.value.get(w.slug)?.card).filter(Boolean) as HTMLElement[],
+  );
+
+  const images = computed(
+    () => works.map((w) => entries.value.get(w.slug)?.image).filter(Boolean) as HTMLImageElement[],
+  );
+
+  const clientsByIndex = computed(() => works.map((w) => entries.value.get(w.slug)?.clients ?? []));
+
+  function idToIndex(id: string) {
+    return works.findIndex((w) => w.slug === id);
+  }
+
+  function register(payload: RegisterPayload) {
+    entries.value.set(payload.id, {
+      card: payload.card,
+      image: payload.image,
+      clients: payload.clients,
+    });
+  }
+
+  function unregister(id: string) {
+    entries.value.delete(id);
   }
 
   const hoverFx = useWorkHover({
     gsap: $gsap,
     images: () => images.value,
-    clientsByIndex: () => clients.value,
+    clientsByIndex: () => clientsByIndex.value,
     isLocked: () => lock.value,
   });
 
@@ -40,6 +67,22 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
     images: () => images.value,
     lock,
   });
+
+  function onHoverIn(id: string) {
+    const idx = idToIndex(id);
+    if (idx < 0) return;
+    hoverFx.hoverIn(idx);
+  }
+
+  function onHoverOut() {
+    hoverFx.hoverOut();
+  }
+
+  function onImageClick(event: MouseEvent, id: string) {
+    const idx = idToIndex(id);
+    if (idx < 0) return;
+    return expandFx.onImageClick(event, idx);
+  }
 
   onMounted(() => {
     hoverFx.hideAllClients();
@@ -61,7 +104,6 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
         const d = Math.abs(self.deltaX) > Math.abs(self.deltaY) ? self.deltaX : self.deltaY;
 
         loop.timeScale(clampSpeed(-d));
-
         slowDown.invalidate().restart();
       },
     });
@@ -75,8 +117,9 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
 
   return {
     register,
-    onHoverIn: hoverFx.hoverIn,
-    onHoverOut: hoverFx.hoverOut,
-    onImageClick: expandFx.onImageClick,
+    unregister,
+    onHoverIn,
+    onHoverOut,
+    onImageClick,
   };
 }
