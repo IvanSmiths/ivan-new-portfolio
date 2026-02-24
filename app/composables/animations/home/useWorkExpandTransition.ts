@@ -15,7 +15,6 @@ export function useWorkExpandTransition(opts: {
   function cleanup() {
     overlay?.remove();
     overlay = null;
-
     $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
   }
 
@@ -29,7 +28,6 @@ export function useWorkExpandTransition(opts: {
       const work = opts.works[index];
       const card = opts.cards()[index];
       const imageEl = opts.images()[index];
-
       const containerEl = (imageEl?.parentElement as HTMLElement | null) ?? null;
 
       if (!work || !card || !imageEl || !containerEl) return;
@@ -62,10 +60,8 @@ export function useWorkExpandTransition(opts: {
       `;
 
       const cloned = document.createElement("img");
-
       cloned.src = imageEl.currentSrc || imageEl.src;
       cloned.alt = imageEl.alt;
-
       cloned.style.cssText = `
         width: 100%;
         height: 100%;
@@ -76,7 +72,6 @@ export function useWorkExpandTransition(opts: {
         transform-origin: center top;
         will-change: transform;
       `;
-
       $gsap.set(cloned, { scale: 1 });
 
       overlay.appendChild(cloned);
@@ -96,79 +91,84 @@ export function useWorkExpandTransition(opts: {
         `;
         document.body.appendChild(cover);
 
+        const labelWrap = document.createElement("div");
+        labelWrap.style.cssText = `
+          position: fixed;
+          z-index: 1001;
+          opacity: 0;
+          pointer-events: none;
+          left: ${containerRect.left}px;
+          top: ${containerRect.top}px;
+          width: ${containerRect.width}px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          color: var(--foreground);
+          padding: 10px 12px;
+          box-sizing: border-box;
+          white-space: nowrap;
+        `;
+        document.body.appendChild(labelWrap);
+
         const title = document.createElement("div");
         title.textContent = work.title;
         title.style.cssText = `
-          position: fixed;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 1001;
-          color: var(--foreground);
-          opacity: 0;
-          pointer-events: none;
-          white-space: nowrap;
+          max-width: 70%;
+          overflow: hidden;
+          text-overflow: ellipsis;
         `;
-        document.body.appendChild(title);
+
+        const role = document.createElement("div");
+        role.textContent = (work as any).role ?? "";
+        role.style.cssText = `
+          max-width: 30%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: right;
+        `;
+
+        labelWrap.appendChild(title);
+        labelWrap.appendChild(role);
 
         const finalW = window.innerWidth * 0.5;
         const finalH = window.innerHeight * 0.5;
         const left = (window.innerWidth - finalW) / 2;
         const top = (window.innerHeight - finalH) / 2;
 
+        tl.set(labelWrap, { left, top: top - 50, width: finalW });
         tl.to(cover, { opacity: 1, duration: 0.5, ease: "power2.inOut" });
         tl.to(
           overlay!,
-          {
-            top,
-            left,
-            width: finalW,
-            height: finalH,
-            duration: 0.6,
-            ease: "power2.inOut",
-          },
+          { top, left, width: finalW, height: finalH, duration: 0.6, ease: "power2.inOut" },
           "<",
         );
+        tl.to(cloned, { scale: 1.3, duration: 0.6, ease: "power2.inOut" }, "<");
 
-        tl.to(
-          cloned,
-          {
-            scale: 1.2,
-            duration: 0.6,
-            ease: "power2.inOut",
-          },
-          "<",
-        );
-
-        const textTop = top - title.offsetHeight - 10;
-        $gsap.set(title, { top: textTop });
-
-        tl.fromTo(
-          title,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" },
-        );
-        tl.to(title, {
-          opacity: 0,
-          y: 10,
-          duration: 0.3,
-          ease: "power2.in",
-          delay: 0.3,
+        tl.to(labelWrap, {
+          left,
+          top: top - 50,
+          width: finalW,
+          duration: 0.6,
+          opacity: 1,
+          y: 0,
         });
+        tl.fromTo(title, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<");
+        tl.fromTo(role, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<+0.05");
+        tl.to(labelWrap, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", delay: 0.25 });
 
         tl.to(overlay!, {
           top: 0,
           left: 0,
           width: "100vw",
           height: "100vh",
+          borderRadius: 0,
           duration: 1,
           ease: "expo.inOut",
         });
-
-        tl.to(cloned, { scale: 1.1, duration: 0.7, ease: "expo.out" }, "<");
-        tl.to(cloned, { scale: 1, duration: 0.3, ease: "power2.out" }, ">-0.25");
+        tl.to(cloned, { scale: 1, duration: 1, ease: "power2.out" }, "<");
 
         tl.add(() => {
-          title.remove();
+          labelWrap.remove();
           cover.remove();
         });
       });
