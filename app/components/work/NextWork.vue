@@ -11,7 +11,7 @@ const props = defineProps<{ currentSlug: string }>();
 
 const nextSlug = computed(() => {
   const index = orderedSlugs.indexOf(props.currentSlug as (typeof orderedSlugs)[number]);
-  return orderedSlugs[(index === -1 ? 0 : index + 1) % orderedSlugs.length];
+  return orderedSlugs[(index === -1 ? 0 : index + 1) % orderedSlugs.length] as string;
 });
 
 const nextWork = computed<WorkProjectPage | undefined>(() => {
