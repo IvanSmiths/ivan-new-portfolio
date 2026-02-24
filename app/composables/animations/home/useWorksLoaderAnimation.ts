@@ -6,6 +6,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
   const loaderRef = ref<HTMLElement | null>(null);
   const itemRefs = ref<HTMLElement[]>([]);
   const isVisible = ref(true);
+  const isLoading = ref(true);
 
   const STORAGE_KEY = "works_loader_seen";
 
@@ -23,6 +24,24 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
     } catch {
       /* empty */
     }
+  }
+
+  async function waitForImages(container: HTMLElement): Promise<void> {
+    const images = Array.from(container.querySelectorAll<HTMLImageElement>("img"));
+
+    await Promise.all(
+      images.map(
+        (img) =>
+          new Promise<void>((resolve) => {
+            if (img.complete && img.naturalWidth > 0) {
+              resolve();
+            } else {
+              img.addEventListener("load", () => resolve(), { once: true });
+              img.addEventListener("error", () => resolve(), { once: true });
+            }
+          }),
+      ),
+    );
   }
 
   function getCardImageRects(): DOMRect[] {
@@ -137,6 +156,12 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
       onDone?.();
       return;
     }
+    await nextTick();
+
+    const loader = loaderRef.value;
+    if (loader) await waitForImages(loader);
+
+    isLoading.value = false;
     await runAnimation();
   });
 
@@ -148,6 +173,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
   return {
     loaderRef,
     itemRefs,
+    isLoading,
     isVisible,
   };
 }

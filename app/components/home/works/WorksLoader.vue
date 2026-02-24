@@ -4,7 +4,7 @@ import { useWorksLoaderAnimation } from "~/composables/animations/home/useWorksL
 
 const emit = defineEmits<{ done: [] }>();
 
-const { loaderRef, itemRefs, isVisible } = useWorksLoaderAnimation(() => emit("done"));
+const { loaderRef, itemRefs, isVisible, isLoading } = useWorksLoaderAnimation(() => emit("done"));
 </script>
 
 <template>
@@ -14,6 +14,15 @@ const { loaderRef, itemRefs, isVisible } = useWorksLoaderAnimation(() => emit("d
       ref="loaderRef"
       class="bg-background pointer-events-none fixed inset-0 z-40"
     >
+      <Transition name="fade">
+        <span
+          v-if="isLoading"
+          class="text-foreground absolute inset-0 flex items-center justify-center font-serif text-lg tracking-widest uppercase italic"
+        >
+          [Loading...]
+        </span>
+      </Transition>
+
       <div
         v-for="(work, idx) in worksCards"
         :key="idx"
