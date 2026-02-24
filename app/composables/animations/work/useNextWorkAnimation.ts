@@ -19,31 +19,54 @@ export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) 
     await nextTick();
     $ScrollTrigger.refresh();
 
-    if (!nextWorkContainerRef.value || !progressFillRef.value || !imageContainerRef.value) return;
+    if (
+      !nextWorkContainerRef.value ||
+      !progressFillRef.value ||
+      !imageContainerRef.value ||
+      !imageRef.value
+    )
+      return;
 
+    $gsap.set([imageContainerRef.value, imageRef.value], { willChange: "transform" });
     $gsap.set(progressFillRef.value, { scaleX: 0, transformOrigin: "left center" });
+
+    const imageStartScale = 1.8;
+    const imageEndScale = 1.5;
+
+    const containerStartScale = 1;
+    const containerEndScale = 1.08;
+
+    $gsap.set(imageRef.value, { scale: imageStartScale, transformOrigin: "center center" });
+    $gsap.set(imageContainerRef.value, {
+      scale: containerStartScale,
+      transformOrigin: "center center",
+    });
 
     tl = $gsap.timeline({
       paused: true,
-      onComplete: () => {
-        options.onDone?.();
-      },
+      defaults: { ease: "power3.inOut" },
+      onComplete: () => options.onDone?.(),
     });
 
-    tl.to(imageContainerRef.value, {
-      width: "100%",
-      height: "100vh",
-      position: "fixed",
-      top: 0,
-      duration: 0.8,
-      ease: "power3.inOut",
-    });
+    tl.to(
+      imageContainerRef.value,
+      {
+        width: "100%",
+        height: "100vh",
+        position: "fixed",
+        top: 0,
+        scale: 1,
+        duration: 0.8,
+      },
+      0,
+    );
+
     tl.to(
       imageRef.value,
       {
         scale: 1,
         duration: 0.8,
-        ease: "power3.inOut",
+        immediateRender: false,
       },
       0,
     );
@@ -53,26 +76,36 @@ export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) 
       start: "top top",
       end: "+=100%",
       pin: true,
-      markers: true,
       scrub: true,
+      markers: true,
+      anticipatePin: 1,
 
       onUpdate(self: any) {
         if (committed) return;
 
         $gsap.set(progressFillRef.value!, { scaleX: self.progress });
 
+        const imageScale = $gsap.utils.interpolate(imageStartScale, imageEndScale, self.progress);
+        const containerScale = $gsap.utils.interpolate(
+          containerStartScale,
+          containerEndScale,
+          self.progress,
+        );
+
+        $gsap.set(imageRef.value!, { scale: imageScale });
+        $gsap.set(imageContainerRef.value!, { scale: containerScale });
+
         if (self.progress >= 0.99) {
           committed = true;
 
           $gsap.set(progressFillRef.value!, { scaleX: 1 });
+          $gsap.set(imageRef.value!, { scale: imageEndScale });
+          $gsap.set(imageContainerRef.value!, { scale: containerEndScale });
 
           self.scroll(self.end);
-
           self.disable();
 
           tl.play(0);
-        } else if (tl.progress() > 0) {
-          tl.reverse();
         }
       },
     });
@@ -86,10 +119,5 @@ export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) 
     $ScrollTrigger.getAll().forEach((t: { kill: () => void }) => t.kill());
   });
 
-  return {
-    nextWorkContainerRef,
-    progressFillRef,
-    imageContainerRef,
-    imageRef,
-  };
+  return { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef };
 }
