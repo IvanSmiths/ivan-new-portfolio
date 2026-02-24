@@ -38,16 +38,13 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } =
         />
       </div>
 
-      <div
-        ref="imageContainerRef"
-        class="absolute -bottom-72 left-1/2 z-10 origin-center -translate-x-1/2 transform overflow-hidden"
-      >
+      <div ref="imageContainerRef" class="absolute -bottom-72 z-10 w-170 overflow-hidden">
         <img
           v-if="nextWork"
           ref="imageRef"
           :alt="`${nextWork.name} preview`"
           :src="nextWork.homeImage.url"
-          class="h-full w-full object-cover object-top"
+          class="h-full w-full scale-200 object-cover object-top"
         />
       </div>
     </div>

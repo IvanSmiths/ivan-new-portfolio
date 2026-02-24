@@ -7,7 +7,7 @@ export function useNextWorkAnimation() {
   const imageContainerRef = ref<HTMLElement | null>(null);
 
   const { $gsap, $ScrollTrigger } = useNuxtApp();
-  let fullscreenTl: ReturnType<typeof $gsap.timeline>;
+  let tl: ReturnType<typeof $gsap.timeline>;
 
   onMounted(async () => {
     await nextTick();
@@ -18,16 +18,24 @@ export function useNextWorkAnimation() {
 
     $gsap.set(progressFillRef.value, { scaleX: 0, transformOrigin: "left center" });
 
-    fullscreenTl = $gsap.timeline({ paused: true });
-    fullscreenTl.to(imageContainerRef.value, {
+    tl = $gsap.timeline({ paused: true });
+
+    tl.to(imageContainerRef.value, {
       width: "100%",
       height: "100vh",
-      bottom: 0,
-      left: 0,
-      x: "50%",
+      top: 0,
       duration: 0.8,
       ease: "power3.inOut",
     });
+    tl.to(
+      imageRef.value,
+      {
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.inOut",
+      },
+      0,
+    );
 
     $ScrollTrigger.create({
       trigger: nextWorkContainerRef.value,
@@ -40,9 +48,9 @@ export function useNextWorkAnimation() {
         $gsap.set(progressFillRef.value, { scaleX: self.progress });
 
         if (self.progress >= 0.99) {
-          fullscreenTl.play();
-        } else if (self.progress < 0.99 && fullscreenTl.progress() > 0) {
-          fullscreenTl.reverse();
+          tl.play();
+        } else if (self.progress < 0.99 && tl.progress() > 0) {
+          tl.reverse();
         }
       },
     });
@@ -51,7 +59,7 @@ export function useNextWorkAnimation() {
   });
 
   onUnmounted(() => {
-    if (fullscreenTl) fullscreenTl.kill();
+    if (tl) tl.kill();
     $ScrollTrigger.getAll().forEach((t: { kill: () => void }) => t.kill());
   });
 
