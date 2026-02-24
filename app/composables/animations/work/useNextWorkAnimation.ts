@@ -1,6 +1,10 @@
 import { nextTick, onMounted, onUnmounted, ref } from "vue";
 
-export function useNextWorkAnimation() {
+type UseNextWorkAnimationOptions = {
+  onDone?: () => void;
+};
+
+export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) {
   const nextWorkContainerRef = ref<HTMLElement | null>(null);
   const progressFillRef = ref<HTMLElement | null>(null);
   const imageRef = ref<HTMLElement | null>(null);
@@ -8,17 +12,23 @@ export function useNextWorkAnimation() {
 
   const { $gsap, $ScrollTrigger } = useNuxtApp();
   let tl: ReturnType<typeof $gsap.timeline>;
+  let st: any;
+  let committed = false;
 
   onMounted(async () => {
     await nextTick();
-
     $ScrollTrigger.refresh();
 
     if (!nextWorkContainerRef.value || !progressFillRef.value || !imageContainerRef.value) return;
 
     $gsap.set(progressFillRef.value, { scaleX: 0, transformOrigin: "left center" });
 
-    tl = $gsap.timeline({ paused: true });
+    tl = $gsap.timeline({
+      paused: true,
+      onComplete: () => {
+        options.onDone?.();
+      },
+    });
 
     tl.to(imageContainerRef.value, {
       width: "100%",
@@ -37,19 +47,30 @@ export function useNextWorkAnimation() {
       0,
     );
 
-    $ScrollTrigger.create({
+    st = $ScrollTrigger.create({
       trigger: nextWorkContainerRef.value,
       start: "top top",
       end: "+=100%",
       pin: true,
       markers: true,
       scrub: true,
-      onUpdate(self: { progress: number }) {
-        $gsap.set(progressFillRef.value, { scaleX: self.progress });
+
+      onUpdate(self: any) {
+        if (committed) return;
+
+        $gsap.set(progressFillRef.value!, { scaleX: self.progress });
 
         if (self.progress >= 0.99) {
-          tl.play();
-        } else if (self.progress < 0.99 && tl.progress() > 0) {
+          committed = true;
+
+          $gsap.set(progressFillRef.value!, { scaleX: 1 });
+
+          self.scroll(self.end);
+
+          self.disable();
+
+          tl.play(0);
+        } else if (tl.progress() > 0) {
           tl.reverse();
         }
       },
@@ -60,6 +81,7 @@ export function useNextWorkAnimation() {
 
   onUnmounted(() => {
     if (tl) tl.kill();
+    if (st) st.kill();
     $ScrollTrigger.getAll().forEach((t: { kill: () => void }) => t.kill());
   });
 

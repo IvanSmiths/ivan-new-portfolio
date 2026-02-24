@@ -1,11 +1,16 @@
 import type { RouteLocationNormalized } from "vue-router";
-import { defineNuxtPlugin, useRouter } from "#app";
 import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
+
+function isWorks(route: RouteLocationNormalized) {
+  return String(route.name).startsWith("works-");
+}
 
 function shouldSkip(from: RouteLocationNormalized, to: RouteLocationNormalized): boolean {
   const isFromHome = from.name === "index";
-  const isToWorks = String(to.name).startsWith("works-");
-  return isFromHome && isToWorks;
+  const isToWorks = isWorks(to);
+
+  if (isFromHome && isToWorks) return true;
+  return isWorks(from) && isWorks(to);
 }
 
 export default defineNuxtPlugin(() => {

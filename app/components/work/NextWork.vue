@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
 import { useNextWorkAnimation } from "~/composables/animations/work/useNextWorkAnimation";
 
-const props = defineProps<{
-  currentSlug: string;
-}>();
+const router = useRouter();
+
+const props = defineProps<{ currentSlug: string }>();
 
 const nextSlug = computed(() => {
   const index = orderedSlugs.indexOf(props.currentSlug as (typeof orderedSlugs)[number]);
@@ -17,8 +18,11 @@ const nextWork = computed<WorkProjectPage | undefined>(() => {
   return worksBySlug[String(nextSlug.value)];
 });
 
-const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } =
-  useNextWorkAnimation();
+const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = useNextWorkAnimation(
+  {
+    onDone: () => router.push(nextSlug.value),
+  },
+);
 </script>
 
 <template>
