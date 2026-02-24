@@ -3,7 +3,7 @@ import { worksPages } from "./app/domain/works";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/eslint"],
+  modules: ["@nuxt/eslint", "@nuxtjs/google-fonts"],
   devtools: { enabled: true },
   runtimeConfig: {
     openWeatherApiKey: process.env.OPEN_WEATHER_API,
@@ -35,5 +35,18 @@ export default defineNuxtConfig({
     prerender: {
       routes: worksPages.map((work) => `/works/${work.slug}`),
     },
+  },
+  googleFonts: {
+    families: {
+      "DM Sans": {
+        wght: [200, 400, 800],
+      },
+      "Old Standard TT": {
+        wght: [400],
+        ital: [400],
+      },
+    },
+    display: "swap",
+    preconnect: true,
   },
 });

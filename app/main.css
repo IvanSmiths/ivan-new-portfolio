@@ -2,6 +2,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+    --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Old Standard TT", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 @theme inline {
     --color-background: var(--background);
     --color-background-muted: var(--background-muted);

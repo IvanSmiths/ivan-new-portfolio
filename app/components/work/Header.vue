@@ -24,11 +24,11 @@ const { rootRef, imageWrapRef, titleRef, roleRef, metaBarRef, spacerRef } =
         <h1 ref="titleRef" class="text-4xl font-medium uppercase md:text-9xl">
           {{ work?.name }}
         </h1>
-        <p ref="roleRef" class="mt-3 text-base md:text-2xl">[{{ work?.role }}]</p>
+        <p ref="roleRef" class="mt-5 font-serif text-lg italic md:text-4xl">[{{ work?.role }}]</p>
       </div>
     </div>
 
-    <div class="absolute top-140 left-1/2 z-10 w-[60%] -translate-x-1/2">
+    <div class="absolute top-160 left-1/2 z-10 w-[60%] -translate-x-1/2 uppercase">
       <div ref="metaBarRef" class="flex items-center justify-between text-sm md:text-base">
         <span>{{ "01" }}-{{ "04" }}</span>
         <span>{{ work?.date }}</span>
