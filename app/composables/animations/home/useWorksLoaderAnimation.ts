@@ -1,6 +1,6 @@
-import { nextTick, onMounted, onScopeDispose, ref } from "vue";
+import { nextTick, onMounted, onScopeDispose, ref, type Ref } from "vue";
 
-export function useWorksLoaderAnimation(onDone?: () => void) {
+export function useWorksLoaderAnimation(onDone?: () => void, targetImageRefs?: Ref<HTMLElement[]>) {
   const { $gsap } = useNuxtApp();
 
   const loaderRef = ref<HTMLElement | null>(null);
@@ -44,9 +44,15 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
     );
   }
 
-  function getCardImageRects(): DOMRect[] {
-    const images = Array.from(document.querySelectorAll<HTMLImageElement>(".work-item .work-img"));
-    return images.map((el) => el.getBoundingClientRect());
+  function getTargetRects(maxCount: number): DOMRect[] {
+    const targets = (targetImageRefs?.value ?? []).filter(Boolean).slice(0, maxCount);
+    if (targets.length) return targets.map((el) => el.getBoundingClientRect());
+
+    const fallback = Array.from(
+      document.querySelectorAll<HTMLElement>(".work-item .work-img"),
+    ).slice(0, maxCount);
+
+    return fallback.map((el) => el.getBoundingClientRect());
   }
 
   let ctx: any = null;
@@ -57,7 +63,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
     const loader = loaderRef.value;
     if (!loader) return;
 
-    const items = cardRefs.value;
+    const items = cardRefs.value.filter(Boolean);
     if (!items.length) return;
 
     ctx = $gsap.context(() => {
@@ -70,6 +76,10 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
       const totalH = items.length * THUMB_H + (items.length - 1) * THUMB_GAP;
       const startY = (vh - totalH) / 2;
 
+      const images = items
+        .map((el) => el.querySelector<HTMLElement>("img"))
+        .filter((x): x is HTMLElement => !!x);
+
       $gsap.set(items, {
         position: "fixed",
         width: THUMB_W,
@@ -81,6 +91,15 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
         opacity: 0,
         scale: 0.85,
       });
+
+      $gsap.set(images, { scale: 3, transformOrigin: "center center" });
+
+      const HORIZ_W = 140;
+      const HORIZ_H = 166;
+      const HORIZ_GAP = 12;
+      const totalW = items.length * HORIZ_W + (items.length - 1) * HORIZ_GAP;
+      const horizStartX = (vw - totalW) / 2;
+      const horizY = vh / 2 - HORIZ_H / 2;
 
       const tl = $gsap.timeline({
         onComplete: () => {
@@ -107,27 +126,35 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
 
       tl.to({}, { duration: 0.5 });
 
-      const HORIZ_W = 140;
-      const HORIZ_H = 166;
-      const HORIZ_GAP = 12;
-      const totalW = items.length * HORIZ_W + (items.length - 1) * HORIZ_GAP;
-      const horizStartX = (vw - totalW) / 2;
-      const horizY = vh / 2 - HORIZ_H / 2;
+      tl.to(
+        items,
+        {
+          left: (i: number) => horizStartX + i * (HORIZ_W + HORIZ_GAP),
+          top: horizY,
+          width: HORIZ_W,
+          height: HORIZ_H,
+          duration: 0.9,
+          stagger: 0.05,
+          ease: "expo.inOut",
+        },
+        "spread",
+      );
 
-      tl.to(items, {
-        left: (i: number) => horizStartX + i * (HORIZ_W + HORIZ_GAP),
-        top: horizY,
-        width: HORIZ_W,
-        height: HORIZ_H,
-        duration: 0.9,
-        stagger: 0.05,
-        ease: "expo.inOut",
-      });
+      tl.to(
+        images,
+        {
+          scale: 2,
+          duration: 0.9,
+          stagger: 0.05,
+          ease: "expo.inOut",
+        },
+        "spread",
+      );
 
       tl.to({}, { duration: 0.5 });
 
       tl.add(() => {
-        const rects = getCardImageRects();
+        const rects = getTargetRects(items.length);
 
         rects.forEach((rect, i) => {
           const el = items[i];
@@ -139,6 +166,16 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
             width: rect.width,
             height: rect.height,
             borderRadius: 0,
+            duration: 1.1,
+            ease: "expo.inOut",
+            delay: i * 0.04,
+          });
+
+          const img = images[i];
+          if (!img) return;
+
+          $gsap.to(img, {
+            scale: 1,
             duration: 1.1,
             ease: "expo.inOut",
             delay: i * 0.04,
@@ -156,6 +193,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
       onDone?.();
       return;
     }
+
     await nextTick();
 
     const loader = loaderRef.value;

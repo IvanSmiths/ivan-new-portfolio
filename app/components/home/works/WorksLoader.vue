@@ -1,10 +1,18 @@
 <script lang="ts" setup>
+import type { Ref } from "vue";
 import { worksCards } from "~/domain/works";
 import { useWorksLoaderAnimation } from "~/composables/animations/home/useWorksLoaderAnimation";
 
+const props = defineProps<{
+  targetImageRefs: Ref<HTMLElement[]>;
+}>();
+
 const emit = defineEmits<{ done: [] }>();
 
-const { loaderRef, cardRefs, isVisible, isLoading } = useWorksLoaderAnimation(() => emit("done"));
+const { loaderRef, cardRefs, isVisible, isLoading } = useWorksLoaderAnimation(
+  () => emit("done"),
+  props.targetImageRefs,
+);
 </script>
 
 <template>
