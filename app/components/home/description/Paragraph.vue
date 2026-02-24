@@ -9,11 +9,11 @@ import Logo from "~/components/home/description/Logo.vue";
     <div
       class="animate-fadeInUp flex w-full flex-col items-start opacity-0 md:flex-row md:items-end md:justify-between"
     >
-      <h1 class="text-foreground 3xl:text-2xl 3xl:w-134 text-sm md:w-96">
+      <h1 class="text-foreground 3xl:text-2xl 3xl:w-134 text-base md:w-96">
         <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
         Transforming wild ideas into pixel-perfect realities. Seeking the limit.
       </h1>
-      <div class="text-foreground-muted 3xl:text-xl mt-5 flex gap-2.5 text-sm">
+      <div class="text-foreground-muted 3xl:text-xl mt-5 flex gap-2.5 text-xs">
         <span> Wiesbaden (DE)</span>
         <div class="flex gap-1">
           <Weather />
