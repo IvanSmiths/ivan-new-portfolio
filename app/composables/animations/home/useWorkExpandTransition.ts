@@ -9,11 +9,13 @@ export function useWorkExpandTransition(opts: {
   lock: { value: boolean };
 }) {
   const { gsap: $gsap } = opts;
+
   let overlay: HTMLDivElement | null = null;
 
   function cleanup() {
     overlay?.remove();
     overlay = null;
+
     $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
   }
 
@@ -27,16 +29,20 @@ export function useWorkExpandTransition(opts: {
       const work = opts.works[index];
       const card = opts.cards()[index];
       const imageEl = opts.images()[index];
-      if (!work || !card || !imageEl) return;
 
-      const imageRect = imageEl.getBoundingClientRect();
+      const containerEl = (imageEl?.parentElement as HTMLElement | null) ?? null;
+
+      if (!work || !card || !imageEl || !containerEl) return;
+
+      const containerRect = containerEl.getBoundingClientRect();
+      const containerStyles = window.getComputedStyle(containerEl);
 
       $gsap.to(
         opts.cards().filter((_, i) => i !== index),
         {
           opacity: 0,
           filter: "blur(12px)",
-          scale: 0.97,
+          scale: 0.9,
           duration: 0.5,
           ease: "power2.inOut",
         },
@@ -45,20 +51,21 @@ export function useWorkExpandTransition(opts: {
       overlay = document.createElement("div");
       overlay.style.cssText = `
         position: fixed;
-        top: ${imageRect.top}px;
-        left: ${imageRect.left}px;
-        width: ${imageRect.width}px;
-        height: ${imageRect.height}px;
+        top: ${containerRect.top}px;
+        left: ${containerRect.left}px;
+        width: ${containerRect.width}px;
+        height: ${containerRect.height}px;
         overflow: hidden;
         z-index: 999;
         pointer-events: none;
+        border-radius: ${containerStyles.borderRadius};
       `;
 
       const cloned = document.createElement("img");
-      $gsap.set(cloned, { objectPosition: "center top" });
 
       cloned.src = imageEl.currentSrc || imageEl.src;
       cloned.alt = imageEl.alt;
+
       cloned.style.cssText = `
         width: 100%;
         height: 100%;
@@ -66,7 +73,12 @@ export function useWorkExpandTransition(opts: {
         object-position: center top;
         display: block;
         user-select: none;
+        transform-origin: center top;
+        will-change: transform;
       `;
+
+      $gsap.set(cloned, { scale: 1 });
+
       overlay.appendChild(cloned);
       document.body.appendChild(overlay);
 
@@ -109,9 +121,18 @@ export function useWorkExpandTransition(opts: {
           {
             top,
             left,
-            objectPosition: "center top",
             width: finalW,
             height: finalH,
+            duration: 0.6,
+            ease: "power2.inOut",
+          },
+          "<",
+        );
+
+        tl.to(
+          cloned,
+          {
+            scale: 1.2,
             duration: 0.6,
             ease: "power2.inOut",
           },
@@ -126,7 +147,13 @@ export function useWorkExpandTransition(opts: {
           { opacity: 0, y: 10 },
           { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" },
         );
-        tl.to(title, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", delay: 0.3 });
+        tl.to(title, {
+          opacity: 0,
+          y: 10,
+          duration: 0.3,
+          ease: "power2.in",
+          delay: 0.3,
+        });
 
         tl.to(overlay!, {
           top: 0,
@@ -136,7 +163,9 @@ export function useWorkExpandTransition(opts: {
           duration: 1,
           ease: "expo.inOut",
         });
-        tl.to(cloned, { objectPosition: "center top", duration: 1, ease: "expo.inOut" }, "<");
+
+        tl.to(cloned, { scale: 1.1, duration: 0.7, ease: "expo.out" }, "<");
+        tl.to(cloned, { scale: 1, duration: 0.3, ease: "power2.out" }, ">-0.25");
 
         tl.add(() => {
           title.remove();

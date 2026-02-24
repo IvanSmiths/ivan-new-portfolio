@@ -20,6 +20,7 @@ const emit = defineEmits<{
 }>();
 
 const cardRef = ref<HTMLElement | null>(null);
+const imageContainerRef = ref<HTMLImageElement | null>(null);
 const imageRef = ref<HTMLImageElement | null>(null);
 const clientRefs = ref<HTMLElement[]>([]);
 
@@ -56,6 +57,7 @@ onBeforeUnmount(() => {
 <template>
   <li ref="cardRef" class="work-item 3xl:w-230 w-96 shrink-0 list-none lg:w-130 xl:w-160">
     <div
+      ref="imageContainerRef"
       class="h-110 w-full cursor-pointer overflow-hidden md:h-130 lg:h-96"
       @click="emit('imageClick', $event, work.slug)"
       @mouseenter="emit('hoverIn', work.slug)"

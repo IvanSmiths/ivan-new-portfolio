@@ -35,7 +35,7 @@ export function useWorkHover(opts: {
       autoAlpha: 1,
       y: 0,
       duration: 0.3,
-      stagger: 1,
+      stagger: 0.1,
       ease: "power2.out",
       overwrite: true,
     });

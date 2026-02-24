@@ -33,7 +33,6 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
     <div class="flex flex-col items-center pb-36 text-center">
       <h1 class="text-4xl font-medium uppercase md:text-9xl">Next Work</h1>
       <p class="mt-3 text-base md:text-2xl">[Scroll...]</p>
-      <NuxtLink :to="nextSlug">Next Work</NuxtLink>
       <div class="bg-foreground/20 mt-6 h-0.5 w-56 overflow-hidden rounded-full md:w-96">
         <div
           ref="progressFillRef"
