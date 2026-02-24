@@ -4,7 +4,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
   const { $gsap } = useNuxtApp();
 
   const loaderRef = ref<HTMLElement | null>(null);
-  const itemRefs = ref<HTMLElement[]>([]);
+  const cardRefs = ref<HTMLElement[]>([]);
   const isVisible = ref(true);
   const isLoading = ref(true);
 
@@ -57,7 +57,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
     const loader = loaderRef.value;
     if (!loader) return;
 
-    const items = itemRefs.value;
+    const items = cardRefs.value;
     if (!items.length) return;
 
     ctx = $gsap.context(() => {
@@ -172,7 +172,7 @@ export function useWorksLoaderAnimation(onDone?: () => void) {
 
   return {
     loaderRef,
-    itemRefs,
+    cardRefs,
     isLoading,
     isVisible,
   };

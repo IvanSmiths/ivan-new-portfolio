@@ -4,7 +4,7 @@ import { useWorksLoaderAnimation } from "~/composables/animations/home/useWorksL
 
 const emit = defineEmits<{ done: [] }>();
 
-const { loaderRef, itemRefs, isVisible, isLoading } = useWorksLoaderAnimation(() => emit("done"));
+const { loaderRef, cardRefs, isVisible, isLoading } = useWorksLoaderAnimation(() => emit("done"));
 </script>
 
 <template>
@@ -28,7 +28,7 @@ const { loaderRef, itemRefs, isVisible, isLoading } = useWorksLoaderAnimation(()
         :key="idx"
         :ref="
           (el) => {
-            if (el) itemRefs[idx] = el as HTMLElement;
+            if (el) cardRefs[idx] = el as HTMLElement;
           }
         "
         class="loader-thumb absolute overflow-hidden"
