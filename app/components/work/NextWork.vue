@@ -17,7 +17,8 @@ const nextWork = computed<WorkProjectPage | undefined>(() => {
   return worksBySlug[String(nextSlug.value)];
 });
 
-const { nextWorkContainerRef, progressFillRef } = useNextWorkAnimation();
+const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } =
+  useNextWorkAnimation();
 </script>
 
 <template>
@@ -36,12 +37,17 @@ const { nextWorkContainerRef, progressFillRef } = useNextWorkAnimation();
           style="transform: scaleX(0)"
         />
       </div>
-      <div class="absolute -bottom-72 left-1/2 z-10 origin-center -translate-x-1/2 transform">
+
+      <div
+        ref="imageContainerRef"
+        class="absolute -bottom-72 left-1/2 z-10 origin-center -translate-x-1/2 transform overflow-hidden"
+      >
         <img
           v-if="nextWork"
+          ref="imageRef"
           :alt="`${nextWork.name} preview`"
           :src="nextWork.homeImage.url"
-          class="next-work-image"
+          class="h-full w-full object-cover object-top"
         />
       </div>
     </div>
