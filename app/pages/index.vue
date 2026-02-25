@@ -43,7 +43,7 @@ useHead({
 </script>
 
 <template>
-  <section class="h-screen w-full flex flex-col justify-between">
+  <section class="bg-background flex h-screen w-full flex-col justify-between">
     <HomeWorks />
     <Paragraph />
     <WorksLoader @done="loaderDone = true" />

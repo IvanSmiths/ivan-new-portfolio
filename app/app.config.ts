@@ -3,6 +3,7 @@ export default defineAppConfig({
   internalRoutes: [
     { label: "Home", url: "/" },
     { label: "Works", url: "/works" },
+    { label: "Lab", url: "/lab" },
     { label: "Contacts", url: "/contacts" },
   ],
   contacts: [{ email: "info@ivansmiths.com" }],
