@@ -6,7 +6,7 @@ export function useWorksLoaderAnimation(onDone?: () => void, targetImageRefs?: R
   const loaderRef = ref<HTMLElement | null>(null);
   const cardRefs = ref<HTMLElement[]>([]);
   const isVisible = ref(true);
-  const isLoading = ref(true);
+  const isLoading = ref(false);
 
   const STORAGE_KEY = "works_loader_seen";
 
@@ -188,6 +188,7 @@ export function useWorksLoaderAnimation(onDone?: () => void, targetImageRefs?: R
   }
 
   onMounted(async () => {
+    isLoading.value = true;
     if (hasSeenLoader()) {
       isVisible.value = false;
       onDone?.();

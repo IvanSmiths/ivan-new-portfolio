@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { Ref } from "vue";
 import { worksCards } from "~/domain/works";
+import { splitTextForRender } from "~/composables/animations/global/useSplitAnimation";
 import { useWorksLoaderAnimation } from "~/composables/animations/home/useWorksLoaderAnimation";
 
 const props = defineProps<{
@@ -13,19 +14,32 @@ const { loaderRef, cardRefs, isVisible, isLoading } = useWorksLoaderAnimation(
   () => emit("done"),
   props.targetImageRefs,
 );
+
+const loadingChars = splitTextForRender("[Loading...]");
 </script>
 
 <template>
   <Teleport to="body">
-    <div v-if="isVisible" ref="loaderRef" class="bg-background fixed inset-0 z-40">
+    <div
+      v-if="isVisible"
+      ref="loaderRef"
+      class="works-loader-overlay bg-background fixed inset-0 z-40"
+    >
       <div aria-hidden="true" class="pointer-events-auto fixed inset-0 z-40" />
 
       <Transition name="fade">
         <span
           v-if="isLoading"
-          class="text-foreground pointer-events-none absolute inset-0 z-50 flex items-center justify-center font-serif text-lg tracking-widest uppercase italic"
+          class="text-foreground pointer-events-none absolute inset-0 z-50 flex items-center justify-center gap-[0.06em] font-serif text-lg tracking-widest italic"
         >
-          [Loading...]
+          <span
+            v-for="(char, idx) in loadingChars"
+            :key="`${char}-${idx}`"
+            :style="{ '--char-index': idx }"
+            class="inline-block animate-pulse [animation-delay:calc(var(--char-index)*45ms)] [animation-duration:900ms]"
+          >
+            {{ char }}
+          </span>
         </span>
       </Transition>
 

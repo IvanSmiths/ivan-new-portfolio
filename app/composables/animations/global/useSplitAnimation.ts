@@ -6,18 +6,20 @@ export interface SplitTextAnimationOptions {
   ease?: string;
 }
 
+export function splitTextForRender(text: string): string[] {
+  return Array.from(text, (char) => (char === " " ? "\u00A0" : char));
+}
+
 export function useSplitTextAnimation(gsap: any) {
   const splitAndWrapLines = (el: HTMLElement) => {
     const originalText = el.textContent ?? "";
     el.textContent = "";
 
     const charSpans: HTMLSpanElement[] = [];
-    for (let i = 0; i < originalText.length; i++) {
-      const ch = originalText[i];
+    for (const ch of splitTextForRender(originalText)) {
       const span = document.createElement("span");
       span.style.display = "inline-block";
-      if (ch === " ") span.innerHTML = "&nbsp;";
-      else span.textContent = ch ?? "";
+      span.textContent = ch;
       el.appendChild(span);
       charSpans.push(span);
     }
