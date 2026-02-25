@@ -3,7 +3,7 @@ import { experiments } from "~/domain/lab/experiments";
 </script>
 
 <template>
-  <div class="flex justify-start gap-5">
+  <div class="flex justify-start gap-5 p-5">
     <div v-for="experiment in experiments" :key="experiment.title" class="overflow-hidden">
       <img
         :alt="experiment.title"

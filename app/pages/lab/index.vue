@@ -7,7 +7,7 @@ import ExperimentsText from "~/components/lab/ExperimentsText.vue";
   <section
     class="bg-background text-foreground flex min-h-screen w-full flex-col justify-between pt-10"
   >
-    <header class="flex w-full flex-col">
+    <header class="flex w-full flex-col px-5">
       <ExperimentsText />
       <div />
       <p class="text-muted-foreground text-base">Lab / Experiments</p>
