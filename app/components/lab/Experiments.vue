@@ -8,8 +8,8 @@ import { experiments } from "~/domain/lab/experiments";
       <img
         :alt="experiment.title"
         :class="[
-          'h-45 object-cover',
-          experiment.aspectRatio === 'portrait' ? 'aspect-3/4 w-40' : 'aspect-video w-64',
+          'h-72 object-cover',
+          experiment.aspectRatio === 'portrait' ? 'aspect-3/4 w-40' : 'aspect-video w-96',
         ]"
         :src="experiment.image"
       />
