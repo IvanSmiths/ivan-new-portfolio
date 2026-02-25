@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 1472 210" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 1472 310" xmlns="http://www.w3.org/2000/svg">
     <path
       class="fill-foreground animate-fadeInUp opacity-0 transition [animation-delay:250ms]"
       d="M529.587 200.46L385.924 57.0538L393.891 59.6238L394.405 194.035H367.42V1.79883H368.448L510.312 145.205L504.144 143.663L503.63 7.70983H530.358V200.46H529.587Z"
