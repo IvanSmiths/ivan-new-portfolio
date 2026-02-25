@@ -5,7 +5,7 @@ import { splitTextForRender } from "~/composables/animations/global/useSplitAnim
 import { useWorksLoaderAnimation } from "~/composables/animations/home/useWorksLoaderAnimation";
 
 const props = defineProps<{
-  targetImageRefs: Ref<HTMLElement[]>;
+  targetImageRefs?: Ref<HTMLElement[]>;
 }>();
 
 const emit = defineEmits<{ done: [] }>();
