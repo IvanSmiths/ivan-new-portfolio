@@ -20,8 +20,8 @@ const playOpenAnimation = () => {
 
   overlayTl = gsap
     .timeline({ defaults: { ease: "power3.out" } })
-    .to(backdropRef.value, { opacity: 0.82, duration: 0.28 }, 0)
-    .to(previewRef.value, { opacity: 1, y: 0, scale: 1, duration: 0.42 }, 0.04)
+    .to(backdropRef.value, { opacity: 0.9, duration: 0.4 }, 0)
+    .to(previewRef.value, { opacity: 1, y: 0, scale: 1, duration: 0.4 }, 0.04)
     .to(detailsRef.value, { opacity: 1, x: 0, duration: 0.36 }, 0.12);
 };
 
@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex justify-start gap-5 p-5">
+  <div class="flex flex-col justify-start gap-5 p-5 md:flex-row">
     <div v-for="experiment in experiments" :key="experiment.title" class="overflow-hidden">
       <button class="cursor-pointer" type="button" @click="openExperiment(experiment)">
         <img
@@ -100,32 +100,28 @@ onBeforeUnmount(() => {
       class="relative z-10 flex h-full w-full items-center justify-center px-5 py-10"
       @click="closeExperiment"
     >
-      <div class="flex w-full flex-row items-center justify-center" @click.stop>
+      <div class="flex flex-col items-start justify-center gap-5 md:flex-row" @click.stop>
         <div ref="previewRef" class="flex">
           <img
             :alt="selectedExperiment.title"
             :src="selectedExperiment.image"
-            class="h-52 w-full object-contain"
+            class="h-72 w-72 object-contain"
           />
         </div>
 
-        <div ref="detailsRef" class="text-foreground flex flex-col justify-center gap-4">
-          <h3 class="text-3xl leading-tight font-semibold">{{ selectedExperiment.title }}</h3>
-          <p class="text-base opacity-85">{{ selectedExperiment.description }}</p>
-          <p class="text-sm tracking-wide uppercase opacity-70">
-            Year: {{ selectedExperiment.year }}
-          </p>
-          <p class="text-sm tracking-wide uppercase opacity-70">
-            Category: {{ selectedExperiment.category }}
-          </p>
+        <div ref="detailsRef" class="text-foreground flex w-96 flex-col justify-center gap-3">
+          <h3 class="text-3xl font-bold uppercase">{{ selectedExperiment.title }}</h3>
+          <p class="text-base">{{ selectedExperiment.description }}</p>
+          <p class="text-foreground-muted text-sm">Year: {{ selectedExperiment.year }}</p>
+          <p class="text-foreground-muted text-sm">Category: {{ selectedExperiment.category }}</p>
           <a
             v-if="selectedExperiment.link"
             :href="selectedExperiment.link"
-            class="mt-2 inline-block underline underline-offset-4"
+            class="inline-block underline underline-offset-2"
             rel="noreferrer noopener"
             target="_blank"
           >
-            Visit Link
+            Visit Website
           </a>
         </div>
       </div>
