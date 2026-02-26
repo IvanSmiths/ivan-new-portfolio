@@ -5,6 +5,7 @@ import type { WorkProjectPage } from "~/domain/works/types";
 import RowSection from "~/components/work/RowSection.vue";
 import Header from "~/components/work/Header.vue";
 import NextWork from "~/components/work/NextWork.vue";
+import Images from "~/components/work/Images.vue";
 
 const route = useRoute();
 
@@ -59,9 +60,8 @@ useSeoMeta({
 <template>
   <section class="bg-background text-foreground">
     <Header v-if="work" :work="work" />
-    <section class="flex flex-col gap-5 p-5 lg:flex-row">
-      <RowSection v-if="work" :work="work" />
-    </section>
+    <Images :work="work" />
+    <RowSection v-if="work" :work="work" />
     <NextWork :current-slug="currentSlug" />
   </section>
 </template>
