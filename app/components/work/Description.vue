@@ -1,15 +1,17 @@
 <script lang="ts" setup>
 import type { WorkProjectPage } from "~/domain/works/types";
+import { useWorkSectionAnimation } from "~/composables/animations/work/useWorkSectionAnimation";
 
 const props = defineProps<{
   work: WorkProjectPage;
 }>();
+const { shortDescriptionRef } = useWorkSectionAnimation();
 </script>
 
 <template>
   <section class="bg-background text-foreground w-full px-48 pb-20">
     <div class="flex w-full flex-col items-center justify-center gap-3">
-      <p class="block w-8/12 text-8xl font-black uppercase">
+      <p ref="shortDescriptionRef" class="block w-8/12 text-8xl font-black uppercase">
         {{ work?.shortDescription }}
       </p>
     </div>

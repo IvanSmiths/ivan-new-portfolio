@@ -11,7 +11,7 @@ import Logo from "~/components/home/description/Logo.vue";
     >
       <h1 class="text-foreground 3xl:text-2xl 3xl:w-134 text-base md:w-96">
         <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
-        Transforming wild ideas into pixel-perfect realities. Seeking the limit.
+        Transforming wild ideas into pixel-perfect realities.
       </h1>
       <div class="text-foreground-muted 3xl:text-xl mt-5 flex gap-2.5 text-xs">
         <span> Wiesbaden (DE)</span>
