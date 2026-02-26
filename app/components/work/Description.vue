@@ -7,33 +7,30 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="bg-background text-foreground w-full">
+  <section class="bg-background text-foreground w-full px-48 pb-20">
+    <div class="flex w-full flex-col items-center justify-center gap-3">
+      <p class="block w-8/12 text-8xl font-black uppercase">
+        {{ work?.shortDescription }}
+      </p>
+    </div>
+    <div class="flex w-full flex-col gap-3 py-20">
+      <span class="mb-2 block text-xs uppercase">The Project</span>
+      <p class="text-2xl">
+        {{ work?.description }}
+      </p>
+    </div>
     <div class="flex flex-row gap-12">
-      <div class="flex w-1/2 flex-col gap-3">
-        <span class="mb-2 block text-xs uppercase">The Project</span>
-        <p class="text-4xl">
-          {{ work?.description }}
-        </p>
-      </div>
-
-      <div class="flex flex-col gap-12">
-        <div>
-          <span class="mb-2 block text-xs uppercase">Role</span>
-          <span> {{ work?.role }}</span>
-        </div>
-
-        <div v-if="work?.worksDone?.length">
-          <span class="mb-2 block text-xs uppercase">Clients</span>
-          <ul class="space-y-1.5">
-            <li
-              v-for="(client, i) in work.worksDone"
-              :key="i"
-              class="flex items-baseline gap-4 text-sm md:text-base"
-            >
-              <span class="font-light">{{ client.label }}</span>
-            </li>
-          </ul>
-        </div>
+      <div v-if="work?.worksDone?.length">
+        <span class="mb-2 block text-xs uppercase">Clients</span>
+        <ul class="space-y-1.5">
+          <li
+            v-for="(client, i) in work.worksDone"
+            :key="i"
+            class="flex items-baseline gap-4 text-sm md:text-base"
+          >
+            <span class="font-light">{{ client.label }}</span>
+          </li>
+        </ul>
       </div>
       <div class="flex flex-col gap-2.5">
         <span class="mb-2 block text-xs uppercase">Links</span>

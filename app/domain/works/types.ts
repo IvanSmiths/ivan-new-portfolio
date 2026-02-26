@@ -18,6 +18,7 @@ export type WorkProjectPage = {
   url: string;
   websiteLink: string;
   date: string;
+  shortDescription: string;
   description: string;
   worksDone?: Link[];
   linkedinLink?: string;

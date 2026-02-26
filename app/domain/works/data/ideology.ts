@@ -6,8 +6,9 @@ export const Ideology: WorkProjectPage = {
   name: "Ideology",
   date: "January 2020 - February 2022",
   url: "https://ivansmiths.com/works/ideology",
+  shortDescription: "— From Boring Websites to next level.",
   description:
-    "Partnered with clients like LemonSoda winning the contract over 15 competing firms — to deliver design and development work that moves the needle. From high-traffic e-commerce platforms to custom WordPress builds, my work has driven a 25% lift in user engagement and a 15% reduction in cart abandonment, informed by real user research and a relentless focus on what actually works.",
+    "Not just about design websites, but building experiences that convert. Winning the LemonSoda contract over 15 competing firms was only the beginning. From high-traffic e-commerce platforms to custom WordPress builds, every project was grounded in real user research, optimized down to the checkout flow, and engineered to perform. The result? A 25% lift in user engagement and a 15% reduction in cart abandonment, across 20+ diverse websites delivered with precision.",
   role: "Frontend - Designer",
   linkedinLink: "https://www.linkedin.com/company/ideology-creative-studio/",
   websiteLink: "https://www.ideology.it/",

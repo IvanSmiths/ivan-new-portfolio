@@ -6,8 +6,9 @@ export const Td: WorkProjectPage = {
   name: "TD Cowen",
   url: "https://ivansmiths.com/works/td-cowen",
   date: "January 2023 - January 2025",
+  shortDescription: "— Less bugs, more impact. Data-driven from day one.",
   description:
-    "Designing and engineering data-driven CRM features and a fully redesigned mobile app for TD Cowen — boosting daily adoption by 40% and user engagement by 25%, backed by 40+ automated tests that cut post-launch defects by 30%.",
+    "Financial platforms demand more than clean UI, they demand reliability, speed, and trust. At TD COWEN, I took on the full stack: redesigning and engineering a mobile app from the ground up, building 20+ data-driven CRM features informed by real user behavior, and writing 40+ automated tests to make sure nothing slipped through the cracks. Daily adoption went up 40%, user engagement climbed 25%, and post-launch defects dropped by 30%.",
   role: "Fullstack",
   linkedinLink: "https://www.linkedin.com/company/td-cowen",
   websiteLink: "https://www.cowen.com/",

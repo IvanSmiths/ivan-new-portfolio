@@ -19,18 +19,20 @@ const { rootRef, imageWrapRef, titleRef, roleRef, metaBarRef, spacerRef } =
   <section
     ref="rootRef"
     :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
-    class="relative pb-10"
+    class="relative pb-20"
   >
     <div class="absolute top-48 left-1/2 z-10 flex -translate-x-1/2 items-center justify-center">
       <div class="flex flex-col items-center text-center">
         <div class="overflow-hidden leading-none">
-          <h1 ref="titleRef" class="text-4xl font-medium uppercase md:text-[8.5rem]">
+          <h1 ref="titleRef" class="text-4xl font-black uppercase md:text-[8.5rem]">
             {{ work?.name }}
           </h1>
         </div>
 
         <div class="mt-5 overflow-hidden leading-[1.1]">
-          <p ref="roleRef" class="font-serif text-lg italic md:text-5xl">[{{ work?.role }}]</p>
+          <p ref="roleRef" class="font-serif text-lg font-light italic md:text-5xl">
+            [{{ work?.role }}]
+          </p>
         </div>
       </div>
     </div>
