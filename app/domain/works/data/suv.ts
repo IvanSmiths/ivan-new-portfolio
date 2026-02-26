@@ -9,11 +9,8 @@ export const Suv: WorkProjectPage = {
   role: "Frontend",
   linkedinLink: "https://www.linkedin.com/company/scholzvolkmer/ ",
   websiteLink: "https://www.s-v.de/en/",
-  description: [
-    "Mentored a team of 4+ developers on Next.js, improving their ability to create dynamic websites and reducing development time by 30%",
-    "Developed and delivered 7+ award-winning websites for high-profile clients such as Adidas, Deutsche Bahn, and WMF, contributing to a 20% increase in company revenue.",
-    "Led the migration of the company’s main website from jQuery to TypeScript, cutting maintenance time by 40% and boosting code reliability and scalability.",
-  ],
+  description:
+    "Leading a team of developers through Next.js, cutting development time by 30%, while delivering award-winning work for clients like Adidas, Deutsche Bahn, and WMF — driving a 20% revenue increase and modernizing core infrastructure along the way.",
   worksDone: [
     {
       link: "https://www.adidas-group.com/en/",

@@ -6,11 +6,8 @@ export const Neugelb: WorkProjectPage = {
   name: "NeuGelb",
   url: "https://ivansmiths.com/works/neugelb",
   date: "March 2025 - Current",
-  description: [
-    "Contributing to the development and enhancement of diverse Commerzbank websites, ensuring seamless functionality and user experience.",
-    "Developing and optimizing Chatbot features, enhancing customer interaction and support on the platform.",
-    "Improving web accessibility, adhering to WCAG guidelines and ensuring compliance with the newest accessibility standards.",
-  ],
+  description:
+    "Building and refining digital experiences for Commerzbank — from customer-facing websites to AI-powered chatbot features — with a sharp focus on accessibility, compliance, and seamless interaction at scale.",
   role: "Frontend",
   linkedinLink: "https://www.linkedin.com/company/neugelb",
   websiteLink: "https://www.neugelb.com/",
