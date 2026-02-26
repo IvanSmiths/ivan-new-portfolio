@@ -5,7 +5,9 @@ import type { WorkProjectPage } from "~/domain/works/types";
 
 const { phase } = useCurtainTransition();
 
-defineProps<{
+const props = defineProps<{
+  currentIndex: number;
+  totalWorks: number;
   work: WorkProjectPage;
 }>();
 
@@ -36,7 +38,11 @@ const { rootRef, imageWrapRef, titleRef, roleRef, metaBarRef, spacerRef } =
     <div class="absolute top-160 left-1/2 z-10 w-[60%] -translate-x-1/2 uppercase">
       <div class="overflow-hidden">
         <div ref="metaBarRef" class="flex items-center justify-between text-sm md:text-base">
-          <span>{{ "01" }}-{{ "04" }}</span>
+          <span
+            >{{ String(props.currentIndex + 1).padStart(2, "0") }}-{{
+              String(totalWorks).padStart(2, "0")
+            }}</span
+          >
           <span>{{ work?.date }}</span>
         </div>
       </div>

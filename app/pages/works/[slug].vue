@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import { worksBySlug } from "~/domain/works";
+import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
 import RowSection from "~/components/work/RowSection.vue";
 import Header from "~/components/work/Header.vue";
@@ -26,6 +26,12 @@ if (!work.value) {
     fatal: true,
   });
 }
+
+const currentIndex = computed(() =>
+  orderedSlugs.indexOf(slug.value as (typeof orderedSlugs)[number]),
+);
+
+const totalWorks = orderedSlugs.length;
 
 const currentSlug = computed(() => String(route.params.slug));
 
@@ -69,7 +75,7 @@ useSeoMeta({
 
 <template>
   <section v-if="work" class="bg-background text-foreground">
-    <Header :work="work" />
+    <Header :current-index="currentIndex" :total-works="totalWorks" :work="work" />
     <Images :work="work" />
     <RowSection :work="work" />
     <NextWork :current-slug="currentSlug" />
