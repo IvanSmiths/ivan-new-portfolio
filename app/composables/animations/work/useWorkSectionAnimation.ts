@@ -2,7 +2,7 @@ import { nextTick, onMounted, onScopeDispose, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
 export function useWorkSectionAnimation() {
-  const { $gsap, $SplitText } = useNuxtApp();
+  const { $gsap, $SplitText, $ScrollTrigger } = useNuxtApp();
   const route = useRoute();
 
   const shortDescriptionRef = ref<HTMLElement | null>(null);
@@ -10,11 +10,26 @@ export function useWorkSectionAnimation() {
   let ctx: any = null;
   let split: any = null;
 
+  function cleanup() {
+    ctx?.revert();
+    split?.revert();
+    ctx = null;
+    split = null;
+  }
+
+  async function waitForScrollReset(maxFrames = 18) {
+    if (typeof window === "undefined") return;
+
+    for (let i = 0; i < maxFrames; i += 1) {
+      if (window.scrollY <= 2) return;
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    }
+  }
+
   function init() {
     if (!shortDescriptionRef.value) return;
 
-    ctx?.revert();
-    split?.revert();
+    cleanup();
 
     ctx = $gsap.context(() => {
       split = new $SplitText(shortDescriptionRef.value, {
@@ -49,21 +64,30 @@ export function useWorkSectionAnimation() {
         stagger: 0.12,
       });
     }, shortDescriptionRef.value);
+
+    $ScrollTrigger.refresh();
   }
 
-  onMounted(() => init());
+  async function initAfterRouteUpdate() {
+    await nextTick();
+    await waitForScrollReset();
+    init();
+  }
+
+  onMounted(() => {
+    void initAfterRouteUpdate();
+  });
 
   watch(
     () => route.fullPath,
-    async () => {
-      await nextTick();
-      init();
+    () => {
+      void initAfterRouteUpdate();
     },
+    { flush: "post" },
   );
 
   onScopeDispose(() => {
-    ctx?.revert();
-    split?.revert();
+    cleanup();
   });
 
   return { shortDescriptionRef };
