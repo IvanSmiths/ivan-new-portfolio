@@ -36,9 +36,20 @@ export const Neugelb: WorkProjectPage = {
     width: 420,
   },
   images: [
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.26_xcpxma.png",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.50.12_kdz5bn.png",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747342383/portfolio/neugelb/Screenshot_2025-05-15_at_22.51.27_a0lqey.png",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747342380/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.02_gl1voc.png",
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.26_xcpxma.png",
+    },
+    {
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.50.12_kdz5bn.png",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747342383/portfolio/neugelb/Screenshot_2025-05-15_at_22.51.27_a0lqey.png",
+      ],
+    },
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747342380/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.02_gl1voc.png",
+    },
   ],
 };

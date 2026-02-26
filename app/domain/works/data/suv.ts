@@ -58,14 +58,38 @@ export const Suv: WorkProjectPage = {
     width: 420,
   },
   images: [
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341911/portfolio/suv/scholz-und-volkmer-website-5_qt9vas.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341911/portfolio/suv/scholz-und-volkmer-website-4_blugsp.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341908/portfolio/suv/scholz-und-volkmer-website-1_vrgodm.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341909/portfolio/suv/scholz-und-volkmer-website-2_qyjzes.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341910/portfolio/suv/scholz-und-volkmer-website-3_page5t.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341912/portfolio/suv/suv-1_jz2ro9.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341913/portfolio/suv/suv-2_dkjhfw.jpg",
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341914/portfolio/suv/suv-3_uloc6w.jpg",
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
+    },
+    {
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341911/portfolio/suv/scholz-und-volkmer-website-5_qt9vas.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341911/portfolio/suv/scholz-und-volkmer-website-4_blugsp.jpg",
+      ],
+    },
+    {
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341908/portfolio/suv/scholz-und-volkmer-website-1_vrgodm.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341909/portfolio/suv/scholz-und-volkmer-website-2_qyjzes.jpg",
+      ],
+    },
+    {
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341910/portfolio/suv/scholz-und-volkmer-website-3_page5t.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341912/portfolio/suv/suv-1_jz2ro9.jpg",
+      ],
+    },
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341913/portfolio/suv/suv-2_dkjhfw.jpg",
+    },
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341914/portfolio/suv/suv-3_uloc6w.jpg",
+    },
   ],
 };

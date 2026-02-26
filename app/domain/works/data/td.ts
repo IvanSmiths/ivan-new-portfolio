@@ -37,6 +37,9 @@ export const Td: WorkProjectPage = {
     width: 420,
   },
   images: [
-    "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg",
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg",
+    },
   ],
 };

@@ -17,7 +17,7 @@ const { rootRef, imageWrapRef, titleRef, roleRef, metaBarRef, spacerRef } =
   <section
     ref="rootRef"
     :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
-    class="relative"
+    class="relative pb-10"
   >
     <div class="absolute top-48 left-1/2 z-10 flex -translate-x-1/2 items-center justify-center">
       <div class="flex flex-col items-center text-center">

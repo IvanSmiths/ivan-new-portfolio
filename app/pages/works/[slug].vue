@@ -31,7 +31,17 @@ const currentSlug = computed(() => String(route.params.slug));
 
 const title = work.value.title;
 const description = work.value.metaDescription;
-const coverImage = work.value.images[0] ?? work.value.homeImage.url;
+
+const coverImage = computed(() => {
+  if (!work.value) return "";
+  const firstImage = work.value.images[0];
+  if (!firstImage) return work.value.homeImage.url;
+
+  if (firstImage.layout === "single") {
+    return firstImage.src;
+  }
+  return firstImage.src[0];
+});
 
 useSeoMeta({
   title,
@@ -58,10 +68,10 @@ useSeoMeta({
 </script>
 
 <template>
-  <section class="bg-background text-foreground">
-    <Header v-if="work" :work="work" />
+  <section v-if="work" class="bg-background text-foreground">
+    <Header :work="work" />
     <Images :work="work" />
-    <RowSection v-if="work" :work="work" />
+    <RowSection :work="work" />
     <NextWork :current-slug="currentSlug" />
   </section>
 </template>

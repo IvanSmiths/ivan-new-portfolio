@@ -1,6 +1,10 @@
 export type Media = { url: string; height: number; width: number };
 export type Link = { label: string; link: string };
 
+export type ImageGroup =
+  | { layout: "single"; src: string }
+  | { layout: "row"; src: [string, string] };
+
 export type WorkProjectPage = {
   slug: string;
   name: string;
@@ -10,7 +14,7 @@ export type WorkProjectPage = {
   title: string;
   type: "Work" | "Project";
   metaDescription: string;
-  images: string[];
+  images: ImageGroup[];
   url: string;
   websiteLink: string;
   date: string;
