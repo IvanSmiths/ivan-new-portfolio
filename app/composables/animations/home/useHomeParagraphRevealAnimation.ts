@@ -1,4 +1,5 @@
 import { onScopeDispose, type Ref } from "vue";
+import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
 import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
 
 type ParagraphRevealRefs = {
@@ -11,10 +12,12 @@ type ParagraphRevealRefs = {
 
 export function useHomeParagraphRevealAnimation(refs: ParagraphRevealRefs) {
   const { $gsap } = useNuxtApp();
+  const { prepareReveal } = useSplitTextAnimation();
   const { hasSeenLoader, onLoaderDone } = useWorksLoaderSession();
 
   let ctx: gsap.Context | null = null;
   let stopListening: (() => void) | null = null;
+  let paragraphReveal: ReturnType<typeof prepareReveal> | null = null;
 
   function getTargets() {
     return [
@@ -28,16 +31,21 @@ export function useHomeParagraphRevealAnimation(refs: ParagraphRevealRefs) {
   function cleanup() {
     stopListening?.();
     ctx?.revert();
+    paragraphReveal?.revert();
     stopListening = null;
     ctx = null;
+    paragraphReveal = null;
   }
 
-  function setFinalState(targets: HTMLElement[]) {
-    $gsap.set(targets, {
-      yPercent: 0,
-      autoAlpha: 1,
-      clearProps: "transform,opacity,visibility,willChange",
+  function createReveal() {
+    paragraphReveal?.revert();
+    paragraphReveal = prepareReveal(getTargets(), {
+      duration: 2,
+      stagger: 0.2,
+      yPercent: 110,
     });
+
+    return paragraphReveal;
   }
 
   function runAnimation() {
@@ -48,20 +56,7 @@ export function useHomeParagraphRevealAnimation(refs: ParagraphRevealRefs) {
 
     ctx?.revert();
     ctx = $gsap.context(() => {
-      $gsap.set(targets, {
-        yPercent: 110,
-        autoAlpha: 0,
-        willChange: "transform,opacity",
-      });
-
-      $gsap.to(targets, {
-        yPercent: 0,
-        autoAlpha: 1,
-        duration: 2,
-        stagger: 0.2,
-        ease: "power3.out",
-        clearProps: "transform,opacity,visibility,willChange",
-      });
+      createReveal().addToTimeline($gsap.timeline());
     }, root);
   }
 
@@ -72,15 +67,11 @@ export function useHomeParagraphRevealAnimation(refs: ParagraphRevealRefs) {
     if (!targets.length) return;
 
     if (hasSeenLoader()) {
-      setFinalState(targets);
+      createReveal().setVisibleState();
       return;
     }
 
-    $gsap.set(targets, {
-      yPercent: 110,
-      autoAlpha: 0,
-      willChange: "transform,opacity",
-    });
+    createReveal().setHiddenState();
 
     stopListening = onLoaderDone(() => runAnimation());
   }

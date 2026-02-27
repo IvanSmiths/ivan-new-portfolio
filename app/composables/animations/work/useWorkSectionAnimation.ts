@@ -1,20 +1,22 @@
 import { nextTick, onMounted, onScopeDispose, ref, watch } from "vue";
 import { useRoute } from "vue-router";
+import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
 
 export function useWorkSectionAnimation() {
-  const { $gsap, $SplitText, $ScrollTrigger } = useNuxtApp();
+  const { $gsap, $ScrollTrigger } = useNuxtApp();
   const route = useRoute();
+  const { prepareSplitReveal } = useSplitTextAnimation();
 
   const shortDescriptionRef = ref<HTMLElement | null>(null);
 
   let ctx: any = null;
-  let split: any = null;
+  let descriptionReveal: ReturnType<typeof prepareSplitReveal> | null = null;
 
   function cleanup() {
     ctx?.revert();
-    split?.revert();
+    descriptionReveal?.revert();
     ctx = null;
-    split = null;
+    descriptionReveal = null;
   }
 
   async function waitForScrollReset(maxFrames = 18) {
@@ -32,21 +34,12 @@ export function useWorkSectionAnimation() {
     cleanup();
 
     ctx = $gsap.context(() => {
-      split = new $SplitText(shortDescriptionRef.value, {
-        type: "lines",
-        linesClass: "split-line",
+      descriptionReveal = prepareSplitReveal(shortDescriptionRef.value, {
+        splitBy: "lines",
+        duration: 0.9,
+        stagger: 0.12,
+        yPercent: 105,
       });
-
-      const lines = split.lines;
-
-      lines.forEach((line: HTMLElement) => {
-        const wrapper = document.createElement("div");
-        wrapper.style.overflow = "hidden";
-        line.parentNode?.insertBefore(wrapper, line);
-        wrapper.appendChild(line);
-      });
-
-      $gsap.set(lines, { y: "105%", opacity: 0 });
 
       const tl = $gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -57,12 +50,7 @@ export function useWorkSectionAnimation() {
         },
       });
 
-      tl.to(lines, {
-        y: "0%",
-        opacity: 1,
-        duration: 0.9,
-        stagger: 0.12,
-      });
+      descriptionReveal.addToTimeline(tl);
     }, shortDescriptionRef.value);
 
     $ScrollTrigger.refresh();

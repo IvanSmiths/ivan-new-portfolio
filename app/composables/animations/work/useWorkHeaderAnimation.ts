@@ -3,7 +3,7 @@ import { useSplitTextAnimation } from "~/composables/animations/global/useSplitA
 
 export function useWorkHeaderAnimation() {
   const { $gsap } = useNuxtApp();
-  const { prepareSplitReveal } = useSplitTextAnimation($gsap);
+  const { prepareSplitReveal } = useSplitTextAnimation();
 
   const rootRef = ref<HTMLElement | null>(null);
   const imageWrapRef = ref<HTMLElement | null>(null);
@@ -13,12 +13,25 @@ export function useWorkHeaderAnimation() {
   const spacerRef = ref<HTMLElement | null>(null);
 
   let ctx: any = null;
+  let titleReveal: ReturnType<typeof prepareSplitReveal> | null = null;
+  let roleReveal: ReturnType<typeof prepareSplitReveal> | null = null;
+
+  function cleanup() {
+    ctx?.revert();
+    titleReveal?.revert();
+    roleReveal?.revert();
+    ctx = null;
+    titleReveal = null;
+    roleReveal = null;
+  }
 
   onMounted(() => {
     if (!rootRef.value || !imageWrapRef.value) return;
 
     const multiplier = 7;
     const extraSpaceNeeded = imageWrapRef.value.offsetHeight * (multiplier / 10);
+
+    cleanup();
 
     ctx = $gsap.context(() => {
       $gsap.set(imageWrapRef.value, {
@@ -30,8 +43,16 @@ export function useWorkHeaderAnimation() {
 
       $gsap.set(spacerRef.value, { height: extraSpaceNeeded });
 
-      const title = prepareSplitReveal(titleRef.value, { stagger: 0.018, delay: 0.8 });
-      const role = prepareSplitReveal(roleRef.value, { stagger: 0.02, delay: 0.82 });
+      titleReveal = prepareSplitReveal(titleRef.value, {
+        splitBy: "chars",
+        stagger: 0.018,
+        delay: 0.8,
+      });
+      roleReveal = prepareSplitReveal(roleRef.value, {
+        splitBy: "chars",
+        stagger: 0.02,
+        delay: 0.82,
+      });
 
       if (metaBarRef.value) {
         $gsap.set(metaBarRef.value, { y: 18, willChange: "transform" });
@@ -49,12 +70,12 @@ export function useWorkHeaderAnimation() {
         0,
       ).to(metaBarRef.value, { duration: 0.9, delay: 0.8, y: 0 }, 0.12);
 
-      title.addToTimeline(tl, 0.05);
-      role.addToTimeline(tl, 0.08);
+      titleReveal.addToTimeline(tl, 0.05);
+      roleReveal.addToTimeline(tl, 0.08);
     }, rootRef.value);
   });
 
-  onScopeDispose(() => ctx?.revert());
+  onScopeDispose(() => cleanup());
 
   return { rootRef, imageWrapRef, titleRef, roleRef, metaBarRef, spacerRef };
 }
