@@ -9,6 +9,7 @@ const lettersRef = ref<SVGGElement | null>(null);
 
 let ctx: any = null;
 let stopListening: (() => void) | null = null;
+let hoverCleanups: (() => void)[] = [];
 
 function getLetterGroups() {
   return Array.from(lettersRef.value?.children ?? [])
@@ -18,6 +19,46 @@ function getLetterGroups() {
 
 function setFinalState(groups: SVGGElement[]) {
   $gsap.set(groups, { y: 0, autoAlpha: 1, clearProps: "transform,opacity,visibility" });
+}
+
+function setupHoverInteractions(groups: SVGGElement[]) {
+  groups.forEach((group) => {
+    const path = group.querySelector("path");
+
+    const hoverAnimation = $gsap
+      .timeline({ paused: true })
+      .to(
+        group,
+        {
+          scale: 0.95,
+          transformOrigin: "center center",
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        0,
+      )
+      .to(
+        path,
+        {
+          fill: "#ef4444",
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        0,
+      );
+
+    const onEnter = () => hoverAnimation.play();
+    const onLeave = () => hoverAnimation.reverse();
+
+    group.addEventListener("mouseenter", onEnter);
+    group.addEventListener("mouseleave", onLeave);
+
+    hoverCleanups.push(() => {
+      group.removeEventListener("mouseenter", onEnter);
+      group.removeEventListener("mouseleave", onLeave);
+      hoverAnimation.kill();
+    });
+  });
 }
 
 function runAnimation() {
@@ -46,6 +87,8 @@ onMounted(async () => {
   const groups = getLetterGroups();
   if (!groups.length) return;
 
+  setupHoverInteractions(groups);
+
   if (hasSeenLoader()) {
     setFinalState(groups);
     return;
@@ -56,6 +99,9 @@ onMounted(async () => {
 });
 
 onScopeDispose(() => {
+  hoverCleanups.forEach((cleanup) => cleanup());
+  hoverCleanups = [];
+
   stopListening?.();
   ctx?.revert?.();
   stopListening = null;
