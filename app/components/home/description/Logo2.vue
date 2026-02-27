@@ -11,9 +11,9 @@ let ctx: any = null;
 let stopListening: (() => void) | null = null;
 
 function getLetterGroups() {
-  return Array.from(lettersRef.value?.children ?? []).filter(
-    (node): node is SVGGElement => node instanceof SVGGElement,
-  );
+  return Array.from(lettersRef.value?.children ?? [])
+    .filter((node): node is SVGGElement => node instanceof SVGGElement)
+    .reverse();
 }
 
 function setFinalState(groups: SVGGElement[]) {
