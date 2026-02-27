@@ -7,7 +7,7 @@ const { register, unregister, onHoverIn, onHoverOut, onImageClick } = useHomeWor
 </script>
 
 <template>
-  <div class="flex w-full items-start justify-start">
+  <div class="flex w-full items-start justify-start md:mt-12">
     <ul class="flex list-none flex-row flex-nowrap items-start justify-start">
       <HomeWorkCard
         v-for="work in worksCards"

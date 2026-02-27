@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import Weather from "~/components/home/description/Weather.vue";
 import Time from "~/components/home/description/Time.vue";
-import Logo from "~/components/home/description/Logo.vue";
+import Logo2 from "~/components/home/description/Logo2.vue";
 </script>
 
 <template>
-  <div class="flex flex-col items-end gap-5 px-5 max-sm:pb-6">
+  <div class="flex flex-col items-end gap-5 px-5">
     <div
       class="animate-fadeInUp flex w-full flex-col items-start opacity-0 md:flex-row md:items-end md:justify-between"
     >
@@ -22,7 +22,7 @@ import Logo from "~/components/home/description/Logo.vue";
       </div>
     </div>
     <div class="flex w-full">
-      <Logo />
+      <Logo2 />
     </div>
   </div>
 </template>
