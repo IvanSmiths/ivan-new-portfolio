@@ -1,30 +1,14 @@
 import { nextTick, onMounted, onScopeDispose, ref, type Ref } from "vue";
+import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
 
 export function useWorksLoaderAnimation(onDone?: () => void, targetImageRefs?: Ref<HTMLElement[]>) {
   const { $gsap } = useNuxtApp();
+  const { hasSeenLoader, markLoaderSeen, notifyLoaderDone } = useWorksLoaderSession();
 
   const loaderRef = ref<HTMLElement | null>(null);
   const cardRefs = ref<HTMLElement[]>([]);
   const isVisible = ref(true);
   const isLoading = ref(false);
-
-  const STORAGE_KEY = "works_loader_seen";
-
-  function hasSeenLoader(): boolean {
-    try {
-      return sessionStorage.getItem(STORAGE_KEY) === "1";
-    } catch {
-      return false;
-    }
-  }
-
-  function markLoaderSeen() {
-    try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      /* empty */
-    }
-  }
 
   async function waitForImages(container: HTMLElement): Promise<void> {
     const images = Array.from(container.querySelectorAll<HTMLImageElement>("img"));
@@ -111,6 +95,7 @@ export function useWorksLoaderAnimation(onDone?: () => void, targetImageRefs?: R
             onComplete: () => {
               isVisible.value = false;
               onDone?.();
+              notifyLoaderDone();
             },
           });
         },

@@ -1,8 +1,71 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { nextTick, onMounted, onScopeDispose, ref } from "vue";
+import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
+
+const { $gsap } = useNuxtApp();
+const { hasSeenLoader, onLoaderDone } = useWorksLoaderSession();
+
+const lettersRef = ref<SVGGElement | null>(null);
+
+let ctx: any = null;
+let stopListening: (() => void) | null = null;
+
+function getLetterGroups() {
+  return Array.from(lettersRef.value?.children ?? []).filter(
+    (node): node is SVGGElement => node instanceof SVGGElement,
+  );
+}
+
+function setFinalState(groups: SVGGElement[]) {
+  $gsap.set(groups, { y: 0, autoAlpha: 1, clearProps: "transform,opacity,visibility" });
+}
+
+function runAnimation() {
+  const root = lettersRef.value;
+  const groups = getLetterGroups();
+
+  if (!root || !groups.length) return;
+
+  ctx?.revert?.();
+  ctx = $gsap.context(() => {
+    $gsap.set(groups, { y: 100, autoAlpha: 0 });
+    $gsap.to(groups, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 2,
+      stagger: 0.08,
+      ease: "expo.out",
+      clearProps: "transform,opacity,visibility",
+    });
+  }, root);
+}
+
+onMounted(async () => {
+  await nextTick();
+
+  const groups = getLetterGroups();
+  if (!groups.length) return;
+
+  if (hasSeenLoader()) {
+    setFinalState(groups);
+    return;
+  }
+
+  $gsap.set(groups, { y: 100, autoAlpha: 0 });
+  stopListening = onLoaderDone(() => runAnimation());
+});
+
+onScopeDispose(() => {
+  stopListening?.();
+  ctx?.revert?.();
+  stopListening = null;
+  ctx = null;
+});
+</script>
 
 <template>
   <svg viewBox="0 0 1432 174" width="100%" xmlns="http://www.w3.org/2000/svg">
-    <g>
+    <g ref="lettersRef">
       <g>
         <path
           class="fill-foreground"
