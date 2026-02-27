@@ -26,8 +26,45 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
       const path = group.querySelector("path");
       if (!path) return;
 
-      const hoverAnimation = $gsap
-        .timeline({ paused: true })
+      let isPointerInside = false;
+      let hasPlayedSinceLeave = false;
+      let isAnimating = false;
+      let pulseAnimation: gsap.core.Timeline | null = null;
+      let resetTimer: number | null = null;
+      const baseFill = getComputedStyle(path).fill;
+      const resetDelayMs = 180;
+
+      $gsap.set(group, { transformOrigin: "center center" });
+
+      function clearResetTimer() {
+        if (resetTimer === null) return;
+        window.clearTimeout(resetTimer);
+        resetTimer = null;
+      }
+
+      function scheduleReset() {
+        clearResetTimer();
+        resetTimer = window.setTimeout(() => {
+          if (!isPointerInside && !isAnimating) {
+            hasPlayedSinceLeave = false;
+          }
+          resetTimer = null;
+        }, resetDelayMs);
+      }
+
+      pulseAnimation = $gsap
+        .timeline({
+          paused: true,
+          onStart: () => {
+            isAnimating = true;
+          },
+          onComplete: () => {
+            isAnimating = false;
+            if (!isPointerInside) {
+              scheduleReset();
+            }
+          },
+        })
         .to(
           group,
           {
@@ -42,22 +79,57 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
           path,
           {
             fill: "#ef4444",
-            duration: 0.3,
+            duration: 0.22,
             ease: "power2.out",
           },
           0,
+        )
+        .to(
+          group,
+          {
+            scale: 1,
+            duration: 0.22,
+            ease: "power2.out",
+            clearProps: "transform",
+          },
+          0.22,
+        )
+        .to(
+          path,
+          {
+            fill: baseFill,
+            duration: 0.22,
+            ease: "power2.out",
+          },
+          0.22,
         );
 
-      const onEnter = () => hoverAnimation.play();
-      const onLeave = () => hoverAnimation.reverse();
+      const onEnter = () => {
+        isPointerInside = true;
+        clearResetTimer();
+        if (hasPlayedSinceLeave || isAnimating) return;
+        hasPlayedSinceLeave = true;
+        pulseAnimation?.restart();
+      };
 
-      group.addEventListener("mouseenter", onEnter);
-      group.addEventListener("mouseleave", onLeave);
+      const onLeave = () => {
+        isPointerInside = false;
+        if (!isAnimating) {
+          scheduleReset();
+        }
+      };
+
+      group.addEventListener("pointerenter", onEnter);
+      group.addEventListener("pointerleave", onLeave);
 
       cleanups.push(() => {
-        group.removeEventListener("mouseenter", onEnter);
-        group.removeEventListener("mouseleave", onLeave);
-        hoverAnimation.kill();
+        group.removeEventListener("pointerenter", onEnter);
+        group.removeEventListener("pointerleave", onLeave);
+        $gsap.killTweensOf(group);
+        $gsap.killTweensOf(path);
+        clearResetTimer();
+        pulseAnimation?.kill();
+        pulseAnimation = null;
       });
     });
   }
