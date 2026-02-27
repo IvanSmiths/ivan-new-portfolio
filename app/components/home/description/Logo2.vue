@@ -1,111 +1,16 @@
 <script lang="ts" setup>
-import { nextTick, onMounted, onScopeDispose, ref } from "vue";
-import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
-
-const { $gsap } = useNuxtApp();
-const { hasSeenLoader, onLoaderDone } = useWorksLoaderSession();
+import { nextTick, onMounted, ref } from "vue";
+import { useHomeLogoHoverAnimation } from "~/composables/animations/home/useHomeLogoHoverAnimation";
+import { useHomeLogoRevealAnimation } from "~/composables/animations/home/useHomeLogoRevealAnimation";
 
 const lettersRef = ref<SVGGElement | null>(null);
-
-let ctx: any = null;
-let stopListening: (() => void) | null = null;
-let hoverCleanups: (() => void)[] = [];
-
-function getLetterGroups() {
-  return Array.from(lettersRef.value?.children ?? [])
-    .filter((node): node is SVGGElement => node instanceof SVGGElement)
-    .reverse();
-}
-
-function setFinalState(groups: SVGGElement[]) {
-  $gsap.set(groups, { y: 0, autoAlpha: 1, clearProps: "transform,opacity,visibility" });
-}
-
-function setupHoverInteractions(groups: SVGGElement[]) {
-  groups.forEach((group) => {
-    const path = group.querySelector("path");
-
-    const hoverAnimation = $gsap
-      .timeline({ paused: true })
-      .to(
-        group,
-        {
-          scale: 0.95,
-          transformOrigin: "center center",
-          duration: 0.3,
-          ease: "power2.out",
-        },
-        0,
-      )
-      .to(
-        path,
-        {
-          fill: "#ef4444",
-          duration: 0.3,
-          ease: "power2.out",
-        },
-        0,
-      );
-
-    const onEnter = () => hoverAnimation.play();
-    const onLeave = () => hoverAnimation.reverse();
-
-    group.addEventListener("mouseenter", onEnter);
-    group.addEventListener("mouseleave", onLeave);
-
-    hoverCleanups.push(() => {
-      group.removeEventListener("mouseenter", onEnter);
-      group.removeEventListener("mouseleave", onLeave);
-      hoverAnimation.kill();
-    });
-  });
-}
-
-function runAnimation() {
-  const root = lettersRef.value;
-  const groups = getLetterGroups();
-
-  if (!root || !groups.length) return;
-
-  ctx?.revert?.();
-  ctx = $gsap.context(() => {
-    $gsap.set(groups, { y: 100, autoAlpha: 0 });
-    $gsap.to(groups, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 2,
-      stagger: 0.08,
-      ease: "expo.out",
-      clearProps: "transform,opacity,visibility",
-    });
-  }, root);
-}
+const hoverAnimation = useHomeLogoHoverAnimation(lettersRef);
+const revealAnimation = useHomeLogoRevealAnimation(lettersRef);
 
 onMounted(async () => {
   await nextTick();
-
-  const groups = getLetterGroups();
-  if (!groups.length) return;
-
-  setupHoverInteractions(groups);
-
-  if (hasSeenLoader()) {
-    setFinalState(groups);
-    return;
-  }
-
-  $gsap.set(groups, { y: 100, autoAlpha: 0 });
-  stopListening = onLoaderDone(() => runAnimation());
-});
-
-onScopeDispose(() => {
-  hoverCleanups.forEach((cleanup) => cleanup());
-  hoverCleanups = [];
-
-  stopListening?.();
-  ctx?.revert?.();
-  stopListening = null;
-  ctx = null;
+  hoverAnimation.setup();
+  revealAnimation.init();
 });
 </script>
 
