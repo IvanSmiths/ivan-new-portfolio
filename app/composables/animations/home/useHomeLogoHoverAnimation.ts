@@ -31,7 +31,6 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
       let isAnimating = false;
       let pulseAnimation: gsap.core.Timeline | null = null;
       let resetTimer: number | null = null;
-      const baseFill = getComputedStyle(path).fill;
       const resetDelayMs = 180;
 
       $gsap.set(group, { transformOrigin: "center center" });
@@ -52,64 +51,71 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
         }, resetDelayMs);
       }
 
-      pulseAnimation = $gsap
-        .timeline({
-          paused: true,
-          onStart: () => {
-            isAnimating = true;
-          },
-          onComplete: () => {
-            isAnimating = false;
-            if (!isPointerInside) {
-              scheduleReset();
-            }
-          },
-        })
-        .to(
-          group,
-          {
-            scale: 0.95,
-            transformOrigin: "center center",
-            duration: 0.3,
-            ease: "power2.out",
-          },
-          0,
-        )
-        .to(
-          path,
-          {
-            fill: "#ef4444",
-            duration: 0.22,
-            ease: "power2.out",
-          },
-          0,
-        )
-        .to(
-          group,
-          {
-            scale: 1,
-            duration: 0.22,
-            ease: "power2.out",
-            clearProps: "transform",
-          },
-          0.22,
-        )
-        .to(
-          path,
-          {
-            fill: baseFill,
-            duration: 0.22,
-            ease: "power2.out",
-          },
-          0.22,
-        );
+      function playPulse() {
+        const idleFill = getComputedStyle(path).fill;
+
+        pulseAnimation?.kill();
+        pulseAnimation = $gsap
+          .timeline({
+            onStart: () => {
+              isAnimating = true;
+            },
+            onComplete: () => {
+              path.style.removeProperty("fill");
+              isAnimating = false;
+              pulseAnimation = null;
+
+              if (!isPointerInside) {
+                scheduleReset();
+              }
+            },
+          })
+          .to(
+            group,
+            {
+              scale: 0.95,
+              transformOrigin: "center center",
+              duration: 0.3,
+              ease: "power2.out",
+            },
+            0,
+          )
+          .to(
+            path,
+            {
+              fill: "#ef4444",
+              duration: 0.22,
+              ease: "power2.out",
+            },
+            0,
+          )
+          .to(
+            group,
+            {
+              scale: 1,
+              duration: 0.22,
+              ease: "power2.out",
+              clearProps: "transform",
+            },
+            0.22,
+          )
+          .to(
+            path,
+            {
+              fill: idleFill,
+              duration: 0.22,
+              ease: "power2.out",
+            },
+            0.22,
+          );
+      }
 
       const onEnter = () => {
         isPointerInside = true;
         clearResetTimer();
         if (hasPlayedSinceLeave || isAnimating) return;
         hasPlayedSinceLeave = true;
-        pulseAnimation?.restart();
+        playPulse();
       };
 
       const onLeave = () => {
