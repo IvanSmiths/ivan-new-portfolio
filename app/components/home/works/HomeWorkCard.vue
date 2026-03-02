@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <li ref="cardRef" class="work-item 3xl:w-230 w-96 shrink-0 list-none lg:w-130 xl:w-160">
+  <li ref="cardRef" class="work-item 3xl:w-230 w-96 shrink-0 list-none pl-5 lg:w-130 xl:w-160">
     <div
       ref="imageContainerRef"
       class="h-110 w-full cursor-pointer overflow-hidden md:h-130 lg:h-96"
