@@ -27,7 +27,7 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
     let isAnimating = false;
     let pulseAnimation: gsap.core.Timeline | null = null;
     let resetTimer: number | null = null;
-    const resetDelayMs = 180;
+    const resetDelayMs = 10;
 
     $gsap.set(group, { transformOrigin: "center center" });
 
@@ -80,7 +80,7 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
           path,
           {
             fill: "#ef4444",
-            duration: 0.22,
+            duration: 0.3,
             ease: "power2.out",
           },
           0,
@@ -89,20 +89,20 @@ export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
           group,
           {
             scale: 1,
-            duration: 0.22,
+            duration: 0.3,
             ease: "power2.out",
             clearProps: "transform",
           },
-          0.22,
+          0.3,
         )
         .to(
           path,
           {
             fill: idleFill,
-            duration: 0.22,
+            duration: 0.3,
             ease: "power2.out",
           },
-          0.22,
+          0.3,
         );
     }
 
