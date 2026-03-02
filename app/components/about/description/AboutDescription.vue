@@ -10,7 +10,7 @@ const bla = [
 </script>
 
 <template>
-  <section class="bg-background text-foreground w-full px-48 pb-20">
+  <section class="bg-background text-foreground w-full px-48 pt-20 pb-20">
     <div class="flex w-full flex-row justify-between gap-3">
       <span class="mb-5 block text-xs">TL;DR</span>
       <p ref="shortDescriptionRef" class="block pl-36 text-8xl font-black uppercase">
