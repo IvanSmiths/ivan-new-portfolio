@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import gsap from "gsap";
+import { useCursorHelperSession } from "~/composables/sessions/useCursorHelperSession";
+
+const { $gsap } = useNuxtApp();
 
 const route = useRoute();
 const { state, interactionBus } = useCursorHelper();
+const { hasSeenScrollHint, markScrollHintSeen } = useCursorHelperSession();
 
 const dotEl = ref<HTMLDivElement | null>(null);
 const scrollTextEl = ref<HTMLSpanElement | null>(null);
@@ -20,7 +23,7 @@ let scrollTextVisible = false;
 
 const setIdle = () => {
   if (!dotEl.value) return;
-  gsap.to(dotEl.value, { scale: 1.15, duration: 0.35, yoyo: true, repeat: 1, ease: "power2.out" });
+  $gsap.to(dotEl.value, { scale: 1.15, duration: 0.35, yoyo: true, repeat: 1, ease: "power2.out" });
 };
 
 const scheduleIdle = () => {
@@ -33,8 +36,9 @@ const scheduleIdle = () => {
 const showScrollText = () => {
   if (!scrollTextEl.value || !dotEl.value || scrollTextVisible) return;
   scrollTextVisible = true;
+  markScrollHintSeen();
 
-  gsap.to(dotEl.value, {
+  $gsap.to(dotEl.value, {
     width: 72,
     height: 28,
     borderRadius: 0,
@@ -42,7 +46,7 @@ const showScrollText = () => {
     ease: "back.out(1.4)",
   });
 
-  gsap.fromTo(
+  $gsap.fromTo(
     scrollTextEl.value,
     { opacity: 0, letterSpacing: "0em", display: "none", visibility: "hidden" },
     {
@@ -61,10 +65,10 @@ const hideScrollText = () => {
   if (!scrollTextEl.value || !dotEl.value || !scrollTextVisible) return;
   scrollTextVisible = false;
 
-  gsap.killTweensOf(scrollTextEl.value);
-  gsap.killTweensOf(dotEl.value, "width,height,borderRadius,letterSpacing");
+  $gsap.killTweensOf(scrollTextEl.value);
+  $gsap.killTweensOf(dotEl.value, "width,height,borderRadius,letterSpacing");
 
-  gsap.to(scrollTextEl.value, {
+  $gsap.to(scrollTextEl.value, {
     opacity: 0,
     display: "none",
     visibility: "hidden",
@@ -73,7 +77,7 @@ const hideScrollText = () => {
     ease: "power2.in",
   });
 
-  gsap.to(dotEl.value, {
+  $gsap.to(dotEl.value, {
     width: 10,
     height: 10,
     borderRadius: 200,
@@ -94,7 +98,7 @@ const showHoverText = () => {
 
   const targetW = measureHoverWidth();
 
-  gsap.to(dotEl.value, {
+  $gsap.to(dotEl.value, {
     width: targetW,
     height: 28,
     borderRadius: 0,
@@ -102,7 +106,7 @@ const showHoverText = () => {
     ease: "power3.out",
   });
 
-  gsap.fromTo(
+  $gsap.fromTo(
     hoverTextEl.value,
     { opacity: 0, letterSpacing: "0em" },
     { opacity: 1, letterSpacing: "0.10em", duration: 0.18, ease: "power2.out" },
@@ -112,14 +116,14 @@ const showHoverText = () => {
 const hideHoverText = () => {
   if (!dotEl.value || !hoverTextEl.value) return;
 
-  gsap.to(hoverTextEl.value, {
+  $gsap.to(hoverTextEl.value, {
     opacity: 0,
     duration: 0.15,
     letterSpacing: "0em",
     ease: "power2.in",
   });
 
-  gsap.to(dotEl.value, {
+  $gsap.to(dotEl.value, {
     width: 10,
     height: 10,
     borderRadius: 200,
@@ -139,10 +143,16 @@ const onScroll = () => {
 const scheduleScrollText = () => {
   if (scrollAppearTimer) window.clearTimeout(scrollAppearTimer);
 
+  if (hasSeenScrollHint()) return;
   if (window.scrollY > 0) return;
 
   scrollAppearTimer = window.setTimeout(() => {
-    if (isScrollRoutes.value && state.value.mode === "default" && window.scrollY === 0) {
+    if (
+      isScrollRoutes.value &&
+      state.value.mode === "default" &&
+      window.scrollY === 0 &&
+      !hasSeenScrollHint()
+    ) {
       showScrollText();
     }
   }, 5000);
@@ -175,7 +185,7 @@ watch(
 
     if (shouldExpandIcon) {
       if (scrollTextVisible) hideScrollText();
-      gsap.to(dotEl.value, {
+      $gsap.to(dotEl.value, {
         width: 56,
         height: 56,
         borderRadius: 200,
@@ -230,10 +240,10 @@ onMounted(() => {
   window.addEventListener("mousemove", onMove, { passive: true });
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  const quickX = gsap.quickTo(dotEl.value, "x", { duration: 0.18, ease: "power3.out" });
-  const quickY = gsap.quickTo(dotEl.value, "y", { duration: 0.18, ease: "power3.out" });
+  const quickX = $gsap.quickTo(dotEl.value, "x", { duration: 0.18, ease: "power3.out" });
+  const quickY = $gsap.quickTo(dotEl.value, "y", { duration: 0.18, ease: "power3.out" });
 
-  gsap.ticker.add(() => {
+  $gsap.ticker.add(() => {
     if (!dotEl.value) return;
     if (!isMoving) return;
 
@@ -242,7 +252,7 @@ onMounted(() => {
   });
 
   if (dotEl.value) {
-    gsap.set(dotEl.value, { x: -999, y: -999 });
+    $gsap.set(dotEl.value, { x: -999, y: -999 });
   }
 
   if (isScrollRoutes.value) {
@@ -262,23 +272,23 @@ onBeforeUnmount(() => {
   <div
     ref="dotEl"
     aria-hidden="true"
-    class="pointer-events-none origin-bottom-left w-2.5 h-2.5 fixed left-0 rounded-2xl top-0 z-9999 bg-foreground backdrop-blur will-change-transform hidden lg:flex items-center justify-center overflow-hidden"
+    class="bg-foreground pointer-events-none fixed top-0 left-0 z-9999 hidden h-2.5 w-2.5 origin-bottom-left items-center justify-center overflow-hidden rounded-2xl backdrop-blur will-change-transform lg:flex"
   >
     <Transition name="icon-fade">
       <component
         :is="state.iconComponent"
         v-if="state.iconComponent && !state.hoverText"
-        class="absolute p-0.5 inset-0 w-full h-full text-background"
+        class="text-background absolute inset-0 h-full w-full p-0.5"
       />
     </Transition>
 
-    <span ref="hoverTextEl" class="whitespace-nowrap text-background opacity-0 select-none text-xs">
+    <span ref="hoverTextEl" class="text-background text-xs whitespace-nowrap opacity-0 select-none">
       {{ state.hoverText }}
     </span>
 
     <span
       ref="scrollTextEl"
-      class="whitespace-nowrap hidden text-background opacity-0 select-none text-xs"
+      class="text-background hidden text-xs whitespace-nowrap opacity-0 select-none"
     >
       scroll
     </span>

@@ -1,6 +1,6 @@
 import { onScopeDispose, type Ref } from "vue";
 import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
-import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
+import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
 
 type ParagraphRevealRefs = {
   rootRef: Ref<HTMLElement | null>;

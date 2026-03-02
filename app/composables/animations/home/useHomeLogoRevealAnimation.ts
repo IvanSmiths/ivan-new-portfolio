@@ -1,5 +1,5 @@
 import { onScopeDispose, type Ref } from "vue";
-import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
+import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
 
 function getLetterGroups(lettersRef: Ref<SVGGElement | null>) {
   return Array.from(lettersRef.value?.children ?? [])

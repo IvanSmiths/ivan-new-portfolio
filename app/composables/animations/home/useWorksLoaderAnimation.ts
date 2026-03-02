@@ -1,5 +1,5 @@
 import { nextTick, onMounted, onScopeDispose, ref, type Ref } from "vue";
-import { useWorksLoaderSession } from "~/composables/animations/home/useWorksLoaderSession";
+import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
 
 export function useWorksLoaderAnimation(onDone?: () => void, targetImageRefs?: Ref<HTMLElement[]>) {
   const { $gsap } = useNuxtApp();
