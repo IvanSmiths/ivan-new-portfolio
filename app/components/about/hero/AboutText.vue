@@ -2,6 +2,7 @@
 
 <template>
   <div class="relative h-full w-full">
+    <span class="text-foreground absolute -top-7 left-3 mb-5 block text-xs">Yeah.</span>
     <svg viewBox="0 0 1424 514" width="100%" xmlns="http://www.w3.org/2000/svg">
       <path
         class="fill-foreground"
