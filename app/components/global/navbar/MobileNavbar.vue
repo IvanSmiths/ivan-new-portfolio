@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useMobileNavbarAnimation } from "~/composables/animations/global/useMobileNavbarAnimation";
+import ThemeToggle from "~/components/global/navbar/ThemeToggle.vue";
 
 const appConfig = useAppConfig();
 const route = useRoute();
@@ -33,7 +34,7 @@ const {
     ref="navRef"
     :aria-expanded="isOpen"
     aria-label="Mobile navigation"
-    class="bg-background/88 border-foreground/10 fixed right-5 bottom-5 z-9999 h-14 w-14 overflow-hidden border shadow-[0_18px_48px_rgba(0,0,0,0.14)] backdrop-blur-md md:hidden"
+    class="bg-foreground fixed right-5 bottom-5 z-9999 size-8 overflow-hidden backdrop-blur-md md:hidden"
   >
     <div ref="contentRef" class="grid w-max justify-items-end gap-3 p-1.5">
       <ul
@@ -45,37 +46,38 @@ const {
       >
         <li v-for="link in mobileRoutes" :key="link.url" class="w-full">
           <NuxtLink
-            :class="link.isActive ? 'text-foreground' : 'text-foreground-muted'"
+            :class="link.isActive ? 'text-background' : 'text-background-muted'"
             :prefetch="true"
             :tabindex="isOpen ? 0 : -1"
             :to="link.url"
-            class="block text-[10px] leading-none font-medium tracking-[0.28em] uppercase transition-opacity duration-200 active:opacity-60"
+            class="block text-base transition-opacity duration-200 active:opacity-60"
             @click="closeMenu"
           >
             <span ref="labelRefs">{{ link.label }}</span>
           </NuxtLink>
         </li>
+        <ThemeToggle />
       </ul>
 
-      <div class="h-10">
+      <div class="h-7">
         <button
           ref="buttonRef"
           :aria-label="isOpen ? 'Close navigation' : 'Open navigation'"
           :aria-pressed="isOpen"
-          class="bg-background text-foreground fixed right-0 bottom-0 flex size-11 cursor-pointer items-center justify-center"
+          class="bg-foreground text-background fixed right-0 bottom-0 flex size-8 cursor-pointer items-center justify-center"
           type="button"
           @click="toggleMenu"
         >
           <span class="sr-only">{{ isOpen ? "Close navigation" : "Open navigation" }}</span>
-          <span class="relative block h-4 w-4">
-            <span ref="topLineRef" class="bg-foreground absolute top-0 left-0 block h-px w-full" />
+          <span class="relative block h-3.5 w-3.5">
+            <span ref="topLineRef" class="bg-background absolute top-0 left-0 block h-px w-full" />
             <span
               ref="middleLineRef"
-              class="bg-foreground absolute top-1/2 left-0 block h-px w-full -translate-y-1/2"
+              class="bg-background absolute top-1/2 left-0 block h-px w-full -translate-y-1/2"
             />
             <span
               ref="bottomLineRef"
-              class="bg-foreground absolute bottom-0 left-0 block h-px w-full"
+              class="bg-background absolute bottom-0 left-0 block h-px w-full"
             />
           </span>
         </button>

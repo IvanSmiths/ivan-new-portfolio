@@ -23,8 +23,8 @@ export function useMobileNavbarAnimation() {
   let splitReveals: SplitReveal[] = [];
 
   function getClosedSize() {
-    const buttonWidth = buttonRef.value?.offsetWidth ?? 44;
-    const shellPadding = 12;
+    const buttonWidth = buttonRef.value?.offsetWidth ?? 0;
+    const shellPadding = 0;
 
     return {
       width: buttonWidth + shellPadding,
@@ -79,9 +79,10 @@ export function useMobileNavbarAnimation() {
     splitReveals = labelRefs.value.filter(Boolean).map((labelEl) =>
       prepareSplitReveal(labelEl, {
         splitBy: "chars",
-        duration: 0.36,
-        stagger: 0.015,
+        duration: 0.1,
+        stagger: 0.1,
         yPercent: 110,
+        delay: 0.1,
         ease: "power3.out",
         clipLines: false,
         autoAlpha: 0,
@@ -141,7 +142,7 @@ export function useMobileNavbarAnimation() {
     menuTimeline.to(
       bottomLineRef.value,
       {
-        y: -7,
+        y: -6,
         rotate: -45,
         transformOrigin: "50% 50%",
         duration: 0.26,

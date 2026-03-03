@@ -15,7 +15,7 @@ import ThemeToggle from "~/components/global/navbar/ThemeToggle.vue";
 
   <MobileNavbar />
 
-  <div class="text-foreground-muted fixed bottom-5 left-5 z-9999 md:hidden">
+  <div class="text-foreground-muted fixed bottom-5 left-5 z-9999 hidden md:block">
     <ThemeToggle />
   </div>
 </template>
