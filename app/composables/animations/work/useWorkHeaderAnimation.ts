@@ -44,7 +44,7 @@ export function useWorkHeaderAnimation() {
       $gsap.set(spacerRef.value, { height: extraSpaceNeeded });
 
       titleReveal = prepareSplitReveal(titleRef.value, {
-        splitBy: "chars",
+        splitBy: "words",
         stagger: 0.018,
         delay: 0.8,
       });
