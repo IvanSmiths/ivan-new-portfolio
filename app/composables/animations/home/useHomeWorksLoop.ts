@@ -71,13 +71,11 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
     ctx = $gsap.context(() => {
       hoverFx.hideAllClients();
 
-      const loop = useCreateHorizontalLoop(cards.value, { repeat: -1, speed: 1 });
+      const loop = useCreateHorizontalLoop(cards.value, { repeat: -1, speed: 3 });
       loop.totalTime(loop.duration() * 1000);
 
-      const slowDown = $gsap.to(loop, { timeScale: 0, duration: 0.5 });
+      const slowDown = $gsap.to(loop, { timeScale: 0, duration: 2 });
       loop.timeScale(0);
-
-      const clampSpeed = $gsap.utils.clamp(-200, 200);
 
       const obs = $gsapObserver.create({
         target: window,
@@ -86,7 +84,7 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
         onChange: (self: { deltaX: number; deltaY: number }) => {
           notifyInteraction();
           const d = Math.abs(self.deltaX) > Math.abs(self.deltaY) ? self.deltaX : self.deltaY;
-          loop.timeScale(clampSpeed(-d));
+          loop.timeScale(-d);
           slowDown.invalidate().restart();
         },
       });
