@@ -32,10 +32,10 @@ const copyEmail = async () => {
 </script>
 
 <template>
-  <main class="h-dvh w-screen grid place-items-center px-6 bg-background">
-    <section class="flex flex-col text-sm text-foreground items-start gap-2.5">
+  <main class="bg-background grid h-dvh w-screen place-items-center px-6">
+    <section class="text-foreground gap-sm flex flex-col items-start text-sm">
       <span
-        class="hover:opacity-80 transition-opacity cursor-copy"
+        class="cursor-copy transition-opacity hover:opacity-80"
         @mouseenter="() => setHover({ text: 'copy to clipboard' })"
         @mouseleave="clearHover"
         @click.prevent="copyEmail"
@@ -43,7 +43,7 @@ const copyEmail = async () => {
         {{ email }}
       </span>
 
-      <span v-for="social in socials" :key="social.url" class="hover:opacity-80 transition-opacity">
+      <span v-for="social in socials" :key="social.url" class="transition-opacity hover:opacity-80">
         <a
           :href="social.url"
           rel="noreferrer"

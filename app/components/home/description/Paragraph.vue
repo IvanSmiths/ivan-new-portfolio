@@ -26,7 +26,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-end gap-5 px-5">
+  <div class="gap-md px-md flex flex-col items-end">
     <div
       ref="paragraphRef"
       class="flex w-full flex-col items-start md:flex-row md:items-end md:justify-between"
@@ -37,7 +37,7 @@ onMounted(async () => {
           Transforming wild ideas into pixel-perfect realities.
         </h1>
       </div>
-      <div class="text-foreground-muted 3xl:text-xl mt-5 flex gap-2.5 text-xs">
+      <div class="text-foreground-muted 3xl:text-xl gap-sm mt-5 flex text-xs">
         <div class="overflow-hidden">
           <span ref="cityRef"> Wiesbaden (DE)</span>
         </div>

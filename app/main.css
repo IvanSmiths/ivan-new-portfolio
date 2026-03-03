@@ -15,6 +15,11 @@
     --color-white: #ffffff;
     --color-black: #000000;
 
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 80px;
+
     --animate-fadeInUp: fadeInUp 0.6s ease-out forwards;
 
     @keyframes fadeInUp {

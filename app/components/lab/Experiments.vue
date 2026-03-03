@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-start gap-5 p-5 md:flex-row">
+  <div class="gap-md p-md flex flex-col justify-start md:flex-row">
     <div v-for="experiment in experiments" :key="experiment.title" class="overflow-hidden">
       <button class="cursor-pointer" type="button" @click="openExperiment(experiment)">
         <img
@@ -100,7 +100,7 @@ onBeforeUnmount(() => {
       class="relative z-10 flex h-full w-full items-center justify-center px-5 py-10"
       @click="closeExperiment"
     >
-      <div class="flex flex-col items-start justify-center gap-5 md:flex-row" @click.stop>
+      <div class="gap-md flex flex-col items-start justify-center md:flex-row" @click.stop>
         <div ref="previewRef" class="flex">
           <img
             :alt="selectedExperiment.title"

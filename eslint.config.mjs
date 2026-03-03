@@ -8,5 +8,13 @@ export default withNuxt({
     "@typescript-eslint/no-explicit-any": "off",
     "vue/no-unused-vars": "off",
     "nuxt/nuxt-config-keys-order": "off",
+    "vue/html-self-closing": [
+      "error",
+      {
+        html: {
+          void: "always",
+        },
+      },
+    ],
   },
 });

@@ -28,7 +28,7 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
 <template>
   <section
     ref="nextWorkContainerRef"
-    class="relative flex min-h-screen w-full flex-col items-center justify-center gap-5 overflow-y-hidden"
+    class="gap-md relative flex min-h-screen w-full flex-col items-center justify-center overflow-y-hidden"
   >
     <div class="flex flex-col items-center pb-36 text-center">
       <h1 class="text-4xl font-medium uppercase md:text-9xl">Next Work</h1>

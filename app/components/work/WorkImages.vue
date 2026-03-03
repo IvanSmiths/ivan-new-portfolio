@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
   <div class="w-full">
-    <div class="flex h-full w-full flex-col items-center gap-5">
+    <div class="gap-md flex h-full w-full flex-col items-center">
       <template v-for="(imagees, index) in work.images" :key="index">
         <img
           v-if="imagees.layout === 'single'"
@@ -19,7 +19,7 @@ const props = defineProps<{
 
         <div
           v-else-if="imagees.layout === 'row'"
-          class="flex w-full flex-col justify-center gap-5 md:flex-row"
+          class="gap-md flex w-full flex-col justify-center md:flex-row"
         >
           <img
             v-for="(src, i) in imagees.src"

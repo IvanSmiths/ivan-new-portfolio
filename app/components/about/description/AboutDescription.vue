@@ -10,15 +10,15 @@ const bla = [
 </script>
 
 <template>
-  <section class="bg-background text-foreground w-full px-48 pt-20 pb-20">
-    <div class="flex w-full flex-row justify-between gap-3">
-      <span class="mb-5 block text-xs">TL;DR</span>
+  <section class="bg-background text-foreground pt-xl pb-xl w-full px-48">
+    <div class="gap-sm flex w-full flex-row justify-between">
+      <span class="mb-md block text-xs">TL;DR</span>
       <p ref="shortDescriptionRef" class="block pl-36 text-8xl font-black uppercase">
         Msnsk sakjdsnkd akjnsdjdnksajndk
       </p>
     </div>
     <div class="flex w-full flex-col py-20">
-      <span class="mb-5 block text-xs">Who am I?</span>
+      <span class="mb-md block text-xs">Who am I?</span>
       <p class="text-2xl">
         Imsdiam odo asjosa dsijdisajdsajios ajdoasdjsd asj dsjad asjsad sajdasod asj dasjd saiodj
         oasjid sdij asodij asdij sadoij asdoija sdiojsd oaisj saoidj saiojd saoijd saoijd saoijd

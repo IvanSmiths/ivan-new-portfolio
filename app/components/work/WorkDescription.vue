@@ -10,8 +10,8 @@ const { shortDescriptionRef } = useWorkSectionAnimation();
 </script>
 
 <template>
-  <section class="bg-background text-foreground w-full px-2.5 pb-20 lg:px-48">
-    <div class="flex w-full flex-col justify-between gap-3 md:flex-row">
+  <section class="bg-background text-foreground px-sm w-full pb-20 lg:px-48">
+    <div class="gap-sm flex w-full flex-col justify-between md:flex-row">
       <span class="mb-5 block text-xs">TL;DR</span>
       <p
         ref="shortDescriptionRef"

@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <li ref="cardRef" class="work-item 3xl:w-230 w-96 shrink-0 list-none pl-5 lg:w-130 xl:w-160">
+  <li ref="cardRef" class="work-item 3xl:w-230 pl-md w-96 shrink-0 list-none lg:w-130 xl:w-160">
     <div
       ref="imageContainerRef"
       class="h-110 w-full cursor-pointer overflow-hidden md:h-130 lg:h-96"
@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
     </div>
 
     <div
-      class="text-foreground flex flex-row items-end justify-between p-2.5 pb-1 text-sm font-semibold uppercase"
+      class="text-foreground p-sm flex flex-row items-end justify-between pb-1 text-sm font-semibold uppercase"
     >
       <div class="flex flex-col">
         <div class="clients hidden flex-col gap-1 lg:flex">
