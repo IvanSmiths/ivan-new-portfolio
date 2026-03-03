@@ -71,7 +71,7 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
     ctx = $gsap.context(() => {
       hoverFx.hideAllClients();
 
-      const loop = useCreateHorizontalLoop(cards.value, { repeat: -1, speed: 3 });
+      const loop = useCreateHorizontalLoop(cards.value, { repeat: -1, speed: 0.2 });
       loop.totalTime(loop.duration() * 1000);
 
       const slowDown = $gsap.to(loop, { timeScale: 0, duration: 2 });
