@@ -2,10 +2,10 @@
 import { computed } from "vue";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
-import Header from "~/components/work/Header.vue";
-import NextWork from "~/components/work/NextWork.vue";
-import Images from "~/components/work/Images.vue";
-import Description from "~/components/work/Description.vue";
+import WorkHeader from "~/components/work/WorkHeader.vue";
+import WorkNextWork from "~/components/work/WorkNextWork.vue";
+import WorkImages from "~/components/work/WorkImages.vue";
+import WorkDescription from "~/components/work/WorkDescription.vue";
 
 const route = useRoute();
 
@@ -75,9 +75,9 @@ useSeoMeta({
 
 <template>
   <section v-if="work" class="bg-background text-foreground">
-    <Header :current-index="currentIndex" :total-works="totalWorks" :work="work" />
-    <Description :work="work" />
-    <Images :work="work" />
-    <NextWork :current-slug="currentSlug" />
+    <WorkHeader :current-index="currentIndex" :total-works="totalWorks" :work="work" />
+    <WorkDescription :work="work" />
+    <WorkImages :work="work" />
+    <WorkNextWork :current-slug="currentSlug" />
   </section>
 </template>
