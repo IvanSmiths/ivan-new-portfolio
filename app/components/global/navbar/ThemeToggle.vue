@@ -27,10 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <button
-    class="cursor-pointer transition-opacity hover:opacity-80 max-sm:text-xs"
-    @click="toggleTheme"
-  >
+  <button class="cursor-pointer transition-opacity hover:opacity-80" @click="toggleTheme">
     [{{ colorMode === "light" ? "Dark mode" : "Light mode" }}]
   </button>
 </template>

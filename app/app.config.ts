@@ -2,9 +2,8 @@ export default defineAppConfig({
   title: "Hello Nuxt",
   internalRoutes: [
     { label: "Home", url: "/" },
-    { label: "Works", url: "/works" },
-    { label: "Lab", url: "/lab" },
     { label: "About", url: "/about" },
+    { label: "Lab", url: "/lab" },
     { label: "Contacts", url: "/contacts" },
   ],
   contacts: [{ email: "info@ivansmiths.com" }],
