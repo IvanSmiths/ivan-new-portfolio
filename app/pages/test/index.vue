@@ -254,11 +254,6 @@ async function initAfterLayout() {
   init();
 }
 
-useSeoMeta({
-  title: "GSAP Gallery Test | Ivan Smiths",
-  robots: "noindex, nofollow",
-});
-
 onMounted(() => {
   void initAfterLayout();
 });
@@ -272,12 +267,12 @@ onScopeDispose(() => {
   <div ref="galleryRef" class="bg-background relative min-h-screen overflow-hidden">
     <ul
       ref="cardsRef"
-      class="absolute top-[46%] left-1/2 h-72 w-56 -translate-x-1/2 -translate-y-1/2 md:h-80 md:w-64"
+      class="absolute top-1/2 left-1/2 h-96 w-56 -translate-x-1/2 -translate-y-1/2"
     >
       <li
         v-for="portrait in portraits"
         :key="portrait.alt"
-        class="absolute top-0 left-0 h-72 w-56 list-none overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5 shadow-[0_30px_70px_rgba(0,0,0,0.45)] backdrop-blur-sm md:h-80 md:w-64"
+        class="absolute inset-0 h-full w-full list-none overflow-hidden"
       >
         <img
           :alt="portrait.alt"
@@ -289,18 +284,10 @@ onScopeDispose(() => {
     </ul>
 
     <div class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
-      <button
-        class="text-foreground rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium backdrop-blur transition hover:bg-white/15"
-        type="button"
-        @click="stepBy(-stepSize)"
-      >
+      <button class="text-foreground text-sm font-medium" type="button" @click="stepBy(-stepSize)">
         Prev
       </button>
-      <button
-        class="text-foreground rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium backdrop-blur transition hover:bg-white/15"
-        type="button"
-        @click="stepBy(stepSize)"
-      >
+      <button class="text-foreground text-sm font-medium" type="button" @click="stepBy(stepSize)">
         Next
       </button>
     </div>
