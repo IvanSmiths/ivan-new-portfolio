@@ -19,7 +19,26 @@ type UseHomeCardsLoopAnimationOptions = {
 export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOptions) {
   const { $gsap, $ScrollTrigger } = useNuxtApp();
 
-  const stepSize = options.stepSize ?? 0.1;
+  /* ===============================
+     Animation tuning variables
+  =============================== */
+
+  const STEP_SIZE = options.stepSize ?? 0.1;
+  const SCROLL_DISTANCE = 3000;
+  const SCRUB_DURATION = 0.5;
+  const SCRUB_EASE = "power3";
+  const SNAP_DELAY = 0.3;
+  const SCALE_DURATION = 0.5;
+  const SCALE_EASE = "power1.in";
+  const MOVE_DURATION = 1;
+  const INITIAL_X_PERCENT = 400;
+  const FROM_X_PERCENT = 600;
+  const TO_X_PERCENT = -600;
+  const INITIAL_SCALE = 0;
+  const SCALE_FROM = 0.5;
+  const SCALE_TO = 1;
+
+  /* =============================== */
 
   let ctx: gsap.Context | null = null;
   let scrubToLoop: ((totalTime: number) => void) | null = null;
@@ -60,7 +79,9 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     const overlap = Math.ceil(1 / spacing);
     const startTime = items.length * spacing + 0.5;
     const loopTime = (items.length + overlap) * spacing + 1;
+
     const rawSequence = $gsap.timeline({ paused: true });
+
     const seamlessLoop = $gsap.timeline({
       paused: true,
       repeat: -1,
@@ -73,7 +94,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
 
     const totalAnimations = items.length + overlap * 2;
 
-    $gsap.set(items, { xPercent: 400, scale: 0 });
+    $gsap.set(items, { xPercent: INITIAL_X_PERCENT, scale: INITIAL_SCALE });
 
     for (let i = 0; i < totalAnimations; i += 1) {
       const index = i % items.length;
@@ -85,24 +106,24 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       rawSequence
         .fromTo(
           item,
-          { scale: 0.5 },
+          { scale: SCALE_FROM },
           {
-            scale: 1,
+            scale: SCALE_TO,
             zIndex: 100,
-            duration: 0.5,
+            duration: SCALE_DURATION,
             yoyo: true,
             repeat: 1,
-            ease: "power1.in",
+            ease: SCALE_EASE,
             immediateRender: false,
           },
           time,
         )
         .fromTo(
           item,
-          { xPercent: 600 },
+          { xPercent: FROM_X_PERCENT },
           {
-            xPercent: -600,
-            duration: 1,
+            xPercent: TO_X_PERCENT,
+            duration: MOVE_DURATION,
             ease: "none",
             immediateRender: false,
           },
@@ -115,6 +136,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     }
 
     rawSequence.time(startTime);
+
     seamlessLoop
       .to(rawSequence, {
         time: loopTime,
@@ -142,16 +164,17 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
 
     ctx = $gsap.context(() => {
       const cards = getCards();
-
       if (!cards.length) return;
 
       let iteration = 0;
-      const snap = $gsap.utils.snap(stepSize);
-      const seamlessLoop = buildSeamlessLoop(cards, stepSize);
+
+      const snap = $gsap.utils.snap(STEP_SIZE);
+      const seamlessLoop = buildSeamlessLoop(cards, STEP_SIZE);
+
       const scrub = $gsap.to(seamlessLoop, {
         totalTime: 0,
-        duration: 0.5,
-        ease: "power3",
+        duration: SCRUB_DURATION,
+        ease: SCRUB_EASE,
         paused: true,
       });
 
@@ -179,21 +202,33 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       const scrubTo = (totalTime: number) => {
         if (!trigger) return;
 
-        const progress = (totalTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration();
+        const progress =
+          (totalTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration();
 
-        if (progress > 1) {
-          wrapForward(trigger);
-        } else if (progress < 0) {
-          wrapBackward(trigger);
-        } else {
-          trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
-        }
+        if (progress > 1) wrapForward(trigger);
+        else if (progress < 0) wrapBackward(trigger);
+        else trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
       };
+
+      const snapCall = $gsap
+        .delayedCall(SNAP_DELAY, () => {
+          if (!trigger) return;
+
+          const rawTotalTime = (iteration + trigger.progress) * seamlessLoop.duration();
+
+          const snappedTotalTime = snap(rawTotalTime);
+
+          scrub.vars.totalTime = snappedTotalTime;
+          scrub.invalidate().restart();
+
+          scrubTo(snappedTotalTime);
+        })
+        .pause();
 
       trigger = $ScrollTrigger.create({
         trigger: options.galleryRef.value,
         start: "top top",
-        end: "+=3000",
+        end: `+=${SCROLL_DISTANCE}`,
         pin: true,
         invalidateOnRefresh: true,
         onUpdate(self: ScrollTriggerInstance) {
@@ -207,9 +242,12 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
             return;
           }
 
-          scrub.vars.totalTime = snap((iteration + self.progress) * seamlessLoop.duration());
+          scrub.vars.totalTime = (iteration + self.progress) * seamlessLoop.duration();
           scrub.invalidate().restart();
+
           self.wrapping = false;
+
+          snapCall.restart(true);
         },
       });
 
@@ -232,6 +270,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     });
 
     if (!options.galleryRef.value || !options.cardsRef.value) return;
+
     init();
   }
 
@@ -240,9 +279,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     scrubToLoop(getCurrentTime() + delta);
   }
 
-  onScopeDispose(() => {
-    cleanup();
-  });
+  onScopeDispose(() => cleanup());
 
   return {
     cleanupForRouteLeave,
