@@ -2,10 +2,12 @@
 import { nextTick, onMounted, onScopeDispose, ref } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
 import { useWorkExpandTransition } from "~/composables/animations/home/useWorkExpandTransition";
+import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
 import { worksCards } from "~/domain/works";
 
 const { $gsap, $ScrollTrigger } = useNuxtApp();
 const router = useRouter();
+const { hasSeenLoader, markLoaderSeen, notifyLoaderDone } = useWorksLoaderSession();
 
 const stepSize = 0.1;
 const minimumCards = 10;
@@ -34,11 +36,17 @@ type ScrollTriggerInstance = {
 
 const galleryRef = ref<HTMLElement | null>(null);
 const cardsRef = ref<HTMLElement | null>(null);
+const loaderCardsRef = ref<HTMLElement | null>(null);
+const shouldRunLoader = ref(false);
+const shouldHideLiveCards = ref(false);
+const loaderPhase = ref<"idle" | "loading" | "animating" | "done">("idle");
 
 let ctx: gsap.Context | null = null;
 let scrubToLoop: ((totalTime: number) => void) | null = null;
 let getCurrentTime: (() => number) | null = null;
 let initFrameId: number | null = null;
+let loaderTimeline: gsap.core.Timeline | null = null;
+let restoreScrollLock: (() => void) | null = null;
 const expandLock = ref(false);
 
 function getCardsForTransition() {
@@ -47,6 +55,24 @@ function getCardsForTransition() {
 
 function getImagesForTransition() {
   return Array.from(cardsRef.value?.querySelectorAll<HTMLImageElement>("img") ?? []);
+}
+
+function getLoaderShells() {
+  return Array.from(
+    loaderCardsRef.value?.querySelectorAll<HTMLElement>("[data-loader-shell]") ?? [],
+  );
+}
+
+function getLoaderCards() {
+  return Array.from(
+    loaderCardsRef.value?.querySelectorAll<HTMLElement>("[data-loader-card]") ?? [],
+  );
+}
+
+function getLoaderImages() {
+  return Array.from(
+    loaderCardsRef.value?.querySelectorAll<HTMLImageElement>("[data-loader-image]") ?? [],
+  );
 }
 
 const expandTransition = useWorkExpandTransition({
@@ -64,16 +90,113 @@ function cancelScheduledInit() {
   initFrameId = null;
 }
 
-function cleanup() {
-  cancelScheduledInit();
+function lockScroll() {
+  if (!import.meta.client || restoreScrollLock) return;
+
+  const htmlOverflow = document.documentElement.style.overflow;
+  const bodyOverflow = document.body.style.overflow;
+
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+
+  restoreScrollLock = () => {
+    document.documentElement.style.overflow = htmlOverflow;
+    document.body.style.overflow = bodyOverflow;
+    restoreScrollLock = null;
+  };
+}
+
+function unlockScroll() {
+  restoreScrollLock?.();
+}
+
+function waitForImage(image: HTMLImageElement) {
+  if (image.complete) {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve) => {
+    let settled = false;
+
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      resolve();
+    };
+
+    image.addEventListener("load", finish, { once: true });
+    image.addEventListener("error", finish, { once: true });
+
+    if (typeof image.decode === "function") {
+      void image
+        .decode()
+        .then(finish)
+        .catch(() => {});
+    }
+  });
+}
+
+function waitForImages(images: HTMLImageElement[]) {
+  return Promise.all(images.map((image) => waitForImage(image)));
+}
+
+function getLoaderStartRects(targetCards: HTMLElement[]) {
+  const firstRect = targetCards[0]?.getBoundingClientRect();
+  const targetWidth = firstRect?.width ?? 224;
+  const targetHeight = firstRect?.height ?? 384;
+  const gap = Math.max(4, Math.round(window.innerHeight * 0.006));
+  const maxStackHeight = window.innerHeight * 0.7;
+  const maxCardHeight =
+    (maxStackHeight - gap * Math.max(0, targetCards.length - 1)) / targetCards.length;
+  const startHeight = Math.max(18, Math.min(targetHeight * 0.1, maxCardHeight));
+  const startWidth = startHeight * (targetWidth / targetHeight);
+  const totalHeight = startHeight * targetCards.length + gap * Math.max(0, targetCards.length - 1);
+  const startTop = (window.innerHeight - totalHeight) / 2;
+  const startLeft = (window.innerWidth - startWidth) / 2;
+
+  return targetCards.map((_, index) => ({
+    x: startLeft,
+    y: startTop + index * (startHeight + gap),
+    width: startWidth,
+    height: startHeight,
+  }));
+}
+
+function resetLoaderState() {
+  loaderTimeline?.kill();
+  loaderTimeline = null;
+  shouldHideLiveCards.value = false;
+  loaderPhase.value = "done";
+  shouldRunLoader.value = false;
+  unlockScroll();
+}
+
+function completeLoaderRun() {
+  markLoaderSeen();
+  notifyLoaderDone();
+  resetLoaderState();
+}
+
+function cleanupLoopContext() {
   ctx?.revert();
   ctx = null;
   scrubToLoop = null;
   getCurrentTime = null;
 }
 
+function cleanup() {
+  cancelScheduledInit();
+  loaderTimeline?.kill();
+  loaderTimeline = null;
+  unlockScroll();
+  cleanupLoopContext();
+}
+
 function cleanupForRouteLeave() {
   cancelScheduledInit();
+  loaderTimeline?.kill();
+  loaderTimeline = null;
+  unlockScroll();
   ctx?.kill(false);
   ctx = null;
   scrubToLoop = null;
@@ -97,7 +220,7 @@ function buildSeamlessLoop(items: HTMLElement[], spacing: number) {
 
   const totalAnimations = items.length + overlap * 2;
 
-  $gsap.set(items, { xPercent: 400, opacity: 0, scale: 0 });
+  $gsap.set(items, { xPercent: 400, scale: 0 });
 
   for (let i = 0; i < totalAnimations; i += 1) {
     const index = i % items.length;
@@ -108,10 +231,9 @@ function buildSeamlessLoop(items: HTMLElement[], spacing: number) {
     rawSequence
       .fromTo(
         item,
-        { scale: 0.5, opacity: 0.5 },
+        { scale: 0.5 },
         {
           scale: 1,
-          opacity: 1,
           zIndex: 100,
           duration: 0.5,
           yoyo: true,
@@ -171,10 +293,9 @@ function onWorkClick(event: MouseEvent, index: number) {
 function init() {
   if (!galleryRef.value || !cardsRef.value) return;
 
-  cleanup();
+  cleanupLoopContext();
 
   ctx = $gsap.context(() => {
-    const images = Array.from(cardsRef.value?.querySelectorAll<HTMLImageElement>("img") ?? []);
     const cards = Array.from(cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
 
     if (!cards.length) return;
@@ -269,6 +390,112 @@ async function initAfterLayout() {
   init();
 }
 
+async function playLoader() {
+  const targetCards = getCardsForTransition();
+  if (!shouldRunLoader.value || !targetCards.length) {
+    completeLoaderRun();
+    return;
+  }
+
+  loaderPhase.value = "loading";
+  await waitForImages(getImagesForTransition());
+
+  if (!shouldRunLoader.value) return;
+
+  loaderPhase.value = "animating";
+  await nextTick();
+  await waitForImages(getLoaderImages());
+
+  const loaderShells = getLoaderShells();
+  const loaderCards = getLoaderCards();
+  const loaderImages = getLoaderImages();
+
+  if (
+    !loaderShells.length ||
+    loaderShells.length !== targetCards.length ||
+    loaderCards.length !== targetCards.length
+  ) {
+    completeLoaderRun();
+    return;
+  }
+
+  const startRects = getLoaderStartRects(targetCards);
+  const targetRects = targetCards.map((card) => card.getBoundingClientRect());
+
+  loaderShells.forEach((shell, index) => {
+    const startRect = startRects[index];
+    if (!startRect) return;
+
+    $gsap.set(shell, {
+      x: startRect.x,
+      y: startRect.y,
+      width: startRect.width,
+      height: startRect.height,
+      autoAlpha: 1,
+      borderRadius: 10,
+      willChange: "transform,width,height,opacity",
+    });
+  });
+
+  $gsap.set(loaderCards, {
+    yPercent: 110,
+    autoAlpha: 0,
+    willChange: "transform,opacity",
+  });
+  $gsap.set(loaderImages, { scale: 1.14, willChange: "transform" });
+
+  const completed = await new Promise<boolean>((resolve) => {
+    loaderTimeline = $gsap.timeline({
+      defaults: { ease: "power3.out" },
+      onComplete: () => resolve(true),
+      onInterrupt: () => resolve(false),
+    });
+
+    loaderTimeline
+      .to(loaderCards, {
+        yPercent: 0,
+        autoAlpha: 1,
+        duration: 2,
+        stagger: 0.05,
+      })
+      .to(
+        loaderShells,
+        {
+          x: (index) => targetRects[index]?.left ?? 0,
+          y: (index) => targetRects[index]?.top ?? 0,
+          width: (index) => targetRects[index]?.width ?? 0,
+          height: (index) => targetRects[index]?.height ?? 0,
+          borderRadius: 0,
+          duration: 1.1,
+          delay: 0.7,
+          ease: "expo.inOut",
+          stagger: 0.03,
+        },
+        0.24,
+      )
+      .to(
+        loaderImages,
+        {
+          scale: 1,
+          duration: 1.1,
+          ease: "power2.out",
+          stagger: 0.03,
+        },
+        0.24,
+      )
+      .add(() => {
+        shouldHideLiveCards.value = false;
+      }, 1.08);
+  });
+
+  if (!completed) {
+    resetLoaderState();
+    return;
+  }
+
+  completeLoaderRun();
+}
+
 useHead({
   htmlAttrs: {
     class: "home-page bg-background",
@@ -276,7 +503,18 @@ useHead({
 });
 
 onMounted(() => {
-  void initAfterLayout();
+  shouldRunLoader.value = !hasSeenLoader();
+  shouldHideLiveCards.value = shouldRunLoader.value;
+  loaderPhase.value = shouldRunLoader.value ? "loading" : "done";
+
+  if (shouldRunLoader.value) {
+    lockScroll();
+  }
+
+  void initAfterLayout().then(() => {
+    if (!shouldRunLoader.value) return;
+    void playLoader();
+  });
 });
 
 onBeforeRouteLeave(() => {
@@ -290,8 +528,40 @@ onScopeDispose(() => {
 
 <template>
   <div ref="galleryRef" class="bg-background relative min-h-screen overflow-hidden">
+    <div
+      v-if="shouldRunLoader && loaderPhase !== 'done'"
+      class="bg-background pointer-events-none absolute inset-0 z-30 overflow-hidden"
+    >
+      <div
+        v-if="loaderPhase === 'loading'"
+        class="text-foreground absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm"
+      >
+        loading
+      </div>
+
+      <div v-else ref="loaderCardsRef" class="absolute inset-0">
+        <div
+          v-for="({ work, key }, index) in loopWorks"
+          :key="`${key}-loader-${index}`"
+          class="absolute top-0 left-0 overflow-hidden"
+          data-loader-shell
+        >
+          <div class="h-full w-full" data-loader-card>
+            <img
+              :alt="work.title"
+              :src="work.image"
+              class="h-full w-full object-cover object-top"
+              data-loader-image
+              draggable="false"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <ul
       ref="cardsRef"
+      :class="{ invisible: shouldHideLiveCards }"
       class="absolute top-1/2 left-1/2 h-96 w-56 -translate-x-1/2 -translate-y-1/2"
     >
       <li
@@ -309,7 +579,10 @@ onScopeDispose(() => {
       </li>
     </ul>
 
-    <div class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
+    <div
+      :class="{ 'pointer-events-none invisible': shouldHideLiveCards }"
+      class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3"
+    >
       <button class="text-foreground text-sm font-medium" type="button" @click="stepBy(-stepSize)">
         Prev
       </button>
