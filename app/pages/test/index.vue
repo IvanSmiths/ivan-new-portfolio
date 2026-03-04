@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { nextTick, onMounted, onScopeDispose, ref } from "vue";
+import { onBeforeRouteLeave } from "vue-router";
 
 const { $gsap, $ScrollTrigger } = useNuxtApp();
 
@@ -63,9 +64,25 @@ const cardsRef = ref<HTMLElement | null>(null);
 let ctx: gsap.Context | null = null;
 let scrubToLoop: ((totalTime: number) => void) | null = null;
 let getCurrentTime: (() => number) | null = null;
+let initFrameId: number | null = null;
+
+function cancelScheduledInit() {
+  if (initFrameId === null || typeof window === "undefined") return;
+  cancelAnimationFrame(initFrameId);
+  initFrameId = null;
+}
 
 function cleanup() {
+  cancelScheduledInit();
   ctx?.revert();
+  ctx = null;
+  scrubToLoop = null;
+  getCurrentTime = null;
+}
+
+function cleanupForRouteLeave() {
+  cancelScheduledInit();
+  ctx?.kill(false);
   ctx = null;
   scrubToLoop = null;
   getCurrentTime = null;
@@ -165,14 +182,6 @@ function init() {
 
     if (!cards.length) return;
 
-    $gsap.to(images, {
-      opacity: 1,
-      delay: 0.1,
-      duration: 0.6,
-      stagger: 0.04,
-      ease: "power1.out",
-    });
-
     let iteration = 0;
     const snap = $gsap.utils.snap(stepSize);
     const seamlessLoop = buildSeamlessLoop(cards, stepSize);
@@ -250,12 +259,25 @@ function init() {
 
 async function initAfterLayout() {
   await nextTick();
-  await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+  if (!galleryRef.value || !cardsRef.value) return;
+
+  await new Promise<void>((resolve) => {
+    initFrameId = requestAnimationFrame(() => {
+      initFrameId = null;
+      resolve();
+    });
+  });
+
+  if (!galleryRef.value || !cardsRef.value) return;
   init();
 }
 
 onMounted(() => {
   void initAfterLayout();
+});
+
+onBeforeRouteLeave(() => {
+  cleanupForRouteLeave();
 });
 
 onScopeDispose(() => {
@@ -274,12 +296,7 @@ onScopeDispose(() => {
         :key="portrait.alt"
         class="absolute inset-0 h-full w-full list-none overflow-hidden"
       >
-        <img
-          :alt="portrait.alt"
-          :src="portrait.src"
-          class="h-full w-full object-cover opacity-0"
-          draggable="false"
-        />
+        <img :alt="portrait.alt" :src="portrait.src" class="h-full w-full object-cover" />
       </li>
     </ul>
 

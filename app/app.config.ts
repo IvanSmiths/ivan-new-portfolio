@@ -6,6 +6,7 @@ export default defineAppConfig({
     { label: "Lab", url: "/lab" },
     { label: "About", url: "/about" },
     { label: "Contacts", url: "/contacts" },
+    { label: "Test", url: "/test" },
   ],
   contacts: [{ email: "info@ivansmiths.com" }],
   socials: [
