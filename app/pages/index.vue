@@ -162,12 +162,16 @@ function getLoaderStartRects(targetCards: HTMLElement[]) {
   }));
 }
 
-function createCenterOutStagger(
+function createCenterSpreadData(
   rects: DOMRect[],
   each: number,
-): (index: number, _target: unknown, list: unknown[]) => number {
+): {
+  stagger: (index: number, _target: unknown, list: unknown[]) => number;
+  zIndices: number[];
+} {
   const viewportCenter = window.innerWidth / 2;
   const delays = new Array(rects.length).fill(0);
+  const zIndices = new Array(rects.length).fill(1);
   const ordered = rects
     .map((rect, index) => ({
       index,
@@ -181,9 +185,13 @@ function createCenterOutStagger(
 
   ordered.forEach((item, order) => {
     delays[item.index] = order * each;
+    zIndices[item.index] = rects.length - order;
   });
 
-  return (index) => delays[index] ?? 0;
+  return {
+    stagger: (index) => delays[index] ?? 0,
+    zIndices,
+  };
 }
 
 function resetLoaderState() {
@@ -445,7 +453,10 @@ async function playLoader() {
 
   const startRects = getLoaderStartRects(targetCards);
   const targetRects = targetCards.map((card) => card.getBoundingClientRect());
-  const spreadFromCenter = createCenterOutStagger(targetRects, 0.03);
+  const { stagger: spreadFromCenter, zIndices: centerZIndices } = createCenterSpreadData(
+    targetRects,
+    0.03,
+  );
 
   loaderShells.forEach((shell, index) => {
     const startRect = startRects[index];
@@ -458,6 +469,7 @@ async function playLoader() {
       height: startRect.height,
       autoAlpha: 1,
       borderRadius: 10,
+      zIndex: centerZIndices[index] ?? 1,
       willChange: "transform,width,height,opacity",
     });
   });
