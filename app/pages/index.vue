@@ -10,7 +10,7 @@ const router = useRouter();
 const { hasSeenLoader, markLoaderSeen, notifyLoaderDone } = useWorksLoaderSession();
 
 const stepSize = 0.1;
-const minimumCards = 10;
+const minimumCards = Math.ceil(1 / stepSize) + Math.ceil(0.5 / stepSize) + 1;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
 const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
   const work = worksCards[index % worksCards.length];
