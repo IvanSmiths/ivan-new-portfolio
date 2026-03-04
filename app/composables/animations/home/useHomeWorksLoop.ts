@@ -71,20 +71,27 @@ export function useHomeWorksLoop(works: readonly WorkCard[]) {
     ctx = $gsap.context(() => {
       hoverFx.hideAllClients();
 
-      const loop = useCreateHorizontalLoop(cards.value, { repeat: -1, speed: 0.2 });
+      const loop = useCreateHorizontalLoop(cards.value, { repeat: -1, speed: 7 });
       loop.totalTime(loop.duration() * 1000);
 
-      const slowDown = $gsap.to(loop, { timeScale: 0, duration: 2 });
+      const slowDown = $gsap.to(loop, { timeScale: 0, duration: 1.5 });
       loop.timeScale(0);
 
       const obs = $gsapObserver.create({
         target: window,
         type: "touch,wheel",
         wheelSpeed: -1,
-        onChange: (self: { deltaX: number; deltaY: number }) => {
+        // Use velocity instead of raw delta — already normalized across input types
+        onChangeX: (self) => {
+          //   self.velocityX;
+        },
+        onChange: (self: any) => {
           notifyInteraction();
-          const d = Math.abs(self.deltaX) > Math.abs(self.deltaY) ? self.deltaX : self.deltaY;
-          loop.timeScale(-d);
+          const velocity =
+            Math.abs(self.velocityX) > Math.abs(self.velocityY) ? self.velocityX : self.velocityY;
+
+          const speed = Math.sign(velocity) * Math.min(Math.abs(velocity) / 500, 5);
+          loop.timeScale(-speed);
           slowDown.invalidate().restart();
         },
       });
