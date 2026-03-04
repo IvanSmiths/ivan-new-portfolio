@@ -162,6 +162,30 @@ function getLoaderStartRects(targetCards: HTMLElement[]) {
   }));
 }
 
+function createCenterOutStagger(
+  rects: DOMRect[],
+  each: number,
+): (index: number, _target: unknown, list: unknown[]) => number {
+  const viewportCenter = window.innerWidth / 2;
+  const delays = new Array(rects.length).fill(0);
+  const ordered = rects
+    .map((rect, index) => ({
+      index,
+      distance: Math.abs(rect.left + rect.width / 2 - viewportCenter),
+      x: rect.left + rect.width / 2,
+    }))
+    .sort((a, b) => {
+      if (a.distance !== b.distance) return a.distance - b.distance;
+      return a.x - b.x;
+    });
+
+  ordered.forEach((item, order) => {
+    delays[item.index] = order * each;
+  });
+
+  return (index) => delays[index] ?? 0;
+}
+
 function resetLoaderState() {
   loaderTimeline?.kill();
   loaderTimeline = null;
@@ -421,6 +445,7 @@ async function playLoader() {
 
   const startRects = getLoaderStartRects(targetCards);
   const targetRects = targetCards.map((card) => card.getBoundingClientRect());
+  const spreadFromCenter = createCenterOutStagger(targetRects, 0.03);
 
   loaderShells.forEach((shell, index) => {
     const startRect = startRects[index];
@@ -469,7 +494,7 @@ async function playLoader() {
           duration: 1.1,
           delay: 0.7,
           ease: "expo.inOut",
-          stagger: 0.03,
+          stagger: spreadFromCenter,
         },
         0.24,
       )
@@ -479,7 +504,7 @@ async function playLoader() {
           scale: 1,
           duration: 1.1,
           ease: "power2.out",
-          stagger: 0.03,
+          stagger: spreadFromCenter,
         },
         0.24,
       )
