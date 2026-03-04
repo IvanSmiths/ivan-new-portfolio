@@ -29,7 +29,7 @@ const navigationLinks = computed(() =>
   <nav class="text-foreground left-md top-md fixed z-30 text-base">
     <ul class="flex items-start gap-1">
       <li
-        v-for="link in navigationLinks"
+        v-for="(link, index) in navigationLinks"
         :key="link.url"
         class="text-foreground-muted flex items-baseline"
       >
@@ -39,7 +39,7 @@ const navigationLinks = computed(() =>
           :to="link.url"
           class="flex transition-opacity hover:opacity-80"
         >
-          {{ link.label }},
+          {{ link.label }}<span v-if="index !== navigationLinks.length - 1">,</span>
         </NuxtLink>
       </li>
     </ul>

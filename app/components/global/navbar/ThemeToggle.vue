@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import MoonIcon from "~/components/global/icons/MoonIcon.vue";
+import SunIcon from "~/components/global/icons/SunIcon.vue";
+
 const colorMode = ref<"light" | "dark">("light");
 
 const toggleTheme = () => {
@@ -15,6 +18,10 @@ const updateTheme = () => {
   }
 };
 
+const themeComponent = computed(() => {
+  return colorMode.value === "light" ? MoonIcon : SunIcon;
+});
+
 onMounted(() => {
   const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
   if (savedTheme) {
@@ -27,8 +34,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <button class="cursor-pointer transition-opacity hover:opacity-80" @click="toggleTheme">
-    [{{ colorMode === "light" ? "Dark mode" : "Light mode" }}]
+  <button
+    class="right-md top-md fixed cursor-pointer transition-opacity hover:opacity-80"
+    @click="toggleTheme"
+  >
+    <component :is="themeComponent" />
   </button>
 </template>
 
