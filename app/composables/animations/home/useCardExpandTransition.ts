@@ -156,7 +156,7 @@ export function useCardExpandTransition(opts: {
 
         tl.to(labelWrap, {
           left,
-          top: top - 50,
+          top: top - 20,
           width: finalW,
           duration: 0.6,
           opacity: 1,

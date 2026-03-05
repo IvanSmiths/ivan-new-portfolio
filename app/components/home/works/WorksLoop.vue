@@ -179,4 +179,12 @@ onBeforeRouteLeave(() => {
       var(--works-grid-gap)
   );
 }
+
+@media (max-width: 1023px) {
+  .works-loop-cards {
+    --works-grid-columns: 8;
+    --works-start-column: 3;
+    --works-span-columns: 4;
+  }
+}
 </style>
