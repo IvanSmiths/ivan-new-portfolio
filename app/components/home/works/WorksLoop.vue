@@ -232,17 +232,5 @@ onBeforeRouteLeave(() => {
         </div>
       </li>
     </ul>
-
-    <div
-      :class="{ 'pointer-events-none invisible': cardsLoaderAnimation.shouldHideLiveCards.value }"
-      class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3"
-    >
-      <button class="text-foreground text-sm font-medium" type="button" @click="stepBy(-stepSize)">
-        Prev
-      </button>
-      <button class="text-foreground text-sm font-medium" type="button" @click="stepBy(stepSize)">
-        Next
-      </button>
-    </div>
   </div>
 </template>

@@ -47,6 +47,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
   let scrubToLoop: ((totalTime: number) => void) | null = null;
   let getCurrentTime: (() => number) | null = null;
   let initFrameId: number | null = null;
+  let removeEdgeWheelListener: (() => void) | null = null;
 
   function getCards() {
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
@@ -59,6 +60,8 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
   }
 
   function cleanupLoopContext() {
+    removeEdgeWheelListener?.();
+    removeEdgeWheelListener = null;
     ctx?.revert();
     ctx = null;
     scrubToLoop = null;
@@ -72,6 +75,8 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
 
   function cleanupForRouteLeave() {
     cancelScheduledInit();
+    removeEdgeWheelListener?.();
+    removeEdgeWheelListener = null;
     ctx?.kill(false);
     ctx = null;
     scrubToLoop = null;
@@ -292,10 +297,37 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
         },
       });
 
-      if (trigger.start <= EDGE_SCROLL_OFFSET) {
-        skipProgrammaticUpdate = true;
-        trigger.scroll(trigger.start + EDGE_SCROLL_OFFSET);
-      }
+      let wheelWrapLock = false;
+      const onWheel = (event: WheelEvent) => {
+        if (!trigger || trigger.wrapping || wheelWrapLock) return;
+        if (Math.abs(event.deltaY) < 0.5) return;
+
+        const edgeProgress = getEdgeProgress();
+
+        if (event.deltaY < 0 && trigger.progress <= edgeProgress) {
+          wheelWrapLock = true;
+          snapCall.pause();
+          wrapBackward(trigger);
+          requestAnimationFrame(() => {
+            wheelWrapLock = false;
+          });
+          return;
+        }
+
+        if (event.deltaY > 0 && trigger.progress >= 1 - edgeProgress) {
+          wheelWrapLock = true;
+          snapCall.pause();
+          wrapForward(trigger);
+          requestAnimationFrame(() => {
+            wheelWrapLock = false;
+          });
+        }
+      };
+
+      window.addEventListener("wheel", onWheel, { passive: true });
+      removeEdgeWheelListener = () => {
+        window.removeEventListener("wheel", onWheel);
+      };
 
       scrubToLoop = scrubTo;
       getCurrentTime = () => Number(scrub.vars.totalTime ?? 0);
