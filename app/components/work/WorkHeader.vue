@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useWorkHeaderAnimation } from "~/composables/animations/work/useWorkHeaderAnimation";
+import { useHeaderAnimation } from "~/composables/animations/work/useHeaderAnimation";
 import type { WorkProjectPage } from "~/domain/works/types";
 
 const props = defineProps<{
@@ -8,7 +8,7 @@ const props = defineProps<{
   work: WorkProjectPage;
 }>();
 
-const { rootRef, titleRef, roleRef, metaBarRef } = useWorkHeaderAnimation();
+const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
 </script>
 
 <template>

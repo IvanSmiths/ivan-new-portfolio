@@ -11,7 +11,7 @@ function getLetterPath(group: SVGGElement) {
   return path instanceof SVGPathElement ? path : null;
 }
 
-export function useHomeLogoHoverAnimation(lettersRef: Ref<SVGGElement | null>) {
+export function useLogoHover(lettersRef: Ref<SVGGElement | null>) {
   const { $gsap } = useNuxtApp();
 
   let cleanups: (() => void)[] = [];

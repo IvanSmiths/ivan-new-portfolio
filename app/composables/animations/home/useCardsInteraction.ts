@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
-import { useWorkCardInfoAnimation } from "~/composables/animations/home/useWorkCardInfoAnimation";
-import { useWorkHover } from "~/composables/animations/home/useWorkHover";
+import { useCardInfo } from "~/composables/animations/home/useCardInfo";
+import { useCardHover } from "~/composables/animations/home/useCardHover";
 
 type UseHomeCardsInteractionAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
@@ -8,7 +8,7 @@ type UseHomeCardsInteractionAnimationOptions = {
   lock: Ref<boolean>;
 };
 
-export function useHomeCardsInteractionAnimation(options: UseHomeCardsInteractionAnimationOptions) {
+export function useCardsInteraction(options: UseHomeCardsInteractionAnimationOptions) {
   function getImages() {
     return Array.from(
       options.cardsRef.value?.querySelectorAll<HTMLImageElement>("[data-work-image]") ?? [],
@@ -23,12 +23,12 @@ export function useHomeCardsInteractionAnimation(options: UseHomeCardsInteractio
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLImageElement>("img") ?? []);
   }
 
-  const workCardInfoAnimation = useWorkCardInfoAnimation({
+  const workCardInfoAnimation = useCardInfo({
     cardsRef: options.cardsRef,
     gsap: options.gsap,
   });
 
-  const workHover = useWorkHover({
+  const workHover = useCardHover({
     gsap: options.gsap,
     images: getImages,
     isLocked: () => options.lock.value,

@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { orderedSlugs, worksBySlug } from "~/domain/works";
 import type { WorkProjectPage } from "~/domain/works/types";
-import { useNextWorkAnimation } from "~/composables/animations/work/useNextWorkAnimation";
+import { useNextWork } from "~/composables/animations/work/useNextWork";
 
 const router = useRouter();
 
@@ -18,11 +18,9 @@ const nextWork = computed<WorkProjectPage | undefined>(() => {
   return worksBySlug[String(nextSlug.value)];
 });
 
-const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = useNextWorkAnimation(
-  {
-    onDone: () => router.push(nextSlug.value),
-  },
-);
+const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = useNextWork({
+  onDone: () => router.push(nextSlug.value),
+});
 </script>
 
 <template>

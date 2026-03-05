@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { nextTick, onMounted, ref } from "vue";
-import { useHomeLogoHoverAnimation } from "~/composables/animations/home/useHomeLogoHoverAnimation";
-import { useHomeLogoRevealAnimation } from "~/composables/animations/home/useHomeLogoRevealAnimation";
+import { useLogoHover } from "~/composables/animations/home/useLogoHover";
+import { useLogoReveal } from "~/composables/animations/home/useLogoReveal";
 
 const lettersRef = ref<SVGGElement | null>(null);
-const hoverAnimation = useHomeLogoHoverAnimation(lettersRef);
-const revealAnimation = useHomeLogoRevealAnimation(lettersRef);
+const hoverAnimation = useLogoHover(lettersRef);
+const revealAnimation = useLogoReveal(lettersRef);
 
 onMounted(async () => {
   await nextTick();

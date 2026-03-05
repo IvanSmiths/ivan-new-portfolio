@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import type { WorkProjectPage } from "~/domain/works/types";
-import { useWorkSectionAnimation } from "~/composables/animations/work/useWorkSectionAnimation";
+import { useSectionAnimation } from "~/composables/animations/work/useSectionAnimation";
 import ExternalLink from "~/components/global/icons/ExternalLink.vue";
 
 const props = defineProps<{
   work: WorkProjectPage;
 }>();
-const { shortDescriptionRef } = useWorkSectionAnimation();
+const { shortDescriptionRef } = useSectionAnimation();
 </script>
 
 <template>

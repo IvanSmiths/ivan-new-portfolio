@@ -4,7 +4,7 @@ type UseNextWorkAnimationOptions = {
   onDone?: () => void;
 };
 
-export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) {
+export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   const nextWorkContainerRef = ref<HTMLElement | null>(null);
   const progressFillRef = ref<HTMLElement | null>(null);
   const imageRef = ref<HTMLElement | null>(null);

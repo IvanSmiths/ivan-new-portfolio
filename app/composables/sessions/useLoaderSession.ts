@@ -1,7 +1,7 @@
 const STORAGE_KEY = "works_loader_seen";
 const DONE_EVENT = "works-loader:done";
 
-export function useWorksLoaderSession() {
+export function useLoaderSession() {
   function hasSeenLoader(): boolean {
     if (!import.meta.client) return false;
 

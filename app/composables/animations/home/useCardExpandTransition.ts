@@ -2,7 +2,7 @@ import type { WorkCard } from "~/domain/works/types";
 import { isNavigationFailure } from "vue-router";
 import { nextTick } from "vue";
 
-export function useWorkExpandTransition(opts: {
+export function useCardExpandTransition(opts: {
   gsap: typeof gsap;
   router: ReturnType<typeof useRouter>;
   works: readonly WorkCard[];

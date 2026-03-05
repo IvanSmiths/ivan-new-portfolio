@@ -19,7 +19,7 @@ type UseHomeCardsLoopAnimationOptions = {
   stepSize?: number;
 };
 
-export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOptions) {
+export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   const { $gsap, $ScrollTrigger } = useNuxtApp();
 
   /* ===============================
@@ -208,8 +208,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       const resetImagesShift = () => {
         setImagesShiftX(0);
       };
-      const getNow = () =>
-        typeof performance !== "undefined" ? performance.now() : Date.now();
+      const getNow = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
       let suppressForceEffectUntil = 0;
       const suppressForceEffect = () => {
         suppressForceEffectUntil = getNow() + FORCE_EFFECT_SUPPRESS_AFTER_WRAP_MS;

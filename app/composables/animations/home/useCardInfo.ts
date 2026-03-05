@@ -10,7 +10,7 @@ type CardInfoElements = {
   meta: HTMLElement[];
 };
 
-export function useWorkCardInfoAnimation(options: UseWorkCardInfoAnimationOptions) {
+export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
   const hoveredCardIndex = ref<number | null>(null);
   const isScrollingCards = ref(false);
   const snappedCardIndex = ref(0);
@@ -49,26 +49,38 @@ export function useWorkCardInfoAnimation(options: UseWorkCardInfoAnimationOption
 
   function hideAllInfo() {
     const allInfo = getInfoByCard();
-    options.gsap.set(allInfo.flatMap((info) => info.clients), { autoAlpha: 0, y: -8 });
-    options.gsap.set(allInfo.flatMap((info) => info.meta), { autoAlpha: 0, y: -8 });
+    options.gsap.set(
+      allInfo.flatMap((info) => info.clients),
+      { autoAlpha: 0, y: -8 },
+    );
+    options.gsap.set(
+      allInfo.flatMap((info) => info.meta),
+      { autoAlpha: 0, y: -8 },
+    );
   }
 
   function syncVisibleInfo() {
     if (isScrollingCards.value) {
       const allInfo = getInfoByCard();
 
-      options.gsap.to(allInfo.flatMap((info) => info.clients), {
-        autoAlpha: 0,
-        y: -8,
-        duration: 0.12,
-        overwrite: true,
-      });
-      options.gsap.to(allInfo.flatMap((info) => info.meta), {
-        autoAlpha: 0,
-        y: -8,
-        duration: 0.12,
-        overwrite: true,
-      });
+      options.gsap.to(
+        allInfo.flatMap((info) => info.clients),
+        {
+          autoAlpha: 0,
+          y: -8,
+          duration: 0.12,
+          overwrite: true,
+        },
+      );
+      options.gsap.to(
+        allInfo.flatMap((info) => info.meta),
+        {
+          autoAlpha: 0,
+          y: -8,
+          duration: 0.12,
+          overwrite: true,
+        },
+      );
       return;
     }
 

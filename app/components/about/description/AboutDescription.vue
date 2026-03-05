@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useWorkSectionAnimation } from "~/composables/animations/work/useWorkSectionAnimation";
+import { useSectionAnimation } from "~/composables/animations/work/useSectionAnimation";
 
-const { shortDescriptionRef } = useWorkSectionAnimation();
+const { shortDescriptionRef } = useSectionAnimation();
 
 const bla = [
   { link: "https://www.google.com", label: "Google" },

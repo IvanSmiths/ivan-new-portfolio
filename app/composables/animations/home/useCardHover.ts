@@ -1,4 +1,4 @@
-export function useWorkHover(opts: {
+export function useCardHover(opts: {
   gsap: typeof gsap;
   images: () => HTMLImageElement[];
   isLocked: () => boolean;

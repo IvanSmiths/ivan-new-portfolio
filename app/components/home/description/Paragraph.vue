@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { nextTick, onMounted, ref } from "vue";
-import { useHomeParagraphRevealAnimation } from "~/composables/animations/home/useHomeParagraphRevealAnimation";
+import { useParagraphReveal } from "~/composables/animations/home/useParagraphReveal";
 import Weather from "~/components/home/description/Weather.vue";
 import Time from "~/components/home/description/Time.vue";
 import Logo2 from "~/components/home/description/Logo2.vue";
@@ -11,7 +11,7 @@ const cityRef = ref<HTMLElement | null>(null);
 const weatherRef = ref<HTMLElement | null>(null);
 const timeRef = ref<HTMLElement | null>(null);
 
-const paragraphRevealAnimation = useHomeParagraphRevealAnimation({
+const paragraphRevealAnimation = useParagraphReveal({
   rootRef: paragraphRef,
   titleRef,
   cityRef,

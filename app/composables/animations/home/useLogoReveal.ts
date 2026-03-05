@@ -1,5 +1,5 @@
 import { onScopeDispose, type Ref } from "vue";
-import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
+import { useLoaderSession } from "~/composables/sessions/useLoaderSession";
 
 function getLetterGroups(lettersRef: Ref<SVGGElement | null>) {
   return Array.from(lettersRef.value?.children ?? [])
@@ -7,9 +7,9 @@ function getLetterGroups(lettersRef: Ref<SVGGElement | null>) {
     .reverse();
 }
 
-export function useHomeLogoRevealAnimation(lettersRef: Ref<SVGGElement | null>) {
+export function useLogoReveal(lettersRef: Ref<SVGGElement | null>) {
   const { $gsap } = useNuxtApp();
-  const { hasSeenLoader, onLoaderDone } = useWorksLoaderSession();
+  const { hasSeenLoader, onLoaderDone } = useLoaderSession();
 
   let ctx: gsap.Context | null = null;
   let stopListening: (() => void) | null = null;

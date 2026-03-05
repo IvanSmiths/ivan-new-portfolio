@@ -1,7 +1,7 @@
 import { onMounted, onScopeDispose, ref } from "vue";
 import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
 
-export function useWorkHeaderAnimation() {
+export function useHeaderAnimation() {
   const { $gsap } = useNuxtApp();
   const { prepareSplitReveal } = useSplitTextAnimation();
 

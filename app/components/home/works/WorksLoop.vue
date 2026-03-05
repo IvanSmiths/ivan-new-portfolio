@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
-import { useHomeCardsLoaderAnimation } from "~/composables/animations/home/useHomeCardsLoaderAnimation";
-import { useHomeCardsLoopAnimation } from "~/composables/animations/home/useHomeCardsLoopAnimation";
-import { useHomeCardsInteractionAnimation } from "~/composables/animations/home/useHomeCardsInteractionAnimation";
-import { useWorkExpandTransition } from "~/composables/animations/home/useWorkExpandTransition";
+import { useCardsLoader } from "~/composables/animations/home/useCardsLoader";
+import { useCardsLoop } from "~/composables/animations/home/useCardsLoop";
+import { useCardsInteraction } from "~/composables/animations/home/useCardsInteraction";
+import { useCardExpandTransition } from "~/composables/animations/home/useCardExpandTransition";
 import { worksCards } from "~/domain/works";
 
 const { $gsap } = useNuxtApp();
@@ -30,13 +30,13 @@ const galleryRef = ref<HTMLElement | null>(null);
 const cardsRef = ref<HTMLElement | null>(null);
 const loaderCardsRef = ref<HTMLElement | null>(null);
 const expandLock = ref(false);
-const cardsInteractionAnimation = useHomeCardsInteractionAnimation({
+const cardsInteractionAnimation = useCardsInteraction({
   cardsRef,
   gsap: $gsap,
   lock: expandLock,
 });
 
-const cardsLoopAnimation = useHomeCardsLoopAnimation({
+const cardsLoopAnimation = useCardsLoop({
   cardsRef,
   galleryRef,
   onScrollActivityChange: cardsInteractionAnimation.onScrollActivityChange,
@@ -44,12 +44,12 @@ const cardsLoopAnimation = useHomeCardsLoopAnimation({
   stepSize,
 });
 
-const cardsLoaderAnimation = useHomeCardsLoaderAnimation({
+const cardsLoaderAnimation = useCardsLoader({
   cardsRef,
   loaderCardsRef,
 });
 
-const expandTransition = useWorkExpandTransition({
+const expandTransition = useCardExpandTransition({
   gsap: $gsap,
   router,
   works: loaderWorks,

@@ -1,7 +1,7 @@
 import { nextTick, onMounted, onScopeDispose, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
-import { useHomeLogoHoverAnimation } from "~/composables/animations/home/useHomeLogoHoverAnimation";
+import { useLogoHover } from "~/composables/animations/home/useLogoHover";
 
 export function useAboutHeroAnimation() {
   const { $gsap, $ScrollTrigger } = useNuxtApp();
@@ -13,7 +13,7 @@ export function useAboutHeroAnimation() {
   const copyRef = ref<HTMLElement | null>(null);
   const imageRef = ref<HTMLElement | null>(null);
   const lettersRef = ref<SVGGElement | null>(null);
-  const hoverAnimation = useHomeLogoHoverAnimation(lettersRef);
+  const hoverAnimation = useLogoHover(lettersRef);
 
   let ctx: gsap.Context | null = null;
   let labelReveal: ReturnType<typeof prepareReveal> | null = null;

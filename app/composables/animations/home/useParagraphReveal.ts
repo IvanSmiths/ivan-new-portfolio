@@ -1,6 +1,6 @@
 import { onScopeDispose, type Ref } from "vue";
 import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
-import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
+import { useLoaderSession } from "~/composables/sessions/useLoaderSession";
 
 type ParagraphRevealRefs = {
   rootRef: Ref<HTMLElement | null>;
@@ -10,10 +10,10 @@ type ParagraphRevealRefs = {
   timeRef: Ref<HTMLElement | null>;
 };
 
-export function useHomeParagraphRevealAnimation(refs: ParagraphRevealRefs) {
+export function useParagraphReveal(refs: ParagraphRevealRefs) {
   const { $gsap } = useNuxtApp();
   const { prepareReveal } = useSplitTextAnimation();
-  const { hasSeenLoader, onLoaderDone } = useWorksLoaderSession();
+  const { hasSeenLoader, onLoaderDone } = useLoaderSession();
 
   let ctx: gsap.Context | null = null;
   let stopListening: (() => void) | null = null;

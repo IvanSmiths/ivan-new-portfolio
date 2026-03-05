@@ -1,5 +1,5 @@
 import { nextTick, onScopeDispose, ref, type Ref } from "vue";
-import { useWorksLoaderSession } from "~/composables/animations/work/useWorksLoaderSession";
+import { useLoaderSession } from "~/composables/sessions/useLoaderSession";
 
 type LoaderPhase = "idle" | "loading" | "animating" | "done";
 
@@ -8,9 +8,9 @@ type UseHomeCardsLoaderAnimationOptions = {
   loaderCardsRef: Ref<HTMLElement | null>;
 };
 
-export function useHomeCardsLoaderAnimation(options: UseHomeCardsLoaderAnimationOptions) {
+export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
   const { $gsap } = useNuxtApp();
-  const { hasSeenLoader, markLoaderSeen, notifyLoaderDone } = useWorksLoaderSession();
+  const { hasSeenLoader, markLoaderSeen, notifyLoaderDone } = useLoaderSession();
 
   const shouldRunLoader = ref(false);
   const shouldHideLiveCards = ref(false);

@@ -2,7 +2,7 @@ import { nextTick, onMounted, onScopeDispose, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
 
-export function useWorkSectionAnimation() {
+export function useSectionAnimation() {
   const { $gsap, $ScrollTrigger } = useNuxtApp();
   const route = useRoute();
   const { prepareSplitReveal } = useSplitTextAnimation();
