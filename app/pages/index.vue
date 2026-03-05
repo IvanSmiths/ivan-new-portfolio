@@ -40,7 +40,7 @@ useHead({
 </script>
 
 <template>
-  <section class="bg-background relative h-screen">
+  <section class="bg-background relative min-h-dvh">
     <Logo />
     <WorksLoop />
   </section>

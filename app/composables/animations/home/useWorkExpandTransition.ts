@@ -1,4 +1,6 @@
 import type { WorkCard } from "~/domain/works/types";
+import { isNavigationFailure } from "vue-router";
+import { nextTick } from "vue";
 
 export function useWorkExpandTransition(opts: {
   gsap: typeof gsap;
@@ -11,18 +13,26 @@ export function useWorkExpandTransition(opts: {
   const { gsap: $gsap } = opts;
 
   let overlay: HTMLDivElement | null = null;
+  let cover: HTMLDivElement | null = null;
+  let deferDisposeCleanup = false;
 
   function cleanup() {
     overlay?.remove();
     overlay = null;
+    cover?.remove();
+    cover = null;
     $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
   }
 
-  onScopeDispose(cleanup);
+  onScopeDispose(() => {
+    if (deferDisposeCleanup) return;
+    cleanup();
+  });
 
   async function onImageClick(event: MouseEvent, index: number) {
     if (opts.lock.value) return;
     opts.lock.value = true;
+    let shouldCleanup = true;
 
     try {
       const work = opts.works[index];
@@ -80,7 +90,7 @@ export function useWorkExpandTransition(opts: {
       await new Promise<void>((resolve) => {
         const tl = $gsap.timeline({ onComplete: resolve });
 
-        const cover = document.createElement("div");
+        cover = document.createElement("div");
         cover.style.cssText = `
           position: fixed;
           inset: 0;
@@ -155,27 +165,39 @@ export function useWorkExpandTransition(opts: {
         tl.fromTo(title, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<");
         tl.fromTo(role, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<+0.05");
         tl.to(labelWrap, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", delay: 0.25 });
-
         tl.to(overlay!, {
+          duration: 1.25,
+          translateY: `70%`,
           top: 0,
           left: 0,
           width: "100vw",
           height: "100vh",
-          borderRadius: 0,
-          duration: 1,
-          ease: "expo.inOut",
+          paddingLeft: 20,
+          paddingRight: 20,
+          ease: "power3.inOut",
         });
         tl.to(cloned, { scale: 1, duration: 1, ease: "power2.out" }, "<");
 
         tl.add(() => {
           labelWrap.remove();
-          cover.remove();
         });
       });
 
-      await opts.router.push(`/works/${work.slug}`);
+      deferDisposeCleanup = true;
+      const navigationResult = await opts.router.push(`/works/${work.slug}`);
+      if (!isNavigationFailure(navigationResult)) {
+        shouldCleanup = false;
+
+        await nextTick();
+        await new Promise<void>((resolve) => {
+          requestAnimationFrame(() => resolve());
+        });
+
+        cleanup();
+      }
     } finally {
-      cleanup();
+      deferDisposeCleanup = false;
+      if (shouldCleanup) cleanup();
       opts.lock.value = false;
     }
   }

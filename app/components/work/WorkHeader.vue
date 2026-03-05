@@ -1,9 +1,6 @@
 <script lang="ts" setup>
-import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 import { useWorkHeaderAnimation } from "~/composables/animations/work/useWorkHeaderAnimation";
 import type { WorkProjectPage } from "~/domain/works/types";
-
-const { phase } = useCurtainTransition();
 
 const props = defineProps<{
   currentIndex: number;
@@ -11,50 +8,50 @@ const props = defineProps<{
   work: WorkProjectPage;
 }>();
 
-const { rootRef, imageWrapRef, titleRef, roleRef, metaBarRef, spacerRef } =
-  useWorkHeaderAnimation();
+const { rootRef, titleRef, roleRef, metaBarRef } = useWorkHeaderAnimation();
 </script>
 
 <template>
-  <section
-    ref="rootRef"
-    :class="['covering', 'covered'].includes(phase) ? 'z-0' : 'z-20'"
-    class="pb-xl relative"
-  >
-    <div class="absolute top-48 left-1/2 z-10 flex -translate-x-1/2 items-center justify-center">
-      <div class="flex flex-col items-center text-center">
-        <div class="overflow-hidden leading-none">
-          <h1 ref="titleRef" class="text-5xl font-black uppercase lg:text-6xl xl:text-9xl">
-            {{ work?.name }}
-          </h1>
-        </div>
+  <section ref="rootRef" class="pb-xl bg-background relative">
+    <div class="bg-background min-h-screen">
+      <div class="z-10 flex h-[70dvh] items-center justify-center">
+        <div class="flex flex-col items-center text-center">
+          <div class="overflow-hidden leading-none">
+            <h1 ref="titleRef" class="text-5xl font-black uppercase lg:text-6xl xl:text-9xl">
+              {{ work?.name }}
+            </h1>
+          </div>
 
-        <div class="mt-5 overflow-hidden leading-[1.1]">
-          <p ref="roleRef" class="font-serif text-lg font-light italic lg:text-5xl">
-            [{{ work?.role }}]
-          </p>
+          <div class="mt-5 overflow-hidden leading-[1.1]">
+            <p ref="roleRef" class="font-serif text-lg font-light italic lg:text-5xl">
+              [{{ work?.role }}]
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div
-      class="absolute top-100 left-1/2 z-10 w-full -translate-x-1/2 px-10 uppercase lg:px-48 xl:top-160"
-    >
-      <div class="overflow-hidden">
-        <div ref="metaBarRef" class="flex items-center justify-between text-sm lg:text-base">
-          <span
-            >{{ String(props.currentIndex + 1).padStart(2, "0") }}-{{
-              String(totalWorks).padStart(2, "0")
-            }}</span
-          >
-          <span>{{ work?.date }}</span>
+      <div
+        class="absolute top-[66dvh] left-1/2 z-10 w-full -translate-x-1/2 overflow-hidden px-10 uppercase lg:px-48"
+      >
+        <div>
+          <div ref="metaBarRef" class="flex items-center justify-between text-sm lg:text-base">
+            <span
+              >{{ String(props.currentIndex + 1).padStart(2, "0") }}-{{
+                String(totalWorks).padStart(2, "0")
+              }}</span
+            >
+            <span>{{ work?.date }}</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div ref="imageWrapRef" class="relative z-20 will-change-transform">
-      <img :src="work?.homeImage.url" alt="" class="min-h-screen w-full origin-top object-cover" />
+      <div>
+        <img
+          :src="work?.homeImage.url"
+          alt=""
+          class="min-h-screen w-full origin-top object-cover object-top px-5"
+        />
+      </div>
     </div>
-    <div ref="spacerRef" class="w-full" />
   </section>
 </template>

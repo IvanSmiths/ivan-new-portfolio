@@ -14,6 +14,29 @@ export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) 
   let tl: ReturnType<typeof $gsap.timeline>;
   let st: any;
   let committed = false;
+  let cover: HTMLDivElement | null = null;
+
+  const removeCover = () => {
+    cover?.remove();
+    cover = null;
+  };
+
+  const ensureCover = () => {
+    if (cover) return cover;
+
+    cover = document.createElement("div");
+    cover.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background: black;
+      z-index: 9;
+      opacity: 0;
+      pointer-events: none;
+    `;
+    document.body.appendChild(cover);
+
+    return cover;
+  };
 
   onMounted(async () => {
     await nextTick();
@@ -59,6 +82,22 @@ export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) 
         duration: 0.8,
       },
       0,
+    );
+    tl.add(() => {
+      const coverEl = ensureCover();
+      $gsap.to(coverEl, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
+    }, 0.8);
+    tl.to(
+      imageContainerRef.value,
+      {
+        translateY: `70%`,
+        paddingLeft: 20,
+        paddingRight: 20,
+        top: 0,
+        scale: 1,
+        duration: 0.8,
+      },
+      0.8,
     );
 
     tl.to(
@@ -117,6 +156,7 @@ export function useNextWorkAnimation(options: UseNextWorkAnimationOptions = {}) 
     if (tl) tl.kill();
     if (st) st.kill();
     $ScrollTrigger.getAll().forEach((t: { kill: () => void }) => t.kill());
+    removeCover();
   });
 
   return { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef };

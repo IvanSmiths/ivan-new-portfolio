@@ -13,6 +13,8 @@ type ScrollTriggerInstance = {
 type UseHomeCardsLoopAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
   galleryRef: Ref<HTMLElement | null>;
+  onScrollActivityChange?: (isScrolling: boolean) => void;
+  onSnappedIndexChange?: (index: number) => void;
   stepSize?: number;
 };
 
@@ -34,7 +36,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
   const INITIAL_X_PERCENT = 400;
   const FROM_X_PERCENT = 600;
   const TO_X_PERCENT = -600;
-  const INITIAL_SCALE = 0;
+  const INITIAL_SCALE = 0.5;
   const SCALE_FROM = 0.5;
   const SCALE_TO = 1;
 
@@ -73,6 +75,11 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     ctx = null;
     scrubToLoop = null;
     getCurrentTime = null;
+  }
+
+  function getSnappedIndex(totalTime: number, itemsCount: number) {
+    const rawIndex = Math.round(totalTime / STEP_SIZE);
+    return ((rawIndex % itemsCount) + itemsCount) % itemsCount;
   }
 
   function buildSeamlessLoop(items: HTMLElement[], spacing: number) {
@@ -165,6 +172,9 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     ctx = $gsap.context(() => {
       const cards = getCards();
       if (!cards.length) return;
+      const syncSnappedIndex = (totalTime: number) => {
+        options.onSnappedIndexChange?.(getSnappedIndex(totalTime, cards.length));
+      };
 
       let iteration = 0;
 
@@ -221,6 +231,8 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
           scrub.vars.totalTime = snappedTotalTime;
           scrub.invalidate().restart();
 
+          syncSnappedIndex(snappedTotalTime);
+          options.onScrollActivityChange?.(false);
           scrubTo(snappedTotalTime);
         })
         .pause();
@@ -247,12 +259,15 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
 
           self.wrapping = false;
 
+          options.onScrollActivityChange?.(true);
           snapCall.restart(true);
         },
       });
 
       scrubToLoop = scrubTo;
       getCurrentTime = () => Number(scrub.vars.totalTime ?? 0);
+      options.onScrollActivityChange?.(false);
+      syncSnappedIndex(0);
     }, options.galleryRef.value);
 
     $ScrollTrigger.refresh();
