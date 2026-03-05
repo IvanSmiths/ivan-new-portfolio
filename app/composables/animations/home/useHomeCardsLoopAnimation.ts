@@ -177,6 +177,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       };
 
       let iteration = 0;
+      let isProgrammaticSettle = false;
 
       const snap = $gsap.utils.snap(STEP_SIZE);
       const seamlessLoop = buildSeamlessLoop(cards, STEP_SIZE);
@@ -217,7 +218,15 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
 
         if (progress > 1) wrapForward(trigger);
         else if (progress < 0) wrapBackward(trigger);
-        else trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
+        else {
+          isProgrammaticSettle = true;
+          trigger.wrapping = true;
+          trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
+
+          requestAnimationFrame(() => {
+            isProgrammaticSettle = false;
+          });
+        }
       };
 
       const snapCall = $gsap
@@ -244,6 +253,13 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
         pin: true,
         invalidateOnRefresh: true,
         onUpdate(self: ScrollTriggerInstance) {
+          if (isProgrammaticSettle) {
+            scrub.vars.totalTime = (iteration + self.progress) * seamlessLoop.duration();
+            scrub.invalidate().restart();
+            self.wrapping = false;
+            return;
+          }
+
           if (self.progress === 1 && self.direction > 0 && !self.wrapping) {
             wrapForward(self);
             return;
