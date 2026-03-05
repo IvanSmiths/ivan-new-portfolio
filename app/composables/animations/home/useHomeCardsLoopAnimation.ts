@@ -3,6 +3,7 @@ import { nextTick, onScopeDispose, type Ref } from "vue";
 type ScrollTriggerInstance = {
   direction: number;
   end: number;
+  getVelocity?: () => number;
   kill: () => void;
   progress: number;
   scroll: (value: number) => void;
@@ -40,6 +41,10 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
   const INITIAL_SCALE = 0.5;
   const SCALE_FROM = 0.5;
   const SCALE_TO = 1;
+  const IMAGE_SHIFT_X_MAX = 16;
+  const FORCE_TO_IMAGE_SHIFT_X = 0.03;
+  const IMAGE_SHIFT_SMOOTH_DURATION = 0.2;
+  const FORCE_EFFECT_SUPPRESS_AFTER_WRAP_MS = 90;
 
   /* =============================== */
 
@@ -51,6 +56,12 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
 
   function getCards() {
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
+  }
+
+  function getImages() {
+    return Array.from(
+      options.cardsRef.value?.querySelectorAll<HTMLImageElement>("[data-work-image]") ?? [],
+    );
   }
 
   function cancelScheduledInit() {
@@ -77,6 +88,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     cancelScheduledInit();
     removeEdgeWheelListener?.();
     removeEdgeWheelListener = null;
+    $gsap.set(getImages(), { x: 0 });
     ctx?.kill(false);
     ctx = null;
     scrubToLoop = null;
@@ -178,6 +190,32 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
     ctx = $gsap.context(() => {
       const cards = getCards();
       if (!cards.length) return;
+      const images = getImages();
+      const setImagesShiftX = $gsap.quickTo(images, "x", {
+        duration: IMAGE_SHIFT_SMOOTH_DURATION,
+        ease: "power2.out",
+        overwrite: true,
+      });
+      const applyScrollForceImageShift = (force: number) => {
+        const clampedShift = $gsap.utils.clamp(
+          -IMAGE_SHIFT_X_MAX,
+          IMAGE_SHIFT_X_MAX,
+          force * FORCE_TO_IMAGE_SHIFT_X,
+        );
+
+        setImagesShiftX(clampedShift);
+      };
+      const resetImagesShift = () => {
+        setImagesShiftX(0);
+      };
+      const getNow = () =>
+        typeof performance !== "undefined" ? performance.now() : Date.now();
+      let suppressForceEffectUntil = 0;
+      const suppressForceEffect = () => {
+        suppressForceEffectUntil = getNow() + FORCE_EFFECT_SUPPRESS_AFTER_WRAP_MS;
+        resetImagesShift();
+      };
+
       const syncSnappedIndex = (totalTime: number) => {
         options.onSnappedIndexChange?.(getSnappedIndex(totalTime, cards.length));
       };
@@ -198,6 +236,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       const wrapForward = (activeTrigger: ScrollTriggerInstance) => {
         iteration += 1;
         activeTrigger.wrapping = true;
+        suppressForceEffect();
         activeTrigger.scroll(activeTrigger.start + 1);
       };
 
@@ -211,6 +250,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
         }
 
         activeTrigger.wrapping = true;
+        suppressForceEffect();
         activeTrigger.scroll(activeTrigger.end - 1);
       };
 
@@ -231,6 +271,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
           const safeProgress = $gsap.utils.clamp(edgeProgress, 1 - edgeProgress, progress);
 
           skipProgrammaticUpdate = true;
+          suppressForceEffect();
           trigger.scroll(trigger.start + safeProgress * getRange());
         }
       };
@@ -247,6 +288,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
           scrub.invalidate().restart();
 
           syncSnappedIndex(snappedTotalTime);
+          resetImagesShift();
           options.onScrollActivityChange?.(false);
           scrubTo(snappedTotalTime);
         })
@@ -272,7 +314,14 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
           if (skipProgrammaticUpdate) {
             skipProgrammaticUpdate = false;
             self.wrapping = false;
+            suppressForceEffect();
             return;
+          }
+
+          if (self.wrapping || getNow() < suppressForceEffectUntil) {
+            resetImagesShift();
+          } else {
+            applyScrollForceImageShift(self.getVelocity?.() ?? 0);
           }
 
           const edgeProgress = EDGE_SCROLL_OFFSET / Math.max(self.end - self.start, 1);
