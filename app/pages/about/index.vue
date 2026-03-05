@@ -1,11 +1,7 @@
 <script lang="ts" setup>
-import AboutClients from "~/components/about/clients/AboutClients.vue";
-import AboutHero from "~/components/about/hero/AboutHero.vue";
+import AppGrid from "~/components/global/grid/AppGrid.vue";
 </script>
 
 <template>
-  <section class="bg-background px-5">
-    <AboutHero />
-    <AboutClients />
-  </section>
+  <AppGrid class="bg-background" />
 </template>

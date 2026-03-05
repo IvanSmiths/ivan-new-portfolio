@@ -42,7 +42,7 @@ useHead({
 
 <template>
   <section class="bg-background relative min-h-dvh">
-    <AppGrid class="min-h-dvh">
+    <AppGrid class="min-h-dvh overflow-visible">
       <WorksLoop class="col-span-full" />
     </AppGrid>
     <Logo />
