@@ -245,7 +245,6 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
         width: startRect.width,
         height: startRect.height,
         autoAlpha: 1,
-        borderRadius: 10,
         zIndex: centerZIndices[index] ?? 1,
         willChange: "transform,width,height,opacity",
       });
@@ -269,33 +268,27 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
         .to(loaderCards, {
           yPercent: 0,
           autoAlpha: 1,
-          duration: 2,
-          stagger: 0.05,
+          duration: 1,
+          stagger: 0.03,
         })
-        .to(
-          loaderShells,
-          {
-            x: (index) => targetRects[index]?.left ?? 0,
-            y: (index) => targetRects[index]?.top ?? 0,
-            width: (index) => targetRects[index]?.width ?? 0,
-            height: (index) => targetRects[index]?.height ?? 0,
-            borderRadius: 0,
-            duration: 1.1,
-            delay: 0.7,
-            ease: "expo.inOut",
-            stagger: spreadFromCenter,
-          },
-          0.24,
-        )
+        .to(loaderShells, {
+          x: (index) => targetRects[index]?.left ?? 0,
+          y: (index) => targetRects[index]?.top ?? 0,
+          width: (index) => targetRects[index]?.width ?? 0,
+          height: (index) => targetRects[index]?.height ?? 0,
+          duration: 2,
+          ease: "expo.inOut",
+          stagger: spreadFromCenter,
+        })
         .to(
           loaderImages,
           {
             scale: 1,
-            duration: 1.1,
+            duration: 1,
             ease: "power2.out",
             stagger: spreadFromCenter,
           },
-          0.24,
+          2.2,
         )
         .add(() => {
           shouldHideLiveCards.value = false;
