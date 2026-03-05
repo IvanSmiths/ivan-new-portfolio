@@ -29,6 +29,7 @@ export type WorkCard = {
   slug: string;
   title: string;
   role: string;
+  name: string;
   clients: string[];
   image: string;
   type: "Work" | "Project";

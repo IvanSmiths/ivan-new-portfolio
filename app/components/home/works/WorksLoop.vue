@@ -226,8 +226,14 @@ onBeforeRouteLeave(() => {
               {{ client }}
             </span>
           </div>
-          <span class="text-foreground absolute -bottom-7 opacity-0" data-client-chip>
+          <span class="text-foreground absolute -bottom-7 left-0 opacity-0" data-client-chip>
             {{ work.role }}
+          </span>
+          <span
+            class="text-foreground absolute right-0 -bottom-7 text-right opacity-0"
+            data-client-chip
+          >
+            {{ work.name }}
           </span>
         </div>
       </li>
