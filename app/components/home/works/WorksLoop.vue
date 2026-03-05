@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
 import { useHomeCardsLoaderAnimation } from "~/composables/animations/home/useHomeCardsLoaderAnimation";
 import { useHomeCardsLoopAnimation } from "~/composables/animations/home/useHomeCardsLoopAnimation";
-import { useWorkHover } from "~/composables/animations/home/useWorkHover";
+import { useHomeCardsInteractionAnimation } from "~/composables/animations/home/useHomeCardsInteractionAnimation";
 import { useWorkExpandTransition } from "~/composables/animations/home/useWorkExpandTransition";
 import { worksCards } from "~/domain/works";
 
@@ -30,72 +30,17 @@ const galleryRef = ref<HTMLElement | null>(null);
 const cardsRef = ref<HTMLElement | null>(null);
 const loaderCardsRef = ref<HTMLElement | null>(null);
 const expandLock = ref(false);
-const hoveredCardIndex = ref<number | null>(null);
-const isScrollingCards = ref(false);
-const snappedCardIndex = ref(0);
-
-function getCards() {
-  return Array.from(cardsRef.value?.querySelectorAll<HTMLElement>("[data-work-card]") ?? []);
-}
-
-function getImages() {
-  return Array.from(cardsRef.value?.querySelectorAll<HTMLImageElement>("[data-work-image]") ?? []);
-}
-
-function getClientsByIndex() {
-  return getCards().map((card) =>
-    Array.from(card.querySelectorAll<HTMLElement>("[data-client-chip]")),
-  );
-}
-
-function syncVisibleClients() {
-  if (isScrollingCards.value) {
-    $gsap.to(getClientsByIndex().flat(), {
-      autoAlpha: 0,
-      y: -8,
-      duration: 0.12,
-      overwrite: true,
-    });
-    return;
-  }
-
-  const visibleIndexes = new Set<number>([snappedCardIndex.value]);
-  if (hoveredCardIndex.value !== null) {
-    visibleIndexes.add(hoveredCardIndex.value);
-  }
-
-  getClientsByIndex().forEach((clients, index) => {
-    const shouldShow = visibleIndexes.has(index);
-
-    $gsap.to(clients, {
-      autoAlpha: shouldShow ? 1 : 0,
-      y: shouldShow ? 0 : -8,
-      duration: shouldShow ? 0.3 : 0.18,
-      stagger: shouldShow ? 0.08 : 0,
-      ease: shouldShow ? "power2.out" : "power1.out",
-      overwrite: true,
-    });
-  });
-}
-
-const workHover = useWorkHover({
+const cardsInteractionAnimation = useHomeCardsInteractionAnimation({
+  cardsRef,
   gsap: $gsap,
-  images: getImages,
-  clientsByIndex: getClientsByIndex,
-  isLocked: () => expandLock.value,
+  lock: expandLock,
 });
 
 const cardsLoopAnimation = useHomeCardsLoopAnimation({
   cardsRef,
   galleryRef,
-  onScrollActivityChange(isScrolling) {
-    isScrollingCards.value = isScrolling;
-    syncVisibleClients();
-  },
-  onSnappedIndexChange(index) {
-    snappedCardIndex.value = index;
-    syncVisibleClients();
-  },
+  onScrollActivityChange: cardsInteractionAnimation.onScrollActivityChange,
+  onSnappedIndexChange: cardsInteractionAnimation.onSnappedIndexChange,
   stepSize,
 });
 
@@ -108,41 +53,17 @@ const expandTransition = useWorkExpandTransition({
   gsap: $gsap,
   router,
   works: loaderWorks,
-  cards: () => Array.from(cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []),
-  images: () => Array.from(cardsRef.value?.querySelectorAll<HTMLImageElement>("img") ?? []),
+  cards: cardsInteractionAnimation.getCardsForTransition,
+  images: cardsInteractionAnimation.getImagesForTransition,
   lock: expandLock,
 });
 
-function stepBy(delta: number) {
-  cardsLoopAnimation.stepBy(delta);
-}
-
-function onWorkClick(event: MouseEvent, index: number) {
-  void expandTransition.onImageClick(event, index);
-}
-
-function onCardEnter(index: number) {
-  if (expandLock.value) return;
-
-  hoveredCardIndex.value = index;
-  workHover.hoverIn(index);
-  syncVisibleClients();
-}
-
-function onCardLeave() {
-  if (expandLock.value) return;
-
-  hoveredCardIndex.value = null;
-  workHover.hoverOut();
-  syncVisibleClients();
-}
-
 onMounted(() => {
   cardsLoaderAnimation.prepare();
-  workHover.hideAllClients();
+  cardsInteractionAnimation.hideAllInfo();
 
   void cardsLoopAnimation.initAfterLayout().then(() => {
-    syncVisibleClients();
+    cardsInteractionAnimation.syncVisibleInfo();
 
     if (!cardsLoaderAnimation.shouldRunLoader.value) return;
     void cardsLoaderAnimation.play();
@@ -201,8 +122,8 @@ onBeforeRouteLeave(() => {
         :key="key"
         class="absolute inset-0 h-full w-full cursor-pointer list-none"
         data-work-card
-        @mouseenter="onCardEnter(index)"
-        @mouseleave="onCardLeave"
+        @mouseenter="cardsInteractionAnimation.onCardEnter(index)"
+        @mouseleave="cardsInteractionAnimation.onCardLeave"
       >
         <div class="h-full w-full overflow-hidden">
           <img
@@ -211,7 +132,7 @@ onBeforeRouteLeave(() => {
             class="h-full w-full object-cover object-top"
             data-work-image
             draggable="false"
-            @click="onWorkClick($event, index)"
+            @click="expandTransition.onImageClick($event, index)"
           />
           <div
             v-if="work.clients.length"
@@ -226,12 +147,12 @@ onBeforeRouteLeave(() => {
               {{ client }}
             </span>
           </div>
-          <span class="text-foreground absolute -bottom-7 left-0 opacity-0" data-client-chip>
+          <span class="text-foreground absolute -bottom-7 left-0 opacity-0" data-work-meta>
             {{ work.role }}
           </span>
           <span
             class="text-foreground absolute right-0 -bottom-7 text-right opacity-0"
-            data-client-chip
+            data-work-meta
           >
             {{ work.name }}
           </span>
