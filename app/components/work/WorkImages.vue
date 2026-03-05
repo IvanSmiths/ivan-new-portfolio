@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { WorkProjectPage } from "~/domain/works/types";
+import AppGrid from "~/components/global/grid/AppGrid.vue";
 
 const props = defineProps<{
   work: WorkProjectPage;
@@ -7,29 +8,30 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="w-full">
-    <div class="gap-md flex h-full w-full flex-col items-center">
-      <template v-for="(imagees, index) in work.images" :key="index">
+  <AppGrid as="section" class="w-full">
+    <template v-for="(images, index) in work.images" :key="index">
+      <div
+        v-if="images.layout === 'single'"
+        class="col-span-full w-full md:col-start-4 md:col-end-14"
+      >
         <img
-          v-if="imagees.layout === 'single'"
           :alt="`${work.name} image ${index + 1}`"
-          :src="imagees.src"
-          class="aspect-video w-8/12 object-contain"
+          :src="images.src"
+          class="aspect-video w-full object-contain"
         />
-
-        <div
-          v-else-if="imagees.layout === 'row'"
-          class="gap-md flex w-full flex-col justify-center md:flex-row"
-        >
-          <img
-            v-for="(src, i) in imagees.src"
-            :key="src"
-            :alt="`${work.name} image ${index + 1}-${i + 1}`"
-            :src="src"
-            class="aspect-video w-full object-contain md:w-5/12"
-          />
-        </div>
-      </template>
-    </div>
-  </div>
+      </div>
+      <div
+        v-else-if="images.layout === 'row'"
+        class="gap-md col-span-full flex w-full flex-col justify-start md:col-start-4 md:col-end-14 md:flex-row"
+      >
+        <img
+          v-for="(src, i) in images.src"
+          :key="src"
+          :alt="`${work.name} image ${index + 1}-${i + 1}`"
+          :src="src"
+          class="md:pr-md aspect-video w-full object-contain md:w-1/2"
+        />
+      </div>
+    </template>
+  </AppGrid>
 </template>
