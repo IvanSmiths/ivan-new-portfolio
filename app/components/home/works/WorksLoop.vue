@@ -10,8 +10,9 @@ import { worksCards } from "~/domain/works";
 const { $gsap } = useNuxtApp();
 const router = useRouter();
 
-const stepSize = 0.1;
-const minimumCards = Math.ceil(1 / stepSize) + Math.ceil(0.5 / stepSize) + 1;
+const cardGapPx = 20;
+const scrollDistancePx = 3000;
+const minimumCards = 20;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
 const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
   const work = worksCards[index % worksCards.length];
@@ -39,9 +40,10 @@ const cardsInteractionAnimation = useCardsInteraction({
 const cardsLoopAnimation = useCardsLoop({
   cardsRef,
   galleryRef,
+  cardGapPx,
   onScrollActivityChange: cardsInteractionAnimation.onScrollActivityChange,
   onSnappedIndexChange: cardsInteractionAnimation.onSnappedIndexChange,
-  stepSize,
+  scrollDistancePx,
 });
 
 const cardsLoaderAnimation = useCardsLoader({
@@ -115,7 +117,7 @@ onBeforeRouteLeave(() => {
     <ul
       ref="cardsRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
-      class="absolute top-1/2 left-1/2 h-96 w-80 -translate-x-1/2 -translate-y-1/2"
+      class="works-loop-cards absolute top-1/2 h-96 -translate-y-1/2"
     >
       <li
         v-for="({ work, key }, index) in loopWorks"
@@ -161,3 +163,20 @@ onBeforeRouteLeave(() => {
     </ul>
   </div>
 </template>
+
+<style scoped>
+.works-loop-cards {
+  --works-grid-columns: 16;
+  --works-grid-gap: var(--spacing-md);
+  --works-column-size: calc(
+    (100% - (var(--works-grid-columns) - 1) * var(--works-grid-gap)) / var(--works-grid-columns)
+  );
+  --works-start-column: 7;
+  --works-span-columns: 4;
+  left: calc((var(--works-start-column) - 1) * (var(--works-column-size) + var(--works-grid-gap)));
+  width: calc(
+    var(--works-span-columns) * var(--works-column-size) + (var(--works-span-columns) - 1) *
+      var(--works-grid-gap)
+  );
+}
+</style>

@@ -72,10 +72,8 @@ useHead({
   <ClientOnly>
     <CursorHelper />
   </ClientOnly>
-  <div>
-    <div ref="pageEl">
-      <NuxtPage />
-    </div>
+  <div ref="pageEl">
+    <NuxtPage />
   </div>
   <CurtainTransition />
 </template>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import WorksLoop from "~/components/home/works/WorksLoop.vue";
 import Logo from "~/components/home/description/Logo.vue";
+import AppGrid from "~/components/global/grid/AppGrid.vue";
 
 const title = "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
 const description =
@@ -41,7 +42,9 @@ useHead({
 
 <template>
   <section class="bg-background relative min-h-dvh">
+    <AppGrid class="min-h-dvh">
+      <WorksLoop class="col-span-full" />
+    </AppGrid>
     <Logo />
-    <WorksLoop />
   </section>
 </template>

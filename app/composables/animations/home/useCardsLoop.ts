@@ -14,9 +14,10 @@ type ScrollTriggerInstance = {
 type UseHomeCardsLoopAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
   galleryRef: Ref<HTMLElement | null>;
+  cardGapPx?: number;
   onScrollActivityChange?: (isScrolling: boolean) => void;
   onSnappedIndexChange?: (index: number) => void;
-  stepSize?: number;
+  scrollDistancePx?: number;
 };
 
 export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
@@ -26,8 +27,9 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
      Animation tuning variables
   =============================== */
 
-  const STEP_SIZE = options.stepSize ?? 0.1;
-  const SCROLL_DISTANCE = 3000;
+  const DEFAULT_LOOP_TIMELINE_SPACING = 0.09;
+  const DEFAULT_CARD_GAP_PX = 20;
+  const DEFAULT_SCROLL_DISTANCE = 3000;
   const SCRUB_DURATION = 0.5;
   const SCRUB_EASE = "power3";
   const SNAP_DELAY = 0.3;
@@ -49,6 +51,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   /* =============================== */
 
   let ctx: gsap.Context | null = null;
+  let loopTimelineSpacing = DEFAULT_LOOP_TIMELINE_SPACING;
   let scrubToLoop: ((totalTime: number) => void) | null = null;
   let getCurrentTime: (() => number) | null = null;
   let initFrameId: number | null = null;
@@ -62,6 +65,19 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
     return Array.from(
       options.cardsRef.value?.querySelectorAll<HTMLImageElement>("[data-work-image]") ?? [],
     );
+  }
+
+  function getTimelineSpacingFromGap(cardWidthPx: number, gapPx: number) {
+    const safeCardWidth = Math.max(cardWidthPx, 1);
+    const safeGap = Math.max(gapPx, 0);
+    const travelPercent = Math.abs(TO_X_PERCENT - FROM_X_PERCENT);
+    if (travelPercent <= 0 || MOVE_DURATION <= 0) return DEFAULT_LOOP_TIMELINE_SPACING;
+
+    const requiredOffsetPx = safeCardWidth + safeGap;
+    const requiredOffsetPercent = (requiredOffsetPx / safeCardWidth) * 100;
+    const velocityPercentPerTimeUnit = travelPercent / MOVE_DURATION;
+
+    return Math.max(0.001, requiredOffsetPercent / velocityPercentPerTimeUnit);
   }
 
   function cancelScheduledInit() {
@@ -96,7 +112,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   }
 
   function getSnappedIndex(totalTime: number, itemsCount: number) {
-    const rawIndex = Math.round(totalTime / STEP_SIZE);
+    const rawIndex = Math.round(totalTime / loopTimelineSpacing);
     return ((rawIndex % itemsCount) + itemsCount) % itemsCount;
   }
 
@@ -190,6 +206,14 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
     ctx = $gsap.context(() => {
       const cards = getCards();
       if (!cards.length) return;
+      const cardGapPx =
+        typeof options.cardGapPx === "number" ? options.cardGapPx : DEFAULT_CARD_GAP_PX;
+      const cardWidth = cards[0]?.getBoundingClientRect().width ?? 0;
+      loopTimelineSpacing = getTimelineSpacingFromGap(cardWidth, cardGapPx);
+      const scrollDistance =
+        typeof options.scrollDistancePx === "number" && options.scrollDistancePx > 0
+          ? options.scrollDistancePx
+          : DEFAULT_SCROLL_DISTANCE;
       const images = getImages();
       const setImagesShiftX = $gsap.quickTo(images, "x", {
         duration: IMAGE_SHIFT_SMOOTH_DURATION,
@@ -222,8 +246,8 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       let iteration = 0;
       let skipProgrammaticUpdate = false;
 
-      const snap = $gsap.utils.snap(STEP_SIZE);
-      const seamlessLoop = buildSeamlessLoop(cards, STEP_SIZE);
+      const snap = $gsap.utils.snap(loopTimelineSpacing);
+      const seamlessLoop = buildSeamlessLoop(cards, loopTimelineSpacing);
 
       const scrub = $gsap.to(seamlessLoop, {
         totalTime: 0,
@@ -296,7 +320,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       trigger = $ScrollTrigger.create({
         trigger: options.galleryRef.value,
         start: "top top",
-        end: `+=${SCROLL_DISTANCE}`,
+        end: `+=${scrollDistance}`,
         pin: true,
         invalidateOnRefresh: true,
         onLeave(self: ScrollTriggerInstance) {

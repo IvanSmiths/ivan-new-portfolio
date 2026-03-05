@@ -95,7 +95,16 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     return Promise.all(images.map((image) => waitForImage(image)));
   }
 
-  function getLoaderStartRects(targetCards: HTMLElement[]) {
+  function toRelativeRect(rect: DOMRect, containerRect: DOMRect) {
+    return {
+      left: rect.left - containerRect.left,
+      top: rect.top - containerRect.top,
+      width: rect.width,
+      height: rect.height,
+    };
+  }
+
+  function getLoaderStartRects(targetCards: HTMLElement[], containerRect: DOMRect) {
     const firstRect = targetCards[0]?.getBoundingClientRect();
     const targetWidth = firstRect?.width ?? 224;
     const targetHeight = firstRect?.height ?? 384;
@@ -111,8 +120,8 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     const startLeft = (window.innerWidth - startWidth) / 2;
 
     return targetCards.map((_, index) => ({
-      x: startLeft,
-      y: startTop + index * (startHeight + gap),
+      x: startLeft - containerRect.left,
+      y: startTop - containerRect.top + index * (startHeight + gap),
       width: startWidth,
       height: startHeight,
     }));
@@ -210,10 +219,19 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
       return;
     }
 
-    const startRects = getLoaderStartRects(targetCards);
-    const targetRects = targetCards.map((card) => card.getBoundingClientRect());
+    const loaderContainerRect = options.loaderCardsRef.value?.getBoundingClientRect();
+    if (!loaderContainerRect) {
+      completeLoaderRun();
+      return;
+    }
+
+    const startRects = getLoaderStartRects(targetCards, loaderContainerRect);
+    const targetViewportRects = targetCards.map((card) => card.getBoundingClientRect());
+    const targetRects = targetViewportRects.map((rect) =>
+      toRelativeRect(rect, loaderContainerRect),
+    );
     const { stagger: spreadFromCenter, zIndices: centerZIndices } = createCenterSpreadData(
-      targetRects,
+      targetViewportRects,
       0.03,
     );
 
