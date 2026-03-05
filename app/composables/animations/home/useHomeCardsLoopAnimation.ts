@@ -30,6 +30,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
   const SCRUB_DURATION = 0.5;
   const SCRUB_EASE = "power3";
   const SNAP_DELAY = 0.3;
+  const EDGE_SCROLL_OFFSET = 2;
   const SCALE_DURATION = 0.5;
   const SCALE_EASE = "power1.in";
   const MOVE_DURATION = 1;
@@ -177,7 +178,7 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       };
 
       let iteration = 0;
-      let isProgrammaticSettle = false;
+      let skipProgrammaticUpdate = false;
 
       const snap = $gsap.utils.snap(STEP_SIZE);
       const seamlessLoop = buildSeamlessLoop(cards, STEP_SIZE);
@@ -209,6 +210,8 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
       };
 
       let trigger: ScrollTriggerInstance | null = null;
+      const getRange = () => (trigger ? Math.max(trigger.end - trigger.start, 1) : 1);
+      const getEdgeProgress = () => EDGE_SCROLL_OFFSET / getRange();
 
       const scrubTo = (totalTime: number) => {
         if (!trigger) return;
@@ -219,13 +222,11 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
         if (progress > 1) wrapForward(trigger);
         else if (progress < 0) wrapBackward(trigger);
         else {
-          isProgrammaticSettle = true;
-          trigger.wrapping = true;
-          trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
+          const edgeProgress = getEdgeProgress();
+          const safeProgress = $gsap.utils.clamp(edgeProgress, 1 - edgeProgress, progress);
 
-          requestAnimationFrame(() => {
-            isProgrammaticSettle = false;
-          });
+          skipProgrammaticUpdate = true;
+          trigger.scroll(trigger.start + safeProgress * getRange());
         }
       };
 
@@ -252,20 +253,31 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
         end: `+=${SCROLL_DISTANCE}`,
         pin: true,
         invalidateOnRefresh: true,
+        onLeave(self: ScrollTriggerInstance) {
+          if (self.direction > 0 && !self.wrapping) {
+            wrapForward(self);
+          }
+        },
+        onLeaveBack(self: ScrollTriggerInstance) {
+          if (self.direction < 0 && !self.wrapping) {
+            wrapBackward(self);
+          }
+        },
         onUpdate(self: ScrollTriggerInstance) {
-          if (isProgrammaticSettle) {
-            scrub.vars.totalTime = (iteration + self.progress) * seamlessLoop.duration();
-            scrub.invalidate().restart();
+          if (skipProgrammaticUpdate) {
+            skipProgrammaticUpdate = false;
             self.wrapping = false;
             return;
           }
 
-          if (self.progress === 1 && self.direction > 0 && !self.wrapping) {
+          const edgeProgress = EDGE_SCROLL_OFFSET / Math.max(self.end - self.start, 1);
+
+          if (self.progress >= 1 - edgeProgress && self.direction > 0 && !self.wrapping) {
             wrapForward(self);
             return;
           }
 
-          if (self.progress < 0.00001 && self.direction < 0 && !self.wrapping) {
+          if (self.progress <= edgeProgress && self.direction < 0 && !self.wrapping) {
             wrapBackward(self);
             return;
           }
@@ -279,6 +291,11 @@ export function useHomeCardsLoopAnimation(options: UseHomeCardsLoopAnimationOpti
           snapCall.restart(true);
         },
       });
+
+      if (trigger.start <= EDGE_SCROLL_OFFSET) {
+        skipProgrammaticUpdate = true;
+        trigger.scroll(trigger.start + EDGE_SCROLL_OFFSET);
+      }
 
       scrubToLoop = scrubTo;
       getCurrentTime = () => Number(scrub.vars.totalTime ?? 0);
