@@ -2,6 +2,7 @@ import { ref, type Ref } from "vue";
 
 type UseWorkCardInfoAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
+  metaRef: Ref<HTMLElement | null>;
   gsap: typeof gsap;
 };
 
@@ -21,10 +22,21 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
     );
   }
 
+  function getMetaGroups() {
+    return Array.from(
+      options.metaRef.value?.querySelectorAll<HTMLElement>("[data-work-meta-group]") ?? [],
+    );
+  }
+
   function getInfoByCard(): CardInfoElements[] {
-    return getCards().map((card) => ({
+    const cards = getCards();
+    const metaGroups = getMetaGroups();
+
+    return cards.map((card, index) => ({
       clients: Array.from(card.querySelectorAll<HTMLElement>("[data-client-chip]")),
-      meta: Array.from(card.querySelectorAll<HTMLElement>("[data-work-meta]")),
+      meta: Array.from(
+        (metaGroups[index] ?? card).querySelectorAll<HTMLElement>("[data-work-meta]"),
+      ),
     }));
   }
 

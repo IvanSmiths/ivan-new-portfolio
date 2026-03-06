@@ -29,10 +29,12 @@ const loaderWorks = loopWorks.map(({ work }) => work);
 
 const galleryRef = ref<HTMLElement | null>(null);
 const cardsRef = ref<HTMLElement | null>(null);
+const metaRef = ref<HTMLElement | null>(null);
 const loaderCardsRef = ref<HTMLElement | null>(null);
 const expandLock = ref(false);
 const cardsInteractionAnimation = useCardsInteraction({
   cardsRef,
+  metaRef,
   gsap: $gsap,
   lock: expandLock,
 });
@@ -149,18 +151,29 @@ onBeforeRouteLeave(() => {
               {{ client }}
             </span>
           </div>
-          <span class="text-foreground absolute -bottom-7 left-0 opacity-0" data-work-meta>
-            {{ work.role }}
-          </span>
-          <span
-            class="text-foreground absolute right-0 -bottom-7 text-right opacity-0"
-            data-work-meta
-          >
-            {{ work.name }}
-          </span>
         </div>
       </li>
     </ul>
+
+    <div
+      ref="metaRef"
+      :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
+      class="bottom-xl pointer-events-none fixed left-1/2 z-20 -translate-x-1/2"
+    >
+      <div
+        v-for="({ work, key }, index) in loopWorks"
+        :key="`${key}-meta-${index}`"
+        class="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-between"
+        data-work-meta-group
+      >
+        <span
+          class="text-foreground text-center text-3xl font-black uppercase opacity-0"
+          data-work-meta
+        >
+          {{ work.name }}
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 

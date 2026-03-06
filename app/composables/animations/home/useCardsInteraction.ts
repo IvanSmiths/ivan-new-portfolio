@@ -4,6 +4,7 @@ import { useCardHover } from "~/composables/animations/home/useCardHover";
 
 type UseHomeCardsInteractionAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
+  metaRef: Ref<HTMLElement | null>;
   gsap: typeof gsap;
   lock: Ref<boolean>;
 };
@@ -25,6 +26,7 @@ export function useCardsInteraction(options: UseHomeCardsInteractionAnimationOpt
 
   const workCardInfoAnimation = useCardInfo({
     cardsRef: options.cardsRef,
+    metaRef: options.metaRef,
     gsap: options.gsap,
   });
 
