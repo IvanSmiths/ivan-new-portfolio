@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
 import { useCardsLoader } from "~/composables/animations/home/useCardsLoader";
 import { useCardsLoop } from "~/composables/animations/home/useCardsLoop";
@@ -13,6 +13,7 @@ const router = useRouter();
 const cardGapPx = 20;
 const scrollDistancePx = 3000;
 const VIDEO_FADE_OUT_DURATION_MS = 320;
+const META_ROW_FALLBACK_HEIGHT_PX = 56;
 const minimumCards = 20;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
 const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
@@ -31,18 +32,61 @@ const loaderWorks = loopWorks.map(({ work }) => work);
 const galleryRef = ref<HTMLElement | null>(null);
 const cardsRef = ref<HTMLElement | null>(null);
 const metaRef = ref<HTMLElement | null>(null);
+const metaTrackRef = ref<HTMLElement | null>(null);
 const loaderCardsRef = ref<HTMLElement | null>(null);
 const expandLock = ref(false);
 const hoveredCardIndex = ref<number | null>(null);
 const snappedCardIndex = ref(0);
 const clickedCardIndex = ref<number | null>(null);
 const isCardsScrolling = ref(false);
+const metaRowHeightPx = ref(META_ROW_FALLBACK_HEIGHT_PX);
+const scrollVisualMetaIndex = ref(0);
+const metaVisualIndex = ref(loopWorks.length);
 const cardsInteractionAnimation = useCardsInteraction({
   cardsRef,
   metaRef,
   gsap: $gsap,
   lock: expandLock,
 });
+
+const metaLoopItems = Array.from({ length: loopWorks.length * 3 }, (_, index) => {
+  const source = loopWorks[index % loopWorks.length];
+  if (!source) {
+    throw new Error(`Meta source not found at index ${index % loopWorks.length}`);
+  }
+
+  return {
+    key: `${source.key}-meta-track-${index}`,
+    work: source.work,
+  };
+});
+
+const metaTrackStyle = computed(() => ({
+  transform: `translate3d(0, -${metaVisualIndex.value * metaRowHeightPx.value}px, 0)`,
+}));
+
+function toContinuousMetaIndex(wrappedIndex: number) {
+  const count = loopWorks.length;
+  if (count <= 0) return 0;
+
+  const previous = metaVisualIndex.value;
+  const cycle = Math.round((previous - wrappedIndex) / count);
+  let nextIndex = wrappedIndex + cycle * count;
+
+  const lowerBound = count * 0.5;
+  const upperBound = count * 2.5;
+  if (nextIndex < lowerBound) {
+    nextIndex += count;
+  } else if (nextIndex > upperBound) {
+    nextIndex -= count;
+  }
+
+  return nextIndex;
+}
+
+function setMetaVisualFromWrappedIndex(wrappedIndex: number) {
+  metaVisualIndex.value = toContinuousMetaIndex(wrappedIndex);
+}
 
 function getCardVideos() {
   return Array.from(
@@ -89,24 +133,55 @@ function stopAllVideos() {
   });
 }
 
+function syncMetaRowHeight() {
+  const firstMetaGroup = metaTrackRef.value?.querySelector<HTMLElement>("[data-work-meta-group]");
+  if (!firstMetaGroup) return;
+
+  const nextHeight = Math.round(firstMetaGroup.getBoundingClientRect().height);
+  if (nextHeight > 0) {
+    metaRowHeightPx.value = nextHeight;
+  }
+}
+
+function onWindowResize() {
+  syncMetaRowHeight();
+}
+
 function onCardEnter(index: number) {
   hoveredCardIndex.value = index;
+  setMetaVisualFromWrappedIndex(index);
   cardsInteractionAnimation.onCardEnter(index);
 }
 
 function onCardLeave() {
   hoveredCardIndex.value = null;
+  setMetaVisualFromWrappedIndex(
+    isCardsScrolling.value ? scrollVisualMetaIndex.value : snappedCardIndex.value,
+  );
   cardsInteractionAnimation.onCardLeave();
 }
 
 function onSnappedIndexChange(index: number) {
   snappedCardIndex.value = index;
+  if (!isCardsScrolling.value && hoveredCardIndex.value === null) {
+    setMetaVisualFromWrappedIndex(index);
+  }
   cardsInteractionAnimation.onSnappedIndexChange(index);
 }
 
 function onScrollActivityChange(isScrolling: boolean) {
   isCardsScrolling.value = isScrolling;
+  if (!isScrolling && hoveredCardIndex.value === null) {
+    setMetaVisualFromWrappedIndex(snappedCardIndex.value);
+  }
   cardsInteractionAnimation.onScrollActivityChange(isScrolling);
+}
+
+function onVisualIndexChange(index: number) {
+  scrollVisualMetaIndex.value = index;
+  if (hoveredCardIndex.value === null) {
+    setMetaVisualFromWrappedIndex(index);
+  }
 }
 
 const cardsLoopAnimation = useCardsLoop({
@@ -115,6 +190,7 @@ const cardsLoopAnimation = useCardsLoop({
   cardGapPx,
   onScrollActivityChange,
   onSnappedIndexChange,
+  onVisualIndexChange,
   scrollDistancePx,
 });
 
@@ -153,6 +229,8 @@ onMounted(() => {
   cardsLoaderAnimation.prepare();
   cardsInteractionAnimation.hideAllInfo();
   syncCardVideos();
+  void nextTick().then(() => syncMetaRowHeight());
+  window.addEventListener("resize", onWindowResize, { passive: true });
 
   void cardsLoopAnimation.initAfterLayout().then(() => {
     cardsInteractionAnimation.syncVisibleInfo();
@@ -189,6 +267,7 @@ onBeforeRouteLeave(() => {
 });
 
 onUnmounted(() => {
+  window.removeEventListener("resize", onWindowResize);
   stopAllVideos();
 });
 </script>
@@ -281,20 +360,28 @@ onUnmounted(() => {
     <div
       ref="metaRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
-      class="bottom-xl pointer-events-none fixed left-1/2 z-20 -translate-x-1/2"
+      class="bottom-xl pointer-events-none fixed left-1/2 z-20 h-14 w-max -translate-x-1/2 overflow-hidden"
     >
       <div
-        v-for="({ work, key }, index) in loopWorks"
-        :key="`${key}-meta-${index}`"
-        class="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-between"
-        data-work-meta-group
+        ref="metaTrackRef"
+        :style="metaTrackStyle"
+        :class="
+          isCardsScrolling
+            ? 'transition-none'
+            : 'transition-transform duration-300 ease-out'
+        "
+        class="flex flex-col items-center will-change-transform"
       >
-        <span
-          class="text-foreground text-center text-3xl font-black uppercase opacity-0"
-          data-work-meta
+        <div
+          v-for="{ work, key } in metaLoopItems"
+          :key="key"
+          class="flex h-14 items-center justify-center"
+          data-work-meta-group
         >
-          {{ work.name }}
-        </span>
+          <span class="text-foreground text-center text-3xl font-black whitespace-nowrap uppercase">
+            {{ work.name }}
+          </span>
+        </div>
       </div>
     </div>
   </div>

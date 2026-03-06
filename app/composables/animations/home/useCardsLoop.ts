@@ -17,6 +17,7 @@ type UseHomeCardsLoopAnimationOptions = {
   cardGapPx?: number;
   onScrollActivityChange?: (isScrolling: boolean) => void;
   onSnappedIndexChange?: (index: number) => void;
+  onVisualIndexChange?: (index: number) => void;
   scrollDistancePx?: number;
 };
 
@@ -243,6 +244,11 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       const syncSnappedIndex = (totalTime: number) => {
         options.onSnappedIndexChange?.(getSnappedIndex(totalTime, cards.length));
       };
+      const syncVisualIndex = (totalTime: number) => {
+        const rawIndex = totalTime / loopTimelineSpacing;
+        const wrappedIndex = ((rawIndex % cards.length) + cards.length) % cards.length;
+        options.onVisualIndexChange?.(wrappedIndex);
+      };
 
       let iteration = 0;
       let skipProgrammaticUpdate = false;
@@ -301,6 +307,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
           skipProgrammaticUpdate = true;
           suppressForceEffect();
           trigger.scroll(trigger.start + safeProgress * getRange());
+          syncVisualIndex(totalTime);
         }
       };
 
@@ -316,6 +323,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
           scrub.invalidate().restart();
 
           syncSnappedIndex(snappedTotalTime);
+          syncVisualIndex(snappedTotalTime);
           resetImagesShift();
           options.onScrollActivityChange?.(false);
           scrubTo(snappedTotalTime);
@@ -343,6 +351,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
             skipProgrammaticUpdate = false;
             self.wrapping = false;
             suppressForceEffect();
+            syncVisualIndex((iteration + self.progress) * seamlessLoop.duration());
             return;
           }
 
@@ -364,10 +373,12 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
             return;
           }
 
-          scrub.vars.totalTime = (iteration + self.progress) * seamlessLoop.duration();
+          const liveTotalTime = (iteration + self.progress) * seamlessLoop.duration();
+          scrub.vars.totalTime = liveTotalTime;
           scrub.invalidate().restart();
 
           self.wrapping = false;
+          syncVisualIndex(liveTotalTime);
 
           const velocity = Math.abs(self.getVelocity?.() ?? 0);
           if (velocity > SCROLL_ACTIVITY_VELOCITY_THRESHOLD) {
@@ -413,6 +424,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       getCurrentTime = () => Number(scrub.vars.totalTime ?? 0);
       options.onScrollActivityChange?.(false);
       syncSnappedIndex(0);
+      syncVisualIndex(0);
     }, options.galleryRef.value);
 
     $ScrollTrigger.refresh();
