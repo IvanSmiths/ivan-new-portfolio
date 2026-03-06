@@ -343,7 +343,7 @@ onUnmounted(() => {
             <img
               :alt="work.title"
               :src="work.image"
-              class="h-full w-full object-cover object-top"
+              class="works-loop-image h-full object-cover object-top"
               data-work-image
               draggable="false"
               @click="onCardClick($event, index)"
@@ -403,6 +403,13 @@ onUnmounted(() => {
     var(--works-span-columns) * var(--works-column-size) + (var(--works-span-columns) - 1) *
       var(--works-grid-gap)
   );
+}
+
+.works-loop-image {
+  width: calc(100% + 96px);
+  max-width: none;
+  margin-left: -48px;
+  will-change: transform;
 }
 
 @media (max-width: 1023px) {

@@ -42,12 +42,13 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   const INITIAL_X_PERCENT = 400;
   const FROM_X_PERCENT = 600;
   const TO_X_PERCENT = -600;
-  const INITIAL_SCALE_Y = 0.7;
-  const SCALE_Y_FROM = 0.7;
+  const INITIAL_SCALE_Y = 0.8;
+  const SCALE_Y_FROM = 0.8;
   const SCALE_Y_TO = 1;
-  const IMAGE_SHIFT_X_MAX = 16;
-  const FORCE_TO_IMAGE_SHIFT_X = 0.03;
-  const IMAGE_SHIFT_SMOOTH_DURATION = 0.2;
+  const IMAGE_SHIFT_X_MAX = 24;
+  const IMAGE_SHIFT_MIN_VELOCITY = 12;
+  const FORCE_TO_IMAGE_SHIFT_X = 0.05;
+  const IMAGE_SHIFT_SMOOTH_DURATION = 0.4;
   const FORCE_EFFECT_SUPPRESS_AFTER_WRAP_MS = 90;
 
   /* =============================== */
@@ -253,6 +254,11 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
         overwrite: true,
       });
       const applyScrollForceImageShift = (force: number) => {
+        if (Math.abs(force) < IMAGE_SHIFT_MIN_VELOCITY) {
+          setImagesShiftX(0);
+          return;
+        }
+
         const clampedShift = $gsap.utils.clamp(
           -IMAGE_SHIFT_X_MAX,
           IMAGE_SHIFT_X_MAX,
