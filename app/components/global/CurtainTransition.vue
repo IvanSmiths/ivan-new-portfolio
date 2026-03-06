@@ -1,24 +1,43 @@
 <script lang="ts" setup>
-import { gsap } from "gsap";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { usePageLayerTransition } from "~/composables/animations/global/usePageLayerTransition";
 import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
+
+const { $gsap } = useNuxtApp();
+
+const props = defineProps<{
+  pageEl?: HTMLElement | null;
+}>();
 
 const curtainEl = ref<HTMLDivElement | null>(null);
 const blurEl = ref<HTMLDivElement | null>(null);
 const timeline = ref<gsap.core.Timeline | null>(null);
 
+const route = useRoute();
+const { $ScrollTrigger } = useNuxtApp();
 const { active, phase, notifyCovered, notifyRevealed } = useCurtainTransition();
+const { addCoverMotion, addRevealMotion, clear, kill } = usePageLayerTransition();
 const isActive = computed(() => active.value);
 
 function killTimeline() {
   timeline.value?.kill();
   timeline.value = null;
+  kill(props.pageEl);
 }
 
 function setInitialHidden() {
   if (!curtainEl.value || !blurEl.value) return;
-  gsap.set(curtainEl.value, { yPercent: 100 });
-  gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+  $gsap.set(curtainEl.value, { yPercent: 100 });
+  $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+}
+
+function shouldAnimatePageReveal() {
+  const pageRevealMotion = route.meta?.pageRevealMotion;
+  if (typeof pageRevealMotion === "boolean") {
+    return pageRevealMotion;
+  }
+
+  return true;
 }
 
 async function playCover() {
@@ -26,10 +45,10 @@ async function playCover() {
   if (!curtainEl.value || !blurEl.value) return;
 
   killTimeline();
-  gsap.set(curtainEl.value, { yPercent: 100 });
-  gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+  $gsap.set(curtainEl.value, { yPercent: 100 });
+  $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
 
-  timeline.value = gsap
+  const nextTimeline = $gsap
     .timeline({ onComplete: notifyCovered })
     .to(
       blurEl.value,
@@ -60,6 +79,9 @@ async function playCover() {
       duration: 0.3,
       ease: "power2.out",
     });
+
+  addCoverMotion(nextTimeline, props.pageEl);
+  timeline.value = nextTimeline;
 }
 
 async function playReveal() {
@@ -68,12 +90,14 @@ async function playReveal() {
 
   killTimeline();
 
-  timeline.value = gsap
+  const nextTimeline = $gsap
     .timeline({
       delay: 0.15,
       onComplete: () => {
-        gsap.set(curtainEl.value, { yPercent: 100 });
-        gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+        $gsap.set(curtainEl.value, { yPercent: 100 });
+        $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+        clear(props.pageEl);
+        $ScrollTrigger.refresh();
         notifyRevealed();
       },
     })
@@ -106,6 +130,12 @@ async function playReveal() {
       },
       "-=0.25",
     );
+
+  addRevealMotion(nextTimeline, props.pageEl, {
+    shouldAnimate: shouldAnimatePageReveal(),
+  });
+
+  timeline.value = nextTimeline;
 }
 
 watch(
