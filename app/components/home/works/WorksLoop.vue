@@ -89,9 +89,7 @@ function setMetaVisualFromWrappedIndex(wrappedIndex: number) {
 }
 
 function getCardVideos() {
-  return Array.from(
-    cardsRef.value?.querySelectorAll<HTMLVideoElement>("[data-work-video]") ?? [],
-  );
+  return Array.from(cardsRef.value?.querySelectorAll<HTMLVideoElement>("[data-work-video]") ?? []);
 }
 
 function shouldShowVideo(index: number) {
@@ -241,7 +239,13 @@ onMounted(() => {
 });
 
 watch(
-  [hoveredCardIndex, snappedCardIndex, clickedCardIndex, isCardsScrolling, cardsLoaderAnimation.shouldHideLiveCards],
+  [
+    hoveredCardIndex,
+    snappedCardIndex,
+    clickedCardIndex,
+    isCardsScrolling,
+    cardsLoaderAnimation.shouldHideLiveCards,
+  ],
   () => {
     syncCardVideos();
   },
@@ -321,25 +325,7 @@ onUnmounted(() => {
         @mouseenter="onCardEnter(index)"
         @mouseleave="onCardLeave"
       >
-        <div class="relative h-full w-full overflow-hidden">
-          <img
-            :alt="work.title"
-            :src="work.image"
-            class="h-full w-full object-cover object-top"
-            data-work-image
-            draggable="false"
-            @click="onCardClick($event, index)"
-          />
-          <video
-            class="pointer-events-none absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-300 ease-out"
-            :class="shouldShowVideo(index) ? 'opacity-100' : 'opacity-0'"
-            data-work-video
-            loop
-            muted
-            playsinline
-            preload="metadata"
-            src="/test.mp4"
-          />
+        <div class="relative h-full w-full overflow-hidden" data-work-card-shell>
           <div
             v-if="work.clients.length"
             class="bottom-sm left-sm pointer-events-none absolute z-10 flex flex-wrap gap-1"
@@ -353,6 +339,26 @@ onUnmounted(() => {
               {{ client }}
             </span>
           </div>
+          <div class="h-full w-full" data-work-card-media>
+            <img
+              :alt="work.title"
+              :src="work.image"
+              class="h-full w-full object-cover object-top"
+              data-work-image
+              draggable="false"
+              @click="onCardClick($event, index)"
+            />
+            <video
+              :class="shouldShowVideo(index) ? 'opacity-100' : 'opacity-0'"
+              class="pointer-events-none absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-300 ease-out"
+              data-work-video
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              src="/test.mp4"
+            />
+          </div>
         </div>
       </li>
     </ul>
@@ -364,12 +370,8 @@ onUnmounted(() => {
     >
       <div
         ref="metaTrackRef"
+        :class="isCardsScrolling ? 'transition-none' : 'transition-transform duration-300 ease-out'"
         :style="metaTrackStyle"
-        :class="
-          isCardsScrolling
-            ? 'transition-none'
-            : 'transition-transform duration-300 ease-out'
-        "
         class="flex flex-col items-center will-change-transform"
       >
         <div

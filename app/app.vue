@@ -29,7 +29,6 @@ useHead({
   <ClientOnly>
     <CursorHelper />
   </ClientOnly>
-  <GridDebug />
   <div ref="pageEl">
     <NuxtPage />
   </div>

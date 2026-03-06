@@ -42,9 +42,9 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   const INITIAL_X_PERCENT = 400;
   const FROM_X_PERCENT = 600;
   const TO_X_PERCENT = -600;
-  const INITIAL_SCALE = 0.5;
-  const SCALE_FROM = 0.5;
-  const SCALE_TO = 1;
+  const INITIAL_SCALE_Y = 0.7;
+  const SCALE_Y_FROM = 0.7;
+  const SCALE_Y_TO = 1;
   const IMAGE_SHIFT_X_MAX = 16;
   const FORCE_TO_IMAGE_SHIFT_X = 0.03;
   const IMAGE_SHIFT_SMOOTH_DURATION = 0.2;
@@ -137,41 +137,71 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
 
     const totalAnimations = items.length + overlap * 2;
 
-    $gsap.set(items, { xPercent: INITIAL_X_PERCENT, scale: INITIAL_SCALE });
+    const shells = items.map(
+      (item) => item.querySelector<HTMLElement>("[data-work-card-shell]") ?? item,
+    );
+    const mediaLayers = items.map((item) =>
+      item.querySelector<HTMLElement>("[data-work-card-media]"),
+    );
+    const syncMediaScaleY = (shell: HTMLElement, mediaLayer: HTMLElement) => {
+      const shellScaleY = Number($gsap.getProperty(shell, "scaleY")) || 1;
+      $gsap.set(mediaLayer, {
+        scaleY: shellScaleY !== 0 ? 1 / shellScaleY : 1,
+      });
+    };
+
+    $gsap.set(items, { xPercent: INITIAL_X_PERCENT });
+    $gsap.set(shells, { scaleY: INITIAL_SCALE_Y, transformOrigin: "center center" });
+    mediaLayers.forEach((mediaLayer, index) => {
+      if (!mediaLayer) return;
+      $gsap.set(mediaLayer, { transformOrigin: "center center" });
+      const shell = shells[index];
+      if (!shell) return;
+      syncMediaScaleY(shell, mediaLayer);
+    });
 
     for (let i = 0; i < totalAnimations; i += 1) {
       const index = i % items.length;
       const item = items[index];
+      const shell = shells[index];
+      const mediaLayer = mediaLayers[index];
       if (!item) continue;
 
       const time = i * spacing;
 
-      rawSequence
-        .fromTo(
-          item,
-          { scale: SCALE_FROM },
+      if (shell) {
+        rawSequence.fromTo(
+          shell,
+          { scaleY: SCALE_Y_FROM },
           {
-            scale: SCALE_TO,
+            scaleY: SCALE_Y_TO,
             zIndex: 100,
             duration: SCALE_DURATION,
             yoyo: true,
             repeat: 1,
             ease: SCALE_EASE,
             immediateRender: false,
-          },
-          time,
-        )
-        .fromTo(
-          item,
-          { xPercent: FROM_X_PERCENT },
-          {
-            xPercent: TO_X_PERCENT,
-            duration: MOVE_DURATION,
-            ease: "none",
-            immediateRender: false,
+            onUpdate: mediaLayer
+              ? () => {
+                  syncMediaScaleY(shell, mediaLayer);
+                }
+              : undefined,
           },
           time,
         );
+      }
+
+      rawSequence.fromTo(
+        item,
+        { xPercent: FROM_X_PERCENT },
+        {
+          xPercent: TO_X_PERCENT,
+          duration: MOVE_DURATION,
+          ease: "none",
+          immediateRender: false,
+        },
+        time,
+      );
 
       if (i <= items.length) {
         seamlessLoop.add(`label${i}`, time);
