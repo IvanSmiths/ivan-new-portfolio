@@ -18,6 +18,46 @@ const { $ScrollTrigger } = useNuxtApp();
 const { active, phase, notifyCovered, notifyRevealed } = useCurtainTransition();
 const { addCoverMotion, addRevealMotion, clear, kill } = usePageLayerTransition();
 const isActive = computed(() => active.value);
+let restoreScrollLock: (() => void) | null = null;
+
+function preventScrollInput(event: Event) {
+  event.preventDefault();
+  event.stopPropagation();
+}
+
+function lockScroll() {
+  if (!import.meta.client || restoreScrollLock) return;
+
+  const html = document.documentElement;
+  const body = document.body;
+  const htmlOverflow = html.style.overflow;
+  const htmlOverscroll = html.style.overscrollBehavior;
+  const bodyOverflow = body.style.overflow;
+  const bodyOverscroll = body.style.overscrollBehavior;
+
+  html.style.overflow = "hidden";
+  html.style.overscrollBehavior = "none";
+  body.style.overflow = "hidden";
+  body.style.overscrollBehavior = "none";
+  html.dataset.curtainScrollLocked = "true";
+
+  window.addEventListener("wheel", preventScrollInput, { passive: false, capture: true });
+
+  restoreScrollLock = () => {
+    window.removeEventListener("wheel", preventScrollInput, { capture: true });
+
+    html.style.overflow = htmlOverflow;
+    html.style.overscrollBehavior = htmlOverscroll;
+    body.style.overflow = bodyOverflow;
+    body.style.overscrollBehavior = bodyOverscroll;
+    delete html.dataset.curtainScrollLocked;
+    restoreScrollLock = null;
+  };
+}
+
+function unlockScroll() {
+  restoreScrollLock?.();
+}
 
 function killTimeline() {
   timeline.value?.kill();
@@ -150,13 +190,22 @@ watch(
 watch(
   isActive,
   (a) => {
-    if (!a) setInitialHidden();
+    if (a) {
+      lockScroll();
+      return;
+    }
+
+    unlockScroll();
+    setInitialHidden();
   },
   { immediate: true },
 );
 
 onMounted(setInitialHidden);
-onBeforeUnmount(killTimeline);
+onBeforeUnmount(() => {
+  killTimeline();
+  unlockScroll();
+});
 </script>
 
 <template>
