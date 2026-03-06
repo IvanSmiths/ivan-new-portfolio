@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
 import { useCardsLoader } from "~/composables/animations/home/useCardsLoader";
 import { useCardsLoop } from "~/composables/animations/home/useCardsLoop";
@@ -12,6 +12,7 @@ const router = useRouter();
 
 const cardGapPx = 20;
 const scrollDistancePx = 3000;
+const VIDEO_FADE_OUT_DURATION_MS = 320;
 const minimumCards = 20;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
 const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
@@ -32,6 +33,10 @@ const cardsRef = ref<HTMLElement | null>(null);
 const metaRef = ref<HTMLElement | null>(null);
 const loaderCardsRef = ref<HTMLElement | null>(null);
 const expandLock = ref(false);
+const hoveredCardIndex = ref<number | null>(null);
+const snappedCardIndex = ref(0);
+const clickedCardIndex = ref<number | null>(null);
+const isCardsScrolling = ref(false);
 const cardsInteractionAnimation = useCardsInteraction({
   cardsRef,
   metaRef,
@@ -39,12 +44,77 @@ const cardsInteractionAnimation = useCardsInteraction({
   lock: expandLock,
 });
 
+function getCardVideos() {
+  return Array.from(
+    cardsRef.value?.querySelectorAll<HTMLVideoElement>("[data-work-video]") ?? [],
+  );
+}
+
+function shouldShowVideo(index: number) {
+  if (cardsLoaderAnimation.shouldHideLiveCards.value) return false;
+  if (isCardsScrolling.value) return false;
+  if (clickedCardIndex.value === index) return false;
+
+  if (hoveredCardIndex.value !== null) {
+    return hoveredCardIndex.value === index;
+  }
+
+  return snappedCardIndex.value === index;
+}
+
+function syncCardVideos() {
+  getCardVideos().forEach((video, index) => {
+    const shouldShow = shouldShowVideo(index);
+
+    if (!shouldShow) {
+      video.pause();
+      if (video.currentTime > 0) {
+        video.currentTime = 0;
+      }
+      return;
+    }
+
+    if (video.paused) {
+      void video.play().catch(() => {});
+    }
+  });
+}
+
+function stopAllVideos() {
+  getCardVideos().forEach((video) => {
+    video.pause();
+    if (video.currentTime > 0) {
+      video.currentTime = 0;
+    }
+  });
+}
+
+function onCardEnter(index: number) {
+  hoveredCardIndex.value = index;
+  cardsInteractionAnimation.onCardEnter(index);
+}
+
+function onCardLeave() {
+  hoveredCardIndex.value = null;
+  cardsInteractionAnimation.onCardLeave();
+}
+
+function onSnappedIndexChange(index: number) {
+  snappedCardIndex.value = index;
+  cardsInteractionAnimation.onSnappedIndexChange(index);
+}
+
+function onScrollActivityChange(isScrolling: boolean) {
+  isCardsScrolling.value = isScrolling;
+  cardsInteractionAnimation.onScrollActivityChange(isScrolling);
+}
+
 const cardsLoopAnimation = useCardsLoop({
   cardsRef,
   galleryRef,
   cardGapPx,
-  onScrollActivityChange: cardsInteractionAnimation.onScrollActivityChange,
-  onSnappedIndexChange: cardsInteractionAnimation.onSnappedIndexChange,
+  onScrollActivityChange,
+  onSnappedIndexChange,
   scrollDistancePx,
 });
 
@@ -62,9 +132,27 @@ const expandTransition = useCardExpandTransition({
   lock: expandLock,
 });
 
+async function onCardClick(event: MouseEvent, index: number) {
+  if (expandLock.value) return;
+  const hadVisibleVideo = shouldShowVideo(index);
+
+  clickedCardIndex.value = index;
+  syncCardVideos();
+  await nextTick();
+
+  if (hadVisibleVideo) {
+    await new Promise<void>((resolve) => {
+      window.setTimeout(resolve, VIDEO_FADE_OUT_DURATION_MS);
+    });
+  }
+
+  await expandTransition.onImageClick(event, index);
+}
+
 onMounted(() => {
   cardsLoaderAnimation.prepare();
   cardsInteractionAnimation.hideAllInfo();
+  syncCardVideos();
 
   void cardsLoopAnimation.initAfterLayout().then(() => {
     cardsInteractionAnimation.syncVisibleInfo();
@@ -74,9 +162,34 @@ onMounted(() => {
   });
 });
 
+watch(
+  [hoveredCardIndex, snappedCardIndex, clickedCardIndex, isCardsScrolling, cardsLoaderAnimation.shouldHideLiveCards],
+  () => {
+    syncCardVideos();
+  },
+  { flush: "post" },
+);
+
+watch(
+  expandLock,
+  (isLocked, wasLocked) => {
+    if (wasLocked && !isLocked) {
+      clickedCardIndex.value = null;
+    }
+
+    syncCardVideos();
+  },
+  { flush: "post" },
+);
+
 onBeforeRouteLeave(() => {
+  stopAllVideos();
   cardsLoaderAnimation.cleanup();
   cardsLoopAnimation.cleanupForRouteLeave();
+});
+
+onUnmounted(() => {
+  stopAllVideos();
 });
 </script>
 
@@ -126,17 +239,27 @@ onBeforeRouteLeave(() => {
         :key="key"
         class="absolute inset-0 h-full w-full cursor-pointer list-none"
         data-work-card
-        @mouseenter="cardsInteractionAnimation.onCardEnter(index)"
-        @mouseleave="cardsInteractionAnimation.onCardLeave"
+        @mouseenter="onCardEnter(index)"
+        @mouseleave="onCardLeave"
       >
-        <div class="h-full w-full overflow-hidden">
+        <div class="relative h-full w-full overflow-hidden">
           <img
             :alt="work.title"
             :src="work.image"
             class="h-full w-full object-cover object-top"
             data-work-image
             draggable="false"
-            @click="expandTransition.onImageClick($event, index)"
+            @click="onCardClick($event, index)"
+          />
+          <video
+            class="pointer-events-none absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-300 ease-out"
+            :class="shouldShowVideo(index) ? 'opacity-100' : 'opacity-0'"
+            data-work-video
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            src="/test.mp4"
           />
           <div
             v-if="work.clients.length"
