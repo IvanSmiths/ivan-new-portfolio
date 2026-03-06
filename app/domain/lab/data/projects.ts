@@ -8,7 +8,7 @@ export interface Experiment {
   aspectRatio: "portrait" | "landscape";
 }
 
-export const experiments: Experiment[] = [
+export const projects: Experiment[] = [
   {
     title: "Hip Hop Archive",
     description:

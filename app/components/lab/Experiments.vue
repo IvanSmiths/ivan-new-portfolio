@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { gsap } from "gsap";
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { type Experiment, experiments } from "~/domain/lab/experiments";
+import { type Experiment, projects } from "~/domain/lab/data/projects";
 
 const selectedExperiment = ref<Experiment | null>(null);
 const backdropRef = ref<HTMLDivElement | null>(null);
@@ -75,7 +75,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="gap-md p-md flex flex-col justify-start md:flex-row">
-    <div v-for="experiment in experiments" :key="experiment.title" class="overflow-hidden">
+    <div v-for="experiment in projects" :key="experiment.title" class="overflow-hidden">
       <button class="cursor-pointer" type="button" @click="openExperiment(experiment)">
         <img
           :alt="experiment.title"
