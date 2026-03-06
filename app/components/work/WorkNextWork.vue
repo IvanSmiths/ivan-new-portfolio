@@ -39,7 +39,10 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
         />
       </div>
 
-      <div ref="imageContainerRef" class="absolute -bottom-72 z-10 w-170 overflow-hidden">
+      <div
+        ref="imageContainerRef"
+        class="absolute right-0 -bottom-72 left-0 z-10 mx-auto w-170 overflow-hidden"
+      >
         <img
           v-if="nextWork"
           ref="imageRef"
