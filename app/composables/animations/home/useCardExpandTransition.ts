@@ -1,6 +1,7 @@
 import type { WorkCard } from "~/domain/works/types";
 import { isNavigationFailure } from "vue-router";
 import { nextTick } from "vue";
+import { useWorkExpandLayer } from "~/composables/animations/home/useWorkExpandLayer";
 
 export function useCardExpandTransition(opts: {
   gsap: typeof gsap;
@@ -12,22 +13,68 @@ export function useCardExpandTransition(opts: {
 }) {
   const { gsap: $gsap } = opts;
   const { $Flip } = useNuxtApp();
+  const { layerRef, coverRef, stageRef, labelRef, roleRef } = useWorkExpandLayer();
 
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
   const TARGET_IMAGE_WAIT_TIMEOUT_MS = 2000;
 
-  let overlay: HTMLDivElement | null = null;
-  let cover: HTMLDivElement | null = null;
-  let labelWrap: HTMLDivElement | null = null;
+  let movedImage: HTMLImageElement | null = null;
+  let movedImageOriginalParent: HTMLElement | null = null;
+  let movedImageOriginalNextSibling: ChildNode | null = null;
   let deferDisposeCleanup = false;
 
+  function restoreMovedImage() {
+    if (!movedImage) return;
+
+    $gsap.set(movedImage, { clearProps: "all" });
+
+    const originalParent = movedImageOriginalParent;
+    const originalNextSibling = movedImageOriginalNextSibling;
+
+    if (originalParent?.isConnected) {
+      if (originalNextSibling && originalNextSibling.parentNode === originalParent) {
+        originalParent.insertBefore(movedImage, originalNextSibling);
+      } else {
+        originalParent.appendChild(movedImage);
+      }
+    } else {
+      movedImage.remove();
+    }
+
+    movedImage = null;
+    movedImageOriginalParent = null;
+    movedImageOriginalNextSibling = null;
+  }
+
   function cleanup() {
-    overlay?.remove();
-    overlay = null;
-    cover?.remove();
-    cover = null;
-    labelWrap?.remove();
-    labelWrap = null;
+    restoreMovedImage();
+
+    const layer = layerRef.value;
+    const cover = coverRef.value;
+    const stage = stageRef.value;
+    const label = labelRef.value;
+    const role = roleRef.value;
+
+    if (role) {
+      role.textContent = "";
+      $gsap.set(role, { clearProps: "all" });
+    }
+    if (label) {
+      $gsap.set(label, { clearProps: "all" });
+    }
+    if (cover) {
+      $gsap.set(cover, { clearProps: "all" });
+    }
+    if (stage) {
+      while (stage.firstChild) {
+        stage.removeChild(stage.firstChild);
+      }
+      $gsap.set(stage, { clearProps: "all" });
+    }
+    if (layer) {
+      $gsap.set(layer, { clearProps: "all" });
+    }
+
     $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
   }
 
@@ -76,11 +123,22 @@ export function useCardExpandTransition(opts: {
       const card = opts.cards()[index];
       const imageEl = opts.images()[index];
       const containerEl = (imageEl?.parentElement as HTMLElement | null) ?? null;
+      const layer = layerRef.value;
+      const cover = coverRef.value;
+      const stage = stageRef.value;
+      const labelWrap = labelRef.value;
+      const role = roleRef.value;
 
-      if (!work || !card || !imageEl || !containerEl) return;
+      if (!work || !card || !imageEl || !containerEl || !layer || !cover || !stage || !labelWrap || !role) {
+        return;
+      }
 
       const containerRect = containerEl.getBoundingClientRect();
       const containerStyles = window.getComputedStyle(containerEl);
+      const imageX = Number($gsap.getProperty(imageEl, "x")) || 0;
+      const imageScale = Number($gsap.getProperty(imageEl, "scale")) || 1;
+      const viewportCenterX = window.innerWidth / 2;
+      const viewportCenterY = window.innerHeight / 2;
 
       $gsap.to(
         opts.cards().filter((_, i) => i !== index),
@@ -93,125 +151,80 @@ export function useCardExpandTransition(opts: {
         },
       );
 
-      overlay = document.createElement("div");
-      overlay.style.cssText = `
-        position: fixed;
-        top: ${containerRect.top}px;
-        left: ${containerRect.left}px;
-        width: ${containerRect.width}px;
-        height: ${containerRect.height}px;
-        overflow: hidden;
-        z-index: 999;
-        pointer-events: none;
-        border-radius: ${containerStyles.borderRadius};
-      `;
+      movedImage = imageEl;
+      movedImageOriginalParent = imageEl.parentElement;
+      movedImageOriginalNextSibling = imageEl.nextSibling;
+      stage.appendChild(imageEl);
 
-      const cloned = document.createElement("img");
-      cloned.src = imageEl.currentSrc || imageEl.src;
-      cloned.alt = imageEl.alt;
-      cloned.style.cssText = `
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-        user-select: none;
-        transform-origin: center top;
-        will-change: transform;
-      `;
-      $gsap.set(cloned, { scale: 1 });
-
-      overlay.appendChild(cloned);
-      document.body.appendChild(overlay);
+      role.textContent = work.role;
+      $gsap.set(layer, { autoAlpha: 1, visibility: "visible", pointerEvents: "none" });
+      $gsap.set(cover, { opacity: 0 });
+      $gsap.set(labelWrap, { opacity: 0 });
+      $gsap.set(stage, {
+        x: containerRect.left + containerRect.width / 2 - viewportCenterX,
+        y: containerRect.top + containerRect.height / 2 - viewportCenterY,
+        width: containerRect.width,
+        height: containerRect.height,
+        borderRadius: containerStyles.borderRadius,
+        transformOrigin: "center center",
+      });
+      $gsap.set(imageEl, {
+        x: imageX,
+        scale: imageScale,
+        force3D: true,
+        willChange: "transform",
+      });
 
       await new Promise<void>((resolve) => {
         const tl = $gsap.timeline({ onComplete: resolve });
-
-        cover = document.createElement("div");
-        cover.style.cssText = `
-          position: fixed;
-          inset: 0;
-          background: black;
-          z-index: 998;
-          opacity: 0;
-          pointer-events: none;
-        `;
-        document.body.appendChild(cover);
-
-        labelWrap = document.createElement("div");
-        labelWrap.style.cssText = `
-          position: fixed;
-          z-index: 1001;
-          opacity: 0;
-          pointer-events: none;
-          left: ${containerRect.left}px;
-          top: ${containerRect.top}px;
-          width: ${containerRect.width}px;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          color: var(--foreground);
-          padding: 10px 12px;
-          box-sizing: border-box;
-          white-space: nowrap;
-        `;
-        document.body.appendChild(labelWrap);
-
-        const title = document.createElement("div");
-        title.textContent = work.title;
-        title.style.cssText = `
-          max-width: 70%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        `;
-
-        const role = document.createElement("div");
-        role.textContent = (work as any).role ?? "";
-        role.style.cssText = `
-          max-width: 30%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-align: right;
-        `;
-
-        labelWrap.appendChild(title);
-        labelWrap.appendChild(role);
 
         const centerWidth = window.innerWidth * 0.5;
         const centerHeight = window.innerHeight * 0.5;
         const centerLeft = (window.innerWidth - centerWidth) / 2;
         const centerTop = (window.innerHeight - centerHeight) / 2;
 
-        tl.set(labelWrap, { left: centerLeft, top: centerTop - 50, width: centerWidth });
+        tl.set(labelWrap, {
+          x: centerLeft - viewportCenterX,
+          y: centerTop - 6 - viewportCenterY,
+          width: centerWidth,
+        });
         tl.to(cover, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
         tl.to(
-          overlay,
+          stage,
           {
-            top: centerTop,
-            left: centerLeft,
+            x: centerLeft + centerWidth / 2 - viewportCenterX,
+            y: centerTop + centerHeight / 2 - viewportCenterY,
             width: centerWidth,
             height: centerHeight,
-            duration: 1,
-            ease: "power3.inOut",
+            duration: 0.95,
+            ease: "power3.out",
+            force3D: true,
           },
           "<",
         );
-        tl.to(cloned, { scale: 1.3, duration: 0.6, ease: "power2.inOut" }, "<");
-        tl.to(
+        tl.to(imageEl, { x: 0, scale: 1.3, duration: 0.95, ease: "power3.out", force3D: true }, "<");
+        tl.fromTo(
           labelWrap,
           {
+            opacity: 0,
+            y: centerTop - 4 - viewportCenterY,
+          },
+          {
             opacity: 1,
-            y: 0,
-            top: centerTop - 20,
-            width: centerWidth,
-            duration: 0.45,
+            y: centerTop - 12 - viewportCenterY,
+            duration: 0.25,
             ease: "power2.out",
           },
-          "<+0.08",
+          "<+0.62",
         );
-        tl.fromTo(title, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<");
         tl.fromTo(role, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<+0.05");
-        tl.to(labelWrap, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", delay: 0.15 });
+        tl.to(labelWrap, {
+          opacity: 0,
+          y: centerTop - 18 - viewportCenterY,
+          duration: 0.2,
+          ease: "power2.in",
+          delay: 0.08,
+        });
       });
 
       deferDisposeCleanup = true;
@@ -233,21 +246,17 @@ export function useCardExpandTransition(opts: {
             },
           });
 
-          if (overlay) {
-            const fitAnimation = $Flip.fit(overlay, targetImage, {
-              absolute: true,
-              duration: 1.1,
-              ease: "power3.inOut",
-            });
-            if (fitAnimation && "eventCallback" in fitAnimation) {
-              tl.add(fitAnimation as gsap.core.Tween, 0);
-            }
+          const fitAnimation = $Flip.fit(stage, targetImage, {
+            absolute: true,
+            duration: 1.1,
+            ease: "power3.inOut",
+          });
+          if (fitAnimation && "eventCallback" in fitAnimation) {
+            tl.add(fitAnimation as gsap.core.Tween, 0);
           }
 
-          tl.to(cloned, { scale: 1, duration: 1.1, ease: "power2.out" }, 0);
-          if (cover) {
-            tl.to(cover, { opacity: 0, duration: 0.45, ease: "power2.inOut" }, 0.58);
-          }
+          tl.to(imageEl, { scale: 1, duration: 1.1, ease: "power2.out" }, 0);
+          tl.to(cover, { opacity: 0, duration: 0.45, ease: "power2.inOut" }, 0.58);
         });
 
         shouldCleanup = false;

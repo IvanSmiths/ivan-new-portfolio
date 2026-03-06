@@ -32,5 +32,6 @@ useHead({
   <div ref="pageEl">
     <NuxtPage />
   </div>
+  <WorkExpandLayer />
   <CurtainTransition :page-el="pageEl" />
 </template>
