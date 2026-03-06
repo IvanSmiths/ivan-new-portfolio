@@ -52,6 +52,7 @@ const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
             :src="work?.homeImage.url"
             alt=""
             class="min-h-screen w-full origin-top object-cover object-top"
+            data-work-hero-image
           />
         </div>
       </div>

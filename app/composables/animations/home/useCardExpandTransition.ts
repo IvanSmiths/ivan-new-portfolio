@@ -11,9 +11,14 @@ export function useCardExpandTransition(opts: {
   lock: { value: boolean };
 }) {
   const { gsap: $gsap } = opts;
+  const { $Flip } = useNuxtApp();
+
+  const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
+  const TARGET_IMAGE_WAIT_TIMEOUT_MS = 2000;
 
   let overlay: HTMLDivElement | null = null;
   let cover: HTMLDivElement | null = null;
+  let labelWrap: HTMLDivElement | null = null;
   let deferDisposeCleanup = false;
 
   function cleanup() {
@@ -21,7 +26,39 @@ export function useCardExpandTransition(opts: {
     overlay = null;
     cover?.remove();
     cover = null;
+    labelWrap?.remove();
+    labelWrap = null;
     $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
+  }
+
+  function waitForWorkHeroImage() {
+    const startTime = typeof performance !== "undefined" ? performance.now() : Date.now();
+
+    return new Promise<HTMLImageElement | null>((resolve) => {
+      const poll = () => {
+        const targetImage = document.querySelector<HTMLImageElement>(HERO_IMAGE_SELECTOR);
+        if (targetImage) {
+          resolve(targetImage);
+          return;
+        }
+
+        const now = typeof performance !== "undefined" ? performance.now() : Date.now();
+        if (now - startTime >= TARGET_IMAGE_WAIT_TIMEOUT_MS) {
+          resolve(null);
+          return;
+        }
+
+        requestAnimationFrame(poll);
+      };
+
+      poll();
+    });
+  }
+
+  async function waitForFrames(frames: number) {
+    for (let i = 0; i < frames; i += 1) {
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    }
   }
 
   onScopeDispose(() => {
@@ -29,7 +66,7 @@ export function useCardExpandTransition(opts: {
     cleanup();
   });
 
-  async function onImageClick(event: MouseEvent, index: number) {
+  async function onImageClick(_event: MouseEvent, index: number) {
     if (opts.lock.value) return;
     opts.lock.value = true;
     let shouldCleanup = true;
@@ -101,7 +138,7 @@ export function useCardExpandTransition(opts: {
         `;
         document.body.appendChild(cover);
 
-        const labelWrap = document.createElement("div");
+        labelWrap = document.createElement("div");
         labelWrap.style.cssText = `
           position: fixed;
           z-index: 1001;
@@ -140,59 +177,80 @@ export function useCardExpandTransition(opts: {
         labelWrap.appendChild(title);
         labelWrap.appendChild(role);
 
-        const finalW = window.innerWidth * 0.5;
-        const finalH = window.innerHeight * 0.5;
-        const left = (window.innerWidth - finalW) / 2;
-        const top = (window.innerHeight - finalH) / 2;
+        const centerWidth = window.innerWidth * 0.5;
+        const centerHeight = window.innerHeight * 0.5;
+        const centerLeft = (window.innerWidth - centerWidth) / 2;
+        const centerTop = (window.innerHeight - centerHeight) / 2;
 
-        tl.set(labelWrap, { left, top: top - 50, width: finalW });
-        tl.to(cover, { opacity: 1, duration: 0.5, ease: "power2.inOut" });
+        tl.set(labelWrap, { left: centerLeft, top: centerTop - 50, width: centerWidth });
+        tl.to(cover, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
         tl.to(
-          overlay!,
-          { top, left, width: finalW, height: finalH, duration: 0.6, ease: "power2.inOut" },
+          overlay,
+          {
+            top: centerTop,
+            left: centerLeft,
+            width: centerWidth,
+            height: centerHeight,
+            duration: 1,
+            ease: "power3.inOut",
+          },
           "<",
         );
         tl.to(cloned, { scale: 1.3, duration: 0.6, ease: "power2.inOut" }, "<");
-
-        tl.to(labelWrap, {
-          left,
-          top: top - 20,
-          width: finalW,
-          duration: 0.6,
-          opacity: 1,
-          y: 0,
-        });
+        tl.to(
+          labelWrap,
+          {
+            opacity: 1,
+            y: 0,
+            top: centerTop - 20,
+            width: centerWidth,
+            duration: 0.45,
+            ease: "power2.out",
+          },
+          "<+0.08",
+        );
         tl.fromTo(title, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<");
         tl.fromTo(role, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<+0.05");
-        tl.to(labelWrap, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", delay: 0.25 });
-        tl.to(overlay!, {
-          duration: 1.25,
-          translateY: `70%`,
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          paddingLeft: 20,
-          paddingRight: 20,
-          ease: "power3.inOut",
-        });
-        tl.to(cloned, { scale: 1, duration: 1, ease: "power2.out" }, "<");
-
-        tl.add(() => {
-          labelWrap.remove();
-        });
+        tl.to(labelWrap, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", delay: 0.15 });
       });
 
       deferDisposeCleanup = true;
       const navigationResult = await opts.router.push(`/works/${work.slug}`);
       if (!isNavigationFailure(navigationResult)) {
-        shouldCleanup = false;
-
         await nextTick();
+        await waitForFrames(2);
+
+        const targetImage = await waitForWorkHeroImage();
+        if (!targetImage) return;
+
+        $gsap.set(targetImage, { autoAlpha: 0 });
+
         await new Promise<void>((resolve) => {
-          requestAnimationFrame(() => resolve());
+          const tl = $gsap.timeline({
+            onComplete: () => {
+              $gsap.set(targetImage, { autoAlpha: 1, clearProps: "opacity,visibility" });
+              resolve();
+            },
+          });
+
+          if (overlay) {
+            const fitAnimation = $Flip.fit(overlay, targetImage, {
+              absolute: true,
+              duration: 1.1,
+              ease: "power3.inOut",
+            });
+            if (fitAnimation && "eventCallback" in fitAnimation) {
+              tl.add(fitAnimation as gsap.core.Tween, 0);
+            }
+          }
+
+          tl.to(cloned, { scale: 1, duration: 1.1, ease: "power2.out" }, 0);
+          if (cover) {
+            tl.to(cover, { opacity: 0, duration: 0.45, ease: "power2.inOut" }, 0.58);
+          }
         });
 
+        shouldCleanup = false;
         cleanup();
       }
     } finally {
