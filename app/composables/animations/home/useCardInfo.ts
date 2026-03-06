@@ -41,58 +41,62 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
   }
 
   function animateInfoVisibility(info: CardInfoElements, shouldShow: boolean) {
-    options.gsap.to(info.clients, {
-      autoAlpha: shouldShow ? 1 : 0,
-      y: shouldShow ? 0 : -8,
-      duration: shouldShow ? 0.3 : 0.18,
-      stagger: shouldShow ? 0.08 : 0,
-      ease: shouldShow ? "power2.out" : "power1.out",
-      overwrite: true,
-    });
+    if (info.clients.length > 0) {
+      options.gsap.to(info.clients, {
+        autoAlpha: shouldShow ? 1 : 0,
+        y: shouldShow ? 0 : -8,
+        duration: shouldShow ? 0.3 : 0.18,
+        stagger: shouldShow ? 0.08 : 0,
+        ease: shouldShow ? "power2.out" : "power1.out",
+        overwrite: true,
+      });
+    }
 
-    options.gsap.to(info.meta, {
-      autoAlpha: shouldShow ? 1 : 0,
-      y: shouldShow ? 0 : -8,
-      duration: shouldShow ? 0.3 : 0.18,
-      ease: shouldShow ? "power2.out" : "power1.out",
-      overwrite: true,
-    });
+    if (info.meta.length > 0) {
+      options.gsap.to(info.meta, {
+        autoAlpha: shouldShow ? 1 : 0,
+        y: shouldShow ? 0 : -8,
+        duration: shouldShow ? 0.3 : 0.18,
+        ease: shouldShow ? "power2.out" : "power1.out",
+        overwrite: true,
+      });
+    }
   }
 
   function hideAllInfo() {
     const allInfo = getInfoByCard();
-    options.gsap.set(
-      allInfo.flatMap((info) => info.clients),
-      { autoAlpha: 0, y: -8 },
-    );
-    options.gsap.set(
-      allInfo.flatMap((info) => info.meta),
-      { autoAlpha: 0, y: -8 },
-    );
+    const allClients = allInfo.flatMap((info) => info.clients);
+    const allMeta = allInfo.flatMap((info) => info.meta);
+    if (allClients.length > 0) {
+      options.gsap.set(allClients, { autoAlpha: 0, y: -8 });
+    }
+    if (allMeta.length > 0) {
+      options.gsap.set(allMeta, { autoAlpha: 0, y: -8 });
+    }
   }
 
   function syncVisibleInfo() {
     if (isScrollingCards.value) {
       const allInfo = getInfoByCard();
+      const allClients = allInfo.flatMap((info) => info.clients);
+      const allMeta = allInfo.flatMap((info) => info.meta);
 
-      options.gsap.to(
-        allInfo.flatMap((info) => info.clients),
-        {
+      if (allClients.length > 0) {
+        options.gsap.to(allClients, {
           autoAlpha: 0,
           y: -8,
           duration: 0.12,
           overwrite: true,
-        },
-      );
-      options.gsap.to(
-        allInfo.flatMap((info) => info.meta),
-        {
+        });
+      }
+      if (allMeta.length > 0) {
+        options.gsap.to(allMeta, {
           autoAlpha: 0,
           y: -8,
           duration: 0.12,
           overwrite: true,
-        },
-      );
+        });
+      }
       return;
     }
 
