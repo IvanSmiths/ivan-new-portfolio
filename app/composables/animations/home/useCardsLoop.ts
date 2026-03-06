@@ -34,6 +34,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   const SCRUB_EASE = "power3";
   const SNAP_DELAY = 0.3;
   const EDGE_SCROLL_OFFSET = 2;
+  const SCROLL_ACTIVITY_VELOCITY_THRESHOLD = 5;
   const SCALE_DURATION = 0.5;
   const SCALE_EASE = "power1.in";
   const MOVE_DURATION = 1;
@@ -291,7 +292,11 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
         else if (progress < 0) wrapBackward(trigger);
         else {
           const edgeProgress = getEdgeProgress();
-          const safeProgress = $gsap.utils.clamp(edgeProgress, 1 - edgeProgress, progress);
+          // IMPORTANT!!! Allow exact top position on first iteration to avoid synthetic 1-2px scroll nudges.
+          const safeProgress =
+            iteration === 0 && progress <= edgeProgress
+              ? 0
+              : $gsap.utils.clamp(edgeProgress, 1 - edgeProgress, progress);
 
           skipProgrammaticUpdate = true;
           suppressForceEffect();
@@ -364,8 +369,11 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
 
           self.wrapping = false;
 
-          options.onScrollActivityChange?.(true);
-          snapCall.restart(true);
+          const velocity = Math.abs(self.getVelocity?.() ?? 0);
+          if (velocity > SCROLL_ACTIVITY_VELOCITY_THRESHOLD) {
+            options.onScrollActivityChange?.(true);
+            snapCall.restart(true);
+          }
         },
       });
 
