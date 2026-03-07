@@ -15,6 +15,7 @@ type UseHomeCardsLoopAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
   galleryRef: Ref<HTMLElement | null>;
   cardGapPx?: number;
+  onCenterPass?: (index: number) => void;
   onSnap?: (index: number) => void;
   onScrollActivityChange?: (isScrolling: boolean) => void;
   onSnappedIndexChange?: (index: number) => void;
@@ -288,9 +289,34 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
         const wrappedIndex = ((rawIndex % cards.length) + cards.length) % cards.length;
         options.onVisualIndexChange?.(wrappedIndex);
       };
+      const wrapCardIndex = (index: number) => ((index % cards.length) + cards.length) % cards.length;
+      const getCenteredCardIndex = (totalTime: number) => getSnappedIndex(totalTime, cards.length);
+      const maybeEmitCenterPass = (
+        previousCenteredIndex: number,
+        currentCenteredIndex: number,
+        direction: number,
+        isUserScrollUpdate: boolean,
+      ) => {
+        if (previousCenteredIndex === currentCenteredIndex || !isUserScrollUpdate) {
+          return currentCenteredIndex;
+        }
+
+        const stepDirection = direction >= 0 ? 1 : -1;
+        let nextCenteredIndex = previousCenteredIndex;
+        let safety = 0;
+
+        while (nextCenteredIndex !== currentCenteredIndex && safety < cards.length) {
+          nextCenteredIndex = wrapCardIndex(nextCenteredIndex + stepDirection);
+          options.onCenterPass?.(nextCenteredIndex);
+          safety += 1;
+        }
+
+        return nextCenteredIndex;
+      };
 
       let iteration = 0;
       let skipProgrammaticUpdate = false;
+      let lastCenteredIndex = 0;
 
       const snap = $gsap.utils.snap(loopTimelineSpacing);
       const seamlessLoop = buildSeamlessLoop(cards, loopTimelineSpacing);
@@ -347,6 +373,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
           suppressForceEffect();
           trigger.scroll(trigger.start + safeProgress * getRange());
           syncVisualIndex(totalTime);
+          lastCenteredIndex = getCenteredCardIndex(totalTime);
         }
       };
 
@@ -391,7 +418,9 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
             skipProgrammaticUpdate = false;
             self.wrapping = false;
             suppressForceEffect();
-            syncVisualIndex((iteration + self.progress) * seamlessLoop.duration());
+            const totalTime = (iteration + self.progress) * seamlessLoop.duration();
+            syncVisualIndex(totalTime);
+            lastCenteredIndex = getCenteredCardIndex(totalTime);
             return;
           }
 
@@ -419,6 +448,12 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
 
           self.wrapping = false;
           syncVisualIndex(liveTotalTime);
+          lastCenteredIndex = maybeEmitCenterPass(
+            lastCenteredIndex,
+            getCenteredCardIndex(liveTotalTime),
+            self.direction,
+            true,
+          );
 
           const velocity = Math.abs(self.getVelocity?.() ?? 0);
           if (velocity > SCROLL_ACTIVITY_VELOCITY_THRESHOLD) {
@@ -465,6 +500,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       options.onScrollActivityChange?.(false);
       syncSnappedIndex(0);
       syncVisualIndex(0);
+      lastCenteredIndex = 0;
     }, options.galleryRef.value);
 
     $ScrollTrigger.refresh();
