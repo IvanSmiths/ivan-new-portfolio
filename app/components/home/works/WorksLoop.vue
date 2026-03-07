@@ -14,6 +14,9 @@ const cardGapPx = 20;
 const scrollDistancePx = 3000;
 const VIDEO_FADE_OUT_DURATION_MS = 320;
 const META_ROW_FALLBACK_HEIGHT_PX = 56;
+const SNAP_BLIP_FREQUENCY = "A5";
+const SNAP_BLIP_DURATION = "32n";
+const SNAP_BLIP_VOLUME_DB = -16;
 const minimumCards = 20;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
 const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
@@ -42,6 +45,8 @@ const isCardsScrolling = ref(false);
 const metaRowHeightPx = ref(META_ROW_FALLBACK_HEIGHT_PX);
 const scrollVisualMetaIndex = ref(0);
 const metaVisualIndex = ref(loopWorks.length);
+let toneModule: typeof import("tone") | null = null;
+let snapSynth: import("tone").Synth | null = null;
 const cardsInteractionAnimation = useCardsInteraction({
   cardsRef,
   metaRef,
@@ -182,10 +187,47 @@ function onVisualIndexChange(index: number) {
   }
 }
 
+async function ensureSnapSynth() {
+  if (!import.meta.client) return null;
+  if (!toneModule) {
+    toneModule = await import("tone");
+  }
+
+  if (!snapSynth) {
+    snapSynth = new toneModule.Synth({
+      oscillator: { type: "sine" },
+      envelope: { attack: 0.002, decay: 0.09, sustain: 0, release: 0.08 },
+    }).toDestination();
+    snapSynth.volume.value = SNAP_BLIP_VOLUME_DB;
+  }
+
+  if (toneModule.context.state !== "running") {
+    await toneModule.start().catch(() => {});
+  }
+
+  return toneModule.context.state === "running" ? snapSynth : null;
+}
+
+function playSnapBlip() {
+  void ensureSnapSynth().then((synth) => {
+    if (!synth || !toneModule) return;
+    synth.triggerAttackRelease(SNAP_BLIP_FREQUENCY, SNAP_BLIP_DURATION, toneModule.now());
+  });
+}
+
+function cleanupSnapAudio() {
+  snapSynth?.dispose();
+  snapSynth = null;
+  toneModule = null;
+}
+
 const cardsLoopAnimation = useCardsLoop({
   cardsRef,
   galleryRef,
   cardGapPx,
+  onSnap: () => {
+    playSnapBlip();
+  },
   onScrollActivityChange,
   onSnappedIndexChange,
   onVisualIndexChange,
@@ -273,6 +315,7 @@ onBeforeRouteLeave(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", onWindowResize);
   stopAllVideos();
+  cleanupSnapAudio();
 });
 </script>
 

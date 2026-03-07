@@ -15,6 +15,7 @@ type UseHomeCardsLoopAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
   galleryRef: Ref<HTMLElement | null>;
   cardGapPx?: number;
+  onSnap?: (index: number) => void;
   onScrollActivityChange?: (isScrolling: boolean) => void;
   onSnappedIndexChange?: (index: number) => void;
   onVisualIndexChange?: (index: number) => void;
@@ -278,7 +279,9 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       };
 
       const syncSnappedIndex = (totalTime: number) => {
-        options.onSnappedIndexChange?.(getSnappedIndex(totalTime, cards.length));
+        const snappedIndex = getSnappedIndex(totalTime, cards.length);
+        options.onSnappedIndexChange?.(snappedIndex);
+        return snappedIndex;
       };
       const syncVisualIndex = (totalTime: number) => {
         const rawIndex = totalTime / loopTimelineSpacing;
@@ -358,7 +361,8 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
           scrub.vars.totalTime = snappedTotalTime;
           scrub.invalidate().restart();
 
-          syncSnappedIndex(snappedTotalTime);
+          const snappedIndex = syncSnappedIndex(snappedTotalTime);
+          options.onSnap?.(snappedIndex);
           syncVisualIndex(snappedTotalTime);
           resetImagesShift();
           options.onScrollActivityChange?.(false);
