@@ -41,8 +41,8 @@ useHead({
 </script>
 
 <template>
-  <section class="bg-background relative min-h-dvh">
-    <AppGrid class="min-h-dvh overflow-visible">
+  <section class="bg-background relative min-h-svh">
+    <AppGrid class="min-h-svh overflow-visible">
       <WorksLoop class="col-span-full" />
     </AppGrid>
     <Logo />

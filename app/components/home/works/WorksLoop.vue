@@ -446,7 +446,7 @@ onUnmounted(() => {
     <div
       ref="metaRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
-      class="bottom-xl pointer-events-none fixed left-1/2 z-20 h-14 w-max -translate-x-1/2 overflow-hidden"
+      class="bottom-xl pointer-events-none absolute left-1/2 z-20 h-14 w-max -translate-x-1/2 overflow-hidden"
     >
       <div
         ref="metaTrackRef"

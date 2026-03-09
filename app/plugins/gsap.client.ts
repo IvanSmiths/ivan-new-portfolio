@@ -10,6 +10,16 @@ export default defineNuxtPlugin(() => {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
 
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+  });
+
+  if (ScrollTrigger.isTouch && !ScrollTrigger.normalizeScroll()) {
+    ScrollTrigger.normalizeScroll({
+      allowNestedScroll: true,
+    });
+  }
+
   return {
     provide: {
       gsap,
