@@ -2,17 +2,25 @@ const STORAGE_KEY = "works_loader_seen";
 const DONE_EVENT = "works-loader:done";
 
 export function useLoaderSession() {
-  function hasSeenLoader(): boolean {
-    if (!import.meta.client) return false;
+  const loaderSeenState = useState<boolean>("works-loader-seen", () => false);
+
+  function syncSeenFromStorage() {
+    if (!import.meta.client || loaderSeenState.value) return;
 
     try {
-      return sessionStorage.getItem(STORAGE_KEY) === "1";
+      loaderSeenState.value = sessionStorage.getItem(STORAGE_KEY) === "1";
     } catch {
-      return false;
+      loaderSeenState.value = false;
     }
   }
 
+  function hasSeenLoader(): boolean {
+    return loaderSeenState.value;
+  }
+
   function markLoaderSeen() {
+    loaderSeenState.value = true;
+
     if (!import.meta.client) return;
 
     try {
@@ -39,6 +47,7 @@ export function useLoaderSession() {
 
   return {
     hasSeenLoader,
+    syncSeenFromStorage,
     markLoaderSeen,
     notifyLoaderDone,
     onLoaderDone,

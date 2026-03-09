@@ -13,7 +13,7 @@ type ParagraphRevealRefs = {
 export function useParagraphReveal(refs: ParagraphRevealRefs) {
   const { $gsap } = useNuxtApp();
   const { prepareReveal } = useSplitTextAnimation();
-  const { hasSeenLoader, onLoaderDone } = useLoaderSession();
+  const { hasSeenLoader, syncSeenFromStorage, onLoaderDone } = useLoaderSession();
 
   let ctx: gsap.Context | null = null;
   let stopListening: (() => void) | null = null;
@@ -62,6 +62,7 @@ export function useParagraphReveal(refs: ParagraphRevealRefs) {
 
   function init() {
     cleanup();
+    syncSeenFromStorage();
 
     const targets = getTargets();
     if (!targets.length) return;

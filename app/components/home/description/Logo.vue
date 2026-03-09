@@ -1,21 +1,43 @@
 <script lang="ts" setup>
-import { nextTick, onMounted, ref } from "vue";
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import { useLogoHover } from "~/composables/animations/home/useLogoHover";
 import { useLogoReveal } from "~/composables/animations/home/useLogoReveal";
+import { useLoaderSession } from "~/composables/sessions/useLoaderSession";
 
 const lettersRef = ref<SVGGElement | null>(null);
 const hoverAnimation = useLogoHover(lettersRef);
 const revealAnimation = useLogoReveal(lettersRef);
+const { hasSeenLoader, syncSeenFromStorage, onLoaderDone } = useLoaderSession();
+const isLogoVisible = ref(hasSeenLoader());
+
+let stopLoaderDoneListener: (() => void) | null = null;
 
 onMounted(async () => {
   await nextTick();
+  syncSeenFromStorage();
+  isLogoVisible.value = hasSeenLoader();
+
   hoverAnimation.setup();
   revealAnimation.init();
+
+  if (isLogoVisible.value) return;
+
+  stopLoaderDoneListener = onLoaderDone(() => {
+    isLogoVisible.value = true;
+  });
+});
+
+onBeforeUnmount(() => {
+  stopLoaderDoneListener?.();
+  stopLoaderDoneListener = null;
 });
 </script>
 
 <template>
-  <div class="pointer-events-none fixed inset-0 z-50">
+  <div
+    :class="isLogoVisible ? 'opacity-100' : 'opacity-0'"
+    class="pointer-events-none fixed inset-0 z-50 transition-opacity duration-300"
+  >
     <div class="gap-md px-md mx-auto grid max-w-screen-2xl grid-cols-8 lg:grid-cols-16">
       <div class="pt-md pointer-events-auto col-start-3 col-end-7 lg:col-start-7 lg:col-end-11">
         <svg viewBox="0 0 597 245" width="100%" xmlns="http://www.w3.org/2000/svg">

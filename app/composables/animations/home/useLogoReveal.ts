@@ -9,7 +9,7 @@ function getLetterGroups(lettersRef: Ref<SVGGElement | null>) {
 
 export function useLogoReveal(lettersRef: Ref<SVGGElement | null>) {
   const { $gsap } = useNuxtApp();
-  const { hasSeenLoader, onLoaderDone } = useLoaderSession();
+  const { hasSeenLoader, syncSeenFromStorage, onLoaderDone } = useLoaderSession();
 
   let ctx: gsap.Context | null = null;
   let stopListening: (() => void) | null = null;
@@ -47,6 +47,7 @@ export function useLogoReveal(lettersRef: Ref<SVGGElement | null>) {
 
   function init() {
     cleanup();
+    syncSeenFromStorage();
 
     const groups = getLetterGroups(lettersRef);
     if (!groups.length) return;

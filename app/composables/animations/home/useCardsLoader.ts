@@ -10,11 +10,13 @@ type UseHomeCardsLoaderAnimationOptions = {
 
 export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
   const { $gsap } = useNuxtApp();
-  const { hasSeenLoader, markLoaderSeen, notifyLoaderDone } = useLoaderSession();
+  const { hasSeenLoader, syncSeenFromStorage, markLoaderSeen, notifyLoaderDone } =
+    useLoaderSession();
 
-  const shouldRunLoader = ref(false);
-  const shouldHideLiveCards = ref(false);
-  const loaderPhase = ref<LoaderPhase>("idle");
+  const shouldShowLoaderInitially = !hasSeenLoader();
+  const shouldRunLoader = ref(shouldShowLoaderInitially);
+  const shouldHideLiveCards = ref(shouldShowLoaderInitially);
+  const loaderPhase = ref<LoaderPhase>(shouldShowLoaderInitially ? "loading" : "done");
 
   let loaderTimeline: gsap.core.Timeline | null = null;
   let restoreScrollLock: (() => void) | null = null;
@@ -220,13 +222,19 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
   }
 
   function prepare() {
-    shouldRunLoader.value = !hasSeenLoader();
-    shouldHideLiveCards.value = shouldRunLoader.value;
-    loaderPhase.value = shouldRunLoader.value ? "loading" : "done";
+    syncSeenFromStorage();
 
-    if (shouldRunLoader.value) {
+    const nextShouldRunLoader = !hasSeenLoader();
+    shouldRunLoader.value = nextShouldRunLoader;
+    shouldHideLiveCards.value = nextShouldRunLoader;
+    loaderPhase.value = nextShouldRunLoader ? "loading" : "done";
+
+    if (nextShouldRunLoader) {
       lockScroll();
+      return;
     }
+
+    unlockScroll();
   }
 
   async function play() {
@@ -237,13 +245,13 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     }
 
     loaderPhase.value = "loading";
-    await waitForImages(getImagesForTransition());
+    await nextTick();
+    await Promise.all([waitForImages(getImagesForTransition()), waitForImages(getLoaderImages())]);
 
     if (!shouldRunLoader.value) return;
 
     loaderPhase.value = "animating";
     await nextTick();
-    await waitForImages(getLoaderImages());
 
     const loaderShells = getLoaderShells();
     const loaderCards = getLoaderCards();

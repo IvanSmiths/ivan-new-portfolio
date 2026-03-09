@@ -315,12 +315,16 @@ onUnmounted(() => {
     >
       <div
         v-if="cardsLoaderAnimation.loaderPhase.value === 'loading'"
-        class="text-foreground absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm"
+        class="text-foreground absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-sm"
       >
         loading
       </div>
 
-      <div v-else ref="loaderCardsRef" class="absolute inset-0">
+      <div
+        ref="loaderCardsRef"
+        :class="{ 'opacity-0': cardsLoaderAnimation.loaderPhase.value === 'loading' }"
+        class="absolute inset-0"
+      >
         <div
           v-for="({ work, key }, index) in loaderLoopWorks"
           :key="`${key}-loader-${index}`"
