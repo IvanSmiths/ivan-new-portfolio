@@ -23,6 +23,12 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
   }
 
+  function getTargetElementsForTransition() {
+    return getCardsForTransition().map(
+      (card) => card.querySelector<HTMLElement>("[data-work-card-shell]") ?? card,
+    );
+  }
+
   function getImagesForTransition() {
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLImageElement>("img") ?? []);
   }
@@ -192,6 +198,7 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
 
   async function play() {
     const targetCards = getCardsForTransition();
+    const targetElements = getTargetElementsForTransition();
     if (!shouldRunLoader.value || !targetCards.length) {
       completeLoaderRun();
       return;
@@ -225,8 +232,8 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
       return;
     }
 
-    const startRects = getLoaderStartRects(targetCards, loaderContainerRect);
-    const targetViewportRects = targetCards.map((card) => card.getBoundingClientRect());
+    const startRects = getLoaderStartRects(targetElements, loaderContainerRect);
+    const targetViewportRects = targetElements.map((element) => element.getBoundingClientRect());
     const targetRects = targetViewportRects.map((rect) =>
       toRelativeRect(rect, loaderContainerRect),
     );
