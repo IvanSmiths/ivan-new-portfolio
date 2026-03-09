@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useWorkExpandLayer } from "~/composables/animations/home/useWorkExpandLayer";
+import { useCardExpandLayer } from "~/composables/animations/home/useCardExpandLayer";
 
-const { layerRef, coverRef, stageRef, labelRef, roleRef } = useWorkExpandLayer();
+const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 </script>
 
 <template>

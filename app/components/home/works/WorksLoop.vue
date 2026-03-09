@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
-import * as Tone from "tone";
 import { useCardsLoader } from "~/composables/animations/home/useCardsLoader";
 import { useCardsLoop } from "~/composables/animations/home/useCardsLoop";
 import { useCardsInteraction } from "~/composables/animations/home/useCardsInteraction";
 import { useCardExpandTransition } from "~/composables/animations/home/useCardExpandTransition";
+import { useCardsLoopTone } from "~/composables/animations/home/useCardsLoopTone";
 import { worksCards } from "~/domain/works";
 
 const { $gsap } = useNuxtApp();
@@ -20,10 +20,6 @@ const scrollDistancePx =
     : DESKTOP_SCROLL_DISTANCE_PX;
 const VIDEO_FADE_OUT_DURATION_MS = 320;
 const META_ROW_FALLBACK_HEIGHT_PX = 56;
-const SNAP_BLIP_FREQUENCY = "A5";
-const CENTER_BLIP_FREQUENCY = "E5";
-const SNAP_BLIP_DURATION = "32n";
-const SNAP_BLIP_VOLUME_DB = -16;
 const minimumCards = 20;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
 const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
@@ -52,8 +48,12 @@ const isCardsScrolling = ref(false);
 const metaRowHeightPx = ref(META_ROW_FALLBACK_HEIGHT_PX);
 const scrollVisualMetaIndex = ref(0);
 const metaVisualIndex = ref(loopWorks.length);
-let snapSynth: Tone.Synth | null = null;
-let removeAudioUnlockListeners: (() => void) | null = null;
+const worksLoopTone = useCardsLoopTone({
+  centerFrequency: "E5",
+  duration: "32n",
+  snapFrequency: "A5",
+  volumeDb: -16,
+});
 const cardsInteractionAnimation = useCardsInteraction({
   cardsRef,
   metaRef,
@@ -194,78 +194,15 @@ function onVisualIndexChange(index: number) {
   }
 }
 
-function ensureSnapSynth() {
-  if (!import.meta.client) return null;
-
-  if (!snapSynth) {
-    snapSynth = new Tone.Synth({
-      oscillator: { type: "sine" },
-      envelope: { attack: 0.002, decay: 0.09, sustain: 0, release: 0.08 },
-    }).toDestination();
-    snapSynth.volume.value = SNAP_BLIP_VOLUME_DB;
-  }
-
-  return snapSynth;
-}
-
-async function unlockSnapAudio() {
-  const synth = ensureSnapSynth();
-  if (!synth) return null;
-
-  if (Tone.context.state !== "running") {
-    await Tone.start().catch(() => {});
-  }
-
-  return Tone.context.state === "running" ? synth : null;
-}
-
-function playSnapBlip() {
-  const synth = ensureSnapSynth();
-  if (!synth || Tone.context.state !== "running") return;
-  synth.triggerAttackRelease(SNAP_BLIP_FREQUENCY, SNAP_BLIP_DURATION, Tone.now());
-}
-
-function playCenterBlip() {
-  const synth = ensureSnapSynth();
-  if (!synth || Tone.context.state !== "running") return;
-  synth.triggerAttackRelease(CENTER_BLIP_FREQUENCY, SNAP_BLIP_DURATION, Tone.now());
-}
-
-function cleanupSnapAudio() {
-  snapSynth?.dispose();
-  snapSynth = null;
-}
-
-function installAudioUnlockListeners() {
-  if (!import.meta.client) return;
-
-  const unlock = () => {
-    void unlockSnapAudio();
-  };
-
-  window.addEventListener("click", unlock, { passive: true });
-  window.addEventListener("pointerdown", unlock, { passive: true });
-  window.addEventListener("touchstart", unlock, { passive: true });
-  window.addEventListener("keydown", unlock);
-
-  removeAudioUnlockListeners = () => {
-    window.removeEventListener("click", unlock);
-    window.removeEventListener("pointerdown", unlock);
-    window.removeEventListener("touchstart", unlock);
-    window.removeEventListener("keydown", unlock);
-    removeAudioUnlockListeners = null;
-  };
-}
-
 const cardsLoopAnimation = useCardsLoop({
   cardsRef,
   galleryRef,
   cardGapPx,
   onCenterPass: () => {
-    playCenterBlip();
+    worksLoopTone.playCenterBlip();
   },
   onSnap: () => {
-    playSnapBlip();
+    worksLoopTone.playSnapBlip();
   },
   onScrollActivityChange,
   onSnappedIndexChange,
@@ -305,8 +242,8 @@ async function onCardClick(event: MouseEvent, index: number) {
 }
 
 onMounted(() => {
-  ensureSnapSynth();
-  installAudioUnlockListeners();
+  worksLoopTone.ensureSnapSynth();
+  worksLoopTone.installAudioUnlockListeners();
   cardsLoaderAnimation.prepare();
   cardsInteractionAnimation.hideAllInfo();
   syncCardVideos();
@@ -355,9 +292,8 @@ onBeforeRouteLeave(() => {
 
 onUnmounted(() => {
   window.removeEventListener("resize", onWindowResize);
-  removeAudioUnlockListeners?.();
   stopAllVideos();
-  cleanupSnapAudio();
+  worksLoopTone.cleanup();
 });
 </script>
 

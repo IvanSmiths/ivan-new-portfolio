@@ -6,7 +6,7 @@ const stageRef = ref<HTMLDivElement | null>(null);
 const labelRef = ref<HTMLDivElement | null>(null);
 const roleRef = ref<HTMLSpanElement | null>(null);
 
-export function useWorkExpandLayer() {
+export function useCardExpandLayer() {
   return {
     layerRef,
     coverRef,

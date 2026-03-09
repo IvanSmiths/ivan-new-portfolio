@@ -1,7 +1,7 @@
 import type { WorkCard } from "~/domain/works/types";
 import { isNavigationFailure } from "vue-router";
 import { nextTick } from "vue";
-import { useWorkExpandLayer } from "~/composables/animations/home/useWorkExpandLayer";
+import { useCardExpandLayer } from "~/composables/animations/home/useCardExpandLayer";
 
 export function useCardExpandTransition(opts: {
   gsap: typeof gsap;
@@ -13,7 +13,7 @@ export function useCardExpandTransition(opts: {
 }) {
   const { gsap: $gsap } = opts;
   const { $Flip } = useNuxtApp();
-  const { layerRef, coverRef, stageRef, labelRef, roleRef } = useWorkExpandLayer();
+  const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
   const TARGET_IMAGE_WAIT_TIMEOUT_MS = 2000;
@@ -129,7 +129,17 @@ export function useCardExpandTransition(opts: {
       const labelWrap = labelRef.value;
       const role = roleRef.value;
 
-      if (!work || !card || !imageEl || !containerEl || !layer || !cover || !stage || !labelWrap || !role) {
+      if (
+        !work ||
+        !card ||
+        !imageEl ||
+        !containerEl ||
+        !layer ||
+        !cover ||
+        !stage ||
+        !labelWrap ||
+        !role
+      ) {
         return;
       }
 
@@ -202,7 +212,11 @@ export function useCardExpandTransition(opts: {
           },
           "<",
         );
-        tl.to(imageEl, { x: 0, scale: 1.3, duration: 0.95, ease: "power3.out", force3D: true }, "<");
+        tl.to(
+          imageEl,
+          { x: 0, scale: 1.3, duration: 0.95, ease: "power3.out", force3D: true },
+          "<",
+        );
         tl.fromTo(
           labelWrap,
           {
