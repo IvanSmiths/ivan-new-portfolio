@@ -12,7 +12,12 @@ const { $gsap } = useNuxtApp();
 const router = useRouter();
 
 const cardGapPx = 20;
-const scrollDistancePx = 3000;
+const MOBILE_SCROLL_DISTANCE_PX = 30000;
+const DESKTOP_SCROLL_DISTANCE_PX = 3000;
+const scrollDistancePx =
+  import.meta.client && window.matchMedia("(max-width: 767px)").matches
+    ? MOBILE_SCROLL_DISTANCE_PX
+    : DESKTOP_SCROLL_DISTANCE_PX;
 const VIDEO_FADE_OUT_DURATION_MS = 320;
 const META_ROW_FALLBACK_HEIGHT_PX = 56;
 const SNAP_BLIP_FREQUENCY = "A5";
