@@ -391,7 +391,7 @@ onUnmounted(() => {
             />
             <video
               :class="shouldShowVideo(index) ? 'opacity-100' : 'opacity-0'"
-              class="pointer-events-none absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-300 ease-out"
+              class="works-loop-video pointer-events-none absolute inset-0 h-full object-cover object-top transition-opacity duration-300 ease-out"
               data-work-video
               loop
               muted
@@ -451,6 +451,14 @@ onUnmounted(() => {
   max-width: none;
   margin-left: -48px;
   will-change: transform;
+}
+
+.works-loop-video {
+  left: -48px;
+  right: auto;
+  width: calc(100% + 98px);
+  max-width: none;
+  display: block;
 }
 
 @media (max-width: 1023px) {
