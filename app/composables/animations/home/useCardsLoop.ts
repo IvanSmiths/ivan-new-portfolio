@@ -542,16 +542,6 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   async function initAfterLayout() {
     await nextTick();
     if (!options.galleryRef.value || !options.cardsRef.value) return;
-
-    await new Promise<void>((resolve) => {
-      initFrameId = requestAnimationFrame(() => {
-        initFrameId = null;
-        resolve();
-      });
-    });
-
-    if (!options.galleryRef.value || !options.cardsRef.value) return;
-
     init();
   }
 

@@ -15,6 +15,10 @@ useHead({
             if (savedTheme === 'dark' || (!savedTheme && supportDarkMode)) {
               document.documentElement.classList.add('dark');
             }
+
+            if (sessionStorage.getItem('works_loader_seen') === '1') {
+              document.documentElement.classList.add('loader-seen');
+            }
           } catch (e) {}
         })();
       `,

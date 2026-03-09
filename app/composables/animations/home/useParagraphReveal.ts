@@ -68,7 +68,13 @@ export function useParagraphReveal(refs: ParagraphRevealRefs) {
     if (!targets.length) return;
 
     if (hasSeenLoader()) {
-      createReveal().setVisibleState();
+      paragraphReveal?.revert();
+      paragraphReveal = null;
+      $gsap.set(targets, {
+        yPercent: 0,
+        autoAlpha: 1,
+        clearProps: "transform,opacity,visibility,willChange",
+      });
       return;
     }
 

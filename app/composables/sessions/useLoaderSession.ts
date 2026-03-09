@@ -5,13 +5,18 @@ export function useLoaderSession() {
   const loaderSeenState = useState<boolean>("works-loader-seen", () => false);
 
   function syncSeenFromStorage() {
-    if (!import.meta.client || loaderSeenState.value) return;
+    if (!import.meta.client) return;
+
+    let seen = false;
 
     try {
-      loaderSeenState.value = sessionStorage.getItem(STORAGE_KEY) === "1";
+      seen = sessionStorage.getItem(STORAGE_KEY) === "1";
     } catch {
-      loaderSeenState.value = false;
+      seen = false;
     }
+
+    loaderSeenState.value = seen;
+    document.documentElement.classList.toggle("loader-seen", seen);
   }
 
   function hasSeenLoader(): boolean {
@@ -25,6 +30,7 @@ export function useLoaderSession() {
 
     try {
       sessionStorage.setItem(STORAGE_KEY, "1");
+      document.documentElement.classList.add("loader-seen");
     } catch {
       /* empty */
     }

@@ -61,6 +61,19 @@ html.dark {
     color-scheme: dark;
 }
 
+html.loader-seen [data-home-loader-overlay] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+html.loader-seen [data-home-live-cards] {
+    visibility: visible !important;
+}
+
+html.loader-seen [data-home-logo] {
+    opacity: 1 !important;
+}
+
 html,
 body {
     background: var(--background);

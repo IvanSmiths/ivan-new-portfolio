@@ -37,6 +37,7 @@ onBeforeUnmount(() => {
   <div
     :class="isLogoVisible ? 'opacity-100' : 'opacity-0'"
     class="pointer-events-none fixed inset-0 z-50 transition-opacity duration-300"
+    data-home-logo
   >
     <div class="gap-md px-md mx-auto grid max-w-screen-2xl grid-cols-8 lg:grid-cols-16">
       <div class="pt-md pointer-events-auto col-start-3 col-end-7 lg:col-start-7 lg:col-end-11">

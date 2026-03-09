@@ -312,6 +312,7 @@ onUnmounted(() => {
         cardsLoaderAnimation.loaderPhase.value !== 'done'
       "
       class="bg-background pointer-events-none absolute inset-0 z-30 overflow-hidden"
+      data-home-loader-overlay
     >
       <div
         v-if="cardsLoaderAnimation.loaderPhase.value === 'loading'"
@@ -348,6 +349,7 @@ onUnmounted(() => {
       ref="cardsRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
       class="works-loop-cards absolute top-1/2 h-96 -translate-y-1/2"
+      data-home-live-cards
     >
       <li
         v-for="({ work, key }, index) in loopWorks"
