@@ -47,6 +47,7 @@ const cardsRef = ref<HTMLElement | null>(null);
 const metaRef = ref<HTMLElement | null>(null);
 const metaTrackRef = ref<HTMLElement | null>(null);
 const loaderCardsRef = ref<HTMLElement | null>(null);
+const isLoopReady = ref(false);
 const expandLock = ref(false);
 const hoveredCardIndex = ref<number | null>(null);
 const snappedCardIndex = ref(0);
@@ -112,6 +113,7 @@ function getCardVideos() {
 }
 
 function shouldShowVideo(index: number) {
+  if (!isLoopReady.value) return false;
   if (cardsLoaderAnimation.shouldHideLiveCards.value) return false;
   if (isCardsScrolling.value) return false;
   if (clickedCardIndex.value === index) return false;
@@ -249,6 +251,7 @@ async function onCardClick(event: MouseEvent, index: number) {
 }
 
 onMounted(() => {
+  isLoopReady.value = false;
   worksLoopTone.ensureSnapSynth();
   worksLoopTone.installAudioUnlockListeners();
   cardsLoaderAnimation.prepare();
@@ -258,6 +261,7 @@ onMounted(() => {
   window.addEventListener("resize", onWindowResize, { passive: true });
 
   void cardsLoopAnimation.initAfterLayout().then(() => {
+    isLoopReady.value = true;
     cardsInteractionAnimation.syncVisibleInfo();
 
     if (!cardsLoaderAnimation.shouldRunLoader.value) return;
@@ -271,6 +275,7 @@ watch(
     snappedCardIndex,
     clickedCardIndex,
     isCardsScrolling,
+    isLoopReady,
     cardsLoaderAnimation.shouldHideLiveCards,
   ],
   () => {
@@ -292,6 +297,7 @@ watch(
 );
 
 onBeforeRouteLeave(() => {
+  isLoopReady.value = false;
   stopAllVideos();
   cardsLoaderAnimation.cleanup();
   cardsLoopAnimation.cleanupForRouteLeave();
@@ -347,7 +353,8 @@ onUnmounted(() => {
 
     <ul
       ref="cardsRef"
-      :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
+      :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
+      :data-loop-ready="isLoopReady ? '1' : '0'"
       class="works-loop-cards absolute top-1/2 h-96 -translate-y-1/2"
       data-home-live-cards
     >
@@ -399,7 +406,7 @@ onUnmounted(() => {
 
     <div
       ref="metaRef"
-      :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value }"
+      :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
       class="bottom-xl pointer-events-none absolute left-1/2 z-20 h-14 w-max -translate-x-1/2 overflow-hidden"
     >
       <div
