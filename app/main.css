@@ -53,6 +53,20 @@
     --foreground-muted: #838383;
 }
 
+html {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+html,
+body {
+    background: var(--background);
+    color: var(--foreground);
+}
+
 pre {
     background: var(--background-muted);
     color: var(--foreground);
@@ -68,4 +82,3 @@ body.route-transitioning {
 ::-webkit-scrollbar {
     display: none;
 }
-

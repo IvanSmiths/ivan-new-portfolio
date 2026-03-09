@@ -67,7 +67,7 @@ function killTimeline() {
 
 function setInitialHidden() {
   if (!curtainEl.value || !blurEl.value) return;
-  $gsap.set(curtainEl.value, { yPercent: 100 });
+  $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0 });
   $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
 }
 
@@ -85,7 +85,7 @@ async function playCover() {
   if (!curtainEl.value || !blurEl.value) return;
 
   killTimeline();
-  $gsap.set(curtainEl.value, { yPercent: 100 });
+  $gsap.set(curtainEl.value, { yPercent: 100, opacity: 1 });
   $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
 
   const nextTimeline = $gsap
@@ -129,12 +129,13 @@ async function playReveal() {
   if (!curtainEl.value || !blurEl.value) return;
 
   killTimeline();
+  $gsap.set(curtainEl.value, { opacity: 1 });
 
   const nextTimeline = $gsap
     .timeline({
       delay: 0.15,
       onComplete: () => {
-        $gsap.set(curtainEl.value, { yPercent: 100 });
+        $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0 });
         $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
         clear(props.pageEl);
         $ScrollTrigger.refresh();
@@ -214,5 +215,6 @@ onBeforeUnmount(() => {
     ref="curtainEl"
     :class="isActive ? 'pointer-events-auto' : 'pointer-events-none'"
     class="bg-foreground fixed inset-0 z-10"
+    style="opacity: 0"
   />
 </template>
