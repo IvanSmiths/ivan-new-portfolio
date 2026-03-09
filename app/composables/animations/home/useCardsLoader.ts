@@ -110,22 +110,25 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     };
   }
 
-  function getLoaderStartRects(targetCards: HTMLElement[], containerRect: DOMRect) {
-    const firstRect = targetCards[0]?.getBoundingClientRect();
+  function getLoaderStartRects(
+    cardsCount: number,
+    referenceRect: DOMRect | undefined,
+    containerRect: DOMRect,
+  ) {
+    const firstRect = referenceRect;
     const targetWidth = firstRect?.width ?? 224;
     const targetHeight = firstRect?.height ?? 384;
     const gap = Math.max(4, Math.round(window.innerHeight * 0.006));
     const maxStackHeight = window.innerHeight * 0.7;
     const maxCardHeight =
-      (maxStackHeight - gap * Math.max(0, targetCards.length - 1)) / targetCards.length;
+      (maxStackHeight - gap * Math.max(0, cardsCount - 1)) / cardsCount;
     const startHeight = Math.max(18, Math.min(targetHeight * 0.1, maxCardHeight));
     const startWidth = startHeight * (targetWidth / targetHeight);
-    const totalHeight =
-      startHeight * targetCards.length + gap * Math.max(0, targetCards.length - 1);
+    const totalHeight = startHeight * cardsCount + gap * Math.max(0, cardsCount - 1);
     const startTop = (window.innerHeight - totalHeight) / 2;
     const startLeft = (window.innerWidth - startWidth) / 2;
 
-    return targetCards.map((_, index) => ({
+    return Array.from({ length: cardsCount }, (_, index) => ({
       x: startLeft - containerRect.left,
       y: startTop - containerRect.top + index * (startHeight + gap),
       width: startWidth,
@@ -133,30 +136,60 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     }));
   }
 
-  function createCenterSpreadData(
-    rects: DOMRect[],
+  function getLoaderTargetIndices(
+    targetViewportRects: DOMRect[],
+    loaderCount: number,
+  ): number[] {
+    if (loaderCount <= 0 || targetViewportRects.length <= 0) return [];
+
+    if (loaderCount >= targetViewportRects.length) {
+      return Array.from({ length: targetViewportRects.length }, (_, index) => index);
+    }
+
+    const viewportCenter = window.innerWidth / 2;
+    const centered = targetViewportRects
+      .map((rect, index) => ({
+        distance: Math.abs(rect.left + rect.width / 2 - viewportCenter),
+        index,
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, loaderCount)
+      .sort((a, b) => a.index - b.index);
+
+    return centered.map(({ index }) => index);
+  }
+
+  function createAlternatingSpreadData(
+    cardsCount: number,
     each: number,
   ): {
     stagger: (index: number, _target: unknown, list: unknown[]) => number;
     zIndices: number[];
   } {
-    const viewportCenter = window.innerWidth / 2;
-    const delays = new Array(rects.length).fill(0);
-    const zIndices = new Array(rects.length).fill(1);
-    const ordered = rects
-      .map((rect, index) => ({
-        index,
-        distance: Math.abs(rect.left + rect.width / 2 - viewportCenter),
-        x: rect.left + rect.width / 2,
-      }))
-      .sort((a, b) => {
-        if (a.distance !== b.distance) return a.distance - b.distance;
-        return a.x - b.x;
-      });
+    const delays = new Array(cardsCount).fill(0);
+    const zIndices = new Array(cardsCount).fill(1);
 
-    ordered.forEach((item, order) => {
-      delays[item.index] = order * each;
-      zIndices[item.index] = rects.length - order;
+    const visitOrder: number[] = [];
+    if (cardsCount > 0) {
+      visitOrder.push(0);
+
+      let left = 1;
+      let right = cardsCount - 1;
+
+      while (left <= right) {
+        visitOrder.push(right);
+        if (left < right) {
+          visitOrder.push(left);
+        }
+        left += 1;
+        right -= 1;
+      }
+    }
+
+    visitOrder.forEach((index, order) => {
+      const group = order === 0 ? 0 : Math.ceil(order / 2);
+      delays[index] = group * each;
+      zIndices[index] = cardsCount - order;
     });
 
     return {
@@ -197,9 +230,8 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
   }
 
   async function play() {
-    const targetCards = getCardsForTransition();
     const targetElements = getTargetElementsForTransition();
-    if (!shouldRunLoader.value || !targetCards.length) {
+    if (!shouldRunLoader.value || !targetElements.length) {
       completeLoaderRun();
       return;
     }
@@ -217,14 +249,20 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     const loaderCards = getLoaderCards();
     const loaderImages = getLoaderImages();
 
-    if (
-      !loaderShells.length ||
-      loaderShells.length !== targetCards.length ||
-      loaderCards.length !== targetCards.length
-    ) {
+    const loaderCount = Math.min(
+      loaderShells.length,
+      loaderCards.length,
+      loaderImages.length,
+      targetElements.length,
+    );
+    if (!loaderCount) {
       completeLoaderRun();
       return;
     }
+
+    const activeLoaderShells = loaderShells.slice(0, loaderCount);
+    const activeLoaderCards = loaderCards.slice(0, loaderCount);
+    const activeLoaderImages = loaderImages.slice(0, loaderCount);
 
     const loaderContainerRect = options.loaderCardsRef.value?.getBoundingClientRect();
     if (!loaderContainerRect) {
@@ -232,17 +270,32 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
       return;
     }
 
-    const startRects = getLoaderStartRects(targetElements, loaderContainerRect);
     const targetViewportRects = targetElements.map((element) => element.getBoundingClientRect());
-    const targetRects = targetViewportRects.map((rect) =>
+    const targetIndices = getLoaderTargetIndices(targetViewportRects, loaderCount);
+    if (targetIndices.length !== loaderCount) {
+      completeLoaderRun();
+      return;
+    }
+
+    const selectedTargetViewportRects = targetIndices
+      .map((targetIndex) => targetViewportRects[targetIndex])
+      .filter((rect): rect is DOMRect => Boolean(rect));
+    if (selectedTargetViewportRects.length !== loaderCount) {
+      completeLoaderRun();
+      return;
+    }
+
+    const targetRects = selectedTargetViewportRects.map((rect) =>
       toRelativeRect(rect, loaderContainerRect),
     );
-    const { stagger: spreadFromCenter, zIndices: centerZIndices } = createCenterSpreadData(
-      targetViewportRects,
-      0.03,
+    const startRects = getLoaderStartRects(
+      loaderCount,
+      selectedTargetViewportRects[0],
+      loaderContainerRect,
     );
+    const { stagger: spreadAlternating, zIndices } = createAlternatingSpreadData(loaderCount, 0.03);
 
-    loaderShells.forEach((shell, index) => {
+    activeLoaderShells.forEach((shell, index) => {
       const startRect = startRects[index];
       if (!startRect) return;
 
@@ -252,17 +305,17 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
         width: startRect.width,
         height: startRect.height,
         autoAlpha: 1,
-        zIndex: centerZIndices[index] ?? 1,
+        zIndex: zIndices[index] ?? 1,
         willChange: "transform,width,height,opacity",
       });
     });
 
-    $gsap.set(loaderCards, {
+    $gsap.set(activeLoaderCards, {
       yPercent: 110,
       autoAlpha: 0,
       willChange: "transform,opacity",
     });
-    $gsap.set(loaderImages, { scale: 1.14, willChange: "transform" });
+    $gsap.set(activeLoaderImages, { scale: 1.14, willChange: "transform" });
 
     const completed = await new Promise<boolean>((resolve) => {
       loaderTimeline = $gsap.timeline({
@@ -272,28 +325,28 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
       });
 
       loaderTimeline
-        .to(loaderCards, {
+        .to(activeLoaderCards, {
           yPercent: 0,
           autoAlpha: 1,
           duration: 1,
-          stagger: 0.03,
+          stagger: spreadAlternating,
         })
-        .to(loaderShells, {
+        .to(activeLoaderShells, {
           x: (index) => targetRects[index]?.left ?? 0,
           y: (index) => targetRects[index]?.top ?? 0,
           width: (index) => targetRects[index]?.width ?? 0,
           height: (index) => targetRects[index]?.height ?? 0,
           duration: 2,
           ease: "expo.inOut",
-          stagger: spreadFromCenter,
+          stagger: spreadAlternating,
         })
         .to(
-          loaderImages,
+          activeLoaderImages,
           {
             scale: 1,
             duration: 1,
             ease: "power2.out",
-            stagger: spreadFromCenter,
+            stagger: spreadAlternating,
           },
           2.2,
         )

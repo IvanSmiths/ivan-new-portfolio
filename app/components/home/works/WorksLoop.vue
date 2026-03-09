@@ -19,20 +19,27 @@ const scrollDistancePx =
     ? MOBILE_SCROLL_DISTANCE_PX
     : DESKTOP_SCROLL_DISTANCE_PX;
 const VIDEO_FADE_OUT_DURATION_MS = 320;
-const META_ROW_FALLBACK_HEIGHT_PX = 56;
-const minimumCards = 20;
+const META_ROW_FALLBACK_HEIGHT_PX = 0;
+const minimumCards = 80;
 const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
-const loopWorks = Array.from({ length: worksCards.length * repeats }, (_, index) => {
-  const work = worksCards[index % worksCards.length];
-  if (!work) {
-    throw new Error(`Work not found at index ${index % worksCards.length}`);
-  }
+const loaderRepeats = 2;
 
-  return {
-    key: `${work.slug}-${index}`,
-    work,
-  };
-});
+function createWorksLoopItems(cycles: number) {
+  return Array.from({ length: worksCards.length * cycles }, (_, index) => {
+    const work = worksCards[index % worksCards.length];
+    if (!work) {
+      throw new Error(`Work not found at index ${index % worksCards.length}`);
+    }
+
+    return {
+      key: `${work.slug}-${index}`,
+      work,
+    };
+  });
+}
+
+const loopWorks = createWorksLoopItems(repeats);
+const loaderLoopWorks = createWorksLoopItems(loaderRepeats);
 const loaderWorks = loopWorks.map(({ work }) => work);
 
 const galleryRef = ref<HTMLElement | null>(null);
@@ -315,7 +322,7 @@ onUnmounted(() => {
 
       <div v-else ref="loaderCardsRef" class="absolute inset-0">
         <div
-          v-for="({ work, key }, index) in loopWorks"
+          v-for="({ work, key }, index) in loaderLoopWorks"
           :key="`${key}-loader-${index}`"
           class="absolute top-0 left-0 overflow-hidden"
           data-loader-shell

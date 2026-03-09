@@ -46,8 +46,8 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   const INITIAL_X_PERCENT = 400;
   const FROM_X_PERCENT = 600;
   const TO_X_PERCENT = -600;
-  const INITIAL_SCALE_Y = 0.8;
-  const SCALE_Y_FROM = 0.8;
+  const INITIAL_SCALE_Y = 1;
+  const SCALE_Y_FROM = 1;
   const SCALE_Y_TO = 1;
   const IMAGE_SHIFT_X_MAX = 24;
   const IMAGE_SHIFT_MIN_VELOCITY = 12;
