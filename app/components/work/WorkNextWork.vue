@@ -48,7 +48,7 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
           ref="imageRef"
           :alt="`${nextWork.name} preview`"
           :src="nextWork.homeImage.url"
-          class="h-full w-full object-cover object-top"
+          class="work-cover-origin h-full"
         />
       </div>
     </div>

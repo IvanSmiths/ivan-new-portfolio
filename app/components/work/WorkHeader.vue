@@ -47,11 +47,11 @@ const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
           </div>
         </div>
 
-        <div>
+        <div class="overflow-hidden" data-work-hero-target>
           <img
             :src="work?.homeImage.url"
             alt=""
-            class="min-h-screen w-full origin-top object-cover object-top"
+            class="work-cover-origin min-h-screen h-full"
             data-work-hero-image
           />
         </div>

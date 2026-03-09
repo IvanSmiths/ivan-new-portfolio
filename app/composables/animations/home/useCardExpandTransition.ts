@@ -15,8 +15,9 @@ export function useCardExpandTransition(opts: {
   const { $Flip } = useNuxtApp();
   const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 
+  const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
-  const TARGET_IMAGE_WAIT_TIMEOUT_MS = 2000;
+  const TARGET_WAIT_TIMEOUT_MS = 2000;
 
   let movedImage: HTMLImageElement | null = null;
   let movedImageOriginalParent: HTMLElement | null = null;
@@ -78,19 +79,21 @@ export function useCardExpandTransition(opts: {
     $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
   }
 
-  function waitForWorkHeroImage() {
+  function waitForWorkHeroTarget() {
     const startTime = typeof performance !== "undefined" ? performance.now() : Date.now();
 
-    return new Promise<HTMLImageElement | null>((resolve) => {
+    return new Promise<HTMLElement | null>((resolve) => {
       const poll = () => {
-        const targetImage = document.querySelector<HTMLImageElement>(HERO_IMAGE_SELECTOR);
-        if (targetImage) {
-          resolve(targetImage);
+        const target =
+          document.querySelector<HTMLElement>(HERO_TARGET_SELECTOR) ??
+          document.querySelector<HTMLElement>(HERO_IMAGE_SELECTOR);
+        if (target) {
+          resolve(target);
           return;
         }
 
         const now = typeof performance !== "undefined" ? performance.now() : Date.now();
-        if (now - startTime >= TARGET_IMAGE_WAIT_TIMEOUT_MS) {
+        if (now - startTime >= TARGET_WAIT_TIMEOUT_MS) {
           resolve(null);
           return;
         }
@@ -214,7 +217,7 @@ export function useCardExpandTransition(opts: {
         );
         tl.to(
           imageEl,
-          { x: 0, scale: 1.3, duration: 0.95, ease: "power3.out", force3D: true },
+          { x: 0, scale: 1.5, duration: 0.95, ease: "power3.out", force3D: true },
           "<",
         );
         tl.fromTo(
@@ -247,20 +250,20 @@ export function useCardExpandTransition(opts: {
         await nextTick();
         await waitForFrames(2);
 
-        const targetImage = await waitForWorkHeroImage();
-        if (!targetImage) return;
+        const target = await waitForWorkHeroTarget();
+        if (!target) return;
 
-        $gsap.set(targetImage, { autoAlpha: 0 });
+        $gsap.set(target, { autoAlpha: 0 });
 
         await new Promise<void>((resolve) => {
           const tl = $gsap.timeline({
             onComplete: () => {
-              $gsap.set(targetImage, { autoAlpha: 1, clearProps: "opacity,visibility" });
+              $gsap.set(target, { autoAlpha: 1, clearProps: "opacity,visibility" });
               resolve();
             },
           });
 
-          const fitAnimation = $Flip.fit(stage, targetImage, {
+          const fitAnimation = $Flip.fit(stage, target, {
             absolute: true,
             duration: 1.1,
             ease: "power3.inOut",

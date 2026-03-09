@@ -342,7 +342,7 @@ onUnmounted(() => {
             <img
               :alt="work.title"
               :src="work.image"
-              class="h-full w-full object-cover object-top"
+              class="work-cover-origin h-full"
               data-loader-image
               draggable="false"
             />
@@ -384,14 +384,14 @@ onUnmounted(() => {
             <img
               :alt="work.title"
               :src="work.image"
-              class="works-loop-image h-full object-cover object-top"
+              class="work-cover-origin works-loop-image h-full"
               data-work-image
               draggable="false"
               @click="onCardClick($event, index)"
             />
             <video
               :class="shouldShowVideo(index) ? 'opacity-100' : 'opacity-0'"
-              class="works-loop-video pointer-events-none absolute inset-0 h-full object-cover object-top transition-opacity duration-300 ease-out"
+              class="works-loop-video pointer-events-none absolute inset-0 h-full transition-opacity duration-300 ease-out"
               data-work-video
               loop
               muted
@@ -447,18 +447,17 @@ onUnmounted(() => {
 }
 
 .works-loop-image {
-  width: calc(100% + 96px);
-  max-width: none;
-  margin-left: -48px;
   will-change: transform;
 }
 
 .works-loop-video {
-  left: -48px;
+  left: calc(var(--work-cover-overscan) * -1);
   right: auto;
-  width: calc(100% + 98px);
+  width: calc(100% + (var(--work-cover-overscan) * 2) + 2px);
   max-width: none;
   display: block;
+  object-fit: cover;
+  object-position: top center;
 }
 
 @media (max-width: 1023px) {

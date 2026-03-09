@@ -39,6 +39,7 @@
 :root {
     --radius: 0.625rem;
     --space: 1rem;
+    --work-cover-overscan: 48px;
 
     --background: #ffffff;
     --background-muted: #e3e3e3;
@@ -78,6 +79,21 @@ html,
 body {
     background: var(--background);
     color: var(--foreground);
+}
+
+.work-cover-origin {
+    width: calc(100% + (var(--work-cover-overscan) * 2));
+    max-width: none;
+    margin-left: calc(var(--work-cover-overscan) * -1);
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+@media (max-width: 1023px) {
+    :root {
+        --work-cover-overscan: 24px;
+    }
 }
 
 pre {
