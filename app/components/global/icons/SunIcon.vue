@@ -9,7 +9,7 @@
     width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="12" cy="12" r="4" />
+    <circle class="fill-foreground" cx="12" cy="12" r="4" />
     <path d="M12 2v2" />
     <path d="M12 20v2" />
     <path d="m4.93 4.93 1.41 1.41" />

@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="stroke-foreground group-hover:stroke-foreground/70 fill-background cursor-pointer transition"
+    class="stroke-foreground group-hover:stroke-foreground/70 cursor-pointer transition"
     height="24"
     stroke-linecap="round"
     stroke-linejoin="round"
