@@ -236,6 +236,28 @@ const expandTransition = useCardExpandTransition({
 async function onCardClick(event: MouseEvent, index: number) {
   if (expandLock.value) return;
   const hadVisibleVideo = shouldShowVideo(index);
+  const clickedImageEl =
+    event.currentTarget instanceof HTMLImageElement ? event.currentTarget : null;
+  const clickedContainerEl = (clickedImageEl?.parentElement as HTMLElement | null) ?? null;
+  const clickedContainerRect = clickedContainerEl?.getBoundingClientRect();
+  const clickedContainerBorderRadius = clickedContainerEl
+    ? window.getComputedStyle(clickedContainerEl).borderRadius
+    : "";
+  const expandOriginSnapshot =
+    clickedImageEl && clickedContainerRect
+      ? {
+          borderRadius: clickedContainerBorderRadius,
+          containerRect: {
+            left: clickedContainerRect.left,
+            top: clickedContainerRect.top,
+            width: clickedContainerRect.width,
+            height: clickedContainerRect.height,
+          },
+          imageEl: clickedImageEl,
+          imageScale: Number($gsap.getProperty(clickedImageEl, "scale")) || 1,
+          imageX: Number($gsap.getProperty(clickedImageEl, "x")) || 0,
+        }
+      : undefined;
 
   clickedCardIndex.value = index;
   syncCardVideos();
@@ -247,7 +269,7 @@ async function onCardClick(event: MouseEvent, index: number) {
     });
   }
 
-  await expandTransition.onImageClick(event, index);
+  await expandTransition.onImageClick(event, index, expandOriginSnapshot);
 }
 
 onMounted(() => {

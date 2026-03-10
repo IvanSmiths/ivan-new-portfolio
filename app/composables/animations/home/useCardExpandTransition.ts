@@ -3,6 +3,14 @@ import { isNavigationFailure } from "vue-router";
 import { nextTick } from "vue";
 import { useCardExpandLayer } from "~/composables/animations/home/useCardExpandLayer";
 
+type ExpandOriginSnapshot = {
+  borderRadius: string;
+  containerRect: Pick<DOMRect, "height" | "left" | "top" | "width">;
+  imageEl: HTMLImageElement | null;
+  imageScale: number;
+  imageX: number;
+};
+
 export function useCardExpandTransition(opts: {
   gsap: typeof gsap;
   router: ReturnType<typeof useRouter>;
@@ -18,6 +26,7 @@ export function useCardExpandTransition(opts: {
   const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
   const TARGET_WAIT_TIMEOUT_MS = 2000;
+  const PRE_EXPAND_HOLD_DURATION = 0.45;
 
   let movedImage: HTMLImageElement | null = null;
   let movedImageOriginalParent: HTMLElement | null = null;
@@ -116,7 +125,11 @@ export function useCardExpandTransition(opts: {
     cleanup();
   });
 
-  async function onImageClick(_event: MouseEvent, index: number) {
+  async function onImageClick(
+    _event: MouseEvent,
+    index: number,
+    originSnapshot?: ExpandOriginSnapshot,
+  ) {
     if (opts.lock.value) return;
     opts.lock.value = true;
     let shouldCleanup = true;
@@ -124,7 +137,8 @@ export function useCardExpandTransition(opts: {
     try {
       const work = opts.works[index];
       const card = opts.cards()[index];
-      const imageEl = opts.images()[index];
+      const fallbackImage = opts.images()[index];
+      const imageEl = originSnapshot?.imageEl ?? fallbackImage;
       const containerEl = (imageEl?.parentElement as HTMLElement | null) ?? null;
       const layer = layerRef.value;
       const cover = coverRef.value;
@@ -146,12 +160,17 @@ export function useCardExpandTransition(opts: {
         return;
       }
 
-      const containerRect = containerEl.getBoundingClientRect();
-      const containerStyles = window.getComputedStyle(containerEl);
-      const imageX = Number($gsap.getProperty(imageEl, "x")) || 0;
-      const imageScale = Number($gsap.getProperty(imageEl, "scale")) || 1;
-      const viewportCenterX = window.innerWidth / 2;
-      const viewportCenterY = window.innerHeight / 2;
+      const fallbackContainerRect = containerEl.getBoundingClientRect();
+      const containerRect = originSnapshot?.containerRect ?? fallbackContainerRect;
+      const borderRadius =
+        originSnapshot?.borderRadius ?? window.getComputedStyle(containerEl).borderRadius;
+      const imageX =
+        originSnapshot?.imageX ?? (Number($gsap.getProperty(imageEl, "x")) || 0);
+      const imageScale =
+        originSnapshot?.imageScale ?? (Number($gsap.getProperty(imageEl, "scale")) || 1);
+      const layerRect = layer.getBoundingClientRect();
+      const viewportCenterX = layerRect.left + layerRect.width / 2;
+      const viewportCenterY = layerRect.top + layerRect.height / 2;
 
       $gsap.to(
         opts.cards().filter((_, i) => i !== index),
@@ -176,9 +195,11 @@ export function useCardExpandTransition(opts: {
       $gsap.set(stage, {
         x: containerRect.left + containerRect.width / 2 - viewportCenterX,
         y: containerRect.top + containerRect.height / 2 - viewportCenterY,
+        xPercent: -50,
+        yPercent: -50,
         width: containerRect.width,
         height: containerRect.height,
-        borderRadius: containerStyles.borderRadius,
+        borderRadius,
         transformOrigin: "center center",
         willChange: "transform,width,height",
         backfaceVisibility: "hidden",
@@ -193,17 +214,20 @@ export function useCardExpandTransition(opts: {
       await new Promise<void>((resolve) => {
         const tl = $gsap.timeline({ onComplete: resolve });
 
-        const centerWidth = window.innerWidth * 0.4;
-        const centerHeight = window.innerHeight * 0.4;
-        const centerLeft = (window.innerWidth - centerWidth) / 2;
-        const centerTop = (window.innerHeight - centerHeight) / 2;
+        const centerWidth = layerRect.width * 0.4;
+        const centerHeight = layerRect.height * 0.4;
+        const centerLeft = layerRect.left + (layerRect.width - centerWidth) / 2;
+        const centerTop = layerRect.top + (layerRect.height - centerHeight) / 2;
 
         tl.set(labelWrap, {
           x: centerLeft - viewportCenterX,
           y: centerTop - 6 - viewportCenterY,
+          xPercent: -50,
+          yPercent: -50,
           width: centerWidth,
         });
         tl.to(cover, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
+        tl.to({}, { duration: PRE_EXPAND_HOLD_DURATION });
         tl.to(
           stage,
           {
@@ -215,7 +239,7 @@ export function useCardExpandTransition(opts: {
             ease: "power3.out",
             force3D: true,
           },
-          "<",
+          ">",
         );
         tl.to(
           imageEl,
