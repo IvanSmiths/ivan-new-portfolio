@@ -267,7 +267,7 @@ export function useCardExpandTransition(opts: {
         );
         tl.to(
           imageEl,
-          { x: 0, scale: 0.6, duration: 0.95, ease: "power3.out", force3D: true },
+          { x: 0, scale: 1.6, duration: 0.95, ease: "power3.out", force3D: true },
           "<",
         );
         tl.fromTo(
