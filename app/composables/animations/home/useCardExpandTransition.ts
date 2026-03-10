@@ -180,6 +180,8 @@ export function useCardExpandTransition(opts: {
         height: containerRect.height,
         borderRadius: containerStyles.borderRadius,
         transformOrigin: "center center",
+        willChange: "transform,width,height",
+        backfaceVisibility: "hidden",
       });
       $gsap.set(imageEl, {
         x: imageX,
@@ -191,8 +193,8 @@ export function useCardExpandTransition(opts: {
       await new Promise<void>((resolve) => {
         const tl = $gsap.timeline({ onComplete: resolve });
 
-        const centerWidth = window.innerWidth * 0.5;
-        const centerHeight = window.innerHeight * 0.5;
+        const centerWidth = window.innerWidth * 0.4;
+        const centerHeight = window.innerHeight * 0.4;
         const centerLeft = (window.innerWidth - centerWidth) / 2;
         const centerTop = (window.innerHeight - centerHeight) / 2;
 
@@ -217,7 +219,7 @@ export function useCardExpandTransition(opts: {
         );
         tl.to(
           imageEl,
-          { x: 0, scale: 1.5, duration: 0.95, ease: "power3.out", force3D: true },
+          { x: 0, scale: 0.6, duration: 0.95, ease: "power3.out", force3D: true },
           "<",
         );
         tl.fromTo(
