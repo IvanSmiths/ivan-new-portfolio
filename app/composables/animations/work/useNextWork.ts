@@ -27,6 +27,8 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   const CENTER_STAGE_HEIGHT_RATIO = 0.5;
   const LOWER_STAGE_TOP_RATIO = 0.7;
   const LOWER_STAGE_SIDE_PADDING_PX = 20;
+  const COVER_FADE_DURATION = 0.45;
+  const COVER_FADE_EASE = "power2.inOut";
 
   const removeCover = () => {
     cover?.remove();
@@ -45,7 +47,7 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
     cover.style.cssText = `
       position: fixed;
       inset: 0;
-      background: black;
+      background: var(--background);
       z-index: 9;
       opacity: 0;
       pointer-events: none;
@@ -59,6 +61,8 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
     const imageContainer = imageContainerRef.value;
     const image = imageRef.value;
     if (!imageContainer || !image) return null;
+    const coverEl = ensureCover();
+    $gsap.set(coverEl, { opacity: 0 });
 
     const centerWidth = window.innerWidth * CENTER_STAGE_WIDTH_RATIO;
     const centerHeight = window.innerHeight * CENTER_STAGE_HEIGHT_RATIO;
@@ -133,10 +137,7 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
       0,
     );
 
-    timeline.add(() => {
-      const coverEl = ensureCover();
-      $gsap.to(coverEl, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
-    }, STAGE_DURATION);
+    timeline.to(coverEl, { opacity: 1, duration: COVER_FADE_DURATION, ease: COVER_FADE_EASE }, 0);
 
     timeline.call(() => {
       const fitTween = $Flip.fit(imageContainer, finalStageTarget, {
