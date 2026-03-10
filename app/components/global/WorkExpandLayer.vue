@@ -13,11 +13,11 @@ const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer()
     <div ref="coverRef" class="bg-background absolute inset-0 z-0 opacity-0" />
     <div
       ref="stageRef"
-      class="absolute top-1/2 left-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+      class="absolute top-1/2 left-1/2 z-[1] overflow-hidden"
     />
     <div
       ref="labelRef"
-      class="absolute top-1/2 left-1/2 z-[2] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center opacity-0"
+      class="absolute top-1/2 left-1/2 z-[2] flex items-center justify-center opacity-0"
     >
       <span
         ref="roleRef"

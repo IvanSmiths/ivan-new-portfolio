@@ -2,6 +2,7 @@ import type { WorkCard } from "~/domain/works/types";
 import { isNavigationFailure } from "vue-router";
 import { nextTick } from "vue";
 import { useCardExpandLayer } from "~/composables/animations/home/useCardExpandLayer";
+import { useSplitTextAnimation } from "~/composables/animations/global/useSplitAnimation";
 
 type ExpandOriginSnapshot = {
   borderRadius: string;
@@ -21,17 +22,25 @@ export function useCardExpandTransition(opts: {
 }) {
   const { gsap: $gsap } = opts;
   const { $Flip } = useNuxtApp();
+  const { prepareSplitReveal } = useSplitTextAnimation();
   const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 
   const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
   const TARGET_WAIT_TIMEOUT_MS = 2000;
   const PRE_EXPAND_HOLD_DURATION = 0.45;
+  const LABEL_GAP_FROM_IMAGE_TOP_PX = 0;
 
   let movedImage: HTMLImageElement | null = null;
   let movedImageOriginalParent: HTMLElement | null = null;
   let movedImageOriginalNextSibling: ChildNode | null = null;
+  let restoreRoleSplit: (() => void) | null = null;
   let deferDisposeCleanup = false;
+
+  function cleanupRoleSplit() {
+    restoreRoleSplit?.();
+    restoreRoleSplit = null;
+  }
 
   function restoreMovedImage() {
     if (!movedImage) return;
@@ -58,6 +67,7 @@ export function useCardExpandTransition(opts: {
 
   function cleanup() {
     restoreMovedImage();
+    cleanupRoleSplit();
 
     const layer = layerRef.value;
     const cover = coverRef.value;
@@ -164,8 +174,7 @@ export function useCardExpandTransition(opts: {
       const containerRect = originSnapshot?.containerRect ?? fallbackContainerRect;
       const borderRadius =
         originSnapshot?.borderRadius ?? window.getComputedStyle(containerEl).borderRadius;
-      const imageX =
-        originSnapshot?.imageX ?? (Number($gsap.getProperty(imageEl, "x")) || 0);
+      const imageX = originSnapshot?.imageX ?? (Number($gsap.getProperty(imageEl, "x")) || 0);
       const imageScale =
         originSnapshot?.imageScale ?? (Number($gsap.getProperty(imageEl, "scale")) || 1);
       const layerRect = layer.getBoundingClientRect();
@@ -189,6 +198,17 @@ export function useCardExpandTransition(opts: {
       stage.appendChild(imageEl);
 
       role.textContent = work.role;
+      cleanupRoleSplit();
+      const roleReveal = prepareSplitReveal(role, {
+        splitBy: "chars",
+        duration: 1,
+        stagger: 0.01,
+        yPercent: 120,
+        ease: "power3.out",
+        clipLines: false,
+        autoAlpha: 0,
+      });
+      restoreRoleSplit = roleReveal.revert;
       $gsap.set(layer, { autoAlpha: 1, visibility: "visible", pointerEvents: "none" });
       $gsap.set(cover, { opacity: 0 });
       $gsap.set(labelWrap, { opacity: 0 });
@@ -218,12 +238,16 @@ export function useCardExpandTransition(opts: {
         const centerHeight = layerRect.height * 0.4;
         const centerLeft = layerRect.left + (layerRect.width - centerWidth) / 2;
         const centerTop = layerRect.top + (layerRect.height - centerHeight) / 2;
+        const centerX = centerLeft + centerWidth / 2;
+        const labelBottomY = centerTop - LABEL_GAP_FROM_IMAGE_TOP_PX;
 
         tl.set(labelWrap, {
-          x: centerLeft - viewportCenterX,
-          y: centerTop - 6 - viewportCenterY,
+          left: centerX,
+          top: labelBottomY,
+          x: 0,
+          y: 0,
           xPercent: -50,
-          yPercent: -50,
+          yPercent: -100,
           width: centerWidth,
         });
         tl.to(cover, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
@@ -250,20 +274,20 @@ export function useCardExpandTransition(opts: {
           labelWrap,
           {
             opacity: 0,
-            y: centerTop - 4 - viewportCenterY,
+            y: 8,
           },
           {
             opacity: 1,
-            y: centerTop - 12 - viewportCenterY,
-            duration: 0.25,
+            y: 0,
+            duration: 0.36,
             ease: "power2.out",
           },
-          "<+0.62",
+          "<+0.56",
         );
-        tl.fromTo(role, { y: 8 }, { y: 0, duration: 0.25, ease: "power2.out" }, "<+0.05");
+        roleReveal.addToTimeline(tl, "<+0.02");
         tl.to(labelWrap, {
           opacity: 0,
-          y: centerTop - 18 - viewportCenterY,
+          y: -8,
           duration: 0.2,
           ease: "power2.in",
           delay: 0.08,
