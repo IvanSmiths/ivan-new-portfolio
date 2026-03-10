@@ -1,13 +1,50 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { onBeforeUnmount, ref, watch } from "vue";
+import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 import { type Experiment, projects } from "~/domain/lab/data/projects";
 import AppGrid from "~/components/global/grid/AppGrid.vue";
 
 const failedVideos = ref<Record<string, boolean>>({});
+const videosEnabled = ref(false);
+const { phase } = useCurtainTransition();
+type TimerHandle = number | ReturnType<typeof setTimeout>;
+let enableVideosTimeout: TimerHandle | null = null;
 
 const hasVideo = (experiment: Experiment) => {
-  return Boolean(experiment.video) && !failedVideos.value[experiment.title];
+  return videosEnabled.value && Boolean(experiment.video) && !failedVideos.value[experiment.title];
 };
+
+function enableVideosAfterReveal() {
+  if (!import.meta.client || videosEnabled.value || enableVideosTimeout) return;
+
+  enableVideosTimeout = window.setTimeout(() => {
+    videosEnabled.value = true;
+    enableVideosTimeout = null;
+  }, 140);
+}
+
+function onVideoError(title: string) {
+  failedVideos.value = {
+    ...failedVideos.value,
+    [title]: true,
+  };
+}
+
+watch(
+  phase,
+  (currentPhase) => {
+    if (currentPhase === "idle") {
+      enableVideosAfterReveal();
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  if (enableVideosTimeout === null) return;
+  window.clearTimeout(enableVideosTimeout);
+  enableVideosTimeout = null;
+});
 </script>
 
 <template>
@@ -34,7 +71,8 @@ const hasVideo = (experiment: Experiment) => {
               loop
               muted
               playsinline
-              preload="auto"
+              preload="metadata"
+              @error="onVideoError(experiment.title)"
             >
               <source :src="experiment.video" type="video/mp4" />
             </video>
@@ -44,7 +82,7 @@ const hasVideo = (experiment: Experiment) => {
           <div class="gap-sm flex items-center">
             <h3 class="text-foreground text-sm">{{ experiment.title }}</h3>
             <h4
-              class="text-foreground px-sm rounded-full border border-white/20 py-1 text-xs tracking-widest shadow-lg backdrop-blur-lg"
+              class="text-foreground bg-background/70 px-sm rounded-full border border-white/20 py-1 text-xs tracking-widest shadow-lg"
             >
               {{ experiment.category }}
             </h4>

@@ -67,8 +67,8 @@ function killTimeline() {
 
 function setInitialHidden() {
   if (!curtainEl.value || !blurEl.value) return;
-  $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0 });
-  $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+  $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0, willChange: "transform,opacity", force3D: true });
+  $gsap.set(blurEl.value, { opacity: 0, willChange: "opacity", force3D: true });
 }
 
 function shouldAnimatePageReveal() {
@@ -86,7 +86,7 @@ async function playCover() {
 
   killTimeline();
   $gsap.set(curtainEl.value, { yPercent: 100, opacity: 1 });
-  $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+  $gsap.set(blurEl.value, { opacity: 0 });
 
   const nextTimeline = $gsap
     .timeline({ onComplete: notifyCovered })
@@ -94,7 +94,6 @@ async function playCover() {
       blurEl.value,
       {
         opacity: 1,
-        backdropFilter: "blur(6px)",
         duration: 0.3,
         ease: "power1.in",
       },
@@ -136,7 +135,7 @@ async function playReveal() {
       delay: 0.15,
       onComplete: () => {
         $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0 });
-        $gsap.set(blurEl.value, { opacity: 0, backdropFilter: "blur(0px)" });
+        $gsap.set(blurEl.value, { opacity: 0 });
         clear(props.pageEl);
         $ScrollTrigger.refresh();
         notifyRevealed();
@@ -165,7 +164,6 @@ async function playReveal() {
       blurEl.value,
       {
         opacity: 0,
-        backdropFilter: "blur(0px)",
         duration: 0.1,
         ease: "power2.out",
       },
@@ -210,11 +208,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="blurEl" class="pointer-events-none fixed inset-0 z-9" style="opacity: 0" />
+  <div
+    ref="blurEl"
+    class="pointer-events-none fixed inset-0 z-9"
+    style="opacity: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transform: translateZ(0)"
+  />
   <div
     ref="curtainEl"
     :class="isActive ? 'pointer-events-auto' : 'pointer-events-none'"
     class="bg-foreground fixed inset-0 z-10"
-    style="opacity: 0"
+    style="opacity: 0; transform: translateZ(0)"
   />
 </template>
