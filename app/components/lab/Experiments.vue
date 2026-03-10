@@ -24,13 +24,13 @@ const hasVideo = (experiment: Experiment) => {
               v-if="!hasVideo(experiment)"
               :alt="experiment.title"
               :src="experiment.image"
-              class="w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
             />
             <video
               v-else
               :poster="experiment.image"
               autoplay
-              class="w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
               loop
               muted
               playsinline
