@@ -3,9 +3,10 @@ export interface Experiment {
   description: string;
   category: string;
   year: number;
-  link?: string;
+  link: string;
   image: string;
   aspectRatio: "portrait" | "landscape";
+  video?: string;
 }
 
 export const projects: Experiment[] = [
@@ -18,6 +19,8 @@ export const projects: Experiment[] = [
     link: "https://www.tiktok.com/@hiphoparchiveofficial",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1772025649/portfolio/experiments/hip-hop-archive_rapabf.png",
+    video:
+      "https://res.cloudinary.com/deino2cjx/video/upload/f_mp4,vc_h264,ac_none,q_auto/v1773147913/hh_vxfr7i.mp4",
     aspectRatio: "portrait",
   },
   {
@@ -32,7 +35,7 @@ export const projects: Experiment[] = [
     aspectRatio: "portrait",
   },
   {
-    title: "Unsplash Gallery",
+    title: "A statue in Germany",
     description: "Collection of my best photos. Took with a Sony A7II, zoom lens 28-70mm.",
     category: "Photography",
     year: 2019,
@@ -49,6 +52,8 @@ export const projects: Experiment[] = [
     link: "https://www.youtube.com/@ivansmithsdev",
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1772025651/portfolio/experiments/youtube-channel_ow9p7p.png",
+    video:
+      "https://res.cloudinary.com/deino2cjx/video/upload/f_mp4,vc_h264,ac_none,q_auto/v1773147912/guitar_u6wnvh.mp4",
     aspectRatio: "landscape",
   },
 ];
