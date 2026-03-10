@@ -122,26 +122,28 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     const targetHeight = firstRect?.height ?? 384;
     const gap = Math.max(4, Math.round(window.innerHeight * 0.006));
     const maxStackHeight = window.innerHeight * 0.7;
-    const maxCardHeight =
-      (maxStackHeight - gap * Math.max(0, cardsCount - 1)) / cardsCount;
+    const maxCardHeight = (maxStackHeight - gap * Math.max(0, cardsCount - 1)) / cardsCount;
     const startHeight = Math.max(18, Math.min(targetHeight * 0.1, maxCardHeight));
     const startWidth = startHeight * (targetWidth / targetHeight);
-    const totalHeight = startHeight * cardsCount + gap * Math.max(0, cardsCount - 1);
-    const startTop = (window.innerHeight - totalHeight) / 2;
+    const centerTop = window.innerHeight / 2 - startHeight / 2;
     const startLeft = (window.innerWidth - startWidth) / 2;
+    const step = startHeight + gap;
+    const visitOrder = buildAlternatingVisitOrder(cardsCount);
+    const orderByIndex = new Array(cardsCount).fill(0);
+
+    visitOrder.forEach((cardIndex, order) => {
+      orderByIndex[cardIndex] = order;
+    });
 
     return Array.from({ length: cardsCount }, (_, index) => ({
       x: startLeft - containerRect.left,
-      y: startTop - containerRect.top + index * (startHeight + gap),
+      y: centerTop - containerRect.top + getCenterOutOffset(orderByIndex[index] ?? 0) * step,
       width: startWidth,
       height: startHeight,
     }));
   }
 
-  function getLoaderTargetIndices(
-    targetViewportRects: DOMRect[],
-    loaderCount: number,
-  ): number[] {
+  function getLoaderTargetIndices(targetViewportRects: DOMRect[], loaderCount: number): number[] {
     if (loaderCount <= 0 || targetViewportRects.length <= 0) return [];
 
     if (loaderCount >= targetViewportRects.length) {
@@ -161,6 +163,35 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
     return centered.map(({ index }) => index);
   }
 
+  function buildAlternatingVisitOrder(cardsCount: number) {
+    const visitOrder: number[] = [];
+    if (cardsCount <= 0) return visitOrder;
+
+    visitOrder.push(0);
+
+    let left = 1;
+    let right = cardsCount - 1;
+
+    while (left <= right) {
+      visitOrder.push(right);
+      if (left < right) {
+        visitOrder.push(left);
+      }
+      left += 1;
+      right -= 1;
+    }
+
+    return visitOrder;
+  }
+
+  function getCenterOutOffset(order: number) {
+    if (order <= 0) return 0;
+
+    const distance = Math.ceil(order / 2);
+    const direction = order % 2 === 1 ? 1 : -1;
+    return distance * direction;
+  }
+
   function createAlternatingSpreadData(
     cardsCount: number,
     each: number,
@@ -170,23 +201,7 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
   } {
     const delays = new Array(cardsCount).fill(0);
     const zIndices = new Array(cardsCount).fill(1);
-
-    const visitOrder: number[] = [];
-    if (cardsCount > 0) {
-      visitOrder.push(0);
-
-      let left = 1;
-      let right = cardsCount - 1;
-
-      while (left <= right) {
-        visitOrder.push(right);
-        if (left < right) {
-          visitOrder.push(left);
-        }
-        left += 1;
-        right -= 1;
-      }
-    }
+    const visitOrder = buildAlternatingVisitOrder(cardsCount);
 
     visitOrder.forEach((index, order) => {
       const group = order === 0 ? 0 : Math.ceil(order / 2);
@@ -314,6 +329,8 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
         height: startRect.height,
         autoAlpha: 1,
         zIndex: zIndices[index] ?? 1,
+        rotationZ: 90,
+        transformOrigin: "50% 50%",
         willChange: "transform,width,height,opacity",
       });
     });
@@ -323,7 +340,7 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
       autoAlpha: 0,
       willChange: "transform,opacity",
     });
-    $gsap.set(activeLoaderImages, { scale: 1.14, willChange: "transform" });
+    $gsap.set(activeLoaderImages, { scale: 1.5, willChange: "transform" });
 
     const completed = await new Promise<boolean>((resolve) => {
       loaderTimeline = $gsap.timeline({
@@ -344,6 +361,7 @@ export function useCardsLoader(options: UseHomeCardsLoaderAnimationOptions) {
           y: (index) => targetRects[index]?.top ?? 0,
           width: (index) => targetRects[index]?.width ?? 0,
           height: (index) => targetRects[index]?.height ?? 0,
+          rotationZ: 0,
           duration: 2,
           ease: "expo.inOut",
           stagger: spreadAlternating,
