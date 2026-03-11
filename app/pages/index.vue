@@ -42,7 +42,7 @@ useHead({
 
 <template>
   <section class="bg-background relative min-h-svh">
-    <AppGrid class="min-h-svh overflow-visible">
+    <AppGrid :padded="false" class="min-h-svh overflow-visible">
       <WorksLoop class="col-span-full" />
     </AppGrid>
     <Logo />

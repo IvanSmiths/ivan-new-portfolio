@@ -36,11 +36,11 @@ onBeforeUnmount(() => {
 <template>
   <div
     :class="isLogoVisible ? 'opacity-100' : 'opacity-0'"
-    class="pointer-events-none fixed inset-0 z-50 transition-opacity duration-300"
+    class="pointer-events-none fixed inset-0 z-50 h-[30%] transition-opacity duration-300"
     data-home-logo
   >
-    <div class="gap-md px-md mx-auto grid max-w-screen-2xl grid-cols-8 lg:grid-cols-16">
-      <div class="pt-md pointer-events-auto col-start-3 col-end-7 lg:col-start-7 lg:col-end-11">
+    <div class="gap-md px-md mx-auto grid grid-cols-8 sm:grid-cols-16">
+      <div class="pt-md pointer-events-auto col-start-2 col-end-8 sm:col-start-7 sm:col-end-11">
         <svg viewBox="0 0 597 245" width="100%" xmlns="http://www.w3.org/2000/svg">
           <g ref="lettersRef">
             <g>

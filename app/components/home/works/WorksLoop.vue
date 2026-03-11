@@ -377,13 +377,13 @@ onUnmounted(() => {
       ref="cardsRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
       :data-loop-ready="isLoopReady ? '1' : '0'"
-      class="works-loop-cards absolute top-1/2 h-96 -translate-y-1/2"
+      class="works-loop-cards bottom-xl absolute h-[70%]"
       data-home-live-cards
     >
       <li
         v-for="({ work, key }, index) in loopWorks"
         :key="key"
-        class="absolute inset-0 h-full w-full cursor-pointer list-none"
+        class="pt-md absolute inset-0 h-full w-full cursor-pointer list-none"
         data-work-card
         @mouseenter="onCardEnter(index)"
         @mouseleave="onCardLeave"
@@ -429,7 +429,7 @@ onUnmounted(() => {
     <div
       ref="metaRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
-      class="bottom-xl pointer-events-none absolute left-1/2 z-20 h-14 w-max -translate-x-1/2 overflow-hidden"
+      class="bottom-md pointer-events-none absolute left-1/2 z-20 h-6 w-max -translate-x-1/2 overflow-hidden"
     >
       <div
         ref="metaTrackRef"
@@ -440,10 +440,10 @@ onUnmounted(() => {
         <div
           v-for="{ work, key } in metaLoopItems"
           :key="key"
-          class="flex h-14 items-center justify-center"
+          class="flex h-6 items-center justify-center"
           data-work-meta-group
         >
-          <span class="text-foreground text-center text-3xl font-black whitespace-nowrap uppercase">
+          <span class="text-foreground text-center text-xl font-bold whitespace-nowrap uppercase">
             {{ work.name }}
           </span>
         </div>
@@ -485,8 +485,8 @@ onUnmounted(() => {
 @media (max-width: 1023px) {
   .works-loop-cards {
     --works-grid-columns: 8;
-    --works-start-column: 3;
-    --works-span-columns: 4;
+    --works-start-column: 2;
+    --works-span-columns: 6;
   }
 }
 </style>
