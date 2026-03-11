@@ -15,6 +15,8 @@ type UseHomeCardsLoopAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
   galleryRef: Ref<HTMLElement | null>;
   cardGapPx?: number;
+  getCards?: () => HTMLElement[];
+  getImages?: () => HTMLImageElement[];
   onCenterPass?: (index: number) => void;
   onSnap?: (index: number) => void;
   onScrollActivityChange?: (isScrolling: boolean) => void;
@@ -65,10 +67,14 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   let removeEdgeWheelListener: (() => void) | null = null;
 
   function getCards() {
+    if (options.getCards) return options.getCards();
+
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
   }
 
   function getImages() {
+    if (options.getImages) return options.getImages();
+
     return Array.from(
       options.cardsRef.value?.querySelectorAll<HTMLImageElement>("[data-work-image]") ?? [],
     );

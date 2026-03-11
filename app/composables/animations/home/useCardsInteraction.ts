@@ -3,25 +3,30 @@ import { useCardInfo } from "~/composables/animations/home/useCardInfo";
 import { useCardHover } from "~/composables/animations/home/useCardHover";
 
 type UseHomeCardsInteractionAnimationOptions = {
-  cardsRef: Ref<HTMLElement | null>;
-  metaRef: Ref<HTMLElement | null>;
+  cardsVersion?: Ref<number>;
+  getCards: () => HTMLElement[];
+  getMetaGroups: () => HTMLElement[];
+  getTransitionImages: () => HTMLImageElement[];
   gsap: typeof gsap;
   lock: Ref<boolean>;
+  metaVersion?: Ref<number>;
 };
 
 export function useCardsInteraction(options: UseHomeCardsInteractionAnimationOptions) {
   function getCardsForTransition() {
-    return Array.from(options.cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
+    return options.getCards();
   }
 
   function getImagesForTransition() {
-    return Array.from(options.cardsRef.value?.querySelectorAll<HTMLImageElement>("img") ?? []);
+    return options.getTransitionImages();
   }
 
   const workCardInfoAnimation = useCardInfo({
-    cardsRef: options.cardsRef,
-    metaRef: options.metaRef,
+    cardsVersion: options.cardsVersion,
+    getCards: options.getCards,
+    getMetaGroups: options.getMetaGroups,
     gsap: options.gsap,
+    metaVersion: options.metaVersion,
   });
 
   const workHover = useCardHover({

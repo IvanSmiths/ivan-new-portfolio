@@ -1,194 +1,47 @@
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { nextTick, onMounted, onUnmounted, watch } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
+import { useCardExpandTransition } from "~/composables/animations/home/useCardExpandTransition";
+import { useCardsInteraction } from "~/composables/animations/home/useCardsInteraction";
 import { useCardsLoader } from "~/composables/animations/home/useCardsLoader";
 import { useCardsLoop } from "~/composables/animations/home/useCardsLoop";
-import { useCardsInteraction } from "~/composables/animations/home/useCardsInteraction";
-import { useCardExpandTransition } from "~/composables/animations/home/useCardExpandTransition";
 import { useCardsLoopTone } from "~/composables/animations/home/useCardsLoopTone";
+import { useWorksLoopElements } from "~/composables/home/useWorksLoopElements";
+import { useWorksLoopMeta } from "~/composables/home/useWorksLoopMeta";
+import { useWorksLoopNavigation } from "~/composables/home/useWorksLoopNavigation";
+import { useWorksLoopState } from "~/composables/home/useWorksLoopState";
+import { useWorksLoopVideo } from "~/composables/home/useWorksLoopVideo";
 import { worksCards } from "~/domain/works";
 
 const { $gsap } = useNuxtApp();
 const router = useRouter();
 
-const cardGapPx = 20;
-const MOBILE_SCROLL_DISTANCE_PX = 30000;
-const DESKTOP_SCROLL_DISTANCE_PX = 3000;
-const scrollDistancePx =
-  import.meta.client && window.matchMedia("(max-width: 767px)").matches
-    ? MOBILE_SCROLL_DISTANCE_PX
-    : DESKTOP_SCROLL_DISTANCE_PX;
-const VIDEO_FADE_OUT_DURATION_MS = 320;
-const META_ROW_FALLBACK_HEIGHT_PX = 0;
-const minimumCards = 80;
-const repeats = Math.max(3, Math.ceil(minimumCards / worksCards.length));
-const loaderRepeats = 2;
+const state = useWorksLoopState(worksCards);
+const {
+  cardGapPx,
+  clickedCardIndex,
+  expandLock,
+  hoveredCardIndex,
+  isCardsScrolling,
+  isLoopReady,
+  loaderLoopWorks,
+  loaderWorks,
+  loopWorks,
+  metaLoopItems,
+  metaRowHeightPx,
+  scrollDistancePx,
+  snappedCardIndex,
+  videoFadeOutDurationMs,
+} = state;
 
-function createWorksLoopItems(cycles: number) {
-  return Array.from({ length: worksCards.length * cycles }, (_, index) => {
-    const work = worksCards[index % worksCards.length];
-    if (!work) {
-      throw new Error(`Work not found at index ${index % worksCards.length}`);
-    }
+const elements = useWorksLoopElements();
+const { cardsRef, galleryRef, loaderCardsRef, metaRef, metaTrackRef } = elements;
 
-    return {
-      key: `${work.slug}-${index}`,
-      work,
-    };
-  });
-}
-
-const loopWorks = createWorksLoopItems(repeats);
-const loaderLoopWorks = createWorksLoopItems(loaderRepeats);
-const loaderWorks = loopWorks.map(({ work }) => work);
-
-const galleryRef = ref<HTMLElement | null>(null);
-const cardsRef = ref<HTMLElement | null>(null);
-const metaRef = ref<HTMLElement | null>(null);
-const metaTrackRef = ref<HTMLElement | null>(null);
-const loaderCardsRef = ref<HTMLElement | null>(null);
-const isLoopReady = ref(false);
-const expandLock = ref(false);
-const hoveredCardIndex = ref<number | null>(null);
-const snappedCardIndex = ref(0);
-const clickedCardIndex = ref<number | null>(null);
-const isCardsScrolling = ref(false);
-const metaRowHeightPx = ref(META_ROW_FALLBACK_HEIGHT_PX);
-const activeVideoIndex = computed<number | null>(() => {
-  if (!isLoopReady.value) return null;
-  if (cardsLoaderAnimation.shouldHideLiveCards.value) return null;
-  if (isCardsScrolling.value) return null;
-
-  const visibleIndex = hoveredCardIndex.value ?? snappedCardIndex.value;
-  if (clickedCardIndex.value === visibleIndex) return null;
-
-  return visibleIndex;
-});
-let scrollVisualMetaIndex = 0;
-let metaVisualIndex = loopWorks.length;
 const worksLoopTone = useCardsLoopTone({
   centerFrequency: "E5",
   duration: "32n",
   snapFrequency: "A5",
   volumeDb: -16,
-});
-const cardsInteractionAnimation = useCardsInteraction({
-  cardsRef,
-  metaRef,
-  gsap: $gsap,
-  lock: expandLock,
-});
-
-const metaLoopItems = Array.from({ length: loopWorks.length * 3 }, (_, index) => {
-  const source = loopWorks[index % loopWorks.length];
-  if (!source) {
-    throw new Error(`Meta source not found at index ${index % loopWorks.length}`);
-  }
-
-  return {
-    key: `${source.key}-meta-track-${index}`,
-    work: source.work,
-  };
-});
-
-function applyMetaVisualIndex(nextIndex: number, force = false) {
-  if (!force && nextIndex === metaVisualIndex) return;
-
-  metaVisualIndex = nextIndex;
-  if (!metaTrackRef.value) return;
-
-  metaTrackRef.value.style.transform = `translate3d(0, -${metaVisualIndex * metaRowHeightPx.value}px, 0)`;
-}
-
-function toContinuousMetaIndex(wrappedIndex: number) {
-  const count = loopWorks.length;
-  if (count <= 0) return 0;
-
-  const previous = metaVisualIndex;
-  const cycle = Math.round((previous - wrappedIndex) / count);
-  let nextIndex = wrappedIndex + cycle * count;
-
-  const lowerBound = count * 0.5;
-  const upperBound = count * 2.5;
-  if (nextIndex < lowerBound) {
-    nextIndex += count;
-  } else if (nextIndex > upperBound) {
-    nextIndex -= count;
-  }
-
-  return nextIndex;
-}
-
-function setMetaVisualFromWrappedIndex(wrappedIndex: number) {
-  applyMetaVisualIndex(toContinuousMetaIndex(wrappedIndex));
-}
-
-function syncMetaRowHeight() {
-  const firstMetaGroup = metaTrackRef.value?.querySelector<HTMLElement>("[data-work-meta-group]");
-  if (!firstMetaGroup) return;
-
-  const nextHeight = Math.round(firstMetaGroup.getBoundingClientRect().height);
-  if (nextHeight > 0) {
-    metaRowHeightPx.value = nextHeight;
-    applyMetaVisualIndex(metaVisualIndex, true);
-  }
-}
-
-function onWindowResize() {
-  syncMetaRowHeight();
-}
-
-function onCardEnter(index: number) {
-  hoveredCardIndex.value = index;
-  setMetaVisualFromWrappedIndex(index);
-  cardsInteractionAnimation.onCardEnter(index);
-}
-
-function onCardLeave() {
-  hoveredCardIndex.value = null;
-  setMetaVisualFromWrappedIndex(
-    isCardsScrolling.value ? scrollVisualMetaIndex : snappedCardIndex.value,
-  );
-  cardsInteractionAnimation.onCardLeave();
-}
-
-function onSnappedIndexChange(index: number) {
-  snappedCardIndex.value = index;
-  if (!isCardsScrolling.value && hoveredCardIndex.value === null) {
-    setMetaVisualFromWrappedIndex(index);
-  }
-  cardsInteractionAnimation.onSnappedIndexChange(index);
-}
-
-function onScrollActivityChange(isScrolling: boolean) {
-  isCardsScrolling.value = isScrolling;
-  if (!isScrolling && hoveredCardIndex.value === null) {
-    setMetaVisualFromWrappedIndex(snappedCardIndex.value);
-  }
-  cardsInteractionAnimation.onScrollActivityChange(isScrolling);
-}
-
-function onVisualIndexChange(index: number) {
-  scrollVisualMetaIndex = index;
-  if (hoveredCardIndex.value === null) {
-    setMetaVisualFromWrappedIndex(index);
-  }
-}
-
-const cardsLoopAnimation = useCardsLoop({
-  cardsRef,
-  galleryRef,
-  cardGapPx,
-  onCenterPass: () => {
-    worksLoopTone.playCenterBlip();
-  },
-  onSnap: () => {
-    worksLoopTone.playSnapBlip();
-  },
-  onScrollActivityChange,
-  onSnappedIndexChange,
-  onVisualIndexChange,
-  scrollDistancePx,
 });
 
 const cardsLoaderAnimation = useCardsLoader({
@@ -196,51 +49,101 @@ const cardsLoaderAnimation = useCardsLoader({
   loaderCardsRef,
 });
 
+const cardsInteractionAnimation = useCardsInteraction({
+  cardsVersion: elements.cardsVersion,
+  getCards: elements.getCards,
+  getMetaGroups: elements.getMetaGroups,
+  getTransitionImages: elements.getTransitionImages,
+  gsap: $gsap,
+  lock: expandLock,
+  metaVersion: elements.metaVersion,
+});
+
+const worksLoopMeta = useWorksLoopMeta({
+  hoveredCardIndex,
+  isCardsScrolling,
+  loopCount: loopWorks.length,
+  metaRowHeightPx,
+  metaTrackRef,
+  snappedCardIndex,
+});
+
+const worksLoopVideo = useWorksLoopVideo({
+  clickedCardIndex,
+  hoveredCardIndex,
+  isCardsScrolling,
+  isLoopReady,
+  shouldHideLiveCards: cardsLoaderAnimation.shouldHideLiveCards,
+  snappedCardIndex,
+});
+const activeVideoIndex = worksLoopVideo.activeVideoIndex;
+
+function onCardEnter(index: number) {
+  hoveredCardIndex.value = index;
+  worksLoopMeta.onCardEnter(index);
+  cardsInteractionAnimation.onCardEnter(index);
+}
+
+function onCardLeave() {
+  hoveredCardIndex.value = null;
+  worksLoopMeta.onCardLeave();
+  cardsInteractionAnimation.onCardLeave();
+}
+
+function onSnappedIndexChange(index: number) {
+  snappedCardIndex.value = index;
+  worksLoopMeta.onSnappedIndexChange(index);
+  cardsInteractionAnimation.onSnappedIndexChange(index);
+}
+
+function onScrollActivityChange(isScrolling: boolean) {
+  isCardsScrolling.value = isScrolling;
+  worksLoopMeta.onScrollActivityChange(isScrolling);
+  cardsInteractionAnimation.onScrollActivityChange(isScrolling);
+}
+
+const cardsLoopAnimation = useCardsLoop({
+  cardGapPx,
+  cardsRef,
+  galleryRef,
+  getCards: elements.getCards,
+  getImages: elements.getCardImages,
+  onCenterPass: () => {
+    worksLoopTone.playCenterBlip();
+  },
+  onScrollActivityChange,
+  onSnap: () => {
+    worksLoopTone.playSnapBlip();
+  },
+  onSnappedIndexChange,
+  onVisualIndexChange: worksLoopMeta.onVisualIndexChange,
+  scrollDistancePx,
+});
+
 const expandTransition = useCardExpandTransition({
   gsap: $gsap,
+  images: cardsInteractionAnimation.getImagesForTransition,
+  lock: expandLock,
   router,
   works: loaderWorks,
   cards: cardsInteractionAnimation.getCardsForTransition,
-  images: cardsInteractionAnimation.getImagesForTransition,
-  lock: expandLock,
+});
+
+const worksLoopNavigation = useWorksLoopNavigation({
+  clickedCardIndex,
+  expandTransition,
+  gsap: $gsap,
+  isLocked: expandLock,
+  waitForActiveVideoFadeOut: (index: number) =>
+    worksLoopVideo.waitForActiveVideoFadeOut(index, videoFadeOutDurationMs),
 });
 
 async function onCardClick(event: MouseEvent, index: number) {
-  if (expandLock.value) return;
-  const hadVisibleVideo = activeVideoIndex.value === index;
-  const clickedImageEl =
-    event.currentTarget instanceof HTMLImageElement ? event.currentTarget : null;
-  const clickedContainerEl = (clickedImageEl?.parentElement as HTMLElement | null) ?? null;
-  const clickedContainerRect = clickedContainerEl?.getBoundingClientRect();
-  const clickedContainerBorderRadius = clickedContainerEl
-    ? window.getComputedStyle(clickedContainerEl).borderRadius
-    : "";
-  const expandOriginSnapshot =
-    clickedImageEl && clickedContainerRect
-      ? {
-          borderRadius: clickedContainerBorderRadius,
-          containerRect: {
-            left: clickedContainerRect.left,
-            top: clickedContainerRect.top,
-            width: clickedContainerRect.width,
-            height: clickedContainerRect.height,
-          },
-          imageEl: clickedImageEl,
-          imageScale: Number($gsap.getProperty(clickedImageEl, "scale")) || 1,
-          imageX: Number($gsap.getProperty(clickedImageEl, "x")) || 0,
-        }
-      : undefined;
+  await worksLoopNavigation.onCardClick(event, index);
+}
 
-  clickedCardIndex.value = index;
-  await nextTick();
-
-  if (hadVisibleVideo) {
-    await new Promise<void>((resolve) => {
-      window.setTimeout(resolve, VIDEO_FADE_OUT_DURATION_MS);
-    });
-  }
-
-  await expandTransition.onImageClick(event, index, expandOriginSnapshot);
+function onWindowResize() {
+  worksLoopMeta.syncMetaRowHeight();
 }
 
 onMounted(() => {
@@ -250,8 +153,8 @@ onMounted(() => {
   cardsLoaderAnimation.prepare();
   cardsInteractionAnimation.hideAllInfo();
   void nextTick().then(() => {
-    syncMetaRowHeight();
-    applyMetaVisualIndex(metaVisualIndex, true);
+    worksLoopMeta.syncMetaRowHeight();
+    worksLoopMeta.applyInitialPosition();
   });
   window.addEventListener("resize", onWindowResize, { passive: true });
 

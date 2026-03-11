@@ -1,9 +1,11 @@
 import { onMounted, ref, type Ref, watch } from "vue";
 
 type UseWorkCardInfoAnimationOptions = {
-  cardsRef: Ref<HTMLElement | null>;
-  metaRef: Ref<HTMLElement | null>;
+  cardsVersion?: Ref<number>;
+  getCards: () => HTMLElement[];
+  getMetaGroups: () => HTMLElement[];
   gsap: typeof gsap;
+  metaVersion?: Ref<number>;
 };
 
 type CardInfoElements = {
@@ -17,21 +19,9 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
   const snappedCardIndex = ref(0);
   let infoByCardCache: CardInfoElements[] | null = null;
 
-  function getCards() {
-    return Array.from(
-      options.cardsRef.value?.querySelectorAll<HTMLElement>("[data-work-card]") ?? [],
-    );
-  }
-
-  function getMetaGroups() {
-    return Array.from(
-      options.metaRef.value?.querySelectorAll<HTMLElement>("[data-work-meta-group]") ?? [],
-    );
-  }
-
   function buildInfoByCardCache(): CardInfoElements[] {
-    const cards = getCards();
-    const metaGroups = getMetaGroups();
+    const cards = options.getCards();
+    const metaGroups = options.getMetaGroups();
 
     return cards.map((card, index) => ({
       clients: Array.from(card.querySelectorAll<HTMLElement>("[data-client-chip]")),
@@ -144,13 +134,15 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
     refreshInfoByCardCache();
   });
 
-  watch(
-    [options.cardsRef, options.metaRef],
-    () => {
-      refreshInfoByCardCache();
-    },
-    { flush: "post" },
-  );
+  if (options.cardsVersion || options.metaVersion) {
+    watch(
+      [() => options.cardsVersion?.value, () => options.metaVersion?.value],
+      () => {
+        refreshInfoByCardCache();
+      },
+      { flush: "post" },
+    );
+  }
 
   return {
     hideAllInfo,
