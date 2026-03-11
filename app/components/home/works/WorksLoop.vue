@@ -54,8 +54,18 @@ const snappedCardIndex = ref(0);
 const clickedCardIndex = ref<number | null>(null);
 const isCardsScrolling = ref(false);
 const metaRowHeightPx = ref(META_ROW_FALLBACK_HEIGHT_PX);
-const scrollVisualMetaIndex = ref(0);
-const metaVisualIndex = ref(loopWorks.length);
+const activeVideoIndex = computed<number | null>(() => {
+  if (!isLoopReady.value) return null;
+  if (cardsLoaderAnimation.shouldHideLiveCards.value) return null;
+  if (isCardsScrolling.value) return null;
+
+  const visibleIndex = hoveredCardIndex.value ?? snappedCardIndex.value;
+  if (clickedCardIndex.value === visibleIndex) return null;
+
+  return visibleIndex;
+});
+let scrollVisualMetaIndex = 0;
+let metaVisualIndex = loopWorks.length;
 const worksLoopTone = useCardsLoopTone({
   centerFrequency: "E5",
   duration: "32n",
@@ -81,15 +91,20 @@ const metaLoopItems = Array.from({ length: loopWorks.length * 3 }, (_, index) =>
   };
 });
 
-const metaTrackStyle = computed(() => ({
-  transform: `translate3d(0, -${metaVisualIndex.value * metaRowHeightPx.value}px, 0)`,
-}));
+function applyMetaVisualIndex(nextIndex: number, force = false) {
+  if (!force && nextIndex === metaVisualIndex) return;
+
+  metaVisualIndex = nextIndex;
+  if (!metaTrackRef.value) return;
+
+  metaTrackRef.value.style.transform = `translate3d(0, -${metaVisualIndex * metaRowHeightPx.value}px, 0)`;
+}
 
 function toContinuousMetaIndex(wrappedIndex: number) {
   const count = loopWorks.length;
   if (count <= 0) return 0;
 
-  const previous = metaVisualIndex.value;
+  const previous = metaVisualIndex;
   const cycle = Math.round((previous - wrappedIndex) / count);
   let nextIndex = wrappedIndex + cycle * count;
 
@@ -105,51 +120,7 @@ function toContinuousMetaIndex(wrappedIndex: number) {
 }
 
 function setMetaVisualFromWrappedIndex(wrappedIndex: number) {
-  metaVisualIndex.value = toContinuousMetaIndex(wrappedIndex);
-}
-
-function getCardVideos() {
-  return Array.from(cardsRef.value?.querySelectorAll<HTMLVideoElement>("[data-work-video]") ?? []);
-}
-
-function shouldShowVideo(index: number) {
-  if (!isLoopReady.value) return false;
-  if (cardsLoaderAnimation.shouldHideLiveCards.value) return false;
-  if (isCardsScrolling.value) return false;
-  if (clickedCardIndex.value === index) return false;
-
-  if (hoveredCardIndex.value !== null) {
-    return hoveredCardIndex.value === index;
-  }
-
-  return snappedCardIndex.value === index;
-}
-
-function syncCardVideos() {
-  getCardVideos().forEach((video, index) => {
-    const shouldShow = shouldShowVideo(index);
-
-    if (!shouldShow) {
-      video.pause();
-      if (video.currentTime > 0) {
-        video.currentTime = 0;
-      }
-      return;
-    }
-
-    if (video.paused) {
-      void video.play().catch(() => {});
-    }
-  });
-}
-
-function stopAllVideos() {
-  getCardVideos().forEach((video) => {
-    video.pause();
-    if (video.currentTime > 0) {
-      video.currentTime = 0;
-    }
-  });
+  applyMetaVisualIndex(toContinuousMetaIndex(wrappedIndex));
 }
 
 function syncMetaRowHeight() {
@@ -159,6 +130,7 @@ function syncMetaRowHeight() {
   const nextHeight = Math.round(firstMetaGroup.getBoundingClientRect().height);
   if (nextHeight > 0) {
     metaRowHeightPx.value = nextHeight;
+    applyMetaVisualIndex(metaVisualIndex, true);
   }
 }
 
@@ -175,7 +147,7 @@ function onCardEnter(index: number) {
 function onCardLeave() {
   hoveredCardIndex.value = null;
   setMetaVisualFromWrappedIndex(
-    isCardsScrolling.value ? scrollVisualMetaIndex.value : snappedCardIndex.value,
+    isCardsScrolling.value ? scrollVisualMetaIndex : snappedCardIndex.value,
   );
   cardsInteractionAnimation.onCardLeave();
 }
@@ -197,7 +169,7 @@ function onScrollActivityChange(isScrolling: boolean) {
 }
 
 function onVisualIndexChange(index: number) {
-  scrollVisualMetaIndex.value = index;
+  scrollVisualMetaIndex = index;
   if (hoveredCardIndex.value === null) {
     setMetaVisualFromWrappedIndex(index);
   }
@@ -235,7 +207,7 @@ const expandTransition = useCardExpandTransition({
 
 async function onCardClick(event: MouseEvent, index: number) {
   if (expandLock.value) return;
-  const hadVisibleVideo = shouldShowVideo(index);
+  const hadVisibleVideo = activeVideoIndex.value === index;
   const clickedImageEl =
     event.currentTarget instanceof HTMLImageElement ? event.currentTarget : null;
   const clickedContainerEl = (clickedImageEl?.parentElement as HTMLElement | null) ?? null;
@@ -260,7 +232,6 @@ async function onCardClick(event: MouseEvent, index: number) {
       : undefined;
 
   clickedCardIndex.value = index;
-  syncCardVideos();
   await nextTick();
 
   if (hadVisibleVideo) {
@@ -278,8 +249,10 @@ onMounted(() => {
   worksLoopTone.installAudioUnlockListeners();
   cardsLoaderAnimation.prepare();
   cardsInteractionAnimation.hideAllInfo();
-  syncCardVideos();
-  void nextTick().then(() => syncMetaRowHeight());
+  void nextTick().then(() => {
+    syncMetaRowHeight();
+    applyMetaVisualIndex(metaVisualIndex, true);
+  });
   window.addEventListener("resize", onWindowResize, { passive: true });
 
   void cardsLoopAnimation.initAfterLayout().then(() => {
@@ -292,42 +265,23 @@ onMounted(() => {
 });
 
 watch(
-  [
-    hoveredCardIndex,
-    snappedCardIndex,
-    clickedCardIndex,
-    isCardsScrolling,
-    isLoopReady,
-    cardsLoaderAnimation.shouldHideLiveCards,
-  ],
-  () => {
-    syncCardVideos();
-  },
-  { flush: "post" },
-);
-
-watch(
   expandLock,
   (isLocked, wasLocked) => {
     if (wasLocked && !isLocked) {
       clickedCardIndex.value = null;
     }
-
-    syncCardVideos();
   },
   { flush: "post" },
 );
 
 onBeforeRouteLeave(() => {
   isLoopReady.value = false;
-  stopAllVideos();
   cardsLoaderAnimation.cleanup();
   cardsLoopAnimation.cleanupForRouteLeave();
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", onWindowResize);
-  stopAllVideos();
   worksLoopTone.cleanup();
 });
 </script>
@@ -411,16 +365,19 @@ onUnmounted(() => {
               draggable="false"
               @click="onCardClick($event, index)"
             />
-            <video
-              :class="shouldShowVideo(index) ? 'opacity-100' : 'opacity-0'"
-              class="works-loop-video pointer-events-none absolute inset-0 h-full transition-opacity duration-300 ease-out"
-              data-work-video
-              loop
-              muted
-              playsinline
-              preload="metadata"
-              src="/test.mp4"
-            />
+            <Transition name="work-video-fade">
+              <video
+                v-if="activeVideoIndex === index"
+                autoplay
+                class="works-loop-video pointer-events-none absolute inset-0 h-full"
+                data-work-video
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                src="/test.mp4"
+              />
+            </Transition>
           </div>
         </div>
       </li>
@@ -434,7 +391,6 @@ onUnmounted(() => {
       <div
         ref="metaTrackRef"
         :class="isCardsScrolling ? 'transition-none' : 'transition-transform duration-300 ease-out'"
-        :style="metaTrackStyle"
         class="flex flex-col items-center will-change-transform"
       >
         <div
@@ -480,6 +436,17 @@ onUnmounted(() => {
   display: block;
   object-fit: cover;
   object-position: top center;
+}
+
+//they are indeed used. Do not remove
+.work-video-fade-enter-active,
+.work-video-fade-leave-active {
+  transition: opacity 300ms ease-out;
+}
+
+.work-video-fade-enter-from,
+.work-video-fade-leave-to {
+  opacity: 0;
 }
 
 @media (max-width: 1023px) {
