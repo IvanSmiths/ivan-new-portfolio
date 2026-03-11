@@ -139,47 +139,51 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
 
     timeline.to(coverEl, { opacity: 1, duration: COVER_FADE_DURATION, ease: COVER_FADE_EASE }, 0);
 
-    timeline.call(() => {
-      const fitTween = $Flip.fit(imageContainer, finalStageTarget, {
-        absolute: true,
-        duration: STAGE_DURATION,
-        ease: "power3.inOut",
-        simple: true,
-      });
+    timeline.call(
+      () => {
+        const fitTween = $Flip.fit(imageContainer, finalStageTarget, {
+          absolute: true,
+          duration: STAGE_DURATION,
+          ease: "power3.inOut",
+          simple: true,
+        });
 
-      const lockFinalState = () => {
-        $gsap.set(imageContainer, {
-          position: "fixed",
+        const lockFinalState = () => {
+          $gsap.set(imageContainer, {
+            position: "fixed",
+            top: finalTop,
+            left: finalLeft,
+            width: finalWidth,
+            height: finalHeight,
+            right: "auto",
+            bottom: "auto",
+            margin: 0,
+            x: 0,
+            y: 0,
+            xPercent: 0,
+            yPercent: 0,
+            scale: 1,
+          });
+        };
+
+        if (fitTween && "eventCallback" in fitTween) {
+          (fitTween as gsap.core.Tween).eventCallback("onComplete", lockFinalState);
+          return;
+        }
+
+        $gsap.to(imageContainer, {
           top: finalTop,
           left: finalLeft,
           width: finalWidth,
           height: finalHeight,
-          right: "auto",
-          bottom: "auto",
-          margin: 0,
-          x: 0,
-          y: 0,
-          xPercent: 0,
-          yPercent: 0,
-          scale: 1,
+          duration: STAGE_DURATION,
+          ease: "power3.inOut",
+          onComplete: lockFinalState,
         });
-      };
-
-      if (fitTween && "eventCallback" in fitTween) {
-        (fitTween as gsap.core.Tween).eventCallback("onComplete", lockFinalState);
-        return;
-      }
-
-      $gsap.to(imageContainer, {
-        top: finalTop,
-        left: finalLeft,
-        width: finalWidth,
-        height: finalHeight,
-        duration: STAGE_DURATION,
-        ease: "power3.inOut",
-        onComplete: lockFinalState,
-      });
-    }, [], STAGE_DURATION);
+      },
+      [],
+      STAGE_DURATION,
+    );
 
     timeline.to({}, { duration: STAGE_DURATION }, STAGE_DURATION);
 
@@ -221,7 +225,11 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
 
         $gsap.set(progressFillRef.value!, { scaleX: self.progress });
 
-        const imageScale = $gsap.utils.interpolate(IMAGE_START_SCALE, IMAGE_END_SCALE, self.progress);
+        const imageScale = $gsap.utils.interpolate(
+          IMAGE_START_SCALE,
+          IMAGE_END_SCALE,
+          self.progress,
+        );
         const containerScale = $gsap.utils.interpolate(
           CONTAINER_START_SCALE,
           CONTAINER_END_SCALE,
@@ -253,8 +261,8 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   onUnmounted(() => {
     commitTl?.kill();
     commitTl = null;
-    if (st) st.kill();
-    $ScrollTrigger.getAll().forEach((t: { kill: () => void }) => t.kill());
+    st?.kill();
+    st = null;
     removeCover();
     removeFinalStageTarget();
   });

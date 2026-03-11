@@ -90,21 +90,22 @@ export function useWorksLoopElements() {
     });
     cardsObserver.observe(cardsRef.value, {
       childList: true,
-      subtree: true,
+      subtree: false,
     });
   };
 
   const observeMeta = () => {
     disconnectMetaObserver();
     if (typeof MutationObserver === "undefined") return;
-    if (!metaRef.value) return;
+    const metaRoot = metaTrackRef.value ?? metaRef.value;
+    if (!metaRoot) return;
 
     metaObserver = new MutationObserver(() => {
       bumpMetaVersion();
     });
-    metaObserver.observe(metaRef.value, {
+    metaObserver.observe(metaRoot, {
       childList: true,
-      subtree: true,
+      subtree: false,
     });
   };
 
@@ -118,6 +119,14 @@ export function useWorksLoopElements() {
   );
   watch(
     metaRef,
+    () => {
+      bumpMetaVersion();
+      observeMeta();
+    },
+    { flush: "post" },
+  );
+  watch(
+    metaTrackRef,
     () => {
       bumpMetaVersion();
       observeMeta();
@@ -154,7 +163,7 @@ export function useWorksLoopElements() {
 
   function getMetaGroups() {
     return queryAllCached(
-      metaRef.value,
+      metaTrackRef.value ?? metaRef.value,
       metaVersion.value,
       "[data-work-meta-group]",
       metaGroupsCache,
