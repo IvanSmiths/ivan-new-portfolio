@@ -1,4 +1,4 @@
-import { ref, type Ref } from "vue";
+import { onMounted, ref, type Ref, watch } from "vue";
 
 type UseWorkCardInfoAnimationOptions = {
   cardsRef: Ref<HTMLElement | null>;
@@ -15,6 +15,7 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
   const hoveredCardIndex = ref<number | null>(null);
   const isScrollingCards = ref(false);
   const snappedCardIndex = ref(0);
+  let infoByCardCache: CardInfoElements[] | null = null;
 
   function getCards() {
     return Array.from(
@@ -28,7 +29,7 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
     );
   }
 
-  function getInfoByCard(): CardInfoElements[] {
+  function buildInfoByCardCache(): CardInfoElements[] {
     const cards = getCards();
     const metaGroups = getMetaGroups();
 
@@ -38,6 +39,18 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
         (metaGroups[index] ?? card).querySelectorAll<HTMLElement>("[data-work-meta]"),
       ),
     }));
+  }
+
+  function refreshInfoByCardCache() {
+    infoByCardCache = buildInfoByCardCache();
+  }
+
+  function getInfoByCard(): CardInfoElements[] {
+    if (!infoByCardCache) {
+      refreshInfoByCardCache();
+    }
+
+    return infoByCardCache ?? [];
   }
 
   function animateInfoVisibility(info: CardInfoElements, shouldShow: boolean) {
@@ -126,6 +139,18 @@ export function useCardInfo(options: UseWorkCardInfoAnimationOptions) {
     isScrollingCards.value = isScrolling;
     syncVisibleInfo();
   }
+
+  onMounted(() => {
+    refreshInfoByCardCache();
+  });
+
+  watch(
+    [options.cardsRef, options.metaRef],
+    () => {
+      refreshInfoByCardCache();
+    },
+    { flush: "post" },
+  );
 
   return {
     hideAllInfo,

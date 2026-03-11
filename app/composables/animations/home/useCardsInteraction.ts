@@ -10,12 +10,6 @@ type UseHomeCardsInteractionAnimationOptions = {
 };
 
 export function useCardsInteraction(options: UseHomeCardsInteractionAnimationOptions) {
-  function getImages() {
-    return Array.from(
-      options.cardsRef.value?.querySelectorAll<HTMLImageElement>("[data-work-image]") ?? [],
-    );
-  }
-
   function getCardsForTransition() {
     return Array.from(options.cardsRef.value?.querySelectorAll<HTMLElement>("li") ?? []);
   }
@@ -31,8 +25,7 @@ export function useCardsInteraction(options: UseHomeCardsInteractionAnimationOpt
   });
 
   const workHover = useCardHover({
-    gsap: options.gsap,
-    images: getImages,
+    cards: getCardsForTransition,
     isLocked: () => options.lock.value,
   });
 

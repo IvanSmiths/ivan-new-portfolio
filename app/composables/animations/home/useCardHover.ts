@@ -1,36 +1,40 @@
 export function useCardHover(opts: {
-  gsap: typeof gsap;
-  images: () => HTMLImageElement[];
+  cards: () => HTMLElement[];
   isLocked: () => boolean;
 }) {
-  const { gsap: $gsap } = opts;
+  const DIMMED_CLASS = "is-hover-dimmed";
+  const ACTIVE_CLASS = "is-hover-active";
+
+  let activeCard: HTMLElement | null = null;
+
+  function getCardsContainer(cards: HTMLElement[]) {
+    return cards[0]?.parentElement as HTMLElement | null;
+  }
 
   function hoverIn(index: number) {
     if (opts.isLocked()) return;
 
-    const images = opts.images();
+    const cards = opts.cards();
+    const card = cards[index];
+    const container = getCardsContainer(cards);
+    if (!card || !container) return;
 
-    images.forEach((img, i) => {
-      $gsap.to(img, {
-        filter: i === index ? "blur(0px) saturate(1)" : "blur(6px) saturate(0)",
-        duration: 0.25,
-        scale: i === index ? 1.03 : 1,
-        overwrite: "auto",
-      });
-    });
+    if (activeCard === card && container.classList.contains(DIMMED_CLASS)) return;
+
+    container.classList.add(DIMMED_CLASS);
+    activeCard?.classList.remove(ACTIVE_CLASS);
+    card.classList.add(ACTIVE_CLASS);
+    activeCard = card;
   }
 
   function hoverOut() {
     if (opts.isLocked()) return;
 
-    opts.images().forEach((img) => {
-      $gsap.to(img, {
-        filter: "blur(0px) saturate(1)",
-        duration: 0.25,
-        scale: 1,
-        overwrite: "auto",
-      });
-    });
+    const cards = opts.cards();
+    const container = getCardsContainer(cards);
+    container?.classList.remove(DIMMED_CLASS);
+    activeCard?.classList.remove(ACTIVE_CLASS);
+    activeCard = null;
   }
 
   return { hoverIn, hoverOut };

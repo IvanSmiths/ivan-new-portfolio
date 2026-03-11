@@ -425,7 +425,20 @@ onUnmounted(() => {
 }
 
 .works-loop-image {
+  filter: blur(0px) saturate(1);
+  scale: 1;
+  transition: filter 250ms ease, scale 250ms ease;
   will-change: transform;
+}
+
+.works-loop-cards.is-hover-dimmed [data-work-image] {
+  filter: blur(6px) saturate(0);
+  scale: 1;
+}
+
+.works-loop-cards.is-hover-dimmed [data-work-card].is-hover-active [data-work-image] {
+  filter: blur(0px) saturate(1);
+  scale: 1.03;
 }
 
 .works-loop-video {
@@ -438,7 +451,7 @@ onUnmounted(() => {
   object-position: top center;
 }
 
-//they are indeed used. Do not remove
+/*they are indeed used. Do not remove*/
 .work-video-fade-enter-active,
 .work-video-fade-leave-active {
   transition: opacity 300ms ease-out;
