@@ -20,6 +20,11 @@ let isMoving = false;
 let idleTimer: number | null = null;
 let scrollAppearTimer: number | null = null;
 let scrollTextVisible = false;
+let isCursorRuntimeEnabled = false;
+let tickerCallback: (() => void) | null = null;
+
+const isDesktopViewport = () =>
+  typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches;
 
 const setIdle = () => {
   if (!dotEl.value) return;
@@ -141,6 +146,8 @@ const onScroll = () => {
 };
 
 const scheduleScrollText = () => {
+  if (!isCursorRuntimeEnabled) return;
+
   if (scrollAppearTimer) window.clearTimeout(scrollAppearTimer);
 
   if (hasSeenScrollHint()) return;
@@ -237,19 +244,23 @@ watch(
 );
 
 onMounted(() => {
+  if (!isDesktopViewport()) return;
+
+  isCursorRuntimeEnabled = true;
   window.addEventListener("mousemove", onMove, { passive: true });
   window.addEventListener("scroll", onScroll, { passive: true });
 
   const quickX = $gsap.quickTo(dotEl.value, "x", { duration: 0.18, ease: "power3.out" });
   const quickY = $gsap.quickTo(dotEl.value, "y", { duration: 0.18, ease: "power3.out" });
 
-  $gsap.ticker.add(() => {
+  tickerCallback = () => {
     if (!dotEl.value) return;
     if (!isMoving) return;
 
     quickX(mouse.x + 2);
     quickY(mouse.y - dotEl.value.offsetHeight);
-  });
+  };
+  $gsap.ticker.add(tickerCallback);
 
   if (dotEl.value) {
     $gsap.set(dotEl.value, { x: -999, y: -999 });
@@ -261,8 +272,13 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  isCursorRuntimeEnabled = false;
   window.removeEventListener("mousemove", onMove);
   window.removeEventListener("scroll", onScroll);
+  if (tickerCallback) {
+    $gsap.ticker.remove(tickerCallback);
+    tickerCallback = null;
+  }
   if (idleTimer) window.clearTimeout(idleTimer);
   if (scrollAppearTimer) window.clearTimeout(scrollAppearTimer);
 });
