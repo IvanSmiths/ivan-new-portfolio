@@ -15,7 +15,7 @@ export function useCardHover(opts: {
         filter: i === index ? "blur(0px) saturate(1)" : "blur(6px) saturate(0)",
         duration: 0.25,
         scale: i === index ? 1.03 : 1,
-        overwrite: true,
+        overwrite: "auto",
       });
     });
   }
@@ -28,7 +28,7 @@ export function useCardHover(opts: {
         filter: "blur(0px) saturate(1)",
         duration: 0.25,
         scale: 1,
-        overwrite: true,
+        overwrite: "auto",
       });
     });
   }

@@ -3,7 +3,7 @@ import { useSplitTextAnimation } from "~/composables/animations/global/useSplitA
 
 export function useHeaderAnimation() {
   const { $gsap } = useNuxtApp();
-  const { prepareSplitReveal } = useSplitTextAnimation();
+  const { prepareSplitReveal, waitForFontsReady } = useSplitTextAnimation();
 
   const rootRef = ref<HTMLElement | null>(null);
   const titleRef = ref<HTMLElement | null>(null);
@@ -23,10 +23,15 @@ export function useHeaderAnimation() {
     roleReveal = null;
   }
 
-  onMounted(() => {
+  async function initAfterFontsReady() {
     if (!rootRef.value) return;
 
     cleanup();
+    await waitForFontsReady({
+      elements: [titleRef.value, roleRef.value],
+    });
+
+    if (!rootRef.value) return;
 
     ctx = $gsap.context(() => {
       titleReveal = prepareSplitReveal(titleRef.value, {
@@ -50,6 +55,10 @@ export function useHeaderAnimation() {
       titleReveal.addToTimeline(tl, 0.05);
       roleReveal.addToTimeline(tl, 0.08);
     }, rootRef.value);
+  }
+
+  onMounted(() => {
+    void initAfterFontsReady();
   });
 
   onScopeDispose(() => cleanup());

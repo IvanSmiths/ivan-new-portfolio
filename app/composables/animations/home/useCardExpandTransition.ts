@@ -95,7 +95,10 @@ export function useCardExpandTransition(opts: {
       $gsap.set(layer, { clearProps: "all" });
     }
 
-    $gsap.set(opts.cards(), { opacity: 1, filter: "none", scale: 1 });
+    const cards = opts.cards();
+    if (cards.length) {
+      $gsap.set(cards, { opacity: 1, filter: "none", scale: 1 });
+    }
   }
 
   function waitForWorkHeroTarget() {

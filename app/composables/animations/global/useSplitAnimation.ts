@@ -29,6 +29,11 @@ type RevealControllerOptions = {
   autoAlpha: number;
 };
 
+type WaitForFontsReadyOptions = {
+  elements?: Array<HTMLElement | null | undefined>;
+  timeoutMs?: number;
+};
+
 function resolveSplitType(splitBy: SplitTextMode) {
   if (splitBy === "chars") return "lines,chars";
   if (splitBy === "words") return "lines,words";
@@ -47,6 +52,50 @@ export function splitTextForRender(text: string): string[] {
 
 export function useSplitTextAnimation() {
   const { $gsap, $SplitText } = useNuxtApp();
+
+  async function waitForFontsReady(options: WaitForFontsReadyOptions = {}) {
+    if (typeof document === "undefined") return;
+
+    const fonts = document.fonts;
+    if (!fonts) return;
+
+    const { elements = [], timeoutMs } = options;
+    const timeoutPromise =
+      typeof timeoutMs === "number" && timeoutMs > 0
+        ? new Promise<void>((resolve) => {
+            window.setTimeout(() => resolve(), timeoutMs);
+          })
+        : null;
+
+    const targets = elements.filter(Boolean) as HTMLElement[];
+    if (targets.length) {
+      const loadPromises = targets
+        .map((el) => {
+          const font = window.getComputedStyle(el).font;
+          if (!font) return null;
+
+          try {
+            if (fonts.check(font)) return null;
+          } catch {
+            // Some browsers can throw for malformed shorthand; skip proactive loading.
+          }
+
+          const sample = (el.textContent ?? "").trim().slice(0, 24) || "B";
+          return fonts.load(font, sample).catch(() => undefined);
+        })
+        .filter((value): value is Promise<readonly FontFace[]> => value !== null);
+
+      if (loadPromises.length) {
+        const loadAll = Promise.allSettled(loadPromises).then(() => undefined);
+        if (timeoutPromise) await Promise.race([loadAll, timeoutPromise]);
+        else await loadAll;
+      }
+    }
+
+    const readyPromise = fonts.ready.catch(() => undefined);
+    if (timeoutPromise) await Promise.race([readyPromise, timeoutPromise]);
+    else await readyPromise;
+  }
 
   function createRevealController(
     items: HTMLElement[],
@@ -177,5 +226,5 @@ export function useSplitTextAnimation() {
     });
   }
 
-  return { prepareSplitReveal, prepareReveal };
+  return { prepareSplitReveal, prepareReveal, waitForFontsReady };
 }

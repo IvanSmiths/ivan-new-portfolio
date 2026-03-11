@@ -5,7 +5,7 @@ import { useSplitTextAnimation } from "~/composables/animations/global/useSplitA
 export function useSectionAnimation() {
   const { $gsap, $ScrollTrigger } = useNuxtApp();
   const route = useRoute();
-  const { prepareSplitReveal } = useSplitTextAnimation();
+  const { prepareSplitReveal, waitForFontsReady } = useSplitTextAnimation();
 
   const shortDescriptionRef = ref<HTMLElement | null>(null);
 
@@ -59,6 +59,9 @@ export function useSectionAnimation() {
   async function initAfterRouteUpdate() {
     await nextTick();
     await waitForScrollReset();
+    await waitForFontsReady({
+      elements: [shortDescriptionRef.value],
+    });
     init();
   }
 
