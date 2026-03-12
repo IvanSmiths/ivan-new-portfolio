@@ -1,16 +1,29 @@
 <script lang="ts" setup>
+import VolumeOffIcon from "~/components/global/icons/VolumeOffIcon.vue";
+import VolumeOnIcon from "~/components/global/icons/VolumeOnIcon.vue";
 import ThemeToggle from "~/components/global/navbar/ThemeToggle.vue";
+import { useSoundPreference } from "~/composables/useSoundPreference";
 
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 const appConfig = useAppConfig();
 const internalRoutes = appConfig.internalRoutes;
+const { initSoundPreference, soundEnabled, toggleSound } = useSoundPreference();
 
 const navigationLinks = computed(() =>
   internalRoutes.map((link) => ({
     ...link,
   })),
 );
+
+const soundToggleIcon = computed(() => (soundEnabled.value ? VolumeOnIcon : VolumeOffIcon));
+const soundToggleLabel = computed(() =>
+  soundEnabled.value ? "Disable sounds" : "Enable sounds",
+);
+
+onMounted(() => {
+  initSoundPreference();
+});
 </script>
 
 <template>
@@ -28,6 +41,15 @@ const navigationLinks = computed(() =>
         </NuxtLink>
       </li>
     </ul>
+    <button
+      :aria-label="soundToggleLabel"
+      :title="soundToggleLabel"
+      class="group mt-2 flex cursor-pointer transition-opacity hover:opacity-80"
+      type="button"
+      @click="toggleSound"
+    >
+      <component :is="soundToggleIcon" />
+    </button>
     <ThemeToggle />
   </nav>
 </template>

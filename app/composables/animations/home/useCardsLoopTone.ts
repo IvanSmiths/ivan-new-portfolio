@@ -1,5 +1,6 @@
 import * as Tone from "tone";
-import { onScopeDispose } from "vue";
+import { onScopeDispose, watch } from "vue";
+import { useSoundPreference } from "~/composables/useSoundPreference";
 
 type UseWorksLoopToneOptions = {
   centerFrequency?: string;
@@ -14,6 +15,7 @@ const DEFAULT_DURATION: Tone.Unit.Time = "32n";
 const DEFAULT_VOLUME_DB = -16;
 
 export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
+  const { initSoundPreference, soundEnabled } = useSoundPreference();
   let snapSynth: Tone.Synth | null = null;
   let removeAudioUnlockListeners: (() => void) | null = null;
 
@@ -22,12 +24,14 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
   const blipDuration = options.duration ?? DEFAULT_DURATION;
   const volumeDb = options.volumeDb ?? DEFAULT_VOLUME_DB;
 
+  initSoundPreference();
+
   function getContextState() {
     return Tone.getContext().state;
   }
 
   function ensureSnapSynth() {
-    if (!import.meta.client) return null;
+    if (!import.meta.client || !soundEnabled.value) return null;
 
     if (!snapSynth) {
       snapSynth = new Tone.Synth({
@@ -41,6 +45,8 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
   }
 
   async function unlockSnapAudio() {
+    if (!soundEnabled.value) return null;
+
     const synth = ensureSnapSynth();
     if (!synth) return null;
 
@@ -52,6 +58,8 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
   }
 
   function playSnapBlip() {
+    if (!soundEnabled.value) return;
+
     const synth = ensureSnapSynth();
     if (!synth || getContextState() !== "running") return;
 
@@ -59,6 +67,8 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
   }
 
   function playCenterBlip() {
+    if (!soundEnabled.value) return;
+
     const synth = ensureSnapSynth();
     if (!synth || getContextState() !== "running") return;
 
@@ -70,6 +80,7 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
     if (removeAudioUnlockListeners) return;
 
     const unlock = () => {
+      if (!soundEnabled.value) return;
       void unlockSnapAudio();
     };
 
@@ -86,6 +97,12 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
       removeAudioUnlockListeners = null;
     };
   }
+
+  watch(soundEnabled, (enabled) => {
+    if (enabled) return;
+    snapSynth?.dispose();
+    snapSynth = null;
+  });
 
   function cleanup() {
     removeAudioUnlockListeners?.();
