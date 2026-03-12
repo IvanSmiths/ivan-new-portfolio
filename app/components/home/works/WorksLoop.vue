@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { nextTick, onMounted, onUnmounted, watch } from "vue";
+import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
 import { useCardExpandTransition } from "~/composables/animations/home/useCardExpandTransition";
 import { useCardsInteraction } from "~/composables/animations/home/useCardsInteraction";
@@ -36,6 +36,16 @@ const {
 
 const elements = useWorksLoopElements();
 const { cardsRef, galleryRef, loaderCardsRef, metaRef, metaTrackRef } = elements;
+const metaIndexTrackRef = ref<HTMLElement | null>(null);
+const metaRoleTrackRef = ref<HTMLElement | null>(null);
+
+const workIndexBySlug = new Map(worksCards.map((work, index) => [work.slug, index + 1]));
+const metaLoopItemsWithIndex = metaLoopItems.map(({ key, work }) => ({
+  key,
+  work,
+  displayIndex: String(workIndexBySlug.get(work.slug) ?? 0).padStart(2, "0"),
+}));
+const inverseMetaLoopItems = [...metaLoopItemsWithIndex].reverse();
 
 const worksLoopTone = useCardsLoopTone({
   centerFrequency: "E5",
@@ -63,6 +73,8 @@ const worksLoopMeta = useWorksLoopMeta({
   hoveredCardIndex,
   isCardsScrolling,
   loopCount: loopWorks.length,
+  metaInverseTrackRefs: [metaIndexTrackRef, metaRoleTrackRef],
+  metaItemCount: metaLoopItemsWithIndex.length,
   metaRowHeightPx,
   metaTrackRef,
   snappedCardIndex,
@@ -287,22 +299,70 @@ onUnmounted(() => {
     <div
       ref="metaRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
-      class="pointer-events-none absolute bottom-0 left-1/2 z-20 h-6 w-max -translate-x-1/2 overflow-hidden"
+      class="pointer-events-none absolute bottom-1.5 left-1/2 z-20 h-6 -translate-x-1/2 overflow-visible"
     >
-      <div
-        ref="metaTrackRef"
-        :class="isCardsScrolling ? 'transition-none' : 'transition-transform duration-300 ease-out'"
-        class="flex flex-col items-center will-change-transform"
-      >
-        <div
-          v-for="{ work, key } in metaLoopItems"
-          :key="key"
-          class="flex h-6 items-center justify-center"
-          data-work-meta-group
-        >
-          <span class="text-foreground text-center text-xl font-bold whitespace-nowrap uppercase">
-            {{ work.name }}
-          </span>
+      <div class="relative h-6 w-max">
+        <div class="works-loop-meta-lane works-loop-meta-lane-left">
+          <div
+            ref="metaIndexTrackRef"
+            :class="
+              isCardsScrolling ? 'transition-none' : 'transition-transform duration-300 ease-out'
+            "
+            class="flex flex-col items-end will-change-transform"
+          >
+            <div
+              v-for="{ key, displayIndex } in inverseMetaLoopItems"
+              :key="`${key}-index`"
+              class="flex h-6 items-center justify-end"
+            >
+              <span class="text-foreground-muted text-xs whitespace-nowrap tabular-nums">
+                {{ displayIndex }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="works-loop-meta-lane works-loop-meta-lane-center">
+          <div
+            ref="metaTrackRef"
+            :class="
+              isCardsScrolling ? 'transition-none' : 'transition-transform duration-300 ease-out'
+            "
+            class="flex flex-col items-center will-change-transform"
+          >
+            <div
+              v-for="{ work, key } in metaLoopItemsWithIndex"
+              :key="key"
+              class="flex h-6 items-center justify-center"
+              data-work-meta-group
+            >
+              <span
+                class="text-foreground text-center text-xl font-bold whitespace-nowrap uppercase"
+              >
+                {{ work.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="works-loop-meta-lane works-loop-meta-lane-right">
+          <div
+            ref="metaRoleTrackRef"
+            :class="
+              isCardsScrolling ? 'transition-none' : 'transition-transform duration-300 ease-out'
+            "
+            class="flex flex-col items-start will-change-transform"
+          >
+            <div
+              v-for="{ work, key } in inverseMetaLoopItems"
+              :key="`${key}-role`"
+              class="flex h-6 items-center justify-start"
+            >
+              <span class="text-foreground-muted text-xs whitespace-nowrap">
+                {{ work.role }}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -352,6 +412,26 @@ onUnmounted(() => {
   display: block;
   object-fit: cover;
   object-position: top center;
+}
+
+.works-loop-meta-lane {
+  --works-meta-side-gap: clamp(0.75rem, 2vw, 2rem);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.works-loop-meta-lane-left {
+  right: calc(100% + var(--works-meta-side-gap));
+}
+
+.works-loop-meta-lane-center {
+  position: relative;
+}
+
+.works-loop-meta-lane-right {
+  left: calc(100% + var(--works-meta-side-gap));
 }
 
 /*they are indeed used. Do not remove*/

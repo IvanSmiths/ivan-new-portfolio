@@ -44,14 +44,14 @@
     --background: #ffffff;
     --background-muted: #e3e3e3;
     --foreground: #000000;
-    --foreground-muted: #757575;
+    --foreground-muted: #595959;
 }
 
 .dark {
     --background: #000000;
     --background-muted: #252525;
     --foreground: #ffffff;
-    --foreground-muted: #838383;
+    --foreground-muted: #acacac;
 }
 
 html {

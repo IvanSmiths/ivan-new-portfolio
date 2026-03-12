@@ -4,6 +4,8 @@ type UseWorksLoopMetaOptions = {
   hoveredCardIndex: Ref<number | null>;
   isCardsScrolling: Ref<boolean>;
   loopCount: number;
+  metaItemCount: number;
+  metaInverseTrackRefs?: Ref<HTMLElement | null>[];
   metaRowHeightPx: Ref<number>;
   metaTrackRef: Ref<HTMLElement | null>;
   snappedCardIndex: Ref<number>;
@@ -17,9 +19,19 @@ export function useWorksLoopMeta(options: UseWorksLoopMetaOptions) {
     if (!force && nextIndex === metaVisualIndex) return;
 
     metaVisualIndex = nextIndex;
-    if (!options.metaTrackRef.value) return;
+    const titleTrack = options.metaTrackRef.value;
+    if (!titleTrack) return;
 
-    options.metaTrackRef.value.style.transform = `translate3d(0, -${metaVisualIndex * options.metaRowHeightPx.value}px, 0)`;
+    titleTrack.style.transform = `translate3d(0, -${metaVisualIndex * options.metaRowHeightPx.value}px, 0)`;
+
+    if (!options.metaInverseTrackRefs?.length) return;
+
+    const inverseVisualIndex = options.metaItemCount - 1 - metaVisualIndex;
+    const inverseTransform = `translate3d(0, -${inverseVisualIndex * options.metaRowHeightPx.value}px, 0)`;
+    options.metaInverseTrackRefs.forEach((trackRef) => {
+      if (!trackRef.value) return;
+      trackRef.value.style.transform = inverseTransform;
+    });
   }
 
   function toContinuousMetaIndex(wrappedIndex: number) {
