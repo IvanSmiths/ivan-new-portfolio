@@ -1,11 +1,21 @@
 <script lang="ts" setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useCardsLoopTone } from "~/composables/animations/home/useCardsLoopTone";
 import { useLogoHover } from "~/composables/animations/home/useLogoHover";
 import { useLogoReveal } from "~/composables/animations/home/useLogoReveal";
 import { useLoaderSession } from "~/composables/sessions/useLoaderSession";
 
 const lettersRef = ref<SVGGElement | null>(null);
-const hoverAnimation = useLogoHover(lettersRef);
+const logoHoverTone = useCardsLoopTone({
+  duration: "64n",
+  snapFrequency: "C5",
+  volumeDb: -22,
+});
+const hoverAnimation = useLogoHover(lettersRef, {
+  onHover: () => {
+    logoHoverTone.playSnapBlip();
+  },
+});
 const revealAnimation = useLogoReveal(lettersRef);
 const { hasSeenLoader, syncSeenFromStorage, onLoaderDone } = useLoaderSession();
 const isLogoVisible = ref(hasSeenLoader());
@@ -17,6 +27,8 @@ onMounted(async () => {
   syncSeenFromStorage();
   isLogoVisible.value = hasSeenLoader();
 
+  logoHoverTone.ensureSnapSynth();
+  logoHoverTone.installAudioUnlockListeners();
   hoverAnimation.setup();
   revealAnimation.init();
 

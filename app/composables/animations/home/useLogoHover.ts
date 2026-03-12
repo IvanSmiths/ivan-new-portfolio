@@ -1,5 +1,9 @@
 import { onScopeDispose, type Ref } from "vue";
 
+type UseLogoHoverOptions = {
+  onHover?: () => void;
+};
+
 function getLetterGroups(lettersRef: Ref<SVGGElement | null>) {
   return Array.from(lettersRef.value?.children ?? [])
     .filter((node): node is SVGGElement => node instanceof SVGGElement)
@@ -11,7 +15,10 @@ function getLetterPath(group: SVGGElement) {
   return path instanceof SVGPathElement ? path : null;
 }
 
-export function useLogoHover(lettersRef: Ref<SVGGElement | null>) {
+export function useLogoHover(
+  lettersRef: Ref<SVGGElement | null>,
+  options: UseLogoHoverOptions = {},
+) {
   const { $gsap } = useNuxtApp();
 
   let cleanups: (() => void)[] = [];
@@ -111,6 +118,7 @@ export function useLogoHover(lettersRef: Ref<SVGGElement | null>) {
       clearResetTimer();
       if (hasPlayedSinceLeave || isAnimating) return;
       hasPlayedSinceLeave = true;
+      options.onHover?.();
       playPulse();
     };
 
