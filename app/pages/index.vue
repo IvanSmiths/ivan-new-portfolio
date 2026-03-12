@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import WorksLoop from "~/components/home/works/WorksLoop.vue";
-import Logo from "~/components/home/description/Logo.vue";
 import AppGrid from "~/components/global/grid/AppGrid.vue";
+import Paragraph from "~/components/home/description/Paragraph.vue";
 
 const title = "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience";
 const description =
@@ -45,6 +45,6 @@ useHead({
     <AppGrid :padded="false" class="min-h-svh overflow-visible">
       <WorksLoop class="col-span-full" />
     </AppGrid>
-    <Logo />
+    <Paragraph class="mt-md pointer-events-auto" />
   </section>
 </template>

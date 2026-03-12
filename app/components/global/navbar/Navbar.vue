@@ -17,9 +17,7 @@ const navigationLinks = computed(() =>
 );
 
 const soundToggleIcon = computed(() => (soundEnabled.value ? VolumeOnIcon : VolumeOffIcon));
-const soundToggleLabel = computed(() =>
-  soundEnabled.value ? "Disable sounds" : "Enable sounds",
-);
+const soundToggleLabel = computed(() => (soundEnabled.value ? "Disable sounds" : "Enable sounds"));
 
 onMounted(() => {
   initSoundPreference();
@@ -28,7 +26,7 @@ onMounted(() => {
 
 <template>
   <nav
-    class="text-foreground bottom-md right-md md:left-md md:top-md fixed z-30 text-base md:bottom-auto"
+    class="text-foreground bottom-md right-md md:left-md md:top-md fixed z-9999 text-base md:bottom-auto"
   >
     <ul class="flex items-start gap-1">
       <li

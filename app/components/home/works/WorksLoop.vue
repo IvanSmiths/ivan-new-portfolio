@@ -234,7 +234,7 @@ onUnmounted(() => {
       ref="cardsRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
       :data-loop-ready="isLoopReady ? '1' : '0'"
-      class="works-loop-cards bottom-xl absolute h-[70%]"
+      class="works-loop-cards bottom-lg absolute h-[30%]"
       data-home-live-cards
     >
       <li
@@ -287,7 +287,7 @@ onUnmounted(() => {
     <div
       ref="metaRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
-      class="bottom-md pointer-events-none absolute left-1/2 z-20 h-6 w-max -translate-x-1/2 overflow-hidden"
+      class="pointer-events-none absolute bottom-0 left-1/2 z-20 h-6 w-max -translate-x-1/2 overflow-hidden"
     >
       <div
         ref="metaTrackRef"
@@ -328,7 +328,9 @@ onUnmounted(() => {
 .works-loop-image {
   filter: blur(0px) saturate(1);
   scale: 1;
-  transition: filter 250ms ease, scale 250ms ease;
+  transition:
+    filter 250ms ease,
+    scale 250ms ease;
   will-change: transform;
 }
 

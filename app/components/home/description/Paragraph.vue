@@ -26,18 +26,20 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="gap-md px-md flex flex-col items-end">
-    <div
-      ref="paragraphRef"
-      class="flex w-full flex-col items-start md:flex-row md:items-end md:justify-between"
-    >
+  <div
+    class="gap-md pt-md px-md fixed top-0 z-50 grid grid-cols-8 flex-col items-end sm:grid-cols-16"
+  >
+    <div class="col-span-full">
+      <Logo2 />
+    </div>
+    <div ref="paragraphRef" class="col-start-1 col-end-5 flex w-full flex-col">
       <div class="overflow-hidden">
-        <h1 ref="titleRef" class="text-foreground 3xl:text-2xl 3xl:w-134 text-base md:w-96">
+        <h1 ref="titleRef" class="text-foreground 3xl:text-2xl text-base">
           <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
           Transforming wild ideas into pixel-perfect realities.
         </h1>
       </div>
-      <div class="text-foreground-muted 3xl:text-xl gap-sm mt-5 flex text-xs">
+      <div class="text-foreground-muted 3xl:text-xl gap-sm mt-sm flex text-xs">
         <div class="overflow-hidden">
           <span ref="cityRef"> Wiesbaden (DE)</span>
         </div>
@@ -48,9 +50,6 @@ onMounted(async () => {
           <Time />
         </div>
       </div>
-    </div>
-    <div class="flex w-full">
-      <Logo2 />
     </div>
   </div>
 </template>
