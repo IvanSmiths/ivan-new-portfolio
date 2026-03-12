@@ -67,7 +67,12 @@ function killTimeline() {
 
 function setInitialHidden() {
   if (!curtainEl.value || !blurEl.value) return;
-  $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0, willChange: "transform,opacity", force3D: true });
+  $gsap.set(curtainEl.value, {
+    yPercent: 100,
+    opacity: 0,
+    willChange: "transform,opacity",
+    force3D: true,
+  });
   $gsap.set(blurEl.value, { opacity: 0, willChange: "opacity", force3D: true });
 }
 
@@ -102,22 +107,12 @@ async function playCover() {
     .to(
       curtainEl.value,
       {
-        yPercent: 60,
-        duration: 0.3,
-        ease: "power1.in",
+        yPercent: 0,
+        duration: 1.2,
+        ease: "expo.inOut",
       },
-      0,
-    )
-    .to(curtainEl.value, {
-      yPercent: 10,
-      duration: 0.25,
-      ease: "none",
-    })
-    .to(curtainEl.value, {
-      yPercent: 0,
-      duration: 0.3,
-      ease: "power2.out",
-    });
+      "<",
+    );
 
   addCoverMotion(nextTimeline, props.pageEl);
   timeline.value = nextTimeline;
@@ -141,24 +136,10 @@ async function playReveal() {
         notifyRevealed();
       },
     })
-    .to(
-      curtainEl.value,
-      {
-        yPercent: -30,
-        duration: 0.3,
-        ease: "power1.in",
-      },
-      0,
-    )
-    .to(curtainEl.value, {
-      yPercent: -80,
-      duration: 0.25,
-      ease: "none",
-    })
     .to(curtainEl.value, {
       yPercent: -100,
-      duration: 0.3,
-      ease: "power2.out",
+      duration: 1.2,
+      ease: "expo.inOut",
     })
     .to(
       blurEl.value,
@@ -167,7 +148,7 @@ async function playReveal() {
         duration: 0.1,
         ease: "power2.out",
       },
-      "-=0.25",
+      "-=0.3",
     );
 
   addRevealMotion(nextTimeline, props.pageEl, {
@@ -211,7 +192,12 @@ onBeforeUnmount(() => {
   <div
     ref="blurEl"
     class="pointer-events-none fixed inset-0 z-9"
-    style="opacity: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transform: translateZ(0)"
+    style="
+      opacity: 0;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transform: translateZ(0);
+    "
   />
   <div
     ref="curtainEl"
