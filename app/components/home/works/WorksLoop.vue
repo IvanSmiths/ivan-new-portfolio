@@ -190,7 +190,6 @@ watch(
 );
 
 onBeforeRouteLeave(() => {
-  isLoopReady.value = false;
   cardsLoaderAnimation.cleanup();
   cardsLoopAnimation.cleanupForRouteLeave();
 });

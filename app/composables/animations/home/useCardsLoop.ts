@@ -110,11 +110,31 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
     cancelScheduledInit();
     removeEdgeWheelListener?.();
     removeEdgeWheelListener = null;
-    $gsap.set(getImages(), { x: 0 });
+
+    const cards = getCards();
+    const frozenCardTransforms = cards.map((card) => ({
+      x: Number($gsap.getProperty(card, "x")) || 0,
+      xPercent: Number($gsap.getProperty(card, "xPercent")) || 0,
+    }));
+
+    const images = getImages();
+    const frozenImageX = images.map((image) => Number($gsap.getProperty(image, "x")) || 0);
+
     ctx?.kill(false);
     ctx = null;
     scrubToLoop = null;
     getCurrentTime = null;
+
+    cards.forEach((card, index) => {
+      const frozen = frozenCardTransforms[index];
+      if (!frozen) return;
+      $gsap.set(card, { x: frozen.x, xPercent: frozen.xPercent });
+    });
+
+    images.forEach((image, index) => {
+      const x = frozenImageX[index];
+      $gsap.set(image, { x });
+    });
   }
 
   function getSnappedIndex(totalTime: number, itemsCount: number) {
