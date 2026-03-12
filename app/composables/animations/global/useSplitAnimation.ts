@@ -34,6 +34,10 @@ type WaitForFontsReadyOptions = {
   timeoutMs?: number;
 };
 
+function isNonNullable<T>(value: T | null | undefined): value is T {
+  return value != null;
+}
+
 function resolveSplitType(splitBy: SplitTextMode) {
   if (splitBy === "chars") return "lines,chars";
   if (splitBy === "words") return "lines,words";
@@ -67,7 +71,7 @@ export function useSplitTextAnimation() {
           })
         : null;
 
-    const targets = elements.filter(Boolean) as HTMLElement[];
+    const targets = elements.filter(isNonNullable);
     if (targets.length) {
       const loadPromises = targets
         .map((el) => {
@@ -83,7 +87,7 @@ export function useSplitTextAnimation() {
           const sample = (el.textContent ?? "").trim().slice(0, 24) || "B";
           return fonts.load(font, sample).catch(() => undefined);
         })
-        .filter((value): value is Promise<readonly FontFace[]> => value !== null);
+        .filter(isNonNullable);
 
       if (loadPromises.length) {
         const loadAll = Promise.allSettled(loadPromises).then(() => undefined);
@@ -195,7 +199,7 @@ export function useSplitTextAnimation() {
     targets: Array<HTMLElement | null | undefined> | HTMLElement | null | undefined,
     options: Omit<SplitTextAnimationOptions, "splitBy" | "clipLines" | "linesClass"> = {},
   ): PreparedSplitReveal {
-    const items = (Array.isArray(targets) ? targets : [targets]).filter(Boolean) as HTMLElement[];
+    const items = (Array.isArray(targets) ? targets : [targets]).filter(isNonNullable);
 
     if (!items.length) {
       return {
