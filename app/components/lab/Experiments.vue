@@ -23,6 +23,21 @@ function enableVideosAfterReveal() {
   }, 140);
 }
 
+function pauseLabVideos() {
+  if (!import.meta.client) return;
+  const videos = document.querySelectorAll<HTMLVideoElement>("[data-lab-experiment-video]");
+  videos.forEach((video) => video.pause());
+}
+
+function disableVideosForCover() {
+  if (enableVideosTimeout !== null) {
+    window.clearTimeout(enableVideosTimeout);
+    enableVideosTimeout = null;
+  }
+  pauseLabVideos();
+  videosEnabled.value = false;
+}
+
 function onVideoError(title: string) {
   failedVideos.value = {
     ...failedVideos.value,
@@ -33,11 +48,16 @@ function onVideoError(title: string) {
 watch(
   phase,
   (currentPhase) => {
+    if (currentPhase === "covering") {
+      disableVideosForCover();
+      return;
+    }
+
     if (currentPhase === "idle") {
       enableVideosAfterReveal();
     }
   },
-  { immediate: true },
+  { immediate: true, flush: "sync" },
 );
 
 onBeforeUnmount(() => {
@@ -65,6 +85,7 @@ onBeforeUnmount(() => {
             />
             <video
               v-else
+              data-lab-experiment-video
               :poster="experiment.image"
               autoplay
               class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
