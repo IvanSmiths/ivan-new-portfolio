@@ -25,10 +25,36 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   const STAGE_DURATION = 0.8;
   const CENTER_STAGE_WIDTH_RATIO = 0.5;
   const CENTER_STAGE_HEIGHT_RATIO = 0.5;
-  const LOWER_STAGE_TOP_RATIO = 0.7;
-  const LOWER_STAGE_SIDE_PADDING_PX = 20;
   const COVER_FADE_DURATION = 0.45;
   const COVER_FADE_EASE = "power2.inOut";
+  const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
+
+  function getFallbackFinalStageRect() {
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const sidePadding = window.matchMedia("(min-width: 1024px)").matches ? 20 : 10;
+
+    return {
+      top: viewportHeight * 0.7,
+      left: sidePadding,
+      width: Math.max(viewportWidth - sidePadding * 2, 0),
+      height: viewportHeight,
+    };
+  }
+
+  function getFinalStageRectFromHeader() {
+    const heroTarget = document.querySelector<HTMLElement>(HERO_TARGET_SELECTOR);
+    if (!heroTarget) return getFallbackFinalStageRect();
+
+    const rect = heroTarget.getBoundingClientRect();
+    return {
+      // Keep document-space top so it still maps to the same spot after route push resets scroll.
+      top: rect.top + window.scrollY,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height,
+    };
+  }
 
   const removeCover = () => {
     cover?.remove();
@@ -68,10 +94,11 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
     const centerHeight = window.innerHeight * CENTER_STAGE_HEIGHT_RATIO;
     const centerLeft = (window.innerWidth - centerWidth) / 2;
     const centerTop = (window.innerHeight - centerHeight) / 2;
-    const finalTop = window.innerHeight * LOWER_STAGE_TOP_RATIO;
-    const finalLeft = LOWER_STAGE_SIDE_PADDING_PX;
-    const finalWidth = Math.max(window.innerWidth - LOWER_STAGE_SIDE_PADDING_PX * 2, 0);
-    const finalHeight = window.innerHeight;
+    const finalRect = getFinalStageRectFromHeader();
+    const finalTop = finalRect.top;
+    const finalLeft = finalRect.left;
+    const finalWidth = finalRect.width;
+    const finalHeight = finalRect.height;
 
     const startRect = imageContainer.getBoundingClientRect();
     $gsap.set(imageContainer, {
