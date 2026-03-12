@@ -26,7 +26,7 @@ onMounted(() => {
 
 <template>
   <nav
-    class="text-foreground bottom-md right-md md:left-md md:top-md fixed z-9999 text-base md:bottom-auto"
+    class="text-foreground left-md pr-md top-sm fixed z-9999 flex w-full justify-between text-base"
   >
     <ul class="flex items-start gap-1">
       <li
@@ -39,15 +39,17 @@ onMounted(() => {
         </NuxtLink>
       </li>
     </ul>
-    <button
-      :aria-label="soundToggleLabel"
-      :title="soundToggleLabel"
-      class="group mt-2 flex cursor-pointer transition-opacity hover:opacity-80"
-      type="button"
-      @click="toggleSound"
-    >
-      <component :is="soundToggleIcon" />
-    </button>
-    <ThemeToggle />
+    <div class="pr-md gap-md flex sm:gap-3">
+      <button
+        :aria-label="soundToggleLabel"
+        :title="soundToggleLabel"
+        class="group flex cursor-pointer transition-opacity hover:opacity-80"
+        type="button"
+        @click="toggleSound"
+      >
+        <component :is="soundToggleIcon" />
+      </button>
+      <ThemeToggle />
+    </div>
   </nav>
 </template>

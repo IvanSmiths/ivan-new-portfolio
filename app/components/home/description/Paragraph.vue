@@ -32,7 +32,7 @@ onMounted(async () => {
     <div class="col-span-full">
       <Logo3 />
     </div>
-    <div ref="paragraphRef" class="col-start-1 col-end-5 flex w-full flex-col">
+    <div ref="paragraphRef" class="col-span-full flex w-full flex-col md:col-start-1 md:col-end-5">
       <div class="overflow-hidden">
         <h1 ref="titleRef" class="text-foreground 3xl:text-2xl text-base">
           <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>

@@ -34,10 +34,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <button
-    class="right-md top-md fixed cursor-pointer transition-opacity hover:opacity-80"
-    @click="toggleTheme"
-  >
+  <button class="cursor-pointer transition-opacity hover:opacity-80" @click="toggleTheme">
     <component :is="themeComponent" />
   </button>
 </template>

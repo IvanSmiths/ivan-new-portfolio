@@ -51,7 +51,7 @@ onBeforeUnmount(() => {
     class="transition-opacity duration-300"
     data-home-logo
   >
-    <svg height="343" viewBox="0 0 1512 343" width="100%" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 1512 303" width="100%" xmlns="http://www.w3.org/2000/svg">
       <g ref="lettersRef">
         <g>
           <path
