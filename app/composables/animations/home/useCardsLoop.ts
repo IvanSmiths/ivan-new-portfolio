@@ -37,20 +37,13 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
   const DEFAULT_SCROLL_DISTANCE = 3000;
   const SCRUB_DURATION = 0.5;
   const SCRUB_EASE = "power3";
-  const TOUCH_SNAP_SCRUB_DURATION = 0.2;
   const SNAP_DELAY = 0.3;
   const EDGE_SCROLL_OFFSET = 2;
-  const TOUCH_EDGE_SCROLL_OFFSET = 48;
   const SCROLL_ACTIVITY_VELOCITY_THRESHOLD = 5;
-  const SCALE_DURATION = 0.5;
-  const SCALE_EASE = "power1.in";
   const MOVE_DURATION = 1;
   const INITIAL_X_PERCENT = 400;
   const FROM_X_PERCENT = 600;
   const TO_X_PERCENT = -600;
-  const INITIAL_SCALE_Y = 1;
-  const SCALE_Y_FROM = 1;
-  const SCALE_Y_TO = 1;
   const IMAGE_SHIFT_X_MAX = 24;
   const IMAGE_SHIFT_MIN_VELOCITY = 12;
   const FORCE_TO_IMAGE_SHIFT_X = 0.05;
@@ -148,59 +141,14 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
 
     const totalAnimations = items.length + overlap * 2;
 
-    const shells = items.map(
-      (item) => item.querySelector<HTMLElement>("[data-work-card-shell]") ?? item,
-    );
-    const mediaLayers = items.map((item) =>
-      item.querySelector<HTMLElement>("[data-work-card-media]"),
-    );
-    const syncMediaScaleY = (shell: HTMLElement, mediaLayer: HTMLElement) => {
-      const shellScaleY = Number($gsap.getProperty(shell, "scaleY")) || 1;
-      $gsap.set(mediaLayer, {
-        scaleY: shellScaleY !== 0 ? 1 / shellScaleY : 1,
-      });
-    };
-
     $gsap.set(items, { xPercent: INITIAL_X_PERCENT });
-    $gsap.set(shells, { scaleY: INITIAL_SCALE_Y, transformOrigin: "center center" });
-    mediaLayers.forEach((mediaLayer, index) => {
-      if (!mediaLayer) return;
-      $gsap.set(mediaLayer, { transformOrigin: "center center" });
-      const shell = shells[index];
-      if (!shell) return;
-      syncMediaScaleY(shell, mediaLayer);
-    });
 
     for (let i = 0; i < totalAnimations; i += 1) {
       const index = i % items.length;
       const item = items[index];
-      const shell = shells[index];
-      const mediaLayer = mediaLayers[index];
       if (!item) continue;
 
       const time = i * spacing;
-
-      if (shell) {
-        rawSequence.fromTo(
-          shell,
-          { scaleY: SCALE_Y_FROM },
-          {
-            scaleY: SCALE_Y_TO,
-            zIndex: 100,
-            duration: SCALE_DURATION,
-            yoyo: true,
-            repeat: 1,
-            ease: SCALE_EASE,
-            immediateRender: false,
-            onUpdate: mediaLayer
-              ? () => {
-                  syncMediaScaleY(shell, mediaLayer);
-                }
-              : undefined,
-          },
-          time,
-        );
-      }
 
       rawSequence.fromTo(
         item,
@@ -327,12 +275,6 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       let skipProgrammaticUpdate = false;
       let lastCenteredIndex = 0;
 
-      const usesNormalizedTouchScroll = Boolean(
-        $ScrollTrigger.isTouch && $ScrollTrigger.normalizeScroll(),
-      );
-      const edgeScrollOffset = usesNormalizedTouchScroll
-        ? TOUCH_EDGE_SCROLL_OFFSET
-        : EDGE_SCROLL_OFFSET;
       const snap = $gsap.utils.snap(loopTimelineSpacing);
       const seamlessLoop = buildSeamlessLoop(cards, loopTimelineSpacing);
 
@@ -342,20 +284,6 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
         ease: SCRUB_EASE,
         paused: true,
       });
-      const tweenLoopTo = (totalTime: number, duration = SCRUB_DURATION) => {
-        scrub.duration(duration);
-        scrub.vars.totalTime = totalTime;
-        scrub.invalidate().restart();
-      };
-      const syncLiveLoopTo = (totalTime: number) => {
-        if (usesNormalizedTouchScroll) {
-          scrub.pause();
-          seamlessLoop.totalTime(totalTime);
-          return;
-        }
-
-        tweenLoopTo(totalTime);
-      };
 
       const wrapForward = (activeTrigger: ScrollTriggerInstance) => {
         iteration += 1;
@@ -379,19 +307,6 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
       };
 
       let trigger: ScrollTriggerInstance | null = null;
-      const getRange = () => (trigger ? Math.max(trigger.end - trigger.start, 1) : 1);
-      const getEdgeProgress = () => edgeScrollOffset / getRange();
-      const getScrollPosition = (activeTrigger: ScrollTriggerInstance) => {
-        const scrollPosition = activeTrigger.scroll();
-        return Number.isFinite(scrollPosition)
-          ? scrollPosition
-          : activeTrigger.start +
-              activeTrigger.progress * Math.max(activeTrigger.end - activeTrigger.start, 1);
-      };
-      const isNearStartEdge = (activeTrigger: ScrollTriggerInstance) =>
-        getScrollPosition(activeTrigger) <= activeTrigger.start + edgeScrollOffset;
-      const isNearEndEdge = (activeTrigger: ScrollTriggerInstance) =>
-        getScrollPosition(activeTrigger) >= activeTrigger.end - edgeScrollOffset;
 
       const scrubTo = (totalTime: number) => {
         if (!trigger) return;
@@ -402,16 +317,13 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
         if (progress > 1) wrapForward(trigger);
         else if (progress < 0) wrapBackward(trigger);
         else {
-          const edgeProgress = getEdgeProgress();
-          // IMPORTANT!!! Allow exact top position on first iteration to avoid synthetic 1-2px scroll nudges.
-          const safeProgress =
-            iteration === 0 && progress <= edgeProgress
-              ? 0
-              : $gsap.utils.clamp(edgeProgress, 1 - edgeProgress, progress);
+          const range = Math.max(trigger.end - trigger.start, 1);
+          const edgeProgress = EDGE_SCROLL_OFFSET / range;
+          const safeProgress = $gsap.utils.clamp(edgeProgress, 1 - edgeProgress, progress);
 
           skipProgrammaticUpdate = true;
           suppressForceEffect();
-          trigger.scroll(trigger.start + safeProgress * getRange());
+          trigger.scroll(trigger.start + safeProgress * range);
           syncVisualIndex(totalTime);
           lastCenteredIndex = getCenteredCardIndex(totalTime);
         }
@@ -425,10 +337,8 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
 
           const snappedTotalTime = snap(rawTotalTime);
 
-          tweenLoopTo(
-            snappedTotalTime,
-            usesNormalizedTouchScroll ? TOUCH_SNAP_SCRUB_DURATION : SCRUB_DURATION,
-          );
+          scrub.vars.totalTime = snappedTotalTime;
+          scrub.invalidate().restart();
 
           const snappedIndex = syncSnappedIndex(snappedTotalTime);
           options.onSnap?.(snappedIndex);
@@ -472,18 +382,21 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
             applyScrollForceImageShift(self.getVelocity?.() ?? 0);
           }
 
-          if (self.direction > 0 && isNearEndEdge(self) && !self.wrapping) {
+          const edgeProgress = EDGE_SCROLL_OFFSET / Math.max(self.end - self.start, 1);
+
+          if (self.progress >= 1 - edgeProgress && self.direction > 0 && !self.wrapping) {
             wrapForward(self);
             return;
           }
 
-          if (self.direction < 0 && isNearStartEdge(self) && !self.wrapping) {
+          if (self.progress <= edgeProgress && self.direction < 0 && !self.wrapping) {
             wrapBackward(self);
             return;
           }
 
           const liveTotalTime = (iteration + self.progress) * seamlessLoop.duration();
-          syncLiveLoopTo(liveTotalTime);
+          scrub.vars.totalTime = liveTotalTime;
+          scrub.invalidate().restart();
 
           self.wrapping = false;
           syncVisualIndex(liveTotalTime);
@@ -507,7 +420,7 @@ export function useCardsLoop(options: UseHomeCardsLoopAnimationOptions) {
         if (!trigger || trigger.wrapping || wheelWrapLock) return;
         if (Math.abs(event.deltaY) < 0.5) return;
 
-        const edgeProgress = getEdgeProgress();
+        const edgeProgress = EDGE_SCROLL_OFFSET / Math.max(trigger.end - trigger.start, 1);
 
         if (event.deltaY < 0 && trigger.progress <= edgeProgress) {
           wheelWrapLock = true;

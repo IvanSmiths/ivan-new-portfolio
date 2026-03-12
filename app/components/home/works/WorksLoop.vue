@@ -259,29 +259,27 @@ onUnmounted(() => {
               {{ client }}
             </span>
           </div>
-          <div class="h-full w-full" data-work-card-media>
-            <img
-              :alt="work.title"
-              :src="work.image"
-              class="work-cover-origin works-loop-image h-full"
-              data-work-image
-              draggable="false"
-              @click="onCardClick($event, index)"
+          <img
+            :alt="work.title"
+            :src="work.image"
+            class="work-cover-origin works-loop-image h-full"
+            data-work-image
+            draggable="false"
+            @click="onCardClick($event, index)"
+          />
+          <Transition name="work-video-fade">
+            <video
+              v-if="activeVideoIndex === index"
+              autoplay
+              class="works-loop-video pointer-events-none absolute inset-0 h-full"
+              data-work-video
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              src="/test.mp4"
             />
-            <Transition name="work-video-fade">
-              <video
-                v-if="activeVideoIndex === index"
-                autoplay
-                class="works-loop-video pointer-events-none absolute inset-0 h-full"
-                data-work-video
-                loop
-                muted
-                playsinline
-                preload="metadata"
-                src="/test.mp4"
-              />
-            </Transition>
-          </div>
+          </Transition>
         </div>
       </li>
     </ul>
