@@ -15,9 +15,11 @@ const timeline = ref<gsap.core.Timeline | null>(null);
 
 const route = useRoute();
 const { $ScrollTrigger } = useNuxtApp();
-const { active, phase, notifyCovered, notifyRevealed } = useCurtainTransition();
+const { active, destinationRouteLabel, phase, notifyCovered, notifyRevealed } =
+  useCurtainTransition();
 const { addCoverMotion, addRevealMotion, clear, kill } = usePageLayerTransition();
 const isActive = computed(() => active.value);
+const isLabelVisible = computed(() => phase.value === "covering" || phase.value === "covered");
 let restoreScrollLock: (() => void) | null = null;
 
 function preventScrollInput(event: Event) {
@@ -202,7 +204,14 @@ onBeforeUnmount(() => {
   <div
     ref="curtainEl"
     :class="isActive ? 'pointer-events-auto' : 'pointer-events-none'"
-    class="bg-foreground fixed inset-0 z-10"
+    class="bg-foreground fixed inset-0 z-10 flex items-center justify-center"
     style="opacity: 0; transform: translateZ(0)"
-  />
+  >
+    <span
+      :class="isLabelVisible ? 'opacity-100' : 'opacity-0'"
+      class="text-background pointer-events-none font-serif text-2xl font-light tracking-[0.08em] italic transition-opacity duration-300 ease-out select-none"
+    >
+      {{ destinationRouteLabel }}
+    </span>
+  </div>
 </template>

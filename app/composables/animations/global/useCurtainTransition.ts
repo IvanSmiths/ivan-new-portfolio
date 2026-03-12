@@ -7,8 +7,13 @@ type Resolver = (() => void) | null;
 export function useCurtainTransition() {
   const active = useState<boolean>("curtain:active", () => false);
   const phase = useState<Phase>("curtain:phase", () => "idle");
+  const destinationRouteLabel = useState<string>("curtain:destinationRouteLabel", () => "Home");
   const coverResolver = useState<Resolver>("curtain:coverResolver", () => null);
   const revealResolver = useState<Resolver>("curtain:revealResolver", () => null);
+
+  function setDestinationRouteLabel(label: string) {
+    destinationRouteLabel.value = label;
+  }
 
   function beginCover(): Promise<void> {
     if (active.value) {
@@ -49,6 +54,8 @@ export function useCurtainTransition() {
   return {
     active,
     phase,
+    destinationRouteLabel,
+    setDestinationRouteLabel,
     beginCover,
     notifyCovered,
     beginReveal,
