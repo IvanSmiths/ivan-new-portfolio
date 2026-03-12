@@ -3,7 +3,7 @@ import { nextTick, onMounted, ref } from "vue";
 import { useParagraphReveal } from "~/composables/animations/home/useParagraphReveal";
 import Weather from "~/components/home/description/Weather.vue";
 import Time from "~/components/home/description/Time.vue";
-import Logo2 from "~/components/home/description/Logo2.vue";
+import Logo3 from "~/components/home/description/Logo3.vue";
 
 const paragraphRef = ref<HTMLElement | null>(null);
 const titleRef = ref<HTMLElement | null>(null);
@@ -30,7 +30,7 @@ onMounted(async () => {
     class="gap-md pt-md px-md fixed top-0 z-50 grid grid-cols-8 flex-col items-end sm:grid-cols-16"
   >
     <div class="col-span-full">
-      <Logo2 />
+      <Logo3 />
     </div>
     <div ref="paragraphRef" class="col-start-1 col-end-5 flex w-full flex-col">
       <div class="overflow-hidden">

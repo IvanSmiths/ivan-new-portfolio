@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <AppGrid twelve-columns>
+  <AppGrid class="px-md" twelve-columns>
     <article
       v-for="experiment in projects"
       :key="experiment.title"
