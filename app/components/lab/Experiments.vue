@@ -48,11 +48,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <AppGrid>
+  <AppGrid twelve-columns>
     <article
       v-for="experiment in projects"
       :key="experiment.title"
-      class="col-span-4 flex flex-col gap-3 overflow-hidden py-6"
+      class="col-span-2 flex flex-col gap-3 overflow-hidden py-6"
     >
       <div class="text-left">
         <a :href="experiment.link" class="block" rel="noreferrer noopener" target="_blank">
