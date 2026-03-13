@@ -12,6 +12,7 @@ const props = defineProps<{
 const curtainEl = ref<HTMLDivElement | null>(null);
 const blurEl = ref<HTMLDivElement | null>(null);
 const timeline = ref<gsap.core.Timeline | null>(null);
+const NAVBAR_SELECTOR = "[data-page-transition-navbar]";
 
 const route = useRoute();
 const { $ScrollTrigger } = useNuxtApp();
@@ -61,10 +62,16 @@ function unlockScroll() {
   restoreScrollLock?.();
 }
 
+function getNavbarEl() {
+  if (!import.meta.client) return null;
+  return document.querySelector<HTMLElement>(NAVBAR_SELECTOR);
+}
+
 function killTimeline() {
   timeline.value?.kill();
   timeline.value = null;
   kill(props.pageEl);
+  kill(getNavbarEl());
 }
 
 function setInitialHidden() {
@@ -76,6 +83,7 @@ function setInitialHidden() {
     force3D: true,
   });
   $gsap.set(blurEl.value, { opacity: 0, willChange: "opacity", force3D: true });
+  clear(getNavbarEl(), { withBlur: true });
 }
 
 function shouldAnimatePageReveal() {
@@ -90,6 +98,7 @@ function shouldAnimatePageReveal() {
 async function playCover() {
   await nextTick();
   if (!curtainEl.value || !blurEl.value) return;
+  const navbarEl = getNavbarEl();
 
   killTimeline();
   $gsap.set(curtainEl.value, { yPercent: 100, opacity: 1 });
@@ -117,12 +126,14 @@ async function playCover() {
     );
 
   addCoverMotion(nextTimeline, props.pageEl);
+  addCoverMotion(nextTimeline, navbarEl, { withBlur: true });
   timeline.value = nextTimeline;
 }
 
 async function playReveal() {
   await nextTick();
   if (!curtainEl.value || !blurEl.value) return;
+  const navbarEl = getNavbarEl();
 
   killTimeline();
   $gsap.set(curtainEl.value, { opacity: 1 });
@@ -134,6 +145,7 @@ async function playReveal() {
         $gsap.set(curtainEl.value, { yPercent: 100, opacity: 0 });
         $gsap.set(blurEl.value, { opacity: 0 });
         clear(props.pageEl);
+        clear(navbarEl, { withBlur: true });
         $ScrollTrigger.refresh();
         notifyRevealed();
       },
@@ -155,6 +167,10 @@ async function playReveal() {
 
   addRevealMotion(nextTimeline, props.pageEl, {
     shouldAnimate: shouldAnimatePageReveal(),
+  });
+  addRevealMotion(nextTimeline, navbarEl, {
+    shouldAnimate: shouldAnimatePageReveal(),
+    withBlur: true,
   });
 
   timeline.value = nextTimeline;
