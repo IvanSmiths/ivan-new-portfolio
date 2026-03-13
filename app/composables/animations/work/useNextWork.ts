@@ -12,7 +12,8 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
 
   const { $gsap, $ScrollTrigger, $Flip } = useNuxtApp();
   let commitTl: ReturnType<typeof $gsap.timeline> | null = null;
-  let st: any;
+  let entrySt: any;
+  let pinSt: any;
   let committed = false;
   let cover: HTMLDivElement | null = null;
   let finalStageTarget: HTMLDivElement | null = null;
@@ -28,6 +29,7 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   const COVER_FADE_DURATION = 0.45;
   const COVER_FADE_EASE = "power2.inOut";
   const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
+  const ENTRY_PROGRESS_RATIO = 0.35;
 
   function getFallbackFinalStageRect() {
     const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
@@ -238,7 +240,36 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
       transformOrigin: "center center",
     });
 
-    st = $ScrollTrigger.create({
+    const applyVisualProgress = (progress: number) => {
+      const clampedProgress = $gsap.utils.clamp(0, 1, progress);
+      const imageScale = $gsap.utils.interpolate(
+        IMAGE_START_SCALE,
+        IMAGE_END_SCALE,
+        clampedProgress,
+      );
+      const containerScale = $gsap.utils.interpolate(
+        CONTAINER_START_SCALE,
+        CONTAINER_END_SCALE,
+        clampedProgress,
+      );
+
+      $gsap.set(progressFillRef.value!, { scaleX: clampedProgress });
+      $gsap.set(imageRef.value!, { scale: imageScale });
+      $gsap.set(imageContainerRef.value!, { scale: containerScale });
+    };
+
+    entrySt = $ScrollTrigger.create({
+      trigger: nextWorkContainerRef.value,
+      start: "top bottom",
+      end: "top top",
+      scrub: true,
+      onUpdate(self: any) {
+        if (committed) return;
+        applyVisualProgress(self.progress * ENTRY_PROGRESS_RATIO);
+      },
+    });
+
+    pinSt = $ScrollTrigger.create({
       trigger: nextWorkContainerRef.value,
       start: "top top",
       end: "+=100%",
@@ -250,28 +281,16 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
       onUpdate(self: any) {
         if (committed) return;
 
-        $gsap.set(progressFillRef.value!, { scaleX: self.progress });
-
-        const imageScale = $gsap.utils.interpolate(
-          IMAGE_START_SCALE,
-          IMAGE_END_SCALE,
-          self.progress,
-        );
-        const containerScale = $gsap.utils.interpolate(
-          CONTAINER_START_SCALE,
-          CONTAINER_END_SCALE,
-          self.progress,
-        );
-
-        $gsap.set(imageRef.value!, { scale: imageScale });
-        $gsap.set(imageContainerRef.value!, { scale: containerScale });
+        const unifiedProgress = ENTRY_PROGRESS_RATIO + self.progress * (1 - ENTRY_PROGRESS_RATIO);
+        applyVisualProgress(unifiedProgress);
 
         if (self.progress >= COMMIT_THRESHOLD) {
           committed = true;
 
-          $gsap.set(progressFillRef.value!, { scaleX: 1 });
-          $gsap.set(imageRef.value!, { scale: IMAGE_END_SCALE });
-          $gsap.set(imageContainerRef.value!, { scale: CONTAINER_END_SCALE });
+          applyVisualProgress(1);
+          entrySt?.disable();
+          entrySt?.kill();
+          entrySt = null;
 
           self.scroll(self.end);
           self.disable();
@@ -288,8 +307,10 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   onUnmounted(() => {
     commitTl?.kill();
     commitTl = null;
-    st?.kill();
-    st = null;
+    entrySt?.kill();
+    entrySt = null;
+    pinSt?.kill();
+    pinSt = null;
     removeCover();
     removeFinalStageTarget();
   });
