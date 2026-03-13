@@ -26,9 +26,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div
-    class="gap-md pt-md px-md fixed top-0 z-50 grid grid-cols-8 flex-col items-end sm:grid-cols-16"
-  >
+  <div class="gap-md pt-md px-md fixed top-0 grid grid-cols-8 flex-col items-end sm:grid-cols-16">
     <div class="col-span-full">
       <Logo3 />
     </div>

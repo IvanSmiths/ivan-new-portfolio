@@ -336,7 +336,7 @@ onUnmounted(() => {
               data-work-meta-group
             >
               <span
-                class="text-foreground text-center font-serif text-sm font-light whitespace-nowrap uppercase italic sm:text-xl"
+                class="text-foreground text-center font-serif text-sm font-light whitespace-nowrap italic sm:text-xl"
               >
                 {{ work.name }}
               </span>
