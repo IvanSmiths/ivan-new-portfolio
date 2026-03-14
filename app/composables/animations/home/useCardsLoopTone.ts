@@ -57,13 +57,17 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
     return getContextState() === "running" ? synth : null;
   }
 
-  function playSnapBlip() {
+  function playSnapBlip(frequency: Tone.Unit.Frequency = snapFrequency) {
     if (!soundEnabled.value) return;
 
     const synth = ensureSnapSynth();
     if (!synth || getContextState() !== "running") return;
 
-    synth.triggerAttackRelease(snapFrequency, blipDuration, Tone.now());
+    synth.triggerAttackRelease(frequency, blipDuration, Tone.now());
+  }
+
+  function playSnapBlipTransposed(semitones: number) {
+    playSnapBlip(Tone.Frequency(snapFrequency).transpose(semitones).toFrequency());
   }
 
   function playCenterBlip() {
@@ -120,6 +124,6 @@ export function useCardsLoopTone(options: UseWorksLoopToneOptions = {}) {
     installAudioUnlockListeners,
     playCenterBlip,
     playSnapBlip,
-    unlockSnapAudio,
+    playSnapBlipTransposed,
   };
 }

@@ -12,8 +12,11 @@ const logoHoverTone = useCardsLoopTone({
   volumeDb: -22,
 });
 const hoverAnimation = useLogoHover(lettersRef, {
-  onHover: () => {
-    logoHoverTone.playSnapBlip();
+  onHover: ({ index, total }) => {
+    const progress = total <= 1 ? 0.5 : index / (total - 1);
+    const semitoneRange = 14;
+    const semitones = Math.round((progress - 0.5) * semitoneRange);
+    logoHoverTone.playSnapBlipTransposed(semitones);
   },
 });
 const revealAnimation = useLogoReveal(lettersRef);

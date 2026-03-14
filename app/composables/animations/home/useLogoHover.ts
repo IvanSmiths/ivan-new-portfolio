@@ -1,7 +1,12 @@
 import { onScopeDispose, type Ref } from "vue";
 
 type UseLogoHoverOptions = {
-  onHover?: () => void;
+  onHover?: (payload: {
+    index: number;
+    total: number;
+    group: SVGGElement;
+    path: SVGPathElement;
+  }) => void;
 };
 
 function getLetterGroups(lettersRef: Ref<SVGGElement | null>) {
@@ -28,7 +33,7 @@ export function useLogoHover(
     cleanups = [];
   }
 
-  function setupGroupHover(group: SVGGElement, path: SVGPathElement) {
+  function setupGroupHover(group: SVGGElement, path: SVGPathElement, index: number, total: number) {
     let isPointerInside = false;
     let hasPlayedSinceLeave = false;
     let isAnimating = false;
@@ -118,7 +123,7 @@ export function useLogoHover(
       clearResetTimer();
       if (hasPlayedSinceLeave || isAnimating) return;
       hasPlayedSinceLeave = true;
-      options.onHover?.();
+      options.onHover?.({ index, total, group, path });
       playPulse();
     };
 
@@ -149,10 +154,12 @@ export function useLogoHover(
     const groups = getLetterGroups(lettersRef);
     if (!groups.length) return;
 
-    groups.forEach((group) => {
-      const path = getLetterPath(group);
-      if (!path) return;
-      setupGroupHover(group, path);
+    const hoverTargets = groups
+      .map((group) => ({ group, path: getLetterPath(group) }))
+      .filter((target): target is { group: SVGGElement; path: SVGPathElement } => !!target.path);
+
+    hoverTargets.forEach(({ group, path }, index) => {
+      setupGroupHover(group, path, index, hoverTargets.length);
     });
   }
 
