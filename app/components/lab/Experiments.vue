@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <AppGrid class="px-md" twelve-columns>
+  <AppGrid class="px-md">
     <article
       v-for="experiment in projects"
       :key="experiment.title"
@@ -85,10 +85,10 @@ onBeforeUnmount(() => {
             />
             <video
               v-else
-              data-lab-experiment-video
               :poster="experiment.image"
               autoplay
               class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              data-lab-experiment-video
               loop
               muted
               playsinline

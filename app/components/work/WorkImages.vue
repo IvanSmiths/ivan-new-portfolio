@@ -12,7 +12,7 @@ const props = defineProps<{
     <template v-for="(images, index) in work.images" :key="index">
       <div
         v-if="images.layout === 'single'"
-        class="col-span-full w-full md:col-start-4 md:col-end-14"
+        class="col-span-full w-full md:col-start-2 md:col-end-12"
       >
         <img
           :alt="`${work.name} image ${index + 1}`"
@@ -22,7 +22,7 @@ const props = defineProps<{
       </div>
       <div
         v-else-if="images.layout === 'row'"
-        class="gap-md col-span-full flex w-full flex-col justify-start md:col-start-4 md:col-end-14 md:flex-row"
+        class="gap-md col-span-full flex w-full flex-col justify-start md:col-start-2 md:col-end-12 md:flex-row"
       >
         <img
           v-for="(src, i) in images.src"

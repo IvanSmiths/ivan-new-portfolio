@@ -2,7 +2,6 @@
 defineProps<{
   as?: string;
   padded?: boolean;
-  twelveColumns?: boolean;
 }>();
 </script>
 
@@ -10,8 +9,7 @@ defineProps<{
   <component
     :is="as ?? 'div'"
     :class="[
-      'lg:gap-x-md gap-x-sm mx-auto grid w-full',
-      twelveColumns ? 'grid-cols-12 lg:grid-cols-12' : 'grid-cols-8 lg:grid-cols-16',
+      'lg:gap-x-md gap-x-sm mx-auto grid w-full grid-cols-12 lg:grid-cols-12',
       padded !== false && 'lg:px-md px-sm',
     ]"
   >

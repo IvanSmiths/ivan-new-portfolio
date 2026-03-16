@@ -19,11 +19,11 @@ const { shortDescriptionRef } = useSectionAnimation();
     >
       {{ work?.shortDescription }}
     </p>
-    <div class="col-span-full flex w-full flex-col py-20 md:col-start-2 md:col-end-17">
+    <div class="col-span-full flex w-full flex-col py-20 md:col-start-2 md:col-end-13">
       <span class="mb-5 block text-xs">The Project</span>
       <p class="text-2xl">{{ work?.description }}</p>
     </div>
-    <div v-if="work?.worksDone?.length" class="col-start-1 md:col-start-2">
+    <div v-if="work?.worksDone?.length" class="col-start-1 col-end-4 md:col-start-2">
       <span class="mb-1 block text-xs md:mb-5">Clients</span>
       <ul class="space-y-1.5">
         <li v-for="(client, i) in work.worksDone" :key="i" class="text-sm md:text-base">

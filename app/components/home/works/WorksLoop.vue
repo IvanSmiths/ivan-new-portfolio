@@ -245,7 +245,7 @@ onUnmounted(() => {
       ref="cardsRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
       :data-loop-ready="isLoopReady ? '1' : '0'"
-      class="works-loop-cards bottom-lg absolute h-[30%]"
+      class="works-loop-cards bottom-lg absolute min-h-[50%]"
       data-home-live-cards
     >
       <li
@@ -370,13 +370,13 @@ onUnmounted(() => {
 
 <style scoped>
 .works-loop-cards {
-  --works-grid-columns: 16;
+  --works-grid-columns: 12;
   --works-grid-gap: var(--spacing-md);
   --works-column-size: calc(
     (100% - (var(--works-grid-columns) - 1) * var(--works-grid-gap)) / var(--works-grid-columns)
   );
-  --works-start-column: 7;
-  --works-span-columns: 4;
+  --works-start-column: 6;
+  --works-span-columns: 2;
   left: calc((var(--works-start-column) - 1) * (var(--works-column-size) + var(--works-grid-gap)));
   width: calc(
     var(--works-span-columns) * var(--works-column-size) + (var(--works-span-columns) - 1) *
