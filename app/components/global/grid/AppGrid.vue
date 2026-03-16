@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-defineProps<{
+const { as = "div", padded = true } = defineProps<{
   as?: string;
   padded?: boolean;
 }>();
@@ -7,10 +7,10 @@ defineProps<{
 
 <template>
   <component
-    :is="as ?? 'div'"
+    :is="as"
     :class="[
-      'lg:gap-x-md gap-x-sm mx-auto grid w-full grid-cols-12 lg:grid-cols-12',
-      padded !== false && 'lg:px-md px-sm',
+      'lg:gap-x-md gap-x-sm mx-auto grid w-full grid-cols-8 lg:grid-cols-12',
+      padded && 'lg:px-md px-sm',
     ]"
   >
     <slot />

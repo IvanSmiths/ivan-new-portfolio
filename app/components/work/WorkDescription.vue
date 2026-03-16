@@ -11,15 +11,15 @@ const { shortDescriptionRef } = useSectionAnimation();
 </script>
 
 <template>
-  <AppGrid as="section" class="bg-background text-foreground px-sm w-full pb-20 lg:px-48">
+  <AppGrid as="section" class="bg-background text-foreground w-full pb-20">
     <span class="col-span-full mb-5 block text-xs md:col-start-2">TL;DR</span>
     <p
       ref="shortDescriptionRef"
-      class="col-span-full block text-5xl font-black uppercase md:col-start-4 md:col-end-16 md:text-7xl lg:text-8xl"
+      class="col-span-full block text-5xl font-black uppercase md:col-start-4 md:col-end-12 md:text-7xl lg:text-8xl"
     >
       {{ work?.shortDescription }}
     </p>
-    <div class="col-span-full flex w-full flex-col py-20 md:col-start-2 md:col-end-13">
+    <div class="col-span-full flex w-full flex-col py-20 md:col-start-2 md:col-end-12">
       <span class="mb-5 block text-xs">The Project</span>
       <p class="text-2xl">{{ work?.description }}</p>
     </div>

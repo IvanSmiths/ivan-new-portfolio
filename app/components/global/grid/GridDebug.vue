@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const columns = 16;
+const columns = 12;
 </script>
 
 <template>
   <div
-    class="lg:gap-md gap-sm lg:px-md px-sm pointer-events-none fixed inset-0 z-9999 grid grid-cols-8 lg:grid-cols-16"
+    class="lg:gap-md gap-sm lg:px-md px-sm pointer-events-none fixed inset-0 z-9999 grid grid-cols-8 lg:grid-cols-12"
   >
     <div
       v-for="i in columns"

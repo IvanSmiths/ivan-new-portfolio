@@ -3,8 +3,8 @@ import AppGrid from "~/components/global/grid/AppGrid.vue";
 </script>
 
 <template>
-  <AppGrid class="bg-background text-foreground min-h-screen content-start">
-    <p class="mt-xl col-start-1 col-end-9 text-3xl">
+  <AppGrid class="bg-background text-foreground min-h-screen">
+    <p class="mt-xl col-start-1 col-end-6 text-3xl">
       From independent studios to global banks, I've spent the last 5 years building digital
       products that people actually use, and that businesses actually grow from. I care about the
       details that drive outcomes: the interface that earns trust before a single word is read.
