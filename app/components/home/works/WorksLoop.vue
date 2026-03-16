@@ -12,6 +12,7 @@ import { useWorksLoopNavigation } from "~/composables/home/useWorksLoopNavigatio
 import { useWorksLoopState } from "~/composables/home/useWorksLoopState";
 import { useWorksLoopVideo } from "~/composables/home/useWorksLoopVideo";
 import { worksCards } from "~/domain/works";
+import Chip from "~/components/global/Chip.vue";
 
 const { $gsap } = useNuxtApp();
 const router = useRouter();
@@ -261,14 +262,13 @@ onUnmounted(() => {
             v-if="work.clients.length"
             class="bottom-sm left-sm pointer-events-none absolute z-10 flex flex-wrap gap-1"
           >
-            <span
+            <Chip
               v-for="client in work.clients.slice(0, 3)"
               :key="`${key}-${client}`"
-              class="text-foreground bg-background/20 px-sm rounded-full border border-white/20 py-1 text-xs tracking-widest uppercase opacity-0 shadow-lg backdrop-blur-lg"
+              :label="client"
+              class="opacity-0"
               data-client-chip
-            >
-              {{ client }}
-            </span>
+            />
           </div>
           <img
             :alt="work.title"

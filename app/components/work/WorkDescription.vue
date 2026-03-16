@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { WorkProjectPage } from "~/domain/works/types";
 import { useSectionAnimation } from "~/composables/animations/work/useSectionAnimation";
-import ExternalLink from "~/components/global/icons/ExternalLink.vue";
 import AppGrid from "~/components/global/grid/AppGrid.vue";
 
 const props = defineProps<{
@@ -29,12 +28,11 @@ const { shortDescriptionRef } = useSectionAnimation();
         <li v-for="(client, i) in work.worksDone" :key="i" class="text-sm md:text-base">
           <a
             :href="client.link"
-            class="flex flex-row justify-start gap-1 text-xs font-bold uppercase transition-opacity duration-200 hover:opacity-90"
+            class="flex flex-row justify-start gap-1 transition-opacity duration-200 hover:opacity-90"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span>{{ client.label }}</span>
-            <ExternalLink />
+            <Chip :label="client.label" class="mt-1" external />
           </a>
         </li>
       </ul>
@@ -45,22 +43,21 @@ const { shortDescriptionRef } = useSectionAnimation();
         <li>
           <a
             :href="work.websiteLink"
-            class="flex flex-row justify-start gap-1 text-xs font-bold uppercase transition-opacity duration-200 hover:opacity-90"
+            class="flex flex-row justify-start gap-1 transition-opacity duration-200 hover:opacity-90"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span>Website</span>
-            <ExternalLink />
+            <Chip class="mt-1" external label="Website" />
           </a>
         </li>
         <li>
           <a
             :href="work.linkedinLink"
-            class="flex flex-row items-center justify-start gap-1 text-xs font-bold uppercase transition-opacity duration-200 hover:opacity-90"
+            class="flex flex-row items-center justify-start gap-1 transition-opacity duration-200 hover:opacity-90"
             rel="noopener noreferrer"
             target="_blank"
           >
-            Linkedin <ExternalLink />
+            <Chip external label="Linkedin" />
           </a>
         </li>
       </ul>

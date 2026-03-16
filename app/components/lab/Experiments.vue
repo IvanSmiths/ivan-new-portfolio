@@ -77,6 +77,7 @@ onBeforeUnmount(() => {
       <div class="text-left">
         <a :href="experiment.link" class="block" rel="noreferrer noopener" target="_blank">
           <div class="relative overflow-hidden">
+            <Chip :label="experiment.category" class="bottom-sm left-sm absolute z-10" />
             <img
               v-if="!hasVideo(experiment)"
               :alt="experiment.title"
@@ -102,11 +103,6 @@ onBeforeUnmount(() => {
         <div class="mt-3">
           <div class="gap-sm flex items-center">
             <h3 class="text-foreground text-sm">{{ experiment.title }}</h3>
-            <h4
-              class="text-foreground bg-background/70 px-sm rounded-full border border-white/20 py-1 text-xs tracking-widest shadow-lg"
-            >
-              {{ experiment.category }}
-            </h4>
           </div>
           <p class="text-foreground-muted pt-sm text-xs">{{ experiment.description }}</p>
         </div>
