@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
       <div class="text-left">
         <a :href="experiment.link" class="block" rel="noreferrer noopener" target="_blank">
           <div class="relative overflow-hidden">
-            <Chip :label="experiment.category" class="bottom-sm left-sm absolute z-10" />
+            <Chip :label="experiment.category" as="h4" class="bottom-sm left-sm absolute z-10" />
             <img
               v-if="!hasVideo(experiment)"
               :alt="experiment.title"
