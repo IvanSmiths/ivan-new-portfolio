@@ -3,6 +3,7 @@ import { onBeforeUnmount, ref, watch } from "vue";
 import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 import { type Experiment, projects } from "~/domain/lab/data/projects";
 import AppGrid from "~/components/global/grid/AppGrid.vue";
+import ExternalLink from "~/components/global/icons/ExternalLink.vue";
 
 const failedVideos = ref<Record<string, boolean>>({});
 const videosEnabled = ref(false);
@@ -88,7 +89,7 @@ onBeforeUnmount(() => {
               v-else
               :poster="experiment.image"
               autoplay
-              class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.05]"
               data-lab-experiment-video
               loop
               muted
@@ -101,10 +102,19 @@ onBeforeUnmount(() => {
           </div>
         </a>
         <div class="mt-3">
-          <div class="gap-sm flex items-center">
-            <h3 class="text-foreground text-sm">{{ experiment.title }}</h3>
-          </div>
-          <p class="text-foreground-muted pt-sm text-xs">{{ experiment.description }}</p>
+          <ul class="gap-sm flex items-center">
+            <li class="flex items-center justify-center gap-2">
+              <a
+                :href="experiment.link"
+                class="text-foreground text-sm"
+                rel="noreferrer noopener"
+                target="_blank"
+                >{{ experiment.title }}
+              </a>
+            </li>
+            <ExternalLink class="h-3.5 w-3.5" />
+          </ul>
+          <p class="text-foreground-muted pt-1.5 text-xs">{{ experiment.description }}</p>
         </div>
       </div>
     </article>
