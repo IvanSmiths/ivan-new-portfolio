@@ -275,8 +275,6 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
       end: "+=100%",
       pin: true,
       scrub: true,
-      markers: true,
-      anticipatePin: 1,
 
       onUpdate(self: any) {
         if (committed) return;

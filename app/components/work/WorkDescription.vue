@@ -62,5 +62,13 @@ const { shortDescriptionRef } = useSectionAnimation();
         </li>
       </ul>
     </div>
+    <div class="mt-md col-start-1 col-end-10 md:col-start-8 md:mt-0">
+      <span class="mb-1 block text-xs md:mb-5">Stack</span>
+      <ul class="space-y-2">
+        <li v-for="(client, i) in work.stack" :key="i" class="text-sm md:text-base">
+          <Chip :label="client" />
+        </li>
+      </ul>
+    </div>
   </AppGrid>
 </template>

@@ -2,7 +2,7 @@
   <svg
     :height="size"
     :width="size"
-    class="stroke-foreground group-hover:stroke-background hidden fill-none transition md:block"
+    class="stroke-foreground group-hover:stroke-background fill-none transition"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="2"

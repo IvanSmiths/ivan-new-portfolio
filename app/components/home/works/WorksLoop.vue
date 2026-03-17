@@ -315,7 +315,7 @@ onUnmounted(() => {
               class="flex h-6 items-center justify-end"
             >
               <span class="text-foreground-muted text-xs whitespace-nowrap tabular-nums">
-                {{ displayIndex }} / 04
+                {{ displayIndex }}/04
               </span>
             </div>
           </div>
