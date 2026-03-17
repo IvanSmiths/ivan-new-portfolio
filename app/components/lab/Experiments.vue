@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onBeforeUnmount, ref, watch } from "vue";
 import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
-import { type Experiment, projects } from "~/domain/lab/data/projects";
+import { type Experiment, experiments } from "~/domain/lab/data/experiments";
 import AppGrid from "~/components/global/grid/AppGrid.vue";
 import ExternalLink from "~/components/global/icons/ExternalLink.vue";
 
@@ -70,8 +70,8 @@ onBeforeUnmount(() => {
 
 <template>
   <AppGrid class="px-md">
-    <article
-      v-for="experiment in projects"
+    <div
+      v-for="experiment in experiments"
       :key="experiment.title"
       class="col-span-2 flex flex-col gap-3 overflow-hidden py-6"
     >
@@ -117,6 +117,6 @@ onBeforeUnmount(() => {
           <p class="text-foreground-muted pt-1.5 text-xs">{{ experiment.description }}</p>
         </div>
       </div>
-    </article>
+    </div>
   </AppGrid>
 </template>

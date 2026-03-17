@@ -19,12 +19,12 @@ export function useNextWork(options: UseNextWorkAnimationOptions = {}) {
   let finalStageTarget: HTMLDivElement | null = null;
 
   const IMAGE_START_SCALE = 1.8;
-  const IMAGE_END_SCALE = 1.5;
-  const CONTAINER_START_SCALE = 1;
-  const CONTAINER_END_SCALE = 1.08;
+  const IMAGE_END_SCALE = 1;
+  const CONTAINER_START_SCALE = 0.1;
+  const CONTAINER_END_SCALE = 1;
   const COMMIT_THRESHOLD = 0.99;
-  const STAGE_DURATION = 0.8;
-  const CENTER_STAGE_WIDTH_RATIO = 0.5;
+  const STAGE_DURATION = 1;
+  const CENTER_STAGE_WIDTH_RATIO = 0.2;
   const CENTER_STAGE_HEIGHT_RATIO = 0.5;
   const COVER_FADE_DURATION = 0.45;
   const COVER_FADE_EASE = "power2.inOut";

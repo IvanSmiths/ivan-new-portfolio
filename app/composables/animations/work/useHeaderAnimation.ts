@@ -45,7 +45,7 @@ export function useHeaderAnimation() {
       });
 
       if (metaBarRef.value) {
-        $gsap.set(metaBarRef.value, { y: 18, willChange: "transform" });
+        $gsap.set(metaBarRef.value, { y: 20, willChange: "transform" });
       }
 
       const tl = $gsap.timeline({ defaults: { ease: "power3.out" } });

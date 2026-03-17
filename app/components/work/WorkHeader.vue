@@ -38,7 +38,7 @@ const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
           <div>
             <div ref="metaBarRef" class="flex items-center justify-between text-sm lg:text-base">
               <span
-                >{{ String(props.currentIndex + 1).padStart(2, "0") }}-{{
+                >{{ String(props.currentIndex + 1).padStart(2, "0") }}/{{
                   String(totalWorks).padStart(2, "0")
                 }}</span
               >
@@ -51,7 +51,7 @@ const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
           <img
             :src="work?.homeImage.url"
             alt=""
-            class="work-cover-origin min-h-screen h-full"
+            class="work-cover-origin h-full min-h-screen"
             data-work-hero-image
           />
         </div>

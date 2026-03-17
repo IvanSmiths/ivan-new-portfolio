@@ -9,7 +9,7 @@ export interface Experiment {
   video?: string;
 }
 
-export const projects: Experiment[] = [
+export const experiments: Experiment[] = [
   {
     title: "Hip Hop Archive",
     description:

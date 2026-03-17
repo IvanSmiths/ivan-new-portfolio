@@ -29,8 +29,8 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
     class="gap-md relative flex min-h-screen w-full flex-col items-center justify-center overflow-y-hidden"
   >
     <div class="flex flex-col items-center pb-36 text-center">
-      <h1 class="text-4xl font-medium uppercase md:text-9xl">Next Work</h1>
-      <p class="mt-5 font-serif text-base italic md:text-5xl">[Scroll...]</p>
+      <h3 class="font-serif text-base italic">[Next Work]</h3>
+      <h4 class="text-4xl font-medium uppercase md:text-8xl">{{ nextWork?.name }}</h4>
       <div class="bg-foreground/20 mt-6 h-0.5 w-56 overflow-hidden rounded-full md:w-96">
         <div
           ref="progressFillRef"
@@ -41,7 +41,7 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
 
       <div
         ref="imageContainerRef"
-        class="absolute right-0 -bottom-72 left-0 z-10 mx-auto w-170 overflow-hidden"
+        class="absolute -bottom-56 left-1/2 z-10 w-170 -translate-x-1/2 overflow-hidden"
       >
         <img
           v-if="nextWork"
