@@ -50,10 +50,8 @@ export const projects: Experiment[] = [
     category: "Social",
     year: 2022,
     link: "https://www.youtube.com/@ivansmithsdev",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1772025651/portfolio/experiments/youtube-channel_ow9p7p.png",
-    video:
-      "https://res.cloudinary.com/deino2cjx/video/upload/f_mp4,vc_h264,ac_none,q_auto/v1773147912/guitar_u6wnvh.mp4",
+    image: "https://res.cloudinary.com/deino2cjx/image/upload/v1773748692/youtube_tcnmom.png",
+    video: "https://res.cloudinary.com/deino2cjx/video/upload/v1773748692/youtube_vx8tqg.mp4",
     aspectRatio: "landscape",
   },
 ];
