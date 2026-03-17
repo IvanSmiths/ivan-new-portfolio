@@ -21,14 +21,14 @@ export function useCardExpandTransition(opts: {
   lock: { value: boolean };
 }) {
   const { gsap: $gsap } = opts;
-  const { $Flip } = useNuxtApp();
+  const { $Flip, $CustomEase } = useNuxtApp();
   const { prepareSplitReveal } = useSplitTextAnimation();
   const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 
   const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
-  const TARGET_WAIT_TIMEOUT_MS = 2000;
-  const PRE_EXPAND_HOLD_DURATION = 0.45;
+  const TARGET_WAIT_TIMEOUT_MS = 500;
+  const PRE_EXPAND_HOLD_DURATION = 0.1;
   const LABEL_GAP_FROM_IMAGE_TOP_PX = 0;
 
   let movedImage: HTMLImageElement | null = null;
@@ -188,9 +188,10 @@ export function useCardExpandTransition(opts: {
         opts.cards().filter((_, i) => i !== index),
         {
           opacity: 0,
+          stagger: 0.002,
           filter: "blur(12px)",
-          scale: 0.9,
-          duration: 0.5,
+          scale: 0,
+          duration: 0.8,
           ease: "power2.inOut",
         },
       );
@@ -253,24 +254,23 @@ export function useCardExpandTransition(opts: {
           yPercent: -100,
           width: centerWidth,
         });
-        tl.to(cover, { opacity: 1, duration: 0.45, ease: "power2.inOut" });
+        tl.to(cover, { opacity: 1, duration: 0.45, ease: "power2.inOut", delay: 0.2 });
         tl.to({}, { duration: PRE_EXPAND_HOLD_DURATION });
         tl.to(
           stage,
           {
             x: centerLeft + centerWidth / 2 - viewportCenterX,
             y: centerTop + centerHeight / 2 - viewportCenterY,
-            width: centerWidth,
-            height: centerHeight,
-            duration: 0.95,
-            ease: "power3.out",
+            width: centerWidth / 2,
+            duration: 1.25,
+            ease: "power4.inOut",
             force3D: true,
           },
-          ">",
+          "<-0.45",
         );
         tl.to(
           imageEl,
-          { x: 0, scale: 1.6, duration: 0.95, ease: "power3.out", force3D: true },
+          { x: 0, scale: 1.3, duration: 0.95, ease: "power3.out", force3D: true },
           "<",
         );
         tl.fromTo(

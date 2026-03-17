@@ -400,7 +400,7 @@ onUnmounted(() => {
 
 .works-loop-cards.is-hover-dimmed [data-work-card].is-hover-active [data-work-image] {
   filter: blur(0px) saturate(1);
-  scale: 1.03;
+  scale: 1.05;
 }
 
 .works-loop-video {

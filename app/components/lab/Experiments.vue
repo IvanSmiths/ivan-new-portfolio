@@ -83,13 +83,13 @@ onBeforeUnmount(() => {
               v-if="!hasVideo(experiment)"
               :alt="experiment.title"
               :src="experiment.image"
-              class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              class="max-h-100 w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
             />
             <video
               v-else
               :poster="experiment.image"
               autoplay
-              class="max-h-140 w-full object-cover transition-transform duration-300 hover:scale-[1.05]"
+              class="max-h-100 w-full object-cover transition-transform duration-300 hover:scale-[1.05]"
               data-lab-experiment-video
               loop
               muted
