@@ -260,7 +260,7 @@ onUnmounted(() => {
         <div class="relative h-full w-full overflow-hidden" data-work-card-shell>
           <div
             v-if="work.clients.length"
-            class="bottom-sm left-sm pointer-events-none absolute z-10 flex flex-wrap gap-1"
+            class="bottom-sm pr-sm left-sm pointer-events-none absolute z-10 flex flex-wrap gap-0.5 gap-y-1"
           >
             <Chip
               v-for="client in work.clients.slice(0, 3)"
