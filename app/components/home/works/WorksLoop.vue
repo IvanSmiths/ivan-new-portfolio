@@ -281,6 +281,7 @@ onUnmounted(() => {
           <Transition name="work-video-fade">
             <video
               v-if="activeVideoIndex === index"
+              :src="work.video"
               autoplay
               class="works-loop-video pointer-events-none absolute inset-0 h-full"
               data-work-video
@@ -288,7 +289,6 @@ onUnmounted(() => {
               muted
               playsinline
               preload="metadata"
-              src="/test.mp4"
             />
           </Transition>
         </div>

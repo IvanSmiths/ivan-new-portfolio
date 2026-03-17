@@ -29,10 +29,11 @@ export const Neugelb: WorkProjectPage = {
   metaDescription:
     "Contributed to the development of Commerzbank websites by optimizing chatbot features, improving accessibility to meet WCAG standards, and ensuring a seamless user experience across platforms.",
   homeImage: {
-    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1771687718/Frame_678_glby32.png",
+    url: "https://res.cloudinary.com/deino2cjx/image/upload/v1773744719/cb_hvazl7.png",
     height: 600,
     width: 420,
   },
+  homeVideo: "https://res.cloudinary.com/deino2cjx/video/upload/v1773744700/cb_ovetkr.mp4",
   images: [
     {
       layout: "single",

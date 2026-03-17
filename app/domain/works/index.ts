@@ -20,6 +20,7 @@ export const worksCards: WorkCard[] = worksPages.map((w) => ({
   title: w.name,
   role: w.role,
   name: w.name,
+  video: w.homeVideo,
   clients: w.worksDone?.map((x) => x.label) ?? [],
   image: w.homeImage.url,
   type: w.type,

@@ -9,6 +9,7 @@ export type WorkProjectPage = {
   slug: string;
   name: string;
   homeImage: Media;
+  homeVideo: string;
   role: string;
 
   title: string;
@@ -28,6 +29,7 @@ export type WorkProjectPage = {
 export type WorkCard = {
   slug: string;
   title: string;
+  video: string;
   role: string;
   name: string;
   clients: string[];
