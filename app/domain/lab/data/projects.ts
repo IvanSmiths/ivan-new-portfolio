@@ -17,10 +17,9 @@ export const projects: Experiment[] = [
     category: "Social",
     year: 2025,
     link: "https://www.tiktok.com/@hiphoparchiveofficial",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1772025649/portfolio/experiments/hip-hop-archive_rapabf.png",
+    image: "https://res.cloudinary.com/deino2cjx/image/upload/v1773749108/hharchive_tp0ezv.png",
     video:
-      "https://res.cloudinary.com/deino2cjx/video/upload/f_mp4,vc_h264,ac_none,q_auto/v1773147913/hh_vxfr7i.mp4",
+      "https://res.cloudinary.com/deino2cjx/video/upload/v1773749061/hip-hop-archive_lazlyy.mp4",
     aspectRatio: "portrait",
   },
   {
