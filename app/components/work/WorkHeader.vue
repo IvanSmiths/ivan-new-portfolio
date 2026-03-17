@@ -25,9 +25,9 @@ const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
             </div>
 
             <div class="mt-5 overflow-hidden leading-[1.1]">
-              <p ref="roleRef" class="font-serif text-lg font-light italic lg:text-5xl">
+              <h2 ref="roleRef" class="font-serif text-lg font-light italic lg:text-5xl">
                 [{{ work?.role }}]
-              </p>
+              </h2>
             </div>
           </div>
         </div>
