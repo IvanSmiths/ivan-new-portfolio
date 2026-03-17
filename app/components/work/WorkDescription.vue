@@ -24,36 +24,36 @@ const { shortDescriptionRef } = useSectionAnimation();
     </div>
     <div v-if="work?.worksDone?.length" class="col-start-1 col-end-4 md:col-start-2">
       <span class="mb-1 block text-xs md:mb-5">Clients</span>
-      <ul class="space-y-1.5">
+      <ul class="space-y-2">
         <li v-for="(client, i) in work.worksDone" :key="i" class="text-sm md:text-base">
           <a
             :href="client.link"
-            class="flex flex-row justify-start gap-1 transition-opacity duration-200 hover:opacity-90"
+            class="transition-opacity duration-200 hover:opacity-90"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Chip :label="client.label" class="mt-1" external />
+            <Chip :label="client.label" external />
           </a>
         </li>
       </ul>
     </div>
     <div class="col-start-5 md:col-start-4">
       <span class="mb-1 block text-xs md:mt-0 md:mb-5">Links</span>
-      <ul class="space-y-1.5">
+      <ul class="space-y-sm">
         <li>
           <a
             :href="work.websiteLink"
-            class="flex flex-row justify-start gap-1 transition-opacity duration-200 hover:opacity-90"
+            class="transition-opacity duration-200 hover:opacity-90"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Chip class="mt-1" external label="Website" />
+            <Chip external label="Website" />
           </a>
         </li>
         <li>
           <a
             :href="work.linkedinLink"
-            class="flex flex-row items-center justify-start gap-1 transition-opacity duration-200 hover:opacity-90"
+            class="transition-opacity duration-200 hover:opacity-90"
             rel="noopener noreferrer"
             target="_blank"
           >

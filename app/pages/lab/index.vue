@@ -4,7 +4,7 @@ import Experiments from "~/components/lab/Experiments.vue";
 
 <template>
   <section
-    class="bg-background text-foreground flex min-h-screen w-full flex-col justify-between md:pt-12"
+    class="bg-background text-foreground md:pt-md flex min-h-screen w-full flex-col justify-between"
   >
     <Experiments />
   </section>
