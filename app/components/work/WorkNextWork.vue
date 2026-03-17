@@ -26,7 +26,7 @@ const { nextWorkContainerRef, progressFillRef, imageContainerRef, imageRef } = u
 <template>
   <section
     ref="nextWorkContainerRef"
-    class="gap-md relative flex min-h-screen w-full flex-col items-center justify-center overflow-y-hidden"
+    class="gap-md relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
   >
     <div class="flex flex-col items-center pb-36 text-center">
       <h3 class="pb-md text-base">[Next Work]</h3>
