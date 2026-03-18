@@ -33,7 +33,7 @@ export const Td: WorkProjectPage = {
     height: 600,
     width: 420,
   },
-  homeVideo: "https://res.cloudinary.com/deino2cjx/video/upload/v1773744936/td_p01aag.mp4",
+  homeVideo: "https://res.cloudinary.com/deino2cjx/video/upload/v1773842739/td_gvqgbk.mp4",
   images: [
     {
       layout: "single",
