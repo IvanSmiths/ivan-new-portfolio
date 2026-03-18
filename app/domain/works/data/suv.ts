@@ -59,36 +59,40 @@ export const Suv: WorkProjectPage = {
   images: [
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341915/portfolio/suv/suv-4_q1vrm3.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844345/scholz_volkmer2_oqpl6r.jpg",
+    },
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844344/scholz_volkmer-2_jopwqz.jpg",
+    },
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844344/scholz_volkmer1_sbh1zr.jpg",
     },
     {
       layout: "row",
       src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341911/portfolio/suv/scholz-und-volkmer-website-5_qt9vas.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341911/portfolio/suv/scholz-und-volkmer-website-4_blugsp.jpg",
-      ],
-    },
-    {
-      layout: "row",
-      src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341908/portfolio/suv/scholz-und-volkmer-website-1_vrgodm.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341909/portfolio/suv/scholz-und-volkmer-website-2_qyjzes.jpg",
-      ],
-    },
-    {
-      layout: "row",
-      src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341910/portfolio/suv/scholz-und-volkmer-website-3_page5t.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341912/portfolio/suv/suv-1_jz2ro9.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844344/scholz_volkmer-1_fsmgyt.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844344/scholz_volkmer0_udb10o.jpg",
       ],
     },
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341913/portfolio/suv/suv-2_dkjhfw.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844345/scholz_volkmer5_bcqf6p.jpg",
     },
     {
-      layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341914/portfolio/suv/suv-3_uloc6w.jpg",
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844345/scholz_volkmer3_v43vmn.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844345/scholz_volkmer4_qkqsow.jpg",
+      ],
+    },
+    {
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844346/scholz_volkmer8_dzs3an.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844346/scholz_volkmer9_lvseps.jpg",
+      ],
     },
   ],
 };

@@ -71,66 +71,61 @@ export const Ideology: WorkProjectPage = {
   images: [
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341876/portfolio/ideology/ideology-website-6_cfwfw2.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844172/ideology0_zr4rob.jpg",
+    },
+    {
+      layout: "single",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844173/ideology5_awodxf.jpg",
     },
     {
       layout: "row",
       src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341884/portfolio/ideology/rrr_hybuae.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341878/portfolio/ideology/ideology-website-10_ahzq2s.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844174/ideology10_owyttt.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844172/ideology-2_v6wigv.jpg",
       ],
     },
     {
       layout: "row",
       src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341878/portfolio/ideology/ideology-website-9_jdwyyf.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341877/portfolio/ideology/ideology-website-8_auy0fc.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844174/ideology12_esjgpb.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844174/ideology11_kuw2df.jpg",
       ],
     },
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341879/portfolio/ideology/ideology-website-12_fzcnic.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844172/ideology1_uudkag.jpg",
     },
+
+    {
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844174/ideology13_yylrmq.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844173/ideology9_dpplbw.jpg",
+      ],
+    },
+
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341883/portfolio/ideology/racina_kpctx3.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844173/ideology8_mnehdh.jpg",
     },
+
     {
-      layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341882/portfolio/ideology/racina-2_vrbv3i.jpg",
+      layout: "row",
+      src: [
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844173/ideology6_votrjz.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844173/ideology4_eytvap.jpg",
+      ],
     },
     {
       layout: "row",
       src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341881/portfolio/ideology/lemon-soda-3_mx54zf.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341882/portfolio/ideology/racina-2_vrbv3i.jpg",
-      ],
-    },
-    {
-      layout: "row",
-      src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341881/portfolio/ideology/lemon-soda-2_kuj5ha.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341877/portfolio/ideology/ideology-website-7_s8gbjh.jpg",
-      ],
-    },
-    {
-      layout: "row",
-      src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341875/portfolio/ideology/ideology-website-2_hzjjzw.jpg",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747341877/portfolio/ideology/ideology-website-7_s8gbjh.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844172/ideology2_nhw9bx.jpg",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844172/ideology3_s3wqse.jpg",
       ],
     },
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341875/portfolio/ideology/ideology-website-1_umefit.jpg",
-    },
-    {
-      layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341875/portfolio/ideology/ideology-website-3_tazisv.jpg",
-    },
-    {
-      layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341880/portfolio/ideology/in20-2_hdppvs.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844172/ideology-1_soofbk.jpg",
     },
   ],
 };

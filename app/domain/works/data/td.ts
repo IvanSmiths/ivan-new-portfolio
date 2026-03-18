@@ -37,7 +37,7 @@ export const Td: WorkProjectPage = {
   images: [
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747341943/portfolio/td/td-website-1_kf37zf.jpg",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844556/td-cowen_yoqh9z.jpg",
     },
   ],
 };

@@ -37,18 +37,14 @@ export const Neugelb: WorkProjectPage = {
   images: [
     {
       layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.26_xcpxma.png",
+      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1773844506/neugelb-1_hrhuex.jpg",
     },
     {
       layout: "row",
       src: [
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747342382/portfolio/neugelb/Screenshot_2025-05-15_at_22.50.12_kdz5bn.png",
-        "https://res.cloudinary.com/deino2cjx/image/upload/v1747342383/portfolio/neugelb/Screenshot_2025-05-15_at_22.51.27_a0lqey.png",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844507/neugelb0_ruy0ax.png",
+        "https://res.cloudinary.com/deino2cjx/image/upload/v1773844507/neugelb-2_tqrzhv.png",
       ],
-    },
-    {
-      layout: "single",
-      src: "https://res.cloudinary.com/deino2cjx/image/upload/v1747342380/portfolio/neugelb/Screenshot_2025-05-15_at_22.49.02_gl1voc.png",
     },
   ],
 };
