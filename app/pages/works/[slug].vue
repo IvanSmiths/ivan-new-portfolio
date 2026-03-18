@@ -37,36 +37,29 @@ const currentSlug = computed(() => String(route.params.slug));
 
 const title = work.value.title;
 const description = work.value.metaDescription;
-
-const coverImage = computed(() => {
-  if (!work.value) return "";
-  const firstImage = work.value.images[0];
-  if (!firstImage) return work.value.homeImage.url;
-
-  if (firstImage.layout === "single") {
-    return firstImage.src;
-  }
-  return firstImage.src[0];
-});
+const ogImage = work.value.homeImage;
 
 useSeoMeta({
   title,
   description,
+
   ogTitle: title,
   ogDescription: description,
   ogType: "website",
   ogUrl: work.value.url,
   ogSiteName: title,
-  ogImage: coverImage,
-  ogImageAlt: `${work.value.name} project preview`,
+  ogImage: ogImage,
+  ogImageAlt: `${work.value.name} case study`,
+
   twitterCard: "summary_large_image",
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: coverImage,
-  twitterCreator: "@mytwitterhandle",
-  twitterSite: "@mytwitterhandle",
+  twitterImage: ogImage,
+  twitterCreator: "@IvanSmiths",
+  twitterSite: "@IvanSmiths",
+
   author: "Ivan Smiths",
-  applicationName: "Ivan Smiths Portfolio",
+  applicationName: "Ivan Smiths's Portfolio",
   generator: "Nuxt",
   robots: "index, follow",
   charset: "utf-8",

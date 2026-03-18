@@ -59,7 +59,7 @@ export const Ideology: WorkProjectPage = {
     },
   ],
   stack: ["Php", "WordPress", "JavaScript", "CSS", "HTML", "Adobe XD", "WooCommerce", "SEO", "SEM"],
-  title: "Ivan Smiths | Award-Winning Web Design & UX Optimization for LemonSoda",
+  title: "Ivan Smiths — Award-Winning Web Design & UX Optimization for LemonSoda",
   metaDescription:
     "Won the LemonSoda design contract by outperforming 15 firms, optimized WordPress integrations with PHP, launched 20+ high-converting websites, and reduced cart abandonment by 15% through user-driven UX improvements.",
   homeImage: {

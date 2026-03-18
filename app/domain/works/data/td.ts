@@ -25,7 +25,7 @@ export const Td: WorkProjectPage = {
     "Figma",
     "Docker",
   ],
-  title: "Ivan Smiths | Data-Driven CRM Features & Mobile App Redesign at TD Cowen",
+  title: "Ivan Smiths — Data-Driven CRM Features & Mobile App Redesign at TD Cowen",
   metaDescription:
     "Boosted CRM efficiency by 25% through data-driven features, redesigned the mobile app for a 40% increase in adoption, and reduced bugs by 30% with 40+ automated tests across the stack.",
   homeImage: {

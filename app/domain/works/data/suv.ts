@@ -47,7 +47,7 @@ export const Suv: WorkProjectPage = {
     "Django",
     "Docker",
   ],
-  title: "Ivan Smiths | Next.js Leadership & Scalable Web Solutions for Top Brands",
+  title: "Ivan Smiths — Next.js Leadership & Scalable Web Solutions for Top Brands",
   metaDescription:
     "Mentored developers in Next.js, led a jQuery-to-TypeScript migration, and built award-winning websites for Adidas, Deutsche Bahn, and WMF—boosting scalability, revenue, and development efficiency.",
   homeImage: {

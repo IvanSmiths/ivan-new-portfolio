@@ -3,6 +3,36 @@ import AppGrid from "~/components/global/grid/AppGrid.vue";
 
 const appConfig = useAppConfig();
 const { copy, copied } = useClipboard();
+
+const title = "Ivan Smiths — Who am I?";
+const description =
+  "Fullstack Developer with over 5 years of experience in building user-centered websites and applications for clients like Deutsche Bahn, R+V, Adidas, and WMF. Skilled in Next.js, TypeScript, and UX design, I enhance digital experiences through innovative, data-driven solutions and seamless functionality.";
+
+useSeoMeta({
+  title,
+  description,
+
+  ogTitle: title,
+  ogDescription: description,
+  ogType: "website",
+  ogUrl: "https://www.ivansmiths.com/about",
+  ogSiteName: title,
+  ogImage: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
+  ogImageAlt: "Ivan Smiths's portfolio preview",
+
+  twitterCard: "summary_large_image",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
+  twitterCreator: "@IvanSmiths",
+  twitterSite: "@IvanSmiths",
+
+  author: "Ivan Smiths",
+  applicationName: "Ivan Smiths's Portfolio",
+  generator: "Nuxt",
+  robots: "index, follow",
+  charset: "utf-8",
+});
 </script>
 
 <template>

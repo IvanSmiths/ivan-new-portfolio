@@ -25,7 +25,7 @@ export const Neugelb: WorkProjectPage = {
     "Azure",
     "Docker",
   ],
-  title: "Ivan Smiths | Enhancing Web Accessibility & User Experience for Commerzbank",
+  title: "Ivan Smiths — Enhancing Web Accessibility & User Experience for Commerzbank",
   metaDescription:
     "Contributed to the development of Commerzbank websites by optimizing chatbot features, improving accessibility to meet WCAG standards, and ensuring a seamless user experience across platforms.",
   homeImage: {
