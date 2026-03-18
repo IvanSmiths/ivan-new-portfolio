@@ -111,6 +111,9 @@ dist
 # Docusaurus cache and generated files
 .docusaurus
 
+# vercel
+.vercel
+
 # Serverless directories
 .serverless/
 
