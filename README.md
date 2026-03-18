@@ -2,11 +2,13 @@
 
 ## Animations
 
-All the animations are reusable hooks (@utils/hooks/animations). Need to document the params.
+All the animations are reusable composables (`app/composables/animations`).
 
 ### Built with:
 
-- Next.js with TypeScript: Framework
-- Next Mdx Remote: MDX library for the blog
-- Tailwind CSS: CSS Framework
-- Gsap: Animation library
+- [Nuxt 4](https://nuxt.com/): Framework
+- [Vue 3](https://vuejs.org/): UI Framework
+- [GSAP](https://gsap.com/): Animation library
+- [Tailwind CSS 4](https://tailwindcss.com/): CSS Framework
+- [Tone.js](https://tonejs.github.io/): Audio synthesis and scheduling
+- [Google Fonts](https://github.com/nuxt-modules/google-fonts): Fonts module
