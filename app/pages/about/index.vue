@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import AppGrid from "~/components/global/grid/AppGrid.vue";
+import Chip from "~/components/global/Chip.vue";
 
 const appConfig = useAppConfig();
 const { copy, copied } = useClipboard();
@@ -118,18 +119,29 @@ useHead({
       details that drive outcomes: the interface that earns trust before a single word is read.
     </p>
     <div class="mt-xl col-start-9 col-end-10 row-start-1 row-end-3 flex flex-col">
-      <img alt="" src="/me.png" />
+      <img
+        alt="me"
+        src="https://res.cloudinary.com/deino2cjx/image/upload/v1773841569/me_xwbkeg.png"
+      />
       <span class="mt-md text-xs">Contacts</span>
-      <ul class="text-xs">
-        <li v-for="contact in appConfig.contacts" :key="contact.email" class="mt-sm text-base">
-          <button class="cursor-pointer" @click="copy(contact.email)">
-            {{ copied ? "Copied" : contact.email }}
-          </button>
+      <ul class="gap-sm mt-sm flex flex-col">
+        <li v-for="contact in appConfig.contacts" :key="contact.email">
+          <Chip
+            :label="copied ? 'Copied' : contact.email"
+            as="button"
+            class="cursor-pointer"
+            @click="copy(contact.email)"
+          />
         </li>
         <li v-for="social in appConfig.socials" :key="social.label">
-          <a :href="social.url" class="mt-xs text-base" rel="noopener noreferrer" target="_blank">
-            {{ social.label }}
-          </a>
+          <Chip
+            :href="social.url"
+            :label="social.label"
+            as="a"
+            external
+            rel="noopener noreferrer"
+            target="_blank"
+          />
         </li>
       </ul>
     </div>
