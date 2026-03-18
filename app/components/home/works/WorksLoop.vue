@@ -266,6 +266,7 @@ onUnmounted(() => {
               v-for="client in work.clients.slice(0, 3)"
               :key="`${key}-${client}`"
               :label="client"
+              blur
               class="opacity-0"
               data-client-chip
             />

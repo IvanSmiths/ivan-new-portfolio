@@ -4,17 +4,25 @@ import ExternalLink from "~/components/global/icons/ExternalLink.vue";
 defineOptions({
   inheritAttrs: false,
 });
-defineProps<{
-  label: string;
-  external?: boolean;
-  as?: string;
-}>();
+withDefaults(
+  defineProps<{
+    label: string;
+    external?: boolean;
+    as?: string;
+    blur?: boolean;
+  }>(),
+  {
+    blur: false,
+    as: "span",
+  },
+);
 </script>
 
 <template>
   <component
     :is="as || 'span'"
-    class="text-foreground bg-background/20 px-sm flex w-fit flex-row items-center gap-1 rounded-full border border-white/20 py-1 text-xs shadow-lg backdrop-blur-lg"
+    :class="{ 'backdrop-blur-lg': blur }"
+    class="text-foreground bg-background/30 px-sm border-foreground/10 flex w-fit flex-row items-center gap-1 rounded-full border py-1 text-xs"
     v-bind="$attrs"
   >
     {{ label }}
