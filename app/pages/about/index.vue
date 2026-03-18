@@ -4,34 +4,109 @@ import AppGrid from "~/components/global/grid/AppGrid.vue";
 const appConfig = useAppConfig();
 const { copy, copied } = useClipboard();
 
-const title = "Ivan Smiths — Who am I?";
+const title = "About Ivan Smiths | Full-Stack Developer & UX Engineer";
 const description =
-  "Fullstack Developer with over 5 years of experience in building user-centered websites and applications for clients like Deutsche Bahn, R+V, Adidas, and WMF. Skilled in Next.js, TypeScript, and UX design, I enhance digital experiences through innovative, data-driven solutions and seamless functionality.";
+  "Full-Stack Developer with 5+ years of experience building user-focused web applications. Specialized in Next.js, TypeScript, and UX design, with work for brands like Adidas and Deutsche Bahn.";
 
 useSeoMeta({
-  title,
-  description,
+  title: () => title,
+  description: () => description,
 
-  ogTitle: title,
-  ogDescription: description,
+  ogTitle: () => title,
+  ogDescription: () => description,
   ogType: "website",
   ogUrl: "https://www.ivansmiths.com/about",
-  ogSiteName: title,
+  ogSiteName: () => title,
   ogImage: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
   ogImageAlt: "Ivan Smiths's portfolio preview",
+  ogImageWidth: "1200",
+  ogImageHeight: "630",
 
   twitterCard: "summary_large_image",
-  twitterTitle: title,
-  twitterDescription: description,
+  twitterTitle: () => title,
+  twitterDescription: () => description,
   twitterImage: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
   twitterCreator: "@IvanSmiths",
   twitterSite: "@IvanSmiths",
 
   author: "Ivan Smiths",
-  applicationName: "Ivan Smiths's Portfolio",
+  applicationName: "Ivan Smiths Portfolio",
   generator: "Nuxt",
   robots: "index, follow",
   charset: "utf-8",
+});
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: "https://www.ivansmiths.com/about",
+    },
+  ],
+  script: [
+    {
+      id: "ld-json-about",
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.ivansmiths.com/#person",
+            name: "Ivan Smiths",
+            url: "https://www.ivansmiths.com",
+            image: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
+            jobTitle: "Full-Stack Developer",
+            description: description,
+            worksFor: {
+              "@type": "Organization",
+              name: "Freelance",
+            },
+            homeLocation: {
+              "@type": "Place",
+              name: "Germany",
+            },
+            sameAs: ["https://twitter.com/IvanSmiths"],
+            knowsAbout: [
+              "Next.js",
+              "TypeScript",
+              "UX Design",
+              "Web Development",
+              "Frontend Architecture",
+            ],
+          },
+          {
+            "@type": "AboutPage",
+            "@id": "https://www.ivansmiths.com/about#about",
+            url: "https://www.ivansmiths.com/about",
+            name: title,
+            description: description,
+            about: {
+              "@id": "https://www.ivansmiths.com/#person",
+            },
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.ivansmiths.com/about#breadcrumbs",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://www.ivansmiths.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "About",
+                item: "https://www.ivansmiths.com/about",
+              },
+            ],
+          },
+        ],
+      }),
+    },
+  ],
 });
 </script>
 

@@ -14,7 +14,6 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "Ivan Smiths - Fullstack Developer Specialized in Design and User Experience",
       htmlAttrs: {
         lang: "en",
       },
