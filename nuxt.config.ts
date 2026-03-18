@@ -1,0 +1,51 @@
+import tailwindcss from "@tailwindcss/vite";
+import { worksPages } from "./app/domain/works";
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  modules: ["@nuxt/eslint", "@nuxtjs/google-fonts"],
+  devtools: { enabled: true },
+  runtimeConfig: {
+    openWeatherApiKey: process.env.OPEN_WEATHER_API,
+  },
+  devServer: {
+    host: "0.0.0.0",
+    port: 3000,
+  },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: "en",
+      },
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
+  },
+  css: ["~/main.css"],
+  compatibilityDate: "2025-07-15",
+  vite: {
+    plugins: [tailwindcss() as any],
+  },
+  eslint: {
+    config: {
+      stylistic: false,
+    },
+  },
+  nitro: {
+    prerender: {
+      routes: worksPages.map((work) => `/works/${work.slug}`),
+    },
+  },
+  googleFonts: {
+    families: {
+      "DM Sans": {
+        wght: [200, 400, 800],
+      },
+      "Old Standard TT": {
+        wght: [400],
+        ital: [400],
+      },
+    },
+    display: "swap",
+    preconnect: true,
+  },
+});

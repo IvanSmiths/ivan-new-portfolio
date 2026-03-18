@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Old Standard TT", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-background-muted: var(--background-muted);
+    --color-foreground: var(--foreground);
+    --color-foreground-muted: var(--foreground-muted);
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 80px;
+
+    --animate-fadeInUp: fadeInUp 0.6s ease-out forwards;
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(5px);
+            filter: "blur(8px)";
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: "blur(0)";
+        }
+    }
+}
+
+:root {
+    --radius: 0.625rem;
+    --space: 1rem;
+    --work-cover-overscan: 48px;
+
+    --background: #ffffff;
+    --background-muted: #e3e3e3;
+    --foreground: #000000;
+    --foreground-muted: #595959;
+}
+
+.dark {
+    --background: #000000;
+    --background-muted: #252525;
+    --foreground: #ffffff;
+    --foreground-muted: #acacac;
+}
+
+html {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+html.loader-seen [data-home-loader-overlay] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+html.loader-seen [data-home-live-cards][data-loop-ready="1"] {
+    visibility: visible !important;
+}
+
+html.loader-seen [data-home-logo] {
+    opacity: 1 !important;
+}
+
+html,
+body {
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.work-cover-origin {
+    width: calc(100% + (var(--work-cover-overscan) * 2));
+    max-width: none;
+    margin-left: calc(var(--work-cover-overscan) * -1);
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+@media (max-width: 1023px) {
+    :root {
+        --work-cover-overscan: 24px;
+    }
+}
+
+pre {
+    background: var(--background-muted);
+    color: var(--foreground);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+html.route-transitioning,
+body.route-transitioning {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

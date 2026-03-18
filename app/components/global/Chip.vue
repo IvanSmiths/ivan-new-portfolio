@@ -1,0 +1,23 @@
+<script lang="ts" setup>
+import ExternalLink from "~/components/global/icons/ExternalLink.vue";
+
+defineOptions({
+  inheritAttrs: false,
+});
+defineProps<{
+  label: string;
+  external?: boolean;
+  as?: string;
+}>();
+</script>
+
+<template>
+  <component
+    :is="as || 'span'"
+    class="text-foreground bg-background/20 px-sm flex w-fit flex-row items-center gap-1 rounded-full border border-white/20 py-1 text-xs shadow-lg backdrop-blur-lg"
+    v-bind="$attrs"
+  >
+    {{ label }}
+    <ExternalLink v-if="external" />
+  </component>
+</template>
