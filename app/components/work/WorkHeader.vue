@@ -33,7 +33,7 @@ const { rootRef, titleRef, roleRef, metaBarRef } = useHeaderAnimation();
         </div>
 
         <div
-          class="absolute top-[66dvh] left-1/2 z-10 w-full -translate-x-1/2 overflow-hidden px-10 uppercase lg:px-48"
+          class="absolute top-[66dvh] left-1/2 z-10 w-full -translate-x-1/2 overflow-hidden px-10 lg:px-48"
         >
           <div>
             <div ref="metaBarRef" class="flex items-center justify-between text-sm lg:text-base">

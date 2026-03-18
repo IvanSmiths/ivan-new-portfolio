@@ -267,6 +267,7 @@ onUnmounted(() => {
               :key="`${key}-${client}`"
               :label="client"
               blur
+              bold
               class="opacity-0"
               data-client-chip
             />

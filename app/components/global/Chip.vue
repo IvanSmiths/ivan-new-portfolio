@@ -10,10 +10,12 @@ withDefaults(
     external?: boolean;
     as?: string;
     blur?: boolean;
+    bold?: boolean;
   }>(),
   {
     blur: false,
     as: "span",
+    bold: false,
   },
 );
 </script>
@@ -21,7 +23,7 @@ withDefaults(
 <template>
   <component
     :is="as || 'span'"
-    :class="{ 'backdrop-blur-lg': blur }"
+    :class="{ 'backdrop-blur-lg': blur, 'font-bold': bold }"
     class="text-foreground bg-background/30 px-sm border-foreground/10 flex w-fit flex-row items-center gap-1 rounded-full border py-1 text-xs"
     v-bind="$attrs"
   >

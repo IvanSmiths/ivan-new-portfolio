@@ -32,7 +32,7 @@ const { shortDescriptionRef } = useSectionAnimation();
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Chip :label="client.label" external />
+            <Chip :label="client.label" bold external />
           </a>
         </li>
       </ul>
@@ -47,7 +47,7 @@ const { shortDescriptionRef } = useSectionAnimation();
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Chip external label="Website" />
+            <Chip bold external label="Website" />
           </a>
         </li>
         <li>
@@ -57,7 +57,7 @@ const { shortDescriptionRef } = useSectionAnimation();
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Chip external label="Linkedin" />
+            <Chip bold external label="Linkedin" />
           </a>
         </li>
       </ul>
@@ -65,8 +65,8 @@ const { shortDescriptionRef } = useSectionAnimation();
     <div class="mt-md col-start-1 col-end-10 md:col-start-8 md:mt-0">
       <span class="mb-1 block text-xs md:mb-5">Stack</span>
       <ul class="space-y-2">
-        <li v-for="(client, i) in work.stack" :key="i" class="text-sm md:text-base">
-          <Chip :label="client" />
+        <li v-for="(stack, i) in work.stack" :key="i" class="text-sm md:text-base">
+          <Chip :label="stack" />
         </li>
       </ul>
     </div>
