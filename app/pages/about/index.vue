@@ -113,12 +113,14 @@ useHead({
 
 <template>
   <AppGrid class="bg-background text-foreground min-h-screen content-start">
-    <p class="mt-xl col-start-1 col-end-8 row-start-1 text-3xl">
+    <p class="md:mt-xl mt-lg col-span-full row-start-1 text-3xl md:col-start-1 md:col-end-8">
       From independent studios to global banks, I've spent the last 5 years building digital
       products that people actually use, and that businesses actually grow from. I care about the
       details that drive outcomes: the interface that earns trust before a single word is read.
     </p>
-    <div class="mt-xl col-start-9 col-end-10 row-start-1 row-end-3 flex flex-col">
+    <div
+      class="mt-xl col-span-2 flex flex-col md:col-start-9 md:col-end-10 md:row-start-1 md:row-end-3"
+    >
       <img
         alt="me"
         src="https://res.cloudinary.com/deino2cjx/image/upload/v1773841569/me_xwbkeg.png"
@@ -145,7 +147,7 @@ useHead({
         </li>
       </ul>
     </div>
-    <div class="mt-xl col-start-1 col-end-5 row-start-2 text-sm">
+    <div class="mt-xl col-span-full row-start-2 text-sm md:col-start-1 md:col-end-5">
       <h2>About</h2>
       <p class="mt-1">
         I've worked across the full spectrum of digital e-commerce, financial platforms, agency

@@ -8,10 +8,7 @@ const { as = "div", padded = true } = defineProps<{
 <template>
   <component
     :is="as"
-    :class="[
-      'lg:gap-x-md gap-x-sm grid w-full grid-cols-8 lg:grid-cols-12',
-      padded && 'lg:px-md px-sm',
-    ]"
+    :class="['gap-x-md grid w-full grid-cols-8 lg:grid-cols-12', padded && 'px-md']"
   >
     <slot />
   </component>
