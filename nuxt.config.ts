@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     openWeatherApiKey: process.env.OPEN_WEATHER_API,
+    public: {
+      gtagId: "G-55MHEPYVDV",
+    },
   },
   devServer: {
     host: "0.0.0.0",
@@ -24,6 +27,17 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   vite: {
     plugins: [tailwindcss() as any],
+    optimizeDeps: {
+      include: [
+        "@vue/devtools-core",
+        "@vue/devtools-kit",
+        "gsap",
+        "gsap/dist/Flip", // CJS
+        "gsap/dist/ScrollTrigger", // CJS
+        "gsap/dist/SplitText", // CJS
+        "tone",
+      ],
+    },
   },
   eslint: {
     config: {
