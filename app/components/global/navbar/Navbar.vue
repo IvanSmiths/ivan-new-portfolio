@@ -60,7 +60,7 @@ onMounted(() => {
       <button
         :aria-label="soundToggleLabel"
         :title="soundToggleLabel"
-        class="group flex cursor-pointer transition-opacity hover:opacity-80"
+        class="group cursor-pointer transition-opacity hover:opacity-80"
         type="button"
         @click="toggleSound"
       >

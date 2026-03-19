@@ -9,10 +9,10 @@ type WorksLoopItem = {
 const CARD_GAP_PX = 20;
 const VIDEO_FADE_OUT_DURATION_MS = 320;
 const META_ROW_FALLBACK_HEIGHT_PX = 0;
-const MOBILE_SCROLL_DISTANCE_PX = 20000;
+const MOBILE_SCROLL_DISTANCE_PX = 4000;
 const DESKTOP_SCROLL_DISTANCE_PX = 3000;
 const MINIMUM_CARDS = 20;
-const LOADER_REPEATS = 2;
+const LOADER_REPEATS = 3;
 const META_TRACK_REPEAT_MULTIPLIER = 3;
 
 function createWorksLoopItems(works: readonly WorkCard[], cycles: number): WorksLoopItem[] {

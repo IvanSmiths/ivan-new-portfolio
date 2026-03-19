@@ -21,7 +21,7 @@ export function useCardExpandTransition(opts: {
   lock: { value: boolean };
 }) {
   const { gsap: $gsap } = opts;
-  const { $Flip, $CustomEase } = useNuxtApp();
+  const { $Flip } = useNuxtApp();
   const { prepareSplitReveal } = useSplitTextAnimation();
   const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 
@@ -30,6 +30,7 @@ export function useCardExpandTransition(opts: {
   const TARGET_WAIT_TIMEOUT_MS = 500;
   const PRE_EXPAND_HOLD_DURATION = 0.1;
   const LABEL_GAP_FROM_IMAGE_TOP_PX = 0;
+  const DESKTOP_BREAKPOINT = "(min-width: 1024px)";
 
   let movedImage: HTMLImageElement | null = null;
   let movedImageOriginalParent: HTMLElement | null = null;
@@ -131,6 +132,16 @@ export function useCardExpandTransition(opts: {
     for (let i = 0; i < frames; i += 1) {
       await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
     }
+  }
+
+  function getResponsiveStageWidth(centerWidth: number): number {
+    const mm = $gsap.matchMedia();
+    let stageTargetWidth = centerWidth;
+    mm.add(DESKTOP_BREAKPOINT, () => {
+      stageTargetWidth = centerWidth / 2;
+    });
+    mm.revert();
+    return stageTargetWidth;
   }
 
   onScopeDispose(() => {
@@ -244,6 +255,7 @@ export function useCardExpandTransition(opts: {
         const centerTop = layerRect.top + (layerRect.height - centerHeight) / 2;
         const centerX = centerLeft + centerWidth / 2;
         const labelBottomY = centerTop - LABEL_GAP_FROM_IMAGE_TOP_PX;
+        const stageTargetWidth = getResponsiveStageWidth(centerWidth);
 
         tl.set(labelWrap, {
           left: centerX,
@@ -261,7 +273,7 @@ export function useCardExpandTransition(opts: {
           {
             x: centerLeft + centerWidth / 2 - viewportCenterX,
             y: centerTop + centerHeight / 2 - viewportCenterY,
-            width: centerWidth / 2,
+            width: stageTargetWidth,
             duration: 1.25,
             ease: "power4.inOut",
             force3D: true,
