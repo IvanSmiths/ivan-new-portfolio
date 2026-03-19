@@ -20,5 +20,5 @@ export default defineAppConfig({
       url: "https://www.youtube.com/@ivansmithsdev",
     },
   ],
-  iconWidth: 20,
+  iconWidth: 18,
 });
