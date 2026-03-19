@@ -21,7 +21,7 @@ export function useCardExpandTransition(opts: {
   lock: { value: boolean };
 }) {
   const { gsap: $gsap } = opts;
-  const { $Flip, $CustomEase } = useNuxtApp();
+  const { $Flip } = useNuxtApp();
   const { prepareSplitReveal } = useSplitTextAnimation();
   const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
 
