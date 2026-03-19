@@ -246,7 +246,7 @@ onUnmounted(() => {
       ref="cardsRef"
       :class="{ invisible: cardsLoaderAnimation.shouldHideLiveCards.value || !isLoopReady }"
       :data-loop-ready="isLoopReady ? '1' : '0'"
-      class="works-loop-cards bottom-lg absolute min-h-[40%]"
+      class="works-loop-cards bottom-lg absolute min-h-[60%] md:min-h-[40%]"
       data-home-live-cards
     >
       <li
