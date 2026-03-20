@@ -6,8 +6,10 @@ import WorkHeader from "~/components/work/WorkHeader.vue";
 import WorkNextWork from "~/components/work/WorkNextWork.vue";
 import WorkImages from "~/components/work/WorkImages.vue";
 import WorkDescription from "~/components/work/WorkDescription.vue";
+import { createWorkStructuredData } from "~/seo/structured-data/work";
 
 const route = useRoute();
+const { site } = useAppConfig();
 
 const slug = computed(() => {
   const p = route.params.slug;
@@ -38,6 +40,16 @@ const currentSlug = computed(() => String(route.params.slug));
 const title = work.value.title;
 const description = work.value.metaDescription;
 const ogImage = work.value.homeImage;
+const canonicalUrl = computed(() => work.value!.url);
+const structuredData = computed(() =>
+  JSON.stringify(
+    createWorkStructuredData({
+      siteUrl: site.url,
+      siteName: site.name,
+      work: work.value!,
+    }),
+  ),
+);
 
 useSeoMeta({
   title: () => title,
@@ -47,7 +59,7 @@ useSeoMeta({
   ogDescription: () => description,
   ogType: "article",
   ogUrl: () => work.value?.url,
-  ogSiteName: () => title,
+  ogSiteName: () => site.name,
   ogImage: () => ogImage,
   ogImageAlt: () => `${work.value?.name} case study`,
   ogImageWidth: "1200",
@@ -71,56 +83,14 @@ useHead({
   link: [
     {
       rel: "canonical",
-      href: work.value.url,
+      href: canonicalUrl,
     },
   ],
   script: [
     {
       id: "ld-json-work",
       type: "application/ld+json",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "CreativeWork",
-            "@id": `${work.value.url}#work`,
-            name: work.value.title,
-            headline: work.value.title,
-            description: work.value.metaDescription,
-            image: work.value.homeImage,
-            author: {
-              "@type": "Person",
-              name: "Ivan Smiths",
-              url: "https://www.ivansmiths.com",
-            },
-            creator: {
-              "@type": "Person",
-              name: "Ivan Smiths",
-            },
-            datePublished: work.value.date || undefined,
-            url: work.value.url,
-            inLanguage: "en",
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": `${work.value.url}#breadcrumbs`,
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://www.ivansmiths.com",
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: work.value.title,
-                item: work.value.url,
-              },
-            ],
-          },
-        ],
-      }),
+      innerHTML: structuredData,
     },
   ],
 });

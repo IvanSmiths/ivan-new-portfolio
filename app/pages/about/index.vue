@@ -1,13 +1,18 @@
 <script lang="ts" setup>
 import AppGrid from "~/components/global/grid/AppGrid.vue";
 import Chip from "~/components/global/Chip.vue";
+import { createAboutStructuredData } from "~/seo/structured-data/about";
 
 const appConfig = useAppConfig();
 const { copy, copied } = useClipboard();
+const { site } = appConfig;
 
 const title = "About Ivan Smiths | Full-Stack Developer & UX Engineer";
 const description =
   "Full-Stack Developer with 5+ years of experience building user-focused web applications. Specialized in Next.js, TypeScript, and UX design, with work for brands like Adidas and Deutsche Bahn.";
+const previewImageUrl =
+  "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg";
+const aboutUrl = `${site.url}/about`;
 
 useSeoMeta({
   title: () => title,
@@ -16,9 +21,9 @@ useSeoMeta({
   ogTitle: () => title,
   ogDescription: () => description,
   ogType: "website",
-  ogUrl: "https://www.ivansmiths.com/about",
-  ogSiteName: () => title,
-  ogImage: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
+  ogUrl: () => aboutUrl,
+  ogSiteName: () => site.name,
+  ogImage: previewImageUrl,
   ogImageAlt: "Ivan Smiths's portfolio preview",
   ogImageWidth: "1200",
   ogImageHeight: "630",
@@ -26,7 +31,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
   twitterTitle: () => title,
   twitterDescription: () => description,
-  twitterImage: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
+  twitterImage: previewImageUrl,
   twitterCreator: "@IvanSmiths",
   twitterSite: "@IvanSmiths",
 
@@ -41,71 +46,22 @@ useHead({
   link: [
     {
       rel: "canonical",
-      href: "https://www.ivansmiths.com/about",
+      href: aboutUrl,
     },
   ],
   script: [
     {
       id: "ld-json-about",
       type: "application/ld+json",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "@id": "https://www.ivansmiths.com/#person",
-            name: "Ivan Smiths",
-            url: "https://www.ivansmiths.com",
-            image: "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg",
-            jobTitle: "Full-Stack Developer",
-            description: description,
-            worksFor: {
-              "@type": "Organization",
-              name: "Freelance",
-            },
-            homeLocation: {
-              "@type": "Place",
-              name: "Germany",
-            },
-            sameAs: ["https://twitter.com/IvanSmiths"],
-            knowsAbout: [
-              "Next.js",
-              "TypeScript",
-              "UX Design",
-              "Web Development",
-              "Frontend Architecture",
-            ],
-          },
-          {
-            "@type": "AboutPage",
-            "@id": "https://www.ivansmiths.com/about#about",
-            url: "https://www.ivansmiths.com/about",
-            name: title,
-            description: description,
-            about: {
-              "@id": "https://www.ivansmiths.com/#person",
-            },
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://www.ivansmiths.com/about#breadcrumbs",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://www.ivansmiths.com",
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "About",
-                item: "https://www.ivansmiths.com/about",
-              },
-            ],
-          },
-        ],
-      }),
+      innerHTML: JSON.stringify(
+        createAboutStructuredData({
+          siteUrl: site.url,
+          siteName: site.name,
+          pageTitle: title,
+          pageDescription: description,
+          imageUrl: previewImageUrl,
+        }),
+      ),
     },
   ],
 });

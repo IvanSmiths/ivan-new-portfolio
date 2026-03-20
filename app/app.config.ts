@@ -1,5 +1,9 @@
 export default defineAppConfig({
   title: "Hello Nuxt",
+  site: {
+    name: "Ivan Smiths",
+    url: "https://www.ivansmiths.com",
+  },
   internalRoutes: [
     { label: "Home", url: "/" },
     { label: "About", url: "/about" },
