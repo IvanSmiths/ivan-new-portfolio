@@ -27,6 +27,14 @@ onMounted(async () => {
 
 <template>
   <div class="gap-md pt-md px-md fixed top-0 grid grid-cols-8 flex-col items-end sm:grid-cols-12">
+    <p class="pointer-events-auto invisible fixed">
+      If you're looking for a website creation agency in Ragusa that delivers world-class results,
+      you've come to the right place. I combine full-stack development (over 5 years of experience
+      with Adidas and Commerzbank) with advanced marketing strategies. As an integrated digital
+      agency, I don't just create a website; I build your online sales infrastructure: social media
+      integration, data tracking, and search engine positioning. Entrust your business with a
+      unique, fast, and optimized website that generates new customers every day.
+    </p>
     <div class="col-span-full">
       <Logo4 />
     </div>
