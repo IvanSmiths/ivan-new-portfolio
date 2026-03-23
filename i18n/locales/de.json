@@ -7,6 +7,12 @@
     },
     "theme": {
       "switch": "Thema wechseln"
+    },
+    "transitions": {
+      "home": "Start",
+      "about": "Über mich",
+      "lab": "Lab",
+      "works": "Projekt"
     }
   },
   "seo": {

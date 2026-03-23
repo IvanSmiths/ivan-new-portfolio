@@ -39,35 +39,16 @@ function shouldSkip(from: RouteLocationNormalized, to: RouteLocationNormalized):
   return isWorks(from) && isWorks(to);
 }
 
-function capitalizeFirst(text: string) {
-  if (!text) return text;
-  return text.charAt(0).toUpperCase() + text.slice(1);
-}
+function toRouteLabelKey(route: RouteLocationNormalized) {
+  if (isHome(route)) return "common.transitions.home";
 
-function decodeSegment(segment: string) {
-  try {
-    return decodeURIComponent(segment);
-  } catch {
-    return segment;
-  }
-}
+  const baseName = baseRouteName(route);
 
-function toRouteLabel(route: RouteLocationNormalized) {
-  if (isHome(route)) return "Home";
+  if (baseName === "about") return "common.transitions.about";
+  if (baseName === "lab") return "common.transitions.lab";
+  if (isWorks(route)) return "common.transitions.works";
 
-  const locale = routeLocale(route);
-  let path = route.path;
-  if (locale && (path === `/${locale}` || path.startsWith(`/${locale}/`))) {
-    path = path.slice(locale.length + 1) || "/";
-  }
-
-  if (path === "/") return "Home";
-  const normalizedPath = path.replace(/^\/+|\/+$/g, "");
-  if (!normalizedPath) return "Home";
-
-  const lastSegment = normalizedPath.split("/").filter(Boolean).at(-1) ?? normalizedPath;
-  const humanReadable = decodeSegment(lastSegment).replace(/[-_]+/g, " ");
-  return capitalizeFirst(humanReadable);
+  return "common.transitions.home";
 }
 
 export default defineNuxtPlugin(() => {
@@ -78,7 +59,7 @@ export default defineNuxtPlugin(() => {
     if (to.fullPath === from.fullPath) return true;
     if (shouldSkip(from, to)) return true;
 
-    setDestinationRouteLabel(toRouteLabel(to));
+    setDestinationRouteLabel(toRouteLabelKey(to));
     await beginCover();
     return true;
   });

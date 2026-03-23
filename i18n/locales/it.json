@@ -7,6 +7,12 @@
     },
     "theme": {
       "switch": "Cambia tema"
+    },
+    "transitions": {
+      "home": "Home",
+      "about": "Chi sono",
+      "lab": "Lab",
+      "works": "Progetto"
     }
   },
   "seo": {
@@ -123,7 +129,7 @@
         "category": "Modellazione 3D"
       },
       "youtube-music-channel": {
-        "title": "Canale YouTube musica",
+        "title": "Canale YouTube Musica",
         "description": "Vecchio canale YouTube dove pubblicavo strumentali hip hop e cover con la chitarra.",
         "category": "Social"
       },

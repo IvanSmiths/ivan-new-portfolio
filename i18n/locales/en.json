@@ -7,6 +7,12 @@
     },
     "theme": {
       "switch": "Switch theme"
+    },
+    "transitions": {
+      "home": "Home",
+      "about": "About",
+      "lab": "Lab",
+      "works": "Work"
     }
   },
   "seo": {
