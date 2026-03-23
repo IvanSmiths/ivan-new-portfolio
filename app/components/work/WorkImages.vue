@@ -5,6 +5,8 @@ import AppGrid from "~/components/global/grid/AppGrid.vue";
 const props = defineProps<{
   work: WorkProjectPage;
 }>();
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -15,7 +17,7 @@ const props = defineProps<{
         class="col-span-full w-full md:col-start-2 md:col-end-12"
       >
         <img
-          :alt="`${work.name} image ${index + 1}`"
+          :alt="t('works.ui.imageAltSingle', { name: work.name, index: index + 1 })"
           :src="images.src"
           class="aspect-video w-full object-contain"
         />
@@ -27,7 +29,7 @@ const props = defineProps<{
         <img
           v-for="(src, i) in images.src"
           :key="src"
-          :alt="`${work.name} image ${index + 1}-${i + 1}`"
+          :alt="t('works.ui.imageAltRow', { name: work.name, index: index + 1, subindex: i + 1 })"
           :src="src"
           class="md:pr-md aspect-video w-full object-contain md:w-1/2"
         />

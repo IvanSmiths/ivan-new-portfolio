@@ -10,6 +10,7 @@ import { createWorkStructuredData } from "~/seo/structured-data/work";
 
 const route = useRoute();
 const { site } = useAppConfig();
+const { t, te, locale } = useI18n();
 
 const slug = computed(() => {
   const p = route.params.slug;
@@ -29,6 +30,15 @@ if (!work.value) {
   });
 }
 
+function workTranslationKey(suffix: string) {
+  return `works.${String(slug.value)}.${suffix}`;
+}
+
+function tWork(suffix: string, fallback: string) {
+  const key = workTranslationKey(suffix);
+  return te(key) ? t(key) : fallback;
+}
+
 const currentIndex = computed(() =>
   orderedSlugs.indexOf(slug.value as (typeof orderedSlugs)[number]),
 );
@@ -37,38 +47,56 @@ const totalWorks = orderedSlugs.length;
 
 const currentSlug = computed(() => String(route.params.slug));
 
-const title = work.value.title;
-const description = work.value.metaDescription;
-const ogImage = work.value.homeImage;
-const canonicalUrl = computed(() => work.value!.url);
+const localizedWork = computed<WorkProjectPage>(() => {
+  const base = work.value!;
+  return {
+    ...base,
+    date: tWork("date", base.date),
+    role: tWork("role", base.role),
+    shortDescription: tWork("shortDescription", base.shortDescription),
+    description: tWork("description", base.description),
+    title: tWork("seoTitle", base.title),
+    metaDescription: tWork("seoDescription", base.metaDescription),
+  };
+});
+
+const pageTitle = computed(() => localizedWork.value.title);
+const pageDescription = computed(() => localizedWork.value.metaDescription);
+const ogImage = computed(() => localizedWork.value.homeImage);
+const ogImageAlt = computed(() =>
+  t("seo.common.ogImageAlt.work", { name: String(localizedWork.value?.name ?? "") }),
+);
+const canonicalUrl = computed(() => localizedWork.value.url);
 const structuredData = computed(() =>
   JSON.stringify(
     createWorkStructuredData({
       siteUrl: site.url,
       siteName: site.name,
-      work: work.value!,
+      work: localizedWork.value,
+      breadcrumbHomeName: t("seo.common.breadcrumb.home"),
+      language: locale.value,
     }),
   ),
 );
 
 useSeoMeta({
-  title: () => title,
-  description: () => description,
+  title: () => pageTitle.value,
+  description: () => pageDescription.value,
 
-  ogTitle: () => title,
-  ogDescription: () => description,
+  ogTitle: () => pageTitle.value,
+  ogDescription: () => pageDescription.value,
   ogType: "article",
-  ogUrl: () => work.value?.url,
+  ogUrl: () => canonicalUrl.value,
   ogSiteName: () => site.name,
-  ogImage: () => ogImage,
-  ogImageAlt: () => `${work.value?.name} case study`,
+  ogImage: () => ogImage.value,
+  ogImageAlt: () => ogImageAlt.value,
   ogImageWidth: "1200",
   ogImageHeight: "630",
 
   twitterCard: "summary_large_image",
-  twitterTitle: () => title,
-  twitterDescription: () => description,
-  twitterImage: () => ogImage,
+  twitterTitle: () => pageTitle.value,
+  twitterDescription: () => pageDescription.value,
+  twitterImage: () => ogImage.value,
   twitterCreator: "@IvanSmiths",
   twitterSite: "@IvanSmiths",
 
@@ -97,10 +125,10 @@ useHead({
 </script>
 
 <template>
-  <section v-if="work" class="bg-background text-foreground">
-    <WorkHeader :current-index="currentIndex" :total-works="totalWorks" :work="work" />
-    <WorkDescription :work="work" />
-    <WorkImages :work="work" />
+  <section v-if="localizedWork" class="bg-background text-foreground">
+    <WorkHeader :current-index="currentIndex" :total-works="totalWorks" :work="localizedWork" />
+    <WorkDescription :work="localizedWork" />
+    <WorkImages :work="localizedWork" />
     <WorkNextWork :current-slug="currentSlug" />
   </section>
 </template>

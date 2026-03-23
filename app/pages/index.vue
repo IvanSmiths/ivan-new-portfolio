@@ -6,30 +6,44 @@ import { createHomeStructuredData } from "~/seo/structured-data/home";
 
 const appConfig = useAppConfig();
 const { site } = appConfig;
+const { t, locale } = useI18n();
 
-const title = "Full-Stack Developer From Wiesbaden | Ivan Smiths";
-const description =
-  "Full-Stack Developer specialized in UI/UX design. 5+ years building high-performance, user-focused web apps for brands like Adidas and Deutsche Bahn.";
+const title = computed(() => t("seo.pages.home.title"));
+const description = computed(() => t("seo.pages.home.description"));
 const previewImageUrl =
   "https://res.cloudinary.com/deino2cjx/image/upload/v1773829369/home_nea5wi.jpg";
+const ogImageAlt = computed(() => t("seo.common.ogImageAlt.portfolio"));
+const structuredData = computed(() =>
+  JSON.stringify(
+    createHomeStructuredData({
+      siteUrl: site.url,
+      siteName: site.name,
+      imageUrl: previewImageUrl,
+      jobTitle: t("seo.structuredData.personJobTitle"),
+      websiteDescription: t("seo.structuredData.websiteDescription", { name: site.name }),
+      portfolioDescription: t("seo.structuredData.portfolioDescription"),
+      language: locale.value,
+    }),
+  ),
+);
 
 useSeoMeta({
-  title: () => title,
-  description: () => description,
+  title: () => title.value,
+  description: () => description.value,
 
-  ogTitle: () => title,
-  ogDescription: () => description,
+  ogTitle: () => title.value,
+  ogDescription: () => description.value,
   ogType: "website",
   ogUrl: () => site.url,
   ogSiteName: () => site.name,
   ogImage: previewImageUrl,
   ogImageWidth: "1209",
   ogImageHeight: "660",
-  ogImageAlt: "Ivan Smiths's portfolio preview",
+  ogImageAlt: () => ogImageAlt.value,
 
   twitterCard: "summary_large_image",
-  twitterTitle: () => title,
-  twitterDescription: () => description,
+  twitterTitle: () => title.value,
+  twitterDescription: () => description.value,
   twitterImage: previewImageUrl,
   twitterCreator: "@IvanSmiths",
   twitterSite: "@IvanSmiths",
@@ -45,19 +59,13 @@ useHead({
   link: [{ rel: "canonical", href: site.url }],
   htmlAttrs: {
     class: "home-page bg-background",
-    lang: "en",
+    lang: locale,
   },
   script: [
     {
       id: "ld-json",
       type: "application/ld+json",
-      innerHTML: JSON.stringify(
-        createHomeStructuredData({
-          siteUrl: site.url,
-          siteName: site.name,
-          imageUrl: previewImageUrl,
-        }),
-      ),
+      innerHTML: structuredData,
     },
   ],
 });

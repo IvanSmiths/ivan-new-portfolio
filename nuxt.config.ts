@@ -1,9 +1,19 @@
 import tailwindcss from "@tailwindcss/vite";
 import { worksPages } from "./app/domain/works";
 
+const localePrefixes = ["it", "de"] as const;
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/eslint", "@nuxtjs/google-fonts"],
+  modules: ["@nuxt/eslint", "@nuxtjs/google-fonts", "@nuxtjs/i18n"],
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      { code: "en", name: "English", file: "en.json" },
+      { code: "it", name: "Italian", file: "it.json" },
+      { code: "de", name: "German", file: "de.json" },
+    ],
+  },
   devtools: { enabled: true },
   runtimeConfig: {
     openWeatherApiKey: process.env.OPEN_WEATHER_API,
@@ -46,7 +56,18 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: worksPages.map((work) => `/works/${work.slug}`),
+      routes: [
+        "/",
+        "/about",
+        "/lab",
+        ...worksPages.map((work) => `/works/${work.slug}`),
+        ...localePrefixes.flatMap((locale) => [
+          `/${locale}`,
+          `/${locale}/about`,
+          `/${locale}/lab`,
+          ...worksPages.map((work) => `/${locale}/works/${work.slug}`),
+        ]),
+      ],
     },
   },
   googleFonts: {

@@ -11,16 +11,23 @@ const appConfig = useAppConfig();
 const internalRoutes = appConfig.internalRoutes;
 const { initSoundPreference, soundEnabled, toggleSound } = useSoundPreference();
 const { active: isCurtainActive } = useCurtainTransition();
+const localePath = useLocalePath();
+const { locale, t } = useI18n();
 
-const navigationLinks = computed(() =>
-  internalRoutes.map((link) => ({
+const navigationLinks = computed(() => {
+  void locale.value;
+  return internalRoutes.map((link) => ({
     ...link,
-  })),
-);
+    label: t(`seo.common.navigation.${link.label.toLowerCase()}`),
+    to: localePath(link.url),
+  }));
+});
 const isNavigationLocked = computed(() => isCurtainActive.value);
 
 const soundToggleIcon = computed(() => (soundEnabled.value ? VolumeOnIcon : VolumeOffIcon));
-const soundToggleLabel = computed(() => (soundEnabled.value ? "Disable sounds" : "Enable sounds"));
+const soundToggleLabel = computed(() =>
+  soundEnabled.value ? t("common.sound.disable") : t("common.sound.enable"),
+);
 
 function preventNavigationWhileAnimating(event: MouseEvent) {
   if (!isNavigationLocked.value) return;
@@ -41,14 +48,14 @@ onMounted(() => {
     <ul :inert="isNavigationLocked" class="flex items-start gap-1">
       <li
         v-for="(link, index) in navigationLinks"
-        :key="link.url"
+        :key="link.to"
         class="text-foreground-muted flex items-baseline"
       >
         <NuxtLink
           :aria-disabled="isNavigationLocked ? 'true' : undefined"
           :class="isNavigationLocked ? 'pointer-events-none' : ''"
           :tabindex="isNavigationLocked ? -1 : undefined"
-          :to="link.url"
+          :to="link.to"
           class="text-foreground flex transition-opacity hover:opacity-80"
           @click="preventNavigationWhileAnimating"
         >

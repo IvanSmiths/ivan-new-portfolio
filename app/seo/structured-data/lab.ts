@@ -8,6 +8,9 @@ type LabStructuredDataParams = {
   pageTitle: string;
   pageDescription: string;
   experiments: LabStructuredDataExperiment[];
+  aboutTopics: string[];
+  breadcrumbHomeName: string;
+  breadcrumbLabName: string;
 };
 
 export function createLabStructuredData({
@@ -15,6 +18,9 @@ export function createLabStructuredData({
   pageTitle,
   pageDescription,
   experiments,
+  aboutTopics,
+  breadcrumbHomeName,
+  breadcrumbLabName,
 }: LabStructuredDataParams) {
   const labUrl = `${siteUrl}/lab`;
 
@@ -30,13 +36,7 @@ export function createLabStructuredData({
         isPartOf: {
           "@id": `${siteUrl}/#website`,
         },
-        about: [
-          "Creative Coding",
-          "3D Modeling",
-          "Music Production",
-          "Photography",
-          "Digital Experiments",
-        ],
+        about: aboutTopics,
       },
       {
         "@type": "BreadcrumbList",
@@ -45,13 +45,13 @@ export function createLabStructuredData({
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home",
+            name: breadcrumbHomeName,
             item: siteUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: "Lab",
+            name: breadcrumbLabName,
             item: labUrl,
           },
         ],
@@ -68,4 +68,3 @@ export function createLabStructuredData({
     ],
   };
 }
-

@@ -4,9 +4,17 @@ type WorkStructuredDataParams = {
   siteUrl: string;
   siteName: string;
   work: WorkProjectPage;
+  breadcrumbHomeName: string;
+  language: string;
 };
 
-export function createWorkStructuredData({ siteUrl, siteName, work }: WorkStructuredDataParams) {
+export function createWorkStructuredData({
+  siteUrl,
+  siteName,
+  work,
+  breadcrumbHomeName,
+  language,
+}: WorkStructuredDataParams) {
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -28,7 +36,7 @@ export function createWorkStructuredData({ siteUrl, siteName, work }: WorkStruct
         },
         datePublished: work.date || undefined,
         url: work.url,
-        inLanguage: "en",
+        inLanguage: language,
       },
       {
         "@type": "BreadcrumbList",
@@ -37,7 +45,7 @@ export function createWorkStructuredData({ siteUrl, siteName, work }: WorkStruct
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home",
+            name: breadcrumbHomeName,
             item: siteUrl,
           },
           {
@@ -51,4 +59,3 @@ export function createWorkStructuredData({ siteUrl, siteName, work }: WorkStruct
     ],
   };
 }
-

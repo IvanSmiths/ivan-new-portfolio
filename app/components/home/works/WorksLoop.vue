@@ -213,9 +213,9 @@ onUnmounted(() => {
     >
       <div
         v-if="cardsLoaderAnimation.loaderPhase.value === 'loading'"
-        class="text-foreground absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-sm"
+        class="text-foreground absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 font-serif text-base italic"
       >
-        loading
+        Loading
       </div>
 
       <div

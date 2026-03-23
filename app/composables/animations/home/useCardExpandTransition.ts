@@ -24,6 +24,7 @@ export function useCardExpandTransition(opts: {
   const { $Flip } = useNuxtApp();
   const { prepareSplitReveal } = useSplitTextAnimation();
   const { layerRef, coverRef, stageRef, labelRef, roleRef } = useCardExpandLayer();
+  const localePath = useLocalePath();
 
   const HERO_TARGET_SELECTOR = "[data-work-hero-target]";
   const HERO_IMAGE_SELECTOR = "[data-work-hero-image]";
@@ -310,7 +311,7 @@ export function useCardExpandTransition(opts: {
       });
 
       deferDisposeCleanup = true;
-      const navigationResult = await opts.router.push(`/works/${work.slug}`);
+      const navigationResult = await opts.router.push(localePath(`/works/${work.slug}`));
       if (!isNavigationFailure(navigationResult)) {
         await nextTick();
         await waitForFrames(2);

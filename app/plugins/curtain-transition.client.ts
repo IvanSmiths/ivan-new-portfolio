@@ -1,12 +1,38 @@
 import type { RouteLocationNormalized } from "vue-router";
 import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 
+type ParsedRouteName = {
+  baseName: string;
+  locale: string | null;
+};
+
+function parseRouteName(route: RouteLocationNormalized): ParsedRouteName {
+  const name = route.name ? String(route.name) : "";
+  if (!name) return { baseName: "", locale: null };
+
+  // nuxt-i18n appends `___<locale>` to the route name.
+  const [baseName = "", locale] = name.split("___");
+  return { baseName, locale: locale ?? null };
+}
+
+function baseRouteName(route: RouteLocationNormalized) {
+  return parseRouteName(route).baseName;
+}
+
+function routeLocale(route: RouteLocationNormalized) {
+  return parseRouteName(route).locale;
+}
+
 function isWorks(route: RouteLocationNormalized) {
-  return String(route.name).startsWith("works-");
+  return baseRouteName(route).startsWith("works-");
+}
+
+function isHome(route: RouteLocationNormalized) {
+  return baseRouteName(route) === "index";
 }
 
 function shouldSkip(from: RouteLocationNormalized, to: RouteLocationNormalized): boolean {
-  const isFromHome = from.name === "index";
+  const isFromHome = isHome(from);
   const isToWorks = isWorks(to);
 
   if (isFromHome && isToWorks) return true;
@@ -27,8 +53,16 @@ function decodeSegment(segment: string) {
 }
 
 function toRouteLabel(route: RouteLocationNormalized) {
-  if (route.path === "/") return "Home";
-  const normalizedPath = route.path.replace(/^\/+|\/+$/g, "");
+  if (isHome(route)) return "Home";
+
+  const locale = routeLocale(route);
+  let path = route.path;
+  if (locale && (path === `/${locale}` || path.startsWith(`/${locale}/`))) {
+    path = path.slice(locale.length + 1) || "/";
+  }
+
+  if (path === "/") return "Home";
+  const normalizedPath = path.replace(/^\/+|\/+$/g, "");
   if (!normalizedPath) return "Home";
 
   const lastSegment = normalizedPath.split("/").filter(Boolean).at(-1) ?? normalizedPath;

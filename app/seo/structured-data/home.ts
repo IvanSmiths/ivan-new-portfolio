@@ -2,9 +2,21 @@ type HomeStructuredDataParams = {
   siteUrl: string;
   siteName: string;
   imageUrl: string;
+  jobTitle: string;
+  websiteDescription: string;
+  portfolioDescription: string;
+  language: string;
 };
 
-export function createHomeStructuredData({ siteUrl, siteName, imageUrl }: HomeStructuredDataParams) {
+export function createHomeStructuredData({
+  siteUrl,
+  siteName,
+  imageUrl,
+  jobTitle,
+  websiteDescription,
+  portfolioDescription,
+  language,
+}: HomeStructuredDataParams) {
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -13,7 +25,7 @@ export function createHomeStructuredData({ siteUrl, siteName, imageUrl }: HomeSt
         "@id": `${siteUrl}/#person`,
         name: siteName,
         url: siteUrl,
-        jobTitle: "Full-Stack Developer",
+        jobTitle,
         image: imageUrl,
         sameAs: ["https://twitter.com/IvanSmiths"],
         knowsAbout: [
@@ -30,7 +42,7 @@ export function createHomeStructuredData({ siteUrl, siteName, imageUrl }: HomeSt
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
         name: `${siteName} Portfolio`,
-        description: `Portfolio of ${siteName}, Full-Stack Developer specializing in Next.js and UX.`,
+        description: websiteDescription,
         publisher: {
           "@id": `${siteUrl}/#person`,
         },
@@ -43,11 +55,9 @@ export function createHomeStructuredData({ siteUrl, siteName, imageUrl }: HomeSt
           "@id": `${siteUrl}/#person`,
         },
         url: siteUrl,
-        description:
-          "A collection of projects showcasing full-stack development and UX expertise.",
-        inLanguage: "en",
+        description: portfolioDescription,
+        inLanguage: language,
       },
     ],
   };
 }
-

@@ -4,6 +4,11 @@ type AboutStructuredDataParams = {
   pageTitle: string;
   pageDescription: string;
   imageUrl: string;
+  jobTitle: string;
+  worksForName: string;
+  homeLocationName: string;
+  breadcrumbHomeName: string;
+  breadcrumbAboutName: string;
 };
 
 export function createAboutStructuredData({
@@ -12,6 +17,11 @@ export function createAboutStructuredData({
   pageTitle,
   pageDescription,
   imageUrl,
+  jobTitle,
+  worksForName,
+  homeLocationName,
+  breadcrumbHomeName,
+  breadcrumbAboutName,
 }: AboutStructuredDataParams) {
   const aboutUrl = `${siteUrl}/about`;
 
@@ -24,15 +34,15 @@ export function createAboutStructuredData({
         name: siteName,
         url: siteUrl,
         image: imageUrl,
-        jobTitle: "Full-Stack Developer",
+        jobTitle,
         description: pageDescription,
         worksFor: {
           "@type": "Organization",
-          name: "Freelance",
+          name: worksForName,
         },
         homeLocation: {
           "@type": "Place",
-          name: "Germany",
+          name: homeLocationName,
         },
         sameAs: ["https://twitter.com/IvanSmiths"],
         knowsAbout: [
@@ -60,13 +70,13 @@ export function createAboutStructuredData({
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home",
+            name: breadcrumbHomeName,
             item: siteUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: "About",
+            name: breadcrumbAboutName,
             item: aboutUrl,
           },
         ],
@@ -74,4 +84,3 @@ export function createAboutStructuredData({
     ],
   };
 }
-
