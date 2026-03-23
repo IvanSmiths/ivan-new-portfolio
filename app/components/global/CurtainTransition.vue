@@ -227,7 +227,7 @@ onBeforeUnmount(() => {
       :class="isLabelVisible ? 'opacity-100' : 'opacity-0'"
       class="text-background pointer-events-none font-serif text-2xl font-light tracking-[0.08em] italic transition-opacity duration-300 ease-out select-none"
     >
-      {{ destinationRouteLabel }}
+      {{ $t(destinationRouteLabel) }}
     </span>
   </div>
 </template>

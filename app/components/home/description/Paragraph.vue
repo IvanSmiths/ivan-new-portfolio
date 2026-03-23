@@ -5,6 +5,8 @@ import Weather from "~/components/home/description/Weather.vue";
 import Time from "~/components/home/description/Time.vue";
 import Logo4 from "~/components/home/description/Logo4.vue";
 
+const { t } = useI18n();
+
 const paragraphRef = ref<HTMLElement | null>(null);
 const titleRef = ref<HTMLElement | null>(null);
 const cityRef = ref<HTMLElement | null>(null);
@@ -27,19 +29,22 @@ onMounted(async () => {
 
 <template>
   <div class="gap-md pt-md px-md fixed top-0 grid grid-cols-8 flex-col items-end sm:grid-cols-12">
+    <p class="pointer-events-auto invisible fixed">
+      {{ t("home.paragraph.hidden") }}
+    </p>
     <div class="col-span-full">
       <Logo4 />
     </div>
     <div ref="paragraphRef" class="col-span-full flex w-full flex-col md:col-start-1 md:col-end-4">
       <div class="overflow-hidden">
         <h1 ref="titleRef" class="text-foreground 3xl:text-2xl text-base">
-          <strong class="font-normal"> Fullstack developer, 5 years in the field️. </strong>
-          Transforming wild ideas into pixel-perfect realities.
+          <strong class="font-normal">{{ t("home.paragraph.titleStrong") }}</strong>
+          {{ t("home.paragraph.titleRest") }}
         </h1>
       </div>
       <div class="text-foreground-muted 3xl:text-xl gap-sm mt-sm flex text-xs">
         <div class="overflow-hidden">
-          <span ref="cityRef"> Wiesbaden (DE)</span>
+          <span ref="cityRef">{{ t("home.paragraph.city") }}</span>
         </div>
         <div ref="weatherRef" class="flex gap-1 overflow-hidden">
           <Weather />

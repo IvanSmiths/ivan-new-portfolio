@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, ref, watch } from "vue";
+import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { useCurtainTransition } from "~/composables/animations/global/useCurtainTransition";
 import { type Experiment, experiments } from "~/domain/lab/data/experiments";
 import AppGrid from "~/components/global/grid/AppGrid.vue";
@@ -8,12 +8,27 @@ import ExternalLink from "~/components/global/icons/ExternalLink.vue";
 const failedVideos = ref<Record<string, boolean>>({});
 const videosEnabled = ref(false);
 const { phase } = useCurtainTransition();
+const { t, te } = useI18n();
 type TimerHandle = number | ReturnType<typeof setTimeout>;
 let enableVideosTimeout: TimerHandle | null = null;
 
 const hasVideo = (experiment: Experiment) => {
-  return videosEnabled.value && Boolean(experiment.video) && !failedVideos.value[experiment.title];
+  return videosEnabled.value && Boolean(experiment.video) && !failedVideos.value[experiment.id];
 };
+
+function tExperiment(experiment: Experiment, field: "title" | "description" | "category") {
+  const key = `lab.experiments.${experiment.id}.${field}`;
+  return te(key) ? t(key) : experiment[field];
+}
+
+const localizedExperiments = computed(() =>
+  experiments.map((experiment) => ({
+    ...experiment,
+    title: tExperiment(experiment, "title"),
+    description: tExperiment(experiment, "description"),
+    category: tExperiment(experiment, "category"),
+  })),
+);
 
 function enableVideosAfterReveal() {
   if (!import.meta.client || videosEnabled.value || enableVideosTimeout) return;
@@ -39,10 +54,10 @@ function disableVideosForCover() {
   videosEnabled.value = false;
 }
 
-function onVideoError(title: string) {
+function onVideoError(id: string) {
   failedVideos.value = {
     ...failedVideos.value,
-    [title]: true,
+    [id]: true,
   };
 }
 
@@ -71,8 +86,8 @@ onBeforeUnmount(() => {
 <template>
   <AppGrid class="px-md">
     <div
-      v-for="experiment in experiments"
-      :key="experiment.title"
+      v-for="experiment in localizedExperiments"
+      :key="experiment.id"
       class="col-span-2 flex flex-col gap-3 overflow-hidden py-6"
     >
       <div class="text-left">
@@ -95,7 +110,7 @@ onBeforeUnmount(() => {
               muted
               playsinline
               preload="metadata"
-              @error="onVideoError(experiment.title)"
+              @error="onVideoError(experiment.id)"
             >
               <source :src="experiment.video" type="video/mp4" />
             </video>

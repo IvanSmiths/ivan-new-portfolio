@@ -1,0 +1,158 @@
+{
+  "common": {
+    "copied": "Copiato",
+    "sound": {
+      "enable": "Attiva suoni",
+      "disable": "Disattiva suoni"
+    },
+    "theme": {
+      "switch": "Cambia tema"
+    },
+    "transitions": {
+      "home": "Home",
+      "about": "Chi sono",
+      "lab": "Lab",
+      "works": "Progetto"
+    }
+  },
+  "seo": {
+    "common": {
+      "breadcrumb": {
+        "home": "Home",
+        "about": "Chi sono",
+        "lab": "Lab"
+      },
+      "navigation": {
+        "home": "Home",
+        "about": "Chi sono",
+        "lab": "Lab"
+      },
+      "ogImageAlt": {
+        "portfolio": "Anteprima del portfolio di Ivan Smiths",
+        "lab": "Anteprima del lab di Ivan Smiths",
+        "work": "Case study: {name}"
+      }
+    },
+    "pages": {
+      "home": {
+        "title": "Sviluppatore Full-Stack da Ragusa | Ivan Smiths",
+        "description": "Sviluppatore Full-Stack specializzato in UI/UX design. Oltre 5 anni a creare web app ad alte prestazioni e orientate all’utente per brand come Adidas e Deutsche Bahn."
+      },
+      "about": {
+        "title": "Chi è Ivan Smiths | Sviluppatore Full-Stack & UX Engineer",
+        "description": "Sviluppatore Full-Stack con oltre 5 anni di esperienza nello sviluppo di applicazioni web orientate all’utente. Specializzato in Next.js, TypeScript e UX design, con progetti per brand come Adidas e Deutsche Bahn."
+      },
+      "lab": {
+        "title": "Progetti e creatività | Ivan Smiths",
+        "description": "Una raccolta di progetti che esplorano modellazione 3D, musica e fotografia. Creato da Ivan Smiths, Sviluppatore Full-Stack e UX Engineer."
+      }
+    },
+    "structuredData": {
+      "personJobTitle": "Sviluppatore Full-Stack",
+      "websiteDescription": "Portfolio di {name}, Sviluppatore Full-Stack specializzato in Next.js e UX.",
+      "portfolioDescription": "Una raccolta di progetti che mostrano competenze di sviluppo full-stack e UX.",
+      "about": {
+        "worksFor": "Freelance",
+        "homeLocation": "Italy"
+      },
+      "lab": {
+        "aboutTopics": [
+          "Creative coding",
+          "Modellazione 3D",
+          "Produzione musicale",
+          "Fotografia",
+          "Esperimenti digitali"
+        ]
+      }
+    }
+  },
+  "works": {
+    "ui": {
+      "project": "Il progetto",
+      "clients": "Clienti",
+      "nextWork": "[Prossimo lavoro]",
+      "nextWorkImageAlt": "Anteprima di {name}",
+      "imageAltSingle": "Immagine di {name} {index}",
+      "imageAltRow": "Immagine di {name} {index}-{subindex}"
+    },
+    "ideology": {
+      "date": "Gennaio 2020 - Febbraio 2022",
+      "role": "Frontend - Designer",
+      "shortDescription": "— Da siti web comuni a siti web di un altro livello.",
+      "description": "Non si tratta solo di progettare siti web, ma di costruire esperienze che convertono. Vincere il contratto LemonSoda contro 15 agenzie in competizione è stato solo l’inizio. Dalle piattaforme e-commerce ad alto traffico alle build WordPress su misura, ogni progetto è stato basato su ricerca utente reale, ottimizzato fino al flusso di checkout e ingegnerizzato per performare. Il risultato? +25% di engagement e -15% di abbandono del carrello, su oltre 20 siti diversi consegnati con precisione.",
+      "seoTitle": "Ivan Smiths — Web design premiato e ottimizzazione UX per LemonSoda",
+      "seoDescription": "Ho vinto il contratto LemonSoda superando 15 aziende, ottimizzato integrazioni WordPress con PHP, lanciato 20+ siti ad alta conversione e ridotto l’abbandono del carrello del 15% grazie a miglioramenti UX guidati dagli utenti."
+    },
+    "scholz-und-volkmer": {
+      "date": "Marzo 2022 - Dicembre 2022",
+      "role": "Frontend",
+      "shortDescription": "— Siti da oscar per brand che non si accontentano.",
+      "description": "Molti studi parlano di impatto. Io ho contribuito a crearlo, per brand come Adidas, Deutsche Bahn e WMF. Ho guidato un team di developer nell’adozione di React (Next.js), riducendo i tempi di sviluppo del 30% e modernizzando l’infrastruttura principale dello studio con una migrazione da jQuery a TypeScript. Meno manutenzione, più slancio. Il lavoro ha ottenuto riconoscimenti di settore, ha contribuito a un +20% di fatturato e ha dimostrato che grande ingegneria e grande design non sono un compromesso.",
+      "seoTitle": "Ivan Smiths — Leadership su Next.js e soluzioni web scalabili per grandi brand",
+      "seoDescription": "Ho fatto mentoring su Next.js, guidato una migrazione da jQuery a TypeScript e realizzato siti premiati per Adidas, Deutsche Bahn e WMF, migliorando scalabilità, ricavi ed efficienza di sviluppo."
+    },
+    "td-cowen": {
+      "date": "Gennaio 2023 - Gennaio 2025",
+      "role": "Full-stack",
+      "shortDescription": "— Meno bug, più impatto. Data-driven dal primo giorno.",
+      "description": "Le piattaforme finanziarie richiedono più di una UI pulita: richiedono affidabilità, velocità e fiducia. In TD COWEN ho coperto l’intero stack: redesign e sviluppo di un’app mobile da zero, creazione di 20+ funzionalità CRM data-driven basate su comportamento reale degli utenti e scrittura di 40+ test automatici per non lasciare nulla al caso. L’adozione giornaliera è cresciuta del 40%, l’engagement del 25% e i difetti post-lancio sono diminuiti del 30%.",
+      "seoTitle": "Ivan Smiths — Funzionalità CRM data-driven e redesign app mobile in TD Cowen",
+      "seoDescription": "Ho aumentato l’efficienza del CRM del 25% con funzionalità data-driven, ridisegnato l’app mobile ottenendo +40% di adozione e ridotto i bug del 30% con 40+ test automatici su tutto lo stack."
+    },
+    "neugelb": {
+      "date": "Marzo 2025 - Giugno 2025",
+      "role": "Frontend",
+      "shortDescription": "— Strutturare Commerzbank con l’AI.",
+      "description": "Il digital banking è valido quanto l’esperienza che lo sostiene. In NeuGelb ho lavorato sull’intera presenza digitale di Commerzbank: dai siti customer-facing a funzionalità di chatbot con AI che rendevano l’assistenza davvero semplice. In parallelo abbiamo portato l’accessibilità al centro, assicurando che ogni prodotto rispettasse gli standard WCAG e fosse solido rispetto ai requisiti di compliance più recenti. Pensato, scalabile e costruito mettendo le persone al primo posto.",
+      "seoTitle": "Ivan Smiths — Accessibilità web ed esperienza utente per Commerzbank",
+      "seoDescription": "Ho contribuito allo sviluppo dei siti Commerzbank ottimizzando funzionalità del chatbot, migliorando l’accessibilità secondo WCAG e garantendo un’esperienza utente fluida su tutte le piattaforme."
+    }
+  },
+  "home": {
+    "paragraph": {
+      "hidden": "Se stai cercando un’agenzia di creazione siti web a Ragusa capace di offrire risultati di livello internazionale, sei nel posto giusto. Unisco sviluppo full-stack (oltre 5 anni di esperienza con Adidas e Commerzbank) e strategie di marketing avanzate. Come agenzia digitale integrata, non mi limito a creare un sito: costruisco la tua infrastruttura di vendita online — integrazione social, tracciamento dei dati e posizionamento sui motori di ricerca. Affida il tuo business a un sito unico, veloce e ottimizzato, in grado di generare nuovi clienti ogni giorno.",
+      "titleStrong": "Sviluppatore full-stack, 5 anni di esperienza.",
+      "titleRest": "Trasformo idee ambiziose in realtà pixel-perfect.",
+      "city": "Ragusa (IT)"
+    }
+  },
+  "lab": {
+    "experiments": {
+      "hip-hop-archive": {
+        "title": "Hip Hop Archive",
+        "description": "Un account social dove pubblico ogni giorno throwback e studi sui sample dei classici dell’hip hop old school.",
+        "category": "Social"
+      },
+      "artstation-gallery": {
+        "title": "Galleria ArtStation",
+        "description": "Modelli 3D realizzati negli anni. La maggior parte degli hard-surface è fatta in Blender, mentre gli sculpt sono in ZBrush. La maggior parte dei lavori è del periodo 2018–2022.",
+        "category": "Modellazione 3D"
+      },
+      "youtube-music-channel": {
+        "title": "Canale YouTube Musica",
+        "description": "Vecchio canale YouTube dove pubblicavo strumentali hip hop e cover con la chitarra.",
+        "category": "Social"
+      },
+      "unsplash-gallery": {
+        "title": "Galleria Unsplash",
+        "description": "Raccolta delle mie foto migliori, scattate con una Sony A7II dotata con ottica zoom 28–70mm.",
+        "category": "Fotografia"
+      },
+      "youtube-dev-channel": {
+        "title": "Canale YouTube Dev",
+        "description": "Canale YouTube dove pubblico tutorial soprattutto su React, Next.js e GSAP.",
+        "category": "Social"
+      }
+    }
+  },
+  "about": {
+    "photoAlt": "Foto ritratto",
+    "contactsTitle": "Contatti",
+    "sectionTitle": "Chi sono",
+    "lead": "Dagli studi indipendenti alle banche globali, negli ultimi 5 anni ho costruito prodotti digitali che le persone usano davvero e che aiutano le aziende a crescere. Mi interessano i dettagli che generano risultati: l’interfaccia che ispira fiducia ancor prima di leggere una singola parola.",
+    "body": {
+      "p1": "Ho lavorato lungo tutto lo spettro del digitale: e-commerce, piattaforme finanziarie, produzione in agenzia e banking enterprise. Il filo conduttore è sempre lo stesso: design e ingegneria non sono topic separati.",
+      "p2": "I prodotti migliori che ho costruito nascono dal trattare performance, accessibilità e studio dell utente come ingredienti per una ricetta, non come problematiche o numeri. Ho guidato team in modernizzazioni tecniche, rilasciato strumenti bancari pronti alla compliance, ricostruito app mobile da zero e aiutato studi a ottenere progetti con alcuni dei brand più riconosciuti al mondo."
+    }
+  }
+}

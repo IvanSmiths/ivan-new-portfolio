@@ -1,4 +1,5 @@
 export interface Experiment {
+  id: string;
   title: string;
   description: string;
   category: string;
@@ -11,6 +12,7 @@ export interface Experiment {
 
 export const experiments: Experiment[] = [
   {
+    id: "hip-hop-archive",
     title: "Hip Hop Archive",
     description:
       "A social account where I post daily throwbacks and sample studies about Hip Hop old school classics.",
@@ -24,6 +26,7 @@ export const experiments: Experiment[] = [
     aspectRatio: "portrait",
   },
   {
+    id: "artstation-gallery",
     title: "ArtStation Gallery",
     description:
       "3D models I did over the years. Most of the hard surface are done in Blender, while the sculpts are sculpted in ZBrush. Most of the pieces are from 2018/2022.",
@@ -35,6 +38,7 @@ export const experiments: Experiment[] = [
     aspectRatio: "portrait",
   },
   {
+    id: "youtube-music-channel",
     title: "YouTube Music Channel",
     description: "Old YouTube channel where I used to post HipHop instrumentals and guitar covers.",
     category: "Social",
@@ -46,6 +50,7 @@ export const experiments: Experiment[] = [
     aspectRatio: "landscape",
   },
   {
+    id: "unsplash-gallery",
     title: "Unsplash Gallery",
     description: "Collection of my best photos, took with a Sony A7II, zoom lens 28-70mm.",
     category: "Photography",
@@ -56,6 +61,7 @@ export const experiments: Experiment[] = [
     aspectRatio: "portrait",
   },
   {
+    id: "youtube-dev-channel",
     title: "YouTube dev channel",
     description: "YouTube channel where I post tutorials mostly about React, Next.js and Gsap.",
     category: "Social",

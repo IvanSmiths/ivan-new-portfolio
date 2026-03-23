@@ -4,6 +4,8 @@ import SunIcon from "~/components/global/icons/SunIcon.vue";
 
 const colorMode = ref<"light" | "dark">("light");
 
+const { t } = useI18n();
+
 const toggleTheme = () => {
   colorMode.value = colorMode.value === "light" ? "dark" : "light";
   localStorage.setItem("theme", colorMode.value);
@@ -35,8 +37,8 @@ onMounted(() => {
 
 <template>
   <button
+    :title="t('common.theme.switch')"
     class="cursor-pointer transition-opacity hover:opacity-80"
-    title="switch theme"
     @click="toggleTheme"
   >
     <component :is="themeComponent" />
