@@ -26,6 +26,20 @@ export const experiments: Experiment[] = [
     aspectRatio: "portrait",
   },
   {
+    id: "etsy",
+    title: "Etsy Shop",
+    description:
+      "Etsy shop where I list my 3d printed cosplay props.",
+    category: "Shop",
+    year: 2026,
+    link: "https://ivansmiths.etsy.com",
+    image:
+      "https://res.cloudinary.com/deino2cjx/image/upload/v1786381959/Screenshot_2026-08-10_at_19.08.14_lffahc.png",
+    video:
+      "https://res.cloudinary.com/deino2cjx/video/upload/v1786381966/Timeline_1_1_online-video-cutter.com_nf1wep.mp4",
+    aspectRatio: "portrait",
+  },
+  {
     id: "artstation-gallery",
     title: "ArtStation Gallery",
     description:
@@ -36,18 +50,6 @@ export const experiments: Experiment[] = [
     image:
       "https://res.cloudinary.com/deino2cjx/image/upload/v1773750723/3d-model_zok6ny_1_qovcwc.jpg",
     aspectRatio: "portrait",
-  },
-  {
-    id: "youtube-music-channel",
-    title: "YouTube Music Channel",
-    description: "Old YouTube channel where I used to post HipHop instrumentals and guitar covers.",
-    category: "Social",
-    year: 2015,
-    link: "https://www.youtube.com/@ivansmiths1388",
-    image:
-      "https://res.cloudinary.com/deino2cjx/image/upload/v1773750724/Screenshot_2026-03-17_at_13.27.46_1_iv007w.jpg",
-    video: "https://res.cloudinary.com/deino2cjx/video/upload/v1773147912/guitar_u6wnvh.mp4",
-    aspectRatio: "landscape",
   },
   {
     id: "unsplash-gallery",
